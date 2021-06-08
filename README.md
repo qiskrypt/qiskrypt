@@ -37,3 +37,86 @@ This framework is powered by:
 ### Contact us
 
 ***
+
+## Specifications
+
+### Protocols offered
+
+The protocols offered in the last version of our framework are the following:
+
+
+<table class="tg">
+<thead>
+  <tr>
+    <th>#</th>
+    <th>Purpose</th>
+    <th>Type</th>
+    <th>Signal Coding</th>
+    <th>No. Parties</th>
+    <th>Name</th>
+    <th>Year</th>
+    <th>Authors</th>
+    <th>Ref.</th>
+    <th>Offered Since</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>1</td>
+    <td rowspan="5">Key Exchange</td>
+    <td rowspan="3">Prepare-and-Measure</td>
+    <td rowspan="5">DV<br>(Discrete Variables)</td>
+    <td rowspan="5">N=2<br>(Bipartite)</td>
+    <td>BB84</td>
+    <td>1984</td>
+    <td>C. Bennet and G. Bassard</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>B92</td>
+    <td>1992</td>
+    <td>C. Bennet</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>SSP</td>
+    <td>1999</td>
+    <td>H. Bechmann-Pasquinucci and N. Gisin</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td rowspan="2">Entanglement-Based</td>
+    <td>E91</td>
+    <td>1991</td>
+    <td>A. Ekert</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>5</td>
+    <td>BBM92</td>
+    <td>1992</td>
+    <td>C. Bennet, G. Brassard and N. Mermin</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td class="tg-nrix">6</td>
+    <td class="tg-nrix">Symmetric Encryption</td>
+    <td class="tg-nrix">-</td>
+    <td class="tg-nrix">-</td>
+    <td class="tg-nrix">N=2<br>(Bipartite)</td>
+    <td class="tg-nrix">Quantum One-Time Pad<br>(QOTP)</td>
+    <td class="tg-nrix">2000</td>
+    <td class="tg-nrix">M. Mosca, A. Tapp and R. Wolf</td>
+    <td class="tg-nrix"></td>
+    <td></td>
+  </tr>
+</tbody>
+</table>
