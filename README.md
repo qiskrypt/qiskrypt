@@ -70,7 +70,7 @@ The protocols currently offered in our framework are the following:
     <td>BB84</td>
     <td>1984</td>
     <td>C. Bennet and G. Bassard</td>
-    <td></td>
+    <td><a href="">[BB84]</a></td>
     <td>v0.0.1</td>
   </tr>
   <tr>
@@ -78,7 +78,7 @@ The protocols currently offered in our framework are the following:
     <td>B92</td>
     <td>1992</td>
     <td>C. Bennet</td>
-    <td></td>
+    <td><a href="">[B92]</a></td>
     <td>v0.0.1</td>
   </tr>
   <tr>
@@ -86,7 +86,7 @@ The protocols currently offered in our framework are the following:
     <td>SSP</td>
     <td>1999</td>
     <td>H. Bechmann-Pasquinucci and N. Gisin</td>
-    <td></td>
+    <td><a href="">[PG99]</a></td>
     <td>v0.0.1</td>
   </tr>
   <tr>
@@ -95,7 +95,7 @@ The protocols currently offered in our framework are the following:
     <td>E91</td>
     <td>1991</td>
     <td>A. Ekert</td>
-    <td></td>
+    <td><a href="">[E91]</a></td>
     <td>N/A</td>
   </tr>
   <tr>
@@ -103,7 +103,7 @@ The protocols currently offered in our framework are the following:
     <td>BBM92</td>
     <td>1992</td>
     <td>C. Bennet, G. Brassard and N. Mermin</td>
-    <td></td>
+    <td><a href="">[BBM92]</a></td>
     <td>N/A</td>
   </tr>
   <tr>
@@ -115,7 +115,7 @@ The protocols currently offered in our framework are the following:
     <td>QOTP<br>(Quantum One-Time Pad)</td>
     <td>2000</td>
     <td>M. Mosca, A. Tapp and R. Wolf</td>
-    <td></td>
+    <td><a href="">[MTW00]</a></td>
     <td>v0.0.1</td>
   </tr>
 </tbody>
