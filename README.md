@@ -42,7 +42,7 @@ This framework is powered by:
 
 ### Protocols offered
 
-The protocols offered in the last version of our framework are the following:
+The protocols currently offered in our framework are the following:
 
 
 <table class="tg">
