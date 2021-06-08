@@ -7,7 +7,7 @@ The [**Qiskrypt**](https://qiskrypt.github.io/) is a software suite of protocols
 
 #### Foundation
 
-This _framework_ started as a proposal for the [**IBM**](https://www.ibm.com/) [**Hackathon Europe 2021**](https://qiskithackathoneurope.bemyapp.com/), achieving the 2nd phase of the _Hackathon_ (top 20 teams) and as, an idea developed as a team of students, researchers and professors from [**NOVA School of Science and Technology**](https://www.fct.unl.pt/), [**Técnico Lisboa**](https://tecnico.ulisboa.pt/en/) and [**Faculty of Sciences of University of Lisbon**](https://ciencias.ulisboa.pt/en).
+This _framework_ started as a proposal for the [**IBM**](https://www.ibm.com/) [**Hackathon Europe 2021**](https://qiskithackathoneurope.bemyapp.com/), achieving the 2nd phase of the _Hackathon_ (top 20 teams) and as, an idea developed as a team of students, researchers and professors, mostly from [**NOVA School of Science and Technology**](https://www.fct.unl.pt/), [**Técnico Lisboa**](https://tecnico.ulisboa.pt/en/) and [**Faculty of Sciences of University of Lisbon**](https://ciencias.ulisboa.pt/en).
 
 The aim of our _framework_ is to provide all the known _quantum cryptographic protocols_, in a single place, as an accessible solution, and being easy to use.
 
