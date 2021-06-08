@@ -64,7 +64,7 @@ The protocols offered in the last version of our framework are the following:
   <tr>
     <td>1</td>
     <td rowspan="5">Key Exchange</td>
-    <td rowspan="3">PM<br>Prepare-and-Measure</td>
+    <td rowspan="3">PM<br>(Prepare-and-Measure)</td>
     <td rowspan="5">DV<br>(Discrete Variables)</td>
     <td rowspan="5">N=2<br>(Bipartite)</td>
     <td>BB84</td>
