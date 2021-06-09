@@ -1,6 +1,6 @@
 # Qiskrypt
 
-<img src="https://raw.githubusercontent.com/qiskrypt/qiskrypt.github.io/main/assets/images/logos/PNGs/qiskrypt-logo-big.png" alt="Qiskrypt - Logo" width="60%">
+<img src="https://raw.githubusercontent.com/qiskrypt/qiskrypt.github.io/main/assets/images/logos/PNGs/qiskrypt-logo-banner.png" alt="Qiskrypt - Logo" width="60%">
 
 [![contributor for this repository](https://img.shields.io/badge/contributor-rubenandrebarreiro-blue.svg)](https://github.com/rubenandrebarreiro/)
 [![current version](https://img.shields.io/badge/version-v0.0.1-magenta.svg)](https://github.com/qiskrypt/qiskrypt/)
