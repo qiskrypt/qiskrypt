@@ -65,6 +65,12 @@ The institutions involved in the development of this framework are:
 This framework is powered by:
 
 
+### Useful links
+
+Take a look on some useful links, related to our framework:
+
+
+
 ### Contact us
 
 ***
