@@ -83,7 +83,7 @@ The protocols currently offered in our framework are the following:
   </tr>
   <tr>
     <td>3</td>
-    <td>SSP</td>
+    <td>SSP<br>(Six-State Protocol)</td>
     <td>1999</td>
     <td>H. Bechmann-Pasquinucci and N. Gisin</td>
     <td><a href="">[PG99]</a></td>
