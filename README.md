@@ -28,6 +28,7 @@
 [![fork this repository](http://githubbadges.com/fork.svg?user=qiskrypt&repo=qiskrypt&style=flat)](https://github.com/qiskrypt/qiskrypt/fork)
 [![downloads of this repository](https://img.shields.io/github/downloads/qiskrypt/qiskrypt/total.svg)](https://github.com/qiskrypt/qiskrypt/archive/master.zip)
 [![price of this project](https://img.shields.io/badge/price-free-success.svg)](https://github.com/qiskrypt/qiskrypt/archive/master.zip)
+[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.me/qiskrypt)
 
 
 ### About
