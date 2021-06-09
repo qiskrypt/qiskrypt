@@ -47,8 +47,8 @@ The mission of our framework is to:
 * Emphasize the importance of _quantum cryptography_, as a long-term solution for the _post-quantum era_.
 * Provide _open-source_ implementations of _quantum cryptographic protocols_, including **Quantum Key Distributions** (**QKDs**), **Semi-Quantum Key Distribution** (**SQKDs**), **Quantum Conference Key Agreements** (**QCKAs**), **Semi-Quantum Conference Key Agreements** (**SQCKAs**), **Quantum One-Time Pads** (**QOTPs**), or even, **SWAP Test**.
 * Offer some important primitives for _quantum communications_ and _quantum networks_, such as, **Quantum Teleportation**, **Quantum Entanglement Swapping**, **Quantum Entanglement Distillation/Purification**.
-* Offer, as well, some _quantum algortithms_ for _quantum_ _cryptonalysis_ and _quantum_ _attacks_, such as **Grover's Algorithm**, **Simon's Algorithm*** and **Shor's Algorithm**.
-* Provide an easy and comprehensive detailed explanation of the protocols addressed, through several illustrations and tutorials.
+* Offer, as well, some _quantum algortithms_ for _quantum_ _cryptonalysis_ and _quantum_ _attacks_, such as **Grover's Algorithm**, **Simon's Algorithm** and **Shor's Algorithm**.
+* Provide an easy and comprehensive detailed explanation of the protocols, primitives and algorithms addressed, through several illustrations and tutorials.
 
 
 ### Meet our team
