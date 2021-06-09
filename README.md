@@ -74,6 +74,9 @@ Take a look on some useful links, related to our framework:
 
 ### Contact us
 
+If you have any doubt or want to give some suggestion, feel free to contact us:
+* [qiskrypt@gmail.com](mailto:qiskrypt@gmail.com)
+
 ***
 
 ## Specifications
