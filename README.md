@@ -18,7 +18,6 @@
 [![acknowledgement for this repository no. 2](https://img.shields.io/badge/acknowledgement-paulo&nbsp;mateus-cyan.svg)]()
 [![acknowledgement for this repository no. 3](https://img.shields.io/badge/acknowledgement-nikola&nbsp;paunkovic-cyan.svg)]()
 [![acknowledgement for this repository no. 4](https://img.shields.io/badge/acknowledgement-walter&nbsp;krawec-cyan.svg)]()
-[![acknowledgement for this repository no. 5](https://img.shields.io/badge/acknowledgement-antonio&nbsp;ravara-cyan.svg)]()
 
 [![technology used no. 1](https://img.shields.io/badge/built&nbsp;with-python-red.svg)](https://www.python.org/) 
 [![technology used no. 2](https://img.shields.io/badge/built&nbsp;with-qiskit-red.svg)](https://qiskit.org/)
