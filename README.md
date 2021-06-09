@@ -1,5 +1,30 @@
 # Qiskrypt
 
+
+## Current Status
+[![contributor for this repository](https://img.shields.io/badge/contributor-rubenandrebarreiro-blue.svg)](https://github.com/rubenandrebarreiro/)
+[![current version](https://img.shields.io/badge/version-1.0-magenta.svg)](https://github.com/qiskrypt/qiskrypt/)
+
+[![status of this version no. 1](https://img.shields.io/badge/status-completed-orange.svg)](https://github.com/qiskrypt/qiskrypt/)
+[![status of this version no. 2](https://img.shields.io/badge/status-final-orange.svg)](https://github.com/qiskrypt/qiskrypt/)
+[![status of this version no. 3](https://img.shields.io/badge/status-stable-orange.svg)](https://github.com/qiskrypt/qiskrypt/)
+[![status of this version no. 4](https://img.shields.io/badge/status-not&nbsp;documented-orange.svg)](https://github.com/qiskrypt/qiskrypt/)
+
+[![keyword of this version no. 1](https://img.shields.io/badge/keyword-quantum&nbsp;cryptography-brown.svg)](https://github.com/qiskrypt/qiskrypt/)
+[![keyword of this version no. 2](https://img.shields.io/badge/keyword-quantum&nbsp;computing-brown.svg)](https://github.com/qiskrypt/qiskrypt/)
+[![keyword of this version no. 3](https://img.shields.io/badge/keyword-quantum&nbsp;communication-brown.svg)](https://github.com/qiskrypt/qiskrypt/)
+[![keyword of this version no. 4](https://img.shields.io/badge/keyword-quantum&nbsp;mechanics-brown.svg)](https://github.com/qiskrypt/qiskrypt/)
+
+[![technology used no. 1](https://img.shields.io/badge/built&nbsp;with-python-red.svg)](https://www.python.org/) 
+[![technology used no. 2](https://img.shields.io/badge/built&nbsp;with-qiskit-red.svg)](https://qiskit.org/)
+[![software used no. 1](https://img.shields.io/badge/software-jetbrains&nbsp;pycharm-gold.svg)](https://www.jetbrains.com/pycharm/)
+
+[![star this repository](http://githubbadges.com/star.svg?user=qiskrypt&repo=qiskrypt&style=flat)](https://github.com/qiskrypt/qiskrypt/stargazers)
+[![fork this repository](http://githubbadges.com/fork.svg?user=qiskrypt&repo=qiskrypt&style=flat)](https://github.com/qiskrypt/qiskrypt/fork)
+[![downloads of this repository](https://img.shields.io/github/downloads/qiskrypt/qiskrypt/total.svg)](https://github.com/qiskrypt/qiskrypt/archive/master.zip)
+[![price of this project](https://img.shields.io/badge/price-free-success.svg)](https://github.com/qiskrypt/qiskrypt/archive/master.zip)
+
+
 ### About
 
 
