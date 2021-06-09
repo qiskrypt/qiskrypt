@@ -1,7 +1,5 @@
 # Qiskrypt
 
-
-## Current Status
 [![contributor for this repository](https://img.shields.io/badge/contributor-rubenandrebarreiro-blue.svg)](https://github.com/rubenandrebarreiro/)
 [![current version](https://img.shields.io/badge/version-1.0-magenta.svg)](https://github.com/qiskrypt/qiskrypt/)
 
