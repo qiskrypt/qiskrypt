@@ -3,8 +3,13 @@
 <img src="https://raw.githubusercontent.com/qiskrypt/qiskrypt.github.io/main/assets/images/logos/PNGs/qiskrypt-logo-big.png" alt="Qiskrypt - Logo" width="60%">
 
 [![contributor for this repository](https://img.shields.io/badge/contributor-rubenandrebarreiro-blue.svg)](https://github.com/rubenandrebarreiro/)
-[![contributor for this repository](https://img.shields.io/badge/contributor-andrenunosouto-blue.svg)](https://github.com/andrenunosouto/)
 [![current version](https://img.shields.io/badge/version-v0.0.1-magenta.svg)](https://github.com/qiskrypt/qiskrypt/)
+
+[![acknowledgement for this repository no. 1](https://img.shields.io/badge/acknowledgement-andrenunosouto-cyan.svg)]()
+[![acknowledgement for this repository no. 2](https://img.shields.io/badge/acknowledgement-paulo&nbsp;mateus-cyan.svg)]()
+[![acknowledgement for this repository no. 3](https://img.shields.io/badge/acknowledgement-nikola&nbsp;paunkovic-cyan.svg)]()
+[![acknowledgement for this repository no. 4](https://img.shields.io/badge/acknowledgement-walter&nbsp;krawec-cyan.svg)]()
+[![acknowledgement for this repository no. 5](https://img.shields.io/badge/acknowledgement-antonio&nbsp;ravara-cyan.svg)]()
 
 [![status of this version no. 1](https://img.shields.io/badge/status-not&nbsp;completed-orange.svg)](https://github.com/qiskrypt/qiskrypt/)
 [![status of this version no. 2](https://img.shields.io/badge/status-beta-orange.svg)](https://github.com/qiskrypt/qiskrypt/)
