@@ -1,5 +1,11 @@
 language: python
 python:
-  - 3.6
-  - 3.7
-  - 3.8
+  - "3.6"
+  - "3.7"
+  - "3.8"
+script:
+after_script:
+notifications:
+  recipients:
+    - ruben.andre.letra.barreiro@gmail.com
+    - qiskrypt@gmail.com
