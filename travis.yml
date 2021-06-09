@@ -1,0 +1,5 @@
+language: python
+rvm:
+ - 3.8
+ - qiskit
+ - qiskit[visualization]
