@@ -1,4 +1,5 @@
 # These are supported funding model platforms for Qiskrypt!!!
 
 github: [qiskrypt]
-custom: ["https://www.paypal.me/octocat"]
+open_collective: qiskrypt
+custom: ["https://www.paypal.me/qiskrypt"]
