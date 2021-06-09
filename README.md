@@ -96,7 +96,7 @@ The protocols currently offered in our framework are the following:
     <th>Year</th>
     <th>Authors</th>
     <th>Ref.</th>
-    <th>Offered Since</th>
+    <th>Build</th>
   </tr>
 </thead>
 <tbody>
