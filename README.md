@@ -57,7 +57,7 @@ Our team is composed by the following members:
 
 ### Institutions involved
 
-The institutions involved are:
+The institutions involved in the development of this framework are:
 
 
 ### Powered by
