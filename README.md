@@ -151,7 +151,7 @@ The protocols currently offered in our framework are the following:
   </tr>
   <tr>
     <td>6</td>
-    <td>Symmetric Encryption</td>
+    <td>Symmetric Encryption<br>(Private Quantum Channels)</td>
     <td>-</td>
     <td>-</td>
     <td>N=2<br>(Bipartite)</td>
