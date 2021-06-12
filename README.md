@@ -95,37 +95,36 @@ If you have any doubt or want to give some suggestion, feel free to contact us:
 
 ## Specifications
 
-### Protocols offered
+The specifications of the primitives offered in our framework are described in the following sections.
 
-The protocols currently (or intended to be) offered in our framework are the following:
+### Quantum Key Distributions (QKDs)<br>\[Key Exchanges for Bipartite Quantum Scenarios, with N=2 Parties\]
 
+#### Discrete Variable - Quantum Key Distributions (DV-QKDs)
 
-<table class="tg">
+<table>
 <thead>
   <tr>
     <th>#</th>
-    <th>Purpose</th>
     <th>Type</th>
-    <th>Signal Coding</th>
-    <th>No. Parties</th>
     <th>Name</th>
     <th>Year</th>
-    <th>Authors</th>
+    <th>Author(s)</th>
+    <th>Observations</th>
     <th>Ref.</th>
+    <th>Tutorial</th>
     <th>Build</th>
   </tr>
 </thead>
 <tbody>
   <tr>
     <td>1</td>
-    <td rowspan="11">Key Exchange</td>
-    <td rowspan="9">PM<br>(Prepare-and-Measure)</td>
-    <td rowspan="11">DV<br>(Discrete Variables)</td>
-    <td rowspan="11">N=2<br>(Bipartite)</td>
+    <td rowspan="13">PM (Prepare-and-Measure)</td>
     <td>BB84</td>
     <td>1984</td>
     <td>C. Bennet and G. Bassard</td>
+    <td>It uses single-photons polarized in two conjugate bases (X and Z Bases), with four possible states (0&deg;, 45&deg;, 90&deg; and 135&deg;) to transmit the quantum information, taking advantage of the Heisenberg Uncertainty Principle.</td>
     <td><a href="https://arxiv.org/abs/2003.06557v1" target="_blank">[BB84]</a></td>
+    <td>❌ (N/A)</td>
     <td>⌛ (v0.0.1)</td>
   </tr>
   <tr>
@@ -133,7 +132,9 @@ The protocols currently (or intended to be) offered in our framework are the fol
     <td>B92</td>
     <td>1992</td>
     <td>C. Bennet</td>
-    <td><a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.68.3121" target="_blank">[B92]</a></td>
+    <td>It uses single-photons polarized in two conjugate bases (X and Z Basis), with two possible states (0&deg; and 45&deg;) to transmit the quantum information, taking advantage of the Heisenberg Uncertainty Principle.</td>
+    <td><a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.68.3121" target="_blank">[B92]</td>
+    <td>❌ (N/A)</td>
     <td>⌛ (v0.0.1)</td>
   </tr>
   <tr>
@@ -141,78 +142,150 @@ The protocols currently (or intended to be) offered in our framework are the fol
     <td>MSZ96</td>
     <td>1996</td>
     <td>Y. Mu, J. Seberry and Y. Zheng</td>
+    <td>❌ (N/A)</td>
     <td><a href="https://www.sciencedirect.com/science/article/abs/pii/0030401895006885?via%3Dihub" target="_blank">[MSZ96]</a></td>
+    <td>❌ (N/A)</td>
     <td>❌ (N/A)</td>
   </tr>
   <tr>
     <td>4</td>
-    <td>SSP<br>(Six-State Protocol)</td>
+    <td>SSP (Six-State Protocol)</td>
     <td>1998</td>
     <td>H. Bechmann-Pasquinucci and N. Gisin</td>
+    <td>It uses single-photons polarized in three conjugate bases (X, Y and Z Basis), with six possible states (0&deg;, 45&deg;, 45<i>i</i>&deg;, 90&deg;, 135&deg; and 135<i>i</i>&deg;) to transmit the quantum information, taking advantage of the Heisenberg Uncertainty Principle.</td>
     <td><a href="https://arxiv.org/abs/quant-ph/9807041" target="_blank">[PG98]</a></td>
+    <td>❌ (N/A)</td>
     <td>⌛ (v0.0.1)</td>
   </tr>
   <tr>
-  <tr>
     <td>5</td>
-    <td>Decoy State Protocol</td>
+    <td>Decoy State</td>
     <td>2002</td>
     <td>W. Hwang</td>
+    <td>❌ (N/A)</td>
     <td><a href="https://arxiv.org/abs/quant-ph/0211153" target="_blank">[H02]</a></td>
+    <td>❌ (N/A)</td>
     <td>❌ (N/A)</td>
   </tr>
   <tr>
     <td>6</td>
-    <td>SARG04</td>
+    <td>SARG04 (w/ 4 states)</td>
     <td>2004</td>
     <td>V. Scarani, A. Acín, G. Ribordy and N. Gisin</td>
+    <td>❌ (N/A)</td>
     <td><a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.92.057901" target="_blank">[SARG04]</a></td>
+    <td>❌ (N/A)</td>
     <td>❌ (N/A)</td>
   </tr>
   <tr>
     <td>7</td>
-    <td>COW (Coherent One-Way) Protocol</td>
-    <td>2005</td>
-    <td>D. Stucki, N. Brunner, N. Gisin, V. Scarani and H. Zbinden</td>
-    <td><a href="https://arxiv.org/abs/quant-ph/0506097" target="_blank">[SBGSZ05]</a></td>
+    <td>SARG04 (w/ 6 states)</td>
+    <td>2004</td>
+    <td></td>
+    <td>❌ (N/A)</td>
+    <td></td>
+    <td>❌ (N/A)</td>
     <td>❌ (N/A)</td>
   </tr>
   <tr>
     <td>8</td>
-    <td>T12</td>
-    <td>2012</td>
-    <td>M. Lucamarini, K. Patel, J. Dynes, B. Fröhlich, A. Sharpe, A. Dixon, Z. Yuan, R. Penty and A. Shields (Toshiba)</td>
-    <td><a href="https://www.osapublishing.org/oe/fulltext.cfm?uri=oe-21-21-24550&id=268752" target="_blank">[T12]</a></td>
+    <td>R04</td>
+    <td>2004</td>
+    <td></td>
+    <td>❌ (N/A)</td>
+    <td></td>
+    <td>❌ (N/A)</td>
     <td>❌ (N/A)</td>
   </tr>
   <tr>
     <td>9</td>
-    <td rowspan="2">EB<br>(Entanglement-Based)</td>
-    <td>E91</td>
-    <td>1991</td>
-    <td>A. Ekert</td>
-    <td><a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.67.661" target="_blank">[E91]</a></td>
+    <td>Singapore</td>
+    <td>2008</td>
+    <td></td>
+    <td>❌ (N/A)</td>
+    <td></td>
+    <td>❌ (N/A)</td>
     <td>❌ (N/A)</td>
   </tr>
   <tr>
     <td>10</td>
-    <td>BBM92</td>
-    <td>1992</td>
-    <td>C. Bennet, G. Brassard and N. Mermin</td>
-    <td><a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.68.557" target="_blank">[BBM92]</a></td>
+    <td>KMB09</td>
+    <td>2009</td>
+    <td></td>
+    <td>❌ (N/A)</td>
+    <td></td>
+    <td>❌ (N/A)</td>
     <td>❌ (N/A)</td>
   </tr>
   <tr>
     <td>11</td>
-    <td>Symmetric Encryption<br>(Private Quantum Channels)</td>
-    <td>-</td>
-    <td>-</td>
-    <td>N=2<br>(Bipartite)</td>
-    <td>QOTP<br>(Quantum One-Time Pad)</td>
-    <td>2000</td>
-    <td>M. Mosca, A. Tapp and R. Wolf</td>
-    <td><a href="https://arxiv.org/abs/quant-ph/0003101" target="_blank">[MTW00]</a></td>
-    <td>⌛ (v0.0.1)</td>
+    <td>S09</td>
+    <td>2009</td>
+    <td></td>
+    <td>❌ (N/A)</td>
+    <td></td>
+    <td>❌ (N/A)</td>
+    <td>❌ (N/A)</td>
+  </tr>
+  <tr>
+    <td>12</td>
+    <td>T12</td>
+    <td>2012</td>
+    <td>M. Lucamarini, K. Patel, J. Dynes, B. Fröhlich, A. Sharpe, A. Dixon, Z. Yuan, R. Penty and A. Shields (Toshiba)</td>
+    <td>❌ (N/A)</td>
+    <td><a href="https://www.osapublishing.org/oe/fulltext.cfm?uri=oe-21-21-24550&id=268752" target="_blank">[T12]</a></td>
+    <td>❌ (N/A)</td>
+    <td>❌ (N/A)</td>
+  </tr>
+  <tr>
+    <td>13</td>
+    <td>S13</td>
+    <td>2013</td>
+    <td></td>
+    <td>❌ (N/A)</td>
+    <td></td>
+    <td>❌ (N/A)</td>
+    <td>❌ (N/A)</td>
+  </tr>
+  <tr>
+    <td>14</td>
+    <td rowspan="2">EB (Entaglement-Based)</td>
+    <td>E91</td>
+    <td>1991</td>
+    <td>A. Ekert</td>
+    <td>❌ (N/A)</td>
+    <td><a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.67.661" target="_blank">[E91]</a></td>
+    <td>❌ (N/A)</td>
+    <td>❌ (N/A)</td>
+  </tr>
+  <tr>
+    <td>15</td>
+    <td>BBM92</td>
+    <td>1992</td>
+    <td>C. Bennet, G. Brassard and N. Mermin</td>
+    <td>❌ (N/A)</td>
+    <td><a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.68.557" target="_blank">[BBM92]</a></td>
+    <td>❌ (N/A)</td>
+    <td>❌ (N/A)</td>
   </tr>
 </tbody>
 </table>
+
+
+#### Continuous Variables - Quantum Key Distributions (CV-QKDs)
+
+Available soon.
+
+
+#### Distributed Phase Reference - Quantum Key Distributions (DPR-QKDs)
+
+Available soon.
+
+
+#### High-Dimensional - Quantum Key Distributions (HD-QKDs)
+
+Available soon.
+
+
+### Semi-Quantum Key Distributions (SQKDs)<br>\[Key Exchanges for Bipartite Semi-Quantum Scenarios, with N=2 Parties\]
+
