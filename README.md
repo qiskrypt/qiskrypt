@@ -263,7 +263,48 @@ Available soon.
 
 #### Distributed Phase Reference - Quantum Key Distributions (DPR-QKDs)
 
-Available soon.
+<table>
+<thead>
+  <tr>
+    <th>#</th>
+    <th>Name</th>
+    <th>Year</th>
+    <th>Author(s)</th>
+    <th>Obs.</th>
+    <th>Ref.</th>
+    <th>Build</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>1</td>
+    <td>DPS (Differential Phase Shift)</td>
+    <td>2003</td>
+    <td>K. Inoue, E. Waks, Y. Yamamoto</td>
+<td><a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.68.557" target="_blank">[SBGSZ]</a></td>
+    <td>❌ (N/A)</td>
+    <td>❌ (N/A)</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>COW<br>(Coherent One-Way)</td>
+    <td>2005</td>
+    <td>D. Stucki, N. Brunner, N. Gisin, V. Scarani and H. Zbinden</td>
+    <td><a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.68.557" target="_blank">[SBGSZ]</a></td>
+    <td>❌ (N/A)</td>
+    <td>❌ (N/A)</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>DPTS<br>(Differential Phase Time Shifting)</td>
+    <td>2016</td>
+    <td>D. Bacco, J. Christensen, M. Castaneda, Y. Ding, S. Forchhammer, K. Rottwitt and L. Oxenløwe </td>
+    <td><a href="https://www.nature.com/articles/srep36756" target="_blank">[BCCDFRO16]</a></td>
+    <td>❌ (N/A)</td>
+    <td>❌ (N/A)</td>
+  </tr>
+</tbody>
+</table>
 
 
 #### High-Dimensional - Quantum Key Distributions (HD-QKDs)
