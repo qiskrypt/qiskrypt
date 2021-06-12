@@ -158,7 +158,7 @@ The protocols currently offered in our framework are the following:
     <td>QOTP<br>(Quantum One-Time Pad)</td>
     <td>2000</td>
     <td>M. Mosca, A. Tapp and R. Wolf</td>
-    <td><a href="" target="_blank">[MTW00]</a></td>
+    <td><a href="https://arxiv.org/abs/quant-ph/0003101" target="_blank">[MTW00]</a></td>
     <td>v0.0.1</td>
   </tr>
 </tbody>
