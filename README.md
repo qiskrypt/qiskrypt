@@ -46,7 +46,7 @@ The aim of our _framework_ is to provide all the known _quantum cryptographic pr
 ### Mission
 
 The mission of our framework is to:
-* Emphasize the importance of _quantum cryptography_, as a long-term solution for the _post-quantum era_.
+* Emphasize the importance of _quantum cryptography_, as a long-term solution for the _post-quantum era_;
 * Provide _open-source_ implementations of _quantum cryptographic protocols_, including:
   * **Quantum Key Distributions** (**QKDs**); 
   * **Semi-Quantum Key Distribution** (**SQKDs**);
@@ -62,7 +62,7 @@ The mission of our framework is to:
   * **Grover's Algorithm**;
   * **Simon's Algorithm**;
   * **Shor's Algorithm**;
-* Provide an easy and comprehensive detailed explanation of the protocols, primitives and algorithms addressed, through several illustrations and tutorials.
+* Provide an easy and comprehensive detailed explanation of the protocols, primitives and algorithms addressed, through several illustrations and tutorials;
 
 
 ### Meet our team
