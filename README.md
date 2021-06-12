@@ -47,7 +47,13 @@ The aim of our _framework_ is to provide all the known _quantum cryptographic pr
 
 The mission of our framework is to:
 * Emphasize the importance of _quantum cryptography_, as a long-term solution for the _post-quantum era_.
-* Provide _open-source_ implementations of _quantum cryptographic protocols_, including **Quantum Key Distributions** (**QKDs**), **Semi-Quantum Key Distribution** (**SQKDs**), **Quantum Conference Key Agreements** (**QCKAs**), **Semi-Quantum Conference Key Agreements** (**SQCKAs**), **Quantum One-Time Pads** (**QOTPs**), or even, **SWAP Test**.
+* Provide _open-source_ implementations of _quantum cryptographic protocols_, including:
+  * **Quantum Key Distributions** (**QKDs**); 
+  * **Semi-Quantum Key Distribution** (**SQKDs**);
+  * **Quantum Conference Key Agreements** (**QCKAs**);
+  * **Semi-Quantum Conference Key Agreements** (**SQCKAs**);
+  * **Quantum One-Time Pads** (**QOTPs**);
+  * **SWAP Test**;
 * Offer some important primitives for _quantum communications_ and _quantum networks_, such as, **Quantum Teleportation**, **Quantum Entanglement Swapping**, **Quantum Entanglement Distillation/Purification**, among others.
 * Offer, as well, some _quantum algortithms_ for _quantum_ _cryptonalysis_ and _quantum_ _attacks_, such as **Grover's Algorithm**, **Simon's Algorithm** and **Shor's Algorithm**.
 * Provide an easy and comprehensive detailed explanation of the protocols, primitives and algorithms addressed, through several illustrations and tutorials.
@@ -85,7 +91,7 @@ If you have any doubt or want to give some suggestion, feel free to contact us:
 
 ### Protocols offered
 
-The protocols currently offered in our framework are the following:
+The protocols currently (or intended to be) offered in our framework are the following:
 
 
 <table class="tg">
@@ -106,15 +112,15 @@ The protocols currently offered in our framework are the following:
 <tbody>
   <tr>
     <td>1</td>
-    <td rowspan="5">Key Exchange</td>
-    <td rowspan="3">PM<br>(Prepare-and-Measure)</td>
-    <td rowspan="5">DV<br>(Discrete Variables)</td>
-    <td rowspan="5">N=2<br>(Bipartite)</td>
+    <td rowspan="11">Key Exchange</td>
+    <td rowspan="9">PM<br>(Prepare-and-Measure)</td>
+    <td rowspan="11">DV<br>(Discrete Variables)</td>
+    <td rowspan="11">N=2<br>(Bipartite)</td>
     <td>BB84</td>
     <td>1984</td>
     <td>C. Bennet and G. Bassard</td>
     <td><a href="https://arxiv.org/abs/2003.06557v1" target="_blank">[BB84]</a></td>
-    <td>v0.0.1</td>
+    <td>⌛ (v0.0.1)</td>
   </tr>
   <tr>
     <td>2</td>
@@ -122,35 +128,76 @@ The protocols currently offered in our framework are the following:
     <td>1992</td>
     <td>C. Bennet</td>
     <td><a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.68.3121" target="_blank">[B92]</a></td>
-    <td>v0.0.1</td>
+    <td>⌛ (v0.0.1)</td>
   </tr>
   <tr>
     <td>3</td>
+    <td>MSZ96</td>
+    <td>1996</td>
+    <td>Y. Mu, J. Seberry and Y. Zheng</td>
+    <td><a href="https://www.sciencedirect.com/science/article/abs/pii/0030401895006885?via%3Dihub" target="_blank">[MSZ96]</a></td>
+    <td>❌ (N/A)</td>
+  </tr>
+  <tr>
+    <td>4</td>
     <td>SSP<br>(Six-State Protocol)</td>
     <td>1998</td>
     <td>H. Bechmann-Pasquinucci and N. Gisin</td>
     <td><a href="https://arxiv.org/abs/quant-ph/9807041" target="_blank">[PG98]</a></td>
-    <td>v0.0.1</td>
+    <td>⌛ (v0.0.1)</td>
   </tr>
   <tr>
-    <td>4</td>
+  <tr>
+    <td>5</td>
+    <td>Decoy State Protocol</td>
+    <td>2002</td>
+    <td>W. Hwang</td>
+    <td><a href="https://arxiv.org/abs/quant-ph/0211153" target="_blank">[H02]</a></td>
+    <td>❌ (N/A)</td>
+  </tr>
+  <tr>
+    <td>6</td>
+    <td>SARG04</td>
+    <td>2004</td>
+    <td>V. Scarani, A. Acín, G. Ribordy and N. Gisin</td>
+    <td><a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.92.057901" target="_blank">[SARG04]</a></td>
+    <td>❌ (N/A)</td>
+  </tr>
+  <tr>
+    <td>7</td>
+    <td>COW (Coherent One-Way) Protocol</td>
+    <td>2005</td>
+    <td>D. Stucki, N. Brunner, N. Gisin, V. Scarani and H. Zbinden</td>
+    <td><a href="https://arxiv.org/abs/quant-ph/0506097" target="_blank">[SBGSZ05]</a></td>
+    <td>❌ (N/A)</td>
+  </tr>
+  <tr>
+    <td>8</td>
+    <td>T12</td>
+    <td>2012</td>
+    <td>M. Lucamarini, K. Patel, J. Dynes, B. Fröhlich, A. Sharpe, A. Dixon, Z. Yuan, R. Penty and A. Shields (Toshiba)</td>
+    <td><a href="https://www.osapublishing.org/oe/fulltext.cfm?uri=oe-21-21-24550&id=268752" target="_blank">[T12]</a></td>
+    <td>❌ (N/A)</td>
+  </tr>
+  <tr>
+    <td>9</td>
     <td rowspan="2">EB<br>(Entanglement-Based)</td>
     <td>E91</td>
     <td>1991</td>
     <td>A. Ekert</td>
     <td><a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.67.661" target="_blank">[E91]</a></td>
-    <td>N/A</td>
+    <td>❌ (N/A)</td>
   </tr>
   <tr>
-    <td>5</td>
+    <td>10</td>
     <td>BBM92</td>
     <td>1992</td>
     <td>C. Bennet, G. Brassard and N. Mermin</td>
     <td><a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.68.557" target="_blank">[BBM92]</a></td>
-    <td>N/A</td>
+    <td>❌ (N/A)</td>
   </tr>
   <tr>
-    <td>6</td>
+    <td>11</td>
     <td>Symmetric Encryption<br>(Private Quantum Channels)</td>
     <td>-</td>
     <td>-</td>
@@ -159,7 +206,7 @@ The protocols currently offered in our framework are the following:
     <td>2000</td>
     <td>M. Mosca, A. Tapp and R. Wolf</td>
     <td><a href="https://arxiv.org/abs/quant-ph/0003101" target="_blank">[MTW00]</a></td>
-    <td>v0.0.1</td>
+    <td>⌛ (v0.0.1)</td>
   </tr>
 </tbody>
 </table>
