@@ -117,7 +117,7 @@ The specifications of the primitives offered in our framework are described in t
 <tbody>
   <tr>
     <td>1</td>
-    <td rowspan="13">PM (Prepare-and-Measure)</td>
+    <td rowspan="13">PM<br>(Prepare-and-Measure)</td>
     <td>BB84</td>
     <td>1984</td>
     <td>C. Bennet and G. Bassard</td>
@@ -145,7 +145,7 @@ The specifications of the primitives offered in our framework are described in t
   </tr>
   <tr>
     <td>4</td>
-    <td>SSP (Six-State Protocol)</td>
+    <td>SSP<br>(Six-State Protocol)</td>
     <td>1998</td>
     <td>H. Bechmann-Pasquinucci and N. Gisin</td>
     <td><a href="https://arxiv.org/abs/quant-ph/9807041" target="_blank">[PG98]</a></td>
@@ -235,7 +235,7 @@ The specifications of the primitives offered in our framework are described in t
   </tr>
   <tr>
     <td>14</td>
-    <td rowspan="2">EB (Entaglement-Based)</td>
+    <td rowspan="2">EB<br>(Entaglement-Based)</td>
     <td>E91</td>
     <td>1991</td>
     <td>A. Ekert</td>
