@@ -109,7 +109,6 @@ The specifications of the primitives offered in our framework are described in t
     <th>Name</th>
     <th>Year</th>
     <th>Author(s)</th>
-    <th>Observations</th>
     <th>Ref.</th>
     <th>Tutorial</th>
     <th>Build</th>
@@ -122,7 +121,6 @@ The specifications of the primitives offered in our framework are described in t
     <td>BB84</td>
     <td>1984</td>
     <td>C. Bennet and G. Bassard</td>
-    <td>It uses single-photons polarized in two conjugate bases (X and Z Bases), with four possible states (0&deg;, 45&deg;, 90&deg; and 135&deg;) to transmit the quantum information, taking advantage of the Heisenberg Uncertainty Principle.</td>
     <td><a href="https://arxiv.org/abs/2003.06557v1" target="_blank">[BB84]</a></td>
     <td>❌ (N/A)</td>
     <td>⌛ (v0.0.1)</td>
@@ -132,7 +130,6 @@ The specifications of the primitives offered in our framework are described in t
     <td>B92</td>
     <td>1992</td>
     <td>C. Bennet</td>
-    <td>It uses single-photons polarized in two conjugate bases (X and Z Basis), with two possible states (0&deg; and 45&deg;) to transmit the quantum information, taking advantage of the Heisenberg Uncertainty Principle.</td>
     <td><a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.68.3121" target="_blank">[B92]</td>
     <td>❌ (N/A)</td>
     <td>⌛ (v0.0.1)</td>
@@ -142,7 +139,6 @@ The specifications of the primitives offered in our framework are described in t
     <td>MSZ96</td>
     <td>1996</td>
     <td>Y. Mu, J. Seberry and Y. Zheng</td>
-    <td>❌ (N/A)</td>
     <td><a href="https://www.sciencedirect.com/science/article/abs/pii/0030401895006885?via%3Dihub" target="_blank">[MSZ96]</a></td>
     <td>❌ (N/A)</td>
     <td>❌ (N/A)</td>
@@ -152,7 +148,6 @@ The specifications of the primitives offered in our framework are described in t
     <td>SSP (Six-State Protocol)</td>
     <td>1998</td>
     <td>H. Bechmann-Pasquinucci and N. Gisin</td>
-    <td>It uses single-photons polarized in three conjugate bases (X, Y and Z Basis), with six possible states (0&deg;, 45&deg;, 45<i>i</i>&deg;, 90&deg;, 135&deg; and 135<i>i</i>&deg;) to transmit the quantum information, taking advantage of the Heisenberg Uncertainty Principle.</td>
     <td><a href="https://arxiv.org/abs/quant-ph/9807041" target="_blank">[PG98]</a></td>
     <td>❌ (N/A)</td>
     <td>⌛ (v0.0.1)</td>
@@ -162,7 +157,6 @@ The specifications of the primitives offered in our framework are described in t
     <td>Decoy State</td>
     <td>2002</td>
     <td>W. Hwang</td>
-    <td>❌ (N/A)</td>
     <td><a href="https://arxiv.org/abs/quant-ph/0211153" target="_blank">[H02]</a></td>
     <td>❌ (N/A)</td>
     <td>❌ (N/A)</td>
@@ -172,7 +166,6 @@ The specifications of the primitives offered in our framework are described in t
     <td>SARG04 (w/ 4 states)</td>
     <td>2004</td>
     <td>V. Scarani, A. Acín, G. Ribordy and N. Gisin</td>
-    <td>❌ (N/A)</td>
     <td><a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.92.057901" target="_blank">[SARG04]</a></td>
     <td>❌ (N/A)</td>
     <td>❌ (N/A)</td>
@@ -182,7 +175,6 @@ The specifications of the primitives offered in our framework are described in t
     <td>SARG04 (w/ 6 states)</td>
     <td>2004</td>
     <td></td>
-    <td>❌ (N/A)</td>
     <td></td>
     <td>❌ (N/A)</td>
     <td>❌ (N/A)</td>
@@ -192,7 +184,6 @@ The specifications of the primitives offered in our framework are described in t
     <td>R04</td>
     <td>2004</td>
     <td></td>
-    <td>❌ (N/A)</td>
     <td></td>
     <td>❌ (N/A)</td>
     <td>❌ (N/A)</td>
@@ -202,7 +193,6 @@ The specifications of the primitives offered in our framework are described in t
     <td>Singapore</td>
     <td>2008</td>
     <td></td>
-    <td>❌ (N/A)</td>
     <td></td>
     <td>❌ (N/A)</td>
     <td>❌ (N/A)</td>
@@ -212,7 +202,6 @@ The specifications of the primitives offered in our framework are described in t
     <td>KMB09</td>
     <td>2009</td>
     <td></td>
-    <td>❌ (N/A)</td>
     <td></td>
     <td>❌ (N/A)</td>
     <td>❌ (N/A)</td>
@@ -222,7 +211,6 @@ The specifications of the primitives offered in our framework are described in t
     <td>S09</td>
     <td>2009</td>
     <td></td>
-    <td>❌ (N/A)</td>
     <td></td>
     <td>❌ (N/A)</td>
     <td>❌ (N/A)</td>
@@ -232,7 +220,6 @@ The specifications of the primitives offered in our framework are described in t
     <td>T12</td>
     <td>2012</td>
     <td>M. Lucamarini, K. Patel, J. Dynes, B. Fröhlich, A. Sharpe, A. Dixon, Z. Yuan, R. Penty and A. Shields (Toshiba)</td>
-    <td>❌ (N/A)</td>
     <td><a href="https://www.osapublishing.org/oe/fulltext.cfm?uri=oe-21-21-24550&id=268752" target="_blank">[T12]</a></td>
     <td>❌ (N/A)</td>
     <td>❌ (N/A)</td>
@@ -242,7 +229,6 @@ The specifications of the primitives offered in our framework are described in t
     <td>S13</td>
     <td>2013</td>
     <td></td>
-    <td>❌ (N/A)</td>
     <td></td>
     <td>❌ (N/A)</td>
     <td>❌ (N/A)</td>
@@ -253,7 +239,6 @@ The specifications of the primitives offered in our framework are described in t
     <td>E91</td>
     <td>1991</td>
     <td>A. Ekert</td>
-    <td>❌ (N/A)</td>
     <td><a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.67.661" target="_blank">[E91]</a></td>
     <td>❌ (N/A)</td>
     <td>❌ (N/A)</td>
@@ -263,7 +248,6 @@ The specifications of the primitives offered in our framework are described in t
     <td>BBM92</td>
     <td>1992</td>
     <td>C. Bennet, G. Brassard and N. Mermin</td>
-    <td>❌ (N/A)</td>
     <td><a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.68.557" target="_blank">[BBM92]</a></td>
     <td>❌ (N/A)</td>
     <td>❌ (N/A)</td>
