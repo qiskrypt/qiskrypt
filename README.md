@@ -163,7 +163,7 @@ The specifications of the primitives offered in our framework are described in t
   </tr>
   <tr>
     <td>6</td>
-    <td>SARG04 (w/ 4 states)</td>
+    <td>SARG04<br>(w/ 4 states)</td>
     <td>2004</td>
     <td>V. Scarani, A. Acín, G. Ribordy and N. Gisin</td>
     <td><a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.92.057901" target="_blank">[SARG04]</a></td>
@@ -172,7 +172,7 @@ The specifications of the primitives offered in our framework are described in t
   </tr>
   <tr>
     <td>7</td>
-    <td>SARG04 (w/ 6 states)</td>
+    <td>SARG04<br>(w/ 6 states)</td>
     <td>2004</td>
     <td></td>
     <td></td>
