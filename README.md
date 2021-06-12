@@ -235,7 +235,7 @@ The specifications of the primitives offered in our framework are described in t
   </tr>
   <tr>
     <td>14</td>
-    <td rowspan="2">EB<br>(Entaglement-Based)</td>
+    <td rowspan="2">EB<br>(Entanglement-Based)</td>
     <td>E91</td>
     <td>1991</td>
     <td>A. Ekert</td>
