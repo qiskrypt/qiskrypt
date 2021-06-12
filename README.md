@@ -163,6 +163,24 @@ The specifications of the primitives offered in our framework are described in t
   </tr>
   <tr>
     <td>6</td>
+    <td>Singapore</td>
+    <td>2004</td>
+    <td>B. Englert, D. Kaszlikowski, H. Ng, W. Chua, J. Řeháček and J. Anders</td>
+    <td><a href="https://arxiv.org/abs/quant-ph/0412075" target="_blank">[EKNCRA04]</a></td>
+    <td>❌ (N/A)</td>
+    <td>❌ (N/A)</td>
+  </tr>
+  <tr>
+    <td>7</td>
+    <td>R04</td>
+    <td>2004</td>
+    <td>J. Renes</td>
+    <td><a href="https://arxiv.org/abs/quant-ph/0402135" target="_blank">[R04]</a></td>
+    <td>❌ (N/A)</td>
+    <td>❌ (N/A)</td>
+  </tr>
+  <tr>
+    <td>8</td>
     <td>SARG04<br>(w/ 4 states)</td>
     <td>2004</td>
     <td>V. Scarani, A. Acín, G. Ribordy and N. Gisin</td>
@@ -171,29 +189,11 @@ The specifications of the primitives offered in our framework are described in t
     <td>❌ (N/A)</td>
   </tr>
   <tr>
-    <td>7</td>
+    <td>9</td>
     <td>SARG04<br>(w/ 6 states)</td>
     <td>2004</td>
-    <td></td>
-    <td></td>
-    <td>❌ (N/A)</td>
-    <td>❌ (N/A)</td>
-  </tr>
-  <tr>
-    <td>8</td>
-    <td>R04</td>
-    <td>2004</td>
-    <td></td>
-    <td></td>
-    <td>❌ (N/A)</td>
-    <td>❌ (N/A)</td>
-  </tr>
-  <tr>
-    <td>9</td>
-    <td>Singapore</td>
-    <td>2008</td>
-    <td></td>
-    <td></td>
+    <td>K. Tamaki and H. Lo</td>
+    <td><a href="https://arxiv.org/abs/quant-ph/0412035" target="_blank">[SARG04]</a></td>
     <td>❌ (N/A)</td>
     <td>❌ (N/A)</td>
   </tr>
@@ -228,8 +228,8 @@ The specifications of the primitives offered in our framework are described in t
     <td>13</td>
     <td>S13</td>
     <td>2013</td>
-    <td></td>
-    <td></td>
+    <td>E. Serna</td>
+    <td><a href="https://arxiv.org/abs/1311.1582" target="_blank">[S13]</a></td>
     <td>❌ (N/A)</td>
     <td>❌ (N/A)</td>
   </tr>
