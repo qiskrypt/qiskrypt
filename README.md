@@ -193,7 +193,7 @@ The specifications of the primitives offered in our framework are described in t
     <td>SARG04<br>(w/ 6 states)</td>
     <td>2004</td>
     <td>K. Tamaki and H. Lo</td>
-    <td><a href="https://arxiv.org/abs/quant-ph/0412035" target="_blank">[SARG04]</a></td>
+    <td><a href="https://arxiv.org/abs/quant-ph/0412035" target="_blank">[TL04]</a></td>
     <td>❌ (N/A)</td>
     <td>❌ (N/A)</td>
   </tr>
