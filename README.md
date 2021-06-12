@@ -201,8 +201,8 @@ The specifications of the primitives offered in our framework are described in t
     <td>10</td>
     <td>KMB09</td>
     <td>2009</td>
-    <td></td>
-    <td></td>
+    <td>M. Khan, M. Murphy and A. Beige</td>
+    <td><a href="https://arxiv.org/abs/0901.3909" target="_blank">[S09]</a></td>
     <td>❌ (N/A)</td>
     <td>❌ (N/A)</td>
   </tr>
@@ -210,8 +210,8 @@ The specifications of the primitives offered in our framework are described in t
     <td>11</td>
     <td>S09</td>
     <td>2009</td>
-    <td></td>
-    <td></td>
+    <td>E. Serna</td>
+    <td><a href="https://arxiv.org/abs/0908.2146" target="_blank">[S09]</a></td>
     <td>❌ (N/A)</td>
     <td>❌ (N/A)</td>
   </tr>
