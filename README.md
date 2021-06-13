@@ -327,9 +327,15 @@ Available soon.
 Available soon.
 
 
+### Quantum Secure Multi-Party Computations
+
+Available soon.
+
+
 ### Quantum Cryptocurrencies
 
 Available soon.
+
 
 ### Other Quantum Cryptographic Primitives
 
