@@ -278,7 +278,7 @@ Available soon.
 <tbody>
   <tr>
     <td>1</td>
-    <td>DPS (Differential Phase Shift)</td>
+    <td>DPS<br>(Differential Phase Shift)</td>
     <td>2003</td>
     <td>K. Inoue, E. Waks, Y. Yamamoto</td>
 <td><a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.89.037902" target="_blank">[IWY03]</a></td>
