@@ -410,6 +410,26 @@ Available soon.
       <td>❌ (N/A)</td>
       <td>⌛ (v0.0.1)</td>
     </tr>
+    <tr>
+      <td>3</td>
+      <td>GHZ State</td>
+      <td>N>=3<br>(Multipartite)</td>
+      <td>1989</td>
+      <td>D. Greenberger, M. Horne and A. Zeilinger</td>
+      <td><a href="https://link.springer.com/chapter/10.1007/978-94-017-0849-4_10" target="_blank">[GHZ89]</a></td>
+      <td>❌ (N/A)</td>
+      <td>⌛ (v0.0.1)</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>W State</td>
+      <td>N>=3<br>(Multipartite)</td>
+      <td>2000</td>
+      <td>W. Dür, G. Vidal and J. Cirac</td>
+      <td><a href="https://arxiv.org/abs/quant-ph/0005115" target="_blank">[DVC00]</a></td>
+      <td>❌ (N/A)</td>
+      <td>⌛ (v0.0.1)</td>
+    </tr>
  </tbody>
 </table>
 
