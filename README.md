@@ -281,7 +281,7 @@ Available soon.
     <td>DPS (Differential Phase Shift)</td>
     <td>2003</td>
     <td>K. Inoue, E. Waks, Y. Yamamoto</td>
-<td><a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.68.557" target="_blank">[SBGSZ]</a></td>
+<td><a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.89.037902" target="_blank">[IWY03]</a></td>
     <td>❌ (N/A)</td>
     <td>❌ (N/A)</td>
   </tr>
@@ -290,7 +290,7 @@ Available soon.
     <td>COW<br>(Coherent One-Way)</td>
     <td>2005</td>
     <td>D. Stucki, N. Brunner, N. Gisin, V. Scarani and H. Zbinden</td>
-    <td><a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.68.557" target="_blank">[SBGSZ]</a></td>
+    <td><a href="https://arxiv.org/abs/quant-ph/0506097" target="_blank">[SBGSZ05]</a></td>
     <td>❌ (N/A)</td>
     <td>❌ (N/A)</td>
   </tr>
