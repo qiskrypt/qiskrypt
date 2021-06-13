@@ -409,7 +409,7 @@ Available soon.
      <tr>
        <td>5</td>
        <td>N>=3<br>(Multipartite)</td>
-       <td>WSM (W State Measurement)</td>
+       <td>W State Measurement<br>(WSM)</td>
        <td>-</td>
        <td>-</td>
        <td>-</td>
