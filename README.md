@@ -365,6 +365,57 @@ Available soon.
      <td>❌ (N/A)</td>
      <td>⌛ (v0.0.1)</td>
    </tr>
+   <tr>
+     <td>2</td>
+     <td rowspan="6">Quantum Data Integrity</td>
+     <td>N>=2<br>(Bipartite)</td>
+     <td>SWAP Test<br>(Quantum Fingerprinting)</td>
+     <td>2001</td>
+     <td>H. Buhrman, R. Cleve, J. Watrous and R. Wolf</td>
+     <td><a href="https://arxiv.org/abs/quant-ph/0102001" target="_blank">[BCWW01]</a></td>
+     <td>❌ (N/A)</td>
+     <td>⌛ (v0.0.1)</td>
+   </tr>
+   <tr>
+      <td>3</td>
+      <td>N>=2<br>(Bipartite)</td>
+      <td>Quantum Hashing Function</td>
+      <td>2013</td>
+      <td>F. Ablayev and A. Vasiliev</td>
+      <td><a href="https://iopscience.iop.org/article/10.1088/1612-2011/11/2/025202" target="_blank">[AV13]</a></td>
+      <td>❌ (N/A)</td>
+      <td>❌ (N/A)</td>
+    </tr>
+    <tr>
+       <td>4</td>
+       <td>N=2<br>(Bipartite)</td>
+       <td>Bell State Measurement<br>(BSM)</td>
+       <td>1996</td>
+       <td>M. Michler, K. Mattle, H. Weinfurter and A. Zeilinger</td>
+       <td><a href="https://journals.aps.org/pra/abstract/10.1103/PhysRevA.53.R1209" target="_blank">[MMWZ96]</a></td>
+       <td>❌ (N/A)</td>
+       <td>⌛ (v0.0.1)</td>
+     </tr>
+     <tr>
+       <td>5</td>
+       <td>N>=3<br>(Multipartite)</td>
+       <td>GHZSM (Greenberger-Horne-Zeilinger Measurement)</td>
+       <td>-</td>
+       <td>-</td>
+       <td>-</td>
+       <td>❌ (N/A)</td>
+       <td>⌛ (v0.0.1)</td>
+     </tr>
+     <tr>
+       <td>5</td>
+       <td>N>=3<br>(Multipartite)</td>
+       <td>WSM (W State Measurement)</td>
+       <td>-</td>
+       <td>-</td>
+       <td>-</td>
+       <td>❌ (N/A)</td>
+       <td>⌛ (v0.0.1)</td>
+     </tr>
  </tbody>
 </table>
 
@@ -422,7 +473,7 @@ Available soon.
     </tr>
     <tr>
       <td>4</td>
-      <td>GHZ State</td>
+      <td>GHZ (Greenberger-Horne-Zeilinger) State</td>
       <td>N>=3<br>(Multipartite)</td>
       <td>1989</td>
       <td>D. Greenberger, M. Horne and A. Zeilinger</td>
