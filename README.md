@@ -403,7 +403,7 @@ Available soon.
    <tr>
       <td>2</td>
       <td>Dicke State</td>
-      <td>N=2<br>(Bipartite)</td>
+      <td>N>=2<br>(Bipartite)</td>
       <td>1954</td>
       <td>R. Dicke</td>
       <td><a href="https://journals.aps.org/pr/abstract/10.1103/PhysRev.93.99" target="_blank">[D54]</a></td>
