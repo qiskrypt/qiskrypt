@@ -402,6 +402,16 @@ Available soon.
    </tr>
    <tr>
       <td>2</td>
+      <td>Dicke State</td>
+      <td>N=2<br>(Bipartite)</td>
+      <td>1954</td>
+      <td>R. Dicke</td>
+      <td><a href="https://journals.aps.org/pr/abstract/10.1103/PhysRev.93.99" target="_blank">[D54]</a></td>
+      <td>❌ (N/A)</td>
+      <td>⌛ (v0.0.1)</td>
+   </tr>
+   <tr>
+      <td>3</td>
       <td>Bell States</td>
       <td>N=2<br>(Bipartite)</td>
       <td>1964</td>
@@ -411,7 +421,7 @@ Available soon.
       <td>⌛ (v0.0.1)</td>
     </tr>
     <tr>
-      <td>3</td>
+      <td>4</td>
       <td>GHZ State</td>
       <td>N>=3<br>(Multipartite)</td>
       <td>1989</td>
@@ -421,7 +431,7 @@ Available soon.
       <td>⌛ (v0.0.1)</td>
     </tr>
     <tr>
-      <td>4</td>
+      <td>5</td>
       <td>W State</td>
       <td>N>=3<br>(Multipartite)</td>
       <td>2000</td>
@@ -431,7 +441,7 @@ Available soon.
       <td>⌛ (v0.0.1)</td>
     </tr>
     <tr>
-      <td>5</td>
+      <td>6</td>
       <td>Cluster State</td>
       <td>N>=3<br>(Multipartite)</td>
       <td>2000</td>
@@ -441,7 +451,7 @@ Available soon.
       <td>⌛ (v0.0.1)</td>
     </tr>
     <tr>
-      <td>6</td>
+      <td>7</td>
       <td>Graph State</td>
       <td>N>=3<br>(Multipartite)</td>
       <td>2003</td>
