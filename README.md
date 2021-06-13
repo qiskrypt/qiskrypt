@@ -476,8 +476,57 @@ Available soon.
 
 ### Quantum True Randomness
 
-Available soon.
-
+<table class="tg">
+ <thead>
+   <tr>
+     <th>#</th>
+     <th>Name</th>
+     <th>Year</th>
+     <th>Authors</th>
+     <th>Ref.</th>
+     <th>Tutorial(s)</th>
+     <th>Build</th>
+   </tr>
+ </thead>
+ <tbody>
+   <tr>
+      <td>1</td>
+      <td>Schrödinger's Cat</td>
+      <td>1935</td>
+      <td>E. Schrödinger</td>
+      <td><a href="https://link.springer.com/article/10.1007%2FBF01491891" target="_blank">[S35]</a></td>
+      <td>❌ (N/A)</td>
+      <td>⌛ (v0.0.1)</td>
+   </tr>
+   <tr>
+      <td>2</td>
+      <td>Quantum Coin Tossing</td>
+      <td>-</td>
+      <td>-</td>
+      <td><a href="https://qiskit.org/textbook/what-is-quantum.html" target="_blank">[QCT]</a></td>
+      <td>❌ (N/A)</td>
+      <td>⌛ (v0.0.1)</td>
+   </tr>
+   <tr>
+      <td>3</td>
+      <td>Quantum Hadamard Transform</td>
+      <td>-</td>
+      <td>-</td>
+      <td><a href="https://en.wikipedia.org/wiki/Hadamard_transform" target="_blank">[QHT]</a></td>
+      <td>❌ (N/A)</td>
+      <td>⌛ (v0.0.1)</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Quantum Random Number Generator<br>(QRNG)</td>
+      <td>-</td>
+      <td>-</td>
+      <td><a href="https://qt.eu/discover-quantum/underlying-principles/qrng/" target="_blank">[QRNG]</a></td>
+      <td>❌ (N/A)</td>
+      <td>⌛ (v0.0.1)</td>
+    </tr>
+ </tbody>
+</table>
 
 ### Quantum Algorithms
 
