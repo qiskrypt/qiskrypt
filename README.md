@@ -528,9 +528,9 @@ Available soon.
     <tr>
       <td>5</td>
       <td>Quantum Random Walks<br>(QRW)</td>
-      <td>-</td>
-      <td>-</td>
-      <td><a href="https://journals.aps.org/pra/abstract/10.1103/PhysRevA.48.1687" target="_blank">[QRNG]</a></td>
+      <td>1993</td>
+      <td>Y. Aharonov, L. Davidovich and N. Zagury</td>
+      <td><a href="https://journals.aps.org/pra/abstract/10.1103/PhysRevA.48.1687" target="_blank">[ADZ93]</a></td>
       <td>❌ (N/A)</td>
       <td>❌ (N/A)</td>
     </tr>
