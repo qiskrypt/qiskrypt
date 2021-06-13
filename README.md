@@ -53,11 +53,13 @@ The mission of our framework is to:
   * **Quantum Conference Key Agreements** (**QCKAs**);
   * **Semi-Quantum Conference Key Agreements** (**SQCKAs**);
   * **Quantum One-Time Pads** (**QOTPs**);
-  * **SWAP Test**;
+  * **SWAP Test**/**Quantum Fingerprinting**;
 * Offer some important primitives for _quantum communications_ and _quantum networks_, such as:
   * **Quantum Teleportation**;
   * **Quantum Entanglement Swapping**;
   * **Quantum Entanglement Distillation/Purification**;
+  * **Quantum Repeaters**;
+  * **Quantum Internet Protocols**;
 * Offer, as well, some _quantum algortithms_ for _quantum_ _cryptonalysis_ and _quantum_ _attacks_, such as:
   * **Grover's Algorithm**;
   * **Simon's Algorithm**;
