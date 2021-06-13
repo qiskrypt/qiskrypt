@@ -408,7 +408,7 @@ Available soon.
       <td>R. Dicke</td>
       <td><a href="https://journals.aps.org/pr/abstract/10.1103/PhysRev.93.99" target="_blank">[D54]</a></td>
       <td>❌ (N/A)</td>
-      <td>⌛ (v0.0.1)</td>
+      <td>❌ (N/A)</td>
    </tr>
    <tr>
       <td>3</td>
@@ -432,6 +432,16 @@ Available soon.
     </tr>
     <tr>
       <td>5</td>
+      <td>Werner State</td>
+      <td>N>=3<br>(Multipartite)</td>
+      <td>1989</td>
+      <td>R. Werner</td>
+      <td><a href="https://journals.aps.org/pra/abstract/10.1103/PhysRevA.40.4277" target="_blank">[W89]</a></td>
+      <td>❌ (N/A)</td>
+      <td>⌛ (v0.0.1)</td>
+    </tr>
+    <tr>
+      <td>6</td>
       <td>W State</td>
       <td>N>=3<br>(Multipartite)</td>
       <td>2000</td>
@@ -441,7 +451,7 @@ Available soon.
       <td>⌛ (v0.0.1)</td>
     </tr>
     <tr>
-      <td>6</td>
+      <td>7</td>
       <td>Cluster State</td>
       <td>N>=3<br>(Multipartite)</td>
       <td>2000</td>
@@ -451,7 +461,7 @@ Available soon.
       <td>⌛ (v0.0.1)</td>
     </tr>
     <tr>
-      <td>7</td>
+      <td>8</td>
       <td>Graph State</td>
       <td>N>=3<br>(Multipartite)</td>
       <td>2003</td>
