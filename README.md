@@ -314,3 +314,54 @@ Available soon.
 
 ### Semi-Quantum Key Distributions (SQKDs)<br>\[Key Exchanges for Bipartite Semi-Quantum Scenarios, with N=2 Parties\]
 
+Available soon.
+
+
+### Quantum Conference Key Agreements (QCKAs)<br>\[Key Exchanges for Multipartite Quantum Scenarios, with N>=2 Parties\]
+
+Available soon.
+
+
+### Semi-Quantum Conference Key Agreements (SQCKAs)<br>\[Key Exchanges for Multipartite Semi-Quantum Scenarios, with N>=2 Parties\]
+
+Available soon.
+
+
+### Quantum Cryptocurrencies
+
+Available soon.
+
+### Other Quantum Cryptographic Primitives
+
+<table class="tg">
+ <thead>
+   <tr>
+     <th>#</th>
+     <th>Purpose</th>
+     <th>No. Parties</th>
+     <th>Name</th>
+     <th>Year</th>
+     <th>Authors</th>
+     <th>Ref.</th>
+     <th>Build</th>
+   </tr>
+ </thead>
+ <tbody>
+   <tr>
+     <td>1</td>
+     <td>Symmetric Encryption<br>(Private Quantum Channels)</td>
+     <td>N=2<br>(Bipartite)</td>
+     <td>QOTP<br>(Quantum One-Time Pad)</td>
+     <td>2000</td>
+     <td>M. Mosca, A. Tapp and R. Wolf</td>
+     <td><a href="https://arxiv.org/abs/quant-ph/0003101" target="_blank">[MTW00]</a></td>
+     <td>⌛ (v0.0.1)</td>
+   </tr>
+ </tbody>
+</table>
+
+
+### Quantum Networking and Quantum Communications
+
+Available soon.
+
