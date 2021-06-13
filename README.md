@@ -525,6 +525,15 @@ Available soon.
       <td>❌ (N/A)</td>
       <td>⌛ (v0.0.1)</td>
     </tr>
+    <tr>
+      <td>5</td>
+      <td>Quantum Random Walks<br>(QRW)</td>
+      <td>-</td>
+      <td>-</td>
+      <td><a href="https://journals.aps.org/pra/abstract/10.1103/PhysRevA.48.1687" target="_blank">[QRNG]</a></td>
+      <td>❌ (N/A)</td>
+      <td>❌ (N/A)</td>
+    </tr>
  </tbody>
 </table>
 
