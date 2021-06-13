@@ -39,7 +39,7 @@ The [**Qiskrypt**](https://qiskrypt.github.io/) is a software suite of protocols
 
 #### Foundation
 
-This _framework_ started as a proposal for the [**IBM**](https://www.ibm.com/) [**Hackathon Europe 2021**](https://qiskithackathoneurope.bemyapp.com/), achieving its 2nd phase (top 20 teams), as well, as an idea developed by a team of students, researchers and professors, mostly from [**NOVA School of Science and Technology**](https://www.fct.unl.pt/en/), [**Técnico Lisboa**](https://tecnico.ulisboa.pt/en/), [**Faculty of Sciences of University of Lisbon**](https://ciencias.ulisboa.pt/en) and [**School of Engineering from University of Connecticut**](https://www.engr.uconn.edu/).
+This _framework_ started as a proposal for the [**IBM**](https://www.ibm.com/) [**Hackathon Europe 2021**](https://qiskithackathoneurope.bemyapp.com/), achieving its 2nd phase (finals, with the top 20 teams), as well, as an idea developed by a team of students, researchers and professors, mostly from [**NOVA School of Science and Technology**](https://www.fct.unl.pt/en/), [**Técnico Lisboa**](https://tecnico.ulisboa.pt/en/), [**Faculty of Sciences of University of Lisbon**](https://ciencias.ulisboa.pt/en) and [**School of Engineering from University of Connecticut**](https://www.engr.uconn.edu/).
 
 The aim of our _framework_ is to provide all the known _quantum cryptographic protocols_, in a single place, as an accessible solution, and being easy to use.
 
@@ -427,6 +427,26 @@ Available soon.
       <td>2000</td>
       <td>W. Dür, G. Vidal and J. Cirac</td>
       <td><a href="https://arxiv.org/abs/quant-ph/0005115" target="_blank">[DVC00]</a></td>
+      <td>❌ (N/A)</td>
+      <td>⌛ (v0.0.1)</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Cluster State</td>
+      <td>N>=3<br>(Multipartite)</td>
+      <td>2000</td>
+      <td>H. Briegel and R. Raussendorf</td>
+      <td><a href="https://arxiv.org/abs/quant-ph/0004051" target="_blank">[BR00]</a></td>
+      <td>❌ (N/A)</td>
+      <td>⌛ (v0.0.1)</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>Graph State</td>
+      <td>N>=3<br>(Multipartite)</td>
+      <td>2003</td>
+      <td>M. Hein, J. Eisert and H. Briegel</td>
+      <td><a href="https://arxiv.org/abs/quant-ph/0307130" target="_blank">[HEB03]</a></td>
       <td>❌ (N/A)</td>
       <td>⌛ (v0.0.1)</td>
     </tr>
