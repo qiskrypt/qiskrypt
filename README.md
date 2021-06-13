@@ -370,7 +370,7 @@ Available soon.
    <tr>
      <td>2</td>
      <td rowspan="6">Quantum Data Integrity</td>
-     <td>N>=2<br>(Bipartite)</td>
+     <td>N>=2<br>(Multipartite)</td>
      <td>SWAP Test<br>(Quantum Fingerprinting)</td>
      <td>2001</td>
      <td>H. Buhrman, R. Cleve, J. Watrous and R. Wolf</td>
@@ -380,7 +380,7 @@ Available soon.
    </tr>
    <tr>
       <td>3</td>
-      <td>N>=2<br>(Bipartite)</td>
+      <td>N=2<br>(Bipartite)</td>
       <td>Quantum Hashing Function</td>
       <td>2013</td>
       <td>F. Ablayev and A. Vasiliev</td>
