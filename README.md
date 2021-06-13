@@ -371,3 +371,18 @@ Available soon.
 
 Available soon.
 
+
+### Quantum Entanglements
+
+Available soon.
+
+
+### Quantum True Randomness
+
+Available soon.
+
+
+### Quantum Algorithms
+
+Available soon.
+
