@@ -438,7 +438,7 @@ Available soon.
       <td>R. Werner</td>
       <td><a href="https://journals.aps.org/pra/abstract/10.1103/PhysRevA.40.4277" target="_blank">[W89]</a></td>
       <td>❌ (N/A)</td>
-      <td>⌛ (v0.0.1)</td>
+      <td>❌ (N/A)</td>
     </tr>
     <tr>
       <td>6</td>
