@@ -399,7 +399,7 @@ Available soon.
      <tr>
        <td>5</td>
        <td>N>=3<br>(Multipartite)</td>
-       <td>GHZSM (Greenberger-Horne-Zeilinger Measurement)</td>
+       <td>Greenberger-Horne-Zeilinger State Measurement<br>(GHZSM)</td>
        <td>-</td>
        <td>-</td>
        <td>-</td>
@@ -443,7 +443,7 @@ Available soon.
  <tbody>
    <tr>
      <td>1</td>
-     <td>EPR<br>(Einstein-Podolski-Rosen)</td>
+     <td>EPR<br>(Einstein-Podolski-Rosen)<br>Pair</td>
      <td>N=2<br>(Bipartite)</td>
      <td>1935</td>
      <td>A. Einstein, B. Podolski and N. Rosen</td>
@@ -473,7 +473,7 @@ Available soon.
     </tr>
     <tr>
       <td>4</td>
-      <td>GHZ (Greenberger-Horne-Zeilinger) State</td>
+      <td>GHZ<br>(Greenberger-Horne-Zeilinger)<br>State</td>
       <td>N>=3<br>(Multipartite)</td>
       <td>1989</td>
       <td>D. Greenberger, M. Horne and A. Zeilinger</td>
