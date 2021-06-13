@@ -399,7 +399,7 @@ Available soon.
      <tr>
        <td>5</td>
        <td>N>=3<br>(Multipartite)</td>
-       <td>Greenberger-Horne-Zeilinger State Measurement<br>(GHZSM)</td>
+       <td>GHZ State Measurement<br>(GHZSM)</td>
        <td>-</td>
        <td>-</td>
        <td>-</td>
