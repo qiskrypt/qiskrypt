@@ -409,7 +409,7 @@ Available soon.
        <td>⌛ (v0.0.1)</td>
      </tr>
      <tr>
-       <td>5</td>
+       <td>6</td>
        <td>N>=3<br>(Multipartite)</td>
        <td>W State Measurement<br>(WSM)</td>
        <td>-</td>
