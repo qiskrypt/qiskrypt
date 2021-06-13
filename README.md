@@ -376,7 +376,42 @@ Available soon.
 
 ### Quantum Entanglements
 
-Available soon.
+<table class="tg">
+ <thead>
+   <tr>
+     <th>#</th>
+     <th>Name</th>
+     <th>No. Parties</th>
+     <th>Year</th>
+     <th>Authors</th>
+     <th>Ref.</th>
+     <th>Tutorial(s)</th>
+     <th>Build</th>
+   </tr>
+ </thead>
+ <tbody>
+   <tr>
+     <td>1</td>
+     <td>EPR<br>(Einstein-Podolski-Rosen)</td>
+     <td>N=2<br>(Bipartite)</td>
+     <td>1935</td>
+     <td>A. Einstein, B. Podolski and N. Rosen</td>
+     <td><a href="https://journals.aps.org/pr/abstract/10.1103/PhysRev.47.777" target="_blank">[EPR35]</a></td>
+     <td>❌ (N/A)</td>
+     <td>⌛ (v0.0.1)</td>
+   </tr>
+   <tr>
+      <td>2</td>
+      <td>Bell States</td>
+      <td>N=2<br>(Bipartite)</td>
+      <td>1964</td>
+      <td>J. Bell</td>
+      <td><a href="https://journals.aps.org/ppf/abstract/10.1103/PhysicsPhysiqueFizika.1.195" target="_blank">[B64]</a></td>
+      <td>❌ (N/A)</td>
+      <td>⌛ (v0.0.1)</td>
+    </tr>
+ </tbody>
+</table>
 
 
 ### Quantum True Randomness
