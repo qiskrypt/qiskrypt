@@ -202,7 +202,7 @@ The specifications of the primitives offered in our framework are described in t
     <td>KMB09</td>
     <td>2009</td>
     <td>M. Khan, M. Murphy and A. Beige</td>
-    <td><a href="https://arxiv.org/abs/0901.3909" target="_blank">[S09]</a></td>
+    <td><a href="https://arxiv.org/abs/0901.3909" target="_blank">[KMB09]</a></td>
     <td>❌ (N/A)</td>
     <td>❌ (N/A)</td>
   </tr>
