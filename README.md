@@ -110,7 +110,7 @@ The specifications of the primitives offered in our framework are described in t
     <th>Year</th>
     <th>Author(s)</th>
     <th>Ref.</th>
-    <th>Tutorial</th>
+    <th>Tutorial(s)</th>
     <th>Build</th>
   </tr>
 </thead>
@@ -270,8 +270,8 @@ Available soon.
     <th>Name</th>
     <th>Year</th>
     <th>Author(s)</th>
-    <th>Obs.</th>
     <th>Ref.</th>
+    <th>Tutorial(s)</th>
     <th>Build</th>
   </tr>
 </thead>
@@ -281,7 +281,7 @@ Available soon.
     <td>DPS<br>(Differential Phase Shift)</td>
     <td>2003</td>
     <td>K. Inoue, E. Waks, Y. Yamamoto</td>
-<td><a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.89.037902" target="_blank">[IWY03]</a></td>
+    <td><a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.89.037902" target="_blank">[IWY03]</a></td>
     <td>❌ (N/A)</td>
     <td>❌ (N/A)</td>
   </tr>
@@ -349,6 +349,7 @@ Available soon.
      <th>Year</th>
      <th>Authors</th>
      <th>Ref.</th>
+     <th>Tutorial(s)</th>
      <th>Build</th>
    </tr>
  </thead>
@@ -361,6 +362,7 @@ Available soon.
      <td>2000</td>
      <td>M. Mosca, A. Tapp and R. Wolf</td>
      <td><a href="https://arxiv.org/abs/quant-ph/0003101" target="_blank">[MTW00]</a></td>
+     <td>❌ (N/A)</td>
      <td>⌛ (v0.0.1)</td>
    </tr>
  </tbody>
