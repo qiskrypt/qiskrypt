@@ -661,6 +661,8 @@ Other some references for some of the developed protocols can be found here:
 * [Quantum Algorithm Zoo](https://quantumalgorithmzoo.org/)
 * [Quantiki](https://www.quantiki.org/)
 
-## Our motto
+## Our Motto
 
 _Let's encrypt with Qiskit??! Qiskrypt!!!_
+
+With love, Rúben. ☺️
