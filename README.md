@@ -422,7 +422,7 @@ Available soon.
 </table>
 
 
-### Quantum Networking and Quantum Communications
+### Quantum Internet Protocols, Quantum Networking and Quantum Communications
 
 Available soon.
 
