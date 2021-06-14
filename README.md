@@ -100,7 +100,7 @@ The institutions involved in the development of this framework are:
  <img src="https://raw.githubusercontent.com/qiskrypt/qiskrypt.github.io/main/assets/images/logos/institutions/PNGs/university-connecticut.png" alt="University of Connecticut - Logo" width="20%">
 </a>
 &nbsp;&nbsp;
-<a href="https://tecnico.ulisboa.pt/en/" target="_blank">
+<a href="https://www.engr.uconn.edu/" target="_blank">
  <img src="https://raw.githubusercontent.com/qiskrypt/qiskrypt.github.io/main/assets/images/logos/institutions/PNGs/uconn-school-engineering.png" alt="UCONN - School of Engineering - Logo" width="20%">
 </a>
 
