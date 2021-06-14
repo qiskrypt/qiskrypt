@@ -376,6 +376,24 @@ Available soon.
      <td>❌ (N/A)</td>
      <td>❌ (N/A)</td>
    </tr>
+   <tr>
+     <td>4</td>
+     <td>Quantum Token</td>
+     <td>2017</td>
+     <td>M. Bozzio, A. Orieux, L. Vidarte, I. Zaquine, I. Kerenidis and E. Diamanti</td>
+     <td><a href="https://arxiv.org/pdf/1705.01428.pdf" target="_blank">[BOZKD17]</a></td>
+     <td>❌ (N/A)</td>
+     <td>❌ (N/A)</td>
+   </tr>
+   <tr>
+     <td>5</td>
+     <td>Quantum Lighting</td>
+     <td>2017</td>
+     <td>M. Zhandry</td>
+     <td><a href="https://link.springer.com/chapter/10.1007%2F978-3-030-17659-4_14" target="_blank">[Z19]</a></td>
+     <td>❌ (N/A)</td>
+     <td>❌ (N/A)</td>
+   </tr>
  </tbody>
 </table>
 
