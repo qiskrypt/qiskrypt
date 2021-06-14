@@ -266,46 +266,46 @@ Available soon.
 #### Distributed Phase Reference - Quantum Key Distributions (DPR-QKDs)
 
 <table>
-<thead>
-  <tr>
-    <th>#</th>
-    <th>Name</th>
-    <th>Year</th>
-    <th>Author(s)</th>
-    <th>Ref.</th>
-    <th>Tutorial(s)</th>
-    <th>Build</th>
-  </tr>
-</thead>
-<tbody>
-  <tr>
-    <td>1</td>
-    <td>DPS<br>(Differential Phase Shift)</td>
-    <td>2003</td>
-    <td>K. Inoue, E. Waks, Y. Yamamoto</td>
-    <td><a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.89.037902" target="_blank">[IWY03]</a></td>
-    <td>❌ (N/A)</td>
-    <td>❌ (N/A)</td>
-  </tr>
-  <tr>
-    <td>2</td>
-    <td>COW<br>(Coherent One-Way)</td>
-    <td>2005</td>
-    <td>D. Stucki, N. Brunner, N. Gisin, V. Scarani and H. Zbinden</td>
-    <td><a href="https://arxiv.org/abs/quant-ph/0506097" target="_blank">[SBGSZ05]</a></td>
-    <td>❌ (N/A)</td>
-    <td>❌ (N/A)</td>
-  </tr>
-  <tr>
-    <td>3</td>
-    <td>DPTS<br>(Differential Phase Time Shifting)</td>
-    <td>2016</td>
-    <td>D. Bacco, J. Christensen, M. Castaneda, Y. Ding, S. Forchhammer, K. Rottwitt and L. Oxenløwe </td>
-    <td><a href="https://www.nature.com/articles/srep36756" target="_blank">[BCCDFRO16]</a></td>
-    <td>❌ (N/A)</td>
-    <td>❌ (N/A)</td>
-  </tr>
-</tbody>
+ <thead>
+   <tr>
+     <th>#</th>
+     <th>Name</th>
+     <th>Year</th>
+     <th>Author(s)</th>
+     <th>Ref.</th>
+     <th>Tutorial(s)</th>
+     <th>Build</th>
+   </tr>
+ </thead>
+ <tbody>
+   <tr>
+     <td>1</td>
+     <td>DPS<br>(Differential Phase Shift)</td>
+     <td>2003</td>
+     <td>K. Inoue, E. Waks, Y. Yamamoto</td>
+     <td><a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.89.037902" target="_blank">[IWY03]</a></td>
+     <td>❌ (N/A)</td>
+     <td>❌ (N/A)</td>
+   </tr>
+   <tr>
+     <td>2</td>
+     <td>COW<br>(Coherent One-Way)</td>
+     <td>2005</td>
+     <td>D. Stucki, N. Brunner, N. Gisin, V. Scarani and H. Zbinden</td>
+     <td><a href="https://arxiv.org/abs/quant-ph/0506097" target="_blank">[SBGSZ05]</a></td>
+     <td>❌ (N/A)</td>
+     <td>❌ (N/A)</td>
+   </tr>
+   <tr>
+     <td>3</td>
+     <td>DPTS<br>(Differential Phase Time Shifting)</td>
+     <td>2016</td>
+     <td>D. Bacco, J. Christensen, M. Castaneda, Y. Ding, S. Forchhammer, K. Rottwitt and L. Oxenløwe </td>
+     <td><a href="https://www.nature.com/articles/srep36756" target="_blank">[BCCDFRO16]</a></td>
+     <td>❌ (N/A)</td>
+     <td>❌ (N/A)</td>
+   </tr>
+ </tbody>
 </table>
 
 
@@ -336,7 +336,48 @@ Available soon.
 
 ### Quantum Cryptocurrencies
 
-Available soon.
+<table>
+ <thead>
+   <tr>
+     <th>#</th>
+     <th>Name</th>
+     <th>Year</th>
+     <th>Author(s)</th>
+     <th>Ref.</th>
+     <th>Tutorial(s)</th>
+     <th>Build</th>
+   </tr>
+ </thead>
+ <tbody>
+   <tr>
+     <td>1</td>
+     <td>Quantum Money</td>
+     <td>1983</td>
+     <td>C. Bennett, G. Brassard, S. Breidbart and S. Wiesner</td>
+     <td><a href="https://dl.acm.org/doi/10.1145/1008908.1008920" target="_blank">[W83]</a>,<br><a href="https://link.springer.com/chapter/10.1007/978-1-4757-0602-4_26" target="_blank">[BBBW83]</a></td>
+     <td>❌ (N/A)</td>
+     <td>❌ (N/A)</td>
+   </tr>
+   <tr>
+     <td>2</td>
+     <td>Quantum Coin<br>(w/ Classical Verification)</td>
+     <td>2011</td>
+     <td>D. Gavinsky</td>
+     <td><a href="https://arxiv.org/abs/1109.0372" target="_blank">[G11]</a></td>
+     <td>❌ (N/A)</td>
+     <td>❌ (N/A)</td>
+   </tr>
+   <tr>
+     <td>3</td>
+     <td>Quantum Cheque</td>
+     <td>2016</td>
+     <td>S. Moulick and P. Panigrahi</td>
+     <td><a href="https://link.springer.com/article/10.1007/s11128-016-1273-4" target="_blank">[MP16]</a></td>
+     <td>❌ (N/A)</td>
+     <td>❌ (N/A)</td>
+   </tr>
+ </tbody>
+</table>
 
 
 ### Other Quantum Cryptographic Primitives
@@ -594,3 +635,10 @@ Available soon.
 
 Available soon.
 
+
+## Other References
+
+Other some references for some of the developed protocols can be found here:
+* [Quantum Protocol Zoo](https://wiki.veriqloud.fr/)
+* [Quantum Algorithm Zoo](https://quantumalgorithmzoo.org/)
+* [Quantiki](https://www.quantiki.org/)
