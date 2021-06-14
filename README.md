@@ -79,7 +79,7 @@ The institutions involved in the development of this framework are:
 <a href="https://www.fct.unl.pt/en" target="_blank">
  <img src="https://raw.githubusercontent.com/qiskrypt/qiskrypt.github.io/main/assets/images/logos/institutions/PNGs/nova-school-science-and-technology.png" alt="NOVA School of Science and Technology - Logo" width="20%">
 </a>
-
+&nbsp;&nbsp;
 <a href="https://tecnico.ulisboa.pt/en/" target="_blank">
  <img src="https://raw.githubusercontent.com/qiskrypt/qiskrypt.github.io/main/assets/images/logos/institutions/PNGs/tecnico-lisboa.png" alt="Técnico Lisboa - Logo" width="20%">
 </a>
