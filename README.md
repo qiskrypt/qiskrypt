@@ -663,6 +663,6 @@ Other some references for some of the developed protocols can be found here:
 
 ## Our motto
 
-_Let's encrypt with Qiskit??! Qiskrypt!!!_
+"_Let's encrypt with Qiskit??! Qiskrypt!!!_"
 
 With love, Rúben. ☺️ ❤️
