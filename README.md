@@ -1,6 +1,6 @@
 # Qiskrypt
 
-<img src="https://raw.githubusercontent.com/qiskrypt/qiskrypt.github.io/main/assets/images/logos/PNGs/qiskrypt-logo-banner.png" alt="Qiskrypt - Logo" width="60%">
+<img src="https://raw.githubusercontent.com/qiskrypt/qiskrypt.github.io/main/assets/images/logos/qiskrypt/PNGs/qiskrypt-logo-banner.png" alt="Qiskrypt - Logo" width="60%">
 
 [![build Status](https://travis-ci.com/qiskrypt/qiskrypt.svg?branch=main)](https://travis-ci.com/qiskrypt/qiskrypt)
 
@@ -75,6 +75,14 @@ Our team is composed by the following members:
 ### Institutions involved
 
 The institutions involved in the development of this framework are:
+
+<a href="https://www.fct.unl.pt/en" target="_blank">
+ <img src="https://raw.githubusercontent.com/qiskrypt/qiskrypt.github.io/main/assets/images/logos/institutions/PNGs/nova-school-science-and-technology.png" alt="Técnico Lisboa - Logo" width="20%">
+</a>
+
+<a href="https://tecnico.ulisboa.pt/en/" target="_blank">
+ <img src="https://raw.githubusercontent.com/qiskrypt/qiskrypt.github.io/main/assets/images/logos/institutions/PNGs/tecnico-lisboa.png" alt="Técnico Lisboa - Logo" width="20%">
+</a>
 
 
 ### Powered by
