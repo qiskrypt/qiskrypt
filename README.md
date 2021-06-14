@@ -665,4 +665,4 @@ Other some references for some of the developed protocols can be found here:
 
 "_Let's encrypt with Qiskit??! Qiskrypt!!!_"
 
-With love, Rúben. ☺️ ❤️
+With love, your _qiskitter_, Rúben. ☺️ ❤️
