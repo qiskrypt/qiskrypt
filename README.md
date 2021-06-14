@@ -39,7 +39,7 @@ The [**Qiskrypt**](https://qiskrypt.github.io/) is a software suite of protocols
 
 #### Foundation
 
-This _framework_ started as a proposal for the [**IBM**](https://www.ibm.com/) [**Hackathon Europe 2021**](https://qiskithackathoneurope.bemyapp.com/), achieving its 2nd phase (finals, with the top 20 teams), as well, as an idea developed by a team of students, researchers and professors, mostly from [**NOVA School of Science and Technology**](https://www.fct.unl.pt/en/), [**Técnico Lisboa**](https://tecnico.ulisboa.pt/en/), [**Faculty of Sciences of University of Lisbon**](https://ciencias.ulisboa.pt/en), [**UT Austin Portugal**](https://utaustinportugal.org/) and [**School of Engineering from University of Connecticut**](https://www.engr.uconn.edu/).
+This _framework_ started as a proposal for the [**IBM**](https://www.ibm.com/) [**Hackathon Europe 2021**](https://qiskithackathoneurope.bemyapp.com/), achieving its 2nd phase (finals, with the top 20 teams), as well, as an idea developed by a team of students, researchers and professors, mostly from [**NOVA School of Science and Technology**](https://www.fct.unl.pt/en/), [**Técnico Lisboa**](https://tecnico.ulisboa.pt/en/), [**Instituto de Telecomunicações**](https://www.it.pt/), [**Faculty of Sciences of University of Lisbon**](https://ciencias.ulisboa.pt/en), [**Security and Quantum Information Group (SQIG)**](https://sqigmath.tecnico.ulisboa.pt/), [**UT Austin Portugal**](https://utaustinportugal.org/) and [**School of Engineering from University of Connecticut**](https://www.engr.uconn.edu/).
 
 The aim of our _framework_ is to provide all the known _quantum cryptographic protocols_, in a single place, as an accessible solution, and being easy to use.
 
