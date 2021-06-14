@@ -59,7 +59,7 @@ The mission of our framework is to:
   * **Quantum Entanglement Swapping**;
   * **Quantum Entanglement Distillation/Purification**;
   * **Quantum Repeaters**;
-  * **Quantum Internet Protocols**;
+  * **Quantum Internet/Network Protocols**;
 * Offer, as well, some _quantum algortithms_ for _quantum_ _cryptonalysis_ and _quantum_ _attacks_, such as:
   * **Grover's Algorithm**;
   * **Simon's Algorithm**;
