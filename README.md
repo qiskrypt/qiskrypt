@@ -388,7 +388,7 @@ Available soon.
    <tr>
      <td>5</td>
      <td>Quantum Lighting</td>
-     <td>2017</td>
+     <td>2019</td>
      <td>M. Zhandry</td>
      <td><a href="https://link.springer.com/chapter/10.1007%2F978-3-030-17659-4_14" target="_blank">[Z19]</a></td>
      <td>❌ (N/A)</td>
