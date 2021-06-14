@@ -34,8 +34,8 @@
 
 ### About
 
+The [**Qiskrypt**](https://qiskrypt.github.io/) is a software suite of protocols of _quantum cryptography_, _quantum communications_, as well, other _protocols_ and _algorithms_, built using the [**IBM**](https://www.ibm.com/)’s _open-source_ _Software Development Kit_ for _quantum computing_ [**Qiskit**](https://qiskit.org/).
 
-The [**Qiskrypt**](https://qiskrypt.github.io/) is a software suite of protocols of _quantum cryptography_, built using the [**IBM**](https://www.ibm.com/)’s _open-source_ _Software Development Kit_ for _quantum computing_ [**Qiskit**](https://qiskit.org/).
 
 #### Foundation
 
