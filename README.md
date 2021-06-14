@@ -654,14 +654,14 @@ Available soon.
 Available soon.
 
 
-## Other References
+## Other references
 
 Other some references for some of the developed protocols can be found here:
 * [Quantum Protocol Zoo](https://wiki.veriqloud.fr/)
 * [Quantum Algorithm Zoo](https://quantumalgorithmzoo.org/)
 * [Quantiki](https://www.quantiki.org/)
 
-## Our Motto
+## Our motto
 
 _Let's encrypt with Qiskit??! Qiskrypt!!!_
 
