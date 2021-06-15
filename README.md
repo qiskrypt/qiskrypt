@@ -610,6 +610,16 @@ Available soon.
       <td>❌ (N/A)</td>
       <td>⌛ (v0.0.1)</td>
     </tr>
+    <tr>
+      <td>9</td>
+      <td>Monogamy of Quantum Entanglement</td>
+      <td>N>=2<br>(Multipartite)</td>
+      <td>2003</td>
+      <td>M. Koashi and A. Winter</td>
+      <td><a href="https://arxiv.org/abs/quant-ph/0310037v1" target="_blank">[KW03]</a></td>
+      <td>❌ (N/A)</td>
+      <td>⌛ (v0.0.1)</td>
+    </tr>
  </tbody>
 </table>
 
