@@ -610,16 +610,6 @@ Available soon.
       <td>❌ (N/A)</td>
       <td>⌛ (v0.0.1)</td>
     </tr>
-    <tr>
-      <td>9</td>
-      <td>Monogamy of Quantum Entanglement</td>
-      <td>N>=2<br>(Multipartite)</td>
-      <td>2003</td>
-      <td>M. Koashi and A. Winter</td>
-      <td><a href="https://arxiv.org/abs/quant-ph/0310037v1" target="_blank">[KW03]</a></td>
-      <td>❌ (N/A)</td>
-      <td>⌛ (v0.0.1)</td>
-    </tr>
  </tbody>
 </table>
 
@@ -684,6 +674,46 @@ Available soon.
       <td>❌ (N/A)</td>
       <td>❌ (N/A)</td>
     </tr>
+ </tbody>
+</table>
+
+
+### Quantum Measures and Quantum Metrics
+
+<table class="tg">
+ <thead>
+   <tr>
+     <th>#</th>
+     <th>Name</th>
+     <th>No. Parties</th>
+     <th>Year</th>
+     <th>Authors</th>
+     <th>Ref.</th>
+     <th>Tutorial(s)</th>
+     <th>Build</th>
+   </tr>
+ </thead>
+ <tbody>
+   <tr>
+     <td>1</td>
+     <td>Quantum Discord</td>
+     <td>N>=2<br>(Multipartite)</td>
+     <td>2001</td>
+     <td>H. Ollivier and W. Zurek</td>
+     <td><a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.88.017901" target="_blank">[OZ01]</a></td>
+     <td>❌ (N/A)</td>
+     <td>⌛ (v0.0.1)</td>
+   </tr>
+   <tr>
+     <td>2</td>
+     <td>Monogamy of Quantum Entanglement</td>
+     <td>N>=2<br>(Multipartite)</td>
+     <td>2003</td>
+     <td>M. Koashi and A. Winter</td>
+     <td><a href="https://arxiv.org/abs/quant-ph/0310037v1" target="_blank">[KW03]</a></td>
+     <td>❌ (N/A)</td>
+     <td>⌛ (v0.0.1)</td>
+   </tr>
  </tbody>
 </table>
 
