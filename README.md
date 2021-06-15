@@ -696,11 +696,11 @@ Available soon.
  <tbody>
    <tr>
      <td>1</td>
-     <td>Quantum Discord</td>
+     <td>Quantum Fidelity</td>
      <td>N>=2<br>(Multipartite)</td>
-     <td>2001</td>
-     <td>H. Ollivier and W. Zurek</td>
-     <td><a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.88.017901" target="_blank">[OZ01]</a></td>
+     <td>1994</td>
+     <td>R. Josza</td>
+     <td><a href="https://www.tandfonline.com/doi/abs/10.1080/09500349414552171" target="_blank">[J99]</a></td>
      <td>❌ (N/A)</td>
      <td>⌛ (v0.0.1)</td>
    </tr>
@@ -708,9 +708,19 @@ Available soon.
      <td>2</td>
      <td>Monogamy of Quantum Entanglement</td>
      <td>N>=2<br>(Multipartite)</td>
-     <td>2003</td>
-     <td>M. Koashi and A. Winter</td>
-     <td><a href="https://arxiv.org/abs/quant-ph/0310037v1" target="_blank">[KW03]</a></td>
+     <td>1999</td>
+     <td>V. Coffman, J. Kundu and W. Wootters</td>
+     <td><a href="https://arxiv.org/abs/quant-ph/9907047" target="_blank">[CKW99]</a></td>
+     <td>❌ (N/A)</td>
+     <td>⌛ (v0.0.1)</td>
+   </tr>
+   <tr>
+     <td>3</td>
+     <td>Quantum Discord</td>
+     <td>N>=2<br>(Multipartite)</td>
+     <td>2001</td>
+     <td>H. Ollivier and W. Zurek</td>
+     <td><a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.88.017901" target="_blank">[OZ01]</a></td>
      <td>❌ (N/A)</td>
      <td>⌛ (v0.0.1)</td>
    </tr>
