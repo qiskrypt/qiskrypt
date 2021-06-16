@@ -745,7 +745,7 @@ Available soon.
      <td>❌ (N/A)</td>
    </tr>
    <tr>
-     <td>5</td>
+     <td>6</td>
      <td>Quantum Discord</td>
      <td>N>=2<br>(Multipartite)</td>
      <td>2001</td>
