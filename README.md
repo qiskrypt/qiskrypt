@@ -696,6 +696,16 @@ Available soon.
  <tbody>
    <tr>
      <td>1</td>
+     <td>Quantum Entropy<br>(von Neumann Entropy)</td>
+     <td>N>=2<br>(Multipartite)</td>
+     <td>1932</td>
+     <td>J. Neumann</td>
+     <td><a href="https://press.princeton.edu/books/hardcover/9780691178561/mathematical-foundations-of-quantum-mechanics" target="_blank">[N32]</a></td>
+     <td>❌ (N/A)</td>
+     <td>❌ (N/A)</td>
+   </tr>
+   <tr>
+     <td>2</td>
      <td>Quantum Shannon Distinguishability</td>
      <td>N>=2<br>(Multipartite)</td>
      <td>1948</td>
@@ -705,7 +715,7 @@ Available soon.
      <td>❌ (N/A)</td>
    </tr>
    <tr>
-     <td>2</td>
+     <td>3</td>
      <td>Quantum Fidelity</td>
      <td>N>=2<br>(Multipartite)</td>
      <td>1994</td>
@@ -715,7 +725,7 @@ Available soon.
      <td>❌ (N/A)</td>
    </tr>
    <tr>
-     <td>3</td>
+     <td>4</td>
      <td>Bhattacharyya Coefficient</td>
      <td>N>=2<br>(Multipartite)</td>
      <td>1996</td>
@@ -725,7 +735,7 @@ Available soon.
      <td>❌ (N/A)</td>
    </tr>
    <tr>
-     <td>4</td>
+     <td>5</td>
      <td>Trace Distance<br>(Kolmogorov Distance)</td>
      <td>N>=2<br>(Multipartite)</td>
      <td>1997</td>
@@ -735,7 +745,7 @@ Available soon.
      <td>❌ (N/A)</td>
    </tr>
    <tr>
-     <td>5</td>
+     <td>6</td>
      <td>Monogamy of Quantum Entanglement</td>
      <td>N>=2<br>(Multipartite)</td>
      <td>1999</td>
@@ -745,7 +755,7 @@ Available soon.
      <td>❌ (N/A)</td>
    </tr>
    <tr>
-     <td>6</td>
+     <td>7</td>
      <td>Quantum Discord</td>
      <td>N>=2<br>(Multipartite)</td>
      <td>2001</td>
