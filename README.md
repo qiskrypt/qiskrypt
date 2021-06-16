@@ -678,7 +678,7 @@ Available soon.
 </table>
 
 
-### Quantum Measures and Quantum Metrics
+### Quantum Distance Measures and Quantum Metrics
 
 <table class="tg">
  <thead>
@@ -696,6 +696,16 @@ Available soon.
  <tbody>
    <tr>
      <td>1</td>
+     <td>Quantum Shannon Distinguishability</td>
+     <td>N>=2<br>(Multipartite)</td>
+     <td>1948</td>
+     <td>C. Shannon</td>
+     <td><a href="https://ieeexplore.ieee.org/document/6773024" target="_blank">[S48]</a></td>
+     <td>❌ (N/A)</td>
+     <td>⌛ (v0.0.1)</td>
+   </tr>
+   <tr>
+     <td>2</td>
      <td>Quantum Fidelity</td>
      <td>N>=2<br>(Multipartite)</td>
      <td>1994</td>
