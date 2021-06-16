@@ -702,7 +702,7 @@ Available soon.
      <td>C. Shannon</td>
      <td><a href="https://ieeexplore.ieee.org/document/6773024" target="_blank">[S48]</a></td>
      <td>❌ (N/A)</td>
-     <td>⌛ (v0.0.1)</td>
+     <td>❌ (N/A)</td>
    </tr>
    <tr>
      <td>2</td>
@@ -712,27 +712,47 @@ Available soon.
      <td>R. Josza</td>
      <td><a href="https://www.tandfonline.com/doi/abs/10.1080/09500349414552171" target="_blank">[J99]</a></td>
      <td>❌ (N/A)</td>
-     <td>⌛ (v0.0.1)</td>
+     <td>❌ (N/A)</td>
    </tr>
    <tr>
-     <td>2</td>
+     <td>3</td>
+     <td>Bhattacharyya Coefficient</td>
+     <td>N>=2<br>(Multipartite)</td>
+     <td>1996</td>
+     <td>C. Fuchs and C. Caves</td>
+     <td><a href="https://arxiv.org/abs/quant-ph/9604001" target="_blank">[FC96]</a></td>
+     <td>❌ (N/A)</td>
+     <td>❌ (N/A)</td>
+   </tr>
+   <tr>
+     <td>4</td>
+     <td>Trace Distance<br>(Kolmogorov Distance)</td>
+     <td>N>=2<br>(Multipartite)</td>
+     <td>1997</td>
+     <td>C. Fuchs and J. Graaf</td>
+     <td><a href="https://arxiv.org/abs/quant-ph/9712042" target="_blank">[FG97]</a></td>
+     <td>❌ (N/A)</td>
+     <td>❌ (N/A)</td>
+   </tr>
+   <tr>
+     <td>5</td>
      <td>Monogamy of Quantum Entanglement</td>
      <td>N>=2<br>(Multipartite)</td>
      <td>1999</td>
      <td>V. Coffman, J. Kundu and W. Wootters</td>
      <td><a href="https://arxiv.org/abs/quant-ph/9907047" target="_blank">[CKW99]</a></td>
      <td>❌ (N/A)</td>
-     <td>⌛ (v0.0.1)</td>
+     <td>❌ (N/A)</td>
    </tr>
    <tr>
-     <td>3</td>
+     <td>5</td>
      <td>Quantum Discord</td>
      <td>N>=2<br>(Multipartite)</td>
      <td>2001</td>
      <td>H. Ollivier and W. Zurek</td>
      <td><a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.88.017901" target="_blank">[OZ01]</a></td>
      <td>❌ (N/A)</td>
-     <td>⌛ (v0.0.1)</td>
+     <td>❌ (N/A)</td>
    </tr>
  </tbody>
 </table>
