@@ -7,7 +7,8 @@
 [![gitHub repo stars](https://img.shields.io/github/stars/qiskrypt/qiskrypt?style=social)](https://github.com/qiskrypt/qiskrypt/stargazers)
 [![gitHub watchers](https://img.shields.io/github/watchers/qiskrypt/qiskrypt?style=social)](https://github.com/qiskrypt/qiskrypt/watchers)
 
-[![build Status](https://travis-ci.com/qiskrypt/qiskrypt.svg?branch=main)](https://travis-ci.com/qiskrypt/qiskrypt)
+[![github commit activity](https://img.shields.io/github/commit-activity/m/qiskrypt/qiskrypt)](https://github.com/qiskrypt)
+[![github last commit](https://img.shields.io/github/last-commit/qiskrypt/qiskrypt)](https://github.com/qiskrypt)
 
 [![current version](https://img.shields.io/badge/version-v0.0.1-magenta.svg)](https://github.com/qiskrypt/qiskrypt/)
 [![status of this version no. 1](https://img.shields.io/badge/status-not&nbsp;completed-orange.svg)](https://github.com/qiskrypt/qiskrypt/)
@@ -30,9 +31,12 @@
 [![technology used no. 2](https://img.shields.io/badge/built&nbsp;with-qiskit-red.svg)](https://qiskit.org/)
 [![software used no. 1](https://img.shields.io/badge/software-jetbrains&nbsp;pycharm-gold.svg)](https://www.jetbrains.com/pycharm/)
 
+[![liberapay goal progress](https://img.shields.io/liberapay/goal/qiskrypt)](https://liberapay.com/qiskrypt/)
+[![liberapay receiving](https://img.shields.io/liberapay/receives/qiskrypt)](https://liberapay.com/qiskrypt/)
+
 [![downloads of this repository](https://img.shields.io/github/downloads/qiskrypt/qiskrypt/total.svg)](https://github.com/qiskrypt/qiskrypt/archive/master.zip)
 [![price of this project](https://img.shields.io/badge/price-free-success.svg)](https://github.com/qiskrypt/qiskrypt/archive/master.zip)
-[![Donate](https://img.shields.io/badge/donate-paypal-green.svg)](https://www.paypal.me/qiskrypt)
+[![donate](https://img.shields.io/badge/donate-paypal-green.svg)](https://www.paypal.me/qiskrypt)
 
 
 ### About
