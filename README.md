@@ -67,7 +67,7 @@
 
 [![gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:qiskrypt@gmail.com)
 [![messenger](https://img.shields.io/badge/Messenger-00B2FF?style=for-the-badge&logo=messenger&logoColor=white)]()
-[![whatsapp](https://img.shields.io/badge/Line-00C300?style=for-the-badge&logo=line&logoColor=white)]()
+[![whatsapp](https://img.shields.io/badge/WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)]()
 
 
 ### About
