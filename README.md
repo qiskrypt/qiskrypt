@@ -39,7 +39,7 @@
 [![price of this project](https://img.shields.io/badge/price-free-success.svg)](https://github.com/qiskrypt/qiskrypt/archive/master.zip)
 
 <a href="https://github.com/qiskrypt/qiskrypt/funding_links?fragment=1" role="dialog">
-<img src="https://img.shields.io/badge/sponsor-30363D?style=for-the-badge&logo=GitHub-Sponsors&logoColor=#white" href="https://github.com/qiskrypt/qiskrypt/funding_links?fragment=1" role="dialog">
+<img src="https://img.shields.io/badge/sponsor-30363D?style=for-the-badge&logo=GitHub-Sponsors&logoColor=#white">
  </a>
 
 [![sponsors](https://img.shields.io/badge/sponsor-30363D?style=for-the-badge&logo=GitHub-Sponsors&logoColor=#white)](https://github.com/qiskrypt/qiskrypt/funding_links?fragment=1)
