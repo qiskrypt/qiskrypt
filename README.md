@@ -9,7 +9,6 @@
 
 [![github commit activity](https://img.shields.io/github/commit-activity/m/qiskrypt/qiskrypt)](https://github.com/qiskrypt)
 [![github last commit](https://img.shields.io/github/last-commit/qiskrypt/qiskrypt)](https://github.com/qiskrypt)
-
 [![current version](https://img.shields.io/badge/version-v0.0.1-magenta.svg)](https://github.com/qiskrypt/qiskrypt/)
 [![website](https://img.shields.io/website?down_color=red&down_message=offline&up_color=green&up_message=online&url=https%3A%2F%2Fqiskrypt.github.io%2F)](https://qiskrypt.github.io/)
 
@@ -24,6 +23,7 @@
 [![keyword of this version no. 4](https://img.shields.io/badge/keyword-quantum&nbsp;mechanics-brown.svg)](https://github.com/qiskrypt/qiskrypt/)
 
 [![contributor for this repository](https://img.shields.io/badge/contributor-rubenandrebarreiro-blue.svg)](https://github.com/rubenandrebarreiro/)
+
 [![acknowledgement for this repository no. 1](https://img.shields.io/badge/acknowledgement-andrenunosouto-cyan.svg)](https://ciencias.ulisboa.pt/pt/perfil/ansouto)
 [![acknowledgement for this repository no. 2](https://img.shields.io/badge/acknowledgement-paulo&nbsp;mateus-cyan.svg)](http://sqig.math.ist.utl.pt/pmat/)
 [![acknowledgement for this repository no. 3](https://img.shields.io/badge/acknowledgement-nikola&nbsp;paunkovic-cyan.svg)](https://www.math.tecnico.ulisboa.pt/~npaunkov/)
