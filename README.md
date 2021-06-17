@@ -16,8 +16,8 @@
 [![status of this version no. 4](https://img.shields.io/badge/status-not&nbsp;documented-orange.svg)](https://github.com/qiskrypt/qiskrypt/)
 
 [![keyword of this version no. 1](https://img.shields.io/badge/keyword-quantum&nbsp;cryptography-brown.svg)](https://github.com/qiskrypt/qiskrypt/)
-[![keyword of this version no. 2](https://img.shields.io/badge/keyword-quantum&nbsp;computing-brown.svg)](https://github.com/qiskrypt/qiskrypt/)
-[![keyword of this version no. 3](https://img.shields.io/badge/keyword-quantum&nbsp;communication-brown.svg)](https://github.com/qiskrypt/qiskrypt/)
+[![keyword of this version no. 2](https://img.shields.io/badge/keyword-quantum&nbsp;communication-brown.svg)](https://github.com/qiskrypt/qiskrypt/)
+[![keyword of this version no. 3](https://img.shields.io/badge/keyword-quantum&nbsp;computing-brown.svg)](https://github.com/qiskrypt/qiskrypt/)
 [![keyword of this version no. 4](https://img.shields.io/badge/keyword-quantum&nbsp;mechanics-brown.svg)](https://github.com/qiskrypt/qiskrypt/)
 
 [![contributor for this repository](https://img.shields.io/badge/contributor-rubenandrebarreiro-blue.svg)](https://github.com/rubenandrebarreiro/)
