@@ -5,7 +5,7 @@
 [![github followers](https://img.shields.io/github/followers/qiskrypt?style=social)](https://github.com/qiskrypt)
 [![github forks](https://img.shields.io/github/forks/qiskrypt/qiskrypt?style=social)](https://github.com/qiskrypt/qiskrypt/fork)
 [![gitHub repo stars](https://img.shields.io/github/stars/qiskrypt/qiskrypt?style=social)](https://github.com/qiskrypt/qiskrypt/stargazers)
-[![GitHub watchers](https://img.shields.io/github/watchers/qiskrypt/qiskrypt?style=social)](https://github.com/qiskrypt/qiskrypt/watchers)
+[![gitHub watchers](https://img.shields.io/github/watchers/qiskrypt/qiskrypt?style=social)](https://github.com/qiskrypt/qiskrypt/watchers)
 
 [![build Status](https://travis-ci.com/qiskrypt/qiskrypt.svg?branch=main)](https://travis-ci.com/qiskrypt/qiskrypt)
 
