@@ -11,6 +11,8 @@
 [![github last commit](https://img.shields.io/github/last-commit/qiskrypt/qiskrypt)](https://github.com/qiskrypt)
 
 [![current version](https://img.shields.io/badge/version-v0.0.1-magenta.svg)](https://github.com/qiskrypt/qiskrypt/)
+[![website](https://img.shields.io/website?down_color=red&down_message=offline&up_color=green&up_message=online&url=https%3A%2F%2Fqiskrypt.github.io%2F)](https://qiskrypt.github.io/)
+
 [![status of this version no. 1](https://img.shields.io/badge/status-not&nbsp;completed-orange.svg)](https://github.com/qiskrypt/qiskrypt/)
 [![status of this version no. 2](https://img.shields.io/badge/status-beta-orange.svg)](https://github.com/qiskrypt/qiskrypt/)
 [![status of this version no. 3](https://img.shields.io/badge/status-not&nbsp;stable-orange.svg)](https://github.com/qiskrypt/qiskrypt/)
@@ -36,7 +38,8 @@
 
 [![downloads of this repository](https://img.shields.io/github/downloads/qiskrypt/qiskrypt/total.svg)](https://github.com/qiskrypt/qiskrypt/archive/master.zip)
 [![price of this project](https://img.shields.io/badge/price-free-success.svg)](https://github.com/qiskrypt/qiskrypt/archive/master.zip)
-[![donate](https://img.shields.io/badge/donate-paypal-green.svg)](https://www.paypal.me/qiskrypt)
+[![donate no. 1](https://img.shields.io/badge/donate-paypal-green.svg)](https://www.paypal.me/qiskrypt)
+[![donate no. 2](https://img.shields.io/badge/donate-liberapay-green.svg)](https://liberapay.com/qiskrypt/donate)
 
 
 ### About
