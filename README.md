@@ -31,20 +31,23 @@
 [![acknowledgement for this repository no. 3](https://img.shields.io/badge/acknowledgement-nikola&nbsp;paunkovic-cyan.svg)](https://www.math.tecnico.ulisboa.pt/~npaunkov/)
 [![acknowledgement for this repository no. 4](https://img.shields.io/badge/acknowledgement-walter&nbsp;krawec-cyan.svg)](http://www.walterkrawec.org/)
 
-[![technology used no. 1](https://img.shields.io/badge/built&nbsp;with-qiskit-red.svg)](https://qiskit.org/)
-
 [![liberapay goal progress](https://img.shields.io/liberapay/goal/qiskrypt)](https://liberapay.com/qiskrypt/)
 [![liberapay receiving](https://img.shields.io/liberapay/receives/qiskrypt)](https://liberapay.com/qiskrypt/)
 [![downloads of this repository](https://img.shields.io/github/downloads/qiskrypt/qiskrypt/total.svg)](https://github.com/qiskrypt/qiskrypt/archive/master.zip)
 [![price of this project](https://img.shields.io/badge/price-free-success.svg)](https://github.com/qiskrypt/qiskrypt/archive/master.zip)
 
 
-#### Languages, Frameworks & IDEs
+#### Languages, Frameworks, Libraries & IDEs
 
 [![language/framework/ide no. 1](https://img.shields.io/badge/conda-342B029.svg?&style=for-the-badge&logo=anaconda&logoColor=white)](https://www.anaconda.com/)
 [![language/framework/ide no. 2](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
-[![language/framework/ide no. 3](https://img.shields.io/badge/Shell_Script-121011?style=for-the-badge&logo=gnu-bash&logoColor=white)](https://www.shellscript.sh/)
-[![language/framework/ide no. 4](https://img.shields.io/badge/pycharm-143?style=for-the-badge&logo=pycharm&logoColor=yellow&color=black&labelColor=black)](https://www.jetbrains.com/pycharm/)
+[![language/framework/ide no. 3](https://img.shields.io/badge/IBM_Quantum-052FAD?style=for-the-badge&logo=ibm&logoColor=white)](https://qiskit.org/)
+[![language/framework/ide no. 4](https://img.shields.io/badge/IBM_Qiskit-6929C4?style=for-the-badge&logo=qiskit&logoColor=white)](https://qiskit.org/)
+
+[![language/framework/ide no. 5](https://img.shields.io/badge/NumPy-013243?style=for-the-badge&logo=numpy&logoColor=white)](https://numpy.org/)
+[![language/framework/ide no. 6](https://img.shields.io/badge/Shell_Script-121011?style=for-the-badge&logo=gnu-bash&logoColor=white)](https://www.shellscript.sh/)
+[![language/framework/ide no. 7](https://img.shields.io/badge/pycharm-143?style=for-the-badge&logo=pycharm&logoColor=yellow&color=black&labelColor=black)](https://www.jetbrains.com/pycharm/)
+[![language/framework/ide no. 8](https://img.shields.io/badge/Jupyter_Notebook-F37626?style=for-the-badge&logo=jupyter&logoColor=white)](https://jupyter.org/)
 
 
 #### Funding
