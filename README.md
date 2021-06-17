@@ -2,6 +2,11 @@
 
 <img src="https://raw.githubusercontent.com/qiskrypt/qiskrypt.github.io/main/assets/images/logos/qiskrypt/PNGs/qiskrypt-logo-banner.png" alt="Qiskrypt - Logo" width="60%">
 
+[![github followers](https://img.shields.io/github/followers/qiskrypt?style=social)](https://github.com/qiskrypt)
+[![github forks](https://img.shields.io/github/forks/qiskrypt/qiskrypt?style=social)](https://github.com/qiskrypt/qiskrypt/fork)
+[![gitHub repo stars](https://img.shields.io/github/stars/qiskrypt/qiskrypt?style=social)](https://github.com/qiskrypt/qiskrypt/stargazers)
+[![GitHub watchers](https://img.shields.io/github/watchers/qiskrypt/qiskrypt?style=social)](https://github.com/qiskrypt/qiskrypt/watchers)
+
 [![build Status](https://travis-ci.com/qiskrypt/qiskrypt.svg?branch=main)](https://travis-ci.com/qiskrypt/qiskrypt)
 
 [![current version](https://img.shields.io/badge/version-v0.0.1-magenta.svg)](https://github.com/qiskrypt/qiskrypt/)
@@ -25,8 +30,6 @@
 [![technology used no. 2](https://img.shields.io/badge/built&nbsp;with-qiskit-red.svg)](https://qiskit.org/)
 [![software used no. 1](https://img.shields.io/badge/software-jetbrains&nbsp;pycharm-gold.svg)](https://www.jetbrains.com/pycharm/)
 
-[![star this repository](http://githubbadges.com/star.svg?user=qiskrypt&repo=qiskrypt&style=flat)](https://github.com/qiskrypt/qiskrypt/stargazers)
-[![fork this repository](http://githubbadges.com/fork.svg?user=qiskrypt&repo=qiskrypt&style=flat)](https://github.com/qiskrypt/qiskrypt/fork)
 [![downloads of this repository](https://img.shields.io/github/downloads/qiskrypt/qiskrypt/total.svg)](https://github.com/qiskrypt/qiskrypt/archive/master.zip)
 [![price of this project](https://img.shields.io/badge/price-free-success.svg)](https://github.com/qiskrypt/qiskrypt/archive/master.zip)
 [![Donate](https://img.shields.io/badge/donate-paypal-green.svg)](https://www.paypal.me/qiskrypt)
