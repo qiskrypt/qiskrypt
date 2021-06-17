@@ -35,12 +35,20 @@
 
 [![liberapay goal progress](https://img.shields.io/liberapay/goal/qiskrypt)](https://liberapay.com/qiskrypt/)
 [![liberapay receiving](https://img.shields.io/liberapay/receives/qiskrypt)](https://liberapay.com/qiskrypt/)
-
 [![downloads of this repository](https://img.shields.io/github/downloads/qiskrypt/qiskrypt/total.svg)](https://github.com/qiskrypt/qiskrypt/archive/master.zip)
 [![price of this project](https://img.shields.io/badge/price-free-success.svg)](https://github.com/qiskrypt/qiskrypt/archive/master.zip)
-[![donate no. 1](https://img.shields.io/badge/donate-paypal-green.svg)](https://www.paypal.me/qiskrypt)
-[![donate no. 2](https://img.shields.io/badge/donate-liberapay-green.svg)](https://liberapay.com/qiskrypt/donate)
 
+<a href="https://github.com/qiskrypt/qiskrypt/funding_links?fragment=1" role="dialog">
+<img src="https://img.shields.io/badge/sponsor-30363D?style=for-the-badge&logo=GitHub-Sponsors&logoColor=#white" href="https://github.com/qiskrypt/qiskrypt/funding_links?fragment=1" role="dialog">
+ </a>
+
+[![sponsors](https://img.shields.io/badge/sponsor-30363D?style=for-the-badge&logo=GitHub-Sponsors&logoColor=#white)](https://github.com/qiskrypt/qiskrypt/funding_links?fragment=1)
+
+[![paypal](https://img.shields.io/badge/PayPal-00457C?style=for-the-badge&logo=paypal&logoColor=white)](https://www.paypal.me/qiskrypt)
+[![liberapay](https://img.shields.io/badge/Liberapay-F6C915?style=for-the-badge&logo=liberapay&logoColor=black)](https://liberapay.com/qiskrypt/donate)
+
+[![facebook](https://img.shields.io/badge/Facebook-1877F2?style=for-the-badge&logo=facebook&logoColor=white)](https://www.facebook.com/qiskrypt)
+[![github](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/qiskrypt/)
 
 ### About
 
