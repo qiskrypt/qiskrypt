@@ -59,9 +59,10 @@
 #### Funding
 
 [![sponsors](https://img.shields.io/badge/sponsor-30363D?style=for-the-badge&logo=GitHub-Sponsors&logoColor=#white)]()
-[![paypal](https://img.shields.io/badge/PayPal-00457C?style=for-the-badge&logo=paypal&logoColor=white)](https://www.paypal.me/qiskrypt)
-[![liberapay](https://img.shields.io/badge/Liberapay-F6C915?style=for-the-badge&logo=liberapay&logoColor=black)](https://liberapay.com/qiskrypt/donate)
 [![buymeacoffee](https://img.shields.io/badge/Buy_Me_a_Coffee-F6C915?style=for-the-badge&logo=buymeacoffee&logoColor=yellow&color=black&labelColor=black)](https://buymeacoffee.com/qiskrypt)
+[![liberapay](https://img.shields.io/badge/Liberapay-F6C915?style=for-the-badge&logo=liberapay&logoColor=black)](https://liberapay.com/qiskrypt/donate)
+[![patreon](https://img.shields.io/badge/Patreon-F96854?style=for-the-badge&logo=patreon&logoColor=white)](https://www.patreon.com/qiskrypt)
+[![paypal](https://img.shields.io/badge/PayPal-00457C?style=for-the-badge&logo=paypal&logoColor=white)](https://www.paypal.me/qiskrypt)
 
 
 #### Social
