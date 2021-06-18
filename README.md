@@ -52,8 +52,8 @@
 [![language/framework/ide no. 9](https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white)](https://pandas.pydata.org/)
 
 [![language/framework/ide no. 10](https://img.shields.io/badge/Shell_Script-121011?style=for-the-badge&logo=gnu-bash&logoColor=white)](https://www.shellscript.sh/)
-[![language/framework/ide no. 11](https://img.shields.io/badge/pycharm-143?style=for-the-badge&logo=pycharm&logoColor=yellow&color=black&labelColor=black)](https://www.jetbrains.com/pycharm/)
-[![language/framework/ide no. 12](https://img.shields.io/badge/Jupyter_Notebook-F37626?style=for-the-badge&logo=jupyter&logoColor=white)](https://jupyter.org/)
+[![language/framework/ide no. 11](https://img.shields.io/badge/Jupyter_Notebook-F37626?style=for-the-badge&logo=jupyter&logoColor=white)](https://jupyter.org/)
+[![language/framework/ide no. 12](https://img.shields.io/badge/pycharm-143?style=for-the-badge&logo=pycharm&logoColor=yellow&color=black&labelColor=black)](https://www.jetbrains.com/pycharm/)
 
 
 #### Funding
