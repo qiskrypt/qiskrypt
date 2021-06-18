@@ -47,9 +47,9 @@
 [![language/framework/ide no. 5](https://img.shields.io/badge/IBM_Qiskit-6929C4?style=for-the-badge&logo=qiskit&logoColor=white)](https://qiskit.org/)
 
 [![language/framework/ide no. 6](https://img.shields.io/badge/NumPy-013243?style=for-the-badge&logo=numpy&logoColor=white)](https://numpy.org/)
-[![language/framework/ide no. 7](https://img.shields.io/badge/SciPy-3B5526?style=for-the-badge&logo=sympy&logoColor=white)](https://www.sympy.org/)
-[![language/framework/ide no. 8](https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=scipy&logoColor=white)](https://pandas.pydata.org/)
-[![language/framework/ide no. 9](https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=scipy&logoColor=white)](https://pandas.pydata.org/)
+[![language/framework/ide no. 7](https://img.shields.io/badge/SymPy-3B5526?style=for-the-badge&logo=sympy&logoColor=white)](https://www.sympy.org/)
+[![language/framework/ide no. 8](https://img.shields.io/badge/SciPy-8CAAE6?style=for-the-badge&logo=scipy&logoColor=white)](https://www.scipy.org/)
+[![language/framework/ide no. 9](https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white)](https://pandas.pydata.org/)
 
 [![language/framework/ide no. 10](https://img.shields.io/badge/Shell_Script-121011?style=for-the-badge&logo=gnu-bash&logoColor=white)](https://www.shellscript.sh/)
 [![language/framework/ide no. 11](https://img.shields.io/badge/pycharm-143?style=for-the-badge&logo=pycharm&logoColor=yellow&color=black&labelColor=black)](https://www.jetbrains.com/pycharm/)
