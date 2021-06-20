@@ -499,6 +499,27 @@ Available soon.
    </tr>
    <tr>
      <td>2</td>
+     <td rowspan="2">Quantum Data Authentication</td>
+     <td>N=2<br>(Bipartite)</td>
+     <td>Quantum Data Signature</td>
+     <td>2001</td>
+     <td>D. Gottesman and I. Chuang</td>
+     <td><a href="https://arxiv.org/abs/quant-ph/0105032" target="_blank">[MTW00]</a></td>
+     <td>❌ (N/A)</td>
+     <td>❌ (N/A)</td>
+   </tr>
+   <tr>
+      <td>3</td>
+      <td>N=2<br>(Bipartite)</td>
+      <td>Quantum Data Authentication</td>
+      <td>2002</td>
+      <td>H. Barnum, C. Crepeau, D. Gottesman, A. Smith and A. Tapp</td>
+      <td><a href="https://arxiv.org/abs/quant-ph/0205128" target="_blank">[AV13]</a></td>
+      <td>❌ (N/A)</td>
+      <td>❌ (N/A)</td>
+   </tr>
+   <tr>
+     <td>4</td>
      <td rowspan="6">Quantum Data Integrity</td>
      <td>N>=2<br>(Multipartite)</td>
      <td>SWAP Test<br>(Quantum Fingerprinting)</td>
@@ -509,7 +530,7 @@ Available soon.
      <td>⌛ (v0.0.1)</td>
    </tr>
    <tr>
-      <td>3</td>
+      <td>5</td>
       <td>N=2<br>(Bipartite)</td>
       <td>Quantum Hashing Function</td>
       <td>2013</td>
@@ -519,7 +540,7 @@ Available soon.
       <td>❌ (N/A)</td>
     </tr>
     <tr>
-       <td>4</td>
+       <td>6</td>
        <td>N=2<br>(Bipartite)</td>
        <td>Bell State Measurement<br>(BSM)</td>
        <td>1996</td>
@@ -529,7 +550,7 @@ Available soon.
        <td>⌛ (v0.0.1)</td>
      </tr>
      <tr>
-       <td>5</td>
+       <td>7</td>
        <td>N>=3<br>(Multipartite)</td>
        <td>GHZ State Measurement<br>(GHZSM)</td>
        <td>-</td>
@@ -539,7 +560,7 @@ Available soon.
        <td>⌛ (v0.0.1)</td>
      </tr>
      <tr>
-       <td>6</td>
+       <td>8</td>
        <td>N>=3<br>(Multipartite)</td>
        <td>W State Measurement<br>(WSM)</td>
        <td>-</td>
