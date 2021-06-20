@@ -504,17 +504,17 @@ Available soon.
      <td>Quantum Data Signature</td>
      <td>2001</td>
      <td>D. Gottesman and I. Chuang</td>
-     <td><a href="https://arxiv.org/abs/quant-ph/0105032" target="_blank">[MTW00]</a></td>
+     <td><a href="https://arxiv.org/abs/quant-ph/0105032" target="_blank">[GC01]</a></td>
      <td>❌ (N/A)</td>
      <td>❌ (N/A)</td>
    </tr>
    <tr>
       <td>3</td>
       <td>N=2<br>(Bipartite)</td>
-      <td>Quantum Data Authentication</td>
+      <td>Quantum Message Authentication</td>
       <td>2002</td>
       <td>H. Barnum, C. Crepeau, D. Gottesman, A. Smith and A. Tapp</td>
-      <td><a href="https://arxiv.org/abs/quant-ph/0205128" target="_blank">[AV13]</a></td>
+      <td><a href="https://arxiv.org/abs/quant-ph/0205128" target="_blank">[BCGST02]</a></td>
       <td>❌ (N/A)</td>
       <td>❌ (N/A)</td>
    </tr>
