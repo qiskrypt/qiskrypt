@@ -772,7 +772,7 @@ Available soon.
      <td>2</td>
      <td>Quantum Conditional Entropy</td>
      <td>N>=2<br>(Multipartite)</td>
-     <td>2000</td>
+     <td>1995</td>
      <td>N. Cerf and C. Adami</td>
      <td><a href="https://arxiv.org/abs/quant-ph/9512022" target="_blank">[CA95]</a></td>
      <td>❌ (N/A)</td>
