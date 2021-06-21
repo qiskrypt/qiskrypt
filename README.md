@@ -770,6 +770,36 @@ Available soon.
    </tr>
    <tr>
      <td>2</td>
+     <td>Quantum Conditional Entropy</td>
+     <td>N>=2<br>(Multipartite)</td>
+     <td>2000</td>
+     <td>N. Cerf and C. Adami</td>
+     <td><a href="https://arxiv.org/abs/quant-ph/9512022" target="_blank">[CA95]</a></td>
+     <td>❌ (N/A)</td>
+     <td>❌ (N/A)</td>
+   </tr>
+   <tr>
+     <td>3</td>
+     <td>Quantum Relative Entropy</td>
+     <td>N>=2<br>(Multipartite)</td>
+     <td>2000</td>
+     <td>B. Schumacher and M. Westmoreland</td>
+     <td><a href="https://arxiv.org/abs/quant-ph/0004045" target="_blank">[SW00]</a></td>
+     <td>❌ (N/A)</td>
+     <td>❌ (N/A)</td>
+   </tr>
+   <tr>
+     <td>4</td>
+     <td>Quantum Joint Entropy</td>
+     <td>N>=2<br>(Multipartite)</td>
+     <td>2001</td>
+     <td>L. Henderson and V. Vedral</td>
+     <td><a href="https://arxiv.org/abs/quant-ph/0105028" target="_blank">[HV01]</a></td>
+     <td>❌ (N/A)</td>
+     <td>❌ (N/A)</td>
+   </tr>
+   <tr>
+     <td>5</td>
      <td>Quantum Shannon Distinguishability</td>
      <td>N>=2<br>(Multipartite)</td>
      <td>1948</td>
@@ -779,7 +809,7 @@ Available soon.
      <td>❌ (N/A)</td>
    </tr>
    <tr>
-     <td>3</td>
+     <td>6</td>
      <td>Quantum Fidelity</td>
      <td>N>=2<br>(Multipartite)</td>
      <td>1994</td>
@@ -789,7 +819,7 @@ Available soon.
      <td>❌ (N/A)</td>
    </tr>
    <tr>
-     <td>4</td>
+     <td>7</td>
      <td>Bhattacharyya Coefficient</td>
      <td>N>=2<br>(Multipartite)</td>
      <td>1996</td>
@@ -799,7 +829,7 @@ Available soon.
      <td>❌ (N/A)</td>
    </tr>
    <tr>
-     <td>5</td>
+     <td>8</td>
      <td>Trace Distance<br>(Kolmogorov Distance)</td>
      <td>N>=2<br>(Multipartite)</td>
      <td>1997</td>
@@ -809,7 +839,7 @@ Available soon.
      <td>❌ (N/A)</td>
    </tr>
    <tr>
-     <td>6</td>
+     <td>9</td>
      <td>Monogamy of Quantum Entanglement</td>
      <td>N>=2<br>(Multipartite)</td>
      <td>1999</td>
@@ -819,7 +849,7 @@ Available soon.
      <td>❌ (N/A)</td>
    </tr>
    <tr>
-     <td>7</td>
+     <td>10</td>
      <td>Quantum Discord</td>
      <td>N>=2<br>(Multipartite)</td>
      <td>2001</td>
