@@ -1,0 +1,121 @@
+# Name of the Conda Environment
+name: qiskrypt-env
+
+# Definition of the Conda's Channels
+channels:
+  - defaults
+  - conda-forge
+
+# Definition of the Dependencies
+dependencies:
+  # Python Programming Language
+  - python
+  # Python's Essentials
+  - toolz
+  - h5py
+  - dill
+  - pyyaml
+  - partd
+  - tqdm
+  - pip
+  # HTTP, Networks and Web Services
+  - requests
+  - flask
+  - boto3
+  - protobuf
+  # Python's Data Science and Analytics Libraries
+  - numpy
+  - scipy
+  - pandas
+  - scikit-learn
+  - pandas-datareader
+  - pip:
+    - ipython-genutils
+    - jupyter-client
+    - jupyter-console
+    - jupyter-core
+    - git+https://github.com/blaze/dask.git#egg=dask[complete]
+  # Python's Visualization Libraries
+  - matplotlib
+  - bokeh
+  # Notebooks
+  - jupyter
+  # Natural Language Processing
+  - spacy
+  # Image Processing
+  - pillow
+  # Quantum Computing (IBM Q Experience/Qiskit and QuTiP)
+  - pip:
+    - qiskit == 0.27.0
+    - qiskit[visualization]
+    - qutip
+  # Others
+  - bleach
+  - cycler
+  - cython
+  - decorator
+  - entrypoints
+  - expat
+  - freetype
+  - html5lib
+  - icu
+  - ipykernel
+  - ipython
+  - ipython_genutils
+  - ipywidgets
+  - jinja2
+  - jpeg
+  - jsonschema
+  - jupyter_client
+  - jupyter_console
+  - jupyter_core
+  - libffi
+  - libgpuarray
+  - libiconv
+  - libpng
+  - libsodium
+  - libxml2
+  - mako
+  - markupsafe
+  - mistune
+  - mkl
+  - nbconvert
+  - nbformat
+  - nose
+  - notebook
+  - numba
+  - openssl
+  - pandocfilters
+  - path.py
+  - pcre
+  - pexpect
+  - pickleshare
+  - pip
+  - prompt_toolkit
+  - ptyprocess
+  - pygments
+  - pygpu
+  - pyparsing
+  - pyqt
+  - python-dateutil
+  - pytz
+  - pyzmq
+  - qt
+  - qtconsole
+  - setuptools
+  - simplegeneric
+  - sip
+  - six
+  - sqlite
+  - terminado
+  - testpath
+  - tk
+  - tornado
+  - traitlets
+  - unittest2
+  - wcwidth
+  - wheel
+  - widgetsnbextension
+  - xz
+  - zeromq
+  - zlib
