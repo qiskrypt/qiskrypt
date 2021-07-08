@@ -27,14 +27,11 @@ Other Institution(s):
 Author(s):
 - Ruben Barreiro (NOVA School of Science and Technology, NOVA University of Lisbon, Portugal).
 
-Supervisor(s):
-- Prof. Andre Souto (Faculty of Sciences, University of Lisbon, Portugal).
-
 Acknowledgement(s):
+- Prof. Andre Souto (Faculty of Sciences, University of Lisbon, Portugal).
 - Prof. Paulo Mateus (Tecnico Lisboa, University of Lisbon, Portugal).
 - Prof. Nikola Paunkovic (Tecnico Lisboa, University of Lisbon, Portugal).
 - Prof. Walter Krawec (School of Engineering, University of Connecticut, United States of America).
-- Prof. Antonio Ravara (NOVA School of Science and Technology, NOVA University of Lisbon, Portugal).
 
 """
 
