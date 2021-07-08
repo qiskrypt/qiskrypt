@@ -40,11 +40,15 @@ Acknowledgement(s):
 
 # The Enumerations and Constants
 
-# The maximum number of Qubits for the QASM Simulator of
-# the IBM's Qiskit Library
 QASM_SIMULATOR_MAX_NUM_QUBITS = 32
+"""
+The maximum number of Qubits for the QASM Simulator of
+the IBM's Qiskit Library.
+"""
 
-# The default number of experiment counts for the final result,
-# for simulation or executions of quantum circuits,
-# using the IBM's Qiskit Library
 DEFAULT_NUM_EXPERIMENT_COUNTS = 1000
+"""
+The default number of experiment counts for the final result,
+for simulation or executions of quantum circuits,
+using the IBM's Qiskit Library.
+"""
