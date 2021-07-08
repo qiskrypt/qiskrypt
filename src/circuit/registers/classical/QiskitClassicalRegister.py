@@ -69,7 +69,7 @@ class QiskitClassicalRegister:
 
         self.num_bits = num_bits
         """
-        Set the number of the Bits of the IBM's Qiskit Classical Register.
+        Set the number of the bits of the IBM's Qiskit Classical Register.
         """
 
         if classical_register is None:
