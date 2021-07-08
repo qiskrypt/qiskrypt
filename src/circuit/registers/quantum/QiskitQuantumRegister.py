@@ -39,12 +39,12 @@ Acknowledgement(s):
 """
 
 """
-Import required Libraries and Packages
+Import required Libraries and Packages.
 """
 
 from qiskit import QuantumRegister
 """
-Import Quantum Register from IBM's Qiskit
+Import Quantum Register from IBM's Qiskit.
 """
 
 
@@ -57,9 +57,10 @@ class QiskitQuantumRegister:
         """
         Constructor for the IBM's Qiskit Quantum Register.
 
-        :param name: The name of the IBM's Qiskit Quantum Register. \n
-        :param num_qubits: The number of bits of the IBM's Qiskit Quantum Register. \n
-        :param quantum_register: A built-in quantum register object.
+        :param name: The name of the IBM's Qiskit Quantum Register.
+        :param num_qubits: The number of bits of the IBM's Qiskit Quantum Register.
+        :param quantum_register: A built-in quantum register object of
+                                 the IBM's Qiskit Quantum Register.
         """
 
         self.name = name

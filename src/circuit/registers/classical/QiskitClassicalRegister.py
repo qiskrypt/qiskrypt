@@ -39,12 +39,12 @@ Acknowledgement(s):
 """
 
 """
-Import required Libraries and Packages
+Import required Libraries and Packages.
 """
 
 from qiskit import ClassicalRegister
 """
-Import Classical Register from IBM's Qiskit
+Import Classical Register from IBM's Qiskit.
 """
 
 
@@ -57,9 +57,10 @@ class QiskitClassicalRegister:
         """
         Constructor for the IBM's Qiskit Classical Register.
 
-        :param name: The name of the IBM's Qiskit Classical Register. \n
-        :param num_bits: The number of bits of the IBM's Qiskit Classical Register. \n
-        :param classical_register: A built-in classical register object.
+        :param name: The name of the IBM's Qiskit Classical Register.
+        :param num_bits: The number of bits of the IBM's Qiskit Classical Register.
+        :param classical_register: A built-in classical register object of
+                                   the IBM's Qiskit Classical Register.
         """
 
         self.name = name

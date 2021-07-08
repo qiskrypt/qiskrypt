@@ -39,7 +39,7 @@ Acknowledgement(s):
 """
 
 """
-The Enumerations and Constants
+The Enumerations and Constants.
 """
 
 QASM_SIMULATOR_MAX_NUM_QUBITS = 32
