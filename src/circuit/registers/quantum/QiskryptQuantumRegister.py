@@ -46,6 +46,12 @@ from qiskit import QuantumRegister
 Import Quantum Register from IBM's Qiskit.
 """
 
+from src.circuit.registers.quantum.exception.QiskryptQuantumRegisterException \
+    import QiskryptNotQuantumRegisterError
+"""
+Import the Not Quantum Register Error for the Qiskrypt's Quantum Register.
+"""
+
 
 class QiskryptQuantumRegister:
     """
@@ -91,3 +97,20 @@ class QiskryptQuantumRegister:
             """
             Set the built-in quantum register of the Qiskrypt's Quantum Register.
             """
+
+    @staticmethod
+    def raise_not_quantum_register_error():
+        """
+        Return/Raise a Not a Quantum Register Error for the Qiskrypt's Quantum Register.
+        :raise not_quantum_register_error: a Not a Quantum Register Error for the Qiskrypt's Quantum Register.
+        """
+
+        not_quantum_register_error = QiskryptNotQuantumRegisterError()
+        """
+        Retrieve the Not a Quantum Register Error for the Qiskrypt's Quantum Register.
+        """
+
+        """
+        Raise the Not a Quantum Register Error for the Qiskrypt's Quantum Register.
+        """
+        raise not_quantum_register_error
