@@ -46,6 +46,12 @@ from qiskit import ClassicalRegister
 Import Classical Register from IBM's Qiskit.
 """
 
+from src.circuit.registers.classical.exception.QiskryptClassicalRegisterException \
+    import QiskryptNotClassicalRegisterError
+"""
+Import the Not Classical Register Error for the Qiskrypt's Classical Register.
+"""
+
 
 class QiskryptClassicalRegister:
     """
@@ -91,3 +97,20 @@ class QiskryptClassicalRegister:
             """
             Set the built-in classical register of the Qiskrypt's Classical Register.
             """
+
+    @staticmethod
+    def raise_not_classical_register_error():
+        """
+        Return/Raise a Not a Classical Register Error for the Qiskrypt's Classical Register.
+        :raise not_classical_register_error: a Not a Classical Register Error for the Qiskrypt's Classical Register.
+        """
+
+        not_classical_register_error = QiskryptNotClassicalRegisterError()
+        """
+        Retrieve the Not a Classical Register Error for the Qiskrypt's Classical Register.
+        """
+
+        """
+        Raise the Not a Classical Register Error for the Qiskrypt's Classical Register.
+        """
+        raise not_classical_register_error
