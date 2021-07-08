@@ -52,6 +52,12 @@ from src.circuit.registers.quantum.semi_quantum.exception.QiskryptSemiQuantumReg
 Import the Unsupported Operation Error for the Qiskrypt's Semi-Quantum Register.
 """
 
+from src.circuit.registers.quantum.semi_quantum.exception.QiskryptSemiQuantumRegisterException \
+    import QiskryptNotSemiQuantumRegisterError
+"""
+Import the Not Semi-Quantum Register Error for the Qiskrypt's Semi-Quantum Register.
+"""
+
 
 class QiskryptSemiQuantumRegister(QiskryptQuantumRegister):
     """
@@ -90,3 +96,20 @@ class QiskryptSemiQuantumRegister(QiskryptQuantumRegister):
         Raise the Unsupported Operation Error for the Qiskrypt's Semi-Quantum Register.
         """
         raise unsupported_operation_error
+
+    @staticmethod
+    def raise_not_semi_quantum_register_error():
+        """
+        Return/Raise a Not a Semi-Quantum Register Error for the Qiskrypt's Semi-Quantum Register.
+        :raise not_semi_quantum_register_error: a Not a Semi-Quantum Register Error for the Qiskrypt's Semi-Quantum Register.
+        """
+
+        not_semi_quantum_register_error = QiskryptNotSemiQuantumRegisterError()
+        """
+        Retrieve the Not a Semi-Quantum Register Error for the Qiskrypt's Semi-Quantum Register.
+        """
+
+        """
+        Raise the Not a Semi-Quantum Register Error for the Qiskrypt's Semi-Quantum Register.
+        """
+        raise not_semi_quantum_register_error
