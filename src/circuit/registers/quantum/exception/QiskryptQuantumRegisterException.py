@@ -44,7 +44,7 @@ the Qiskrypt's Quantum Register.
 """
 
 
-class QiskryptNotClassicalRegisterError(Exception):
+class QiskryptNotQuantumRegisterError(Exception):
     """
     Object Class of the Not a Quantum Register Error for
     the Qiskrypt's Quantum Register.
