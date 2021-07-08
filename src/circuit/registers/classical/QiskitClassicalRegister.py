@@ -22,7 +22,7 @@ College(s):\n
 
 Other Institution(s):\n
 - Instituto de Telecomunicacoes, Portugal.
-- Security and Quantum Information Group, Portugal.
+- SQIG, Portugal.
 - LASIGE, Portugal.
 - UT Austin Program, Portugal.
 
