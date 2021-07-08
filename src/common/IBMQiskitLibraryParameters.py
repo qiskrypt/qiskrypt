@@ -19,20 +19,22 @@ College(s):
 - School of Engineering, University of Connecticut, United States of America.
 
 Other Institution(s):
-- UT Austin Program, Portugal.
 - Instituto de Telecomunicacoes, Portugal.
 - Security and Quantum Information Group, Portugal.
 - LASIGE, Portugal.
+- UT Austin Program, Portugal.
 
 Author(s):
-- Ruben Andre Barreiro (NOVA School of Science and Technology, NOVA University of Lisbon, Portugal).
+- Ruben Barreiro (NOVA School of Science and Technology, NOVA University of Lisbon, Portugal).
+
+Supervisor(s):
+- Prof. Andre Souto (Faculty of Sciences, University of Lisbon, Portugal).
 
 Acknowledgement(s):
-- Prof. Andre Nuno Souto (Faculty of Sciences, University of Lisbon, Portugal).
-- Prof. Paulo Alexandre Mateus (Tecnico Lisboa, University of Lisbon, and UT Austin Program, Portugal).
+- Prof. Paulo Mateus (Tecnico Lisboa, University of Lisbon, Portugal).
 - Prof. Nikola Paunkovic (Tecnico Lisboa, University of Lisbon, Portugal).
-- Prof. Walter Krawec Nuno Souto (School of Engineering, University of Connecticut, United States of America).
-- Prof. Antonio Maria Ravara (NOVA School of Science and Technology, NOVA University of Lisbon, Portugal).
+- Prof. Walter Krawec (School of Engineering, University of Connecticut, United States of America).
+- Prof. Antonio Ravara (NOVA School of Science and Technology, NOVA University of Lisbon, Portugal).
 
 """
 
