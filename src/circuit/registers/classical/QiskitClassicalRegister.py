@@ -38,10 +38,14 @@ Acknowledgement(s):
 
 """
 
-# Import required Libraries and Packages
+"""
+Import required Libraries and Packages
+"""
 
-# Import Classical Register from IBM's Qiskit
 from qiskit import ClassicalRegister
+"""
+Import Classical Register from IBM's Qiskit
+"""
 
 
 class QiskitClassicalRegister:
