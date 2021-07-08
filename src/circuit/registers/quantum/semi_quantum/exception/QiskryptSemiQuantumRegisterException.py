@@ -37,34 +37,65 @@ Acknowledgement(s):\n
 
 """
 
-MESSAGE_UNSUPPORTED_OPERATIONS_EXCEPTION = "Unsupported operation for the Semi-Quantum Registers...\n"\
-                                           "The Semi-Quantum Registers only supports the operations:\n" \
+MESSAGE_UNSUPPORTED_OPERATIONS_EXCEPTION = "Unsupported operation for the Qiskrypt's Semi-Quantum Registers!!!\n"\
+                                           "The Qiskrypt's Semi-Quantum Registers only supports the operations:\n" \
                                            "   (i)            Z-MEASUREMENT: Measurement of the Qubit in Computational Basis.\n" \
                                            "  (ii)                  REFLECT: Reflection of the Qubit.\n" \
                                            " (iii) CLASSICAL-STATE-CREATION: Creation of a Qubit in a Classical State.\n"
 """
 The custom defined message for the Unsupported Operation Error for
-the IBM's Qiskit Semi-Quantum Register.
+the Qiskrypt's Semi-Quantum Register.
+"""
+
+MESSAGE_NOT_SEMI_QUANTUM_REGISTER_EXCEPTION = "Invalid Register: It was expected a Qiskrypt's Semi-Quantum Register as argument!!!\n"
+"""
+The custom defined message for the Not a Semi-Quantum Register Error for
+the Qiskrypt's Semi-Quantum Register.
 """
 
 
-class QiskitSemiQuantumRegisterUnsupportedOperationError(Exception):
+class QiskryptSemiQuantumRegisterUnsupportedOperationError(Exception):
     """
     Object Class of the Unsupported Operation Error for
-    the IBM's Qiskit Semi-Quantum Register.
+    the Qiskrypt's Semi-Quantum Register.
     """
 
     def __init__(self, message=MESSAGE_UNSUPPORTED_OPERATIONS_EXCEPTION):
         """
         Constructor for the Unsupported Operation Error for
-        the IBM's Qiskit Semi-Quantum Register.
+        the Qiskrypt's Semi-Quantum Register.
         :param message: The custom message for the Unsupported Operation Error for
-                        the IBM's Qiskit Semi-Quantum Register.
+                        the Qiskrypt's Semi-Quantum Register.
         """
         self.message = message
         """
         Set the custom message for the Unsupported Operation Error for
-        the IBM's Qiskit Semi-Quantum Register.
+        the Qiskrypt's Semi-Quantum Register.
+        """
+
+        super().__init__(self.message)
+        """
+        Calls the constructor of the super-class Exception.
+        """
+
+
+class QiskryptNotSemiQuantumRegisterError(Exception):
+    """
+    Object Class of the Not a Semi-Quantum Register Error for
+    the Qiskrypt's Semi-Quantum Register.
+    """
+
+    def __init__(self, message=MESSAGE_NOT_SEMI_QUANTUM_REGISTER_EXCEPTION):
+        """
+        Constructor for the Not a Semi-Quantum Register Error for
+        the Qiskrypt's Semi-Quantum Register.
+        :param message: The custom message for the Not a Semi-Quantum Register Error for
+                        the Qiskrypt's Semi-Quantum Register.
+        """
+        self.message = message
+        """
+        Set the custom message for the Not a Semi-Quantum Register Error for
+        the Qiskrypt's Semi-Quantum Register.
         """
 
         super().__init__(self.message)

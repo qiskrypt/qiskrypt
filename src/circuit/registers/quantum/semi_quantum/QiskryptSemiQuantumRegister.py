@@ -41,53 +41,52 @@ Acknowledgement(s):\n
 Import required Libraries and Packages.
 """
 
-from src.circuit.registers.quantum.QiskitQuantumRegister import QiskitQuantumRegister
+from src.circuit.registers.quantum.QiskryptQuantumRegister import QiskryptQuantumRegister
 """
-Import the IBM's Qiskit Quantum Register.
-"""
-
-from src.circuit.registers.quantum.semi_quantum.exception.QiskitSemiQuantumRegisterException \
-    import QiskitSemiQuantumRegisterUnsupportedOperationError
-"""
-Import the Unsupported Operation Error for the IBM's Qiskit Semi-Quantum Register.
+Import the Qiskrypt's Quantum Register.
 """
 
+from src.circuit.registers.quantum.semi_quantum.exception.QiskryptSemiQuantumRegisterException \
+    import QiskryptSemiQuantumRegisterUnsupportedOperationError
+"""
+Import the Unsupported Operation Error for the Qiskrypt's Semi-Quantum Register.
+"""
 
-class QiskitSemiQuantumRegister(QiskitQuantumRegister):
+
+class QiskryptSemiQuantumRegister(QiskryptQuantumRegister):
     """
-    Object Class of the IBM's Qiskit Semi-Quantum Register.
+    Object Class of the Qiskrypt's Semi-Quantum Register.
     """
 
     def __init__(self, name="semi_qu_reg", num_qubits=1, quantum_register=None):
         """
-        Constructor for the IBM's Qiskit Semi-Quantum Register.
+        Constructor for the Qiskrypt's Semi-Quantum Register.
 
-        It calls the constructor of the super-class IBM's Qiskit Quantum Register.
+        It calls the constructor of the super-class Qiskrypt's Quantum Register.
 
-        :param name: The name of the IBM's Qiskit Semi-Quantum Register.
-        :param num_qubits: The number of bits of the IBM's Qiskit Semi-Quantum Register.
+        :param name: The name of the Qiskrypt's Semi-Quantum Register.
+        :param num_qubits: The number of bits of the Qiskrypt's Semi-Quantum Register.
         :param quantum_register: A built-in quantum register object of
-                                 the IBM's Qiskit Semi-Quantum Register.
+                                 the IBM's Qiskit Quantum Register.
         """
         super().__init__(name=name, num_qubits=num_qubits, quantum_register=quantum_register)
         """
-        Calls the constructor of the super-class IBM's Qiskit Quantum Register.
+        Calls the constructor of the super-class Qiskrypt's Quantum Register.
         """
 
     @staticmethod
     def raise_unsupported_operation_error():
-
         """
-        Return/Raise an Unsupported Operation Error for the IBM's Qiskit Semi-Quantum Register.
-        :raise : an Unsupported Operation Error for the IBM's Qiskit Semi-Quantum Register.
-        """
-
-        unsupported_operation_error = QiskitSemiQuantumRegisterUnsupportedOperationError()
-        """
-        Retrieve the Unsupported Operation Error for the IBM's Qiskit Semi-Quantum Register.
+        Return/Raise an Unsupported Operation Error for the Qiskrypt's Semi-Quantum Register.
+        :raise unsupported_operation_error: an Unsupported Operation Error for the Qiskrypt's Semi-Quantum Register.
         """
 
+        unsupported_operation_error = QiskryptSemiQuantumRegisterUnsupportedOperationError()
         """
-        Raise the Unsupported Operation Error for the IBM's Qiskit Semi-Quantum Register.
+        Retrieve the Unsupported Operation Error for the Qiskrypt's Semi-Quantum Register.
+        """
+
+        """
+        Raise the Unsupported Operation Error for the Qiskrypt's Semi-Quantum Register.
         """
         raise unsupported_operation_error

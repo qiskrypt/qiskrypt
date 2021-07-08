@@ -38,29 +38,16 @@ Acknowledgement(s):\n
 """
 
 """
-Import required Libraries and Packages.
+The Enumerations and Constants.
 """
 
-from src.circuit.registers.quantum.QiskitQuantumRegister import QiskitQuantumRegister
+QISKIT_QASM_SIMULATOR_MAX_NUM_QUBITS = 32
 """
-Import the IBM's Qiskit Quantum Register.
+The maximum number of Qubits for the QASM Simulator of the IBM's Qiskit.
 """
 
-
-class QiskitFullyQuantumRegister(QiskitQuantumRegister):
-    """
-    Object Class of the IBM's Qiskit Fully-Quantum Register.
-    """
-
-    def __init__(self, name="fully_qu_reg", num_qubits=1, quantum_register=None):
-        """
-        Constructor for the IBM's Qiskit Fully-Quantum Register.
-
-        It calls the constructor of the super-class IBM's Qiskit Quantum Register.
-
-        :param name: The name of the IBM's Qiskit Fully-Quantum Register.
-        :param num_qubits: The number of bits of the IBM's Qiskit Fully-Quantum Register.
-        :param quantum_register: A built-in quantum register object of
-                                 the IBM's Qiskit Fully-Quantum Register.
-        """
-        super().__init__(name=name, num_qubits=num_qubits, quantum_register=quantum_register)
+QISKIT_DEFAULT_NUM_EXPERIMENT_COUNTS = 1000
+"""
+The default number of experiment counts for the final result,
+for simulation or executions of quantum circuits, using the IBM's Qiskit.
+"""

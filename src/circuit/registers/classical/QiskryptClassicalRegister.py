@@ -41,53 +41,53 @@ Acknowledgement(s):\n
 Import required Libraries and Packages.
 """
 
-from qiskit import QuantumRegister
+from qiskit import ClassicalRegister
 """
-Import Quantum Register from IBM's Qiskit.
+Import Classical Register from IBM's Qiskit.
 """
 
 
-class QiskitQuantumRegister:
+class QiskryptClassicalRegister:
     """
-    Object Class of the IBM's Qiskit Quantum Register.
+    Object Class of the Qiskrypt's Classical Register.
     """
 
-    def __init__(self, name="qu_reg", num_qubits=1, quantum_register=None):
+    def __init__(self, name="cl_reg", num_bits=1, classical_register=None):
         """
-        Constructor for the IBM's Qiskit Quantum Register.
+        Constructor for the Qiskrypt's Classical Register.
 
-        :param name: The name of the IBM's Qiskit Quantum Register.
-        :param num_qubits: The number of bits of the IBM's Qiskit Quantum Register.
-        :param quantum_register: A built-in quantum register object of
-                                 the IBM's Qiskit Quantum Register.
+        :param name: The name of the Qiskrypt's Classical Register.
+        :param num_bits: The number of bits of the Qiskrypt's Classical Register.
+        :param classical_register: A built-in classical register object of
+                                   the IBM's Qiskit Classical Register.
         """
 
         self.name = name
         """
-        Set the name of the IBM's Qiskit Quantum Register.
+        Set the name of the Qiskrypt's Classical Register.
         """
 
-        self.num_qubits = num_qubits
+        self.num_bits = num_bits
         """
-        Set the number of the qubits of the IBM's Qiskit Quantum Register.
+        Set the number of the bits of the Qiskrypt's Classical Register.
         """
 
-        if quantum_register is None:
+        if classical_register is None:
             """
-            If the Quantum Register is None.
+            If the Classical Register is None.
             """
 
-            self.quantum_register = QuantumRegister(name=name, size=num_qubits)
+            self.classical_register = ClassicalRegister(name=name, size=num_bits)
             """
-            Set the built-in quantum register of the IBM's Qiskit Quantum Register.
+            Set the built-in classical register of the Qiskrypt's Classical Register.
             """
 
         else:
             """
-            If the Quantum Register is not None.
+            If the Classical Register is not None.
             """
 
-            self.quantum_register = quantum_register
+            self.classical_register = classical_register
             """
-            Set the built-in quantum register of the IBM's Qiskit Quantum Register.
+            Set the built-in classical register of the Qiskrypt's Classical Register.
             """
