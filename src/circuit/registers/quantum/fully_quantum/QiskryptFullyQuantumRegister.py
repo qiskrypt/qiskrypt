@@ -46,6 +46,12 @@ from src.circuit.registers.quantum.QiskryptQuantumRegister import QiskryptQuantu
 Import the Qiskrypt's Quantum Register.
 """
 
+from src.circuit.registers.quantum.fully_quantum.exception.QiskryptFullyQuantumRegisterException \
+    import QiskryptNotFullyQuantumRegisterError
+"""
+Import the Not Fully-Quantum Register Error for the Qiskrypt's Fully-Quantum Register.
+"""
+
 
 class QiskryptFullyQuantumRegister(QiskryptQuantumRegister):
     """
@@ -64,3 +70,20 @@ class QiskryptFullyQuantumRegister(QiskryptQuantumRegister):
                                  the IBM's Qiskit Quantum Register.
         """
         super().__init__(name=name, num_qubits=num_qubits, quantum_register=quantum_register)
+
+    @staticmethod
+    def raise_not_fully_quantum_register_error():
+        """
+        Return/Raise a Not a Fully-Quantum Register Error for the Qiskrypt's Fully-Quantum Register.
+        :raise not_fully_quantum_register_error: a Not a Fully-Quantum Register Error for the Qiskrypt's Fully-Quantum Register.
+        """
+
+        not_fully_quantum_register_error = QiskryptNotFullyQuantumRegisterError()
+        """
+        Retrieve the Not a Fully-Quantum Register Error for the Qiskrypt's Fully-Quantum Register.
+        """
+
+        """
+        Raise the Not a Fully-Quantum Register Error for the Qiskrypt's Fully-Quantum Register.
+        """
+        raise not_fully_quantum_register_error
