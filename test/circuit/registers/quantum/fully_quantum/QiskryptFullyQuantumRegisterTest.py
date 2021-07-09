@@ -101,7 +101,7 @@ class QiskryptFullyQuantumRegisterTests(TestCase):
                                          num_qubits=fully_quantum_register_num_qubits,
                                          quantum_register=None)
         """
-        Create a Qiskrypt's Fully-Quantum Register, given its name and number of bits.
+        Create a Qiskrypt's Fully-Quantum Register, given its name and number of qubits.
         """
 
         assert(fully_quantum_register_name == qiskrypt_fully_quantum_register.get_name())
@@ -168,7 +168,7 @@ class QiskryptFullyQuantumRegisterTests(TestCase):
                                          num_qubits=fully_quantum_register_num_qubits,
                                          quantum_register=None)
         """
-        Create a Qiskrypt's Fully-Quantum Register, given its name and number of bits.
+        Create a Qiskrypt's Fully-Quantum Register, given its name and number of qubits.
         """
 
         assert(fully_quantum_register_name == qiskrypt_fully_quantum_register.get_name())
@@ -235,7 +235,7 @@ class QiskryptFullyQuantumRegisterTests(TestCase):
                                          num_qubits=fully_quantum_register_num_qubits,
                                          quantum_register=None)
         """
-        Create a Qiskrypt's Fully-Quantum Register, given its name and number of bits.
+        Create a Qiskrypt's Fully-Quantum Register, given its name and number of qubits.
         """
 
         assert(fully_quantum_register_name == qiskrypt_fully_quantum_register.get_name())
@@ -302,7 +302,7 @@ class QiskryptFullyQuantumRegisterTests(TestCase):
                                          num_qubits=fully_quantum_register_num_qubits,
                                          quantum_register=None)
         """
-        Create a Qiskrypt's Fully-Quantum Register, given its name and number of bits.
+        Create a Qiskrypt's Fully-Quantum Register, given its name and number of qubits.
         """
 
         assert(fully_quantum_register_name == qiskrypt_fully_quantum_register.get_name())
