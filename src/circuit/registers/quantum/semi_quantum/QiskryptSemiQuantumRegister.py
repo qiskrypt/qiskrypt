@@ -80,6 +80,35 @@ class QiskryptSemiQuantumRegister(QiskryptQuantumRegister):
         Calls the constructor of the super-class Qiskrypt's Quantum Register.
         """
 
+    def get_name(self):
+        """
+        Return the name of the Qiskrypt's Semi-Quantum Register.
+
+        :return super().get_name(): the name of the Qiskrypt's Semi-Quantum Register.
+        """
+
+        return super().get_name()
+
+    def get_num_qubits(self):
+        """
+        Return the number of qubits of the Qiskrypt's Semi-Quantum Register.
+
+        :return super().get_num_qubits(): the number of qubits of
+                                          the Qiskrypt's Semi-Quantum Register.
+        """
+
+        return super().get_num_qubits()
+
+    def get_semi_quantum_register(self):
+        """
+        Return the IBM's Qiskit Quantum Register of the Qiskrypt's Semi-Quantum Register.
+
+        :return super().get_quantum_register(): the IBM's Qiskit Quantum Register of
+                                                the Qiskrypt's Semi-Quantum Register.
+        """
+
+        return super().get_quantum_register()
+
     @staticmethod
     def raise_unsupported_operation_error():
         """
