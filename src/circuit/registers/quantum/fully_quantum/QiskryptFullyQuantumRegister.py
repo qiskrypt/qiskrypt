@@ -71,6 +71,35 @@ class QiskryptFullyQuantumRegister(QiskryptQuantumRegister):
         """
         super().__init__(name=name, num_qubits=num_qubits, quantum_register=quantum_register)
 
+    def get_name(self):
+        """
+        Return the name of the Qiskrypt's Fully-Quantum Register.
+
+        :return super().get_name(): the name of the Qiskrypt's Fully-Quantum Register.
+        """
+
+        return super().get_name()
+
+    def get_num_qubits(self):
+        """
+        Return the number of qubits of the Qiskrypt's Fully-Quantum Register.
+
+        :return super().get_num_qubits(): the number of qubits of
+                                          the Qiskrypt's Fully-Quantum Register.
+        """
+
+        return super().get_num_qubits()
+
+    def get_fully_quantum_register(self):
+        """
+        Return the IBM's Qiskit Quantum Register of the Qiskrypt's Fully-Quantum Register.
+
+        :return super().get_quantum_register(): the IBM's Qiskit Quantum Register of
+                                                the Qiskrypt's Fully-Quantum Register.
+        """
+
+        return super().get_quantum_register()
+
     @staticmethod
     def raise_not_fully_quantum_register_error():
         """
