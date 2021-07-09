@@ -347,6 +347,9 @@ class QiskryptSemiQuantumRegisterTests(TestCase):
 
 
 if __name__ == "__main__":
+    """
+    The Main Method for the Unitary Test.
+    """
 
     qiskrypt_semi_quantum_register_test_cases = \
         TestLoader().loadTestsFromTestCase(QiskryptSemiQuantumRegisterTests)

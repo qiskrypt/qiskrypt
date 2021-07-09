@@ -347,6 +347,9 @@ class QiskryptClassicalRegisterTests(TestCase):
 
 
 if __name__ == "__main__":
+    """
+    The Main Method for the Unitary Test.
+    """
 
     qiskrypt_classical_register_test_cases = \
         TestLoader().loadTestsFromTestCase(QiskryptClassicalRegisterTests)

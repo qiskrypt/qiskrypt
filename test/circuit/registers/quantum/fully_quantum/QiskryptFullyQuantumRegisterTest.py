@@ -347,6 +347,9 @@ class QiskryptFullyQuantumRegisterTests(TestCase):
 
 
 if __name__ == "__main__":
+    """
+    The Main Method for the Unitary Test.
+    """
 
     qiskrypt_fully_quantum_register_test_cases = \
         TestLoader().loadTestsFromTestCase(QiskryptFullyQuantumRegisterTests)
