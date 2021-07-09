@@ -111,7 +111,7 @@ class QiskryptQuantumRegister:
         """
         Return the number of qubits of the Qiskrypt's Quantum Register.
 
-        :return self.num_bits: the number of qubits of the Qiskrypt's Quantum Register.
+        :return self.num_qubits: the number of qubits of the Qiskrypt's Quantum Register.
         """
 
         return self.num_qubits
