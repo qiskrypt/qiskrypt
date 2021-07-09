@@ -70,11 +70,21 @@ cat<<EOF
                       *** Qiskrypt v0.0.1 ***
 ========================================================================
 
-                     Please, enter your choice:
-                        (not case-sensitive)
+                            Please, enter your choice:
+                               (not case-sensitive)
 
-            (1)           Key Distribution Protocols
-            (2)           Encryption
+             (1)          Quantum Key Distributions (QKDs)
+             (2)          Semi-Quantum Key Distributions (SQKDs)
+             (3)          Quantum Conference Key Agreements (QCKAs)
+             (4)          Semi-Quantum Conference Key Agreements (SQCKAs)
+             (5)          Quantum Secure Multi-Party Computations
+             (6)          Quantum Cryptocurrencies
+             (7)          Other Quantum Cryptographic Primitives
+             (8)          Quantum Internet/Networking/Communications Protocols
+             (9)          Quantum Entanglements
+            (10)          Quantum True Randomness
+            (11)          Quantum Distance Measures and Metrics
+            (12)          Quantum Algorithms
             (Q/ESC)       Quit
 
 ------------------------------------------------------------------------
@@ -84,8 +94,19 @@ read -rn1 -s
 
 case "$REPLY" in
 
-'1')      echo "You chosen the option: Key Distribution Protocols..."          ;;
-'2')      echo "You chosen the option: Encryption"                             ;;
+# Valid options of the Main Menu of the Qiskrypt's Bash Executable
+'1')      echo "You chosen the option: Quantum Key Distributions (QKDs)..."                     ;;
+'2')      echo "You chosen the option: Semi-Quantum Key Distributions (SQKDs)..."               ;;
+'3')      echo "You chosen the option: Quantum Conference Key Agreements (QCKAs)..."            ;;
+'4')      echo "You chosen the option: Semi-Quantum Conference Key Agreements (SQCKAs)..."      ;;
+'5')      echo "You chosen the option: Quantum Secure Multi-Party Computations..."              ;;
+'6')      echo "You chosen the option: Quantum Cryptocurrencies..."                             ;;
+'7')      echo "You chosen the option: Other Quantum Cryptographic Primitives..."               ;;
+'8')      echo "You chosen the option: Quantum Internet/Networking/Communication Protocols..."  ;;
+'9')      echo "You chosen the option: Quantum Entanglements..."                                ;;
+'10')     echo "You chosen the option: Quantum True Randomness..."                              ;;
+'11')     echo "You chosen the option: Quantum Distance Measures and Metrics..."                ;;
+'12')     echo "You chosen the option: Quantum Algorithms..."                                   ;;
 
 # The exit options of the Main Menu of the Qiskrypt's Bash Executable
 'Q')      echo "Thank you for using Qiskrypt!!! See you next time!!! :)"; exit;;
