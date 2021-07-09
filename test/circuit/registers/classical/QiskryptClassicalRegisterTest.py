@@ -88,12 +88,12 @@ class QiskryptClassicalRegisterTests(TestCase):
 
         classical_register_name = "cl_reg"
         """
-        Set the name of the Qiskrypt' Classical Register.
+        Set the name of the Qiskrypt's Classical Register.
         """
 
         classical_register_num_bits = 1
         """
-        Set the number of bits for the Qiskrypt' Classical Register.
+        Set the number of bits for the Qiskrypt's Classical Register.
         """
 
         qiskrypt_classical_register = \
@@ -155,12 +155,12 @@ class QiskryptClassicalRegisterTests(TestCase):
 
         classical_register_name = "cl_reg"
         """
-        Set the name of the Qiskrypt' Classical Register.
+        Set the name of the Qiskrypt's Classical Register.
         """
 
         classical_register_num_bits = 2
         """
-        Set the number of bits for the Qiskrypt' Classical Register.
+        Set the number of bits for the Qiskrypt's Classical Register.
         """
 
         qiskrypt_classical_register = \
@@ -222,12 +222,12 @@ class QiskryptClassicalRegisterTests(TestCase):
 
         classical_register_name = "cl_reg"
         """
-        Set the name of the Qiskrypt' Classical Register.
+        Set the name of the Qiskrypt's Classical Register.
         """
 
         classical_register_num_bits = 4
         """
-        Set the number of bits for the Qiskrypt' Classical Register.
+        Set the number of bits for the Qiskrypt's Classical Register.
         """
 
         qiskrypt_classical_register = \
@@ -289,12 +289,12 @@ class QiskryptClassicalRegisterTests(TestCase):
 
         classical_register_name = "cl_reg"
         """
-        Set the name of the Qiskrypt' Classical Register.
+        Set the name of the Qiskrypt's Classical Register.
         """
 
         classical_register_num_bits = 8
         """
-        Set the number of bits for the Qiskrypt' Classical Register.
+        Set the number of bits for the Qiskrypt's Classical Register.
         """
 
         qiskrypt_classical_register = \
@@ -348,7 +348,8 @@ class QiskryptClassicalRegisterTests(TestCase):
 
 if __name__ == "__main__":
 
-    qiskrypt_classical_register_test_cases = TestLoader().loadTestsFromTestCase(QiskryptClassicalRegisterTests)
+    qiskrypt_classical_register_test_cases = \
+        TestLoader().loadTestsFromTestCase(QiskryptClassicalRegisterTests)
     """
     Load the Test Cases from the Unitary Tests for the Qiskrypt's Classical Register.
     """
