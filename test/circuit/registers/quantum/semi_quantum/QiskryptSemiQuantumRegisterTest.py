@@ -101,7 +101,7 @@ class QiskryptSemiQuantumRegisterTests(TestCase):
                                         num_qubits=semi_quantum_register_num_qubits,
                                         quantum_register=None)
         """
-        Create a Qiskrypt's Semi-Quantum Register, given its name and number of bits.
+        Create a Qiskrypt's Semi-Quantum Register, given its name and number of qubits.
         """
 
         assert(semi_quantum_register_name == qiskrypt_semi_quantum_register.get_name())
@@ -168,7 +168,7 @@ class QiskryptSemiQuantumRegisterTests(TestCase):
                                         num_qubits=semi_quantum_register_num_qubits,
                                         quantum_register=None)
         """
-        Create a Qiskrypt's Semi-Quantum Register, given its name and number of bits.
+        Create a Qiskrypt's Semi-Quantum Register, given its name and number of qubits.
         """
 
         assert(semi_quantum_register_name == qiskrypt_semi_quantum_register.get_name())
@@ -235,7 +235,7 @@ class QiskryptSemiQuantumRegisterTests(TestCase):
                                         num_qubits=semi_quantum_register_num_qubits,
                                         quantum_register=None)
         """
-        Create a Qiskrypt's Semi-Quantum Register, given its name and number of bits.
+        Create a Qiskrypt's Semi-Quantum Register, given its name and number of qubits.
         """
 
         assert(semi_quantum_register_name == qiskrypt_semi_quantum_register.get_name())
@@ -302,7 +302,7 @@ class QiskryptSemiQuantumRegisterTests(TestCase):
                                         num_qubits=semi_quantum_register_num_qubits,
                                         quantum_register=None)
         """
-        Create a Qiskrypt's Semi-Quantum Register, given its name and number of bits.
+        Create a Qiskrypt's Semi-Quantum Register, given its name and number of qubits.
         """
 
         assert(semi_quantum_register_name == qiskrypt_semi_quantum_register.get_name())
