@@ -801,6 +801,194 @@ class QiskryptQuantumCircuit:
                     """
                     self.raise_unsupported_type_registers_error()
 
+    def get_name(self):
+        """
+        Return the name of the Qiskrypt's Quantum Circuit.
+
+        :return self.name: the name of the Qiskrypt's Quantum Circuit.
+        """
+
+        return self.name
+
+    def get_qiskrypt_quantum_registers(self):
+        """
+        Return the Qiskrypt's Quantum Registers of the Qiskrypt's Quantum Circuit.
+
+        :return self.quantum_registers: the Qiskrypt's Quantum Registers of the Qiskrypt's Quantum Circuit.
+        """
+
+        return self.quantum_registers
+
+    def get_qiskrypt_fully_quantum_registers(self):
+        """
+        Return the Qiskrypt's Fully-Quantum Registers of the Qiskrypt's Quantum Circuit.
+
+        :return self.fully_quantum_registers: the Qiskrypt's Fully-Quantum Registers of the Qiskrypt's Quantum Circuit.
+        """
+
+        return self.fully_quantum_registers
+
+    def get_qiskrypt_semi_quantum_registers(self):
+        """
+        Return the Qiskrypt's Semi-Quantum Registers of the Qiskrypt's Quantum Circuit.
+
+        :return self.semi_quantum_registers: the Qiskrypt's Semi-Quantum Registers of the Qiskrypt's Quantum Circuit.
+        """
+
+        return self.semi_quantum_registers
+
+    def get_qiskrypt_classical_registers(self):
+        """
+        Return the Qiskrypt's Classical Registers of the Qiskrypt's Quantum Circuit.
+
+        :return self.classical_registers: the Qiskrypt's Classical Registers of the Qiskrypt's Quantum Circuit.
+        """
+
+        return self.classical_registers
+
+    def get_qiskrypt_quantum_register(self, qiskrypt_quantum_register_index):
+        """
+        Return a specific Qiskrypt's Quantum Register of the Qiskrypt's Quantum Circuit, given its index.
+
+        :param qiskrypt_quantum_register_index: the index of the Qiskrypt's Quantum Register of the Qiskrypt's Quantum Circuit.
+
+        :return self.quantum_registers[qiskrypt_quantum_register_index]: a specific Qiskrypt's Quantum Register of
+                                                                         the Qiskrypt's Quantum Circuit, given its index.
+        """
+
+        return self.quantum_registers[qiskrypt_quantum_register_index]
+
+    def get_qiskrypt_fully_quantum_register(self, qiskrypt_fully_quantum_register_index):
+        """
+        Return a specific Qiskrypt's Fully-Quantum Register of the Qiskrypt's Quantum Circuit, given its index.
+
+        :param qiskrypt_fully_quantum_register_index: the index of the Qiskrypt's Fully-Quantum Register of the Qiskrypt's Quantum Circuit.
+
+        :return self.fully_quantum_registers[qiskrypt_fully_quantum_register_index]: a specific Qiskrypt's Fully-Quantum Register of
+                                                                                     the Qiskrypt's Quantum Circuit, given its index.
+        """
+
+        return self.fully_quantum_registers[qiskrypt_fully_quantum_register_index]
+
+    def get_qiskrypt_semi_quantum_register(self, qiskrypt_semi_quantum_register_index):
+        """
+        Return a specific Qiskrypt's Semi-Quantum Register of the Qiskrypt's Quantum Circuit, given its index.
+
+        :param qiskrypt_semi_quantum_register_index: the index of the Qiskrypt's Semi-Quantum Register of the Qiskrypt's Quantum Circuit.
+
+        :return self.semi_quantum_registers[qiskrypt_semi_quantum_register_index]: a specific Qiskrypt's Semi-Quantum Register of
+                                                                                   the Qiskrypt's Quantum Circuit, given its index.
+        """
+
+        return self.semi_quantum_registers[qiskrypt_semi_quantum_register_index]
+
+    def get_qiskrypt_classical_register(self, qiskrypt_classical_register_index):
+        """
+        Return a specific Qiskrypt's Classical Register of the Qiskrypt's Quantum Circuit, given its index.
+
+        :param qiskrypt_classical_register_index: the index of the Qiskrypt's Classical Register of the Qiskrypt's Quantum Circuit.
+
+        :return self.classical_registers[qiskrypt_classical_register_index]: a specific Qiskrypt's Classical Register of
+                                                                             the Qiskrypt's Quantum Circuit, given its index.
+        """
+
+        return self.classical_registers[qiskrypt_classical_register_index]
+
+    def get_num_qiskrypt_quantum_registers(self):
+        """
+        Return the number of Qiskrypt's Quantum Registers of the Qiskrypt's Quantum Circuit.
+
+        :return len(self.get_qiskrypt_quantum_registers()): the number of Qiskrypt's Quantum Registers of
+                                                            the Qiskrypt's Quantum Circuit.
+        """
+
+        return len(self.get_qiskrypt_quantum_registers())
+
+    def get_num_qiskrypt_fully_quantum_registers(self):
+        """
+        Return the number of Qiskrypt's Fully-Quantum Registers of the Qiskrypt's Quantum Circuit.
+
+        :return len(self.get_qiskrypt_fully_quantum_registers()): the number of Qiskrypt's Fully-Quantum Registers of
+                                                                  the Qiskrypt's Quantum Circuit.
+        """
+
+        return len(self.get_qiskrypt_fully_quantum_registers())
+
+    def get_num_qiskrypt_semi_quantum_registers(self):
+        """
+        Return the number of Qiskrypt's Semi-Quantum Registers of the Qiskrypt's Quantum Circuit.
+
+        :return len(self.get_qiskrypt_semi_quantum_registers()): the number of Qiskrypt's Semi-Quantum Registers of
+                                                                 the Qiskrypt's Quantum Circuit.
+        """
+
+        return len(self.get_qiskrypt_semi_quantum_registers())
+
+    def get_num_qiskrypt_classical_registers(self):
+        """
+        Return the number of Qiskrypt's Classical Registers of the Qiskrypt's Quantum Circuit.
+
+        :return len(self.get_qiskrypt_classical_registers()): the number of Qiskrypt's Classical Registers of
+                                                              the Qiskrypt's Quantum Circuit.
+        """
+
+        return len(self.get_qiskrypt_classical_registers())
+
+    def get_global_phase(self):
+        """
+        Return the global phase of the Qiskrypt's Quantum Circuit.
+
+        :return self.global_phase: the global phase of the Qiskrypt's Quantum Circuit.
+        """
+
+        return self.global_phase
+
+    def get_num_total_qubits(self):
+        """
+        Return the total number of qubits of the Qiskrypt's Quantum Circuit.
+
+        :return self.quantum_circuit.num_qubits: the total number of qubits of
+                                                 the Qiskrypt's Quantum Circuit.
+        """
+
+        return self.quantum_circuit.num_qubits
+
+    def get_num_total_bits(self):
+        """
+        Return the total number of bits of the Qiskrypt's Quantum Circuit.
+
+        :return self.quantum_circuit.num_qubits: the total number of bits of
+                                                 the Qiskrypt's Quantum Circuit.
+        """
+
+        return self.quantum_circuit.num_clbits
+
+    def get_num_qubits_in_qiskit_quantum_register(self, quantum_register_index):
+        """
+        Return the number of qubits in a given quantum register of the Qiskrypt's Quantum Circuit.
+
+        :param quantum_register_index: quantum register's index.
+
+        :return self.quantum_circuit.qregs[quantum_register_index].num_qubits: the number of qubits in
+                                                                               a given quantum register of
+                                                                               the Qiskrypt's Quantum Circuit.
+        """
+
+        return self.quantum_circuit.qregs[quantum_register_index].num_qubits
+
+    def get_num_bits_in_qiskit_classical_register(self, classical_register_index):
+        """
+        Return the number of bits in a given classical register of the Qiskrypt's Quantum Circuit.
+
+        :param classical_register_index: classical register's index.
+
+        :return self.quantum_circuit.qregs[classical_register_index].num_clbits: the number of bits in
+                                                                                 a given classical register of
+                                                                                 the Qiskrypt's Quantum Circuit.
+        """
+
+        return self.quantum_circuit.cregs[classical_register_index].num_clbits
+
     @staticmethod
     def raise_unsupported_type_registers_error():
         """
