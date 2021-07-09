@@ -80,7 +80,7 @@ cat<<EOF
          (5)          Quantum Secure Multi-Party Computations
          (6)          Quantum Cryptocurrencies
          (7)          Other Quantum Cryptographic Primitives
-         (8)          Quantum Internet/Networking/Communications Protocols
+         (8)          Quantum Internet (Networking/Communications) Protocols
          (9)          Quantum Entanglements
         (10)          Quantum True Randomness
         (11)          Quantum Distance Measures and Metrics
@@ -95,28 +95,28 @@ read -rp "Your choice: " CHOICE
 case "$CHOICE" in
 
 # The valid options of the Main Menu of the Qiskrypt's Bash Executable
-'1')      echo ; echo "You chosen the option: Quantum Key Distributions (QKDs)..."                     ;;
-'2')      echo ; echo "You chosen the option: Semi-Quantum Key Distributions (SQKDs)..."               ;;
-'3')      echo ; echo "You chosen the option: Quantum Conference Key Agreements (QCKAs)..."            ;;
-'4')      echo ; echo "You chosen the option: Semi-Quantum Conference Key Agreements (SQCKAs)..."      ;;
-'5')      echo ; echo "You chosen the option: Quantum Secure Multi-Party Computations..."              ;;
-'6')      echo ; echo "You chosen the option: Quantum Cryptocurrencies..."                             ;;
-'7')      echo ; echo "You chosen the option: Other Quantum Cryptographic Primitives..."               ;;
-'8')      echo ; echo "You chosen the option: Quantum Internet/Networking/Communication Protocols..."  ;;
-'9')      echo ; echo "You chosen the option: Quantum Entanglements..."                                ;;
-'10')     echo ; echo "You chosen the option: Quantum True Randomness..."                              ;;
-'11')     echo ; echo "You chosen the option: Quantum Distance Measures and Metrics..."                ;;
-'12')     echo ; echo "You chosen the option: Quantum Algorithms..."                                   ;;
+'1')      echo ; echo "You chosen the option: Quantum Key Distributions (QKDs)..."                           ;;
+'2')      echo ; echo "You chosen the option: Semi-Quantum Key Distributions (SQKDs)..."                     ;;
+'3')      echo ; echo "You chosen the option: Quantum Conference Key Agreements (QCKAs)..."                  ;;
+'4')      echo ; echo "You chosen the option: Semi-Quantum Conference Key Agreements (SQCKAs)..."            ;;
+'5')      echo ; echo "You chosen the option: Quantum Secure Multi-Party Computations..."                    ;;
+'6')      echo ; echo "You chosen the option: Quantum Cryptocurrencies..."                                   ;;
+'7')      echo ; echo "You chosen the option: Other Quantum Cryptographic Primitives..."                     ;;
+'8')      echo ; echo "You chosen the option: Quantum Internet (Networking/Communication) Protocols..."      ;;
+'9')      echo ; echo "You chosen the option: Quantum Entanglements..."                                      ;;
+'10')     echo ; echo "You chosen the option: Quantum True Randomness..."                                    ;;
+'11')     echo ; echo "You chosen the option: Quantum Distance Measures and Metrics..."                      ;;
+'12')     echo ; echo "You chosen the option: Quantum Algorithms..."                                         ;;
 
 # The exit options of the Main Menu of the Qiskrypt's Bash Executable
-'Quit')   echo ; echo "Thank you for using Qiskrypt!!! See you next time!!! :)";      sleep 2;     exit;;
-'quit')   echo ; echo "Thank you for using Qiskrypt!!! See you next time!!! :)";      sleep 2;     exit;;
-'Exit')   echo ; echo "Thank you for using Qiskrypt!!! See you next time!!! :)";      sleep 2;     exit;;
-'exit')   echo ; echo "Thank you for using Qiskrypt!!! See you next time!!! :)";      sleep 2;     exit;;
-$'\x1b')  echo ; echo "Thank you for using Qiskrypt!!! See you next time!!! :)";      sleep 2;     exit;;
+'Quit')   echo ; echo "Thank you for using Qiskrypt!!! See you next time!!! :)";         sleep 2;        exit;;
+'quit')   echo ; echo "Thank you for using Qiskrypt!!! See you next time!!! :)";         sleep 2;        exit;;
+'Exit')   echo ; echo "Thank you for using Qiskrypt!!! See you next time!!! :)";         sleep 2;        exit;;
+'exit')   echo ; echo "Thank you for using Qiskrypt!!! See you next time!!! :)";         sleep 2;        exit;;
+$'\x1b')  echo ; echo "Thank you for using Qiskrypt!!! See you next time!!! :)";         sleep 2;        exit;;
 
 # The remaining options of the Main Menu of the Qiskrypt' Bash Executable
-* )       echo ; echo "You chosen an invalid option!!!"                                                ;;
+* )       echo ; echo "You chosen an invalid option!!!"                                                      ;;
 
 esac
 
