@@ -75,7 +75,9 @@ class QiskryptFullyQuantumRegister(QiskryptQuantumRegister):
     def raise_not_fully_quantum_register_error():
         """
         Return/Raise a Not a Fully-Quantum Register Error for the Qiskrypt's Fully-Quantum Register.
-        :raise not_fully_quantum_register_error: a Not a Fully-Quantum Register Error for the Qiskrypt's Fully-Quantum Register.
+
+        :raise not_fully_quantum_register_error: a Not a Fully-Quantum Register Error for
+                                                 the Qiskrypt's Fully-Quantum Register.
         """
 
         not_fully_quantum_register_error = QiskryptNotFullyQuantumRegisterError()

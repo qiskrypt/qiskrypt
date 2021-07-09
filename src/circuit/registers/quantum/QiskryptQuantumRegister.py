@@ -102,7 +102,9 @@ class QiskryptQuantumRegister:
     def raise_not_quantum_register_error():
         """
         Return/Raise a Not a Quantum Register Error for the Qiskrypt's Quantum Register.
-        :raise not_quantum_register_error: a Not a Quantum Register Error for the Qiskrypt's Quantum Register.
+
+        :raise not_quantum_register_error: a Not a Quantum Register Error for
+                                           the Qiskrypt's Quantum Register.
         """
 
         not_quantum_register_error = QiskryptNotQuantumRegisterError()

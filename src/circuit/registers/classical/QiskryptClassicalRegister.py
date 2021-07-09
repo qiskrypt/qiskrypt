@@ -102,7 +102,9 @@ class QiskryptClassicalRegister:
     def raise_not_classical_register_error():
         """
         Return/Raise a Not a Classical Register Error for the Qiskrypt's Classical Register.
-        :raise not_classical_register_error: a Not a Classical Register Error for the Qiskrypt's Classical Register.
+
+        :raise not_classical_register_error: a Not a Classical Register Error for
+                                             the Qiskrypt's Classical Register.
         """
 
         not_classical_register_error = QiskryptNotClassicalRegisterError()

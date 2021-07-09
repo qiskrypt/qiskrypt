@@ -84,7 +84,9 @@ class QiskryptSemiQuantumRegister(QiskryptQuantumRegister):
     def raise_unsupported_operation_error():
         """
         Return/Raise an Unsupported Operation Error for the Qiskrypt's Semi-Quantum Register.
-        :raise unsupported_operation_error: an Unsupported Operation Error for the Qiskrypt's Semi-Quantum Register.
+
+        :raise unsupported_operation_error: an Unsupported Operation Error for
+                                            the Qiskrypt's Semi-Quantum Register.
         """
 
         unsupported_operation_error = QiskryptSemiQuantumRegisterUnsupportedOperationError()
