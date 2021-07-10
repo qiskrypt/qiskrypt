@@ -196,8 +196,8 @@ class QiskryptQuantumCircuit:
                     """
 
                     self.quantum_circuit = \
-                        QuantumCircuit([quantum_register.quantum_register for quantum_register in quantum_registers],
-                                       [classical_register.classical_register for classical_register in classical_registers],
+                        QuantumCircuit(*[quantum_register.get_quantum_register() for quantum_register in self.quantum_registers],
+                                       *[classical_register.get_classical_register() for classical_register in self.classical_registers],
                                        name=name, global_phase=global_phase)
                     """
                     Set the IBM's Qiskit Quantum Circuit of the Qiskrypt's Quantum Circuit.
@@ -800,6 +800,11 @@ class QiskryptQuantumCircuit:
                     Raise an Unsupported Type of Registers Error for the Qiskrypt's Quantum Circuit.
                     """
                     self.raise_unsupported_type_registers_error()
+        else:
+            self.quantum_circuit = quantum_circuit
+            """
+            Set the given IBM's Qiskit Quantum Circuit of the Qiskrypt's Quantum Circuit.
+            """
 
     def get_name(self):
         """
