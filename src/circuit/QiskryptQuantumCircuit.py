@@ -948,7 +948,7 @@ class QiskryptQuantumCircuit:
 
         return self.global_phase
 
-    def get_num_total_qubits(self):
+    def get_total_num_qubits(self):
         """
         Return the total number of qubits of the Qiskrypt's Quantum Circuit.
 
@@ -958,7 +958,7 @@ class QiskryptQuantumCircuit:
 
         return self.quantum_circuit.num_qubits
 
-    def get_num_total_bits(self):
+    def get_total_num_bits(self):
         """
         Return the total number of bits of the Qiskrypt's Quantum Circuit.
 
@@ -974,12 +974,12 @@ class QiskryptQuantumCircuit:
 
         :param quantum_register_index: quantum register's index.
 
-        :return self.quantum_circuit.qregs[quantum_register_index].num_qubits: the number of qubits in
-                                                                               a given quantum register of
-                                                                               the Qiskrypt's Quantum Circuit.
+        :return self.quantum_circuit.qregs[quantum_register_index].size: the number of qubits in
+                                                                         a given quantum register of
+                                                                         the Qiskrypt's Quantum Circuit.
         """
 
-        return self.quantum_circuit.qregs[quantum_register_index].num_qubits
+        return self.quantum_circuit.qregs[quantum_register_index].size
 
     def get_num_bits_in_qiskit_classical_register(self, classical_register_index):
         """
@@ -987,12 +987,12 @@ class QiskryptQuantumCircuit:
 
         :param classical_register_index: classical register's index.
 
-        :return self.quantum_circuit.qregs[classical_register_index].num_clbits: the number of bits in
-                                                                                 a given classical register of
-                                                                                 the Qiskrypt's Quantum Circuit.
+        :return self.quantum_circuit.qregs[classical_register_index].size: the number of bits in
+                                                                           a given classical register of
+                                                                           the Qiskrypt's Quantum Circuit.
         """
 
-        return self.quantum_circuit.cregs[classical_register_index].num_clbits
+        return self.quantum_circuit.cregs[classical_register_index].size
 
     @staticmethod
     def raise_unsupported_type_registers_error():
