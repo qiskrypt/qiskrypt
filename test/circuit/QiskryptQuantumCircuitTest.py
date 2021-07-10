@@ -87,7 +87,7 @@ class QiskryptQuantumCircuitTests(TestCase):
     Object Class of the Unitary Tests for the Qiskrypt's Quantum Circuit.
     """
 
-    def test_no_1_qiskrypt_quantum_circuit_1_quantum_register_1_qubit_and_1_classical_register_1_bit(self):
+    def test_no_1_creation_qiskrypt_quantum_circuit_with_1_quantum_register_1_qubit_and_1_classical_register_1_bit(self):
         """
         Test Case #1:
 
@@ -205,99 +205,28 @@ class QiskryptQuantumCircuitTests(TestCase):
             the Qiskrypt's Quantum Circuit has an IBM's Qiskit Classical Register.
             """
 
+        assert(qiskrypt_quantum_circuit.get_total_num_qubits() == quantum_register_num_qubits)
         """
-        Dummy Assert Equal for the Unittest
-        """
-        self.assertEqual(True, True)
-
-    def test_no_2_qiskrypt_quantum_circuit_2_quantum_registers_1_qubit_and_1_classical_register_1_bit(self):
-        """
-        Test Case #2:
-
-        - Create a Qiskrypt's Quantum Circuit with:
-           (i) 2 Quantum Registers (each one with 1 qubit).
-          (ii) 1 Classical Register (with 1 bit).
-
-        Return OK (or FAIL) if, all the Tests performed are OK (or FAIL, otherwise).
+        Assertion for the total number of qubits of
+        all the Qiskrypt's Quantum Registers of the Qiskrypt's Quantum Circuit.
         """
 
-        quantum_register_1_name = "qu_reg_1"
+        assert(qiskrypt_quantum_circuit.get_num_qubits_in_qiskit_quantum_register(0) == quantum_register_num_qubits)
         """
-        Set the name of the Qiskrypt's Quantum Register no. 1.
-        """
-
-        quantum_register_1_num_qubits = 1
-        """
-        Set the number of qubits for the Qiskrypt's Quantum Register no. 1.
+        Assertion for the number of qubits of
+        the 1st Qiskrypt's Quantum Register of the Qiskrypt's Quantum Circuit.
         """
 
-        qiskrypt_quantum_register_1 = \
-            QiskryptQuantumRegister(name=quantum_register_1_name,
-                                    num_qubits=quantum_register_1_num_qubits,
-                                    quantum_register=None)
+        assert(qiskrypt_quantum_circuit.get_total_num_bits() == classical_register_num_bits)
         """
-        Create a Qiskrypt's Quantum Register no. 2, given its name and number of qubits.
+        Assertion for the total number of bits of
+        all the Qiskrypt's Classical Registers of the Qiskrypt's Quantum Circuit.
         """
 
-        quantum_register_2_name = "qu_reg_2"
+        assert(qiskrypt_quantum_circuit.get_num_bits_in_qiskit_classical_register(0) == classical_register_num_bits)
         """
-        Set the name of the Qiskrypt's Quantum Register no. 2.
-        """
-
-        quantum_register_2_num_qubits = 1
-        """
-        Set the number of qubits for the Qiskrypt's Quantum Register no. 2.
-        """
-
-        qiskrypt_quantum_register_2 = \
-            QiskryptQuantumRegister(name=quantum_register_2_name,
-                                    num_qubits=quantum_register_2_num_qubits,
-                                    quantum_register=None)
-        """
-        Create a Qiskrypt's Quantum Register no. 2, given its name and number of qubits.
-        """
-
-        classical_register_name = "cl_reg"
-        """
-        Set the name of the Qiskrypt's Classical Register.
-        """
-
-        classical_register_num_bits = 1
-        """
-        Set the number of bits for the Qiskrypt's Classical Register.
-        """
-
-        qiskrypt_classical_register = \
-            QiskryptClassicalRegister(name=classical_register_name,
-                                      num_bits=classical_register_num_bits,
-                                      classical_register=None)
-        """
-        Create a Qiskrypt's Classical Register, given its name and number of bits.
-        """
-
-        quantum_circuit_name = "qu_circ"
-        """
-        Set the name of the Qiskrypt's Quantum Circuit.
-        """
-
-        qiskrypt_quantum_circuit = \
-            QiskryptQuantumCircuit(name=quantum_circuit_name,
-                                   quantum_registers=[qiskrypt_quantum_register_1, qiskrypt_quantum_register_2],
-                                   fully_quantum_registers=None,
-                                   semi_quantum_registers=None,
-                                   classical_registers=[qiskrypt_classical_register],
-                                   global_phase=0)
-        """
-        Create a Qiskrypt's Quantum Circuit, given its name,
-        Qiskrypt's Quantum Registers,
-        Qiskrypt's Fully-Quantum Registers, Qiskrypt's Semi-Quantum Registers,
-        Qiskrypt's Classical Registers and
-        Global Phase.
-        """
-
-        assert(qiskrypt_quantum_circuit.get_name() == quantum_circuit_name)
-        """
-        Assertion for the name of the Qiskrypt's Quantum Circuit.
+        Assertion for the number of bits of
+        the 1st Qiskrypt's Classical Register of the Qiskrypt's Quantum Circuit.
         """
 
         """
