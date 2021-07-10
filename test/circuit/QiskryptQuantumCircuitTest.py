@@ -148,6 +148,11 @@ class QiskryptQuantumCircuitTests(TestCase):
         Global Phase.
         """
 
+        """
+        Dummy Assert Equal for the Unittest
+        """
+        self.assertEqual(True, True)
+
 
 if __name__ == "__main__":
     """
