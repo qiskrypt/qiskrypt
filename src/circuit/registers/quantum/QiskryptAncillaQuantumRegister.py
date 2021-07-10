@@ -110,9 +110,9 @@ class QiskryptAncillaQuantumRegister:
 
     def get_num_ancilla_qubits(self):
         """
-        Return the number of qubits of the Qiskrypt's Ancilla Quantum Register.
+        Return the number of ancilla qubits of the Qiskrypt's Ancilla Quantum Register.
 
-        :return self.num_ancilla_qubits: the number of qubits of the Qiskrypt's Ancilla Quantum Register.
+        :return self.num_ancilla_qubits: the number of ancilla qubits of the Qiskrypt's Ancilla Quantum Register.
         """
 
         return self.num_ancilla_qubits
