@@ -132,6 +132,7 @@ class QiskryptAncillaSemiQuantumRegister(QiskryptAncillaQuantumRegister):
     def raise_not_ancilla_semi_quantum_register_error():
         """
         Return/Raise a Not an Ancilla Semi-Quantum Register Error for the Qiskrypt's Ancilla Semi-Quantum Register.
+
         :raise not_ancilla_semi_quantum_register_error: a Not an Ancilla Semi-Quantum Register Error for
                                                         the Qiskrypt's Ancilla Semi-Quantum Register.
         """
