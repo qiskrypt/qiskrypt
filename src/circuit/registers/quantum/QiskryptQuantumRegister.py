@@ -63,7 +63,7 @@ class QiskryptQuantumRegister:
         Constructor for the Qiskrypt's Quantum Register.
 
         :param name: The name of the Qiskrypt's Quantum Register.
-        :param num_qubits: The number of bits of the Qiskrypt's Quantum Register.
+        :param num_qubits: The number of qubits of the Qiskrypt's Quantum Register.
         :param quantum_register: A built-in quantum register object of
                                  the IBM's Qiskit Quantum Register.
         """
