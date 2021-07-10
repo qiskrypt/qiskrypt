@@ -71,7 +71,7 @@ class QiskryptSemiQuantumRegister(QiskryptQuantumRegister):
         It calls the constructor of the super-class Qiskrypt's Quantum Register.
 
         :param name: The name of the Qiskrypt's Semi-Quantum Register.
-        :param num_qubits: The number of bits of the Qiskrypt's Semi-Quantum Register.
+        :param num_qubits: The number of qubits of the Qiskrypt's Semi-Quantum Register.
         :param quantum_register: A built-in quantum register object of
                                  the IBM's Qiskit Quantum Register.
         """
