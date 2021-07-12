@@ -3944,6 +3944,33 @@ class QiskryptQuantumCircuit:
 
         return self.semi_quantum_registers
 
+    def get_qiskrypt_ancilla_quantum_registers(self):
+        """
+        Return the Qiskrypt's Ancilla Quantum Registers of the Qiskrypt's Quantum Circuit.
+
+        :return self.ancilla_quantum_registers: the Qiskrypt's Ancilla Quantum Registers of the Qiskrypt's Quantum Circuit.
+        """
+
+        return self.ancilla_quantum_registers
+
+    def get_qiskrypt_ancilla_fully_quantum_registers(self):
+        """
+        Return the Qiskrypt's Ancilla Fully-Quantum Registers of the Qiskrypt's Quantum Circuit.
+
+        :return self.ancilla_fully_quantum_registers: the Qiskrypt's Ancilla Fully-Quantum Registers of the Qiskrypt's Quantum Circuit.
+        """
+
+        return self.ancilla_fully_quantum_registers
+
+    def get_qiskrypt_ancilla_semi_quantum_registers(self):
+        """
+        Return the Qiskrypt's Ancilla Semi-Quantum Registers of the Qiskrypt's Quantum Circuit.
+
+        :return self.ancilla_semi_quantum_registers: the Qiskrypt's Ancilla Semi-Quantum Registers of the Qiskrypt's Quantum Circuit.
+        """
+
+        return self.ancilla_semi_quantum_registers
+
     def get_qiskrypt_classical_registers(self):
         """
         Return the Qiskrypt's Classical Registers of the Qiskrypt's Quantum Circuit.
@@ -3989,6 +4016,42 @@ class QiskryptQuantumCircuit:
 
         return self.semi_quantum_registers[qiskrypt_semi_quantum_register_index]
 
+    def get_qiskrypt_ancilla_quantum_register(self, qiskrypt_ancilla_quantum_register_index):
+        """
+        Return a specific Qiskrypt's Ancilla Quantum Register of the Qiskrypt's Quantum Circuit, given its index.
+
+        :param qiskrypt_ancilla_quantum_register_index: the index of the Qiskrypt's Ancilla Quantum Register of the Qiskrypt's Quantum Circuit.
+
+        :return self.ancilla_quantum_registers[qiskrypt_ancilla_quantum_register_index]: a specific Qiskrypt's Ancilla Quantum Register of
+                                                                                         the Qiskrypt's Quantum Circuit, given its index.
+        """
+
+        return self.ancilla_quantum_registers[qiskrypt_ancilla_quantum_register_index]
+
+    def get_qiskrypt_ancilla_fully_quantum_register(self, qiskrypt_ancilla_fully_quantum_register_index):
+        """
+        Return a specific Qiskrypt's Ancilla Fully-Quantum Register of the Qiskrypt's Quantum Circuit, given its index.
+
+        :param qiskrypt_ancilla_fully_quantum_register_index: the index of the Qiskrypt's Ancilla Fully-Quantum Register of the Qiskrypt's Quantum Circuit.
+
+        :return self.ancilla_fully_quantum_registers[qiskrypt_ancilla_fully_quantum_register_index]: a specific Qiskrypt's Ancilla Fully-Quantum Register of
+                                                                                                     the Qiskrypt's Quantum Circuit, given its index.
+        """
+
+        return self.ancilla_fully_quantum_registers[qiskrypt_ancilla_fully_quantum_register_index]
+
+    def get_qiskrypt_ancilla_semi_quantum_register(self, qiskrypt_ancilla_semi_quantum_register_index):
+        """
+        Return a specific Qiskrypt's Ancilla Semi-Quantum Register of the Qiskrypt's Quantum Circuit, given its index.
+
+        :param qiskrypt_ancilla_semi_quantum_register_index: the index of the Qiskrypt's Ancilla Semi-Quantum Register of the Qiskrypt's Quantum Circuit.
+
+        :return self.ancilla_semi_quantum_registers[qiskrypt_ancilla_semi_quantum_register_index]: a specific Qiskrypt's Ancilla Semi-Quantum Register of
+                                                                                                   the Qiskrypt's Quantum Circuit, given its index.
+        """
+
+        return self.ancilla_semi_quantum_registers[qiskrypt_ancilla_semi_quantum_register_index]
+
     def get_qiskrypt_classical_register(self, qiskrypt_classical_register_index):
         """
         Return a specific Qiskrypt's Classical Register of the Qiskrypt's Quantum Circuit, given its index.
@@ -4030,6 +4093,36 @@ class QiskryptQuantumCircuit:
         """
 
         return len(self.get_qiskrypt_semi_quantum_registers())
+
+    def get_num_qiskrypt_ancilla_quantum_registers(self):
+        """
+        Return the number of Qiskrypt's Ancilla Quantum Registers of the Qiskrypt's Quantum Circuit.
+
+        :return len(self.get_qiskrypt_ancilla_quantum_registers()): the number of Qiskrypt's Ancilla Quantum Registers of
+                                                                    the Qiskrypt's Quantum Circuit.
+        """
+
+        return len(self.get_qiskrypt_ancilla_quantum_registers())
+
+    def get_num_qiskrypt_ancilla_fully_quantum_registers(self):
+        """
+        Return the number of Qiskrypt's Ancilla Fully-Quantum Registers of the Qiskrypt's Quantum Circuit.
+
+        :return len(self.get_qiskrypt_ancilla_fully_quantum_registers()): the number of Qiskrypt's Ancilla Fully-Quantum Registers of
+                                                                          the Qiskrypt's Quantum Circuit.
+        """
+
+        return len(self.get_qiskrypt_ancilla_fully_quantum_registers())
+
+    def get_num_qiskrypt_ancilla_semi_quantum_registers(self):
+        """
+        Return the number of Qiskrypt's Ancilla Semi-Quantum Registers of the Qiskrypt's Quantum Circuit.
+
+        :return len(self.get_qiskrypt_ancilla_semi_quantum_registers()): the number of Qiskrypt's Ancilla Semi-Quantum Registers of
+                                                                         the Qiskrypt's Quantum Circuit.
+        """
+
+        return len(self.get_qiskrypt_ancilla_semi_quantum_registers())
 
     def get_num_qiskrypt_classical_registers(self):
         """
