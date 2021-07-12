@@ -90,7 +90,7 @@ The [**Qiskrypt**](https://qiskrypt.github.io/) is a software suite of protocols
 
 #### Foundation
 
-This _framework_ started as a proposal for the [**IBM**](https://www.ibm.com/) [**Hackathon Europe 2021**](https://qiskithackathoneurope.bemyapp.com/), achieving its 2nd phase (finals, with the top 20 teams), as well, as an idea developed by a team of students, researchers and professors, mostly from [**Técnico Lisboa**](https://tecnico.ulisboa.pt/en/), [**Faculty of Sciences of University of Lisbon**](https://ciencias.ulisboa.pt/en), [**Instituto de Telecomunicações**](https://www.it.pt/), [**Security and Quantum Information Group (SQIG)**](https://sqigmath.tecnico.ulisboa.pt/), [**UT Austin Portugal**](https://utaustinportugal.org/) and [**School of Engineering from University of Connecticut**](https://www.engr.uconn.edu/).
+This _framework_ started as a proposal for the [**IBM**](https://www.ibm.com/) [**Hackathon Europe 2021**](https://qiskithackathoneurope.bemyapp.com/), achieving its 2nd phase (finals, with the top 20 teams), as well, as an idea developed by a team of students, researchers and professors, mostly from [**NOVA School of Science and Technology**](https://www.fct.unl.pt/en), [**Técnico Lisboa**](https://tecnico.ulisboa.pt/en/), [**Faculty of Sciences of University of Lisbon**](https://ciencias.ulisboa.pt/en), [**Instituto de Telecomunicações**](https://www.it.pt/), [**Security and Quantum Information Group (SQIG)**](https://sqigmath.tecnico.ulisboa.pt/), [**LASIGE**](https://www.lasige.pt/), [**UT Austin Portugal**](https://utaustinportugal.org/) and [**School of Engineering from University of Connecticut**](https://www.engr.uconn.edu/).
 
 The aim of our _framework_ is to provide all the known _quantum cryptographic protocols_, in a single place, as an accessible solution, and being easy to use.
 
@@ -127,6 +127,14 @@ Our team is composed by the following members:
 
 The institutions involved in the development of this framework are:
 
+<a href="https://unl.pt/en/" target="_blank">
+ <img src="https://raw.githubusercontent.com/qiskrypt/qiskrypt.github.io/main/assets/images/logos/institutions/PNGs/nova-universidade-lisboa.png" alt="NOVA Universidade de Lisboa - Logo" width="20%">
+</a>
+&nbsp;&nbsp;
+<a href="https://fct.unl.pt/en/" target="_blank">
+ <img src="https://raw.githubusercontent.com/qiskrypt/qiskrypt.github.io/main/assets/images/logos/institutions/PNGs/nova-school-science-and-technology.png" alt="NOVA School of Science and Technology - Logo" width="20%">
+</a>
+<br>
 <a href="https://ulisboa.pt/en/" target="_blank">
  <img src="https://raw.githubusercontent.com/qiskrypt/qiskrypt.github.io/main/assets/images/logos/institutions/PNGs/universidade-lisboa.png" alt="Universidade de Lisboa - Logo" width="20%">
 </a>
@@ -146,12 +154,34 @@ The institutions involved in the development of this framework are:
 <a href="https://www.engr.uconn.edu/" target="_blank">
  <img src="https://raw.githubusercontent.com/qiskrypt/qiskrypt.github.io/main/assets/images/logos/institutions/PNGs/uconn-school-engineering.png" alt="UCONN - School of Engineering - Logo" width="20%">
 </a>
-
+<br>
+<a href="https://www.lasige.pt/" target="_blank">
+ <img src="https://raw.githubusercontent.com/qiskrypt/qiskrypt.github.io/main/assets/images/logos/institutions/PNGs/lasige.png" alt="Lasige - Logo" width="20%">
+</a>
+&nbsp;&nbsp;
+<a href="https://www.it.pt/" target="_blank">
+ <img src="https://raw.githubusercontent.com/qiskrypt/qiskrypt.github.io/main/assets/images/logos/institutions/PNGs/instituto-telecomunicacoes.png" alt="Instituto de Telecomunicações - Logo" width="20%">
+</a>
+&nbsp;&nbsp;
+<a href="https://utaustinportugal.org/" target="_blank">
+ <img src="https://raw.githubusercontent.com/qiskrypt/qiskrypt.github.io/main/assets/images/logos/institutions/PNGs/ut-austin-portugal.png" alt="UT Austin Portugal - Logo" width="20%">
+</a>
 
 ### Powered by
 
 This framework is powered by:
 
+<a href="https://www.ibm.com/" target="_blank">
+ <img src="https://raw.githubusercontent.com/qiskrypt/qiskrypt.github.io/main/assets/images/logos/powered-by/PNGs/ibm.png" alt="IBM - Logo" width="20%">
+</a>
+&nbsp;&nbsp;
+<a href="https://www.ibm.com/quantum-computing/" target="_blank">
+ <img src="https://raw.githubusercontent.com/qiskrypt/qiskrypt.github.io/main/assets/images/logos/powered-by/PNGs/ibm-q.png" alt="IBM Q - Logo" width="20%">
+</a>
+&nbsp;&nbsp;
+<a href="https://qiskit.org/" target="_blank">
+ <img src="https://raw.githubusercontent.com/qiskrypt/qiskrypt.github.io/main/assets/images/logos/powered-by/PNGs/qiskit.png" alt="IBM's Qiskit - Logo" width="20%">
+</a>
 
 ### Useful links
 
