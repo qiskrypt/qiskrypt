@@ -162,7 +162,7 @@ The institutions involved in the development of this framework are:
 <a href="https://www.it.pt/" target="_blank">
  <img src="https://raw.githubusercontent.com/qiskrypt/qiskrypt.github.io/main/assets/images/logos/institutions/PNGs/instituto-telecomunicacoes.png" alt="Instituto de Telecomunicações - Logo" width="20%">
 </a>
-<br>
+&nbsp;&nbsp;
 <a href="https://utaustinportugal.org/" target="_blank">
  <img src="https://raw.githubusercontent.com/qiskrypt/qiskrypt.github.io/main/assets/images/logos/institutions/PNGs/ut-austin-portugal.png" alt="Instituto de Telecomunicações - Logo" width="20%">
 </a>
