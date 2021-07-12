@@ -171,6 +171,17 @@ The institutions involved in the development of this framework are:
 
 This framework is powered by:
 
+<a href="https://www.ibm.com/" target="_blank">
+ <img src="https://raw.githubusercontent.com/qiskrypt/qiskrypt.github.io/main/assets/images/logos/powered-by/PNGs/ibm.png" alt="IBM - Logo" width="20%">
+</a>
+&nbsp;&nbsp;
+<a href="https://www.ibm.com/quantum-computing/" target="_blank">
+ <img src="https://raw.githubusercontent.com/qiskrypt/qiskrypt.github.io/main/assets/images/logos/powered-by/PNGs/ibm-q.png" alt="IBM Q - Logo" width="20%">
+</a>
+&nbsp;&nbsp;
+<a href="https://qiskit.org/" target="_blank">
+ <img src="https://raw.githubusercontent.com/qiskrypt/qiskrypt.github.io/main/assets/images/logos/powered-by/PNGs/qiskit.png" alt="IBM's Qiskit - Logo" width="20%">
+</a>
 
 ### Useful links
 
