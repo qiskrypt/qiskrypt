@@ -71,6 +71,21 @@ from src.circuit.registers.quantum.semi_quantum.QiskryptSemiQuantumRegister impo
 Import the Qiskrypt's Semi-Quantum Register.
 """
 
+from src.circuit.registers.quantum.QiskryptAncillaQuantumRegister import QiskryptAncillaQuantumRegister
+"""
+Import the Qiskrypt's Ancilla Quantum Register.
+"""
+
+from src.circuit.registers.quantum.fully_quantum.QiskryptAncillaFullyQuantumRegister import QiskryptAncillaFullyQuantumRegister
+"""
+Import the Qiskrypt's Ancilla Fully-Quantum Register.
+"""
+
+from src.circuit.registers.quantum.semi_quantum.QiskryptAncillaSemiQuantumRegister import QiskryptAncillaSemiQuantumRegister
+"""
+Import the Qiskrypt's Ancilla Semi-Quantum Register.
+"""
+
 from src.circuit.registers.classical.QiskryptClassicalRegister import QiskryptClassicalRegister
 """
 Import the Qiskrypt's Classical Register.
@@ -144,12 +159,17 @@ class QiskryptQuantumCircuitTests(TestCase):
                                    quantum_registers=[qiskrypt_quantum_register],
                                    fully_quantum_registers=None,
                                    semi_quantum_registers=None,
+                                   ancilla_quantum_registers=None,
+                                   ancilla_fully_quantum_registers=None,
+                                   ancilla_semi_quantum_registers=None,
                                    classical_registers=[qiskrypt_classical_register],
                                    global_phase=0)
         """
         Create a Qiskrypt's Quantum Circuit, given its name,
-        Qiskrypt's Quantum Registers,
-        Qiskrypt's Fully-Quantum Registers, Qiskrypt's Semi-Quantum Registers,
+        Qiskrypt's Quantum Registers, Qiskrypt's Fully-Quantum Registers,
+        Qiskrypt's Semi-Quantum Registers,
+        Qiskrypt's Ancilla Quantum Registers, Qiskrypt's Ancilla Fully-Quantum Registers,
+        Qiskrypt's Ancilla Semi-Quantum Registers,
         Qiskrypt's Classical Registers and
         Global Phase.
         """
@@ -180,6 +200,24 @@ class QiskryptQuantumCircuitTests(TestCase):
             """
             Assertion for the current Qiskrypt's Quantum Register of
             the Qiskrypt's Quantum Circuit do not be an actual Qiskrypt's Semi-Quantum Register.
+            """
+
+            assert(not isinstance(qiskrypt_quantum_register, QiskryptAncillaQuantumRegister))
+            """
+            Assertion for the current Qiskrypt's Quantum Register of
+            the Qiskrypt's Quantum Circuit be an actual Qiskrypt's Ancilla Quantum Register.
+            """
+
+            assert(not isinstance(qiskrypt_quantum_register, QiskryptAncillaFullyQuantumRegister))
+            """
+            Assertion for the current Qiskrypt's Quantum Register of
+            the Qiskrypt's Quantum Circuit do not be an actual Qiskrypt's Ancilla Fully-Quantum Register.
+            """
+
+            assert(not isinstance(qiskrypt_quantum_register, QiskryptAncillaSemiQuantumRegister))
+            """
+            Assertion for the current Qiskrypt's Quantum Register of
+            the Qiskrypt's Quantum Circuit do not be an actual Qiskrypt's Ancilla Semi-Quantum Register.
             """
 
             assert(isinstance(qiskrypt_quantum_register.get_quantum_register(), QuantumRegister))
