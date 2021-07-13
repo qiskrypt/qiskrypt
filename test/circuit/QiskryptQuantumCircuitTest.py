@@ -1194,7 +1194,7 @@ class QiskryptQuantumCircuitTests(TestCase):
 
         assert(qiskrypt_quantum_circuit.get_num_qubits_in_qiskit_quantum_register(0) == quantum_register_num_qubits)
         """
-        Assertion for the number of bits of
+        Assertion for the number of qubits of
         the 1st Qiskrypt's Quantum Register of the Qiskrypt's Quantum Circuit.
         """
 
@@ -1406,7 +1406,7 @@ class QiskryptQuantumCircuitTests(TestCase):
 
         assert(qiskrypt_quantum_circuit.get_num_qubits_in_qiskit_quantum_register(0) == fully_quantum_register_num_qubits)
         """
-        Assertion for the number of bits of
+        Assertion for the number of qubits of
         the 1st Qiskrypt's Quantum Register of the Qiskrypt's Quantum Circuit.
         """
 
@@ -1618,8 +1618,432 @@ class QiskryptQuantumCircuitTests(TestCase):
 
         assert(qiskrypt_quantum_circuit.get_num_qubits_in_qiskit_quantum_register(0) == semi_quantum_register_num_qubits)
         """
-        Assertion for the number of bits of
+        Assertion for the number of qubits of
         the 1st Qiskrypt's Quantum Register of the Qiskrypt's Quantum Circuit.
+        """
+
+        assert(qiskrypt_quantum_circuit.get_total_num_bits() == classical_register_num_bits)
+        """
+        Assertion for the total number of bits of
+        all the Qiskrypt's Classical Registers of the Qiskrypt's Quantum Circuit.
+        """
+
+        assert(qiskrypt_quantum_circuit.get_num_bits_in_qiskit_classical_register(0) == classical_register_num_bits)
+        """
+        Assertion for the number of bits of
+        the 1st Qiskrypt's Classical Register of the Qiskrypt's Quantum Circuit.
+        """
+
+        """
+        Dummy Assert Equal for the Unittest
+        """
+        self.assertEqual(True, True)
+
+    def test_no_11_creation_qiskrypt_quantum_circuit_with_1_ancilla_quantum_register_1_qubit_and_1_classical_register_1_bit(self):
+        """
+        Test Case #11:
+
+        - Create a Qiskrypt's Quantum Circuit with:
+            (i) 1 Ancilla Quantum Register (with 1 qubit).
+           (ii) 1 Classical Register (with 1 bit).
+
+        Return OK (or FAIL) if, all the Tests performed are OK (or FAIL, otherwise).
+        """
+
+        ancilla_quantum_register_name = "anc_qu_reg"
+        """
+        Set the name of the Qiskrypt's Ancilla Quantum Register.
+        """
+
+        ancilla_quantum_register_num_qubits = 1
+        """
+        Set the number of qubits for the Qiskrypt's Ancilla Quantum Register.
+        """
+
+        qiskrypt_ancilla_quantum_register = \
+            QiskryptAncillaQuantumRegister(name=ancilla_quantum_register_name,
+                                           num_ancilla_qubits=ancilla_quantum_register_num_qubits,
+                                           ancilla_quantum_register=None)
+        """
+        Create a Qiskrypt's Ancilla Quantum Register, given its name and number of qubits.
+        """
+
+        classical_register_name = "cl_reg"
+        """
+        Set the name of the Qiskrypt's Classical Register.
+        """
+
+        classical_register_num_bits = 1
+        """
+        Set the number of bits for the Qiskrypt's Classical Register.
+        """
+
+        qiskrypt_classical_register = \
+            QiskryptClassicalRegister(name=classical_register_name,
+                                      num_bits=classical_register_num_bits,
+                                      classical_register=None)
+        """
+        Create a Qiskrypt's Classical Register, given its name and number of bits.
+        """
+
+        quantum_circuit_name = "qu_circ"
+        """
+        Set the name of the Qiskrypt's Quantum Circuit.
+        """
+
+        qiskrypt_quantum_circuit = \
+            QiskryptQuantumCircuit(name=quantum_circuit_name,
+                                   quantum_registers=None,
+                                   fully_quantum_registers=None,
+                                   semi_quantum_registers=None,
+                                   ancilla_quantum_registers=[qiskrypt_ancilla_quantum_register],
+                                   ancilla_fully_quantum_registers=None,
+                                   ancilla_semi_quantum_registers=None,
+                                   classical_registers=[qiskrypt_classical_register],
+                                   global_phase=0)
+        """
+        Create a Qiskrypt's Quantum Circuit, given its name,
+        Qiskrypt's Quantum Registers, Qiskrypt's Fully-Quantum Registers,
+        Qiskrypt's Semi-Quantum Registers,
+        Qiskrypt's Ancilla Quantum Registers, Qiskrypt's Ancilla Fully-Quantum Registers,
+        Qiskrypt's Ancilla Semi-Quantum Registers,
+        Qiskrypt's Classical Registers and
+        Global Phase.
+        """
+
+        assert(qiskrypt_quantum_circuit.get_name() == quantum_circuit_name)
+        """
+        Assertion for the name of the Qiskrypt's Quantum Circuit.
+        """
+
+        for qiskrypt_ancilla_quantum_register in qiskrypt_quantum_circuit.get_qiskrypt_ancilla_quantum_registers():
+            """
+            For each supposed Qiskrypt's Ancilla Quantum Register in the Qiskrypt's Quantum Circuit.
+            """
+
+            assert(not isinstance(qiskrypt_ancilla_quantum_register, QiskryptQuantumRegister))
+            """
+            Assertion for the current Qiskrypt's Ancilla Quantum Register of
+            the Qiskrypt's Quantum Circuit do not be an actual Qiskrypt's Quantum Register.
+            """
+
+            assert(not isinstance(qiskrypt_ancilla_quantum_register, QiskryptFullyQuantumRegister))
+            """
+            Assertion for the current Qiskrypt's Ancilla Quantum Register of
+            the Qiskrypt's Quantum Circuit do not be an actual Qiskrypt's Fully-Quantum Register.
+            """
+
+            assert(not isinstance(qiskrypt_ancilla_quantum_register, QiskryptSemiQuantumRegister))
+            """
+            Assertion for the current Qiskrypt's Ancilla Quantum Register of
+            the Qiskrypt's Quantum Circuit do not be an actual Qiskrypt's Semi-Quantum Register.
+            """
+
+            assert(isinstance(qiskrypt_ancilla_quantum_register, QiskryptAncillaQuantumRegister))
+            """
+            Assertion for the current Qiskrypt's Ancilla Quantum Register of
+            the Qiskrypt's Quantum Circuit be an actual Qiskrypt's Ancilla Quantum Register.
+            """
+
+            assert(not isinstance(qiskrypt_ancilla_quantum_register, QiskryptAncillaFullyQuantumRegister))
+            """
+            Assertion for the current Qiskrypt's Ancilla Quantum Register of
+            the Qiskrypt's Quantum Circuit do not be an actual Qiskrypt's Ancilla Fully-Quantum Register.
+            """
+
+            assert(not isinstance(qiskrypt_ancilla_quantum_register, QiskryptAncillaSemiQuantumRegister))
+            """
+            Assertion for the current Qiskrypt's Ancilla Quantum Register of
+            the Qiskrypt's Quantum Circuit do not be an actual Qiskrypt's Ancilla Semi-Quantum Register.
+            """
+
+            assert(not isinstance(qiskrypt_ancilla_quantum_register, QiskryptClassicalRegister))
+            """
+            Assertion for the current Qiskrypt's Ancilla Quantum Register of
+            the Qiskrypt's Quantum Circuit do not be an actual Qiskrypt's Classical Register.
+            """
+
+            assert(isinstance(qiskrypt_ancilla_quantum_register.get_ancilla_quantum_register(), AncillaRegister))
+            """
+            Assertion for the current Qiskrypt's Ancilla Quantum Register of
+            the Qiskrypt's Quantum Circuit has an IBM's Qiskit Ancilla Register.
+            """
+
+        for qiskrypt_classical_register in qiskrypt_quantum_circuit.get_qiskrypt_classical_registers():
+            """
+            For each supposed Qiskrypt's Classical Register in the Qiskrypt's Quantum Circuit.
+            """
+
+            assert(not isinstance(qiskrypt_classical_register, QiskryptQuantumRegister))
+            """
+            Assertion for the current Qiskrypt's Classical Register of
+            the Qiskrypt's Quantum Circuit do not be an actual Qiskrypt's Quantum Register.
+            """
+
+            assert(not isinstance(qiskrypt_classical_register, QiskryptFullyQuantumRegister))
+            """
+            Assertion for the current Qiskrypt's Classical Register of
+            the Qiskrypt's Quantum Circuit do not be an actual Qiskrypt's Fully-Quantum Register.
+            """
+
+            assert(not isinstance(qiskrypt_classical_register, QiskryptSemiQuantumRegister))
+            """
+            Assertion for the current Qiskrypt's Classical Register of
+            the Qiskrypt's Quantum Circuit do not be an actual Qiskrypt's Semi-Quantum Register.
+            """
+
+            assert(not isinstance(qiskrypt_classical_register, QiskryptAncillaQuantumRegister))
+            """
+            Assertion for the current Qiskrypt's Classical Register of
+            the Qiskrypt's Quantum Circuit do not be an actual Qiskrypt's Ancilla Quantum Register.
+            """
+
+            assert(not isinstance(qiskrypt_classical_register, QiskryptAncillaFullyQuantumRegister))
+            """
+            Assertion for the current Qiskrypt's Classical Register of
+            the Qiskrypt's Quantum Circuit do not be an actual Qiskrypt's Ancilla Fully-Quantum Register.
+            """
+
+            assert(not isinstance(qiskrypt_classical_register, QiskryptAncillaSemiQuantumRegister))
+            """
+            Assertion for the current Qiskrypt's Classical Register of
+            the Qiskrypt's Quantum Circuit do not be an actual Qiskrypt's Ancilla Semi-Quantum Register.
+            """
+
+            assert(isinstance(qiskrypt_classical_register, QiskryptClassicalRegister))
+            """
+            Assertion for the current Qiskrypt's Classical Register of
+            the Qiskrypt's Quantum Circuit be an actual Qiskrypt's Classical Register.
+            """
+
+            assert(isinstance(qiskrypt_classical_register.get_classical_register(), ClassicalRegister))
+            """
+            Assertion for the current Qiskrypt's Classical Register of
+            the Qiskrypt's Quantum Circuit has an IBM's Qiskit Classical Register.
+            """
+
+        assert(qiskrypt_quantum_circuit.get_total_num_qubits() == ancilla_quantum_register_num_qubits)
+        """
+        Assertion for the total number of qubits of
+        all the Qiskrypt's Ancilla Quantum Registers of the Qiskrypt's Quantum Circuit.
+        """
+
+        assert(qiskrypt_quantum_circuit.get_num_qubits_in_qiskit_quantum_register(0) == ancilla_quantum_register_num_qubits)
+        """
+        Assertion for the number of qubits of
+        the 1st Qiskrypt's Ancilla Quantum Register of the Qiskrypt's Quantum Circuit.
+        """
+
+        assert(qiskrypt_quantum_circuit.get_total_num_bits() == classical_register_num_bits)
+        """
+        Assertion for the total number of bits of
+        all the Qiskrypt's Classical Registers of the Qiskrypt's Quantum Circuit.
+        """
+
+        assert(qiskrypt_quantum_circuit.get_num_bits_in_qiskit_classical_register(0) == classical_register_num_bits)
+        """
+        Assertion for the number of bits of
+        the 1st Qiskrypt's Classical Register of the Qiskrypt's Quantum Circuit.
+        """
+
+        """
+        Dummy Assert Equal for the Unittest
+        """
+        self.assertEqual(True, True)
+
+    def test_no_12_creation_qiskrypt_quantum_circuit_with_1_ancilla_fully_quantum_register_1_qubit_and_1_classical_register_1_bit(self):
+        """
+        Test Case #12:
+
+        - Create a Qiskrypt's Quantum Circuit with:
+            (i) 1 Ancilla Fully-Quantum Register (with 1 qubit).
+           (ii) 1 Classical Register (with 1 bit).
+
+        Return OK (or FAIL) if, all the Tests performed are OK (or FAIL, otherwise).
+        """
+
+        ancilla_fully_quantum_register_name = "anc_fully_qu_reg"
+        """
+        Set the name of the Qiskrypt's Ancilla Fully-Quantum Register.
+        """
+
+        ancilla_fully_quantum_register_num_qubits = 1
+        """
+        Set the number of qubits for the Qiskrypt's Ancilla Fully-Quantum Register.
+        """
+
+        qiskrypt_ancilla_fully_quantum_register = \
+            QiskryptAncillaFullyQuantumRegister(name=ancilla_fully_quantum_register_name,
+                                                num_ancilla_qubits=ancilla_fully_quantum_register_num_qubits,
+                                                ancilla_quantum_register=None)
+        """
+        Create a Qiskrypt's Ancilla Fully-Quantum Register, given its name and number of qubits.
+        """
+
+        classical_register_name = "cl_reg"
+        """
+        Set the name of the Qiskrypt's Classical Register.
+        """
+
+        classical_register_num_bits = 1
+        """
+        Set the number of bits for the Qiskrypt's Classical Register.
+        """
+
+        qiskrypt_classical_register = \
+            QiskryptClassicalRegister(name=classical_register_name,
+                                      num_bits=classical_register_num_bits,
+                                      classical_register=None)
+        """
+        Create a Qiskrypt's Classical Register, given its name and number of bits.
+        """
+
+        quantum_circuit_name = "qu_circ"
+        """
+        Set the name of the Qiskrypt's Quantum Circuit.
+        """
+
+        qiskrypt_quantum_circuit = \
+            QiskryptQuantumCircuit(name=quantum_circuit_name,
+                                   quantum_registers=None,
+                                   fully_quantum_registers=None,
+                                   semi_quantum_registers=None,
+                                   ancilla_quantum_registers=None,
+                                   ancilla_fully_quantum_registers=[qiskrypt_ancilla_fully_quantum_register],
+                                   ancilla_semi_quantum_registers=None,
+                                   classical_registers=[qiskrypt_classical_register],
+                                   global_phase=0)
+        """
+        Create a Qiskrypt's Quantum Circuit, given its name,
+        Qiskrypt's Quantum Registers, Qiskrypt's Fully-Quantum Registers,
+        Qiskrypt's Semi-Quantum Registers,
+        Qiskrypt's Ancilla Quantum Registers, Qiskrypt's Ancilla Fully-Quantum Registers,
+        Qiskrypt's Ancilla Semi-Quantum Registers,
+        Qiskrypt's Classical Registers and
+        Global Phase.
+        """
+
+        assert(qiskrypt_quantum_circuit.get_name() == quantum_circuit_name)
+        """
+        Assertion for the name of the Qiskrypt's Quantum Circuit.
+        """
+
+        for qiskrypt_ancilla_fully_quantum_register in qiskrypt_quantum_circuit.get_qiskrypt_ancilla_fully_quantum_registers():
+            """
+            For each supposed Qiskrypt's Ancilla Fully-Quantum Register in the Qiskrypt's Quantum Circuit.
+            """
+
+            assert(not isinstance(qiskrypt_ancilla_fully_quantum_register, QiskryptQuantumRegister))
+            """
+            Assertion for the current Qiskrypt's Ancilla Fully-Quantum Register of
+            the Qiskrypt's Quantum Circuit do not be an actual Qiskrypt's Quantum Register.
+            """
+
+            assert(not isinstance(qiskrypt_ancilla_fully_quantum_register, QiskryptFullyQuantumRegister))
+            """
+            Assertion for the current Qiskrypt's Ancilla Fully-Quantum Register of
+            the Qiskrypt's Quantum Circuit do not be an actual Qiskrypt's Fully-Quantum Register.
+            """
+
+            assert(not isinstance(qiskrypt_ancilla_fully_quantum_register, QiskryptSemiQuantumRegister))
+            """
+            Assertion for the current Qiskrypt's Ancilla Fully-Quantum Register of
+            the Qiskrypt's Quantum Circuit do not be an actual Qiskrypt's Semi-Quantum Register.
+            """
+
+            assert(isinstance(qiskrypt_ancilla_fully_quantum_register, QiskryptAncillaQuantumRegister))
+            """
+            Assertion for the current Qiskrypt's Ancilla Fully-Quantum Register of
+            the Qiskrypt's Quantum Circuit be an actual Qiskrypt's Ancilla Quantum Register.
+            """
+
+            assert(isinstance(qiskrypt_ancilla_fully_quantum_register, QiskryptAncillaFullyQuantumRegister))
+            """
+            Assertion for the current Qiskrypt's Ancilla Fully-Quantum Register of
+            the Qiskrypt's Quantum Circuit be an actual Qiskrypt's Ancilla Fully-Quantum Register.
+            """
+
+            assert(not isinstance(qiskrypt_ancilla_fully_quantum_register, QiskryptAncillaSemiQuantumRegister))
+            """
+            Assertion for the current Qiskrypt's Ancilla Fully-Quantum Register of
+            the Qiskrypt's Quantum Circuit do not be an actual Qiskrypt's Ancilla Semi-Quantum Register.
+            """
+
+            assert(not isinstance(qiskrypt_ancilla_fully_quantum_register, QiskryptClassicalRegister))
+            """
+            Assertion for the current Qiskrypt's Ancilla Fully-Quantum Register of
+            the Qiskrypt's Quantum Circuit do not be an actual Qiskrypt's Classical Register.
+            """
+
+            assert(isinstance(qiskrypt_ancilla_fully_quantum_register.get_ancilla_quantum_register(), AncillaRegister))
+            """
+            Assertion for the current Qiskrypt's Ancilla Fully-Quantum Register of
+            the Qiskrypt's Quantum Circuit has an IBM's Qiskit Ancilla Register.
+            """
+
+        for qiskrypt_classical_register in qiskrypt_quantum_circuit.get_qiskrypt_classical_registers():
+            """
+            For each supposed Qiskrypt's Classical Register in the Qiskrypt's Quantum Circuit.
+            """
+
+            assert(not isinstance(qiskrypt_classical_register, QiskryptQuantumRegister))
+            """
+            Assertion for the current Qiskrypt's Classical Register of
+            the Qiskrypt's Quantum Circuit do not be an actual Qiskrypt's Quantum Register.
+            """
+
+            assert(not isinstance(qiskrypt_classical_register, QiskryptFullyQuantumRegister))
+            """
+            Assertion for the current Qiskrypt's Classical Register of
+            the Qiskrypt's Quantum Circuit do not be an actual Qiskrypt's Fully-Quantum Register.
+            """
+
+            assert(not isinstance(qiskrypt_classical_register, QiskryptSemiQuantumRegister))
+            """
+            Assertion for the current Qiskrypt's Classical Register of
+            the Qiskrypt's Quantum Circuit do not be an actual Qiskrypt's Semi-Quantum Register.
+            """
+
+            assert(not isinstance(qiskrypt_classical_register, QiskryptAncillaQuantumRegister))
+            """
+            Assertion for the current Qiskrypt's Classical Register of
+            the Qiskrypt's Quantum Circuit do not be an actual Qiskrypt's Ancilla Quantum Register.
+            """
+
+            assert(not isinstance(qiskrypt_classical_register, QiskryptAncillaFullyQuantumRegister))
+            """
+            Assertion for the current Qiskrypt's Classical Register of
+            the Qiskrypt's Quantum Circuit do not be an actual Qiskrypt's Ancilla Fully-Quantum Register.
+            """
+
+            assert(not isinstance(qiskrypt_classical_register, QiskryptAncillaSemiQuantumRegister))
+            """
+            Assertion for the current Qiskrypt's Classical Register of
+            the Qiskrypt's Quantum Circuit do not be an actual Qiskrypt's Ancilla Semi-Quantum Register.
+            """
+
+            assert(isinstance(qiskrypt_classical_register, QiskryptClassicalRegister))
+            """
+            Assertion for the current Qiskrypt's Classical Register of
+            the Qiskrypt's Quantum Circuit be an actual Qiskrypt's Classical Register.
+            """
+
+            assert(isinstance(qiskrypt_classical_register.get_classical_register(), ClassicalRegister))
+            """
+            Assertion for the current Qiskrypt's Classical Register of
+            the Qiskrypt's Quantum Circuit has an IBM's Qiskit Classical Register.
+            """
+
+        assert(qiskrypt_quantum_circuit.get_total_num_qubits() == ancilla_fully_quantum_register_num_qubits)
+        """
+        Assertion for the total number of qubits of
+        all the Qiskrypt's Ancilla Fully-Quantum Registers of the Qiskrypt's Quantum Circuit.
+        """
+
+        assert(qiskrypt_quantum_circuit.get_num_qubits_in_qiskit_quantum_register(0) == ancilla_fully_quantum_register_num_qubits)
+        """
+        Assertion for the number of qubits of
+        the 1st Qiskrypt's Ancilla Fully-Quantum Register of the Qiskrypt's Quantum Circuit.
         """
 
         assert(qiskrypt_quantum_circuit.get_total_num_bits() == classical_register_num_bits)
