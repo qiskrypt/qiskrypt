@@ -46,7 +46,7 @@ dependencies:
   - pillow
   # Quantum Computing (IBM Q Experience/Qiskit and QuTiP)
   - pip:
-    - qiskit == 0.27.0
+    - qiskit == 0.28.0
     - qiskit[visualization]
     - qutip
   # Others
