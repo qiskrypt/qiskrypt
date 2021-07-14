@@ -72,7 +72,7 @@ Import the Qiskrypt's Classical Register.
 """
 
 
-class QiskryptFullyQuantumRegisterTests(TestCase):
+class QiskryptAncillaFullyQuantumRegisterTests(TestCase):
     """
     Object Class of the Unitary Tests for the Qiskrypt's Fully-Quantum Register.
     """
@@ -352,7 +352,7 @@ if __name__ == "__main__":
     """
 
     qiskrypt_ancilla_fully_quantum_register_test_cases = \
-        TestLoader().loadTestsFromTestCase(QiskryptFullyQuantumRegisterTests)
+        TestLoader().loadTestsFromTestCase(QiskryptAncillaFullyQuantumRegisterTests)
     """
     Load the Test Cases from the Unitary Tests for the Qiskrypt's Ancilla Fully-Quantum Register.
     """
