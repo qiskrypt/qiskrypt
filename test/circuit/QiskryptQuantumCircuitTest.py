@@ -8188,6 +8188,51 @@ class QiskryptQuantumCircuitTests(TestCase):
         """
         self.assertEqual(True, True)
 
+    def test_no_29_revert_qiskit_quantum_circuit_operations(self):
+        """
+        Test Case #29:
+
+        - Revert the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit.
+
+        Return OK (or FAIL) if, all the Tests performed are OK (or FAIL, otherwise).
+        """
+
+        """
+        Dummy Assert Equal for the Unittest
+        """
+        self.assertEqual(True, True)
+
+    def test_no_30_revert_qiskit_quantum_circuit_wires_order(self):
+        """
+        Test Case #30:
+
+        - Revert the order of the wires of the IBM Qiskit's Quantum Circuit of
+          the Qiskrypt's Quantum Circuit.
+
+        Return OK (or FAIL) if, all the Tests performed are OK (or FAIL, otherwise).
+        """
+
+        """
+        Dummy Assert Equal for the Unittest
+        """
+        self.assertEqual(True, True)
+
+    def test_no_31_invert_qiskit_quantum_circuit(self):
+        """
+        Test Case #31:
+
+        - Invert the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit,
+          reverting the order of the Quantum Gates/Operations and
+          setting the symmetric values for their parameters.
+
+        Return OK (or FAIL) if, all the Tests performed are OK (or FAIL, otherwise).
+        """
+
+        """
+        Dummy Assert Equal for the Unittest
+        """
+        self.assertEqual(True, True)
+
 
 if __name__ == "__main__":
     """
