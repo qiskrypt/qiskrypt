@@ -42,57 +42,69 @@ Import required Libraries and Packages.
 """
 
 from numpy import sqrt, exp
+
 """
 Import Squared Root and Exponential from NumPy.
 """
 
 from qiskit import QuantumCircuit
+
 """
 Import Quantum Circuit from IBM's Qiskit.
 """
 
 from qiskit.quantum_info.operators import Operator
+
 """
 Import Operator of the Quantum_Info.Operators Module from IBM's Qiskit.
 """
 
 from src.circuit.registers.quantum.QiskryptQuantumRegister import QiskryptQuantumRegister
+
 """
 Import Qiskrypt's Quantum Register of
 the Src.Circuit.Registers.Quantum.QiskryptQuantumRegister Module from Qiskrypt.
 """
 
 from src.circuit.registers.quantum.fully_quantum.QiskryptFullyQuantumRegister import QiskryptFullyQuantumRegister
+
 """
 Import Qiskrypt's Fully-Quantum Register of
 the Src.Circuit.Registers.Quantum.Fully_Quantum.QiskryptFullyQuantumRegister Module from Qiskrypt.
 """
 
 from src.circuit.registers.quantum.semi_quantum.QiskryptSemiQuantumRegister import QiskryptSemiQuantumRegister
+
 """
 Import Qiskrypt's Semi-Quantum Register of
 the Src.Circuit.Registers.Quantum.Semi_Quantum.QiskryptSemiQuantumRegister Module from Qiskrypt.
 """
 
 from src.circuit.registers.quantum.QiskryptAncillaQuantumRegister import QiskryptAncillaQuantumRegister
+
 """
 Import Qiskrypt's Ancilla Quantum Register of
 the Src.Circuit.Registers.Quantum.QiskryptAncillaQuantumRegister Module from Qiskrypt.
 """
 
-from src.circuit.registers.quantum.fully_quantum.QiskryptAncillaFullyQuantumRegister import QiskryptAncillaFullyQuantumRegister
+from src.circuit.registers.quantum.fully_quantum.QiskryptAncillaFullyQuantumRegister import \
+    QiskryptAncillaFullyQuantumRegister
+
 """
 Import Qiskrypt's Ancilla Fully-Quantum Register of
 the Src.Circuit.Registers.Quantum.Fully_Quantum.QiskryptAncillaFullyQuantumRegister Module from Qiskrypt.
 """
 
-from src.circuit.registers.quantum.semi_quantum.QiskryptAncillaSemiQuantumRegister import QiskryptAncillaSemiQuantumRegister
+from src.circuit.registers.quantum.semi_quantum.QiskryptAncillaSemiQuantumRegister import \
+    QiskryptAncillaSemiQuantumRegister
+
 """
 Import Qiskrypt's Ancilla Semi-Quantum Register of
 the Src.Circuit.Registers.Quantum.Semi_Quantum.QiskryptAncillaSemiQuantumRegister Module from Qiskrypt.
 """
 
 from src.circuit.registers.classical.QiskryptClassicalRegister import QiskryptClassicalRegister
+
 """
 Import Qiskrypt's Classical Register of
 the Src.Circuit.Registers.Classical.QiskryptClassicalRegister Module from Qiskrypt.
@@ -100,6 +112,7 @@ the Src.Circuit.Registers.Classical.QiskryptClassicalRegister Module from Qiskry
 
 from src.circuit.exception.QiskryptQuantumCircuitException \
     import QiskryptQuantumCircuitUnsupportedTypeRegistersError
+
 """
 Import the Unsupported Type of Registers Error for the Qiskrypt's Quantum Circuit.
 """
@@ -112,7 +125,8 @@ class QiskryptQuantumCircuit:
 
     def __init__(self, name="qu_circ",
                  quantum_registers=None, fully_quantum_registers=None, semi_quantum_registers=None,
-                 ancilla_quantum_registers=None, ancilla_fully_quantum_registers=None, ancilla_semi_quantum_registers=None,
+                 ancilla_quantum_registers=None, ancilla_fully_quantum_registers=None,
+                 ancilla_semi_quantum_registers=None,
                  classical_registers=None, global_phase=0, quantum_circuit=None):
         """
         :param name: The name for the Qiskrypt's Quantum Circuit.
@@ -140,8 +154,10 @@ class QiskryptQuantumCircuit:
             Classical Registers.
             """
 
-            if (quantum_registers is not None) and (fully_quantum_registers is None) and (semi_quantum_registers is None) and \
-               (ancilla_quantum_registers is None) and (ancilla_fully_quantum_registers is None) and (ancilla_semi_quantum_registers is None) and \
+            if (quantum_registers is not None) and (fully_quantum_registers is None) and (
+                    semi_quantum_registers is None) and \
+                    (ancilla_quantum_registers is None) and (ancilla_fully_quantum_registers is None) and (
+                    ancilla_semi_quantum_registers is None) and \
                     (classical_registers is None):
                 """
                 If the Qiskrypt's Quantum Registers given as arguments are not None,
@@ -216,8 +232,9 @@ class QiskryptQuantumCircuit:
                     """
 
                     self.quantum_circuit = \
-                        QuantumCircuit(*[quantum_register.get_quantum_register() for quantum_register in self.quantum_registers],
-                                       name=name, global_phase=global_phase)
+                        QuantumCircuit(
+                            *[quantum_register.get_quantum_register() for quantum_register in self.quantum_registers],
+                            name=name, global_phase=global_phase)
                     """
                     Set the IBM's Qiskit Quantum Circuit of the Qiskrypt's Quantum Circuit.
                     """
@@ -232,8 +249,10 @@ class QiskryptQuantumCircuit:
                     """
                     self.raise_unsupported_type_registers_error()
 
-            elif (quantum_registers is None) and (fully_quantum_registers is not None) and (semi_quantum_registers is None) and \
-                (ancilla_quantum_registers is None) and (ancilla_fully_quantum_registers is None) and (ancilla_semi_quantum_registers is None) and \
+            elif (quantum_registers is None) and (fully_quantum_registers is not None) and (
+                    semi_quantum_registers is None) and \
+                    (ancilla_quantum_registers is None) and (ancilla_fully_quantum_registers is None) and (
+                    ancilla_semi_quantum_registers is None) and \
                     (classical_registers is None):
                 """
                 If the Qiskrypt's Fully-Quantum Registers given as arguments are not None,
@@ -308,8 +327,10 @@ class QiskryptQuantumCircuit:
                     """
 
                     self.quantum_circuit = \
-                        QuantumCircuit(*[fully_quantum_register.get_fully_quantum_register() for fully_quantum_register in self.fully_quantum_registers],
-                                       name=name, global_phase=global_phase)
+                        QuantumCircuit(
+                            *[fully_quantum_register.get_fully_quantum_register() for fully_quantum_register in
+                              self.fully_quantum_registers],
+                            name=name, global_phase=global_phase)
                     """
                     Set the IBM's Qiskit Quantum Circuit of the Qiskrypt's Quantum Circuit.
                     """
@@ -324,8 +345,10 @@ class QiskryptQuantumCircuit:
                     """
                     self.raise_unsupported_type_registers_error()
 
-            elif (quantum_registers is None) and (fully_quantum_registers is None) and (semi_quantum_registers is not None) and \
-                (ancilla_quantum_registers is None) and (ancilla_fully_quantum_registers is None) and (ancilla_semi_quantum_registers is None) and \
+            elif (quantum_registers is None) and (fully_quantum_registers is None) and (
+                    semi_quantum_registers is not None) and \
+                    (ancilla_quantum_registers is None) and (ancilla_fully_quantum_registers is None) and (
+                    ancilla_semi_quantum_registers is None) and \
                     (classical_registers is None):
                 """
                 If the Qiskrypt's Semi-Quantum Registers given as arguments are not None,
@@ -400,7 +423,8 @@ class QiskryptQuantumCircuit:
                     """
 
                     self.quantum_circuit = \
-                        QuantumCircuit(*[semi_quantum_register.get_semi_quantum_register() for semi_quantum_register in self.semi_quantum_registers],
+                        QuantumCircuit(*[semi_quantum_register.get_semi_quantum_register() for semi_quantum_register in
+                                         self.semi_quantum_registers],
                                        name=name, global_phase=global_phase)
                     """
                     Set the IBM's Qiskit Quantum Circuit of the Qiskrypt's Quantum Circuit.
@@ -416,8 +440,10 @@ class QiskryptQuantumCircuit:
                     """
                     self.raise_unsupported_type_registers_error()
 
-            elif (quantum_registers is None) and (fully_quantum_registers is None) and (semi_quantum_registers is None) and \
-                (ancilla_quantum_registers is not None) and (ancilla_fully_quantum_registers is None) and (ancilla_semi_quantum_registers is None) and \
+            elif (quantum_registers is None) and (fully_quantum_registers is None) and (
+                    semi_quantum_registers is None) and \
+                    (ancilla_quantum_registers is not None) and (ancilla_fully_quantum_registers is None) and (
+                    ancilla_semi_quantum_registers is None) and \
                     (classical_registers is None):
                 """
                 If the Qiskrypt's Ancilla Quantum Registers given as arguments are not None,
@@ -492,8 +518,10 @@ class QiskryptQuantumCircuit:
                     """
 
                     self.quantum_circuit = \
-                        QuantumCircuit(*[ancilla_quantum_register.get_ancilla_quantum_register() for ancilla_quantum_register in self.ancilla_quantum_registers],
-                                       name=name, global_phase=global_phase)
+                        QuantumCircuit(
+                            *[ancilla_quantum_register.get_ancilla_quantum_register() for ancilla_quantum_register in
+                              self.ancilla_quantum_registers],
+                            name=name, global_phase=global_phase)
                     """
                     Set the IBM's Qiskit Quantum Circuit of the Qiskrypt's Quantum Circuit.
                     """
@@ -508,8 +536,10 @@ class QiskryptQuantumCircuit:
                     """
                     self.raise_unsupported_type_registers_error()
 
-            elif (quantum_registers is None) and (fully_quantum_registers is None) and (semi_quantum_registers is None) and \
-                (ancilla_quantum_registers is None) and (ancilla_fully_quantum_registers is not None) and (ancilla_semi_quantum_registers is None) and \
+            elif (quantum_registers is None) and (fully_quantum_registers is None) and (
+                    semi_quantum_registers is None) and \
+                    (ancilla_quantum_registers is None) and (ancilla_fully_quantum_registers is not None) and (
+                    ancilla_semi_quantum_registers is None) and \
                     (classical_registers is None):
                 """
                 If the Qiskrypt's Ancilla Fully-Quantum Registers given as arguments are not None,
@@ -584,7 +614,8 @@ class QiskryptQuantumCircuit:
                     """
 
                     self.quantum_circuit = \
-                        QuantumCircuit(*[ancilla_fully_quantum_register.get_ancilla_fully_quantum_register() for ancilla_fully_quantum_register in self.ancilla_fully_quantum_registers],
+                        QuantumCircuit(*[ancilla_fully_quantum_register.get_ancilla_fully_quantum_register() for
+                                         ancilla_fully_quantum_register in self.ancilla_fully_quantum_registers],
                                        name=name, global_phase=global_phase)
                     """
                     Set the IBM's Qiskit Quantum Circuit of the Qiskrypt's Quantum Circuit.
@@ -600,8 +631,10 @@ class QiskryptQuantumCircuit:
                     """
                     self.raise_unsupported_type_registers_error()
 
-            elif (quantum_registers is None) and (fully_quantum_registers is None) and (semi_quantum_registers is None) and \
-                (ancilla_quantum_registers is None) and (ancilla_fully_quantum_registers is None) and (ancilla_semi_quantum_registers is not None) and \
+            elif (quantum_registers is None) and (fully_quantum_registers is None) and (
+                    semi_quantum_registers is None) and \
+                    (ancilla_quantum_registers is None) and (ancilla_fully_quantum_registers is None) and (
+                    ancilla_semi_quantum_registers is not None) and \
                     (classical_registers is None):
                 """
                 If the Qiskrypt's Ancilla Semi-Quantum Registers given as arguments are not None,
@@ -676,7 +709,8 @@ class QiskryptQuantumCircuit:
                     """
 
                     self.quantum_circuit = \
-                        QuantumCircuit(*[ancilla_semi_quantum_register.get_ancilla_semi_quantum_register() for ancilla_semi_quantum_register in self.ancilla_semi_quantum_registers],
+                        QuantumCircuit(*[ancilla_semi_quantum_register.get_ancilla_semi_quantum_register() for
+                                         ancilla_semi_quantum_register in self.ancilla_semi_quantum_registers],
                                        name=name, global_phase=global_phase)
                     """
                     Set the IBM's Qiskit Quantum Circuit of the Qiskrypt's Quantum Circuit.
@@ -692,8 +726,10 @@ class QiskryptQuantumCircuit:
                     """
                     self.raise_unsupported_type_registers_error()
 
-            elif (quantum_registers is None) and (fully_quantum_registers is None) and (semi_quantum_registers is None) and \
-                (ancilla_quantum_registers is None) and (ancilla_fully_quantum_registers is None) and (ancilla_semi_quantum_registers is None) and \
+            elif (quantum_registers is None) and (fully_quantum_registers is None) and (
+                    semi_quantum_registers is None) and \
+                    (ancilla_quantum_registers is None) and (ancilla_fully_quantum_registers is None) and (
+                    ancilla_semi_quantum_registers is None) and \
                     (classical_registers is not None):
                 """
                 If the Qiskrypt's Classical Registers given as arguments are not None,
@@ -768,7 +804,8 @@ class QiskryptQuantumCircuit:
                     """
 
                     self.quantum_circuit = \
-                        QuantumCircuit(*[classical_register.get_classical_register() for classical_register in self.classical_registers],
+                        QuantumCircuit(*[classical_register.get_classical_register() for classical_register in
+                                         self.classical_registers],
                                        name=name, global_phase=global_phase)
                     """
                     Set the IBM's Qiskit Quantum Circuit of the Qiskrypt's Quantum Circuit.
@@ -784,8 +821,10 @@ class QiskryptQuantumCircuit:
                     """
                     self.raise_unsupported_type_registers_error()
 
-            elif (quantum_registers is not None) and (fully_quantum_registers is None) and (semi_quantum_registers is None) and \
-                 (ancilla_quantum_registers is None) and (ancilla_fully_quantum_registers is None) and (ancilla_semi_quantum_registers is None) and \
+            elif (quantum_registers is not None) and (fully_quantum_registers is None) and (
+                    semi_quantum_registers is None) and \
+                    (ancilla_quantum_registers is None) and (ancilla_fully_quantum_registers is None) and (
+                    ancilla_semi_quantum_registers is None) and \
                     (classical_registers is not None):
                 """
                 If the Qiskrypt's Quantum and Classical Registers given as arguments are not None,
@@ -880,9 +919,11 @@ class QiskryptQuantumCircuit:
                     """
 
                     self.quantum_circuit = \
-                        QuantumCircuit(*[quantum_register.get_quantum_register() for quantum_register in self.quantum_registers],
-                                       *[classical_register.get_classical_register() for classical_register in self.classical_registers],
-                                       name=name, global_phase=global_phase)
+                        QuantumCircuit(
+                            *[quantum_register.get_quantum_register() for quantum_register in self.quantum_registers],
+                            *[classical_register.get_classical_register() for classical_register in
+                              self.classical_registers],
+                            name=name, global_phase=global_phase)
                     """
                     Set the IBM's Qiskit Quantum Circuit of the Qiskrypt's Quantum Circuit.
                     """
@@ -897,8 +938,10 @@ class QiskryptQuantumCircuit:
                     """
                     self.raise_unsupported_type_registers_error()
 
-            elif (quantum_registers is None) and (fully_quantum_registers is not None) and (semi_quantum_registers is None) and \
-                (ancilla_quantum_registers is None) and (ancilla_fully_quantum_registers is None) and (ancilla_semi_quantum_registers is None) and \
+            elif (quantum_registers is None) and (fully_quantum_registers is not None) and (
+                    semi_quantum_registers is None) and \
+                    (ancilla_quantum_registers is None) and (ancilla_fully_quantum_registers is None) and (
+                    ancilla_semi_quantum_registers is None) and \
                     (classical_registers is not None):
                 """
                 If the Qiskrypt's Fully-Quantum and Classical Registers given as arguments are not None,
@@ -993,9 +1036,12 @@ class QiskryptQuantumCircuit:
                     """
 
                     self.quantum_circuit = \
-                        QuantumCircuit(*[fully_quantum_register.get_fully_quantum_register() for fully_quantum_register in self.fully_quantum_registers],
-                                       *[classical_register.get_classical_register() for classical_register in self.classical_registers],
-                                       name=name, global_phase=global_phase)
+                        QuantumCircuit(
+                            *[fully_quantum_register.get_fully_quantum_register() for fully_quantum_register in
+                              self.fully_quantum_registers],
+                            *[classical_register.get_classical_register() for classical_register in
+                              self.classical_registers],
+                            name=name, global_phase=global_phase)
                     """
                     Set the IBM's Qiskit Quantum Circuit of the Qiskrypt's Quantum Circuit.
                     """
@@ -1010,8 +1056,10 @@ class QiskryptQuantumCircuit:
                     """
                     self.raise_unsupported_type_registers_error()
 
-            elif (quantum_registers is None) and (fully_quantum_registers is None) and (semi_quantum_registers is not None) and \
-                (ancilla_quantum_registers is None) and (ancilla_fully_quantum_registers is None) and (ancilla_semi_quantum_registers is None) and \
+            elif (quantum_registers is None) and (fully_quantum_registers is None) and (
+                    semi_quantum_registers is not None) and \
+                    (ancilla_quantum_registers is None) and (ancilla_fully_quantum_registers is None) and (
+                    ancilla_semi_quantum_registers is None) and \
                     (classical_registers is not None):
                 """
                 If the Qiskrypt's Semi-Quantum and Classical Registers given as arguments are not None,
@@ -1106,8 +1154,10 @@ class QiskryptQuantumCircuit:
                     """
 
                     self.quantum_circuit = \
-                        QuantumCircuit(*[semi_quantum_register.get_semi_quantum_register() for semi_quantum_register in self.semi_quantum_registers],
-                                       *[classical_register.get_classical_register() for classical_register in self.classical_registers],
+                        QuantumCircuit(*[semi_quantum_register.get_semi_quantum_register() for semi_quantum_register in
+                                         self.semi_quantum_registers],
+                                       *[classical_register.get_classical_register() for classical_register in
+                                         self.classical_registers],
                                        name=name, global_phase=global_phase)
                     """
                     Set the IBM's Qiskit Quantum Circuit of the Qiskrypt's Quantum Circuit.
@@ -1123,8 +1173,10 @@ class QiskryptQuantumCircuit:
                     """
                     self.raise_unsupported_type_registers_error()
 
-            elif (quantum_registers is None) and (fully_quantum_registers is None) and (semi_quantum_registers is None) and \
-                (ancilla_quantum_registers is not None) and (ancilla_fully_quantum_registers is None) and (ancilla_semi_quantum_registers is None) and \
+            elif (quantum_registers is None) and (fully_quantum_registers is None) and (
+                    semi_quantum_registers is None) and \
+                    (ancilla_quantum_registers is not None) and (ancilla_fully_quantum_registers is None) and (
+                    ancilla_semi_quantum_registers is None) and \
                     (classical_registers is not None):
                 """
                 If the Qiskrypt's Ancilla Quantum and Classical Registers given as arguments are not None,
@@ -1219,9 +1271,12 @@ class QiskryptQuantumCircuit:
                     """
 
                     self.quantum_circuit = \
-                        QuantumCircuit(*[ancilla_quantum_register.get_ancilla_quantum_register() for ancilla_quantum_register in self.ancilla_quantum_registers],
-                                       *[classical_register.get_classical_register() for classical_register in self.classical_registers],
-                                       name=name, global_phase=global_phase)
+                        QuantumCircuit(
+                            *[ancilla_quantum_register.get_ancilla_quantum_register() for ancilla_quantum_register in
+                              self.ancilla_quantum_registers],
+                            *[classical_register.get_classical_register() for classical_register in
+                              self.classical_registers],
+                            name=name, global_phase=global_phase)
                     """
                     Set the IBM's Qiskit Quantum Circuit of the Qiskrypt's Quantum Circuit.
                     """
@@ -1236,8 +1291,10 @@ class QiskryptQuantumCircuit:
                     """
                     self.raise_unsupported_type_registers_error()
 
-            elif (quantum_registers is None) and (fully_quantum_registers is None) and (semi_quantum_registers is None) and \
-                (ancilla_quantum_registers is None) and (ancilla_fully_quantum_registers is not None) and (ancilla_semi_quantum_registers is None) and \
+            elif (quantum_registers is None) and (fully_quantum_registers is None) and (
+                    semi_quantum_registers is None) and \
+                    (ancilla_quantum_registers is None) and (ancilla_fully_quantum_registers is not None) and (
+                    ancilla_semi_quantum_registers is None) and \
                     (classical_registers is not None):
                 """
                 If the Qiskrypt's Ancilla Fully-Quantum and Classical Registers given as arguments are not None,
@@ -1332,8 +1389,10 @@ class QiskryptQuantumCircuit:
                     """
 
                     self.quantum_circuit = \
-                        QuantumCircuit(*[ancilla_fully_quantum_register.get_ancilla_fully_quantum_register() for ancilla_fully_quantum_register in self.ancilla_fully_quantum_registers],
-                                       *[classical_register.get_classical_register() for classical_register in self.classical_registers],
+                        QuantumCircuit(*[ancilla_fully_quantum_register.get_ancilla_fully_quantum_register() for
+                                         ancilla_fully_quantum_register in self.ancilla_fully_quantum_registers],
+                                       *[classical_register.get_classical_register() for classical_register in
+                                         self.classical_registers],
                                        name=name, global_phase=global_phase)
                     """
                     Set the IBM's Qiskit Quantum Circuit of the Qiskrypt's Quantum Circuit.
@@ -1349,8 +1408,10 @@ class QiskryptQuantumCircuit:
                     """
                     self.raise_unsupported_type_registers_error()
 
-            elif (quantum_registers is None) and (fully_quantum_registers is None) and (semi_quantum_registers is None) and \
-                (ancilla_quantum_registers is None) and (ancilla_fully_quantum_registers is None) and (ancilla_semi_quantum_registers is not None) and \
+            elif (quantum_registers is None) and (fully_quantum_registers is None) and (
+                    semi_quantum_registers is None) and \
+                    (ancilla_quantum_registers is None) and (ancilla_fully_quantum_registers is None) and (
+                    ancilla_semi_quantum_registers is not None) and \
                     (classical_registers is not None):
                 """
                 If the Qiskrypt's Ancilla Semi-Quantum and Classical Registers given as arguments are not None,
@@ -1445,8 +1506,10 @@ class QiskryptQuantumCircuit:
                     """
 
                     self.quantum_circuit = \
-                        QuantumCircuit(*[ancilla_semi_quantum_register.get_ancilla_semi_quantum_register() for ancilla_semi_quantum_register in self.ancilla_semi_quantum_registers],
-                                       *[classical_register.get_classical_register() for classical_register in self.classical_registers],
+                        QuantumCircuit(*[ancilla_semi_quantum_register.get_ancilla_semi_quantum_register() for
+                                         ancilla_semi_quantum_register in self.ancilla_semi_quantum_registers],
+                                       *[classical_register.get_classical_register() for classical_register in
+                                         self.classical_registers],
                                        name=name, global_phase=global_phase)
                     """
                     Set the IBM's Qiskit Quantum Circuit of the Qiskrypt's Quantum Circuit.
@@ -1462,8 +1525,10 @@ class QiskryptQuantumCircuit:
                     """
                     self.raise_unsupported_type_registers_error()
 
-            elif (quantum_registers is not None) and (fully_quantum_registers is not None) and (semi_quantum_registers is None) and \
-                (ancilla_quantum_registers is None) and (ancilla_fully_quantum_registers is None) and (ancilla_semi_quantum_registers is None) and \
+            elif (quantum_registers is not None) and (fully_quantum_registers is not None) and (
+                    semi_quantum_registers is None) and \
+                    (ancilla_quantum_registers is None) and (ancilla_fully_quantum_registers is None) and (
+                    ancilla_semi_quantum_registers is None) and \
                     (classical_registers is not None):
                 """
                 If the Qiskrypt's Quantum, Fully-Quantum and Classical Registers given as arguments are not None,
@@ -1471,7 +1536,8 @@ class QiskryptQuantumCircuit:
                 (i.e., a Qiskrypt's Quantum Circuit equivalent to a hybrid Quantum/Fully-Quantum/Classical Memory).
                 """
 
-                if (isinstance(quantum_registers, list)) and (isinstance(fully_quantum_registers, list)) and (isinstance(classical_registers, list)):
+                if (isinstance(quantum_registers, list)) and (isinstance(fully_quantum_registers, list)) and (
+                    isinstance(classical_registers, list)):
                     """
                     If the Qiskrypt's Quantum, Fully-Quantum and Classical Registers are lists.
                     """
@@ -1577,10 +1643,13 @@ class QiskryptQuantumCircuit:
                     """
 
                     self.quantum_circuit = \
-                        QuantumCircuit(*[quantum_register.get_quantum_register() for quantum_register in self.quantum_registers],
-                                       *[fully_quantum_register.get_fully_quantum_register() for fully_quantum_register in self.fully_quantum_registers],
-                                       *[classical_register.get_classical_register() for classical_register in self.classical_registers],
-                                       name=name, global_phase=global_phase)
+                        QuantumCircuit(
+                            *[quantum_register.get_quantum_register() for quantum_register in self.quantum_registers],
+                            *[fully_quantum_register.get_fully_quantum_register() for fully_quantum_register in
+                              self.fully_quantum_registers],
+                            *[classical_register.get_classical_register() for classical_register in
+                              self.classical_registers],
+                            name=name, global_phase=global_phase)
                     """
                     Set the IBM's Qiskit Quantum Circuit of the Qiskrypt's Quantum Circuit.
                     """
@@ -1595,8 +1664,10 @@ class QiskryptQuantumCircuit:
                     """
                     self.raise_unsupported_type_registers_error()
 
-            elif (quantum_registers is not None) and (fully_quantum_registers is None) and (semi_quantum_registers is not None) and \
-                (ancilla_quantum_registers is None) and (ancilla_fully_quantum_registers is None) and (ancilla_semi_quantum_registers is None) and \
+            elif (quantum_registers is not None) and (fully_quantum_registers is None) and (
+                    semi_quantum_registers is not None) and \
+                    (ancilla_quantum_registers is None) and (ancilla_fully_quantum_registers is None) and (
+                    ancilla_semi_quantum_registers is None) and \
                     (classical_registers is not None):
                 """
                 If the Qiskrypt's Quantum, Semi-Quantum and Classical Registers given as arguments are not None,
@@ -1604,7 +1675,8 @@ class QiskryptQuantumCircuit:
                 (i.e., a Qiskrypt's Quantum Circuit equivalent to a hybrid Quantum/Semi-Quantum/Classical Memory).
                 """
 
-                if (isinstance(quantum_registers, list)) and (isinstance(semi_quantum_registers, list)) and (isinstance(classical_registers, list)):
+                if (isinstance(quantum_registers, list)) and (isinstance(semi_quantum_registers, list)) and (
+                    isinstance(classical_registers, list)):
                     """
                     If the Qiskrypt's Quantum, Semi-Quantum and Classical Registers are lists.
                     """
@@ -1710,10 +1782,13 @@ class QiskryptQuantumCircuit:
                     """
 
                     self.quantum_circuit = \
-                        QuantumCircuit(*[quantum_register.get_quantum_register() for quantum_register in self.quantum_registers],
-                                       *[semi_quantum_register.get_semi_quantum_register() for semi_quantum_register in self.semi_quantum_registers],
-                                       *[classical_register.get_classical_register() for classical_register in self.classical_registers],
-                                       name=name, global_phase=global_phase)
+                        QuantumCircuit(
+                            *[quantum_register.get_quantum_register() for quantum_register in self.quantum_registers],
+                            *[semi_quantum_register.get_semi_quantum_register() for semi_quantum_register in
+                              self.semi_quantum_registers],
+                            *[classical_register.get_classical_register() for classical_register in
+                              self.classical_registers],
+                            name=name, global_phase=global_phase)
                     """
                     Set the IBM's Qiskit Quantum Circuit of the Qiskrypt's Quantum Circuit.
                     """
@@ -1728,8 +1803,10 @@ class QiskryptQuantumCircuit:
                     """
                     self.raise_unsupported_type_registers_error()
 
-            elif (quantum_registers is not None) and (fully_quantum_registers is None) and (semi_quantum_registers is None) and \
-                (ancilla_quantum_registers is not None) and (ancilla_fully_quantum_registers is None) and (ancilla_semi_quantum_registers is None) and \
+            elif (quantum_registers is not None) and (fully_quantum_registers is None) and (
+                    semi_quantum_registers is None) and \
+                    (ancilla_quantum_registers is not None) and (ancilla_fully_quantum_registers is None) and (
+                    ancilla_semi_quantum_registers is None) and \
                     (classical_registers is not None):
                 """
                 If the Qiskrypt's Quantum, Ancilla Quantum and Classical Registers given as arguments are not None,
@@ -1844,10 +1921,13 @@ class QiskryptQuantumCircuit:
                     """
 
                     self.quantum_circuit = \
-                        QuantumCircuit(*[quantum_register.get_quantum_register() for quantum_register in self.quantum_registers],
-                                       *[ancilla_quantum_register.get_ancilla_quantum_register() for ancilla_quantum_register in self.ancilla_quantum_registers],
-                                       *[classical_register.get_classical_register() for classical_register in self.classical_registers],
-                                       name=name, global_phase=global_phase)
+                        QuantumCircuit(
+                            *[quantum_register.get_quantum_register() for quantum_register in self.quantum_registers],
+                            *[ancilla_quantum_register.get_ancilla_quantum_register() for ancilla_quantum_register in
+                              self.ancilla_quantum_registers],
+                            *[classical_register.get_classical_register() for classical_register in
+                              self.classical_registers],
+                            name=name, global_phase=global_phase)
                     """
                     Set the IBM's Qiskit Quantum Circuit of the Qiskrypt's Quantum Circuit.
                     """
@@ -1862,8 +1942,10 @@ class QiskryptQuantumCircuit:
                     """
                     self.raise_unsupported_type_registers_error()
 
-            elif (quantum_registers is not None) and (fully_quantum_registers is None) and (semi_quantum_registers is None) and \
-                (ancilla_quantum_registers is None) and (ancilla_fully_quantum_registers is not None) and (ancilla_semi_quantum_registers is None) and \
+            elif (quantum_registers is not None) and (fully_quantum_registers is None) and (
+                    semi_quantum_registers is None) and \
+                    (ancilla_quantum_registers is None) and (ancilla_fully_quantum_registers is not None) and (
+                    ancilla_semi_quantum_registers is None) and \
                     (classical_registers is not None):
                 """
                 If the Qiskrypt's Quantum, Ancilla Fully-Quantum and Classical Registers given as arguments are not None,
@@ -1872,7 +1954,8 @@ class QiskryptQuantumCircuit:
                 (i.e., a Qiskrypt's Quantum Circuit equivalent to a hybrid Quantum/Ancilla Fully-Quantum/Classical Memory).
                 """
 
-                if (isinstance(quantum_registers, list)) and (isinstance(ancilla_fully_quantum_registers, list)) and (isinstance(classical_registers, list)):
+                if (isinstance(quantum_registers, list)) and (isinstance(ancilla_fully_quantum_registers, list)) and (
+                    isinstance(classical_registers, list)):
                     """
                     If the Qiskrypt's Quantum, Ancilla Fully-Quantum and Classical Registers are lists.
                     """
@@ -1978,10 +2061,13 @@ class QiskryptQuantumCircuit:
                     """
 
                     self.quantum_circuit = \
-                        QuantumCircuit(*[quantum_register.get_quantum_register() for quantum_register in self.quantum_registers],
-                                       *[ancilla_fully_quantum_register.get_ancilla_fully_quantum_register() for ancilla_fully_quantum_register in self.ancilla_fully_quantum_registers],
-                                       *[classical_register.get_classical_register() for classical_register in self.classical_registers],
-                                       name=name, global_phase=global_phase)
+                        QuantumCircuit(
+                            *[quantum_register.get_quantum_register() for quantum_register in self.quantum_registers],
+                            *[ancilla_fully_quantum_register.get_ancilla_fully_quantum_register() for
+                              ancilla_fully_quantum_register in self.ancilla_fully_quantum_registers],
+                            *[classical_register.get_classical_register() for classical_register in
+                              self.classical_registers],
+                            name=name, global_phase=global_phase)
                     """
                     Set the IBM's Qiskit Quantum Circuit of the Qiskrypt's Quantum Circuit.
                     """
@@ -1996,8 +2082,10 @@ class QiskryptQuantumCircuit:
                     """
                     self.raise_unsupported_type_registers_error()
 
-            elif (quantum_registers is not None) and (fully_quantum_registers is None) and (semi_quantum_registers is None) and \
-                (ancilla_quantum_registers is None) and (ancilla_fully_quantum_registers is None) and (ancilla_semi_quantum_registers is not None) and \
+            elif (quantum_registers is not None) and (fully_quantum_registers is None) and (
+                    semi_quantum_registers is None) and \
+                    (ancilla_quantum_registers is None) and (ancilla_fully_quantum_registers is None) and (
+                    ancilla_semi_quantum_registers is not None) and \
                     (classical_registers is not None):
                 """
                 If the Qiskrypt's Quantum, Ancilla Semi-Quantum and Classical Registers given as arguments are not None,
@@ -2112,10 +2200,13 @@ class QiskryptQuantumCircuit:
                     """
 
                     self.quantum_circuit = \
-                        QuantumCircuit(*[quantum_register.get_quantum_register() for quantum_register in self.quantum_registers],
-                                       *[ancilla_semi_quantum_register.get_ancilla_semi_quantum_register() for ancilla_semi_quantum_register in self.ancilla_semi_quantum_registers],
-                                       *[classical_register.get_classical_register() for classical_register in self.classical_registers],
-                                       name=name, global_phase=global_phase)
+                        QuantumCircuit(
+                            *[quantum_register.get_quantum_register() for quantum_register in self.quantum_registers],
+                            *[ancilla_semi_quantum_register.get_ancilla_semi_quantum_register() for
+                              ancilla_semi_quantum_register in self.ancilla_semi_quantum_registers],
+                            *[classical_register.get_classical_register() for classical_register in
+                              self.classical_registers],
+                            name=name, global_phase=global_phase)
                     """
                     Set the IBM's Qiskit Quantum Circuit of the Qiskrypt's Quantum Circuit.
                     """
@@ -2130,8 +2221,10 @@ class QiskryptQuantumCircuit:
                     """
                     self.raise_unsupported_type_registers_error()
 
-            elif (quantum_registers is not None) and (fully_quantum_registers is not None) and (semi_quantum_registers is not None) and \
-                (ancilla_quantum_registers is None) and (ancilla_fully_quantum_registers is None) and (ancilla_semi_quantum_registers is None) and \
+            elif (quantum_registers is not None) and (fully_quantum_registers is not None) and (
+                    semi_quantum_registers is not None) and \
+                    (ancilla_quantum_registers is None) and (ancilla_fully_quantum_registers is None) and (
+                    ancilla_semi_quantum_registers is None) and \
                     (classical_registers is not None):
                 """
                 If the Qiskrypt's Quantum, Fully-Quantum, Semi-Quantum and Classical Registers given as arguments are not None,
@@ -2266,11 +2359,15 @@ class QiskryptQuantumCircuit:
                     """
 
                     self.quantum_circuit = \
-                        QuantumCircuit(*[quantum_register.get_quantum_register() for quantum_register in self.quantum_registers],
-                                       *[fully_quantum_register.get_fully_quantum_register() for fully_quantum_register in self.fully_quantum_registers],
-                                       *[semi_quantum_register.get_semi_quantum_register() for semi_quantum_register in self.semi_quantum_registers],
-                                       *[classical_register.get_classical_register() for classical_register in self.classical_registers],
-                                       name=name, global_phase=global_phase)
+                        QuantumCircuit(
+                            *[quantum_register.get_quantum_register() for quantum_register in self.quantum_registers],
+                            *[fully_quantum_register.get_fully_quantum_register() for fully_quantum_register in
+                              self.fully_quantum_registers],
+                            *[semi_quantum_register.get_semi_quantum_register() for semi_quantum_register in
+                              self.semi_quantum_registers],
+                            *[classical_register.get_classical_register() for classical_register in
+                              self.classical_registers],
+                            name=name, global_phase=global_phase)
                     """
                     Set the IBM's Qiskit Quantum Circuit of the Qiskrypt's Quantum Circuit.
                     """
@@ -2285,8 +2382,10 @@ class QiskryptQuantumCircuit:
                     """
                     self.raise_unsupported_type_registers_error()
 
-            elif (quantum_registers is not None) and (fully_quantum_registers is not None) and (semi_quantum_registers is None) and \
-                (ancilla_quantum_registers is not None) and (ancilla_fully_quantum_registers is None) and (ancilla_semi_quantum_registers is None) and \
+            elif (quantum_registers is not None) and (fully_quantum_registers is not None) and (
+                    semi_quantum_registers is None) and \
+                    (ancilla_quantum_registers is not None) and (ancilla_fully_quantum_registers is None) and (
+                    ancilla_semi_quantum_registers is None) and \
                     (classical_registers is not None):
                 """
                 If the Qiskrypt's Quantum, Fully-Quantum, Ancilla Quantum and Classical Registers given as arguments are not None,
@@ -2421,11 +2520,15 @@ class QiskryptQuantumCircuit:
                     """
 
                     self.quantum_circuit = \
-                        QuantumCircuit(*[quantum_register.get_quantum_register() for quantum_register in self.quantum_registers],
-                                       *[fully_quantum_register.get_fully_quantum_register() for fully_quantum_register in self.fully_quantum_registers],
-                                       *[ancilla_quantum_register.get_ancilla_quantum_register() for ancilla_quantum_register in self.ancilla_quantum_registers],
-                                       *[classical_register.get_classical_register() for classical_register in self.classical_registers],
-                                       name=name, global_phase=global_phase)
+                        QuantumCircuit(
+                            *[quantum_register.get_quantum_register() for quantum_register in self.quantum_registers],
+                            *[fully_quantum_register.get_fully_quantum_register() for fully_quantum_register in
+                              self.fully_quantum_registers],
+                            *[ancilla_quantum_register.get_ancilla_quantum_register() for ancilla_quantum_register in
+                              self.ancilla_quantum_registers],
+                            *[classical_register.get_classical_register() for classical_register in
+                              self.classical_registers],
+                            name=name, global_phase=global_phase)
                     """
                     Set the IBM's Qiskit Quantum Circuit of the Qiskrypt's Quantum Circuit.
                     """
@@ -2440,8 +2543,10 @@ class QiskryptQuantumCircuit:
                     """
                     self.raise_unsupported_type_registers_error()
 
-            elif (quantum_registers is not None) and (fully_quantum_registers is not None) and (semi_quantum_registers is None) and \
-                (ancilla_quantum_registers is None) and (ancilla_fully_quantum_registers is not None) and (ancilla_semi_quantum_registers is None) and \
+            elif (quantum_registers is not None) and (fully_quantum_registers is not None) and (
+                    semi_quantum_registers is None) and \
+                    (ancilla_quantum_registers is None) and (ancilla_fully_quantum_registers is not None) and (
+                    ancilla_semi_quantum_registers is None) and \
                     (classical_registers is not None):
                 """
                 If the Qiskrypt's Quantum, Fully-Quantum, Ancilla Fully-Quantum and Classical Registers given as arguments are not None,
@@ -2576,11 +2681,15 @@ class QiskryptQuantumCircuit:
                     """
 
                     self.quantum_circuit = \
-                        QuantumCircuit(*[quantum_register.get_quantum_register() for quantum_register in self.quantum_registers],
-                                       *[fully_quantum_register.get_fully_quantum_register() for fully_quantum_register in self.fully_quantum_registers],
-                                       *[ancilla_fully_quantum_register.get_ancilla_fully_quantum_register() for ancilla_fully_quantum_register in self.ancilla_fully_quantum_registers],
-                                       *[classical_register.get_classical_register() for classical_register in self.classical_registers],
-                                       name=name, global_phase=global_phase)
+                        QuantumCircuit(
+                            *[quantum_register.get_quantum_register() for quantum_register in self.quantum_registers],
+                            *[fully_quantum_register.get_fully_quantum_register() for fully_quantum_register in
+                              self.fully_quantum_registers],
+                            *[ancilla_fully_quantum_register.get_ancilla_fully_quantum_register() for
+                              ancilla_fully_quantum_register in self.ancilla_fully_quantum_registers],
+                            *[classical_register.get_classical_register() for classical_register in
+                              self.classical_registers],
+                            name=name, global_phase=global_phase)
                     """
                     Set the IBM's Qiskit Quantum Circuit of the Qiskrypt's Quantum Circuit.
                     """
@@ -2595,8 +2704,10 @@ class QiskryptQuantumCircuit:
                     """
                     self.raise_unsupported_type_registers_error()
 
-            elif (quantum_registers is not None) and (fully_quantum_registers is not None) and (semi_quantum_registers is None) and \
-                (ancilla_quantum_registers is None) and (ancilla_fully_quantum_registers is None) and (ancilla_semi_quantum_registers is not None) and \
+            elif (quantum_registers is not None) and (fully_quantum_registers is not None) and (
+                    semi_quantum_registers is None) and \
+                    (ancilla_quantum_registers is None) and (ancilla_fully_quantum_registers is None) and (
+                    ancilla_semi_quantum_registers is not None) and \
                     (classical_registers is not None):
                 """
                 If the Qiskrypt's Quantum, Fully-Quantum, Ancilla Semi-Quantum and Classical Registers given as arguments are not None,
@@ -2731,11 +2842,15 @@ class QiskryptQuantumCircuit:
                     """
 
                     self.quantum_circuit = \
-                        QuantumCircuit(*[quantum_register.get_quantum_register() for quantum_register in self.quantum_registers],
-                                       *[fully_quantum_register.get_fully_quantum_register() for fully_quantum_register in self.fully_quantum_registers],
-                                       *[ancilla_semi_quantum_register.get_ancilla_semi_quantum_register() for ancilla_semi_quantum_register in self.ancilla_semi_quantum_registers],
-                                       *[classical_register.get_classical_register() for classical_register in self.classical_registers],
-                                       name=name, global_phase=global_phase)
+                        QuantumCircuit(
+                            *[quantum_register.get_quantum_register() for quantum_register in self.quantum_registers],
+                            *[fully_quantum_register.get_fully_quantum_register() for fully_quantum_register in
+                              self.fully_quantum_registers],
+                            *[ancilla_semi_quantum_register.get_ancilla_semi_quantum_register() for
+                              ancilla_semi_quantum_register in self.ancilla_semi_quantum_registers],
+                            *[classical_register.get_classical_register() for classical_register in
+                              self.classical_registers],
+                            name=name, global_phase=global_phase)
                     """
                     Set the IBM's Qiskit Quantum Circuit of the Qiskrypt's Quantum Circuit.
                     """
@@ -2750,8 +2865,10 @@ class QiskryptQuantumCircuit:
                     """
                     self.raise_unsupported_type_registers_error()
 
-            elif (quantum_registers is not None) and (fully_quantum_registers is not None) and (semi_quantum_registers is not None) and \
-                (ancilla_quantum_registers is not None) and (ancilla_fully_quantum_registers is None) and (ancilla_semi_quantum_registers is None) and \
+            elif (quantum_registers is not None) and (fully_quantum_registers is not None) and (
+                    semi_quantum_registers is not None) and \
+                    (ancilla_quantum_registers is not None) and (ancilla_fully_quantum_registers is None) and (
+                    ancilla_semi_quantum_registers is None) and \
                     (classical_registers is not None):
                 """
                 If the Qiskrypt's Quantum, Fully-Quantum, Semi-Quantum, Ancilla Quantum and Classical Registers given as arguments are not None,
@@ -2907,12 +3024,17 @@ class QiskryptQuantumCircuit:
                     """
 
                     self.quantum_circuit = \
-                        QuantumCircuit(*[quantum_register.get_quantum_register() for quantum_register in self.quantum_registers],
-                                       *[fully_quantum_register.get_fully_quantum_register() for fully_quantum_register in self.fully_quantum_registers],
-                                       *[semi_quantum_register.get_semi_quantum_register() for semi_quantum_register in self.semi_quantum_registers],
-                                       *[ancilla_quantum_register.get_ancilla_quantum_register() for ancilla_quantum_register in self.ancilla_quantum_registers],
-                                       *[classical_register.get_classical_register() for classical_register in self.classical_registers],
-                                       name=name, global_phase=global_phase)
+                        QuantumCircuit(
+                            *[quantum_register.get_quantum_register() for quantum_register in self.quantum_registers],
+                            *[fully_quantum_register.get_fully_quantum_register() for fully_quantum_register in
+                              self.fully_quantum_registers],
+                            *[semi_quantum_register.get_semi_quantum_register() for semi_quantum_register in
+                              self.semi_quantum_registers],
+                            *[ancilla_quantum_register.get_ancilla_quantum_register() for ancilla_quantum_register in
+                              self.ancilla_quantum_registers],
+                            *[classical_register.get_classical_register() for classical_register in
+                              self.classical_registers],
+                            name=name, global_phase=global_phase)
                     """
                     Set the IBM's Qiskit Quantum Circuit of the Qiskrypt's Quantum Circuit.
                     """
@@ -2927,8 +3049,10 @@ class QiskryptQuantumCircuit:
                     """
                     self.raise_unsupported_type_registers_error()
 
-            elif (quantum_registers is not None) and (fully_quantum_registers is not None) and (semi_quantum_registers is not None) and \
-                (ancilla_quantum_registers is None) and (ancilla_fully_quantum_registers is not None) and (ancilla_semi_quantum_registers is None) and \
+            elif (quantum_registers is not None) and (fully_quantum_registers is not None) and (
+                    semi_quantum_registers is not None) and \
+                    (ancilla_quantum_registers is None) and (ancilla_fully_quantum_registers is not None) and (
+                    ancilla_semi_quantum_registers is None) and \
                     (classical_registers is not None):
                 """
                 If the Qiskrypt's Quantum, Fully-Quantum, Semi-Quantum, Ancilla Fully-Quantum and Classical Registers given as arguments are not None,
@@ -3084,12 +3208,17 @@ class QiskryptQuantumCircuit:
                     """
 
                     self.quantum_circuit = \
-                        QuantumCircuit(*[quantum_register.get_quantum_register() for quantum_register in self.quantum_registers],
-                                       *[fully_quantum_register.get_fully_quantum_register() for fully_quantum_register in self.fully_quantum_registers],
-                                       *[semi_quantum_register.get_semi_quantum_register() for semi_quantum_register in self.semi_quantum_registers],
-                                       *[ancilla_fully_quantum_register.get_ancilla_fully_quantum_register() for ancilla_fully_quantum_register in self.ancilla_fully_quantum_registers],
-                                       *[classical_register.get_classical_register() for classical_register in self.classical_registers],
-                                       name=name, global_phase=global_phase)
+                        QuantumCircuit(
+                            *[quantum_register.get_quantum_register() for quantum_register in self.quantum_registers],
+                            *[fully_quantum_register.get_fully_quantum_register() for fully_quantum_register in
+                              self.fully_quantum_registers],
+                            *[semi_quantum_register.get_semi_quantum_register() for semi_quantum_register in
+                              self.semi_quantum_registers],
+                            *[ancilla_fully_quantum_register.get_ancilla_fully_quantum_register() for
+                              ancilla_fully_quantum_register in self.ancilla_fully_quantum_registers],
+                            *[classical_register.get_classical_register() for classical_register in
+                              self.classical_registers],
+                            name=name, global_phase=global_phase)
                     """
                     Set the IBM's Qiskit Quantum Circuit of the Qiskrypt's Quantum Circuit.
                     """
@@ -3104,8 +3233,10 @@ class QiskryptQuantumCircuit:
                     """
                     self.raise_unsupported_type_registers_error()
 
-            elif (quantum_registers is not None) and (fully_quantum_registers is not None) and (semi_quantum_registers is not None) and \
-                (ancilla_quantum_registers is None) and (ancilla_fully_quantum_registers is None) and (ancilla_semi_quantum_registers is not None) and \
+            elif (quantum_registers is not None) and (fully_quantum_registers is not None) and (
+                    semi_quantum_registers is not None) and \
+                    (ancilla_quantum_registers is None) and (ancilla_fully_quantum_registers is None) and (
+                    ancilla_semi_quantum_registers is not None) and \
                     (classical_registers is not None):
                 """
                 If the Qiskrypt's Quantum, Fully-Quantum, Semi-Quantum, Ancilla Semi-Quantum and Classical Registers given as arguments are not None,
@@ -3261,12 +3392,17 @@ class QiskryptQuantumCircuit:
                     """
 
                     self.quantum_circuit = \
-                        QuantumCircuit(*[quantum_register.get_quantum_register() for quantum_register in self.quantum_registers],
-                                       *[fully_quantum_register.get_fully_quantum_register() for fully_quantum_register in self.fully_quantum_registers],
-                                       *[semi_quantum_register.get_semi_quantum_register() for semi_quantum_register in self.semi_quantum_registers],
-                                       *[ancilla_semi_quantum_register.get_ancilla_semi_quantum_register() for ancilla_semi_quantum_register in self.ancilla_semi_quantum_registers],
-                                       *[classical_register.get_classical_register() for classical_register in self.classical_registers],
-                                       name=name, global_phase=global_phase)
+                        QuantumCircuit(
+                            *[quantum_register.get_quantum_register() for quantum_register in self.quantum_registers],
+                            *[fully_quantum_register.get_fully_quantum_register() for fully_quantum_register in
+                              self.fully_quantum_registers],
+                            *[semi_quantum_register.get_semi_quantum_register() for semi_quantum_register in
+                              self.semi_quantum_registers],
+                            *[ancilla_semi_quantum_register.get_ancilla_semi_quantum_register() for
+                              ancilla_semi_quantum_register in self.ancilla_semi_quantum_registers],
+                            *[classical_register.get_classical_register() for classical_register in
+                              self.classical_registers],
+                            name=name, global_phase=global_phase)
                     """
                     Set the IBM's Qiskit Quantum Circuit of the Qiskrypt's Quantum Circuit.
                     """
@@ -3281,8 +3417,10 @@ class QiskryptQuantumCircuit:
                     """
                     self.raise_unsupported_type_registers_error()
 
-            elif (quantum_registers is not None) and (fully_quantum_registers is not None) and (semi_quantum_registers is not None) and \
-                (ancilla_quantum_registers is not None) and (ancilla_fully_quantum_registers is not None) and (ancilla_semi_quantum_registers is None) and \
+            elif (quantum_registers is not None) and (fully_quantum_registers is not None) and (
+                    semi_quantum_registers is not None) and \
+                    (ancilla_quantum_registers is not None) and (ancilla_fully_quantum_registers is not None) and (
+                    ancilla_semi_quantum_registers is None) and \
                     (classical_registers is not None):
                 """
                 If the Qiskrypt's Quantum, Fully-Quantum, Semi-Quantum,
@@ -3459,13 +3597,19 @@ class QiskryptQuantumCircuit:
                     """
 
                     self.quantum_circuit = \
-                        QuantumCircuit(*[quantum_register.get_quantum_register() for quantum_register in self.quantum_registers],
-                                       *[fully_quantum_register.get_fully_quantum_register() for fully_quantum_register in self.fully_quantum_registers],
-                                       *[semi_quantum_register.get_semi_quantum_register() for semi_quantum_register in self.semi_quantum_registers],
-                                       *[ancilla_quantum_register.get_ancilla_quantum_register() for ancilla_quantum_register in self.ancilla_quantum_registers],
-                                       *[ancilla_fully_quantum_register.get_ancilla_fully_quantum_register() for ancilla_fully_quantum_register in self.ancilla_fully_quantum_registers],
-                                       *[classical_register.get_classical_register() for classical_register in self.classical_registers],
-                                       name=name, global_phase=global_phase)
+                        QuantumCircuit(
+                            *[quantum_register.get_quantum_register() for quantum_register in self.quantum_registers],
+                            *[fully_quantum_register.get_fully_quantum_register() for fully_quantum_register in
+                              self.fully_quantum_registers],
+                            *[semi_quantum_register.get_semi_quantum_register() for semi_quantum_register in
+                              self.semi_quantum_registers],
+                            *[ancilla_quantum_register.get_ancilla_quantum_register() for ancilla_quantum_register in
+                              self.ancilla_quantum_registers],
+                            *[ancilla_fully_quantum_register.get_ancilla_fully_quantum_register() for
+                              ancilla_fully_quantum_register in self.ancilla_fully_quantum_registers],
+                            *[classical_register.get_classical_register() for classical_register in
+                              self.classical_registers],
+                            name=name, global_phase=global_phase)
                     """
                     Set the IBM's Qiskit Quantum Circuit of the Qiskrypt's Quantum Circuit.
                     """
@@ -3480,8 +3624,10 @@ class QiskryptQuantumCircuit:
                     """
                     self.raise_unsupported_type_registers_error()
 
-            elif (quantum_registers is not None) and (fully_quantum_registers is not None) and (semi_quantum_registers is not None) and \
-                (ancilla_quantum_registers is not None) and (ancilla_fully_quantum_registers is None) and (ancilla_semi_quantum_registers is not None) and \
+            elif (quantum_registers is not None) and (fully_quantum_registers is not None) and (
+                    semi_quantum_registers is not None) and \
+                    (ancilla_quantum_registers is not None) and (ancilla_fully_quantum_registers is None) and (
+                    ancilla_semi_quantum_registers is not None) and \
                     (classical_registers is not None):
                 """
                 If the Qiskrypt's Quantum, Fully-Quantum, Semi-Quantum,
@@ -3658,13 +3804,19 @@ class QiskryptQuantumCircuit:
                     """
 
                     self.quantum_circuit = \
-                        QuantumCircuit(*[quantum_register.get_quantum_register() for quantum_register in self.quantum_registers],
-                                       *[fully_quantum_register.get_fully_quantum_register() for fully_quantum_register in self.fully_quantum_registers],
-                                       *[semi_quantum_register.get_semi_quantum_register() for semi_quantum_register in self.semi_quantum_registers],
-                                       *[ancilla_quantum_register.get_ancilla_quantum_register() for ancilla_quantum_register in self.ancilla_quantum_registers],
-                                       *[ancilla_semi_quantum_register.get_ancilla_semi_quantum_register() for ancilla_semi_quantum_register in self.ancilla_semi_quantum_registers],
-                                       *[classical_register.get_classical_register() for classical_register in self.classical_registers],
-                                       name=name, global_phase=global_phase)
+                        QuantumCircuit(
+                            *[quantum_register.get_quantum_register() for quantum_register in self.quantum_registers],
+                            *[fully_quantum_register.get_fully_quantum_register() for fully_quantum_register in
+                              self.fully_quantum_registers],
+                            *[semi_quantum_register.get_semi_quantum_register() for semi_quantum_register in
+                              self.semi_quantum_registers],
+                            *[ancilla_quantum_register.get_ancilla_quantum_register() for ancilla_quantum_register in
+                              self.ancilla_quantum_registers],
+                            *[ancilla_semi_quantum_register.get_ancilla_semi_quantum_register() for
+                              ancilla_semi_quantum_register in self.ancilla_semi_quantum_registers],
+                            *[classical_register.get_classical_register() for classical_register in
+                              self.classical_registers],
+                            name=name, global_phase=global_phase)
                     """
                     Set the IBM's Qiskit Quantum Circuit of the Qiskrypt's Quantum Circuit.
                     """
@@ -3679,8 +3831,10 @@ class QiskryptQuantumCircuit:
                     """
                     self.raise_unsupported_type_registers_error()
 
-            elif (quantum_registers is not None) and (fully_quantum_registers is not None) and (semi_quantum_registers is not None) and \
-                (ancilla_quantum_registers is not None) and (ancilla_fully_quantum_registers is not None) and (ancilla_semi_quantum_registers is not None) and \
+            elif (quantum_registers is not None) and (fully_quantum_registers is not None) and (
+                    semi_quantum_registers is not None) and \
+                    (ancilla_quantum_registers is not None) and (ancilla_fully_quantum_registers is not None) and (
+                    ancilla_semi_quantum_registers is not None) and \
                     (classical_registers is not None):
                 """
                 If the Qiskrypt's Quantum, Fully-Quantum, Semi-Quantum,
@@ -3876,14 +4030,21 @@ class QiskryptQuantumCircuit:
                     """
 
                     self.quantum_circuit = \
-                        QuantumCircuit(*[quantum_register.get_quantum_register() for quantum_register in self.quantum_registers],
-                                       *[fully_quantum_register.get_fully_quantum_register() for fully_quantum_register in self.fully_quantum_registers],
-                                       *[semi_quantum_register.get_semi_quantum_register() for semi_quantum_register in self.semi_quantum_registers],
-                                       *[ancilla_quantum_register.get_ancilla_quantum_register() for ancilla_quantum_register in self.ancilla_quantum_registers],
-                                       *[ancilla_fully_quantum_register.get_ancilla_fully_quantum_register() for ancilla_fully_quantum_register in self.ancilla_fully_quantum_registers],
-                                       *[ancilla_semi_quantum_register.get_ancilla_semi_quantum_register() for ancilla_semi_quantum_register in self.ancilla_semi_quantum_registers],
-                                       *[classical_register.get_classical_register() for classical_register in self.classical_registers],
-                                       name=name, global_phase=global_phase)
+                        QuantumCircuit(
+                            *[quantum_register.get_quantum_register() for quantum_register in self.quantum_registers],
+                            *[fully_quantum_register.get_fully_quantum_register() for fully_quantum_register in
+                              self.fully_quantum_registers],
+                            *[semi_quantum_register.get_semi_quantum_register() for semi_quantum_register in
+                              self.semi_quantum_registers],
+                            *[ancilla_quantum_register.get_ancilla_quantum_register() for ancilla_quantum_register in
+                              self.ancilla_quantum_registers],
+                            *[ancilla_fully_quantum_register.get_ancilla_fully_quantum_register() for
+                              ancilla_fully_quantum_register in self.ancilla_fully_quantum_registers],
+                            *[ancilla_semi_quantum_register.get_ancilla_semi_quantum_register() for
+                              ancilla_semi_quantum_register in self.ancilla_semi_quantum_registers],
+                            *[classical_register.get_classical_register() for classical_register in
+                              self.classical_registers],
+                            name=name, global_phase=global_phase)
                     """
                     Set the IBM's Qiskit Quantum Circuit of the Qiskrypt's Quantum Circuit.
                     """
@@ -3980,7 +4141,7 @@ class QiskryptQuantumCircuit:
 
         return self.classical_registers
 
-    def get_qiskrypt_quantum_register(self, qiskrypt_quantum_register_index):
+    def get_qiskrypt_quantum_register(self, qiskrypt_quantum_register_index: int):
         """
         Return a specific Qiskrypt's Quantum Register of the Qiskrypt's Quantum Circuit, given its index.
 
@@ -3992,7 +4153,7 @@ class QiskryptQuantumCircuit:
 
         return self.quantum_registers[qiskrypt_quantum_register_index]
 
-    def get_qiskrypt_fully_quantum_register(self, qiskrypt_fully_quantum_register_index):
+    def get_qiskrypt_fully_quantum_register(self, qiskrypt_fully_quantum_register_index: int):
         """
         Return a specific Qiskrypt's Fully-Quantum Register of the Qiskrypt's Quantum Circuit, given its index.
 
@@ -4004,7 +4165,7 @@ class QiskryptQuantumCircuit:
 
         return self.fully_quantum_registers[qiskrypt_fully_quantum_register_index]
 
-    def get_qiskrypt_semi_quantum_register(self, qiskrypt_semi_quantum_register_index):
+    def get_qiskrypt_semi_quantum_register(self, qiskrypt_semi_quantum_register_index: int):
         """
         Return a specific Qiskrypt's Semi-Quantum Register of the Qiskrypt's Quantum Circuit, given its index.
 
@@ -4016,7 +4177,7 @@ class QiskryptQuantumCircuit:
 
         return self.semi_quantum_registers[qiskrypt_semi_quantum_register_index]
 
-    def get_qiskrypt_ancilla_quantum_register(self, qiskrypt_ancilla_quantum_register_index):
+    def get_qiskrypt_ancilla_quantum_register(self, qiskrypt_ancilla_quantum_register_index: int):
         """
         Return a specific Qiskrypt's Ancilla Quantum Register of the Qiskrypt's Quantum Circuit, given its index.
 
@@ -4028,7 +4189,7 @@ class QiskryptQuantumCircuit:
 
         return self.ancilla_quantum_registers[qiskrypt_ancilla_quantum_register_index]
 
-    def get_qiskrypt_ancilla_fully_quantum_register(self, qiskrypt_ancilla_fully_quantum_register_index):
+    def get_qiskrypt_ancilla_fully_quantum_register(self, qiskrypt_ancilla_fully_quantum_register_index: int):
         """
         Return a specific Qiskrypt's Ancilla Fully-Quantum Register of the Qiskrypt's Quantum Circuit, given its index.
 
@@ -4040,7 +4201,7 @@ class QiskryptQuantumCircuit:
 
         return self.ancilla_fully_quantum_registers[qiskrypt_ancilla_fully_quantum_register_index]
 
-    def get_qiskrypt_ancilla_semi_quantum_register(self, qiskrypt_ancilla_semi_quantum_register_index):
+    def get_qiskrypt_ancilla_semi_quantum_register(self, qiskrypt_ancilla_semi_quantum_register_index: int):
         """
         Return a specific Qiskrypt's Ancilla Semi-Quantum Register of the Qiskrypt's Quantum Circuit, given its index.
 
@@ -4052,7 +4213,7 @@ class QiskryptQuantumCircuit:
 
         return self.ancilla_semi_quantum_registers[qiskrypt_ancilla_semi_quantum_register_index]
 
-    def get_qiskrypt_classical_register(self, qiskrypt_classical_register_index):
+    def get_qiskrypt_classical_register(self, qiskrypt_classical_register_index: int):
         """
         Return a specific Qiskrypt's Classical Register of the Qiskrypt's Quantum Circuit, given its index.
 
@@ -4163,7 +4324,7 @@ class QiskryptQuantumCircuit:
 
         return self.quantum_circuit.num_clbits
 
-    def get_num_qubits_in_qiskit_quantum_register(self, quantum_register_index):
+    def get_num_qubits_in_qiskit_quantum_register(self, quantum_register_index: int):
         """
         Return the number of qubits in a given quantum register of the Qiskrypt's Quantum Circuit.
 
@@ -4176,7 +4337,7 @@ class QiskryptQuantumCircuit:
 
         return self.quantum_circuit.qregs[quantum_register_index].size
 
-    def get_num_bits_in_qiskit_classical_register(self, classical_register_index):
+    def get_num_bits_in_qiskit_classical_register(self, classical_register_index: int):
         """
         Return the number of bits in a given classical register of the Qiskrypt's Quantum Circuit.
 
@@ -4188,6 +4349,79 @@ class QiskryptQuantumCircuit:
         """
 
         return self.quantum_circuit.cregs[classical_register_index].size
+
+    def get_reversed_qiskit_quantum_circuit_operations(self):
+        """
+        Return the reversed IBM Qiskit's Quantum Circuit of
+        the Qiskrypt's Quantum Circuit
+        (i.e., with the reversed order of Quantum Gates/Operations).
+
+        :return self.quantum_circuit.reverse_ops(): the reversed IBM Qiskit's Quantum Circuit of
+                                                    the Qiskrypt's Quantum Circuit.
+        """
+
+        return self.quantum_circuit.reverse_ops()
+
+    def get_qiskit_quantum_circuit_with_reversed_wires_order(self):
+        """
+        Return the IBM Qiskit's Quantum Circuit of
+        the Qiskrypt's Quantum Circuit, with the reversed order of wires
+        (i.e., the IBM Qiskit's Quantum Circuit is "vertically" flipped).
+
+        :return self.quantum_circuit.reverse_bits(): the IBM Qiskit's Quantum Circuit of
+                                                     the Qiskrypt's Quantum Circuit,
+                                                     with the reversed order of wires.
+        """
+
+        return self.quantum_circuit.reverse_bits()
+
+    def get_inverted_qiskit_quantum_circuit(self):
+        """
+        Return the inverted IBM Qiskit's Quantum Circuit of
+        the Qiskrypt's Quantum Circuit
+        (i.e., with the reversed order of the Quantum Gates/Operations
+         and setting the symmetric values given for their parameters).
+
+        :return self.quantum_circuit.inverse(): the inverted IBM Qiskit's Quantum Circuit of
+                                                the Qiskrypt's Quantum Circuit.
+        """
+
+        return self.quantum_circuit.inverse()
+
+    def get_repeated_qiskit_quantum_circuit(self, num_repetitions: int):
+        """
+        Return the IBM Qiskit's Quantum Circuit of
+        the Qiskrypt's Quantum Circuit a given number of repetitions.
+
+        :param num_repetitions: the number of repetitions for the IBM Qiskit's Quantum Circuit of
+                                the Qiskrypt's Quantum Circuit.
+
+        :return self.quantum_circuit.repeat(num_repetitions): the IBM Qiskit's Quantum Circuit of
+                                                              the Qiskrypt's Quantum Circuit a given number of
+                                                              repetitions.
+        """
+
+        return self.quantum_circuit.repeat(num_repetitions)
+
+    def get_powered_qiskit_quantum_circuit(self, power: int, is_to_compute_matrix_power=False):
+        """
+        Return the IBM Qiskit's Quantum Circuit of
+        the Qiskrypt's Quantum Circuit raised to a given power term.
+
+        :param power: the power for the IBM Qiskit's Quantum Circuit of
+                      the Qiskrypt's Quantum Circuit be raised.
+        :param is_to_compute_matrix_power: If True, the IBM Qiskit's Quantum Circuit is converted to
+                                           a matrix and then, the matrix power is computed.
+                                           Otherwise, and if the power term is a positive integer,
+                                           the implementation defaults to the ``repeat`` method of
+                                           the IBM Qiskit's Quantum Circuit.
+
+        :return self.quantum_circuit.power(power, is_to_compute_matrix_power): the IBM Qiskit's Quantum Circuit of
+                                                                               the Qiskrypt's Quantum Circuit raised to
+                                                                               a given power term.
+        """
+
+        return self.quantum_circuit.power(power, is_to_compute_matrix_power)
 
     @staticmethod
     def raise_unsupported_type_registers_error():
