@@ -98,7 +98,7 @@ class QiskryptQuantumRegister:
             Set the built-in quantum register of the Qiskrypt's Quantum Register.
             """
 
-    def get_name(self):
+    def get_name(self) -> str:
         """
         Return the name of the Qiskrypt's Quantum Register.
 
@@ -107,7 +107,7 @@ class QiskryptQuantumRegister:
 
         return self.name
 
-    def get_num_qubits(self):
+    def get_num_qubits(self) -> int:
         """
         Return the number of qubits of the Qiskrypt's Quantum Register.
 
@@ -116,7 +116,7 @@ class QiskryptQuantumRegister:
 
         return self.num_qubits
 
-    def get_quantum_register(self):
+    def get_quantum_register(self) -> QuantumRegister:
         """
         Return the IBM's Qiskit Quantum Register of the Qiskrypt's Quantum Register.
 

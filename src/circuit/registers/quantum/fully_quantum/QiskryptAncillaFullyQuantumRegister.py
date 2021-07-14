@@ -41,6 +41,11 @@ Acknowledgement(s):\n
 Import required Libraries and Packages.
 """
 
+from qiskit import AncillaRegister
+"""
+Import Ancilla Register from IBM's Qiskit.
+"""
+
 from src.circuit.registers.quantum.QiskryptAncillaQuantumRegister import QiskryptAncillaQuantumRegister
 """
 Import the Qiskrypt's Ancilla Quantum Register.
@@ -75,7 +80,7 @@ class QiskryptAncillaFullyQuantumRegister(QiskryptAncillaQuantumRegister):
         Calls the constructor of the super-class Qiskrypt's Ancilla Quantum Register.
         """
 
-    def get_name(self):
+    def get_name(self) -> str:
         """
         Return the name of the Qiskrypt's Ancilla Fully-Quantum Register.
 
@@ -84,7 +89,7 @@ class QiskryptAncillaFullyQuantumRegister(QiskryptAncillaQuantumRegister):
 
         return super().get_name()
 
-    def get_num_ancilla_qubits(self):
+    def get_num_ancilla_qubits(self) -> int:
         """
         Return the number of ancilla qubits of the Qiskrypt's Ancilla Fully-Quantum Register.
 
@@ -94,7 +99,7 @@ class QiskryptAncillaFullyQuantumRegister(QiskryptAncillaQuantumRegister):
 
         return super().get_num_ancilla_qubits()
 
-    def get_ancilla_fully_quantum_register(self):
+    def get_ancilla_fully_quantum_register(self) -> AncillaRegister:
         """
         Return the IBM's Qiskit Ancilla Quantum Register of the Qiskrypt's Ancilla Fully-Quantum Register.
 

@@ -39,7 +39,8 @@ Acknowledgement(s):\n
 
 from __future__ import annotations
 """
-Import the annotations for Python.
+Import the annotations for Python
+(must be imported at the beginning of the source-code).
 """
 
 """
@@ -47,13 +48,11 @@ Import required Libraries and Packages.
 """
 
 from numpy import sqrt, exp
-
 """
 Import Squared Root and Exponential from NumPy.
 """
 
 from qiskit import QuantumCircuit
-
 """
 Import Quantum Circuit from IBM's Qiskit.
 """

@@ -41,6 +41,11 @@ Acknowledgement(s):\n
 Import required Libraries and Packages.
 """
 
+from qiskit import QuantumRegister
+"""
+Import Quantum Register from IBM's Qiskit.
+"""
+
 from src.circuit.registers.quantum.QiskryptQuantumRegister import QiskryptQuantumRegister
 """
 Import the Qiskrypt's Quantum Register.
@@ -75,7 +80,7 @@ class QiskryptFullyQuantumRegister(QiskryptQuantumRegister):
         Calls the constructor of the super-class Qiskrypt's Fully-Quantum Register.
         """
 
-    def get_name(self):
+    def get_name(self) -> str:
         """
         Return the name of the Qiskrypt's Fully-Quantum Register.
 
@@ -84,7 +89,7 @@ class QiskryptFullyQuantumRegister(QiskryptQuantumRegister):
 
         return super().get_name()
 
-    def get_num_qubits(self):
+    def get_num_qubits(self) -> int:
         """
         Return the number of qubits of the Qiskrypt's Fully-Quantum Register.
 
@@ -94,7 +99,7 @@ class QiskryptFullyQuantumRegister(QiskryptQuantumRegister):
 
         return super().get_num_qubits()
 
-    def get_fully_quantum_register(self):
+    def get_fully_quantum_register(self) -> QuantumRegister:
         """
         Return the IBM's Qiskit Quantum Register of the Qiskrypt's Fully-Quantum Register.
 

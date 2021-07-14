@@ -98,7 +98,7 @@ class QiskryptClassicalRegister:
             Set the built-in classical register of the Qiskrypt's Classical Register.
             """
 
-    def get_name(self):
+    def get_name(self) -> str:
         """
         Return the name of the Qiskrypt's Classical Register.
 
@@ -107,7 +107,7 @@ class QiskryptClassicalRegister:
 
         return self.name
 
-    def get_num_bits(self):
+    def get_num_bits(self) -> int:
         """
         Return the number of bits of the Qiskrypt's Classical Register.
 
@@ -116,7 +116,7 @@ class QiskryptClassicalRegister:
 
         return self.num_bits
 
-    def get_classical_register(self):
+    def get_classical_register(self) -> ClassicalRegister:
         """
         Return the IBM's Qiskit Classical Register of the Qiskrypt's Classical Register.
 

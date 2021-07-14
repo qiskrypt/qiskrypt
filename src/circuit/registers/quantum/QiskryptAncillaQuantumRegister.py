@@ -42,9 +42,8 @@ Import required Libraries and Packages.
 """
 
 from qiskit import AncillaRegister
-
 """
-Import Ancilla Quantum Register from IBM's Qiskit.
+Import Ancilla Register from IBM's Qiskit.
 """
 
 from src.circuit.registers.quantum.exception.QiskryptAncillaQuantumRegisterException \
@@ -99,7 +98,7 @@ class QiskryptAncillaQuantumRegister:
             Set the built-in ancilla quantum register of the Qiskrypt's Ancilla Quantum Register.
             """
 
-    def get_name(self):
+    def get_name(self) -> str:
         """
         Return the name of the Qiskrypt's Ancilla Quantum Register.
 
@@ -108,7 +107,7 @@ class QiskryptAncillaQuantumRegister:
 
         return self.name
 
-    def get_num_ancilla_qubits(self):
+    def get_num_ancilla_qubits(self) -> int:
         """
         Return the number of ancilla qubits of the Qiskrypt's Ancilla Quantum Register.
 
@@ -117,9 +116,9 @@ class QiskryptAncillaQuantumRegister:
 
         return self.num_ancilla_qubits
 
-    def get_ancilla_quantum_register(self):
+    def get_ancilla_quantum_register(self) -> AncillaRegister:
         """
-        Return the IBM's Qiskit Ancilla Quantum Register of the Qiskrypt's Ancilla Quantum Register.
+        Return the IBM's Qiskit Ancilla Register of the Qiskrypt's Ancilla Quantum Register.
 
         :return self.ancilla_quantum_register: the IBM's Qiskit Ancilla Quantum Register of
                                                the Qiskrypt's Ancilla Quantum Register.
