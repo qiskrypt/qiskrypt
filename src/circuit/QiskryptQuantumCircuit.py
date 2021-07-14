@@ -4073,6 +4073,10 @@ class QiskryptQuantumCircuit:
             Set the given IBM's Qiskit Quantum Circuit of the Qiskrypt's Quantum Circuit.
             """
 
+    """
+    1) Basic Methods:
+    """
+
     def get_name(self) -> str:
         """
         Return the name of the Qiskrypt's Quantum Circuit.
@@ -4427,7 +4431,7 @@ class QiskryptQuantumCircuit:
 
         return self.quantum_circuit.power(power, is_to_compute_matrix_power)
 
-    def combine_qiskrypt_quantum_circuit(self, quantum_circuit_new_name: str, other_qiskrypt_quantum_circuit: QiskryptQuantumCircuit, new_global_phase=0):
+    def combine_qiskrypt_quantum_circuit(self, quantum_circuit_new_name: str, other_qiskrypt_quantum_circuit: QiskryptQuantumCircuit, new_global_phase=0) -> QiskryptQuantumCircuit:
         """
 
 
@@ -4437,6 +4441,95 @@ class QiskryptQuantumCircuit:
 
         :return:
         """
+
+    def apply_barrier(self, quantum_register_index: int, qubit_index: int):
+        """
+
+
+        :param quantum_register_index:
+        :param qubit_index:
+        """
+
+    def apply_barriers_interval_in_qiskit_quantum_register(self, quantum_register_index: int, qubits_indexes: list):
+        """
+
+
+        :param quantum_register_index:
+        :param qubits_indexes:
+        """
+
+    def apply_barriers_to_all_qubits_in_qiskit_quantum_register(self, quantum_register_index: int):
+        """
+
+
+        :param quantum_register_index:
+        """
+
+    def apply_barriers_interval_in_all_qiskit_quantum_registers(self, qubits_indexes: list):
+        """
+
+
+        :param qubits_indexes:
+        """
+
+    def apply_barriers_to_all_qubits_in_all_qiskit_quantum_registers(self):
+        """
+
+        """
+
+    def reset_qubit_in_qiskit_quantum_register(self, quantum_register_index: int, qubit_index: int):
+        """
+
+        :param quantum_register_index:
+        :param qubit_index:
+        """
+
+    def reset_interval_qubits_in_qiskit_quantum_register(self, quantum_register_index: int, qubit_indexes: list):
+        """
+
+        :param quantum_register_index:
+        :param qubit_indexes:
+        """
+
+    def reset_all_qubits_in_qiskit_quantum_register(self, quantum_register_index: int):
+        """
+
+        :param quantum_register_index:
+        """
+
+    def reset_qubit_in_all_qiskit_quantum_registers(self, qubit_index: int):
+        """
+
+        :param qubit_index:
+        """
+
+    def reset_interval_qubits_in_all_qiskit_quantum_registers(self, qubit_indexes: list):
+        """
+
+        :param qubit_indexes:
+        """
+
+    def reset_all_qubits_in_all_qiskit_quantum_registers(self):
+        """
+
+        """
+
+    """
+    2) Measurements Methods:
+    """
+
+    """
+    3) Single Qubit Gates/Operations:
+    """
+
+    def apply_pauli_i(self, quantum_register_index: int, qubit_index: int):
+        """
+
+
+        :param quantum_register_index:
+        :param qubit_index:
+        """
+        self.quantum_circuit.id(self.quantum_circuit.qregs[quantum_register_index][qubit_index])
 
     @staticmethod
     def raise_unsupported_type_registers_error():
