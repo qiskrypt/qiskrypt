@@ -37,6 +37,11 @@ Acknowledgement(s):\n
 
 """
 
+from __future__ import annotations
+"""
+Import the annotations for Python.
+"""
+
 """
 Import required Libraries and Packages.
 """
@@ -4069,7 +4074,7 @@ class QiskryptQuantumCircuit:
             Set the given IBM's Qiskit Quantum Circuit of the Qiskrypt's Quantum Circuit.
             """
 
-    def get_name(self):
+    def get_name(self) -> str:
         """
         Return the name of the Qiskrypt's Quantum Circuit.
 
@@ -4078,7 +4083,7 @@ class QiskryptQuantumCircuit:
 
         return self.name
 
-    def get_qiskrypt_quantum_registers(self):
+    def get_qiskrypt_quantum_registers(self) -> list:
         """
         Return the Qiskrypt's Quantum Registers of the Qiskrypt's Quantum Circuit.
 
@@ -4087,7 +4092,7 @@ class QiskryptQuantumCircuit:
 
         return self.quantum_registers
 
-    def get_qiskrypt_fully_quantum_registers(self):
+    def get_qiskrypt_fully_quantum_registers(self) -> list:
         """
         Return the Qiskrypt's Fully-Quantum Registers of the Qiskrypt's Quantum Circuit.
 
@@ -4096,7 +4101,7 @@ class QiskryptQuantumCircuit:
 
         return self.fully_quantum_registers
 
-    def get_qiskrypt_semi_quantum_registers(self):
+    def get_qiskrypt_semi_quantum_registers(self) -> list:
         """
         Return the Qiskrypt's Semi-Quantum Registers of the Qiskrypt's Quantum Circuit.
 
@@ -4105,7 +4110,7 @@ class QiskryptQuantumCircuit:
 
         return self.semi_quantum_registers
 
-    def get_qiskrypt_ancilla_quantum_registers(self):
+    def get_qiskrypt_ancilla_quantum_registers(self) -> list:
         """
         Return the Qiskrypt's Ancilla Quantum Registers of the Qiskrypt's Quantum Circuit.
 
@@ -4114,7 +4119,7 @@ class QiskryptQuantumCircuit:
 
         return self.ancilla_quantum_registers
 
-    def get_qiskrypt_ancilla_fully_quantum_registers(self):
+    def get_qiskrypt_ancilla_fully_quantum_registers(self) -> list:
         """
         Return the Qiskrypt's Ancilla Fully-Quantum Registers of the Qiskrypt's Quantum Circuit.
 
@@ -4123,7 +4128,7 @@ class QiskryptQuantumCircuit:
 
         return self.ancilla_fully_quantum_registers
 
-    def get_qiskrypt_ancilla_semi_quantum_registers(self):
+    def get_qiskrypt_ancilla_semi_quantum_registers(self) -> list:
         """
         Return the Qiskrypt's Ancilla Semi-Quantum Registers of the Qiskrypt's Quantum Circuit.
 
@@ -4132,7 +4137,7 @@ class QiskryptQuantumCircuit:
 
         return self.ancilla_semi_quantum_registers
 
-    def get_qiskrypt_classical_registers(self):
+    def get_qiskrypt_classical_registers(self) -> list:
         """
         Return the Qiskrypt's Classical Registers of the Qiskrypt's Quantum Circuit.
 
@@ -4141,7 +4146,7 @@ class QiskryptQuantumCircuit:
 
         return self.classical_registers
 
-    def get_qiskrypt_quantum_register(self, qiskrypt_quantum_register_index: int):
+    def get_qiskrypt_quantum_register(self, qiskrypt_quantum_register_index: int) -> QiskryptQuantumRegister:
         """
         Return a specific Qiskrypt's Quantum Register of the Qiskrypt's Quantum Circuit, given its index.
 
@@ -4153,7 +4158,7 @@ class QiskryptQuantumCircuit:
 
         return self.quantum_registers[qiskrypt_quantum_register_index]
 
-    def get_qiskrypt_fully_quantum_register(self, qiskrypt_fully_quantum_register_index: int):
+    def get_qiskrypt_fully_quantum_register(self, qiskrypt_fully_quantum_register_index: int) -> QiskryptFullyQuantumRegister:
         """
         Return a specific Qiskrypt's Fully-Quantum Register of the Qiskrypt's Quantum Circuit, given its index.
 
@@ -4165,7 +4170,7 @@ class QiskryptQuantumCircuit:
 
         return self.fully_quantum_registers[qiskrypt_fully_quantum_register_index]
 
-    def get_qiskrypt_semi_quantum_register(self, qiskrypt_semi_quantum_register_index: int):
+    def get_qiskrypt_semi_quantum_register(self, qiskrypt_semi_quantum_register_index: int) -> QiskryptSemiQuantumRegister:
         """
         Return a specific Qiskrypt's Semi-Quantum Register of the Qiskrypt's Quantum Circuit, given its index.
 
@@ -4177,7 +4182,7 @@ class QiskryptQuantumCircuit:
 
         return self.semi_quantum_registers[qiskrypt_semi_quantum_register_index]
 
-    def get_qiskrypt_ancilla_quantum_register(self, qiskrypt_ancilla_quantum_register_index: int):
+    def get_qiskrypt_ancilla_quantum_register(self, qiskrypt_ancilla_quantum_register_index: int) -> QiskryptAncillaQuantumRegister:
         """
         Return a specific Qiskrypt's Ancilla Quantum Register of the Qiskrypt's Quantum Circuit, given its index.
 
@@ -4189,7 +4194,7 @@ class QiskryptQuantumCircuit:
 
         return self.ancilla_quantum_registers[qiskrypt_ancilla_quantum_register_index]
 
-    def get_qiskrypt_ancilla_fully_quantum_register(self, qiskrypt_ancilla_fully_quantum_register_index: int):
+    def get_qiskrypt_ancilla_fully_quantum_register(self, qiskrypt_ancilla_fully_quantum_register_index: int) -> QiskryptAncillaFullyQuantumRegister:
         """
         Return a specific Qiskrypt's Ancilla Fully-Quantum Register of the Qiskrypt's Quantum Circuit, given its index.
 
@@ -4201,7 +4206,7 @@ class QiskryptQuantumCircuit:
 
         return self.ancilla_fully_quantum_registers[qiskrypt_ancilla_fully_quantum_register_index]
 
-    def get_qiskrypt_ancilla_semi_quantum_register(self, qiskrypt_ancilla_semi_quantum_register_index: int):
+    def get_qiskrypt_ancilla_semi_quantum_register(self, qiskrypt_ancilla_semi_quantum_register_index: int) -> QiskryptAncillaSemiQuantumRegister:
         """
         Return a specific Qiskrypt's Ancilla Semi-Quantum Register of the Qiskrypt's Quantum Circuit, given its index.
 
@@ -4213,7 +4218,7 @@ class QiskryptQuantumCircuit:
 
         return self.ancilla_semi_quantum_registers[qiskrypt_ancilla_semi_quantum_register_index]
 
-    def get_qiskrypt_classical_register(self, qiskrypt_classical_register_index: int):
+    def get_qiskrypt_classical_register(self, qiskrypt_classical_register_index: int) -> QiskryptClassicalRegister:
         """
         Return a specific Qiskrypt's Classical Register of the Qiskrypt's Quantum Circuit, given its index.
 
@@ -4225,7 +4230,7 @@ class QiskryptQuantumCircuit:
 
         return self.classical_registers[qiskrypt_classical_register_index]
 
-    def get_num_qiskrypt_quantum_registers(self):
+    def get_num_qiskrypt_quantum_registers(self) -> int:
         """
         Return the number of Qiskrypt's Quantum Registers of the Qiskrypt's Quantum Circuit.
 
@@ -4235,7 +4240,7 @@ class QiskryptQuantumCircuit:
 
         return len(self.get_qiskrypt_quantum_registers())
 
-    def get_num_qiskrypt_fully_quantum_registers(self):
+    def get_num_qiskrypt_fully_quantum_registers(self) -> int:
         """
         Return the number of Qiskrypt's Fully-Quantum Registers of the Qiskrypt's Quantum Circuit.
 
@@ -4245,7 +4250,7 @@ class QiskryptQuantumCircuit:
 
         return len(self.get_qiskrypt_fully_quantum_registers())
 
-    def get_num_qiskrypt_semi_quantum_registers(self):
+    def get_num_qiskrypt_semi_quantum_registers(self) -> int:
         """
         Return the number of Qiskrypt's Semi-Quantum Registers of the Qiskrypt's Quantum Circuit.
 
@@ -4255,7 +4260,7 @@ class QiskryptQuantumCircuit:
 
         return len(self.get_qiskrypt_semi_quantum_registers())
 
-    def get_num_qiskrypt_ancilla_quantum_registers(self):
+    def get_num_qiskrypt_ancilla_quantum_registers(self) -> int:
         """
         Return the number of Qiskrypt's Ancilla Quantum Registers of the Qiskrypt's Quantum Circuit.
 
@@ -4265,7 +4270,7 @@ class QiskryptQuantumCircuit:
 
         return len(self.get_qiskrypt_ancilla_quantum_registers())
 
-    def get_num_qiskrypt_ancilla_fully_quantum_registers(self):
+    def get_num_qiskrypt_ancilla_fully_quantum_registers(self) -> int:
         """
         Return the number of Qiskrypt's Ancilla Fully-Quantum Registers of the Qiskrypt's Quantum Circuit.
 
@@ -4275,7 +4280,7 @@ class QiskryptQuantumCircuit:
 
         return len(self.get_qiskrypt_ancilla_fully_quantum_registers())
 
-    def get_num_qiskrypt_ancilla_semi_quantum_registers(self):
+    def get_num_qiskrypt_ancilla_semi_quantum_registers(self) -> int:
         """
         Return the number of Qiskrypt's Ancilla Semi-Quantum Registers of the Qiskrypt's Quantum Circuit.
 
@@ -4285,7 +4290,7 @@ class QiskryptQuantumCircuit:
 
         return len(self.get_qiskrypt_ancilla_semi_quantum_registers())
 
-    def get_num_qiskrypt_classical_registers(self):
+    def get_num_qiskrypt_classical_registers(self) -> int:
         """
         Return the number of Qiskrypt's Classical Registers of the Qiskrypt's Quantum Circuit.
 
@@ -4295,7 +4300,7 @@ class QiskryptQuantumCircuit:
 
         return len(self.get_qiskrypt_classical_registers())
 
-    def get_global_phase(self):
+    def get_global_phase(self) -> float:
         """
         Return the global phase of the Qiskrypt's Quantum Circuit.
 
@@ -4304,7 +4309,7 @@ class QiskryptQuantumCircuit:
 
         return self.global_phase
 
-    def get_total_num_qubits(self):
+    def get_total_num_qubits(self) -> int:
         """
         Return the total number of qubits of the Qiskrypt's Quantum Circuit.
 
@@ -4314,7 +4319,7 @@ class QiskryptQuantumCircuit:
 
         return self.quantum_circuit.num_qubits
 
-    def get_total_num_bits(self):
+    def get_total_num_bits(self) -> int:
         """
         Return the total number of bits of the Qiskrypt's Quantum Circuit.
 
@@ -4324,7 +4329,7 @@ class QiskryptQuantumCircuit:
 
         return self.quantum_circuit.num_clbits
 
-    def get_num_qubits_in_qiskit_quantum_register(self, quantum_register_index: int):
+    def get_num_qubits_in_qiskit_quantum_register(self, quantum_register_index: int) -> int:
         """
         Return the number of qubits in a given quantum register of the Qiskrypt's Quantum Circuit.
 
@@ -4337,7 +4342,7 @@ class QiskryptQuantumCircuit:
 
         return self.quantum_circuit.qregs[quantum_register_index].size
 
-    def get_num_bits_in_qiskit_classical_register(self, classical_register_index: int):
+    def get_num_bits_in_qiskit_classical_register(self, classical_register_index: int) -> int:
         """
         Return the number of bits in a given classical register of the Qiskrypt's Quantum Circuit.
 
@@ -4350,7 +4355,7 @@ class QiskryptQuantumCircuit:
 
         return self.quantum_circuit.cregs[classical_register_index].size
 
-    def get_reversed_qiskit_quantum_circuit_operations(self):
+    def get_reversed_qiskit_quantum_circuit_operations(self) -> QuantumCircuit:
         """
         Return the reversed IBM Qiskit's Quantum Circuit of
         the Qiskrypt's Quantum Circuit
@@ -4362,7 +4367,7 @@ class QiskryptQuantumCircuit:
 
         return self.quantum_circuit.reverse_ops()
 
-    def get_qiskit_quantum_circuit_with_reversed_wires_order(self):
+    def get_qiskit_quantum_circuit_with_reversed_wires_order(self) -> QuantumCircuit:
         """
         Return the IBM Qiskit's Quantum Circuit of
         the Qiskrypt's Quantum Circuit, with the reversed order of wires
@@ -4375,7 +4380,7 @@ class QiskryptQuantumCircuit:
 
         return self.quantum_circuit.reverse_bits()
 
-    def get_inverted_qiskit_quantum_circuit(self):
+    def get_inverted_qiskit_quantum_circuit(self) -> QuantumCircuit:
         """
         Return the inverted IBM Qiskit's Quantum Circuit of
         the Qiskrypt's Quantum Circuit
@@ -4388,7 +4393,7 @@ class QiskryptQuantumCircuit:
 
         return self.quantum_circuit.inverse()
 
-    def get_repeated_qiskit_quantum_circuit(self, num_repetitions: int):
+    def get_repeated_qiskit_quantum_circuit(self, num_repetitions: int) -> QuantumCircuit:
         """
         Return the IBM Qiskit's Quantum Circuit of
         the Qiskrypt's Quantum Circuit a given number of repetitions.
@@ -4403,7 +4408,7 @@ class QiskryptQuantumCircuit:
 
         return self.quantum_circuit.repeat(num_repetitions)
 
-    def get_powered_qiskit_quantum_circuit(self, power: int, is_to_compute_matrix_power=False):
+    def get_powered_qiskit_quantum_circuit(self, power: int, is_to_compute_matrix_power=False) -> QuantumCircuit:
         """
         Return the IBM Qiskit's Quantum Circuit of
         the Qiskrypt's Quantum Circuit raised to a given power term.
@@ -4422,6 +4427,17 @@ class QiskryptQuantumCircuit:
         """
 
         return self.quantum_circuit.power(power, is_to_compute_matrix_power)
+
+    def combine_qiskrypt_quantum_circuit(self, quantum_circuit_new_name: str, other_qiskrypt_quantum_circuit: QiskryptQuantumCircuit, new_global_phase=0):
+        """
+
+
+        :param quantum_circuit_new_name:
+        :param other_qiskrypt_quantum_circuit:
+        :param new_global_phase:
+
+        :return:
+        """
 
     @staticmethod
     def raise_unsupported_type_registers_error():
