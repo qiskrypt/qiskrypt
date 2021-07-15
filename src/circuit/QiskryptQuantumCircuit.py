@@ -4611,7 +4611,9 @@ class QiskryptQuantumCircuit:
 
         return self.quantum_circuit.power(power, is_to_compute_matrix_power)
 
-    def combine_qiskrypt_quantum_circuit(self, quantum_circuit_new_name: str, other_qiskrypt_quantum_circuit: QiskryptQuantumCircuit, new_global_phase=0) -> QiskryptQuantumCircuit:
+    def combine_qiskrypt_quantum_circuit(self, quantum_circuit_new_name: str,
+                                         other_qiskrypt_quantum_circuit: QiskryptQuantumCircuit,
+                                         new_global_phase=0) -> QiskryptQuantumCircuit:
         """
 
 
@@ -4621,6 +4623,124 @@ class QiskryptQuantumCircuit:
 
         :return:
         """
+
+    def check_if_is_possible_to_apply_single_quantum_gate_operation(self, quantum_register_index: int, qubit_index: int,
+                                                                    is_quantum_operation_gate_only_supported_for_fully_quantum_registers: bool) -> bool:
+        """
+        Check if it is possible to apply a specific Quantum Gate/Operation,
+        regarding a given IBM Qiskit's Quantum Register index and a qubit index.
+
+        :param quantum_register_index: index of an IBM Qiskit's Quantum Register.
+        :param qubit_index: index of a qubit inside that IBM Qiskit's Quantum Register.
+        :param is_quantum_operation_gate_only_supported_for_fully_quantum_registers: the boolean flag to check if
+                                                                                     the Qiskrypt's Register is
+                                                                                     a Semi-Quantum one or not, for the case of
+                                                                                     the Quantum Gate/Operation be supported
+                                                                                     only by a Fully-Quantum.
+        """
+
+        if quantum_register_index < self.quantum_circuit.qregs.size:
+            """
+            If the given index of the IBM Qiskit's Quantum Register is valid.
+            """
+
+            if qubit_index < self.quantum_circuit.qregs[quantum_register_index].size:
+                """
+                If the given index of the qubit in the given IBM Qiskit's Quantum Register is also valid.
+                """
+
+                has_qiskrypt_register, qiskrypt_register = \
+                    self.find_qiskrypt_register_by_name(self.quantum_circuit.qregs[quantum_register_index].name)
+                """
+                Find and retrieve the Qiskrypt's Register in the Qiskrypt's Quantum Circuit, given its name.
+                """
+
+                if has_qiskrypt_register:
+                    """
+                    If it was found some Qiskrypt's Register in the Qiskrypt's Quantum Circuit, with the given name.
+                    """
+
+                    if is_quantum_operation_gate_only_supported_for_fully_quantum_registers:
+                        """
+                        If the pretended Quantum Operation/Gate is only supported
+                        for Qiskrypt's Fully-Quantum Registers.
+                        """
+
+                        if not self.check_if_is_a_qiskrypt_semi_quantum_register(qiskrypt_register):
+                            """
+                            If the founded Qiskrypt's Register with the given name is a Semi-Quantum one.
+                            """
+
+                            """
+                            It is everything ok and it is possible to apply the pretended Quantum Operation/Gate.
+                            """
+                            return True
+
+                        else:
+                            """
+                            If the founded Qiskrypt's Register with the given name is not a Semi-Quantum one.
+                            """
+
+                            if isinstance(qiskrypt_register, QiskryptSemiQuantumRegister):
+                                """
+                                If the Qiskrypt's Register with the given name is a Semi-Quantum Register.
+                                """
+
+                                """
+                                Raise an Unsupported Operation for Semi-Quantum Register Error.
+                                """
+                                self.raise_unsupported_operation_for_semi_quantum_register_error()
+
+                            elif isinstance(qiskrypt_register, QiskryptAncillaSemiQuantumRegister):
+                                """
+                                If the Qiskrypt's Register with the given name is a Ancilla Semi-Quantum Register.
+                                """
+
+                                """
+                                Raise an Unsupported Operation for Ancilla Semi-Quantum Register Error.
+                                """
+                                self.raise_unsupported_operation_for_ancilla_semi_quantum_register_error()
+
+                    else:
+                        """
+                        If the pretended Quantum Operation/Gate is supported
+                        by any Qiskrypt's Quantum Registers.
+                        """
+
+                        """
+                        It is everything ok and it is possible to apply the pretended Quantum Operation/Gate.
+                        """
+                        return True
+
+                else:
+                    """
+                    If it was not found no Qiskrypt's Register in the Qiskrypt's Quantum Circuit, with the given name.
+                    """
+
+                    """
+                    Raise a Register Not Found Error for the Qiskrypt's Quantum Circuit.
+                    """
+                    self.raise_register_not_found_error()
+
+            else:
+                """
+                If the given index of the qubit in the given IBM Qiskit's Quantum Register is not valid.
+                """
+
+                self.raise_invalid_qubit_index_given_error()
+                """
+                Raise an Invalid Qubit Index Given Error for the Qiskrypt's Quantum Circuit.
+                """
+
+        else:
+            """
+            If the given index of the IBM Qiskit's Quantum Register is not valid.
+            """
+
+            self.raise_invalid_qiskit_quantum_register_index_given_error()
+            """
+            Raise an Invalid IBM Qiskit's Quantum Register Index Given Error for the Qiskrypt's Quantum Circuit.
+            """
 
     def apply_barrier(self, quantum_register_index: int, qubit_index: int):
         """
@@ -4704,46 +4824,27 @@ class QiskryptQuantumCircuit:
 
     def apply_pauli_i(self, quantum_register_index: int, qubit_index: int):
         """
-        Apply the Pauli-I Gate/Operation to given indexes of
+        Apply the Pauli-I (Idle) Gate/Operation to given indexes of
         an IBM Qiskit's Quantum Register and a target qubit.
 
         :param quantum_register_index: index of an IBM Qiskit's Quantum Register.
         :param qubit_index: index of a qubit inside that IBM Qiskit's Quantum Register.
         """
 
-        if quantum_register_index < self.quantum_circuit.qregs.size:
+        is_possible_to_apply_single_quantum_gate_operation = \
+            self.check_if_is_possible_to_apply_single_quantum_gate_operation(quantum_register_index, qubit_index, True)
+        """
+        Check if it is possible to apply the pretended Quantum Gate/Operation.
+        """
+
+        if is_possible_to_apply_single_quantum_gate_operation:
             """
-            If the given index of the IBM Qiskit's Quantum Register is valid.
-            """
-
-            if qubit_index < self.quantum_circuit.qregs[quantum_register_index].size:
-                """
-                If the given index of the qubit in the given IBM Qiskit's Quantum Register is also valid.
-                """
-
-                self.quantum_circuit.id(self.quantum_circuit.qregs[quantum_register_index][qubit_index])
-                """
-                Apply the Pauli-I Gate/Operation to the given qubit of the given IBM Qiskit's Quantum Register. 
-                """
-
-            else:
-                """
-                If the given index of the qubit in the given IBM Qiskit's Quantum Register is not valid.
-                """
-
-                self.raise_invalid_qubit_index_given_error()
-                """
-                Raise an Invalid Qubit Index Given Error for the Qiskrypt's Quantum Circuit.
-                """
-
-        else:
-            """
-            If the given index of the IBM Qiskit's Quantum Register is not valid.
+            It is possible to apply the pretended Quantum Gate/Operation.
             """
 
-            self.raise_invalid_qiskit_quantum_register_index_given_error()
+            self.quantum_circuit.id(self.quantum_circuit.qregs[quantum_register_index][qubit_index])
             """
-            Raise an Invalid IBM Qiskit's Quantum Register Index Given Error for the Qiskrypt's Quantum Circuit.
+            Apply the Pauli-I (Idle) Gate/Operation to the given qubit of the given IBM Qiskit's Quantum Register. 
             """
 
     def apply_pauli_x(self, quantum_register_index: int, qubit_index: int):
@@ -4755,39 +4856,20 @@ class QiskryptQuantumCircuit:
         :param qubit_index: index of a qubit inside that IBM Qiskit's Quantum Register.
         """
 
-        if quantum_register_index < self.quantum_circuit.qregs.size:
+        is_possible_to_apply_single_quantum_gate_operation = \
+            self.check_if_is_possible_to_apply_single_quantum_gate_operation(quantum_register_index, qubit_index, False)
+        """
+        Check if it is possible to apply the pretended Quantum Gate/Operation.
+        """
+
+        if is_possible_to_apply_single_quantum_gate_operation:
             """
-            If the given index of the IBM Qiskit's Quantum Register is valid.
-            """
-
-            if qubit_index < self.quantum_circuit.qregs[quantum_register_index].size:
-                """
-                If the given index of the qubit in the given IBM Qiskit's Quantum Register is also valid.
-                """
-
-                self.quantum_circuit.x(self.quantum_circuit.qregs[quantum_register_index][qubit_index])
-                """
-                Apply the Pauli-X Gate/Operation to the given qubit of the given IBM Qiskit's Quantum Register. 
-                """
-
-            else:
-                """
-                If the given index of the qubit in the given IBM Qiskit's Quantum Register is not valid.
-                """
-
-                self.raise_invalid_qubit_index_given_error()
-                """
-                Raise an Invalid Qubit Index Given Error for the Qiskrypt's Quantum Circuit.
-                """
-
-        else:
-            """
-            If the given index of the IBM Qiskit's Quantum Register is not valid.
+            It is possible to apply the pretended Quantum Gate/Operation.
             """
 
-            self.raise_invalid_qiskit_quantum_register_index_given_error()
+            self.quantum_circuit.x(self.quantum_circuit.qregs[quantum_register_index][qubit_index])
             """
-            Raise an Invalid IBM Qiskit's Quantum Register Index Given Error for the Qiskrypt's Quantum Circuit.
+            Apply the Pauli-X (NOT/Bit Flip) Gate/Operation to the given qubit of the given IBM Qiskit's Quantum Register. 
             """
 
     def apply_pauli_y(self, quantum_register_index: int, qubit_index: int):
@@ -4799,134 +4881,45 @@ class QiskryptQuantumCircuit:
         :param qubit_index: index of a qubit inside that IBM Qiskit's Quantum Register.
         """
 
-        if quantum_register_index < self.quantum_circuit.qregs.size:
+        is_possible_to_apply_single_quantum_gate_operation = \
+            self.check_if_is_possible_to_apply_single_quantum_gate_operation(quantum_register_index, qubit_index, True)
+        """
+        Check if it is possible to apply the pretended Quantum Gate/Operation.
+        """
+
+        if is_possible_to_apply_single_quantum_gate_operation:
             """
-            If the given index of the IBM Qiskit's Quantum Register is valid.
-            """
-
-            if qubit_index < self.quantum_circuit.qregs[quantum_register_index].size:
-                """
-                If the given index of the qubit in the given IBM Qiskit's Quantum Register is also valid.
-                """
-
-                has_qiskrypt_register, qiskrypt_register = \
-                    self.find_qiskrypt_register_by_name(self.quantum_circuit.qregs[quantum_register_index].name)
-                """
-                Find and retrieve the Qiskrypt's Register in the Qiskrypt's Quantum Circuit, given its name.
-                """
-
-                if has_qiskrypt_register:
-                    """
-                    If it was found some Qiskrypt's Register in the Qiskrypt's Quantum Circuit, with the given name.
-                    """
-
-                    if not self.check_if_is_a_qiskrypt_semi_quantum_register(qiskrypt_register):
-                        """
-                        If the founded Qiskrypt's Register with the given name is a Semi-Quantum one.
-                        """
-
-                        self.quantum_circuit.y(self.quantum_circuit.qregs[quantum_register_index][qubit_index])
-                        """
-                        Apply the Pauli-Y Gate/Operation to the given qubit of the given IBM Qiskit's Quantum Register. 
-                        """
-
-                    else:
-                        """
-                        If the founded Qiskrypt's Register with the given name is not a Semi-Quantum one.
-                        """
-
-                        if isinstance(qiskrypt_register, QiskryptSemiQuantumRegister):
-                            """
-                            If the Qiskrypt's Register with the given name is a Semi-Quantum Register.
-                            """
-
-                            """
-                            Raise an Unsupported Operation for Semi-Quantum Register Error.
-                            """
-                            self.raise_unsupported_operation_for_semi_quantum_register_error()
-
-                        elif isinstance(qiskrypt_register, QiskryptAncillaSemiQuantumRegister):
-                            """
-                            If the Qiskrypt's Register with the given name is a Ancilla Semi-Quantum Register.
-                            """
-
-                            """
-                            Raise an Unsupported Operation for Ancilla Semi-Quantum Register Error.
-                            """
-                            self.raise_unsupported_operation_for_ancilla_semi_quantum_register_error()
-
-                else:
-                    """
-                    If it was not found no Qiskrypt's Register in the Qiskrypt's Quantum Circuit, with the given name.
-                    """
-
-                    """
-                    Raise a Register Not Found Error for the Qiskrypt's Quantum Circuit.
-                    """
-                    self.raise_register_not_found_error()
-
-            else:
-                """
-                If the given index of the qubit in the given IBM Qiskit's Quantum Register is not valid.
-                """
-
-                self.raise_invalid_qubit_index_given_error()
-                """
-                Raise an Invalid Qubit Index Given Error for the Qiskrypt's Quantum Circuit.
-                """
-
-        else:
-            """
-            If the given index of the IBM Qiskit's Quantum Register is not valid.
+            It is possible to apply the pretended Quantum Gate/Operation.
             """
 
-            self.raise_invalid_qiskit_quantum_register_index_given_error()
+            self.quantum_circuit.y(self.quantum_circuit.qregs[quantum_register_index][qubit_index])
             """
-            Raise an Invalid IBM Qiskit's Quantum Register Index Given Error for the Qiskrypt's Quantum Circuit.
+            Apply the Pauli-Y Gate/Operation to the given qubit of the given IBM Qiskit's Quantum Register. 
             """
 
     def apply_pauli_z(self, quantum_register_index: int, qubit_index: int):
         """
-        Apply the Pauli-Z (Phase Flip/Shifter) Gate/Operation to given indexes of
+        Apply the Pauli-Z (Phase Flip/Shift) Gate/Operation to given indexes of
         an IBM Qiskit's Quantum Register and a target qubit.
 
         :param quantum_register_index: index of an IBM Qiskit's Quantum Register.
         :param qubit_index: index of a qubit inside that IBM Qiskit's Quantum Register.
         """
 
-        if quantum_register_index < self.quantum_circuit.qregs.size:
+        is_possible_to_apply_single_quantum_gate_operation = \
+            self.check_if_is_possible_to_apply_single_quantum_gate_operation(quantum_register_index, qubit_index, True)
+        """
+        Check if it is possible to apply the pretended Quantum Gate/Operation.
+        """
+
+        if is_possible_to_apply_single_quantum_gate_operation:
             """
-            If the given index of the IBM Qiskit's Quantum Register is valid.
-            """
-
-            if qubit_index < self.quantum_circuit.qregs[quantum_register_index].size:
-                """
-                If the given index of the qubit in the given IBM Qiskit's Quantum Register is also valid.
-                """
-
-                self.quantum_circuit.z(self.quantum_circuit.qregs[quantum_register_index][qubit_index])
-                """
-                Apply the Pauli-Z Gate/Operation to the given qubit of the given IBM Qiskit's Quantum Register.
-                """
-
-            else:
-                """
-                If the given index of the qubit in the given IBM Qiskit's Quantum Register is not valid.
-                """
-
-                self.raise_invalid_qubit_index_given_error()
-                """
-                Raise an Invalid Qubit Index Given Error for the Qiskrypt's Quantum Circuit.
-                """
-
-        else:
-            """
-            If the given index of the IBM Qiskit's Quantum Register is not valid.
+            It is possible to apply the pretended Quantum Gate/Operation.
             """
 
-            self.raise_invalid_qiskit_quantum_register_index_given_error()
+            self.quantum_circuit.z(self.quantum_circuit.qregs[quantum_register_index][qubit_index])
             """
-            Raise an Invalid IBM Qiskit's Quantum Register Index Given Error for the Qiskrypt's Quantum Circuit.
+            Apply the Pauli-Z (Phase Flip/Shift) Gate/Operation to the given qubit of the given IBM Qiskit's Quantum Register. 
             """
 
     def apply_hadamard(self, quantum_register_index: int, qubit_index: int):
@@ -4938,39 +4931,20 @@ class QiskryptQuantumCircuit:
         :param qubit_index: index of a qubit inside that IBM Qiskit's Quantum Register.
         """
 
-        if quantum_register_index < self.quantum_circuit.qregs.size:
+        is_possible_to_apply_single_quantum_gate_operation = \
+            self.check_if_is_possible_to_apply_single_quantum_gate_operation(quantum_register_index, qubit_index, True)
+        """
+        Check if it is possible to apply the pretended Quantum Gate/Operation.
+        """
+
+        if is_possible_to_apply_single_quantum_gate_operation:
             """
-            If the given index of the IBM Qiskit's Quantum Register is valid.
-            """
-
-            if qubit_index < self.quantum_circuit.qregs[quantum_register_index].size:
-                """
-                If the given index of the qubit in the given IBM Qiskit's Quantum Register is also valid.
-                """
-
-                self.quantum_circuit.h(self.quantum_circuit.qregs[quantum_register_index][qubit_index])
-                """
-                Apply the Hadamard Gate/Operation to the given qubit of the given IBM Qiskit's Quantum Register. 
-                """
-
-            else:
-                """
-                If the given index of the qubit in the given IBM Qiskit's Quantum Register is not valid.
-                """
-
-                self.raise_invalid_qubit_index_given_error()
-                """
-                Raise an Invalid Qubit Index Given Error for the Qiskrypt's Quantum Circuit.
-                """
-
-        else:
-            """
-            If the given index of the IBM Qiskit's Quantum Register is not valid.
+            It is possible to apply the pretended Quantum Gate/Operation.
             """
 
-            self.raise_invalid_qiskit_quantum_register_index_given_error()
+            self.quantum_circuit.h(self.quantum_circuit.qregs[quantum_register_index][qubit_index])
             """
-            Raise an Invalid IBM Qiskit's Quantum Register Index Given Error for the Qiskrypt's Quantum Circuit.
+            Apply the Hadamard Gate/Operation to the given qubit of the given IBM Qiskit's Quantum Register. 
             """
 
     def apply_phase_s(self, quantum_register_index: int, qubit_index: int):
@@ -4982,39 +4956,20 @@ class QiskryptQuantumCircuit:
         :param qubit_index: index of a qubit inside that IBM Qiskit's Quantum Register.
         """
 
-        if quantum_register_index < self.quantum_circuit.qregs.size:
+        is_possible_to_apply_single_quantum_gate_operation = \
+            self.check_if_is_possible_to_apply_single_quantum_gate_operation(quantum_register_index, qubit_index, True)
+        """
+        Check if it is possible to apply the pretended Quantum Gate/Operation.
+        """
+
+        if is_possible_to_apply_single_quantum_gate_operation:
             """
-            If the given index of the IBM Qiskit's Quantum Register is valid.
-            """
-
-            if qubit_index < self.quantum_circuit.qregs[quantum_register_index].size:
-                """
-                If the given index of the qubit in the given IBM Qiskit's Quantum Register is also valid.
-                """
-
-                self.quantum_circuit.s(self.quantum_circuit.qregs[quantum_register_index][qubit_index])
-                """
-                Apply the S (pi/2) Gate/Operation to the given qubit of the given IBM Qiskit's Quantum Register. 
-                """
-
-            else:
-                """
-                If the given index of the qubit in the given IBM Qiskit's Quantum Register is not valid.
-                """
-
-                self.raise_invalid_qubit_index_given_error()
-                """
-                Raise an Invalid Qubit Index Given Error for the Qiskrypt's Quantum Circuit.
-                """
-
-        else:
-            """
-            If the given index of the IBM Qiskit's Quantum Register is not valid.
+            It is possible to apply the pretended Quantum Gate/Operation.
             """
 
-            self.raise_invalid_qiskit_quantum_register_index_given_error()
+            self.quantum_circuit.s(self.quantum_circuit.qregs[quantum_register_index][qubit_index])
             """
-            Raise an Invalid IBM Qiskit's Quantum Register Index Given Error for the Qiskrypt's Quantum Circuit.
+            Apply the S (pi/2) Gate/Operation to the given qubit of the given IBM Qiskit's Quantum Register. 
             """
 
     def apply_phase_t(self, quantum_register_index: int, qubit_index: int):
@@ -5026,39 +4981,20 @@ class QiskryptQuantumCircuit:
         :param qubit_index: index of a qubit inside that IBM Qiskit's Quantum Register.
         """
 
-        if quantum_register_index < self.quantum_circuit.qregs.size:
+        is_possible_to_apply_single_quantum_gate_operation = \
+            self.check_if_is_possible_to_apply_single_quantum_gate_operation(quantum_register_index, qubit_index, False)
+        """
+        Check if it is possible to apply the pretended Quantum Gate/Operation.
+        """
+
+        if is_possible_to_apply_single_quantum_gate_operation:
             """
-            If the given index of the IBM Qiskit's Quantum Register is valid.
-            """
-
-            if qubit_index < self.quantum_circuit.qregs[quantum_register_index].size:
-                """
-                If the given index of the qubit in the given IBM Qiskit's Quantum Register is also valid.
-                """
-
-                self.quantum_circuit.s(self.quantum_circuit.qregs[quantum_register_index][qubit_index])
-                """
-                Apply the T (pi/4) Gate/Operation to the given qubit of the given IBM Qiskit's Quantum Register. 
-                """
-
-            else:
-                """
-                If the given index of the qubit in the given IBM Qiskit's Quantum Register is not valid.
-                """
-
-                self.raise_invalid_qubit_index_given_error()
-                """
-                Raise an Invalid Qubit Index Given Error for the Qiskrypt's Quantum Circuit.
-                """
-
-        else:
-            """
-            If the given index of the IBM Qiskit's Quantum Register is not valid.
+            It is possible to apply the pretended Quantum Gate/Operation.
             """
 
-            self.raise_invalid_qiskit_quantum_register_index_given_error()
+            self.quantum_circuit.t(self.quantum_circuit.qregs[quantum_register_index][qubit_index])
             """
-            Raise an Invalid IBM Qiskit's Quantum Register Index Given Error for the Qiskrypt's Quantum Circuit.
+            Apply the T (pi/4) Gate/Operation to the given qubit of the given IBM Qiskit's Quantum Register. 
             """
 
     def apply_bit_flip(self, quantum_register_index: int, qubit_index: int):
@@ -5072,7 +5008,7 @@ class QiskryptQuantumCircuit:
 
         self.apply_pauli_x(quantum_register_index, qubit_index)
         """
-        Apply the equivalent Pauli-X Gate/Operation to the given qubit of
+        Apply the equivalent Pauli-X (NOT/Bit Flip) Gate/Operation to the given qubit of
         the given IBM Qiskit's Quantum Register. 
         """
 
@@ -5087,7 +5023,7 @@ class QiskryptQuantumCircuit:
 
         self.apply_pauli_z(quantum_register_index, qubit_index)
         """
-        Apply the equivalent Pauli-Z Gate/Operation to the given qubit of
+        Apply the equivalent Pauli-Z (Phase Flip/Shift) Gate/Operation to the given qubit of
         the given IBM Qiskit's Quantum Register. 
         """
 
@@ -5100,39 +5036,20 @@ class QiskryptQuantumCircuit:
         :param qubit_index: index of a qubit inside that IBM Qiskit's Quantum Register.
         """
 
-        if quantum_register_index < self.quantum_circuit.qregs.size:
+        is_possible_to_apply_single_quantum_gate_operation = \
+            self.check_if_is_possible_to_apply_single_quantum_gate_operation(quantum_register_index, qubit_index, True)
+        """
+        Check if it is possible to apply the pretended Quantum Gate/Operation.
+        """
+
+        if is_possible_to_apply_single_quantum_gate_operation:
             """
-            If the given index of the IBM Qiskit's Quantum Register is valid.
-            """
-
-            if qubit_index < self.quantum_circuit.qregs[quantum_register_index].size:
-                """
-                If the given index of the qubit in the given IBM Qiskit's Quantum Register is also valid.
-                """
-
-                self.quantum_circuit.sdg(self.quantum_circuit.qregs[quantum_register_index][qubit_index])
-                """
-                Apply the S (-pi/2) Adjoint Gate/Operation to the given qubit of the given IBM Qiskit's Quantum Register. 
-                """
-
-            else:
-                """
-                If the given index of the qubit in the given IBM Qiskit's Quantum Register is not valid.
-                """
-
-                self.raise_invalid_qubit_index_given_error()
-                """
-                Raise an Invalid Qubit Index Given Error for the Qiskrypt's Quantum Circuit.
-                """
-
-        else:
-            """
-            If the given index of the IBM Qiskit's Quantum Register is not valid.
+            It is possible to apply the pretended Quantum Gate/Operation.
             """
 
-            self.raise_invalid_qiskit_quantum_register_index_given_error()
+            self.quantum_circuit.sdg(self.quantum_circuit.qregs[quantum_register_index][qubit_index])
             """
-            Raise an Invalid IBM Qiskit's Quantum Register Index Given Error for the Qiskrypt's Quantum Circuit.
+            Apply the S (-pi/2) Adjoint Gate/Operation to the given qubit of the given IBM Qiskit's Quantum Register. 
             """
 
     def apply_phase_t_adjoint(self, quantum_register_index: int, qubit_index: int):
@@ -5144,39 +5061,20 @@ class QiskryptQuantumCircuit:
         :param qubit_index: index of a qubit inside that IBM Qiskit's Quantum Register.
         """
 
-        if quantum_register_index < self.quantum_circuit.qregs.size:
+        is_possible_to_apply_single_quantum_gate_operation = \
+            self.check_if_is_possible_to_apply_single_quantum_gate_operation(quantum_register_index, qubit_index, True)
+        """
+        Check if it is possible to apply the pretended Quantum Gate/Operation.
+        """
+
+        if is_possible_to_apply_single_quantum_gate_operation:
             """
-            If the given index of the IBM Qiskit's Quantum Register is valid.
-            """
-
-            if qubit_index < self.quantum_circuit.qregs[quantum_register_index].size:
-                """
-                If the given index of the qubit in the given IBM Qiskit's Quantum Register is also valid.
-                """
-
-                self.quantum_circuit.s(self.quantum_circuit.qregs[quantum_register_index][qubit_index])
-                """
-                Apply the T (-pi/4) Adjoint Gate/Operation to the given qubit of the given IBM Qiskit's Quantum Register. 
-                """
-
-            else:
-                """
-                If the given index of the qubit in the given IBM Qiskit's Quantum Register is not valid.
-                """
-
-                self.raise_invalid_qubit_index_given_error()
-                """
-                Raise an Invalid Qubit Index Given Error for the Qiskrypt's Quantum Circuit.
-                """
-
-        else:
-            """
-            If the given index of the IBM Qiskit's Quantum Register is not valid.
+            It is possible to apply the pretended Quantum Gate/Operation.
             """
 
-            self.raise_invalid_qiskit_quantum_register_index_given_error()
+            self.quantum_circuit.tdg(self.quantum_circuit.qregs[quantum_register_index][qubit_index])
             """
-            Raise an Invalid IBM Qiskit's Quantum Register Index Given Error for the Qiskrypt's Quantum Circuit.
+            Apply the T (-pi/4) Adjoint Gate/Operation to the given qubit of the given IBM Qiskit's Quantum Register. 
             """
 
     def apply_squared_root_pauli_x(self, quantum_register_index: int, qubit_index: int):
@@ -5188,39 +5086,21 @@ class QiskryptQuantumCircuit:
         :param qubit_index: index of a qubit inside that IBM Qiskit's Quantum Register.
         """
 
-        if quantum_register_index < self.quantum_circuit.qregs.size:
+        is_possible_to_apply_single_quantum_gate_operation = \
+            self.check_if_is_possible_to_apply_single_quantum_gate_operation(quantum_register_index, qubit_index, True)
+        """
+        Check if it is possible to apply the pretended Quantum Gate/Operation.
+        """
+
+        if is_possible_to_apply_single_quantum_gate_operation:
             """
-            If the given index of the IBM Qiskit's Quantum Register is valid.
-            """
-
-            if qubit_index < self.quantum_circuit.qregs[quantum_register_index].size:
-                """
-                If the given index of the qubit in the given IBM Qiskit's Quantum Register is also valid.
-                """
-
-                self.quantum_circuit.sx(self.quantum_circuit.qregs[quantum_register_index][qubit_index])
-                """
-                Apply the Squared Root of the Pauli-X (NOT/Bit Flip) Gate/Operation to the given qubit of the given IBM Qiskit's Quantum Register. 
-                """
-
-            else:
-                """
-                If the given index of the qubit in the given IBM Qiskit's Quantum Register is not valid.
-                """
-
-                self.raise_invalid_qubit_index_given_error()
-                """
-                Raise an Invalid Qubit Index Given Error for the Qiskrypt's Quantum Circuit.
-                """
-
-        else:
-            """
-            If the given index of the IBM Qiskit's Quantum Register is not valid.
+            It is possible to apply the pretended Quantum Gate/Operation.
             """
 
-            self.raise_invalid_qiskit_quantum_register_index_given_error()
+            self.quantum_circuit.sx(self.quantum_circuit.qregs[quantum_register_index][qubit_index])
             """
-            Raise an Invalid IBM Qiskit's Quantum Register Index Given Error for the Qiskrypt's Quantum Circuit.
+            Apply the Squared Root of the Pauli-X (NOT/Bit Flip) to
+            the given qubit of the given IBM Qiskit's Quantum Register. 
             """
 
     def apply_squared_root_pauli_y(self, quantum_register_index: int, qubit_index: int):
@@ -5232,99 +5112,64 @@ class QiskryptQuantumCircuit:
         :param qubit_index: index of a qubit inside that IBM Qiskit's Quantum Register.
         """
 
-        if quantum_register_index < self.quantum_circuit.qregs.size:
+        is_possible_to_apply_single_quantum_gate_operation = \
+            self.check_if_is_possible_to_apply_single_quantum_gate_operation(quantum_register_index, qubit_index, True)
+        """
+        Check if it is possible to apply the pretended Quantum Gate/Operation.
+        """
+
+        if is_possible_to_apply_single_quantum_gate_operation:
             """
-            If the given index of the IBM Qiskit's Quantum Register is valid.
-            """
-
-            if qubit_index < self.quantum_circuit.qregs[quantum_register_index].size:
-                """
-                If the given index of the qubit in the given IBM Qiskit's Quantum Register is also valid.
-                """
-
-                squared_root_pauli_y_unitary_matrix_operator = Operator([
-                    [(1 + 1j) * (1 / 2), (1 + 1j) * -(1 / 2)],
-                    [(1 + 1j) * (1 / 2), (1 + 1j) * (1 / 2)]
-                ])
-                """
-                The Unitary Matrix/Operator for the Squared Root of the Pauli-Y Gate/Operation.
-                """
-
-                self.quantum_circuit.unitary(squared_root_pauli_y_unitary_matrix_operator, self.quantum_circuit.qregs[quantum_register_index][qubit_index])
-                """
-                Apply the Squared Root of the Pauli-Y Gate/Operation to the given qubit of the given IBM Qiskit's Quantum Register. 
-                """
-
-            else:
-                """
-                If the given index of the qubit in the given IBM Qiskit's Quantum Register is not valid.
-                """
-
-                self.raise_invalid_qubit_index_given_error()
-                """
-                Raise an Invalid Qubit Index Given Error for the Qiskrypt's Quantum Circuit.
-                """
-
-        else:
-            """
-            If the given index of the IBM Qiskit's Quantum Register is not valid.
+            It is possible to apply the pretended Quantum Gate/Operation.
             """
 
-            self.raise_invalid_qiskit_quantum_register_index_given_error()
+            squared_root_pauli_y_unitary_matrix_operator = Operator([
+                [(1 + 1j) * (1 / 2), (1 + 1j) * -(1 / 2)],
+                [(1 + 1j) * (1 / 2), (1 + 1j) * (1 / 2)]
+            ])
             """
-            Raise an Invalid IBM Qiskit's Quantum Register Index Given Error for the Qiskrypt's Quantum Circuit.
+            The Unitary Matrix/Operator for the Squared Root of the Pauli-Y Gate/Operation.
+            """
+
+            self.quantum_circuit.unitary(squared_root_pauli_y_unitary_matrix_operator,
+                                         self.quantum_circuit.qregs[quantum_register_index][qubit_index])
+            """
+            Apply the Squared Root of the Pauli-Y Gate/Operation to the given qubit of the given IBM Qiskit's Quantum Register. 
             """
 
     def apply_squared_root_pauli_z(self, quantum_register_index: int, qubit_index: int):
         """
-        Apply the Squared Root of the Pauli-Z (Phase Flip/Shifter) Gate/Operation to given indexes of
+        Apply the Squared Root of the Pauli-Z (Phase Flip/Shift) Gate/Operation to given indexes of
         an IBM Qiskit's Quantum Register and a target qubit.
 
         :param quantum_register_index: index of an IBM Qiskit's Quantum Register.
         :param qubit_index: index of a qubit inside that IBM Qiskit's Quantum Register.
         """
 
-        if quantum_register_index < self.quantum_circuit.qregs.size:
+        is_possible_to_apply_single_quantum_gate_operation = \
+            self.check_if_is_possible_to_apply_single_quantum_gate_operation(quantum_register_index, qubit_index, True)
+        """
+        Check if it is possible to apply the pretended Quantum Gate/Operation.
+        """
+
+        if is_possible_to_apply_single_quantum_gate_operation:
             """
-            If the given index of the IBM Qiskit's Quantum Register is valid.
-            """
-
-            if qubit_index < self.quantum_circuit.qregs[quantum_register_index].size:
-                """
-                If the given index of the qubit in the given IBM Qiskit's Quantum Register is also valid.
-                """
-
-                squared_root_pauli_z_unitary_matrix_operator = Operator([
-                    [1, 0],
-                    [0, 1j]
-                ])
-                """
-                The Unitary Matrix/Operator for the Squared Root of the Pauli-Z (Phase Flip/Shifter) Gate/Operation.
-                """
-
-                self.quantum_circuit.unitary(squared_root_pauli_z_unitary_matrix_operator, self.quantum_circuit.qregs[quantum_register_index][qubit_index])
-                """
-                Apply the Squared Root of the Pauli-Z (Phase Flip/Shifter) to the given qubit of the given IBM Qiskit's Quantum Register.
-                """
-
-            else:
-                """
-                If the given index of the qubit in the given IBM Qiskit's Quantum Register is not valid.
-                """
-
-                self.raise_invalid_qubit_index_given_error()
-                """
-                Raise an Invalid Qubit Index Given Error for the Qiskrypt's Quantum Circuit.
-                """
-
-        else:
-            """
-            If the given index of the IBM Qiskit's Quantum Register is not valid.
+            It is possible to apply the pretended Quantum Gate/Operation.
             """
 
-            self.raise_invalid_qiskit_quantum_register_index_given_error()
+            squared_root_pauli_z_unitary_matrix_operator = Operator([
+                [1, 0],
+                [0, 1j]
+            ])
             """
-            Raise an Invalid IBM Qiskit's Quantum Register Index Given Error for the Qiskrypt's Quantum Circuit.
+            The Unitary Matrix/Operator for the Squared Root of the Pauli-Z (Phase Flip/Shift) Gate/Operation.
+            """
+
+            self.quantum_circuit.unitary(squared_root_pauli_z_unitary_matrix_operator,
+                                         self.quantum_circuit.qregs[quantum_register_index][qubit_index])
+            """
+            Apply the Squared Root of the Pauli-Z (Phase Flip/Shift) Gate/Operation to
+            the given qubit of the given IBM Qiskit's Quantum Register. 
             """
 
     def apply_squared_root_hadamard(self, quantum_register_index: int, qubit_index: int):
@@ -5336,47 +5181,30 @@ class QiskryptQuantumCircuit:
         :param qubit_index: index of a qubit inside that IBM Qiskit's Quantum Register.
         """
 
-        if quantum_register_index < self.quantum_circuit.qregs.size:
+        is_possible_to_apply_single_quantum_gate_operation = \
+            self.check_if_is_possible_to_apply_single_quantum_gate_operation(quantum_register_index, qubit_index, True)
+        """
+        Check if it is possible to apply the pretended Quantum Gate/Operation.
+        """
+
+        if is_possible_to_apply_single_quantum_gate_operation:
             """
-            If the given index of the IBM Qiskit's Quantum Register is valid.
-            """
-
-            if qubit_index < self.quantum_circuit.qregs[quantum_register_index].size:
-                """
-                If the given index of the qubit in the given IBM Qiskit's Quantum Register is also valid.
-                """
-
-                squared_root_hadamard_unitary_matrix_operator = Operator([
-                    [((2 + sqrt(2)) / 4) + (((2 - sqrt(2)) / 4) * 1j), ((sqrt(2) / 4) - (sqrt(2) / 4) * 1j)],
-                    [((sqrt(2) / 4) - (sqrt(2) / 4) * 1j), ((2 - sqrt(2)) / 4) + (((2 + sqrt(2)) / 4) * 1j)]
-                ])
-                """
-                The Unitary Matrix/Operator for the Squared Root of the Hadamard Gate/Operation.
-                """
-
-                self.quantum_circuit.unitary(squared_root_hadamard_unitary_matrix_operator, self.quantum_circuit.qregs[quantum_register_index][qubit_index])
-                """
-                Apply the Squared Root of the Hadamard Gate/Operation to the given qubit of the given IBM Qiskit's Quantum Register. 
-                """
-
-            else:
-                """
-                If the given index of the qubit in the given IBM Qiskit's Quantum Register is not valid.
-                """
-
-                self.raise_invalid_qubit_index_given_error()
-                """
-                Raise an Invalid Qubit Index Given Error for the Qiskrypt's Quantum Circuit.
-                """
-
-        else:
-            """
-            If the given index of the IBM Qiskit's Quantum Register is not valid.
+            It is possible to apply the pretended Quantum Gate/Operation.
             """
 
-            self.raise_invalid_qiskit_quantum_register_index_given_error()
+            squared_root_hadamard_unitary_matrix_operator = Operator([
+                [((2 + sqrt(2)) / 4) + (((2 - sqrt(2)) / 4) * 1j), ((sqrt(2) / 4) - (sqrt(2) / 4) * 1j)],
+                [((sqrt(2) / 4) - (sqrt(2) / 4) * 1j), ((2 - sqrt(2)) / 4) + (((2 + sqrt(2)) / 4) * 1j)]
+            ])
             """
-            Raise an Invalid IBM Qiskit's Quantum Register Index Given Error for the Qiskrypt's Quantum Circuit.
+            The Unitary Matrix/Operator for the Squared Root of the Hadamard Gate/Operation.
+            """
+
+            self.quantum_circuit.unitary(squared_root_hadamard_unitary_matrix_operator,
+                                         self.quantum_circuit.qregs[quantum_register_index][qubit_index])
+            """
+            Apply the Squared Root of the Hadamard Gate/Operation to
+            the given qubit of the given IBM Qiskit's Quantum Register. 
             """
 
     @staticmethod
