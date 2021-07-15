@@ -5207,6 +5207,76 @@ class QiskryptQuantumCircuit:
             the given qubit of the given IBM Qiskit's Quantum Register. 
             """
 
+    def apply_squared_root_phase_s(self, quantum_register_index: int, qubit_index: int):
+        """
+        Apply the Squared Root of the S (sqrt(pi/2)) Gate/Operation to given indexes of
+        an IBM Qiskit's Quantum Register and a target qubit.
+
+        :param quantum_register_index: index of an IBM Qiskit's Quantum Register.
+        :param qubit_index: index of a qubit inside that IBM Qiskit's Quantum Register.
+        """
+
+        is_possible_to_apply_single_quantum_gate_operation = \
+            self.check_if_is_possible_to_apply_single_quantum_gate_operation(quantum_register_index, qubit_index, True)
+        """
+        Check if it is possible to apply the pretended Quantum Gate/Operation.
+        """
+
+        if is_possible_to_apply_single_quantum_gate_operation:
+            """
+            It is possible to apply the pretended Quantum Gate/Operation.
+            """
+
+            squared_root_phase_s_unitary_matrix_operator = Operator([
+                [1, 0],
+                [0, sqrt(1j)]
+            ])
+            """
+            The Unitary Matrix/Operator for the Squared Root of the S (sqrt(pi/2)) Gate/Operation.
+            """
+
+            self.quantum_circuit.unitary(squared_root_phase_s_unitary_matrix_operator,
+                                         self.quantum_circuit.qregs[quantum_register_index][qubit_index])
+            """
+            Apply the Squared Root of the S (sqrt(pi/2)) Gate/Operation to
+            the given qubit of the given IBM Qiskit's Quantum Register. 
+            """
+
+    def apply_squared_root_phase_t(self, quantum_register_index: int, qubit_index: int):
+        """
+        Apply the Squared Root of the T (sqrt(pi/4)) Gate/Operation to given indexes of
+        an IBM Qiskit's Quantum Register and a target qubit.
+
+        :param quantum_register_index: index of an IBM Qiskit's Quantum Register.
+        :param qubit_index: index of a qubit inside that IBM Qiskit's Quantum Register.
+        """
+
+        is_possible_to_apply_single_quantum_gate_operation = \
+            self.check_if_is_possible_to_apply_single_quantum_gate_operation(quantum_register_index, qubit_index, True)
+        """
+        Check if it is possible to apply the pretended Quantum Gate/Operation.
+        """
+
+        if is_possible_to_apply_single_quantum_gate_operation:
+            """
+            It is possible to apply the pretended Quantum Gate/Operation.
+            """
+
+            squared_root_phase_t_unitary_matrix_operator = Operator([
+                [1, 0],
+                [0, sqrt(exp((1 / sqrt(2) * (1 + 1j))))]
+            ])
+            """
+            The Unitary Matrix/Operator for the Squared Root of the T (sqrt(pi/4)) Gate/Operation.
+            """
+
+            self.quantum_circuit.unitary(squared_root_phase_t_unitary_matrix_operator,
+                                         self.quantum_circuit.qregs[quantum_register_index][qubit_index])
+            """
+            Apply the Squared Root of the T (sqrt(pi/4)) Gate/Operation to
+            the given qubit of the given IBM Qiskit's Quantum Register. 
+            """
+
     @staticmethod
     def check_if_is_a_qiskrypt_semi_quantum_register(qiskrypt_register: object) -> bool:
         """
