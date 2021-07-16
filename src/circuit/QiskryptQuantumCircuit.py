@@ -4747,7 +4747,7 @@ class QiskryptQuantumCircuit:
             Raise an Invalid IBM Qiskit's Quantum Register Index Given Error for the Qiskrypt's Quantum Circuit.
             """
 
-    def apply_barrier(self, quantum_register_index: int, qubit_index: int):
+    def apply_barrier_to_qubit_in_qiskit_quantum_register(self, quantum_register_index: int, qubit_index: int):
         """
         Apply the Barrier Operation to given indexes of
         an IBM Qiskit's Quantum Register and a target qubit.
@@ -4772,10 +4772,10 @@ class QiskryptQuantumCircuit:
             Apply the Barrier Operation to the given qubit of the given IBM Qiskit's Quantum Register. 
             """
 
-    def apply_barriers_interval_in_qiskit_quantum_register(self, quantum_register_index: int, qubits_indexes: list):
+    def apply_barriers_interval_qubits_in_qiskit_quantum_register(self, quantum_register_index: int, qubits_indexes: list):
         """
         Apply Barriers Operations to given indexes of
-        an IBM Qiskit's Quantum Register and a list of target qubits.
+        an IBM Qiskit's Quantum Register and a list of target qubits indexes.
 
         :param quantum_register_index: the index of an IBM Qiskit's Quantum Register.
         :param qubits_indexes: the list of indexes of qubits inside that IBM Qiskit's Quantum Register.
@@ -4791,7 +4791,7 @@ class QiskryptQuantumCircuit:
             For each qubit index in the list of indexes of qubits inside the IBM Qiskit's Quantum Register.
             """
 
-            self.apply_barrier(quantum_register_index, qubit_index)
+            self.apply_barrier_to_qubit_in_qiskit_quantum_register(quantum_register_index, qubit_index)
             """
             Apply the Barrier Operation to the IBM Qiskit's Quantum Register and the current qubit index.
             """
@@ -4819,59 +4819,186 @@ class QiskryptQuantumCircuit:
             For each qubit index in the retrieved IBM Qiskit's Quantum Register.
             """
 
-            self.apply_barrier(quantum_register_index, qubit_index)
+            self.apply_barrier_to_qubit_in_qiskit_quantum_register(quantum_register_index, qubit_index)
             """
             Apply the Barrier Operation to the IBM Qiskit's Quantum Register and the current qubit index.
             """
 
-    def apply_barriers_interval_in_all_qiskit_quantum_registers(self, qubits_indexes: list):
+    def apply_barriers_interval_qubits_in_all_qiskit_quantum_registers(self, qubits_indexes: list):
+        """
+        Apply Barriers Operations to the given qubit indexes in
+        all the IBM Qiskit's Quantum Registers in the IBM Qiskit's Quantum Circuit of
+        the Qiskrypt's Quantum Circuit.
+
+        :param qubits_indexes: the list of indexes of qubits inside all the IBM Qiskit's Quantum Registers.
         """
 
-
-        :param qubits_indexes:
+        num_total_qiskit_quantum_registers = self.quantum_circuit.qregs.size
         """
+        Retrieve the total number of IBM Qiskit's Quantum Registers
+        in the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit.
+        """
+
+        for current_qiskit_quantum_register_index in range(num_total_qiskit_quantum_registers):
+            """
+            For each index of the IBM Qiskit's Quantum Register in
+            the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit.
+            """
+
+            self.apply_barriers_interval_qubits_in_qiskit_quantum_register(current_qiskit_quantum_register_index, qubits_indexes)
+            """
+            Apply Barriers Operations to the IBM Qiskit's Quantum Register and the list of target qubits.
+            """
 
     def apply_barriers_to_all_qubits_in_all_qiskit_quantum_registers(self):
         """
-
+        Apply Barriers Operations to all the qubit indexes in
+        all the IBM Qiskit's Quantum Registers in the IBM Qiskit's Quantum Circuit of
+        the Qiskrypt's Quantum Circuit.
         """
+
+        num_total_qiskit_quantum_registers = self.quantum_circuit.qregs.size
+        """
+        Retrieve the total number of IBM Qiskit's Quantum Registers
+        in the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit.
+        """
+
+        for current_qiskit_quantum_register_index in range(num_total_qiskit_quantum_registers):
+            """
+            For each index of the IBM Qiskit's Quantum Register in
+            the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit.
+            """
+
+            self.apply_barriers_to_all_qubits_in_qiskit_quantum_register(current_qiskit_quantum_register_index)
+            """
+            Apply Barriers Operations to all the qubit indexes of the IBM Qiskit's Quantum Register.
+            """
 
     def reset_qubit_in_qiskit_quantum_register(self, quantum_register_index: int, qubit_index: int):
         """
+        Reset a target qubit given its index on a given
+        index of an IBM Qiskit's Quantum Register.
 
-        :param quantum_register_index:
-        :param qubit_index:
+        :param quantum_register_index: the index of an IBM Qiskit's Quantum Register.
+        :param qubit_index: the index of a qubit inside that IBM Qiskit's Quantum Register.
         """
 
-    def reset_interval_qubits_in_qiskit_quantum_register(self, quantum_register_index: int, qubit_indexes: list):
+        is_possible_to_apply_single_operation = \
+            self.check_if_is_possible_to_apply_single_operation(quantum_register_index, qubit_index, False)
+        """
+        Check if it is possible to apply the pretended single operation.
         """
 
-        :param quantum_register_index:
-        :param qubit_indexes:
+        if is_possible_to_apply_single_operation:
+            """
+            It is possible to apply the pretended single operation.
+            """
+
+            self.quantum_circuit.reset(self.quantum_circuit.qregs[quantum_register_index][qubit_index])
+            """
+            Reset the qubit of the given IBM Qiskit's Quantum Register and the current qubit index. 
+            """
+
+    def reset_interval_qubits_in_qiskit_quantum_register(self, quantum_register_index: int, qubits_indexes: list):
         """
+        Reset target qubits given their indexes on a given
+        index of an IBM Qiskit's Quantum Register and a list of target qubits.
+
+        :param quantum_register_index: the index of an IBM Qiskit's Quantum Register.
+        :param qubits_indexes: the list of indexes of qubits inside that IBM Qiskit's Quantum Register.
+        """
+
+        qubits_indexes = list(dict.fromkeys(qubits_indexes))
+        """
+        Remove indexes of duplicated qubits.
+        """
+
+        for qubit_index in qubits_indexes:
+            """
+            For each qubit index in the list of indexes of qubits inside the IBM Qiskit's Quantum Register.
+            """
+
+            self.reset_qubit_in_qiskit_quantum_register(quantum_register_index, qubit_index)
+            """
+            Reset the current qubit index of the given IBM Qiskit's Quantum Register. 
+            """
 
     def reset_all_qubits_in_qiskit_quantum_register(self, quantum_register_index: int):
         """
+        Reset all the target qubits on a given index of
+        an IBM Qiskit's Quantum Register.
 
-        :param quantum_register_index:
+        :param quantum_register_index: the index of an IBM Qiskit's Quantum Register.
         """
 
-    def reset_qubit_in_all_qiskit_quantum_registers(self, qubit_index: int):
+        qiskit_quantum_register = self.quantum_circuit.qregs[quantum_register_index]
+        """
+        Retrieve the IBM Qiskit's Quantum Register, from the given index.
         """
 
-        :param qubit_index:
+        num_total_qubits_in_qiskit_quantum_register = qiskit_quantum_register.size
+        """
+        Retrieve the number of qubits in the retrieved IBM Qiskit's Quantum Register.
         """
 
-    def reset_interval_qubits_in_all_qiskit_quantum_registers(self, qubit_indexes: list):
+        for qubit_index in range(num_total_qubits_in_qiskit_quantum_register):
+            """
+            For each qubit index in the retrieved IBM Qiskit's Quantum Register.
+            """
+
+            self.reset_qubit_in_qiskit_quantum_register(quantum_register_index, qubit_index)
+            """
+            Reset the current qubit index of the given IBM Qiskit's Quantum Register. 
+            """
+
+    def reset_interval_qubits_in_all_qiskit_quantum_registers(self, qubits_indexes: list):
+        """
+        Reset all the qubits in the given qubit indexes in
+        all the IBM Qiskit's Quantum Registers in the IBM Qiskit's Quantum Circuit of
+        the Qiskrypt's Quantum Circuit.
+
+        :param qubits_indexes: the list of indexes of qubits inside all the IBM Qiskit's Quantum Registers.
         """
 
-        :param qubit_indexes:
+        num_total_qiskit_quantum_registers = self.quantum_circuit.qregs.size
         """
+        Retrieve the total number of IBM Qiskit's Quantum Registers
+        in the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit.
+        """
+
+        for current_qiskit_quantum_register_index in range(num_total_qiskit_quantum_registers):
+            """
+            For each index of the IBM Qiskit's Quantum Register in
+            the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit.
+            """
+
+            self.reset_interval_qubits_in_qiskit_quantum_register(current_qiskit_quantum_register_index, qubits_indexes)
+            """
+            Reset all the qubits in the list of target qubits of the current IBM Qiskit's Quantum Register.
+            """
 
     def reset_all_qubits_in_all_qiskit_quantum_registers(self):
         """
-
+        Reset all the target qubits on all the IBM Qiskit's Quantum Registers
+        in the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit.
         """
+
+        num_total_qiskit_quantum_registers = self.quantum_circuit.qregs.size
+        """
+        Retrieve the total number of IBM Qiskit's Quantum Registers
+        in the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit.
+        """
+
+        for current_qiskit_quantum_register_index in range(num_total_qiskit_quantum_registers):
+            """
+            For each index of the IBM Qiskit's Quantum Register in
+            the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit.
+            """
+
+            self.reset_all_qubits_in_qiskit_quantum_register(current_qiskit_quantum_register_index)
+            """
+            Reset all the qubit indexes of the current IBM Qiskit's Quantum Register.
+            """
 
     """
     2) Measurements Methods:
