@@ -49,7 +49,7 @@ Import Classical Register from IBM's Qiskit.
 from src.circuit.registers.classical.exception.QiskryptClassicalRegisterException \
     import QiskryptNotClassicalRegisterError
 """
-Import the Not Classical Register Error for the Qiskrypt's Classical Register.
+Import the Not a Classical Register Error for the Qiskrypt's Classical Register.
 """
 
 from src.circuit.registers.classical.exception.QiskryptClassicalRegisterException \
@@ -161,10 +161,10 @@ class QiskryptClassicalRegister:
 
         not_valid_classical_register_index_error = QiskryptNotValidClassicalRegisterIndexError()
         """
-        Retrieve the Not a Valid a Classical Register Index Error for the Qiskrypt's Classical Register.
+        Retrieve the Not a Valid Classical Register Index Error for the Qiskrypt's Classical Register.
         """
 
         """
-        Raise the Not a Valid a Classical Register Index Error for the Qiskrypt's Classical Register.
+        Raise the Not a Valid Classical Register Index Error for the Qiskrypt's Classical Register.
         """
         raise not_valid_classical_register_index_error
