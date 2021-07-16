@@ -155,8 +155,8 @@ class QiskryptClassicalRegister:
         """
         Return/Raise a Not a Valid Classical Register Index Error for the Qiskrypt's Classical Register.
 
-        :raise not_classical_register_error: a Not a Valid Classical Register Index Error for
-                                             the Qiskrypt's Classical Register.
+        :raise not_valid_classical_register_index_error: a Not a Valid Classical Register Index Error for
+                                                         the Qiskrypt's Classical Register.
         """
 
         not_valid_classical_register_index_error = QiskryptNotValidClassicalRegisterIndexError()
