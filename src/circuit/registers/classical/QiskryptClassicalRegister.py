@@ -52,6 +52,12 @@ from src.circuit.registers.classical.exception.QiskryptClassicalRegisterExceptio
 Import the Not Classical Register Error for the Qiskrypt's Classical Register.
 """
 
+from src.circuit.registers.classical.exception.QiskryptClassicalRegisterException \
+    import QiskryptNotValidClassicalRegisterIndexError
+"""
+Import the Not a Valid Classical Register Index Error for the Qiskrypt's Classical Register.
+"""
+
 
 class QiskryptClassicalRegister:
     """
@@ -143,3 +149,22 @@ class QiskryptClassicalRegister:
         Raise the Not a Classical Register Error for the Qiskrypt's Classical Register.
         """
         raise not_classical_register_error
+
+    @staticmethod
+    def raise_not_valid_classical_register_index_error():
+        """
+        Return/Raise a Not a Valid Classical Register Index Error for the Qiskrypt's Classical Register.
+
+        :raise not_classical_register_error: a Not a Valid Classical Register Index Error for
+                                             the Qiskrypt's Classical Register.
+        """
+
+        not_valid_classical_register_index_error = QiskryptNotValidClassicalRegisterIndexError()
+        """
+        Retrieve the Not a Valid a Classical Register Index Error for the Qiskrypt's Classical Register.
+        """
+
+        """
+        Raise the Not a Valid a Classical Register Index Error for the Qiskrypt's Classical Register.
+        """
+        raise not_valid_classical_register_index_error
