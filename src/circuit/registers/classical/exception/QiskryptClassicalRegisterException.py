@@ -43,6 +43,13 @@ The custom defined message for the Not a Classical Register Error for
 the Qiskrypt's Classical Register.
 """
 
+MESSAGE_NOT_VALID_CLASSICAL_REGISTER_INDEX_EXCEPTION = "Invalid Index: The index of the Qiskrypt's Classical Register " \
+                                                       "tried to be accessed it is not valid!!!\n"
+"""
+The custom defined message for the Not a Valid Classical Register Index Error for
+the Qiskrypt's Classical Register in the Qiskrypt's Quantum Circuit.
+"""
+
 
 class QiskryptNotClassicalRegisterError(Exception):
     """
@@ -61,6 +68,33 @@ class QiskryptNotClassicalRegisterError(Exception):
         """
         Set the custom message for the Not a Classical Register Error for
         the Qiskrypt's Classical Register.
+        """
+
+        super().__init__(self.message)
+        """
+        Calls the constructor of the super-class Exception.
+        """
+
+
+class QiskryptNotValidClassicalRegisterIndexError(Exception):
+    """
+    Object Class of the Not a Valid Classical Register Index Error for
+    the Qiskrypt's Classical Register in the Qiskrypt's Quantum Circuit.
+    """
+
+    def __init__(self, message=MESSAGE_NOT_VALID_CLASSICAL_REGISTER_INDEX_EXCEPTION):
+        """
+        Constructor for the Not a Valid Classical Register Index Error for
+        the Qiskrypt's Classical Register in the Qiskrypt's Quantum Circuit.
+
+        :param message: The custom message for the Not a Valid Quantum Register Index Error for
+                        the Qiskrypt's Ancilla Quantum Register in the Qiskrypt's Quantum Circuit.
+        """
+
+        self.message = message
+        """
+        Set the custom message for the Not a Valid Quantum Register Index Error for
+        the Qiskrypt's Ancilla Quantum Register in the Qiskrypt's Quantum Circuit.
         """
 
         super().__init__(self.message)
