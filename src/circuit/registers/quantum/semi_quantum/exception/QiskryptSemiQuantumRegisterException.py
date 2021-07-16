@@ -53,6 +53,13 @@ The custom defined message for the Not a Semi-Quantum Register Error for
 the Qiskrypt's Semi-Quantum Register.
 """
 
+MESSAGE_NOT_VALID_SEMI_QUANTUM_REGISTER_INDEX_EXCEPTION = "Invalid Index: The index of the Qiskrypt's Semi-Quantum Register " \
+                                                          "tried to be accessed it is not valid!!!\n"
+"""
+The custom defined message for the Not a Valid Semi-Quantum Register Index Error for
+the Qiskrypt's Semi-Quantum Register in the Qiskrypt's Quantum Circuit.
+"""
+
 
 class QiskryptSemiQuantumRegisterUnsupportedOperationError(Exception):
     """
@@ -96,6 +103,33 @@ class QiskryptNotSemiQuantumRegisterError(Exception):
         """
         Set the custom message for the Not a Semi-Quantum Register Error for
         the Qiskrypt's Semi-Quantum Register.
+        """
+
+        super().__init__(self.message)
+        """
+        Calls the constructor of the super-class Exception.
+        """
+
+
+class QiskryptNotValidSemiQuantumRegisterIndexError(Exception):
+    """
+    Object Class of the Not a Valid Semi-Quantum Register Index Error for
+    the Qiskrypt's Semi-Quantum Register in the Qiskrypt's Quantum Circuit.
+    """
+
+    def __init__(self, message=MESSAGE_NOT_VALID_SEMI_QUANTUM_REGISTER_INDEX_EXCEPTION):
+        """
+        Constructor for the Not a Valid Semi-Quantum Register Index Error for
+        the Qiskrypt's Semi-Quantum Register in the Qiskrypt's Quantum Circuit.
+
+        :param message: The custom message for the Not a Valid Semi-Quantum Register Index Error for
+                        the Qiskrypt's Semi-Quantum Register in the Qiskrypt's Quantum Circuit.
+        """
+
+        self.message = message
+        """
+        Set the custom message for the Not a Valid Semi-Quantum Register Index Error for
+        the Qiskrypt's Semi-Quantum Register in the Qiskrypt's Quantum Circuit.
         """
 
         super().__init__(self.message)
