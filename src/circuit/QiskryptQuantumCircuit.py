@@ -5032,6 +5032,21 @@ class QiskryptQuantumCircuit:
         the given IBM Qiskit's Quantum Register. 
         """
 
+    def apply_beamsplitter(self, quantum_register_index: int, qubit_index: int):
+        """
+        Apply the Beamsplitter Gate/Operation to given indexes of
+        an IBM Qiskit's Quantum Register and a target qubit.
+
+        :param quantum_register_index: index of an IBM Qiskit's Quantum Register.
+        :param qubit_index: index of a qubit inside that IBM Qiskit's Quantum Register.
+        """
+
+        self.apply_hadamard(quantum_register_index, qubit_index)
+        """
+        Apply the equivalent Hadamard Gate/Operation to the given qubit of
+        the given IBM Qiskit's Quantum Register. 
+        """
+
     def apply_phase_s_adjoint(self, quantum_register_index: int, qubit_index: int):
         """
         Apply the S (-pi/2) Adjoint Gate/Operation to given indexes of
