@@ -52,6 +52,11 @@ from typing import Tuple
 Import Tuple from Typing built-in Module of Python.
 """
 
+from math import pi, radians
+"""
+Import the pi constant and the function to convert degrees to radians from Math.
+"""
+
 from numpy import sqrt, exp
 """
 Import Squared Root and Exponential from NumPy.
@@ -5276,6 +5281,175 @@ class QiskryptQuantumCircuit:
             Apply the Squared Root of the T (sqrt(pi/4)) Gate/Operation to
             the given qubit of the given IBM Qiskit's Quantum Register. 
             """
+
+    def apply_rx_radians(self, theta_radians: float, quantum_register_index: int, qubit_index: int):
+        """
+        Apply the Rotation-X (R_x(theta)) Gate/Operation to given indexes of
+        an IBM Qiskit's Quantum Register and a target qubit, as also, a given theta angle in radians.
+
+        :param theta_radians: the theta angle in radians, for the Rotation-X (R_x(theta)) Gate/Operation.
+        :param quantum_register_index: index of an IBM Qiskit's Quantum Register.
+        :param qubit_index: index of a qubit inside that IBM Qiskit's Quantum Register.
+        """
+
+        if theta_radians == pi:
+            """
+            If the theta angle in radians is equal to pi, the Rotation-X (R_x(theta)) Gate/Operation will be
+            equivalent to the Pauli-X Gate/Operation, which can be also executed by a Semi-Quantum Register.
+            """
+
+            is_possible_to_apply_single_quantum_gate_operation = \
+                self.check_if_is_possible_to_apply_single_quantum_gate_operation(quantum_register_index,
+                                                                                 qubit_index, False)
+            """
+            Check if it is possible to apply the pretended Quantum Gate/Operation.
+            """
+
+        else:
+            """
+            If the theta angle in radians is different than pi, the Rotation-X (R_x(theta)) Gate/Operation will not be
+            equivalent to the Pauli-X Gate/Operation, and thus, can be only executed by a Fully-Quantum Register.
+            """
+
+            is_possible_to_apply_single_quantum_gate_operation = \
+                self.check_if_is_possible_to_apply_single_quantum_gate_operation(quantum_register_index,
+                                                                                 qubit_index, True)
+            """
+            Check if it is possible to apply the pretended Quantum Gate/Operation.
+            """
+
+        if is_possible_to_apply_single_quantum_gate_operation:
+            """
+            It is possible to apply the pretended Quantum Gate/Operation.
+            """
+
+            self.quantum_circuit.rx(theta_radians, self.quantum_circuit.qregs[quantum_register_index][qubit_index])
+            """
+            Apply the Rotation-X (R_x(theta)) Gate/Operation to
+            given indexes of an IBM Qiskit's Quantum Register and
+            a target qubit, as also, a given theta angle in radians.
+            """
+
+    def apply_rx_degrees(self, theta_degrees: float, quantum_register_index: int, qubit_index: int):
+        """
+        Apply the Rotation-X (R_x(theta)) Gate/Operation to given indexes of
+        an IBM Qiskit's Quantum Register and a target qubit, as also, a given theta angle in degrees.
+
+        :param theta_degrees: the theta angle in degrees, for the Rotation-X (R_x(theta)) Gate/Operation.
+        :param quantum_register_index: index of an IBM Qiskit's Quantum Register.
+        :param qubit_index: index of a qubit inside that IBM Qiskit's Quantum Register.
+        """
+
+        theta_radians = radians(theta_degrees)
+        """
+        Convert the theta angle in degrees to radians.
+        """
+
+        self.apply_rx_radians(theta_radians, quantum_register_index, qubit_index)
+        """
+        Apply the equivalent Rotation-X (R_x(theta)) Gate/Operation to the given indexes of
+        an IBM Qiskit's Quantum Register and a target qubit, as also, a given theta angle, now in radians.
+        """
+
+    def apply_ry_radians(self, theta_radians: float, quantum_register_index: int, qubit_index: int):
+        """
+        Apply the Rotation-Y (R_y(theta)) Gate/Operation to given indexes of
+        an IBM Qiskit's Quantum Register and a target qubit, as also, a given theta angle in radians.
+
+        :param theta_radians: the theta angle in radians, for the Rotation-Y (R_y(theta)) Gate/Operation.
+        :param quantum_register_index: index of an IBM Qiskit's Quantum Register.
+        :param qubit_index: index of a qubit inside that IBM Qiskit's Quantum Register.
+        """
+
+        is_possible_to_apply_single_quantum_gate_operation = \
+            self.check_if_is_possible_to_apply_single_quantum_gate_operation(quantum_register_index,
+                                                                             qubit_index, True)
+        """
+        Check if it is possible to apply the pretended Quantum Gate/Operation.
+        """
+
+        if is_possible_to_apply_single_quantum_gate_operation:
+            """
+            It is possible to apply the pretended Quantum Gate/Operation.
+            """
+
+            self.quantum_circuit.ry(theta_radians, self.quantum_circuit.qregs[quantum_register_index][qubit_index])
+            """
+            Apply the Rotation-Y (R_y(theta)) Gate/Operation to
+            given indexes of an IBM Qiskit's Quantum Register and
+            a target qubit, as also, a given theta angle in radians.
+            """
+
+    def apply_ry_degrees(self, theta_degrees: float, quantum_register_index: int, qubit_index: int):
+        """
+        Apply the Rotation-Y (R_y(theta)) Gate/Operation to given indexes of
+        an IBM Qiskit's Quantum Register and a target qubit, as also, a given theta angle in degrees.
+
+        :param theta_degrees: the theta angle in degrees, for the Rotation-Y (R_y(theta)) Gate/Operation.
+        :param quantum_register_index: index of an IBM Qiskit's Quantum Register.
+        :param qubit_index: index of a qubit inside that IBM Qiskit's Quantum Register.
+        """
+
+        theta_radians = radians(theta_degrees)
+        """
+        Convert the theta angle in degrees to radians.
+        """
+
+        self.apply_ry_radians(theta_radians, quantum_register_index, qubit_index)
+        """
+        Apply the equivalent Rotation-Y (R_y(theta)) Gate/Operation to the given indexes of
+        an IBM Qiskit's Quantum Register and a target qubit, as also, a given theta angle, now in radians.
+        """
+
+    def apply_rz_radians(self, theta_radians: float, quantum_register_index: int, qubit_index: int):
+        """
+        Apply the Rotation-Z (R_z(theta)) Gate/Operation to given indexes of
+        an IBM Qiskit's Quantum Register and a target qubit, as also, a given theta angle in radians.
+
+        :param theta_radians: the theta angle in radians, for the Rotation-Z (R_z(theta)) Gate/Operation.
+        :param quantum_register_index: index of an IBM Qiskit's Quantum Register.
+        :param qubit_index: index of a qubit inside that IBM Qiskit's Quantum Register.
+        """
+
+        is_possible_to_apply_single_quantum_gate_operation = \
+            self.check_if_is_possible_to_apply_single_quantum_gate_operation(quantum_register_index,
+                                                                             qubit_index, True)
+        """
+        Check if it is possible to apply the pretended Quantum Gate/Operation.
+        """
+
+        if is_possible_to_apply_single_quantum_gate_operation:
+            """
+            It is possible to apply the pretended Quantum Gate/Operation.
+            """
+
+            self.quantum_circuit.rz(theta_radians, self.quantum_circuit.qregs[quantum_register_index][qubit_index])
+            """
+            Apply the Rotation-Z (R_z(theta)) Gate/Operation to
+            given indexes of an IBM Qiskit's Quantum Register and
+            a target qubit, as also, a given theta angle in radians.
+            """
+
+    def apply_rz_degrees(self, theta_degrees: float, quantum_register_index: int, qubit_index: int):
+        """
+        Apply the Rotation-Z (R_z(theta)) Gate/Operation to given indexes of
+        an IBM Qiskit's Quantum Register and a target qubit, as also, a given theta angle in degrees.
+
+        :param theta_degrees: the theta angle in degrees, for the Rotation-Z (R_z(theta)) Gate/Operation.
+        :param quantum_register_index: index of an IBM Qiskit's Quantum Register.
+        :param qubit_index: index of a qubit inside that IBM Qiskit's Quantum Register.
+        """
+
+        theta_radians = radians(theta_degrees)
+        """
+        Convert the theta angle in degrees to radians.
+        """
+
+        self.apply_rz_radians(theta_radians, quantum_register_index, qubit_index)
+        """
+        Apply the equivalent Rotation-Z (R_z(theta)) Gate/Operation to the given indexes of
+        an IBM Qiskit's Quantum Register and a target qubit, as also, a given theta angle, now in radians.
+        """
 
     @staticmethod
     def check_if_is_a_qiskrypt_semi_quantum_register(qiskrypt_register: object) -> bool:
