@@ -78,7 +78,7 @@ class QiskryptNotAncillaQuantumRegisterError(Exception):
 
 class QiskryptNotValidAncillaQuantumRegisterIndexError(Exception):
     """
-    Object Class of the Not a Valid Quantum Register Index Error for
+    Object Class of the Not a Valid Ancilla Quantum Register Index Error for
     the Qiskrypt's Ancilla Quantum Register in the Qiskrypt's Quantum Circuit.
     """
 
