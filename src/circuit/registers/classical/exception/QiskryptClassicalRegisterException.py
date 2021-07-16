@@ -87,14 +87,14 @@ class QiskryptNotValidClassicalRegisterIndexError(Exception):
         Constructor for the Not a Valid Classical Register Index Error for
         the Qiskrypt's Classical Register in the Qiskrypt's Quantum Circuit.
 
-        :param message: The custom message for the Not a Valid Quantum Register Index Error for
-                        the Qiskrypt's Ancilla Quantum Register in the Qiskrypt's Quantum Circuit.
+        :param message: The custom message for the Not a Valid Classical Register Index Error for
+                        the Qiskrypt's Classical Register in the Qiskrypt's Quantum Circuit.
         """
 
         self.message = message
         """
-        Set the custom message for the Not a Valid Quantum Register Index Error for
-        the Qiskrypt's Ancilla Quantum Register in the Qiskrypt's Quantum Circuit.
+        Set the custom message for the Not a Valid Classical Register Index Error for
+        the Qiskrypt's Classical Register in the Qiskrypt's Quantum Circuit.
         """
 
         super().__init__(self.message)
