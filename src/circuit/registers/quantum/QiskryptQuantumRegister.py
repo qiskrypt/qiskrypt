@@ -52,6 +52,12 @@ from src.circuit.registers.quantum.exception.QiskryptQuantumRegisterException \
 Import the Not Quantum Register Error for the Qiskrypt's Quantum Register.
 """
 
+from src.circuit.registers.quantum.exception.QiskryptQuantumRegisterException \
+    import QiskryptNotValidQuantumRegisterIndexError
+"""
+Import the Not a Valid Quantum Register Index Error for the Qiskrypt's Quantum Register.
+"""
+
 
 class QiskryptQuantumRegister:
     """
@@ -143,3 +149,22 @@ class QiskryptQuantumRegister:
         Raise the Not a Quantum Register Error for the Qiskrypt's Quantum Register.
         """
         raise not_quantum_register_error
+
+    @staticmethod
+    def raise_not_valid_quantum_register_index_error():
+        """
+        Return/Raise a Not a Valid Quantum Register Index Error for the Qiskrypt's Quantum Register.
+
+        :raise not_valid_quantum_register_index_error: a Not a Valid Quantum Register Index Error for
+                                                       the Qiskrypt's Quantum Register.
+        """
+
+        not_valid_quantum_register_index_error = QiskryptNotValidQuantumRegisterIndexError()
+        """
+        Retrieve the Not a Valid Quantum Register Index Error for the Qiskrypt's Quantum Register.
+        """
+
+        """
+        Raise the Not a Valid Quantum Register Index Error for the Qiskrypt's Quantum Register.
+        """
+        raise not_valid_quantum_register_index_error
