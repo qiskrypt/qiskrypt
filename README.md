@@ -9,6 +9,9 @@
 [![gitHub repo stars](https://img.shields.io/github/stars/qiskrypt/qiskrypt?style=social)](https://github.com/qiskrypt/qiskrypt/stargazers)
 [![gitHub watchers](https://img.shields.io/github/watchers/qiskrypt/qiskrypt?style=social)](https://github.com/qiskrypt/qiskrypt/watchers)
 
+[![github no. lines of code](https://tokei.rs/b1/github/qiskrypt/qiskrypt?category=code)](https://github.com/qiskrypt/qiskrypt/)
+[![github no. files](https://tokei.rs/b1/github/qiskrypt/qiskrypt?category=files)](https://github.com/qiskrypt/qiskrypt/)
+
 [![github commit activity](https://img.shields.io/github/commit-activity/m/qiskrypt/qiskrypt)](https://github.com/qiskrypt)
 [![github last commit](https://img.shields.io/github/last-commit/qiskrypt/qiskrypt)](https://github.com/qiskrypt)
 [![current version](https://img.shields.io/badge/version-v0.0.1-magenta.svg)](https://github.com/qiskrypt/qiskrypt/)
