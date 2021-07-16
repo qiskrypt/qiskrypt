@@ -43,11 +43,11 @@ The custom defined message for the Not an Ancilla Quantum Register Error for
 the Qiskrypt's Ancilla Quantum Register.
 """
 
-MESSAGE_NOT_VALID_ANCILLA_QUANTUM_REGISTER_INDEX_EXCEPTION = "Invalid Index: The index of the Qiskrypt's Quantum Register " \
-                                                     "tried to be accessed it is not valid!!!\n"
+MESSAGE_NOT_VALID_ANCILLA_QUANTUM_REGISTER_INDEX_EXCEPTION = "Invalid Index: The index of the Qiskrypt's Ancilla Quantum Register " \
+                                                             "tried to be accessed it is not valid!!!\n"
 """
-The custom defined message for the Not a Valid Quantum Register Index Error for
-the Qiskrypt's Quantum Register in the Qiskrypt's Quantum Circuit.
+The custom defined message for the Not a Valid Ancilla Quantum Register Index Error for
+the Qiskrypt's Ancilla Quantum Register in the Qiskrypt's Quantum Circuit.
 """
 
 
@@ -84,16 +84,16 @@ class QiskryptNotValidAncillaQuantumRegisterIndexError(Exception):
 
     def __init__(self, message=MESSAGE_NOT_VALID_ANCILLA_QUANTUM_REGISTER_INDEX_EXCEPTION):
         """
-        Constructor for the Not a Valid Quantum Register Index Error for
+        Constructor for the Not a Valid Ancilla Quantum Register Index Error for
         the Qiskrypt's Ancilla Quantum Register in the Qiskrypt's Quantum Circuit.
 
-        :param message: The custom message for the Not a Valid Quantum Register Index Error for
+        :param message: The custom message for the Not a Valid Ancilla Quantum Register Index Error for
                         the Qiskrypt's Ancilla Quantum Register in the Qiskrypt's Quantum Circuit.
         """
 
         self.message = message
         """
-        Set the custom message for the Not a Valid Quantum Register Index Error for
+        Set the custom message for the Not a Valid Ancilla Quantum Register Index Error for
         the Qiskrypt's Ancilla Quantum Register in the Qiskrypt's Quantum Circuit.
         """
 
