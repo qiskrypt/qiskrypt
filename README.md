@@ -37,9 +37,9 @@
 
 [![liberapay goal progress](https://img.shields.io/liberapay/goal/qiskrypt?label=🎯%20goal&nbsp;progress)](https://liberapay.com/qiskrypt/)
 [![liberapay receiving](https://img.shields.io/liberapay/receives/qiskrypt?label=💰%20receives)](https://liberapay.com/qiskrypt/)
+[![license of this project](https://img.shields.io/badge/license-creative&nbsp;commons&nbsp;by&#8211;nc&#8211;nd&#8211;4.0-darkblue.svg?label=📜%20license)](https://github.com/qiskrypt/qiskrypt/blob/main/LICENSE.md)
 [![downloads of this repository](https://img.shields.io/github/downloads/qiskrypt/qiskrypt/total.svg?label=📥%20downloads)](https://github.com/qiskrypt/qiskrypt/archive/master.zip)
 [![price of this project](https://img.shields.io/badge/price-free-success.svg?label=💵%20price)](https://github.com/qiskrypt/qiskrypt/archive/master.zip)
-[![license of this project](https://img.shields.io/badge/license-creative&nbsp;commons&nbsp;by&#8211;nc&#8211;nd&#8211;4.0-orange.svg?label=📜%20license)](https://github.com/qiskrypt/qiskrypt/blob/main/LICENSE.md)
 
 
 #### Languages, Frameworks, Libraries & IDEs
