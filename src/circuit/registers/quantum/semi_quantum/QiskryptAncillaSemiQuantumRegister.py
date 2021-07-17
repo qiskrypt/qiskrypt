@@ -58,6 +58,12 @@ from src.circuit.registers.quantum.semi_quantum.exception.QiskryptAncillaSemiQua
 Import the Not Ancilla Semi-Quantum Register Error for the Qiskrypt's Ancilla Semi-Quantum Register.
 """
 
+from src.circuit.registers.quantum.semi_quantum.exception.QiskryptAncillaSemiQuantumRegisterException \
+    import QiskryptNotValidAncillaSemiQuantumRegisterIndexError
+"""
+Import the Not a Valid Ancilla Semi-Quantum Register Index Error for the Qiskrypt's Ancilla Semi-Quantum Register.
+"""
+
 
 class QiskryptAncillaSemiQuantumRegister(QiskryptAncillaQuantumRegister):
     """
@@ -146,3 +152,22 @@ class QiskryptAncillaSemiQuantumRegister(QiskryptAncillaQuantumRegister):
         Raise the Not an Ancilla Semi-Quantum Register Error for the Qiskrypt's Ancilla Semi-Quantum Register.
         """
         raise not_ancilla_semi_quantum_register_error
+
+    @staticmethod
+    def raise_not_valid_ancilla_semi_quantum_register_index_error():
+        """
+        Return/Raise a Not a Valid Ancilla Semi-Quantum Register Index Error for the Qiskrypt's Ancilla Semi-Quantum Register.
+
+        :raise not_valid_ancilla_semi_quantum_register_index_error: a Not a Valid Ancilla Semi-Quantum Register Index Error for
+                                                                    the Qiskrypt's Ancilla Semi-Quantum Register.
+        """
+
+        not_valid_ancilla_semi_quantum_register_index_error = QiskryptNotValidAncillaSemiQuantumRegisterIndexError()
+        """
+        Retrieve the Not a Valid Ancilla Semi-Quantum Register Index Error for the Qiskrypt's Ancilla Semi-Quantum Register.
+        """
+
+        """
+        Raise the Not a Valid Ancilla Semi-Quantum Register Index Error for the Qiskrypt's Ancilla Semi-Quantum Register.
+        """
+        raise not_valid_ancilla_semi_quantum_register_index_error
