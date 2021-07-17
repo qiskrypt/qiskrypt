@@ -156,4 +156,4 @@ d. Nothing in this Public License constitutes or may be interpreted as a limitat
 >
 > Creative Commons may be contacted at [creativecommons.org](http://creativecommons.org).
 
-Copyright (c) 2021 Qiskrypt
+© Copyright 2021 - Qiskrypt.
