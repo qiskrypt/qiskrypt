@@ -58,6 +58,12 @@ from src.circuit.registers.quantum.semi_quantum.exception.QiskryptSemiQuantumReg
 Import the Not Semi-Quantum Register Error for the Qiskrypt's Semi-Quantum Register.
 """
 
+from src.circuit.registers.quantum.semi_quantum.exception.QiskryptSemiQuantumRegisterException \
+    import QiskryptNotValidSemiQuantumRegisterIndexError
+"""
+Import the Not a Valid Semi-Quantum Register Index Error for the Qiskrypt's Semi-Quantum Register.
+"""
+
 
 class QiskryptSemiQuantumRegister(QiskryptQuantumRegister):
     """
@@ -144,3 +150,22 @@ class QiskryptSemiQuantumRegister(QiskryptQuantumRegister):
         Raise the Not a Semi-Quantum Register Error for the Qiskrypt's Semi-Quantum Register.
         """
         raise not_semi_quantum_register_error
+
+    @staticmethod
+    def raise_not_valid_semi_quantum_register_index_error():
+        """
+        Return/Raise a Not a Valid Semi-Quantum Register Index Error for the Qiskrypt's Semi-Quantum Register.
+
+        :raise not_valid_semi_quantum_register_index_error: a Not a Valid Semi-Quantum Register Index Error for
+                                                            the Qiskrypt's Semi-Quantum Register.
+        """
+
+        not_valid_semi_quantum_register_index_error = QiskryptNotValidSemiQuantumRegisterIndexError()
+        """
+        Retrieve the Not a Valid Semi-Quantum Register Index Error for the Qiskrypt's Semi-Quantum Register.
+        """
+
+        """
+        Raise the Not a Valid Semi-Quantum Register Index Error for the Qiskrypt's Semi-Quantum Register.
+        """
+        raise not_valid_semi_quantum_register_index_error
