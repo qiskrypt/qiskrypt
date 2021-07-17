@@ -12,32 +12,32 @@
 [![github no. lines of code](https://tokei.rs/b1/github/qiskrypt/qiskrypt?category=code)](https://github.com/qiskrypt/qiskrypt/)
 [![github no. files](https://tokei.rs/b1/github/qiskrypt/qiskrypt?category=files)](https://github.com/qiskrypt/qiskrypt/)
 
-[![github commit activity](https://img.shields.io/github/commit-activity/m/qiskrypt/qiskrypt)](https://github.com/qiskrypt)
-[![github last commit](https://img.shields.io/github/last-commit/qiskrypt/qiskrypt)](https://github.com/qiskrypt)
-[![current version](https://img.shields.io/badge/version-v0.0.1-magenta.svg)](https://github.com/qiskrypt/qiskrypt/)
-[![website](https://img.shields.io/website?down_color=red&down_message=offline&up_color=green&up_message=online&url=https%3A%2F%2Fqiskrypt.github.io%2F)](https://qiskrypt.github.io/)
+[![github commit activity](https://img.shields.io/github/commit-activity/m/qiskrypt/qiskrypt?label=📈%20commit&nbsp;activity)](https://github.com/qiskrypt)
+[![github last commit](https://img.shields.io/github/last-commit/qiskrypt/qiskrypt?label=📅%20last&nbsp;commit)](https://github.com/qiskrypt)
+[![current version](https://img.shields.io/badge/version-v0.0.1-magenta.svg?label=🏁%20version)](https://github.com/qiskrypt/qiskrypt/)
+[![website](https://img.shields.io/website?down_color=red&down_message=offline&up_color=green&up_message=online&label=🌐%20website&url=https%3A%2F%2Fqiskrypt.github.io%2F)](https://qiskrypt.github.io/)
 
-[![status of this version no. 1](https://img.shields.io/badge/status-not&nbsp;completed-orange.svg)](https://github.com/qiskrypt/qiskrypt/)
-[![status of this version no. 2](https://img.shields.io/badge/status-beta-orange.svg)](https://github.com/qiskrypt/qiskrypt/)
-[![status of this version no. 3](https://img.shields.io/badge/status-not&nbsp;stable-orange.svg)](https://github.com/qiskrypt/qiskrypt/)
-[![status of this version no. 4](https://img.shields.io/badge/status-not&nbsp;documented-orange.svg)](https://github.com/qiskrypt/qiskrypt/)
+[![status of this version no. 1](https://img.shields.io/badge/🔨%20status-not&nbsp;completed-orange.svg)](https://github.com/qiskrypt/qiskrypt/)
+[![status of this version no. 2](https://img.shields.io/badge/🔨%20status-beta-orange.svg)](https://github.com/qiskrypt/qiskrypt/)
+[![status of this version no. 3](https://img.shields.io/badge/🔨%20status-not&nbsp;stable-orange.svg)](https://github.com/qiskrypt/qiskrypt/)
+[![status of this version no. 4](https://img.shields.io/badge/🔨%20status-not&nbsp;documented-orange.svg)](https://github.com/qiskrypt/qiskrypt/)
 
-[![keyword of this version no. 1](https://img.shields.io/badge/keyword-quantum&nbsp;cryptography-brown.svg)](https://github.com/qiskrypt/qiskrypt/)
-[![keyword of this version no. 2](https://img.shields.io/badge/keyword-quantum&nbsp;communication-brown.svg)](https://github.com/qiskrypt/qiskrypt/)
-[![keyword of this version no. 3](https://img.shields.io/badge/keyword-quantum&nbsp;computing-brown.svg)](https://github.com/qiskrypt/qiskrypt/)
-[![keyword of this version no. 4](https://img.shields.io/badge/keyword-quantum&nbsp;mechanics-brown.svg)](https://github.com/qiskrypt/qiskrypt/)
+[![keyword of this version no. 1](https://img.shields.io/badge/📌%20keyword-quantum&nbsp;cryptography-brown.svg)](https://github.com/qiskrypt/qiskrypt/)
+[![keyword of this version no. 2](https://img.shields.io/badge/📌%20keyword-quantum&nbsp;communication-brown.svg)](https://github.com/qiskrypt/qiskrypt/)
+[![keyword of this version no. 3](https://img.shields.io/badge/📌%20keyword-quantum&nbsp;computing-brown.svg)](https://github.com/qiskrypt/qiskrypt/)
+[![keyword of this version no. 4](https://img.shields.io/badge/📌%20keyword-quantum&nbsp;mechanics-brown.svg)](https://github.com/qiskrypt/qiskrypt/)
 
-[![contributor for this repository](https://img.shields.io/badge/contributor-rubenandrebarreiro-blue.svg)](https://github.com/rubenandrebarreiro/)
+[![contributor for this repository](https://img.shields.io/badge/contributor-rubenandrebarreiro-blue.svg?label=👤%20contributor)](https://github.com/rubenandrebarreiro/)
 
-[![acknowledgement for this repository no. 1](https://img.shields.io/badge/acknowledgement-andrenunosouto-cyan.svg)](https://ciencias.ulisboa.pt/pt/perfil/ansouto)
-[![acknowledgement for this repository no. 2](https://img.shields.io/badge/acknowledgement-paulo&nbsp;mateus-cyan.svg)](http://sqig.math.ist.utl.pt/pmat/)
-[![acknowledgement for this repository no. 3](https://img.shields.io/badge/acknowledgement-nikola&nbsp;paunkovic-cyan.svg)](https://www.math.tecnico.ulisboa.pt/~npaunkov/)
-[![acknowledgement for this repository no. 4](https://img.shields.io/badge/acknowledgement-walter&nbsp;krawec-cyan.svg)](http://www.walterkrawec.org/)
+[![acknowledgement for this repository no. 1](https://img.shields.io/badge/acknowledgement-andrenunosouto-purple.svg?label=👥%20acknowledgement)](https://ciencias.ulisboa.pt/pt/perfil/ansouto)
+[![acknowledgement for this repository no. 2](https://img.shields.io/badge/acknowledgement-paulo&nbsp;mateus-purple.svg?label=👥%20acknowledgement)](http://sqig.math.ist.utl.pt/pmat/)
+[![acknowledgement for this repository no. 3](https://img.shields.io/badge/acknowledgement-nikola&nbsp;paunkovic-purple.svg?label=👥%20acknowledgement)](https://www.math.tecnico.ulisboa.pt/~npaunkov/)
+[![acknowledgement for this repository no. 4](https://img.shields.io/badge/acknowledgement-walter&nbsp;krawec-purple.svg?label=👥%20acknowledgement)](http://www.walterkrawec.org/)
 
-[![liberapay goal progress](https://img.shields.io/liberapay/goal/qiskrypt)](https://liberapay.com/qiskrypt/)
-[![liberapay receiving](https://img.shields.io/liberapay/receives/qiskrypt)](https://liberapay.com/qiskrypt/)
-[![downloads of this repository](https://img.shields.io/github/downloads/qiskrypt/qiskrypt/total.svg)](https://github.com/qiskrypt/qiskrypt/archive/master.zip)
-[![price of this project](https://img.shields.io/badge/price-free-success.svg)](https://github.com/qiskrypt/qiskrypt/archive/master.zip)
+[![liberapay goal progress](https://img.shields.io/liberapay/goal/qiskrypt?label=🎯%20goal&nbsp;progress)](https://liberapay.com/qiskrypt/)
+[![liberapay receiving](https://img.shields.io/liberapay/receives/qiskrypt?label=💰%20receives)](https://liberapay.com/qiskrypt/)
+[![downloads of this repository](https://img.shields.io/github/downloads/qiskrypt/qiskrypt/total.svg?label=📥%20downloads)](https://github.com/qiskrypt/qiskrypt/archive/master.zip)
+[![price of this project](https://img.shields.io/badge/price-free-success.svg?label=💵%20price)](https://github.com/qiskrypt/qiskrypt/archive/master.zip)
 
 
 #### Languages, Frameworks, Libraries & IDEs
@@ -906,13 +906,20 @@ Other some references for some of the developed protocols can be found here:
 * [Quantum Algorithm Zoo](https://quantumalgorithmzoo.org/)
 * [Quantiki](https://www.quantiki.org/)
 
-## License
+## Copyright and License
+
+(C) Copyright 2021 by Qiskrypt and contributors.
+
+See the [graph](https://github.com/qiskrypt/qiskrypt/graphs/contributors) for a full list of contributors.
+
+Qiskrypt is distributed under the terms of the [reative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License](https://github.com/qiskrypt/qiskrypt/LICENSE.md)
+
+See [Creative Commons BY-NC-ND-4.0-License](http://creativecommons.org/licenses/by-nc-nd/4.0/) for more information.
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">
  <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" />
 </a>
 <br />
-This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.
 
 ## Our motto
 
