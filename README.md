@@ -908,18 +908,31 @@ Other some references for some of the developed protocols can be found here:
 
 ## Copyright and License
 
-(C) Copyright 2021 by Qiskrypt and contributors.
-
-See the [graph](https://github.com/qiskrypt/qiskrypt/graphs/contributors) for a full list of contributors.
-
-Qiskrypt is distributed under the terms of the [reative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License](https://github.com/qiskrypt/qiskrypt/LICENSE.md)
-
-See [Creative Commons BY-NC-ND-4.0-License](http://creativecommons.org/licenses/by-nc-nd/4.0/) for more information.
+© Copyright 2021 by Qiskrypt and contributors.
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">
  <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" />
 </a>
+
 <br />
+<br />
+
+<p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">
+ <a property="dct:title" rel="cc:attributionURL" href="https://github.com/qiskrypt/">Qiskrypt</a> is distributed under the terms of the <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.
+ <br />
+ <br />
+ <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">
+  <img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1">
+  <img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1">
+  <img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1">
+  <img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nd.svg?ref=chooser-v1">
+ </a>
+</p>
+
+See the [Creative Commons BY-NC-ND-4.0-License](https://github.com/qiskrypt/qiskrypt/blob/main/LICENSE.md) Markdown for more information.
+
+See the [Contribution Graph](https://github.com/qiskrypt/qiskrypt/graphs/contributors) for a full list of contributors.
+
 
 ## Our motto
 
