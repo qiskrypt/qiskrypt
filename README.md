@@ -909,7 +909,7 @@ Other some references for some of the developed protocols can be found here:
 
 ## Copyright and License
 
-© Copyright 2021 by Qiskrypt and its contributors.
+© Copyright 2021 by <a property="dct:title" rel="cc:attributionURL" href="https://github.com/qiskrypt/" target="_blank">Qiskrypt</a> and its contributors.
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">
  <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" />
@@ -919,7 +919,7 @@ Other some references for some of the developed protocols can be found here:
 <br />
 
 <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">
- <a property="dct:title" rel="cc:attributionURL" href="https://github.com/qiskrypt/">Qiskrypt</a> is distributed under the terms of the <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.
+ <a property="dct:title" rel="cc:attributionURL" href="https://github.com/qiskrypt/" target="_blank">Qiskrypt</a> is distributed under the terms of the <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.
  <br />
  <br />
  <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">
