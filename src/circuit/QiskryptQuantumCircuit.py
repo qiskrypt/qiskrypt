@@ -5822,8 +5822,8 @@ class QiskryptQuantumCircuit:
         an IBM Qiskit's Quantum Register and a target qubit, as also, a given theta angle in radians.
 
         :param theta_radians: the theta angle in radians, for the Rotation-X (R_x(theta)) Gate/Operation.
-        :param qiskit_quantum_register_index: index of an IBM Qiskit's Quantum Register.
-        :param qubit_index: index of a qubit inside that IBM Qiskit's Quantum Register.
+        :param qiskit_quantum_register_index: the index of an IBM Qiskit's Quantum Register.
+        :param qubit_index: the index of a qubit inside that IBM Qiskit's Quantum Register.
         """
 
         if theta_radians == pi:
@@ -5870,8 +5870,8 @@ class QiskryptQuantumCircuit:
         an IBM Qiskit's Quantum Register and a target qubit, as also, a given theta angle in degrees.
 
         :param theta_degrees: the theta angle in degrees, for the Rotation-X (R_x(theta)) Gate/Operation.
-        :param qiskit_quantum_register_index: index of an IBM Qiskit's Quantum Register.
-        :param qubit_index: index of a qubit inside that IBM Qiskit's Quantum Register.
+        :param qiskit_quantum_register_index: the index of an IBM Qiskit's Quantum Register.
+        :param qubit_index: the index of a qubit inside that IBM Qiskit's Quantum Register.
         """
 
         theta_radians = radians(theta_degrees)
@@ -5891,8 +5891,8 @@ class QiskryptQuantumCircuit:
         an IBM Qiskit's Quantum Register and a target qubit, as also, a given theta angle in radians.
 
         :param theta_radians: the theta angle in radians, for the Rotation-Y (R_y(theta)) Gate/Operation.
-        :param qiskit_quantum_register_index: index of an IBM Qiskit's Quantum Register.
-        :param qubit_index: index of a qubit inside that IBM Qiskit's Quantum Register.
+        :param qiskit_quantum_register_index: the index of an IBM Qiskit's Quantum Register.
+        :param qubit_index: the index of a qubit inside that IBM Qiskit's Quantum Register.
         """
 
         is_possible_to_apply_single_operation = \
@@ -5920,8 +5920,8 @@ class QiskryptQuantumCircuit:
         an IBM Qiskit's Quantum Register and a target qubit, as also, a given theta angle in degrees.
 
         :param theta_degrees: the theta angle in degrees, for the Rotation-Y (R_y(theta)) Gate/Operation.
-        :param qiskit_quantum_register_index: index of an IBM Qiskit's Quantum Register.
-        :param qubit_index: index of a qubit inside that IBM Qiskit's Quantum Register.
+        :param qiskit_quantum_register_index: the index of an IBM Qiskit's Quantum Register.
+        :param qubit_index: the index of a qubit inside that IBM Qiskit's Quantum Register.
         """
 
         theta_radians = radians(theta_degrees)
@@ -5941,8 +5941,8 @@ class QiskryptQuantumCircuit:
         an IBM Qiskit's Quantum Register and a target qubit, as also, a given theta angle in radians.
 
         :param theta_radians: the theta angle in radians, for the Rotation-Z (R_z(theta)) Gate/Operation.
-        :param qiskit_quantum_register_index: index of an IBM Qiskit's Quantum Register.
-        :param qubit_index: index of a qubit inside that IBM Qiskit's Quantum Register.
+        :param qiskit_quantum_register_index: the index of an IBM Qiskit's Quantum Register.
+        :param qubit_index: the index of a qubit inside that IBM Qiskit's Quantum Register.
         """
 
         is_possible_to_apply_single_operation = \
@@ -5983,6 +5983,177 @@ class QiskryptQuantumCircuit:
         """
         Apply the equivalent Rotation-Z (R_z(theta)) Gate/Operation to the given indexes of
         an IBM Qiskit's Quantum Register and a target qubit, as also, a given theta angle, now in radians.
+        """
+
+    def apply_u1_radians(self, theta_radians: float, qiskit_quantum_register_index: int, qubit_index: int):
+        """
+        Apply the U1(theta_radians) Gate/Operation to given indexes of
+        an IBM Qiskit's Quantum Register and a target qubit, as also, a given theta angle in radians.
+
+        :param theta_radians: the theta angle in radians, for the U1(theta_radians) Gate/Operation.
+        :param qiskit_quantum_register_index: the index of an IBM Qiskit's Quantum Register.
+        :param qubit_index: the index of a qubit inside that IBM Qiskit's Quantum Register.
+        """
+
+        is_possible_to_apply_single_operation = \
+            self.check_if_is_possible_to_apply_single_operation(qiskit_quantum_register_index,
+                                                                qubit_index, True)
+        """
+        Check if it is possible to apply the pretended single operation.
+        """
+
+        if is_possible_to_apply_single_operation:
+            """
+            It is possible to apply the pretended single operation.
+            """
+
+            self.quantum_circuit.u1(theta_radians, self.quantum_circuit.qregs[qiskit_quantum_register_index][qubit_index])
+            """
+            Apply the U1(theta) Gate/Operation to
+            given indexes of an IBM Qiskit's Quantum Register and
+            a target qubit, as also, a given theta angle in radians.
+            """
+
+    def apply_u1_degrees(self, theta_degrees: float, qiskit_quantum_register_index: int, qubit_index: int):
+        """
+        Apply the U1(theta_degrees) Gate/Operation to given indexes of
+        an IBM Qiskit's Quantum Register and a target qubit, as also, a given theta angle in degrees.
+
+        :param theta_degrees: the theta angle in degrees, for the U1(theta_degrees) Gate/Operation.
+        :param qiskit_quantum_register_index: the index of an IBM Qiskit's Quantum Register.
+        :param qubit_index: the index of a qubit inside that IBM Qiskit's Quantum Register.
+        """
+
+        theta_radians = radians(theta_degrees)
+        """
+        Convert the theta angle in degrees to radians.
+        """
+
+        self.apply_u1_radians(theta_radians, qiskit_quantum_register_index, qubit_index)
+        """
+        Apply the equivalent U1(theta_radians) Gate/Operation to the given indexes of
+        an IBM Qiskit's Quantum Register and a target qubit, as also, a given theta angle, now in radians.
+        """
+
+    def apply_u2_radians(self, phi_radians: float, lamb_radians: float, qiskit_quantum_register_index: int, qubit_index: int):
+        """
+        Apply the U2(phi_radians, lamb_radians) Gate/Operation to given indexes of
+        an IBM Qiskit's Quantum Register and a target qubit, as also, given phi and lambda angles in radians.
+
+        :param phi_radians: the phi angle in radians, for the U2(phi_radians, lamb_radians) Gate/Operation.
+        :param lamb_radians: the lambda angle in radians, for the U2(phi_radians, lamb_radians) Gate/Operation.
+        :param qiskit_quantum_register_index: the index of an IBM Qiskit's Quantum Register.
+        :param qubit_index: the index of a qubit inside that IBM Qiskit's Quantum Register.
+        """
+
+        is_possible_to_apply_single_operation = \
+            self.check_if_is_possible_to_apply_single_operation(qiskit_quantum_register_index,
+                                                                qubit_index, True)
+        """
+        Check if it is possible to apply the pretended single operation.
+        """
+
+        if is_possible_to_apply_single_operation:
+            """
+            It is possible to apply the pretended single operation.
+            """
+
+            self.quantum_circuit.u2(phi_radians, lamb_radians, self.quantum_circuit.qregs[qiskit_quantum_register_index][qubit_index])
+            """
+            Apply the U2(phi_radians, lamb_radians) Gate/Operation to
+            given indexes of an IBM Qiskit's Quantum Register and
+            a target qubit, as also, given phi and lambda angles in radians.
+            """
+
+    def apply_u2_degrees(self, phi_degrees: float, lamb_degrees: float, qiskit_quantum_register_index: int, qubit_index: int):
+        """
+        Apply the U2(phi_degrees, lamb_degrees) Gate/Operation to given indexes of
+        an IBM Qiskit's Quantum Register and a target qubit, as also, given phi and lambda angles in degrees.
+
+        :param phi_degrees: the phi angle in degrees, for the U2(phi_degrees, lamb_degrees) Gate/Operation.
+        :param lamb_degrees: the lambda angle in degrees, for the U2(phi_degrees, lamb_degrees) Gate/Operation.
+        :param qiskit_quantum_register_index: the index of an IBM Qiskit's Quantum Register.
+        :param qubit_index: the index of a qubit inside that IBM Qiskit's Quantum Register.
+        """
+
+        phi_radians = radians(phi_degrees)
+        """
+        Convert the phi angle in degrees to radians.
+        """
+
+        lamb_radians = radians(lamb_degrees)
+        """
+        Convert the lambda angle in degrees to radians.
+        """
+
+        self.apply_u2_radians(phi_radians, lamb_radians, qiskit_quantum_register_index, qubit_index)
+        """
+        Apply the equivalent U2(phi_radians, lamb_radians) Gate/Operation to the given indexes of
+        an IBM Qiskit's Quantum Register and a target qubit, as also, given phi and lambda angles, now in radians.
+        """
+
+    def apply_u3_radians(self, theta_radians: float, phi_radians: float, lamb_radians: float, qiskit_quantum_register_index: int, qubit_index: int):
+        """
+        Apply the U3(theta_radians, phi_radians, lamb_radians) Gate/Operation to given indexes of
+        an IBM Qiskit's Quantum Register and a target qubit, as also, given theta, phi and lambda angles in radians.
+
+        :param theta_radians: the theta angle in radians, for the U3(theta_radians, phi_radians, lamb_radians) Gate/Operation.
+        :param phi_radians: the phi angle in radians, for the U3(theta_radians, phi_radians, lamb_radians) Gate/Operation.
+        :param lamb_radians: the lambda angle in radians, for the U3(theta_radians, phi_radians, lamb_radians) Gate/Operation.
+        :param qiskit_quantum_register_index: the index of an IBM Qiskit's Quantum Register.
+        :param qubit_index: the index of a qubit inside that IBM Qiskit's Quantum Register.
+        """
+
+        is_possible_to_apply_single_operation = \
+            self.check_if_is_possible_to_apply_single_operation(qiskit_quantum_register_index,
+                                                                qubit_index, True)
+        """
+        Check if it is possible to apply the pretended single operation.
+        """
+
+        if is_possible_to_apply_single_operation:
+            """
+            It is possible to apply the pretended single operation.
+            """
+
+            self.quantum_circuit.u3(theta_radians, phi_radians, lamb_radians, self.quantum_circuit.qregs[qiskit_quantum_register_index][qubit_index])
+            """
+            Apply the U3(theta_radians, phi_radians, lamb_radians) Gate/Operation to
+            given indexes of an IBM Qiskit's Quantum Register and
+            a target qubit, as also, given phi and lambda angles in radians.
+            """
+
+    def apply_u3_degrees(self, theta_degrees: float, phi_degrees: float, lamb_degrees: float, qiskit_quantum_register_index: int, qubit_index: int):
+        """
+        Apply the U3(theta_degrees, phi_degrees, lamb_degrees) Gate/Operation to given indexes of
+        an IBM Qiskit's Quantum Register and a target qubit, as also, given theta, phi and lambda angles in degrees.
+
+        :param theta_degrees: the theta angle in degrees, for the U3(theta_degrees, phi_degrees, lamb_degrees) Gate/Operation.
+        :param phi_degrees: the phi angle in degrees, for the U3(theta_degrees, phi_degrees, lamb_degrees) Gate/Operation.
+        :param lamb_degrees: the theta angle in degrees, for the U3(theta_degrees, phi_degrees, lamb_degrees) Gate/Operation.
+        :param qiskit_quantum_register_index: the index of an IBM Qiskit's Quantum Register.
+        :param qubit_index: the index of a qubit inside that IBM Qiskit's Quantum Register.
+        """
+
+        theta_radians = radians(theta_degrees)
+        """
+        Convert the theta angle in degrees to radians.
+        """
+
+        phi_radians = radians(phi_degrees)
+        """
+        Convert the phi angle in degrees to radians.
+        """
+
+        lamb_radians = radians(lamb_degrees)
+        """
+        Convert the lambda angle in degrees to radians.
+        """
+
+        self.apply_u3_radians(theta_radians, phi_radians, lamb_radians, qiskit_quantum_register_index, qubit_index)
+        """
+        Apply the equivalent U3(theta_degrees, phi_degrees, lamb_degrees) Gate/Operation to the given indexes of
+        an IBM Qiskit's Quantum Register and a target qubit, as also, given theta, phi and lambda angles, now in radians.
         """
 
     @staticmethod
