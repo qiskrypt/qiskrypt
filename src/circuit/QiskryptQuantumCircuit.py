@@ -72,39 +72,43 @@ from qiskit.quantum_info.operators import Operator
 Import Operator of the Quantum_Info.Operators Module from IBM's Qiskit.
 """
 
-from src.circuit.registers.quantum.QiskryptQuantumRegister import QiskryptQuantumRegister
+from src.circuit.registers.quantum.QiskryptQuantumRegister \
+    import QiskryptQuantumRegister
 """
 Import Qiskrypt's Quantum Register of
 the Src.Circuit.Registers.Quantum.QiskryptQuantumRegister Module from Qiskrypt.
 """
 
-from src.circuit.registers.quantum.fully_quantum.QiskryptFullyQuantumRegister import QiskryptFullyQuantumRegister
+from src.circuit.registers.quantum.fully_quantum.QiskryptFullyQuantumRegister \
+    import QiskryptFullyQuantumRegister
 """
 Import Qiskrypt's Fully-Quantum Register of
 the Src.Circuit.Registers.Quantum.Fully_Quantum.QiskryptFullyQuantumRegister Module from Qiskrypt.
 """
 
-from src.circuit.registers.quantum.semi_quantum.QiskryptSemiQuantumRegister import QiskryptSemiQuantumRegister
+from src.circuit.registers.quantum.semi_quantum.QiskryptSemiQuantumRegister \
+    import QiskryptSemiQuantumRegister
 """
 Import Qiskrypt's Semi-Quantum Register of
 the Src.Circuit.Registers.Quantum.Semi_Quantum.QiskryptSemiQuantumRegister Module from Qiskrypt.
 """
 
-from src.circuit.registers.quantum.QiskryptAncillaQuantumRegister import QiskryptAncillaQuantumRegister
+from src.circuit.registers.quantum.QiskryptAncillaQuantumRegister \
+    import QiskryptAncillaQuantumRegister
 """
 Import Qiskrypt's Ancilla Quantum Register of
 the Src.Circuit.Registers.Quantum.QiskryptAncillaQuantumRegister Module from Qiskrypt.
 """
 
-from src.circuit.registers.quantum.fully_quantum.QiskryptAncillaFullyQuantumRegister import \
-    QiskryptAncillaFullyQuantumRegister
+from src.circuit.registers.quantum.fully_quantum.QiskryptAncillaFullyQuantumRegister \
+    import QiskryptAncillaFullyQuantumRegister
 """
 Import Qiskrypt's Ancilla Fully-Quantum Register of
 the Src.Circuit.Registers.Quantum.Fully_Quantum.QiskryptAncillaFullyQuantumRegister Module from Qiskrypt.
 """
 
-from src.circuit.registers.quantum.semi_quantum.QiskryptAncillaSemiQuantumRegister import \
-    QiskryptAncillaSemiQuantumRegister
+from src.circuit.registers.quantum.semi_quantum.QiskryptAncillaSemiQuantumRegister \
+    import QiskryptAncillaSemiQuantumRegister
 """
 Import Qiskrypt's Ancilla Semi-Quantum Register of
 the Src.Circuit.Registers.Quantum.Semi_Quantum.QiskryptAncillaSemiQuantumRegister Module from Qiskrypt.
@@ -4200,7 +4204,27 @@ class QiskryptQuantumCircuit:
                                                                          the Qiskrypt's Quantum Circuit, given its index.
         """
 
-        return self.quantum_registers[qiskrypt_quantum_register_index]
+        if qiskrypt_quantum_register_index < self.get_num_qiskrypt_quantum_registers():
+            """
+            If the given index for the specific Qiskrypt's Quantum Register of
+            the Qiskrypt's Quantum Circuit is valid.
+            """
+
+            """
+            Return a specific Qiskrypt's Quantum Register of the Qiskrypt's Quantum Circuit, given its index.
+            """
+            return self.quantum_registers[qiskrypt_quantum_register_index]
+
+        else:
+            """
+            If the given index for the specific Qiskrypt's Quantum Register of
+            the Qiskrypt's Quantum Circuit is not valid.
+            """
+
+            """
+            Raise a Not a Valid Qiskrypt's Quantum Register Index Given Error for the Qiskrypt's Quantum Circuit.
+            """
+            QiskryptQuantumRegister.raise_not_valid_qiskrypt_quantum_register_index_error()
 
     def get_qiskrypt_fully_quantum_register(self, qiskrypt_fully_quantum_register_index: int) -> QiskryptFullyQuantumRegister:
         """
@@ -4212,7 +4236,28 @@ class QiskryptQuantumCircuit:
                                                                                      the Qiskrypt's Quantum Circuit, given its index.
         """
 
-        return self.fully_quantum_registers[qiskrypt_fully_quantum_register_index]
+        if qiskrypt_fully_quantum_register_index < self.get_num_qiskrypt_fully_quantum_registers():
+            """
+            If the given index for the specific Qiskrypt's Fully-Quantum Register of
+            the Qiskrypt's Quantum Circuit is valid.
+            """
+
+            """
+            Return a specific Qiskrypt's Fully-Quantum Register of the Qiskrypt's Quantum Circuit, given its index.
+            """
+            return self.fully_quantum_registers[qiskrypt_fully_quantum_register_index]
+
+        else:
+            """
+            If the given index for the specific Qiskrypt's Fully-Quantum Register of
+            the Qiskrypt's Quantum Circuit is not valid.
+            """
+
+            """
+            Raise a Not a Valid Qiskrypt's Fully-Quantum Register Index Given Error for
+            the Qiskrypt's Quantum Circuit.
+            """
+            QiskryptFullyQuantumRegister.raise_not_valid_qiskrypt_fully_quantum_register_index_error()
 
     def get_qiskrypt_semi_quantum_register(self, qiskrypt_semi_quantum_register_index: int) -> QiskryptSemiQuantumRegister:
         """
@@ -4224,7 +4269,28 @@ class QiskryptQuantumCircuit:
                                                                                    the Qiskrypt's Quantum Circuit, given its index.
         """
 
-        return self.semi_quantum_registers[qiskrypt_semi_quantum_register_index]
+        if qiskrypt_semi_quantum_register_index < self.get_num_qiskrypt_semi_quantum_registers():
+            """
+            If the given index for the specific Qiskrypt's Semi-Quantum Register of
+            the Qiskrypt's Quantum Circuit is valid.
+            """
+
+            """
+            Return a specific Qiskrypt's Semi-Quantum Register of the Qiskrypt's Quantum Circuit, given its index.
+            """
+            return self.semi_quantum_registers[qiskrypt_semi_quantum_register_index]
+
+        else:
+            """
+            If the given index for the specific Qiskrypt's Semi-Quantum Register of
+            the Qiskrypt's Quantum Circuit is valid.
+            """
+
+            """
+            Raise a Not a Valid Qiskrypt's Semi-Quantum Register Index Given Error for
+            the Qiskrypt's Quantum Circuit.
+            """
+            QiskryptSemiQuantumRegister.raise_not_valid_qiskrypt_semi_quantum_register_index_error()
 
     def get_qiskrypt_ancilla_quantum_register(self, qiskrypt_ancilla_quantum_register_index: int) -> QiskryptAncillaQuantumRegister:
         """
@@ -4236,7 +4302,28 @@ class QiskryptQuantumCircuit:
                                                                                          the Qiskrypt's Quantum Circuit, given its index.
         """
 
-        return self.ancilla_quantum_registers[qiskrypt_ancilla_quantum_register_index]
+        if qiskrypt_ancilla_quantum_register_index < self.get_num_qiskrypt_ancilla_quantum_registers():
+            """
+            If the given index for the specific Qiskrypt's Ancilla Quantum Register of
+            the Qiskrypt's Quantum Circuit is valid.
+            """
+
+            """
+            Return a specific Qiskrypt's Ancilla Quantum Register of the Qiskrypt's Quantum Circuit, given its index.
+            """
+            return self.ancilla_quantum_registers[qiskrypt_ancilla_quantum_register_index]
+
+        else:
+            """
+            If the given index for the specific Qiskrypt's Ancilla Quantum Register of
+            the Qiskrypt's Quantum Circuit is valid.
+            """
+
+            """
+            Raise a Not a Valid Qiskrypt's Ancilla Quantum Register Index Given Error for
+            the Qiskrypt's Quantum Circuit.
+            """
+            QiskryptAncillaQuantumRegister.raise_not_valid_qiskrypt_ancilla_quantum_register_index_error()
 
     def get_qiskrypt_ancilla_fully_quantum_register(self, qiskrypt_ancilla_fully_quantum_register_index: int) -> QiskryptAncillaFullyQuantumRegister:
         """
@@ -4248,7 +4335,28 @@ class QiskryptQuantumCircuit:
                                                                                                      the Qiskrypt's Quantum Circuit, given its index.
         """
 
-        return self.ancilla_fully_quantum_registers[qiskrypt_ancilla_fully_quantum_register_index]
+        if qiskrypt_ancilla_fully_quantum_register_index < self.get_num_qiskrypt_ancilla_fully_quantum_registers():
+            """
+            If the given index for the specific Qiskrypt's Ancilla Fully-Quantum Register of
+            the Qiskrypt's Quantum Circuit is valid.
+            """
+
+            """
+            Return a specific Qiskrypt's Ancilla Fully-Quantum Register of the Qiskrypt's Quantum Circuit, given its index.
+            """
+            return self.ancilla_fully_quantum_registers[qiskrypt_ancilla_fully_quantum_register_index]
+
+        else:
+            """
+            If the given index for the specific Qiskrypt's Ancilla Fully-Quantum Register of
+            the Qiskrypt's Quantum Circuit is valid.
+            """
+
+            """
+            Raise a Not a Valid Qiskrypt's Ancilla Fully-Quantum Register Index Given Error for
+            the Qiskrypt's Quantum Circuit.
+            """
+            QiskryptAncillaFullyQuantumRegister.raise_not_valid_qiskrypt_ancilla_fully_quantum_register_index_error()
 
     def get_qiskrypt_ancilla_semi_quantum_register(self, qiskrypt_ancilla_semi_quantum_register_index: int) -> QiskryptAncillaSemiQuantumRegister:
         """
@@ -4260,7 +4368,28 @@ class QiskryptQuantumCircuit:
                                                                                                    the Qiskrypt's Quantum Circuit, given its index.
         """
 
-        return self.ancilla_semi_quantum_registers[qiskrypt_ancilla_semi_quantum_register_index]
+        if qiskrypt_ancilla_semi_quantum_register_index < self.get_num_qiskrypt_ancilla_semi_quantum_registers():
+            """
+            If the given index for the specific Qiskrypt's Ancilla Semi-Quantum Register of
+            the Qiskrypt's Quantum Circuit is valid.
+            """
+
+            """
+            Return a specific Qiskrypt's Ancilla Semi-Quantum Register of the Qiskrypt's Quantum Circuit, given its index.
+            """
+            return self.ancilla_semi_quantum_registers[qiskrypt_ancilla_semi_quantum_register_index]
+
+        else:
+            """
+            If the given index for the specific Qiskrypt's Ancilla Semi-Quantum Register of
+            the Qiskrypt's Quantum Circuit is valid.
+            """
+
+            """
+            Raise a Not a Valid Qiskrypt's Ancilla Semi-Quantum Register Index Given Error for
+            the Qiskrypt's Quantum Circuit.
+            """
+            QiskryptAncillaSemiQuantumRegister.raise_not_valid_qiskrypt_ancilla_semi_quantum_register_index_error()
 
     def get_qiskrypt_classical_register(self, qiskrypt_classical_register_index: int) -> QiskryptClassicalRegister:
         """
@@ -4272,7 +4401,28 @@ class QiskryptQuantumCircuit:
                                                                              the Qiskrypt's Quantum Circuit, given its index.
         """
 
-        return self.classical_registers[qiskrypt_classical_register_index]
+        if qiskrypt_classical_register_index < self.get_num_qiskrypt_classical_registers():
+            """
+            If the given index for the specific Qiskrypt's Classical Register of
+            the Qiskrypt's Quantum Circuit is valid.
+            """
+
+            """
+            Return a specific Qiskrypt's Classical Register of the Qiskrypt's Quantum Circuit, given its index.
+            """
+            return self.classical_registers[qiskrypt_classical_register_index]
+
+        else:
+            """
+            If the given index for the specific Qiskrypt's Classical Register of
+            the Qiskrypt's Quantum Circuit is valid.
+            """
+
+            """
+            Raise a Not a Valid Qiskrypt's Classical Register Index Given Error for
+            the Qiskrypt's Quantum Circuit.
+            """
+            QiskryptClassicalRegister.raise_not_valid_qiskrypt_classical_register_index_error()
 
     def find_qiskrypt_register_by_name(self, register_name: str) -> Tuple[bool, object]:
         """
