@@ -5576,10 +5576,10 @@ class QiskryptQuantumCircuit:
         """
 
 
-        :param qiskit_quantum_register_index:
-        :param qiskit_classical_register_index:
-        :param qubit_index:
-        :param bit_index:
+        :param qiskit_quantum_register_index: the index of an IBM Qiskit's Quantum Register.
+        :param qiskit_classical_register_index: the index of an IBM Qiskit's Classical Register.
+        :param qubit_index: the index of a qubit inside that IBM Qiskit's Quantum Register.
+        :param bit_index: the index of a bit inside that IBM Qiskit's Classical Register.
         :param is_final_measurement:
         """
 
@@ -5591,10 +5591,10 @@ class QiskryptQuantumCircuit:
         """
 
 
-        :param qiskit_quantum_register_index:
-        :param qiskit_classical_register_index:
-        :param qubit_index:
-        :param bit_index:
+        :param qiskit_quantum_register_index: the index of an IBM Qiskit's Quantum Register.
+        :param qiskit_classical_register_index: the index of an IBM Qiskit's Classical Register.
+        :param qubit_index: the index of a qubit inside that IBM Qiskit's Quantum Register.
+        :param bit_index: the index of a bit inside that IBM Qiskit's Classical Register.
         :param is_final_measurement:
         """
 
@@ -5606,10 +5606,10 @@ class QiskryptQuantumCircuit:
         """
 
 
-        :param qiskit_quantum_register_index:
-        :param qiskit_classical_register_index:
-        :param qubit_index:
-        :param bit_index:
+        :param qiskit_quantum_register_index: the index of an IBM Qiskit's Quantum Register.
+        :param qiskit_classical_register_index: the index of an IBM Qiskit's Classical Register.
+        :param qubit_index: the index of a qubit inside that IBM Qiskit's Quantum Register.
+        :param bit_index: the index of a bit inside that IBM Qiskit's Classical Register.
         :param is_final_measurement:
         """
 
