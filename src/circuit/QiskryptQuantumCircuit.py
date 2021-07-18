@@ -4863,13 +4863,13 @@ class QiskryptQuantumCircuit:
         :return:
         """
 
-    def check_if_is_possible_to_apply_single_operation(self, quantum_register_index: int, qubit_index: int,
+    def check_if_is_possible_to_apply_single_operation(self, qiskit_quantum_register_index: int, qubit_index: int,
                                                        is_operation_only_supported_for_fully_quantum_registers: bool) -> bool:
         """
         Check if it is possible to apply a specific single Operation,
         regarding a given IBM Qiskit's Quantum Register index and a qubit index.
 
-        :param quantum_register_index: index of an IBM Qiskit's Quantum Register.
+        :param qiskit_quantum_register_index: index of an IBM Qiskit's Quantum Register.
         :param qubit_index: index of a qubit inside that IBM Qiskit's Quantum Register.
         :param is_operation_only_supported_for_fully_quantum_registers: the boolean flag to check if
                                                                         the Qiskrypt's Register is
@@ -4878,18 +4878,18 @@ class QiskryptQuantumCircuit:
                                                                         only by a Fully-Quantum.
         """
 
-        if quantum_register_index < self.quantum_circuit.qregs.size:
+        if qiskit_quantum_register_index < self.quantum_circuit.qregs.size:
             """
             If the given index of the IBM Qiskit's Quantum Register is valid.
             """
 
-            if qubit_index < self.quantum_circuit.qregs[quantum_register_index].size:
+            if qubit_index < self.quantum_circuit.qregs[qiskit_quantum_register_index].size:
                 """
                 If the given index of the qubit in the given IBM Qiskit's Quantum Register is also valid.
                 """
 
                 has_qiskrypt_register, qiskrypt_register = \
-                    self.find_qiskrypt_register_by_name(self.quantum_circuit.qregs[quantum_register_index].name)
+                    self.find_qiskrypt_register_by_name(self.quantum_circuit.qregs[qiskit_quantum_register_index].name)
                 """
                 Find and retrieve the Qiskrypt's Register in the Qiskrypt's Quantum Circuit, given its name.
                 """
@@ -4981,17 +4981,17 @@ class QiskryptQuantumCircuit:
             Raise an Invalid IBM Qiskit's Quantum Register Index Given Error for the Qiskrypt's Quantum Circuit.
             """
 
-    def apply_barrier_to_qubit_in_qiskit_quantum_register(self, quantum_register_index: int, qubit_index: int):
+    def apply_barrier_to_qubit_in_qiskit_quantum_register(self, qiskit_quantum_register_index: int, qubit_index: int):
         """
         Apply the Barrier Operation to given indexes of
         an IBM Qiskit's Quantum Register and a target qubit.
 
-        :param quantum_register_index: the index of an IBM Qiskit's Quantum Register.
+        :param qiskit_quantum_register_index: the index of an IBM Qiskit's Quantum Register.
         :param qubit_index: the index of a qubit inside that IBM Qiskit's Quantum Register.
         """
 
         is_possible_to_apply_single_operation = \
-            self.check_if_is_possible_to_apply_single_operation(quantum_register_index, qubit_index, False)
+            self.check_if_is_possible_to_apply_single_operation(qiskit_quantum_register_index, qubit_index, False)
         """
         Check if it is possible to apply the pretended single operation.
         """
@@ -5001,61 +5001,113 @@ class QiskryptQuantumCircuit:
             It is possible to apply the pretended single operation.
             """
 
-            self.quantum_circuit.barrier(self.quantum_circuit.qregs[quantum_register_index][qubit_index])
+            self.quantum_circuit.barrier(self.quantum_circuit.qregs[qiskit_quantum_register_index][qubit_index])
             """
             Apply the Barrier Operation to the given qubit of the given IBM Qiskit's Quantum Register. 
             """
 
-    def apply_barriers_interval_qubits_in_qiskit_quantum_register(self, quantum_register_index: int, qubits_indexes: list):
+    def apply_barriers_interval_qubits_in_qiskit_quantum_register(self, qiskit_quantum_register_index: int, qubits_indexes: list):
         """
         Apply Barriers Operations to given indexes of
         an IBM Qiskit's Quantum Register and a list of target qubits indexes.
 
-        :param quantum_register_index: the index of an IBM Qiskit's Quantum Register.
+        :param qiskit_quantum_register_index: the index of an IBM Qiskit's Quantum Register.
         :param qubits_indexes: the list of indexes of qubits inside that IBM Qiskit's Quantum Register.
         """
 
-        qubits_indexes = list(dict.fromkeys(qubits_indexes))
-        """
-        Remove indexes of duplicated qubits.
-        """
-
-        for qubit_index in qubits_indexes:
+        if qiskit_quantum_register_index < self.quantum_circuit.qregs.size:
             """
-            For each qubit index in the list of indexes of qubits inside the IBM Qiskit's Quantum Register.
+            If the given index of the IBM Qiskit's Quantum Register is valid.
             """
 
-            self.apply_barrier_to_qubit_in_qiskit_quantum_register(quantum_register_index, qubit_index)
+            qubits_indexes = list(dict.fromkeys(qubits_indexes))
             """
-            Apply the Barrier Operation to the IBM Qiskit's Quantum Register and the current qubit index.
+            Remove indexes of duplicated qubits.
             """
 
-    def apply_barriers_to_all_qubits_in_qiskit_quantum_register(self, quantum_register_index: int):
+            max_qubit_index = max(qubits_indexes)
+            """
+            Retrieve the maximum index value of the list of indexes of qubits.
+            """
+
+            if max_qubit_index < self.quantum_circuit.qregs[qiskit_quantum_register_index].size:
+                """
+                If the maximum index value of the list of indexes of qubits in
+                the given IBM Qiskit's Quantum Register is also valid.
+                """
+
+                for qubit_index in qubits_indexes:
+                    """
+                    For each qubit index in the list of indexes of qubits inside the IBM Qiskit's Quantum Register.
+                    """
+
+                    self.apply_barrier_to_qubit_in_qiskit_quantum_register(qiskit_quantum_register_index, qubit_index)
+                    """
+                    Apply the Barrier Operation to the IBM Qiskit's Quantum Register and the current qubit index.
+                    """
+
+            else:
+                """
+                If the maximum index value of the list of indexes of qubits in
+                the given IBM Qiskit's Quantum Register is not valid.
+                """
+
+                self.raise_invalid_qubit_index_given_error()
+                """
+                Raise an Invalid Qubit Index Given Error for the Qiskrypt's Quantum Circuit.
+                """
+
+        else:
+            """
+            If the given index of the IBM Qiskit's Quantum Register is not valid.
+            """
+
+            self.raise_invalid_qiskit_quantum_register_index_given_error()
+            """
+            Raise an Invalid IBM Qiskit's Quantum Register Index Given Error for the Qiskrypt's Quantum Circuit.
+            """
+
+    def apply_barriers_to_all_qubits_in_qiskit_quantum_register(self, qiskit_quantum_register_index: int):
         """
         Apply Barriers Operations to all qubit indexes in
         a given index of an IBM Qiskit's Quantum Register.
 
-        :param quantum_register_index: the index of an IBM Qiskit's Quantum Register.
+        :param qiskit_quantum_register_index: the index of an IBM Qiskit's Quantum Register.
         """
 
-        qiskit_quantum_register = self.quantum_circuit.qregs[quantum_register_index]
-        """
-        Retrieve the IBM Qiskit's Quantum Register, from the given index.
-        """
-
-        num_total_qubits_in_qiskit_quantum_register = qiskit_quantum_register.size
-        """
-        Retrieve the number of qubits in the retrieved IBM Qiskit's Quantum Register.
-        """
-
-        for qubit_index in range(num_total_qubits_in_qiskit_quantum_register):
+        if qiskit_quantum_register_index < self.quantum_circuit.qregs.size:
             """
-            For each qubit index in the retrieved IBM Qiskit's Quantum Register.
+            If the given index of the IBM Qiskit's Quantum Register is valid.
             """
 
-            self.apply_barrier_to_qubit_in_qiskit_quantum_register(quantum_register_index, qubit_index)
+            qiskit_quantum_register = self.quantum_circuit.qregs[qiskit_quantum_register_index]
             """
-            Apply the Barrier Operation to the IBM Qiskit's Quantum Register and the current qubit index.
+            Retrieve the IBM Qiskit's Quantum Register, from the given index.
+            """
+
+            num_total_qubits_in_qiskit_quantum_register = qiskit_quantum_register.size
+            """
+            Retrieve the number of qubits in the retrieved IBM Qiskit's Quantum Register.
+            """
+
+            for qubit_index in range(num_total_qubits_in_qiskit_quantum_register):
+                """
+                For each qubit index in the retrieved IBM Qiskit's Quantum Register.
+                """
+
+                self.apply_barrier_to_qubit_in_qiskit_quantum_register(qiskit_quantum_register_index, qubit_index)
+                """
+                Apply the Barrier Operation to the IBM Qiskit's Quantum Register and the current qubit index.
+                """
+
+        else:
+            """
+            If the given index of the IBM Qiskit's Quantum Register is not valid.
+            """
+
+            self.raise_invalid_qiskit_quantum_register_index_given_error()
+            """
+            Raise an Invalid IBM Qiskit's Quantum Register Index Given Error for the Qiskrypt's Quantum Circuit.
             """
 
     def apply_barriers_interval_qubits_in_all_qiskit_quantum_registers(self, qubits_indexes: list):
