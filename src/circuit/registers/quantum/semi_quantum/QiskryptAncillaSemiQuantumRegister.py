@@ -154,20 +154,20 @@ class QiskryptAncillaSemiQuantumRegister(QiskryptAncillaQuantumRegister):
         raise not_ancilla_semi_quantum_register_error
 
     @staticmethod
-    def raise_not_valid_ancilla_semi_quantum_register_index_error():
+    def raise_not_valid_qiskrypt_ancilla_semi_quantum_register_index_error():
         """
-        Return/Raise a Not a Valid Ancilla Semi-Quantum Register Index Error for the Qiskrypt's Ancilla Semi-Quantum Register.
+        Return/Raise a Not a Valid Qiskrypt's Ancilla Semi-Quantum Register Index Error for the Qiskrypt's Ancilla Semi-Quantum Register.
 
-        :raise not_valid_ancilla_semi_quantum_register_index_error: a Not a Valid Ancilla Semi-Quantum Register Index Error for
-                                                                    the Qiskrypt's Ancilla Semi-Quantum Register.
-        """
-
-        not_valid_ancilla_semi_quantum_register_index_error = QiskryptNotValidAncillaSemiQuantumRegisterIndexError()
-        """
-        Retrieve the Not a Valid Ancilla Semi-Quantum Register Index Error for the Qiskrypt's Ancilla Semi-Quantum Register.
+        :raise not_valid_qiskrypt_ancilla_semi_quantum_register_index_error: a Not a Valid Qiskrypt's Ancilla Semi-Quantum Register Index Error for
+                                                                             the Qiskrypt's Ancilla Semi-Quantum Register.
         """
 
+        not_valid_qiskrypt_ancilla_semi_quantum_register_index_error = QiskryptNotValidAncillaSemiQuantumRegisterIndexError()
         """
-        Raise the Not a Valid Ancilla Semi-Quantum Register Index Error for the Qiskrypt's Ancilla Semi-Quantum Register.
+        Retrieve the Not a Valid Qiskrypt's Ancilla Semi-Quantum Register Index Error for the Qiskrypt's Ancilla Semi-Quantum Register.
         """
-        raise not_valid_ancilla_semi_quantum_register_index_error
+
+        """
+        Raise the Not a Valid Qiskrypt's Ancilla Semi-Quantum Register Index Error for the Qiskrypt's Ancilla Semi-Quantum Register.
+        """
+        raise not_valid_qiskrypt_ancilla_semi_quantum_register_index_error

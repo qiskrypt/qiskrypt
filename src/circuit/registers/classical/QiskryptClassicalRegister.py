@@ -151,20 +151,20 @@ class QiskryptClassicalRegister:
         raise not_classical_register_error
 
     @staticmethod
-    def raise_not_valid_classical_register_index_error():
+    def raise_not_valid_qiskrypt_classical_register_index_error():
         """
-        Return/Raise a Not a Valid Classical Register Index Error for the Qiskrypt's Classical Register.
+        Return/Raise a Not a Valid Qiskrypt's Classical Register Index Error for the Qiskrypt's Classical Register.
 
-        :raise not_valid_classical_register_index_error: a Not a Valid Classical Register Index Error for
-                                                         the Qiskrypt's Classical Register.
+        :raise not_valid_qiskrypt_classical_register_index_error: a Not a Valid Qiskrypt's Classical Register Index Error for
+                                                                  the Qiskrypt's Classical Register.
         """
 
         not_valid_classical_register_index_error = QiskryptNotValidClassicalRegisterIndexError()
         """
-        Retrieve the Not a Valid Classical Register Index Error for the Qiskrypt's Classical Register.
+        Retrieve the Not a Valid Qiskrypt's Classical Register Index Error for the Qiskrypt's Classical Register.
         """
 
         """
-        Raise the Not a Valid Classical Register Index Error for the Qiskrypt's Classical Register.
+        Raise the Not a Valid Qiskrypt's Classical Register Index Error for the Qiskrypt's Classical Register.
         """
         raise not_valid_classical_register_index_error

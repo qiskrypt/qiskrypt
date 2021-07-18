@@ -152,20 +152,20 @@ class QiskryptAncillaQuantumRegister:
         raise not_ancilla_quantum_register_error
 
     @staticmethod
-    def raise_not_valid_ancilla_quantum_register_index_error():
+    def raise_not_valid_qiskrypt_ancilla_quantum_register_index_error():
         """
-        Return/Raise a Not a Valid Ancilla Quantum Register Index Error for the Qiskrypt's Ancilla Quantum Register.
+        Return/Raise a Not a Valid Qiskrypt's Ancilla Quantum Register Index Error for the Qiskrypt's Ancilla Quantum Register.
 
-        :raise not_valid_ancilla_quantum_register_index_error: a Not a Valid Ancilla Quantum Register Index Error for
-                                                               the Qiskrypt's Ancilla Quantum Register.
-        """
-
-        not_valid_ancilla_quantum_register_index_error = QiskryptNotValidAncillaQuantumRegisterIndexError()
-        """
-        Retrieve the Not a Valid Ancilla Quantum Register Index Error for the Qiskrypt's Ancilla Quantum Register.
+        :raise not_valid_qiskrypt_ancilla_quantum_register_index_error: a Not a Valid Qiskrypt's Ancilla Quantum Register Index Error for
+                                                                        the Qiskrypt's Ancilla Quantum Register.
         """
 
+        not_valid_qiskrypt_ancilla_quantum_register_index_error = QiskryptNotValidAncillaQuantumRegisterIndexError()
         """
-        Raise the Not a Valid Ancilla Quantum Register Index Error for the Qiskrypt's Ancilla Quantum Register.
+        Retrieve the Not a Valid Qiskrypt's Ancilla Quantum Register Index Error for the Qiskrypt's Ancilla Quantum Register.
         """
-        raise not_valid_ancilla_quantum_register_index_error
+
+        """
+        Raise the Not a Valid Qiskrypt's Ancilla Quantum Register Index Error for the Qiskrypt's Ancilla Quantum Register.
+        """
+        raise not_valid_qiskrypt_ancilla_quantum_register_index_error
