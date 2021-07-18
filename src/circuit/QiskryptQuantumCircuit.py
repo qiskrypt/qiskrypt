@@ -4283,7 +4283,7 @@ class QiskryptQuantumCircuit:
         else:
             """
             If the given index for the specific Qiskrypt's Semi-Quantum Register of
-            the Qiskrypt's Quantum Circuit is valid.
+            the Qiskrypt's Quantum Circuit is not valid.
             """
 
             """
@@ -4316,7 +4316,7 @@ class QiskryptQuantumCircuit:
         else:
             """
             If the given index for the specific Qiskrypt's Ancilla Quantum Register of
-            the Qiskrypt's Quantum Circuit is valid.
+            the Qiskrypt's Quantum Circuit is not valid.
             """
 
             """
@@ -4349,7 +4349,7 @@ class QiskryptQuantumCircuit:
         else:
             """
             If the given index for the specific Qiskrypt's Ancilla Fully-Quantum Register of
-            the Qiskrypt's Quantum Circuit is valid.
+            the Qiskrypt's Quantum Circuit is not valid.
             """
 
             """
@@ -4382,7 +4382,7 @@ class QiskryptQuantumCircuit:
         else:
             """
             If the given index for the specific Qiskrypt's Ancilla Semi-Quantum Register of
-            the Qiskrypt's Quantum Circuit is valid.
+            the Qiskrypt's Quantum Circuit is not valid.
             """
 
             """
@@ -4415,7 +4415,7 @@ class QiskryptQuantumCircuit:
         else:
             """
             If the given index for the specific Qiskrypt's Classical Register of
-            the Qiskrypt's Quantum Circuit is valid.
+            the Qiskrypt's Quantum Circuit is not valid.
             """
 
             """
