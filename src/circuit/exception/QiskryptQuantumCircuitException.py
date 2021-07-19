@@ -74,6 +74,13 @@ The custom defined message for the Qiskrypt's Register Not Found Error for
 the Qiskrypt's Quantum Circuit.
 """
 
+MESSAGE_NUM_QUBITS_AND_NUM_BITS_ARE_NOT_EQUAL_EXCEPTION = "The number of qubits and number of bits are not equal and must be, " \
+                                                          "in order to complete the pretended operation/measurement!!!\n"
+"""
+The custom defined message for the Number of Qubits and Number of Bits Are Not Equal Error for
+the Qiskrypt's Quantum Circuit.
+"""
+
 
 class QiskryptQuantumCircuitUnsupportedTypeRegistersError(Exception):
     """
@@ -229,6 +236,33 @@ class QiskryptQuantumCircuitRegisterNotFoundError(Exception):
         """
         Set the custom message for the Register Not Found Error for
         the Qiskrypt's Quantum Circuit.
+        """
+
+        super().__init__(self.message)
+        """
+        Calls the constructor of the super-class Exception.
+        """
+
+
+class QiskryptQuantumCircuitNumQubitsAndNumBitsAreNotEqualForOperationOrMeasurementError(Exception):
+    """
+    Object Class of the Number of Qubits and Number of Bits Are Not Equal for Operation or Measurement Error for
+    the Qiskrypt's Quantum Circuit.
+    """
+
+    def __init__(self, message=MESSAGE_NUM_QUBITS_AND_NUM_BITS_ARE_NOT_EQUAL_EXCEPTION):
+        """
+        Constructor for the Number of Qubits and Number of Bits Are Not Equal for
+        Operation or Measurement Error for the Qiskrypt's Quantum Circuit.
+
+        :param message: The custom message for the Number of Qubits and Number of Bits Are Not Equal for
+                        Operation or Measurement Error for the Qiskrypt's Quantum Circuit.
+        """
+
+        self.message = message
+        """
+        Set the custom message for the Number of Qubits and Number of Bits Are Not Equal for
+        Operation or Measurement Error for the Qiskrypt's Quantum Circuit.
         """
 
         super().__init__(self.message)
