@@ -5440,7 +5440,7 @@ class QiskryptQuantumCircuit:
             """
 
     """
-    2) Measurements Methods:
+    2) Methods for Measurement and Preparation of Quantum States:
     """
 
     def measure_single_qubit_in_qiskit_quantum_register(self,
