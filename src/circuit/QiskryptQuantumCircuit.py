@@ -163,6 +163,13 @@ Import the Register Not Found Error for the Qiskrypt's Quantum Circuit.
 """
 
 from src.circuit.exception.QiskryptQuantumCircuitException \
+    import QiskryptQuantumCircuitNumQuantumRegistersAndNumClassicalRegistersAreNotEqualForOperationOrMeasurementError
+"""
+Import the Number of Quantum Registers and Number of Classical Registers Are Not Equal for
+Operation or Measurement Error for the Qiskrypt's Quantum Circuit.
+"""
+
+from src.circuit.exception.QiskryptQuantumCircuitException \
     import QiskryptQuantumCircuitNumQubitsAndNumBitsAreNotEqualForOperationOrMeasurementError
 """
 Import the Number of Qubits and Number of Bits Are Not Equal for Operation or Measurement Error for
@@ -5261,7 +5268,7 @@ class QiskryptQuantumCircuit:
             Apply Barriers Operations to all the qubit indexes of the IBM Qiskit's Quantum Register.
             """
 
-    def reset_qubit_in_qiskit_quantum_register(self, quantum_register_index: int, qubit_index: int):
+    def reset_single_qubit_in_qiskit_quantum_register(self, quantum_register_index: int, qubit_index: int):
         """
         Reset a target qubit given its index on a given
         index of an IBM Qiskit's Quantum Register.
@@ -5321,7 +5328,7 @@ class QiskryptQuantumCircuit:
                     For each qubit index in the list of indexes of qubits inside the IBM Qiskit's Quantum Register.
                     """
 
-                    self.reset_qubit_in_qiskit_quantum_register(qiskit_quantum_register_index, qubit_index)
+                    self.reset_single_qubit_in_qiskit_quantum_register(qiskit_quantum_register_index, qubit_index)
                     """
                     Reset the current qubit index of the given IBM Qiskit's Quantum Register. 
                     """
@@ -5375,7 +5382,7 @@ class QiskryptQuantumCircuit:
                 For each qubit index in the retrieved IBM Qiskit's Quantum Register.
                 """
 
-                self.reset_qubit_in_qiskit_quantum_register(qiskit_quantum_register_index, qubit_index)
+                self.reset_single_qubit_in_qiskit_quantum_register(qiskit_quantum_register_index, qubit_index)
                 """
                 Reset the current qubit index of the given IBM Qiskit's Quantum Register. 
                 """
@@ -5478,7 +5485,7 @@ class QiskryptQuantumCircuit:
             the given bit of the given IBM Qiskit's Classical Register. 
             """
 
-    def measure_qubits_interval_in_qiskit_quantum_register(self,
+    def measure_interval_qubits_in_qiskit_quantum_register(self,
                                                            qiskit_quantum_register_index: int,
                                                            qiskit_classical_register_index: int,
                                                            qubits_indexes: list, bits_indexes: list):
@@ -5558,7 +5565,7 @@ class QiskryptQuantumCircuit:
                             If the number of distinct qubits given and the number of distinct bits given is not the same.
                             """
 
-                            self.raise_num_qubits_and_num_bit_are_not_equal_for_operation_or_measurement_error()
+                            self.raise_num_qubits_and_num_bits_are_not_equal_for_operation_or_measurement_error()
                             """
                             Raise the Number of Qubits and Number of Bits are Not Equal for
                             Operation or Measurement Error for the Qiskrypt's Quantum Circuit.
@@ -5679,7 +5686,7 @@ class QiskryptQuantumCircuit:
                     inside the IBM Qiskit's Quantum Circuit.
                     """
 
-                    self.raise_num_qubits_and_num_bit_are_not_equal_for_operation_or_measurement_error()
+                    self.raise_num_qubits_and_num_bits_are_not_equal_for_operation_or_measurement_error()
                     """
                     Raise the Number of Qubits and Number of Bits are Not Equal for
                     Operation or Measurement Error for the Qiskrypt's Quantum Circuit.
@@ -5705,6 +5712,172 @@ class QiskryptQuantumCircuit:
             """
             Raise an Invalid IBM Qiskit's Quantum Register Index Given Error for
             the Qiskrypt's Quantum Circuit.
+            """
+
+    def measure_interval_qubits_in_all_qiskit_quantum_registers(self, qubits_indexes: list, bits_indexes: list):
+        """
+        Measure all the qubits in the given qubit indexes of
+        all the available IBM Qiskit's Quantum Registers into
+        all the bits in the given bits indexes of
+        all the available IBM Qiskit's Classical Registers inside
+        the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit.
+
+        :param qubits_indexes: the list of indexes of qubits inside all the IBM Qiskit's Quantum Registers.
+        :param bits_indexes: the list of indexes of bits inside all the IBM Qiskit's Classical Registers.
+        """
+
+        num_total_qiskit_quantum_registers = self.quantum_circuit.qregs.size
+        """
+        Retrieve the total number of IBM Qiskit's Quantum Registers
+        in the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit.
+        """
+
+        num_total_qiskit_classical_registers = self.quantum_circuit.cregs.size
+        """
+        Retrieve the total number of IBM Qiskit's Classical Registers
+        in the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit.
+        """
+
+        if num_total_qiskit_quantum_registers == num_total_qiskit_classical_registers:
+            """
+            If the total number of IBM Qiskit's Quantum Registers and
+            the total number of IBM Qiskit's Classical Registers are equal.
+            """
+
+            qubits_indexes = list(dict.fromkeys(qubits_indexes))
+            """
+            Remove indexes of duplicated qubits.
+            """
+
+            bits_indexes = list(dict.fromkeys(bits_indexes))
+            """
+            Remove indexes of duplicated bits.
+            """
+
+            num_qubits_indexes = len(qubits_indexes)
+            """
+            Retrieve the number of distinct indexes of qubits.
+            """
+
+            num_bits_indexes = len(bits_indexes)
+            """
+            Retrieve the number of distinct indexes of bits.
+            """
+
+            if num_qubits_indexes == num_bits_indexes:
+                """
+                The number of indexes of qubits and the number of indexes of bits are equal.
+                """
+
+                qiskit_quantum_registers_indexes = range(num_total_qiskit_quantum_registers)
+                """
+                Retrieve the indexes of all the IBM Qiskit's Quantum Registers.
+                """
+
+                qiskit_classical_registers_indexes = range(num_total_qiskit_classical_registers)
+                """
+                Retrieve the indexes of all the IBM Qiskit's Classical Registers.
+                """
+
+                for qiskit_quantum_register_index, qiskit_classical_register_index \
+                        in zip(qiskit_quantum_registers_indexes, qiskit_classical_registers_indexes):
+                    """
+                    For each pair of indexes of IBM Qiskit's Quantum Registers and IBM Qiskit's Classical Registers.
+                    """
+
+                    self.measure_interval_qubits_in_qiskit_quantum_register(qiskit_quantum_register_index,
+                                                                            qiskit_classical_register_index,
+                                                                            qubits_indexes, bits_indexes)
+                    """
+                    Measure the resulted interval of distinct qubits in the current IBM Qiskit's Quantum Register into
+                    the other resulted interval of distinct bits in the current IBM Qiskit's Classical Register,
+                    inside the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit.
+                    """
+
+            else:
+                """
+                The number of indexes of qubits and the number of indexes of bits are not equal.
+                """
+
+                self.raise_num_qubits_and_num_bits_are_not_equal_for_operation_or_measurement_error()
+                """
+                Raise the Number of Qubits and Number of Bits are Not Equal for
+                Operation or Measurement Error for the Qiskrypt's Quantum Circuit.
+                """
+
+        else:
+            """
+            If the total number of IBM Qiskit's Quantum Registers and
+            the total number of IBM Qiskit's Classical Registers are not equal.
+            """
+
+            self.raise_num_quantum_registers_and_num_classical_registers_are_not_equal_for_operation_or_measurement_error()
+            """
+            Raise the Number of Quantum Registers and Number of Classical Registers are Not Equal for
+            Operation or Measurement Error for the Qiskrypt's Quantum Circuit.
+            """
+
+    def measure_all_qubits_in_all_qiskit_quantum_registers(self):
+        """
+        Measure all the available qubits of
+        all the available IBM Qiskit's Quantum Registers into
+        all the available bits of
+        all the available IBM Qiskit's Classical Registers inside
+        the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit.
+        """
+
+        num_total_qiskit_quantum_registers = self.quantum_circuit.qregs.size
+        """
+        Retrieve the total number of IBM Qiskit's Quantum Registers
+        in the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit.
+        """
+
+        num_total_qiskit_classical_registers = self.quantum_circuit.cregs.size
+        """
+        Retrieve the total number of IBM Qiskit's Classical Registers
+        in the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit.
+        """
+
+        if num_total_qiskit_quantum_registers == num_total_qiskit_classical_registers:
+            """
+            If the total number of IBM Qiskit's Quantum Registers and
+            the total number of IBM Qiskit's Classical Registers are equal.
+            """
+
+            qiskit_quantum_registers_indexes = range(num_total_qiskit_quantum_registers)
+            """
+            Retrieve the indexes of the IBM Qiskit's Quantum Registers in the IBM Qiskit's Quantum Circuit.
+            """
+
+            qiskit_classical_registers_indexes = range(num_total_qiskit_classical_registers)
+            """
+            Retrieve the indexes of the IBM Qiskit's Classical Registers in the IBM Qiskit's Quantum Circuit.            
+            """
+
+            for qiskit_quantum_register_index, qiskit_classical_register_index \
+                    in zip(qiskit_quantum_registers_indexes, qiskit_classical_registers_indexes):
+                """
+                For each pair of indexes of IBM Qiskit's Quantum Registers and IBM Qiskit's Classical Registers.
+                """
+
+                self.measure_all_qubits_in_qiskit_quantum_register(qiskit_quantum_register_index,
+                                                                   qiskit_classical_register_index)
+                """
+                Measure all the qubits in the current IBM Qiskit's Quantum Register into
+                all the bits in the current IBM Qiskit's Classical Register,
+                inside the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit.
+                """
+
+        else:
+            """
+            If the total number of IBM Qiskit's Quantum Registers and
+            the total number of IBM Qiskit's Classical Registers are not equal.
+            """
+
+            self.raise_num_quantum_registers_and_num_classical_registers_are_not_equal_for_operation_or_measurement_error()
+            """
+            Raise the Number of Quantum Registers and Number of Classical Registers are Not Equal for
+            Operation or Measurement Error for the Qiskrypt's Quantum Circuit.
             """
 
     def measure_all_qubits_predefined_from_qiskit(self):
@@ -6864,16 +7037,39 @@ class QiskryptQuantumCircuit:
         raise register_not_found_error
 
     @staticmethod
-    def raise_num_qubits_and_num_bit_are_not_equal_for_operation_or_measurement_error():
+    def raise_num_quantum_registers_and_num_classical_registers_are_not_equal_for_operation_or_measurement_error():
+        """
+        Return/Raise a Number of Quantum Registers and Number of Classical Registers are Not Equal for Operation or Measurement Error.
+
+        :raise num_quantum_registers_and_num_classical_registers_are_not_equal_for_operation_or_measurement_error: a Number of Quantum Registers and
+                                                                                                                   Number of Classical Registers are
+                                                                                                                   Not Equal for Operation or Measurement Error.
+        """
+
+        num_quantum_registers_and_num_classical_registers_are_not_equal_for_operation_or_measurement_error = \
+            QiskryptQuantumCircuitNumQuantumRegistersAndNumClassicalRegistersAreNotEqualForOperationOrMeasurementError()
+        """
+        Retrieve the Number of Quantum Registers and Number of Classical Registers are Not Equal for
+        Operation or Measurement Error for the Qiskrypt's Quantum Circuit.
+        """
+
+        """
+        Raise the Number of Quantum Registers and Number of Classical Registers are Not Equal for
+        Operation or Measurement Error for the Qiskrypt's Quantum Circuit.
+        """
+        raise num_quantum_registers_and_num_classical_registers_are_not_equal_for_operation_or_measurement_error
+
+    @staticmethod
+    def raise_num_qubits_and_num_bits_are_not_equal_for_operation_or_measurement_error():
         """
         Return/Raise a Number of Qubits and Number of Bits are Not Equal for Operation or Measurement Error.
 
-        :raise num_qubits_and_num_bit_are_not_equal_for_operation_or_measurement_error: a Number of Qubits and
-                                                                                        Number of Bits are Not Equal for
-                                                                                        Operation or Measurement Error.
+        :raise num_qubits_and_num_bits_are_not_equal_for_operation_or_measurement_error: a Number of Qubits and
+                                                                                         Number of Bits are Not Equal for
+                                                                                         Operation or Measurement Error.
         """
 
-        num_qubits_and_num_bit_are_not_equal_for_operation_or_measurement_error = \
+        num_qubits_and_num_bits_are_not_equal_for_operation_or_measurement_error = \
             QiskryptQuantumCircuitNumQubitsAndNumBitsAreNotEqualForOperationOrMeasurementError()
         """
         Retrieve the Number of Qubits and Number of Bits are Not Equal for
@@ -6884,4 +7080,4 @@ class QiskryptQuantumCircuit:
         Raise the Number of Qubits and Number of Bits are Not Equal for
         Operation or Measurement Error for the Qiskrypt's Quantum Circuit.
         """
-        raise num_qubits_and_num_bit_are_not_equal_for_operation_or_measurement_error
+        raise num_qubits_and_num_bits_are_not_equal_for_operation_or_measurement_error
