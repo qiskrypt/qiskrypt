@@ -5089,10 +5089,10 @@ class QiskryptQuantumCircuit:
             Raise an Invalid IBM Qiskit's Quantum Register Index Given Error for the Qiskrypt's Quantum Circuit.
             """
 
-    def apply_barrier_to_qubit_in_qiskit_quantum_register(self, qiskit_quantum_register_index: int, qubit_index: int):
+    def apply_barrier_to_single_qubit_in_qiskit_quantum_register(self, qiskit_quantum_register_index: int, qubit_index: int):
         """
-        Apply the Barrier Operation to given indexes of
-        an IBM Qiskit's Quantum Register and a target qubit.
+        Apply the Barrier Operation to a given index of an IBM Qiskit's Quantum Register
+        and a given index of a target qubit.
 
         :param qiskit_quantum_register_index: the index of an IBM Qiskit's Quantum Register.
         :param qubit_index: the index of a qubit inside that IBM Qiskit's Quantum Register.
@@ -5149,7 +5149,7 @@ class QiskryptQuantumCircuit:
                     For each qubit index in the list of indexes of qubits inside the IBM Qiskit's Quantum Register.
                     """
 
-                    self.apply_barrier_to_qubit_in_qiskit_quantum_register(qiskit_quantum_register_index, qubit_index)
+                    self.apply_barrier_to_single_qubit_in_qiskit_quantum_register(qiskit_quantum_register_index, qubit_index)
                     """
                     Apply the Barrier Operation to the IBM Qiskit's Quantum Register and the current qubit index.
                     """
@@ -5203,7 +5203,7 @@ class QiskryptQuantumCircuit:
                 For each qubit index in the retrieved IBM Qiskit's Quantum Register.
                 """
 
-                self.apply_barrier_to_qubit_in_qiskit_quantum_register(qiskit_quantum_register_index, qubit_index)
+                self.apply_barrier_to_single_qubit_in_qiskit_quantum_register(qiskit_quantum_register_index, qubit_index)
                 """
                 Apply the Barrier Operation to the IBM Qiskit's Quantum Register and the current qubit index.
                 """
@@ -5921,9 +5921,21 @@ class QiskryptQuantumCircuit:
             It is possible to apply the pretended single operation.
             """
 
+            self.apply_barrier_to_single_qubit_in_qiskit_quantum_register(qiskit_quantum_register_index, qubit_index)
+            """
+            Apply the 1st Barrier Operation to the given index of
+            the IBM Qiskit's Quantum Register and the given index of the target qubit.
+            """
+
             self.apply_hadamard(qiskit_quantum_register_index, qubit_index)
             """
             Apply the Hadamard Gate/Operation to the given qubit in the given IBM Qiskit's Quantum Circuit.
+            """
+
+            self.apply_barrier_to_single_qubit_in_qiskit_quantum_register(qiskit_quantum_register_index, qubit_index)
+            """
+            Apply the 2nd Barrier Operation to the given index of
+            the IBM Qiskit's Quantum Register and the given index of the target qubit.
             """
 
             if is_final_measurement:
@@ -5942,11 +5954,11 @@ class QiskryptQuantumCircuit:
                 after being prepared in the X-Basis.
                 """
 
-    def prepare_and_measure_qubit_in_y_basis(self,
-                                             qiskit_quantum_register_index: int,
-                                             qiskit_classical_register_index: int,
-                                             qubit_index: int, bit_index: int,
-                                             is_final_measurement=True):
+    def prepare_and_measure_single_qubit_in_y_basis(self,
+                                                    qiskit_quantum_register_index: int,
+                                                    qiskit_classical_register_index: int,
+                                                    qubit_index: int, bit_index: int,
+                                                    is_final_measurement=True):
         """
         Prepare (and possibly, Measure) a given qubit (into a given bit), in the Y-Basis.
 
@@ -5970,6 +5982,12 @@ class QiskryptQuantumCircuit:
             It is possible to apply the pretended single operation.
             """
 
+            self.apply_barrier_to_single_qubit_in_qiskit_quantum_register(qiskit_quantum_register_index, qubit_index)
+            """
+            Apply the 1st Barrier Operation to the given index of
+            the IBM Qiskit's Quantum Register and the given index of the target qubit.
+            """
+
             self.apply_hadamard(qiskit_quantum_register_index, qubit_index)
             """
             Apply the Hadamard Gate/Operation to the given qubit in the given IBM Qiskit's Quantum Circuit.
@@ -5978,6 +5996,12 @@ class QiskryptQuantumCircuit:
             self.apply_phase_s(qiskit_quantum_register_index, qubit_index)
             """
             Apply the Phase S (pi/2) Gate/Operation to the given qubit in the given IBM Qiskit's Quantum Circuit.
+            """
+
+            self.apply_barrier_to_single_qubit_in_qiskit_quantum_register(qiskit_quantum_register_index, qubit_index)
+            """
+            Apply the 2nd Barrier Operation to the given index of
+            the IBM Qiskit's Quantum Register and the given index of the target qubit.
             """
 
             if is_final_measurement:
@@ -5996,11 +6020,11 @@ class QiskryptQuantumCircuit:
                 after being prepared in the Y-Basis.
                 """
 
-    def prepare_and_measure_qubit_in_z_basis(self,
-                                             qiskit_quantum_register_index: int,
-                                             qiskit_classical_register_index: int,
-                                             qubit_index: int, bit_index: int,
-                                             is_final_measurement=True):
+    def prepare_and_measure_single_qubit_in_z_basis(self,
+                                                    qiskit_quantum_register_index: int,
+                                                    qiskit_classical_register_index: int,
+                                                    qubit_index: int, bit_index: int,
+                                                    is_final_measurement=True):
         """
         Prepare (and possibly, Measure) a given qubit (into a given bit), in the Z-Basis.
 
@@ -6024,9 +6048,21 @@ class QiskryptQuantumCircuit:
             It is possible to apply the pretended single operation.
             """
 
+            self.apply_barrier_to_single_qubit_in_qiskit_quantum_register(qiskit_quantum_register_index, qubit_index)
+            """
+            Apply the 1st Barrier Operation to the given index of
+            the IBM Qiskit's Quantum Register and the given index of the target qubit.
+            """
+
             self.apply_pauli_i(qiskit_quantum_register_index, qubit_index)
             """
             Apply the Pauli-I Gate/Operation to the given qubit in the given IBM Qiskit's Quantum Circuit.
+            """
+
+            self.apply_barrier_to_single_qubit_in_qiskit_quantum_register(qiskit_quantum_register_index, qubit_index)
+            """
+            Apply the 2nd Barrier Operation to the given index of
+            the IBM Qiskit's Quantum Register and the given index of the target qubit.
             """
 
             if is_final_measurement:
@@ -6044,6 +6080,147 @@ class QiskryptQuantumCircuit:
                 be measured into the given bit, in the Computational Basis (Z-Basis),
                 after being prepared in the Z-Basis.
                 """
+
+    def prepare_and_measure_interval_qubits_in_qiskit_quantum_register_in_x_basis(self,
+                                                                                  qiskit_quantum_register_index: int,
+                                                                                  qiskit_classical_register_index: int,
+                                                                                  qubits_indexes: list,
+                                                                                  bits_indexes: list,
+                                                                                  is_final_measurement=True):
+        """
+
+
+        :param qiskit_quantum_register_index:
+        :param qiskit_classical_register_index:
+        :param qubits_indexes:
+        :param bits_indexes:
+        :param is_final_measurement:
+        """
+
+    def prepare_and_measure_interval_qubits_in_qiskit_quantum_register_in_y_basis(self,
+                                                                                  qiskit_quantum_register_index: int,
+                                                                                  qiskit_classical_register_index: int,
+                                                                                  qubits_indexes: list,
+                                                                                  bits_indexes: list,
+                                                                                  is_final_measurement=True):
+        """
+
+
+        :param qiskit_quantum_register_index:
+        :param qiskit_classical_register_index:
+        :param qubits_indexes:
+        :param bits_indexes:
+        :param is_final_measurement:
+        """
+
+    def prepare_and_measure_interval_qubits_in_qiskit_quantum_register_in_z_basis(self,
+                                                                                  qiskit_quantum_register_index: int,
+                                                                                  qiskit_classical_register_index: int,
+                                                                                  qubits_indexes: list,
+                                                                                  bits_indexes: list,
+                                                                                  is_final_measurement=True):
+        """
+
+
+        :param qiskit_quantum_register_index:
+        :param qiskit_classical_register_index:
+        :param qubits_indexes:
+        :param bits_indexes:
+        :param is_final_measurement:
+        """
+
+    def prepare_and_measure_all_qubits_in_qiskit_quantum_register_in_x_basis(self,
+                                                                             qiskit_quantum_register_index: int,
+                                                                             qiskit_classical_register_index: int,
+                                                                             is_final_measurement=True):
+        """
+
+
+        :param qiskit_quantum_register_index:
+        :param qiskit_classical_register_index:
+        :param is_final_measurement:
+        """
+
+    def prepare_and_measure_all_qubits_in_qiskit_quantum_register_in_y_basis(self,
+                                                                             qiskit_quantum_register_index: int,
+                                                                             qiskit_classical_register_index: int,
+                                                                             is_final_measurement=True):
+        """
+
+
+        :param qiskit_quantum_register_index:
+        :param qiskit_classical_register_index:
+        :param is_final_measurement:
+        """
+
+    def prepare_and_measure_all_qubits_in_qiskit_quantum_register_in_z_basis(self,
+                                                                             qiskit_quantum_register_index: int,
+                                                                             qiskit_classical_register_index: int,
+                                                                             is_final_measurement=True):
+        """
+
+
+        :param qiskit_quantum_register_index:
+        :param qiskit_classical_register_index:
+        :param is_final_measurement:
+        """
+
+    def prepare_and_measure_interval_qubits_in_all_qiskit_quantum_registers_in_x_basis(self,
+                                                                                       qubits_indexes: list,
+                                                                                       bits_indexes: list,
+                                                                                       is_final_measurement=True):
+        """
+
+
+        :param qubits_indexes:
+        :param bits_indexes:
+        :param is_final_measurement:
+        """
+
+    def prepare_and_measure_interval_qubits_in_all_qiskit_quantum_registers_in_y_basis(self,
+                                                                                       qubits_indexes: list,
+                                                                                       bits_indexes: list,
+                                                                                       is_final_measurement=True):
+        """
+
+
+        :param qubits_indexes:
+        :param bits_indexes:
+        :param is_final_measurement:
+        """
+
+    def prepare_and_measure_interval_qubits_in_all_qiskit_quantum_register_in_z_basis(self,
+                                                                                      qubits_indexes: list,
+                                                                                      bits_indexes: list,
+                                                                                      is_final_measurement=True):
+        """
+
+
+        :param qubits_indexes:
+        :param bits_indexes:
+        :param is_final_measurement:
+        """
+
+    def prepare_and_measure_all_qubits_in_all_qiskit_quantum_registers_in_x_basis(self, is_final_measurement=True):
+        """
+
+
+        :param is_final_measurement:
+        """
+
+    def prepare_and_measure_all_qubits_in_all_qiskit_quantum_registers_in_y_basis(self, is_final_measurement=True):
+        """
+
+
+        :param is_final_measurement:
+        """
+
+    def prepare_and_measure_all_qubits_in_all_qiskit_quantum_registers_in_z_basis(self, is_final_measurement=True):
+        """
+
+
+        :param is_final_measurement:
+        """
 
     """
     3) Single Qubit Gates/Operations Methods:
