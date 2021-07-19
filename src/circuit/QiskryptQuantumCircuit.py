@@ -5893,13 +5893,14 @@ class QiskryptQuantumCircuit:
         another all the of bits in an IBM Qiskit's Classical Register(s).
         """
 
-    def prepare_and_measure_qubit_in_x_basis(self,
-                                             qiskit_quantum_register_index: int,
-                                             qiskit_classical_register_index: int,
-                                             qubit_index: int, bit_index: int,
-                                             is_final_measurement=True):
+    def prepare_and_measure_single_qubit_in_x_basis(self,
+                                                    qiskit_quantum_register_index: int,
+                                                    qiskit_classical_register_index: int,
+                                                    qubit_index: int, bit_index: int,
+                                                    is_final_measurement=True):
         """
-        Prepare (and possibly, Measure) a given qubit (into a given bit), in the X-Basis.
+        Prepare (and possibly, Measure) a given single qubit of an IBM Qiskit's Quantum Register
+        (into a single given bit of an IBM Qiskit's Classical Register), in the X-Basis.
 
         :param qiskit_quantum_register_index: the index of an IBM Qiskit's Quantum Register.
         :param qiskit_classical_register_index: the index of an IBM Qiskit's Classical Register.
@@ -5960,7 +5961,8 @@ class QiskryptQuantumCircuit:
                                                     qubit_index: int, bit_index: int,
                                                     is_final_measurement=True):
         """
-        Prepare (and possibly, Measure) a given qubit (into a given bit), in the Y-Basis.
+        Prepare (and possibly, Measure) a given single qubit of an IBM Qiskit's Quantum Register
+        (into a single given bit of an IBM Qiskit's Classical Register), in the Y-Basis.
 
         :param qiskit_quantum_register_index: the index of an IBM Qiskit's Quantum Register.
         :param qiskit_classical_register_index: the index of an IBM Qiskit's Classical Register.
@@ -6026,7 +6028,8 @@ class QiskryptQuantumCircuit:
                                                     qubit_index: int, bit_index: int,
                                                     is_final_measurement=True):
         """
-        Prepare (and possibly, Measure) a given qubit (into a given bit), in the Z-Basis.
+        Prepare (and possibly, Measure) a given single qubit of an IBM Qiskit's Quantum Register
+        (into a single given bit of an IBM Qiskit's Classical Register), in the Z-Basis.
 
         :param qiskit_quantum_register_index: the index of an IBM Qiskit's Quantum Register.
         :param qiskit_classical_register_index: the index of an IBM Qiskit's Classical Register.
@@ -6088,7 +6091,7 @@ class QiskryptQuantumCircuit:
                                                                                   bits_indexes: list,
                                                                                   is_final_measurement=True):
         """
-
+        Prepare (and possibly, Measure) a given single qubit (into a single given bit), in the Z-Basis.
 
         :param qiskit_quantum_register_index:
         :param qiskit_classical_register_index:
