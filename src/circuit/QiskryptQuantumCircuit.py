@@ -162,6 +162,13 @@ from src.circuit.exception.QiskryptQuantumCircuitException \
 Import the Register Not Found Error for the Qiskrypt's Quantum Circuit.
 """
 
+from src.circuit.exception.QiskryptQuantumCircuitException \
+    import QiskryptQuantumCircuitNumQubitsAndNumBitsAreNotEqualForOperationOrMeasurementError
+"""
+Import the Number of Qubits and Number of Bits Are Not Equal for Operation or Measurement Error for
+the Qiskrypt's Quantum Circuit.
+"""
+
 
 class QiskryptQuantumCircuit:
     """
@@ -5551,21 +5558,166 @@ class QiskryptQuantumCircuit:
                             If the number of distinct qubits given and the number of distinct bits given is not the same.
                             """
 
-                            # TODO Raise an Exception
+                            self.raise_num_qubits_and_num_bit_are_not_equal_for_operation_or_measurement_error()
+                            """
+                            Raise the Number of Qubits and Number of Bits are Not Equal for
+                            Operation or Measurement Error for the Qiskrypt's Quantum Circuit.
+                            """
+
+                    else:
+                        """
+                        If the maximum index value of the list of indexes of bits in
+                        the given IBM Qiskit's Classical Register is not valid.
+                        """
+
+                        self.raise_invalid_bit_index_given_error()
+                        """
+                        Raise an Invalid Bit Index Given Error for the Qiskrypt's Quantum Circuit.
+                        """
+
+                else:
+                    """
+                    If the given index of the IBM Qiskit's Classical Register is not valid.
+                    """
+
+                    self.raise_invalid_qiskit_classical_register_index_given_error()
+                    """
+                    Raise an Invalid IBM Qiskit's Classical Register Index Given Error for
+                    the Qiskrypt's Quantum Circuit.
+                    """
+
+            else:
+                """
+                If the maximum index value of the list of indexes of qubits in
+                the given IBM Qiskit's Quantum Register is not valid.
+                """
+
+                self.raise_invalid_qubit_index_given_error()
+                """
+                Raise an Invalid Qubit Index Given Error for the Qiskrypt's Quantum Circuit.
+                """
+
+        else:
+            """
+            If the given index of the IBM Qiskit's Quantum Register is not valid.
+            """
+
+            self.raise_invalid_qiskit_quantum_register_index_given_error()
+            """
+            Raise an Invalid IBM Qiskit's Quantum Register Index Given Error for
+            the Qiskrypt's Quantum Circuit.
+            """
 
     def measure_all_qubits_in_qiskit_quantum_register(self,
                                                       qiskit_quantum_register_index: int,
                                                       qiskit_classical_register_index: int):
         """
+        Measure all the qubits in an IBM Qiskit's Quantum Register into
+        another all the of bits in an IBM Qiskit's Classical Register,
+        inside the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit.
 
-
-        :param qiskit_quantum_register_index:
-        :param qiskit_classical_register_index:
+        :param qiskit_quantum_register_index: the index of an IBM Qiskit's Quantum Register.
+        :param qiskit_classical_register_index: the index of an IBM Qiskit's Classical Register.
         """
+
+        if qiskit_quantum_register_index < self.quantum_circuit.qregs.size:
+            """
+            If the given index of the IBM Qiskit's Quantum Register is valid.
+            """
+
+            if qiskit_classical_register_index < self.quantum_circuit.cregs.size:
+                """
+                If the given index of the IBM Qiskit's Classical Register is valid.
+                """
+
+                num_qubits_qiskit_quantum_register = self.quantum_circuit.qregs[qiskit_quantum_register_index].size
+                """
+                Retrieve the number of qubits in the given IBM Qiskit's Quantum Register inside the IBM Qiskit's Quantum Circuit.
+                """
+
+                num_bits_qiskit_classical_register = self.quantum_circuit.cregs[qiskit_classical_register_index].size
+                """
+                Retrieve the number of bits in the given IBM Qiskit's Classical Register inside the IBM Qiskit's Quantum Circuit.
+                """
+
+                if num_qubits_qiskit_quantum_register == num_bits_qiskit_classical_register:
+                    """
+                    If the number of qubits of the given IBM Qiskit's Quantum Register is equal to
+                    the number of bits of the given IBM Qiskit's Classical Register,
+                    inside the IBM Qiskit's Quantum Circuit.
+                    """
+
+                    qubits_indexes = range(num_qubits_qiskit_quantum_register)
+                    """
+                    Retrieve the list of the range of qubits in the given IBM Qiskit's Quantum Register of
+                    the IBM Qiskit's Quantum Circuit.
+                    """
+
+                    bits_indexes = range(num_bits_qiskit_classical_register)
+                    """
+                    Retrieve the list of the range of bits in the given IBM Qiskit's Classical Register of
+                    the IBM Qiskit's Quantum Circuit.
+                    """
+
+                    for qubit_index, bit_index in zip(qubits_indexes, bits_indexes):
+                        """
+                        For each pair of indexes of qubits and bits.
+                        """
+
+                        self.measure_single_qubit_in_qiskit_quantum_register(qiskit_quantum_register_index,
+                                                                             qiskit_classical_register_index,
+                                                                             qubit_index, bit_index)
+                        """
+                        Measure the current qubit of the given IBM Qiskit's Quantum Register into
+                        the current bit of the given IBM Qiskit's Classical Register. 
+                        """
+
+                else:
+                    """
+                    If the number of qubits of the given IBM Qiskit's Quantum Register is not equal to
+                    the number of bits of the given IBM Qiskit's Classical Register,
+                    inside the IBM Qiskit's Quantum Circuit.
+                    """
+
+                    self.raise_num_qubits_and_num_bit_are_not_equal_for_operation_or_measurement_error()
+                    """
+                    Raise the Number of Qubits and Number of Bits are Not Equal for
+                    Operation or Measurement Error for the Qiskrypt's Quantum Circuit.
+                    """
+
+            else:
+                """
+                If the given index of the IBM Qiskit's Classical Register is not valid.
+                """
+
+                self.raise_invalid_qiskit_classical_register_index_given_error()
+                """
+                Raise an Invalid IBM Qiskit's Classical Register Index Given Error for
+                the Qiskrypt's Quantum Circuit.
+                """
+
+        else:
+            """
+            If the given index of the IBM Qiskit's Quantum Register is not valid.
+            """
+
+            self.raise_invalid_qiskit_quantum_register_index_given_error()
+            """
+            Raise an Invalid IBM Qiskit's Quantum Register Index Given Error for
+            the Qiskrypt's Quantum Circuit.
+            """
 
     def measure_all_qubits_predefined_from_qiskit(self):
         """
+        Measure all the qubits in some available IBM Qiskit's Quantum Register(s) into
+        another all the of bits in some available IBM Qiskit's Classical Register(s),
+        using the predefined "measure_all()" method of the IBM Qiskit's Quantum Circuit.
+        """
 
+        self.quantum_circuit.measure_all()
+        """
+        Measure all the qubits in some available IBM Qiskit's Quantum Register(s) into
+        another all the of bits in an IBM Qiskit's Classical Register(s).
         """
 
     def prepare_and_measure_qubit_in_x_basis(self,
@@ -5574,14 +5726,48 @@ class QiskryptQuantumCircuit:
                                              qubit_index: int, bit_index: int,
                                              is_final_measurement=True):
         """
-
+        Prepare (and possibly, Measure) a given qubit (into a given bit), in the X-Basis.
 
         :param qiskit_quantum_register_index: the index of an IBM Qiskit's Quantum Register.
         :param qiskit_classical_register_index: the index of an IBM Qiskit's Classical Register.
         :param qubit_index: the index of a qubit inside that IBM Qiskit's Quantum Register.
         :param bit_index: the index of a bit inside that IBM Qiskit's Classical Register.
-        :param is_final_measurement:
+        :param is_final_measurement: a boolean flag to indicate that the given qubit is pretended to
+                                     be measured into the given bit, in the Computational Basis (Z-Basis),
+                                     after being prepared in the X-Basis.
         """
+
+        is_possible_to_apply_single_operation = \
+            self.check_if_is_possible_to_apply_single_operation(qiskit_quantum_register_index, qubit_index, True)
+        """
+        Check if it is possible to apply the pretended single operation.
+        """
+
+        if is_possible_to_apply_single_operation:
+            """
+            It is possible to apply the pretended single operation.
+            """
+
+            self.apply_hadamard(qiskit_quantum_register_index, qubit_index)
+            """
+            Apply the Hadamard Gate/Operation to the given qubit in the given IBM Qiskit's Quantum Circuit.
+            """
+
+            if is_final_measurement:
+                """
+                If it is pretended that the given qubit is pretended to
+                be measured into the given bit, in the Computational Basis (Z-Basis),
+                after being prepared in the X-Basis.
+                """
+
+                self.measure_single_qubit_in_qiskit_quantum_register(qiskit_quantum_register_index,
+                                                                     qiskit_classical_register_index,
+                                                                     qubit_index, bit_index)
+                """
+                Measure the pretended that the given qubit is pretended to
+                be measured into the given bit, in the Computational Basis (Z-Basis),
+                after being prepared in the X-Basis.
+                """
 
     def prepare_and_measure_qubit_in_y_basis(self,
                                              qiskit_quantum_register_index: int,
@@ -5589,14 +5775,53 @@ class QiskryptQuantumCircuit:
                                              qubit_index: int, bit_index: int,
                                              is_final_measurement=True):
         """
-
+        Prepare (and possibly, Measure) a given qubit (into a given bit), in the Y-Basis.
 
         :param qiskit_quantum_register_index: the index of an IBM Qiskit's Quantum Register.
         :param qiskit_classical_register_index: the index of an IBM Qiskit's Classical Register.
         :param qubit_index: the index of a qubit inside that IBM Qiskit's Quantum Register.
         :param bit_index: the index of a bit inside that IBM Qiskit's Classical Register.
-        :param is_final_measurement:
+        :param is_final_measurement: a boolean flag to indicate that the given qubit is pretended to
+                                     be measured into the given bit, in the Computational Basis (Z-Basis),
+                                     after being prepared in the Y-Basis.
         """
+
+        is_possible_to_apply_single_operation = \
+            self.check_if_is_possible_to_apply_single_operation(qiskit_quantum_register_index, qubit_index, True)
+        """
+        Check if it is possible to apply the pretended single operation.
+        """
+
+        if is_possible_to_apply_single_operation:
+            """
+            It is possible to apply the pretended single operation.
+            """
+
+            self.apply_hadamard(qiskit_quantum_register_index, qubit_index)
+            """
+            Apply the Hadamard Gate/Operation to the given qubit in the given IBM Qiskit's Quantum Circuit.
+            """
+
+            self.apply_phase_s(qiskit_quantum_register_index, qubit_index)
+            """
+            Apply the Phase S (pi/2) Gate/Operation to the given qubit in the given IBM Qiskit's Quantum Circuit.
+            """
+
+            if is_final_measurement:
+                """
+                If it is pretended that the given qubit is pretended to
+                be measured into the given bit, in the Computational Basis (Z-Basis),
+                after being prepared in the Y-Basis.
+                """
+
+                self.measure_single_qubit_in_qiskit_quantum_register(qiskit_quantum_register_index,
+                                                                     qiskit_classical_register_index,
+                                                                     qubit_index, bit_index)
+                """
+                Measure the pretended that the given qubit is pretended to
+                be measured into the given bit, in the Computational Basis (Z-Basis),
+                after being prepared in the Y-Basis.
+                """
 
     def prepare_and_measure_qubit_in_z_basis(self,
                                              qiskit_quantum_register_index: int,
@@ -5604,14 +5829,48 @@ class QiskryptQuantumCircuit:
                                              qubit_index: int, bit_index: int,
                                              is_final_measurement=True):
         """
-
+        Prepare (and possibly, Measure) a given qubit (into a given bit), in the Z-Basis.
 
         :param qiskit_quantum_register_index: the index of an IBM Qiskit's Quantum Register.
         :param qiskit_classical_register_index: the index of an IBM Qiskit's Classical Register.
         :param qubit_index: the index of a qubit inside that IBM Qiskit's Quantum Register.
         :param bit_index: the index of a bit inside that IBM Qiskit's Classical Register.
-        :param is_final_measurement:
+        :param is_final_measurement: a boolean flag to indicate that the given qubit is pretended to
+                                     be measured into the given bit, in the Computational Basis (Z-Basis),
+                                     after being prepared in the Z-Basis.
         """
+
+        is_possible_to_apply_single_operation = \
+            self.check_if_is_possible_to_apply_single_operation(qiskit_quantum_register_index, qubit_index, True)
+        """
+        Check if it is possible to apply the pretended single operation.
+        """
+
+        if is_possible_to_apply_single_operation:
+            """
+            It is possible to apply the pretended single operation.
+            """
+
+            self.apply_pauli_i(qiskit_quantum_register_index, qubit_index)
+            """
+            Apply the Pauli-I Gate/Operation to the given qubit in the given IBM Qiskit's Quantum Circuit.
+            """
+
+            if is_final_measurement:
+                """
+                If it is pretended that the given qubit is pretended to
+                be measured into the given bit, in the Computational Basis (Z-Basis),
+                after being prepared in the Z-Basis.
+                """
+
+                self.measure_single_qubit_in_qiskit_quantum_register(qiskit_quantum_register_index,
+                                                                     qiskit_classical_register_index,
+                                                                     qubit_index, bit_index)
+                """
+                Measure the pretended that the given qubit is pretended to
+                be measured into the given bit, in the Computational Basis (Z-Basis),
+                after being prepared in the Z-Basis.
+                """
 
     """
     3) Single Qubit Gates/Operations Methods:
@@ -5622,8 +5881,8 @@ class QiskryptQuantumCircuit:
         Apply the Pauli-I (Idle) Gate/Operation to given indexes of
         an IBM Qiskit's Quantum Register and a target qubit.
 
-        :param qiskit_quantum_register_index: index of an IBM Qiskit's Quantum Register.
-        :param qubit_index: index of a qubit inside that IBM Qiskit's Quantum Register.
+        :param qiskit_quantum_register_index: the index of an IBM Qiskit's Quantum Register.
+        :param qubit_index: the index of a qubit inside that IBM Qiskit's Quantum Register.
         """
 
         is_possible_to_apply_single_operation = \
@@ -5647,8 +5906,8 @@ class QiskryptQuantumCircuit:
         Apply the Pauli-X (NOT/Bit Flip) Gate/Operation to given indexes of
         an IBM Qiskit's Quantum Register and a target qubit.
 
-        :param qiskit_quantum_register_index: index of an IBM Qiskit's Quantum Register.
-        :param qubit_index: index of a qubit inside that IBM Qiskit's Quantum Register.
+        :param qiskit_quantum_register_index: the index of an IBM Qiskit's Quantum Register.
+        :param qubit_index: the index of a qubit inside that IBM Qiskit's Quantum Register.
         """
 
         is_possible_to_apply_single_operation = \
@@ -5672,8 +5931,8 @@ class QiskryptQuantumCircuit:
         Apply the Pauli-Y Gate/Operation to given indexes of
         an IBM Qiskit's Quantum Register and a target qubit.
 
-        :param qiskit_quantum_register_index: index of an IBM Qiskit's Quantum Register.
-        :param qubit_index: index of a qubit inside that IBM Qiskit's Quantum Register.
+        :param qiskit_quantum_register_index: the index of an IBM Qiskit's Quantum Register.
+        :param qubit_index: the index of a qubit inside that IBM Qiskit's Quantum Register.
         """
 
         is_possible_to_apply_single_operation = \
@@ -5697,8 +5956,8 @@ class QiskryptQuantumCircuit:
         Apply the Pauli-Z (Phase Flip/Shift) Gate/Operation to given indexes of
         an IBM Qiskit's Quantum Register and a target qubit.
 
-        :param qiskit_quantum_register_index: index of an IBM Qiskit's Quantum Register.
-        :param qubit_index: index of a qubit inside that IBM Qiskit's Quantum Register.
+        :param qiskit_quantum_register_index: the index of an IBM Qiskit's Quantum Register.
+        :param qubit_index: the index of a qubit inside that IBM Qiskit's Quantum Register.
         """
 
         is_possible_to_apply_single_operation = \
@@ -5722,8 +5981,8 @@ class QiskryptQuantumCircuit:
         Apply the Hadamard Gate/Operation to given indexes of
         an IBM Qiskit's Quantum Register and a target qubit.
 
-        :param qiskit_quantum_register_index: index of an IBM Qiskit's Quantum Register.
-        :param qubit_index: index of a qubit inside that IBM Qiskit's Quantum Register.
+        :param qiskit_quantum_register_index: the index of an IBM Qiskit's Quantum Register.
+        :param qubit_index: the index of a qubit inside that IBM Qiskit's Quantum Register.
         """
 
         is_possible_to_apply_single_operation = \
@@ -5744,11 +6003,11 @@ class QiskryptQuantumCircuit:
 
     def apply_phase_s(self, qiskit_quantum_register_index: int, qubit_index: int):
         """
-        Apply the S (pi/2) Gate/Operation to given indexes of
+        Apply the Phase S (pi/2) Gate/Operation to given indexes of
         an IBM Qiskit's Quantum Register and a target qubit.
 
-        :param qiskit_quantum_register_index: index of an IBM Qiskit's Quantum Register.
-        :param qubit_index: index of a qubit inside that IBM Qiskit's Quantum Register.
+        :param qiskit_quantum_register_index: the index of an IBM Qiskit's Quantum Register.
+        :param qubit_index: the index of a qubit inside that IBM Qiskit's Quantum Register.
         """
 
         is_possible_to_apply_single_operation = \
@@ -5764,16 +6023,16 @@ class QiskryptQuantumCircuit:
 
             self.quantum_circuit.s(self.quantum_circuit.qregs[qiskit_quantum_register_index][qubit_index])
             """
-            Apply the S (pi/2) Gate/Operation to the given qubit of the given IBM Qiskit's Quantum Register. 
+            Apply the Phase S (pi/2) Gate/Operation to the given qubit of the given IBM Qiskit's Quantum Register. 
             """
 
     def apply_phase_t(self, qiskit_quantum_register_index: int, qubit_index: int):
         """
-        Apply the T (pi/4) Gate/Operation to given indexes of
+        Apply the Phase T (pi/4) Gate/Operation to given indexes of
         an IBM Qiskit's Quantum Register and a target qubit.
 
-        :param qiskit_quantum_register_index: index of an IBM Qiskit's Quantum Register.
-        :param qubit_index: index of a qubit inside that IBM Qiskit's Quantum Register.
+        :param qiskit_quantum_register_index: the index of an IBM Qiskit's Quantum Register.
+        :param qubit_index: the index of a qubit inside that IBM Qiskit's Quantum Register.
         """
 
         is_possible_to_apply_single_operation = \
@@ -5789,7 +6048,7 @@ class QiskryptQuantumCircuit:
 
             self.quantum_circuit.t(self.quantum_circuit.qregs[qiskit_quantum_register_index][qubit_index])
             """
-            Apply the T (pi/4) Gate/Operation to the given qubit of the given IBM Qiskit's Quantum Register. 
+            Apply the Phase T (pi/4) Gate/Operation to the given qubit of the given IBM Qiskit's Quantum Register. 
             """
 
     def apply_bit_flip(self, qiskit_quantum_register_index: int, qubit_index: int):
@@ -5797,8 +6056,8 @@ class QiskryptQuantumCircuit:
         Apply the Bit Flip Gate/Operation to given indexes of
         an IBM Qiskit's Quantum Register and a target qubit.
 
-        :param qiskit_quantum_register_index: index of an IBM Qiskit's Quantum Register.
-        :param qubit_index: index of a qubit inside that IBM Qiskit's Quantum Register.
+        :param qiskit_quantum_register_index: the index of an IBM Qiskit's Quantum Register.
+        :param qubit_index: the index of a qubit inside that IBM Qiskit's Quantum Register.
         """
 
         self.apply_pauli_x(qiskit_quantum_register_index, qubit_index)
@@ -5812,8 +6071,8 @@ class QiskryptQuantumCircuit:
         Apply the Phase Shifter Gate/Operation to given indexes of
         an IBM Qiskit's Quantum Register and a target qubit.
 
-        :param qiskit_quantum_register_index: index of an IBM Qiskit's Quantum Register.
-        :param qubit_index: index of a qubit inside that IBM Qiskit's Quantum Register.
+        :param qiskit_quantum_register_index: the index of an IBM Qiskit's Quantum Register.
+        :param qubit_index: the index of a qubit inside that IBM Qiskit's Quantum Register.
         """
 
         self.apply_pauli_z(qiskit_quantum_register_index, qubit_index)
@@ -5827,8 +6086,8 @@ class QiskryptQuantumCircuit:
         Apply the Beamsplitter Gate/Operation to given indexes of
         an IBM Qiskit's Quantum Register and a target qubit.
 
-        :param qiskit_quantum_register_index: index of an IBM Qiskit's Quantum Register.
-        :param qubit_index: index of a qubit inside that IBM Qiskit's Quantum Register.
+        :param qiskit_quantum_register_index: the index of an IBM Qiskit's Quantum Register.
+        :param qubit_index: the index of a qubit inside that IBM Qiskit's Quantum Register.
         """
 
         self.apply_hadamard(qiskit_quantum_register_index, qubit_index)
@@ -5839,11 +6098,11 @@ class QiskryptQuantumCircuit:
 
     def apply_phase_s_adjoint(self, qiskit_quantum_register_index: int, qubit_index: int):
         """
-        Apply the S (-pi/2) Adjoint Gate/Operation to given indexes of
+        Apply the Phase S (-pi/2) Adjoint Gate/Operation to given indexes of
         an IBM Qiskit's Quantum Register and a target qubit.
 
-        :param qiskit_quantum_register_index: index of an IBM Qiskit's Quantum Register.
-        :param qubit_index: index of a qubit inside that IBM Qiskit's Quantum Register.
+        :param qiskit_quantum_register_index: the index of an IBM Qiskit's Quantum Register.
+        :param qubit_index: the index of a qubit inside that IBM Qiskit's Quantum Register.
         """
 
         is_possible_to_apply_single_operation = \
@@ -5859,16 +6118,16 @@ class QiskryptQuantumCircuit:
 
             self.quantum_circuit.sdg(self.quantum_circuit.qregs[qiskit_quantum_register_index][qubit_index])
             """
-            Apply the S (-pi/2) Adjoint Gate/Operation to the given qubit of the given IBM Qiskit's Quantum Register. 
+            Apply the Phase S (-pi/2) Adjoint Gate/Operation to the given qubit of the given IBM Qiskit's Quantum Register. 
             """
 
     def apply_phase_t_adjoint(self, qiskit_quantum_register_index: int, qubit_index: int):
         """
-        Apply the T (-pi/4) Adjoint Gate/Operation to given indexes of
+        Apply the Phase T (-pi/4) Adjoint Gate/Operation to given indexes of
         an IBM Qiskit's Quantum Register and a target qubit.
 
-        :param qiskit_quantum_register_index: index of an IBM Qiskit's Quantum Register.
-        :param qubit_index: index of a qubit inside that IBM Qiskit's Quantum Register.
+        :param qiskit_quantum_register_index: the index of an IBM Qiskit's Quantum Register.
+        :param qubit_index: the index of a qubit inside that IBM Qiskit's Quantum Register.
         """
 
         is_possible_to_apply_single_operation = \
@@ -5884,7 +6143,7 @@ class QiskryptQuantumCircuit:
 
             self.quantum_circuit.tdg(self.quantum_circuit.qregs[qiskit_quantum_register_index][qubit_index])
             """
-            Apply the T (-pi/4) Adjoint Gate/Operation to the given qubit of the given IBM Qiskit's Quantum Register. 
+            Apply the Phase T (-pi/4) Adjoint Gate/Operation to the given qubit of the given IBM Qiskit's Quantum Register. 
             """
 
     def apply_squared_root_pauli_x(self, qiskit_quantum_register_index: int, qubit_index: int):
@@ -5892,8 +6151,8 @@ class QiskryptQuantumCircuit:
         Apply the Squared Root of the Pauli-X (NOT/Bit Flip) Gate/Operation to given indexes of
         an IBM Qiskit's Quantum Register and a target qubit.
 
-        :param qiskit_quantum_register_index: index of an IBM Qiskit's Quantum Register.
-        :param qubit_index: index of a qubit inside that IBM Qiskit's Quantum Register.
+        :param qiskit_quantum_register_index: the index of an IBM Qiskit's Quantum Register.
+        :param qubit_index: the index of a qubit inside that IBM Qiskit's Quantum Register.
         """
 
         is_possible_to_apply_single_operation = \
@@ -5918,8 +6177,8 @@ class QiskryptQuantumCircuit:
         Apply the Squared Root of the Pauli-Y Gate/Operation to given indexes of
         an IBM Qiskit's Quantum Register and a target qubit.
 
-        :param qiskit_quantum_register_index: index of an IBM Qiskit's Quantum Register.
-        :param qubit_index: index of a qubit inside that IBM Qiskit's Quantum Register.
+        :param qiskit_quantum_register_index: the index of an IBM Qiskit's Quantum Register.
+        :param qubit_index: the index of a qubit inside that IBM Qiskit's Quantum Register.
         """
 
         is_possible_to_apply_single_operation = \
@@ -5952,8 +6211,8 @@ class QiskryptQuantumCircuit:
         Apply the Squared Root of the Pauli-Z (Phase Flip/Shift) Gate/Operation to given indexes of
         an IBM Qiskit's Quantum Register and a target qubit.
 
-        :param qiskit_quantum_register_index: index of an IBM Qiskit's Quantum Register.
-        :param qubit_index: index of a qubit inside that IBM Qiskit's Quantum Register.
+        :param qiskit_quantum_register_index: the index of an IBM Qiskit's Quantum Register.
+        :param qubit_index: the index of a qubit inside that IBM Qiskit's Quantum Register.
         """
 
         is_possible_to_apply_single_operation = \
@@ -5987,8 +6246,8 @@ class QiskryptQuantumCircuit:
         Apply the Squared Root of the Hadamard Gate/Operation to given indexes of
         an IBM Qiskit's Quantum Register and a target qubit.
 
-        :param qiskit_quantum_register_index: index of an IBM Qiskit's Quantum Register.
-        :param qubit_index: index of a qubit inside that IBM Qiskit's Quantum Register.
+        :param qiskit_quantum_register_index: the index of an IBM Qiskit's Quantum Register.
+        :param qubit_index: the index of a qubit inside that IBM Qiskit's Quantum Register.
         """
 
         is_possible_to_apply_single_operation = \
@@ -6019,11 +6278,11 @@ class QiskryptQuantumCircuit:
 
     def apply_squared_root_phase_s(self, qiskit_quantum_register_index: int, qubit_index: int):
         """
-        Apply the Squared Root of the S (sqrt(pi/2)) Gate/Operation to given indexes of
+        Apply the Squared Root of the Phase S (sqrt(pi/2)) Gate/Operation to given indexes of
         an IBM Qiskit's Quantum Register and a target qubit.
 
-        :param qiskit_quantum_register_index: index of an IBM Qiskit's Quantum Register.
-        :param qubit_index: index of a qubit inside that IBM Qiskit's Quantum Register.
+        :param qiskit_quantum_register_index: the index of an IBM Qiskit's Quantum Register.
+        :param qubit_index: the index of a qubit inside that IBM Qiskit's Quantum Register.
         """
 
         is_possible_to_apply_single_operation = \
@@ -6054,11 +6313,11 @@ class QiskryptQuantumCircuit:
 
     def apply_squared_root_phase_t(self, qiskit_quantum_register_index: int, qubit_index: int):
         """
-        Apply the Squared Root of the T (sqrt(pi/4)) Gate/Operation to given indexes of
+        Apply the Squared Root of the Phase T (sqrt(pi/4)) Gate/Operation to given indexes of
         an IBM Qiskit's Quantum Register and a target qubit.
 
-        :param qiskit_quantum_register_index: index of an IBM Qiskit's Quantum Register.
-        :param qubit_index: index of a qubit inside that IBM Qiskit's Quantum Register.
+        :param qiskit_quantum_register_index: the index of an IBM Qiskit's Quantum Register.
+        :param qubit_index: the index of a qubit inside that IBM Qiskit's Quantum Register.
         """
 
         is_possible_to_apply_single_operation = \
@@ -6089,10 +6348,10 @@ class QiskryptQuantumCircuit:
 
     def apply_rx_radians(self, theta_radians: float, qiskit_quantum_register_index: int, qubit_index: int):
         """
-        Apply the Rotation-X (R_x(theta)) Gate/Operation to given indexes of
+        Apply the Rotation-X (R_x(theta_radians)) Gate/Operation to given indexes of
         an IBM Qiskit's Quantum Register and a target qubit, as also, a given theta angle in radians.
 
-        :param theta_radians: the theta angle in radians, for the Rotation-X (R_x(theta)) Gate/Operation.
+        :param theta_radians: the theta angle in radians, for the Rotation-X (R_x(theta_radians)) Gate/Operation.
         :param qiskit_quantum_register_index: the index of an IBM Qiskit's Quantum Register.
         :param qubit_index: the index of a qubit inside that IBM Qiskit's Quantum Register.
         """
@@ -6137,10 +6396,10 @@ class QiskryptQuantumCircuit:
 
     def apply_rx_degrees(self, theta_degrees: float, qiskit_quantum_register_index: int, qubit_index: int):
         """
-        Apply the Rotation-X (R_x(theta)) Gate/Operation to given indexes of
+        Apply the Rotation-X (R_x(theta_degrees)) Gate/Operation to given indexes of
         an IBM Qiskit's Quantum Register and a target qubit, as also, a given theta angle in degrees.
 
-        :param theta_degrees: the theta angle in degrees, for the Rotation-X (R_x(theta)) Gate/Operation.
+        :param theta_degrees: the theta angle in degrees, for the Rotation-X (R_x(theta_degrees)) Gate/Operation.
         :param qiskit_quantum_register_index: the index of an IBM Qiskit's Quantum Register.
         :param qubit_index: the index of a qubit inside that IBM Qiskit's Quantum Register.
         """
@@ -6158,10 +6417,10 @@ class QiskryptQuantumCircuit:
 
     def apply_ry_radians(self, theta_radians: float, qiskit_quantum_register_index: int, qubit_index: int):
         """
-        Apply the Rotation-Y (R_y(theta)) Gate/Operation to given indexes of
+        Apply the Rotation-Y (R_y(theta_radians)) Gate/Operation to given indexes of
         an IBM Qiskit's Quantum Register and a target qubit, as also, a given theta angle in radians.
 
-        :param theta_radians: the theta angle in radians, for the Rotation-Y (R_y(theta)) Gate/Operation.
+        :param theta_radians: the theta angle in radians, for the Rotation-Y (R_y(theta_radians)) Gate/Operation.
         :param qiskit_quantum_register_index: the index of an IBM Qiskit's Quantum Register.
         :param qubit_index: the index of a qubit inside that IBM Qiskit's Quantum Register.
         """
@@ -6187,10 +6446,10 @@ class QiskryptQuantumCircuit:
 
     def apply_ry_degrees(self, theta_degrees: float, qiskit_quantum_register_index: int, qubit_index: int):
         """
-        Apply the Rotation-Y (R_y(theta)) Gate/Operation to given indexes of
+        Apply the Rotation-Y (R_y(theta_degrees)) Gate/Operation to given indexes of
         an IBM Qiskit's Quantum Register and a target qubit, as also, a given theta angle in degrees.
 
-        :param theta_degrees: the theta angle in degrees, for the Rotation-Y (R_y(theta)) Gate/Operation.
+        :param theta_degrees: the theta angle in degrees, for the Rotation-Y (R_y(theta_degrees)) Gate/Operation.
         :param qiskit_quantum_register_index: the index of an IBM Qiskit's Quantum Register.
         :param qubit_index: the index of a qubit inside that IBM Qiskit's Quantum Register.
         """
@@ -6208,10 +6467,10 @@ class QiskryptQuantumCircuit:
 
     def apply_rz_radians(self, theta_radians: float, qiskit_quantum_register_index: int, qubit_index: int):
         """
-        Apply the Rotation-Z (R_z(theta)) Gate/Operation to given indexes of
+        Apply the Rotation-Z (R_z(theta_radians)) Gate/Operation to given indexes of
         an IBM Qiskit's Quantum Register and a target qubit, as also, a given theta angle in radians.
 
-        :param theta_radians: the theta angle in radians, for the Rotation-Z (R_z(theta)) Gate/Operation.
+        :param theta_radians: the theta angle in radians, for the Rotation-Z (R_z(theta_radians)) Gate/Operation.
         :param qiskit_quantum_register_index: the index of an IBM Qiskit's Quantum Register.
         :param qubit_index: the index of a qubit inside that IBM Qiskit's Quantum Register.
         """
@@ -6237,10 +6496,10 @@ class QiskryptQuantumCircuit:
 
     def apply_rz_degrees(self, theta_degrees: float, qiskit_quantum_register_index: int, qubit_index: int):
         """
-        Apply the Rotation-Z (R_z(theta)) Gate/Operation to given indexes of
+        Apply the Rotation-Z (R_z(theta_degrees)) Gate/Operation to given indexes of
         an IBM Qiskit's Quantum Register and a target qubit, as also, a given theta angle in degrees.
 
-        :param theta_degrees: the theta angle in degrees, for the Rotation-Z (R_z(theta)) Gate/Operation.
+        :param theta_degrees: the theta angle in degrees, for the Rotation-Z (R_z(theta_degrees)) Gate/Operation.
         :param qiskit_quantum_register_index: index of an IBM Qiskit's Quantum Register.
         :param qubit_index: index of a qubit inside that IBM Qiskit's Quantum Register.
         """
@@ -6603,3 +6862,26 @@ class QiskryptQuantumCircuit:
         Raise the Register Not Found Error for the Qiskrypt's Quantum Circuit.
         """
         raise register_not_found_error
+
+    @staticmethod
+    def raise_num_qubits_and_num_bit_are_not_equal_for_operation_or_measurement_error():
+        """
+        Return/Raise a Number of Qubits and Number of Bits are Not Equal for Operation or Measurement Error.
+
+        :raise num_qubits_and_num_bit_are_not_equal_for_operation_or_measurement_error: a Number of Qubits and
+                                                                                        Number of Bits are Not Equal for
+                                                                                        Operation or Measurement Error.
+        """
+
+        num_qubits_and_num_bit_are_not_equal_for_operation_or_measurement_error = \
+            QiskryptQuantumCircuitNumQubitsAndNumBitsAreNotEqualForOperationOrMeasurementError()
+        """
+        Retrieve the Number of Qubits and Number of Bits are Not Equal for
+        Operation or Measurement Error for the Qiskrypt's Quantum Circuit.
+        """
+
+        """
+        Raise the Number of Qubits and Number of Bits are Not Equal for
+        Operation or Measurement Error for the Qiskrypt's Quantum Circuit.
+        """
+        raise num_qubits_and_num_bit_are_not_equal_for_operation_or_measurement_error
