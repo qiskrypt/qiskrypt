@@ -14,7 +14,7 @@
 
 [![github commit activity](https://img.shields.io/github/commit-activity/m/qiskrypt/qiskrypt?label=📈%20commit&nbsp;activity)](https://github.com/qiskrypt)
 [![github last commit](https://img.shields.io/github/last-commit/qiskrypt/qiskrypt?label=📅%20last&nbsp;commit)](https://github.com/qiskrypt)
-[![current version](https://img.shields.io/badge/version-v0.0.1-magenta.svg?label=🏁%20version)](https://github.com/qiskrypt/qiskrypt/)
+[![current release](https://img.shields.io/badge/release-v0.0.1-magenta.svg?label=🏁%20release)](https://github.com/qiskrypt/qiskrypt/)
 [![website](https://img.shields.io/website?down_color=red&down_message=offline&up_color=green&up_message=online&label=🌐%20website&url=https%3A%2F%2Fqiskrypt.github.io%2F)](https://qiskrypt.github.io/)
 
 [![status of this version no. 1](https://img.shields.io/badge/🔨%20status-not&nbsp;completed-orange.svg)](https://github.com/qiskrypt/qiskrypt/)
