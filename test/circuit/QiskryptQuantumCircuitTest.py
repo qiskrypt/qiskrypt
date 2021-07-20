@@ -102,9 +102,9 @@ Import the Qiskrypt's Quantum Circuit.
 """
 
 
-class QiskryptQuantumCircuitTests(TestCase):
+class CreationQiskryptQuantumCircuitTests(TestCase):
     """
-    Object Class of the Unitary Tests for the Qiskrypt's Quantum Circuit.
+    Object Class of the Unitary Tests for the creation of a Qiskrypt's Quantum Circuit.
     """
 
     def test_no_1_creation_qiskrypt_quantum_circuit_with_1_quantum_register_1_qubit(self):
@@ -8188,65 +8188,20 @@ class QiskryptQuantumCircuitTests(TestCase):
         """
         self.assertEqual(True, True)
 
-    def test_no_29_revert_qiskit_quantum_circuit_operations(self):
-        """
-        Test Case #29:
-
-        - Revert the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit.
-
-        Return OK (or FAIL) if, all the Tests performed are OK (or FAIL, otherwise).
-        """
-
-        """
-        Dummy Assert Equal for the Unittest
-        """
-        self.assertEqual(True, True)
-
-    def test_no_30_revert_qiskit_quantum_circuit_wires_order(self):
-        """
-        Test Case #30:
-
-        - Revert the order of the wires of the IBM Qiskit's Quantum Circuit of
-          the Qiskrypt's Quantum Circuit.
-
-        Return OK (or FAIL) if, all the Tests performed are OK (or FAIL, otherwise).
-        """
-
-        """
-        Dummy Assert Equal for the Unittest
-        """
-        self.assertEqual(True, True)
-
-    def test_no_31_invert_qiskit_quantum_circuit(self):
-        """
-        Test Case #31:
-
-        - Invert the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit,
-          reverting the order of the Quantum Gates/Operations and
-          setting the symmetric values for their parameters.
-
-        Return OK (or FAIL) if, all the Tests performed are OK (or FAIL, otherwise).
-        """
-
-        """
-        Dummy Assert Equal for the Unittest
-        """
-        self.assertEqual(True, True)
-
 
 if __name__ == "__main__":
     """
     The Main Method for the Unitary Test.
     """
 
-    qiskrypt_quantum_circuit_test_cases = \
-        TestLoader().loadTestsFromTestCase(QiskryptQuantumCircuitTests)
+    creation_qiskrypt_quantum_circuit_test_cases = \
+        TestLoader().loadTestsFromTestCase(CreationQiskryptQuantumCircuitTests)
     """
-    Load the Test Cases from the Unitary Tests for the Qiskrypt's Quantum Circuit.
+    Load the Test Cases from the Unitary Tests for the creation of a Qiskrypt's Quantum Circuit.
     """
 
-    qiskrypt_quantum_circuit_test_suite = \
-        TestSuite([qiskrypt_quantum_circuit_test_cases])
+    creation_qiskrypt_quantum_circuit_test_suite = \
+        TestSuite([creation_qiskrypt_quantum_circuit_test_cases])
     """
-    Load the Test Suite with the Test Cases for the Qiskrypt's Quantum Circuit.
+    Load the Test Suite with the Test Cases for the creation of a Qiskrypt's Quantum Circuit.
     """
