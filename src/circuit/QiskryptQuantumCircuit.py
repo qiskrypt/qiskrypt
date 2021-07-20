@@ -8195,7 +8195,7 @@ class QiskryptQuantumCircuit:
         """
 
     """
-    4) Single Qubit Gates/Operations Methods:
+    4) Multi Qubit Gates/Operations Methods:
     """
 
     def apply_swap(self, qiskit_quantum_register_index_1: int, qiskit_quantum_register_index_2: int,
@@ -8238,6 +8238,180 @@ class QiskryptQuantumCircuit:
             """
             Apply the SWAP Gate/Operation to the two given indexes of
             IBM Qiskit's Quantum Registers and their respective target qubits.
+            """
+
+    def apply_i_swap(self, qiskit_quantum_register_index_1: int, qiskit_quantum_register_index_2: int,
+                     qubit_index_1: int, qubit_index_2: int):
+        """
+        Apply the iSWAP Gate/Operation to given indexes of
+        a 1st IBM Qiskit's Quantum Register and a target qubit on it, as also,
+        another 2nd IBM Qiskit's Quantum Register and a target qubit on it.
+
+        :param qiskit_quantum_register_index_1: the index of the 1st IBM Qiskit's Quantum Register.
+        :param qiskit_quantum_register_index_2: the index of the 2nd IBM Qiskit's Quantum Register.
+        :param qubit_index_1: the index of a qubit inside the 1st IBM Qiskit's Quantum Register.
+        :param qubit_index_2: the index of a qubit inside the 2nd IBM Qiskit's Quantum Register.
+        """
+
+        is_possible_to_apply_operation_1 = \
+            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_index_1,
+                                                         qubit_index_1, True)
+        """
+        Check if it is possible to apply the pretended operation for
+        the 1st IBM Qiskit's Quantum Register and the respective target qubit.
+        """
+
+        is_possible_to_apply_operation_2 = \
+            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_index_2,
+                                                         qubit_index_2, True)
+        """
+        Check if it is possible to apply the pretended operation for
+        the 2nd IBM Qiskit's Quantum Register and the respective target qubit.
+        """
+
+        if is_possible_to_apply_operation_1 and is_possible_to_apply_operation_2:
+            """
+            It is possible to apply the pretended operation for both
+            the IBM Qiskit's Quantum Registers and their respective target qubits.
+            """
+
+            self.quantum_circuit.iswap(self.quantum_circuit.qregs[qiskit_quantum_register_index_1][qubit_index_1],
+                                       self.quantum_circuit.qregs[qiskit_quantum_register_index_2][qubit_index_2])
+            """
+            Apply the iSWAP Gate/Operation to the two given indexes of
+            IBM Qiskit's Quantum Registers and their respective target qubits.
+            """
+
+    def apply_controlled_x(self,
+                           qiskit_quantum_register_control_index: int,
+                           qiskit_quantum_register_target_index: int,
+                           control_qubit_index: int, target_qubit_index: int):
+        """
+        Apply the Controlled-X (Controlled-NOT) Gate/Operation to given indexes of
+        a control IBM Qiskit's Quantum Register and the respective qubit on it, as also,
+        a target IBM Qiskit's Quantum Register and the respective qubit on it.
+
+        :param qiskit_quantum_register_control_index: the index of the control IBM Qiskit's Quantum Register.
+        :param qiskit_quantum_register_target_index: the index of the target IBM Qiskit's Quantum Register.
+        :param control_qubit_index: the index of a qubit inside the control IBM Qiskit's Quantum Register.
+        :param target_qubit_index: the index of a qubit inside the target IBM Qiskit's Quantum Register.
+        """
+
+        is_possible_to_apply_operation_control = \
+            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_control_index,
+                                                         control_qubit_index, True)
+        """
+        Check if it is possible to apply the pretended operation for
+        the control IBM Qiskit's Quantum Register and the respective control qubit.
+        """
+
+        is_possible_to_apply_operation_target = \
+            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_target_index,
+                                                         target_qubit_index, True)
+        """
+        Check if it is possible to apply the pretended operation for
+        the target IBM Qiskit's Quantum Register and the respective target qubit.
+        """
+
+        if is_possible_to_apply_operation_control and is_possible_to_apply_operation_target:
+            """
+            It is possible to apply the pretended operation for both
+            the control and target IBM Qiskit's Quantum Registers and their respective qubits.
+            """
+
+            self.quantum_circuit.cx(self.quantum_circuit.qregs[qiskit_quantum_register_control_index][control_qubit_index],
+                                    self.quantum_circuit.qregs[qiskit_quantum_register_target_index][target_qubit_index])
+            """
+            Apply the Controlled-X (Controlled-NOT) Gate/Operation to the given indexes of
+            control and target IBM Qiskit's Quantum Registers and their respective qubits.
+            """
+
+    def apply_controlled_y(self,
+                           qiskit_quantum_register_control_index: int,
+                           qiskit_quantum_register_target_index: int,
+                           control_qubit_index: int, target_qubit_index: int):
+        """
+        Apply the Controlled-Y Gate/Operation to given indexes of
+        a control IBM Qiskit's Quantum Register and the respective qubit on it, as also,
+        a target IBM Qiskit's Quantum Register and the respective qubit on it.
+
+        :param qiskit_quantum_register_control_index: the index of the control IBM Qiskit's Quantum Register.
+        :param qiskit_quantum_register_target_index: the index of the target IBM Qiskit's Quantum Register.
+        :param control_qubit_index: the index of a qubit inside the control IBM Qiskit's Quantum Register.
+        :param target_qubit_index: the index of a qubit inside the target IBM Qiskit's Quantum Register.
+        """
+
+        is_possible_to_apply_operation_control = \
+            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_control_index,
+                                                         control_qubit_index, True)
+        """
+        Check if it is possible to apply the pretended operation for
+        the control IBM Qiskit's Quantum Register and the respective control qubit.
+        """
+
+        is_possible_to_apply_operation_target = \
+            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_target_index,
+                                                         target_qubit_index, True)
+        """
+        Check if it is possible to apply the pretended operation for
+        the target IBM Qiskit's Quantum Register and the respective target qubit.
+        """
+
+        if is_possible_to_apply_operation_control and is_possible_to_apply_operation_target:
+            """
+            It is possible to apply the pretended operation for both
+            the control and target IBM Qiskit's Quantum Registers and their respective qubits.
+            """
+
+            self.quantum_circuit.cy(self.quantum_circuit.qregs[qiskit_quantum_register_control_index][control_qubit_index],
+                                    self.quantum_circuit.qregs[qiskit_quantum_register_target_index][target_qubit_index])
+            """
+            Apply the Controlled-Y Gate/Operation to the given indexes of
+            control and target IBM Qiskit's Quantum Registers and their respective qubits.
+            """
+
+    def apply_controlled_z(self,
+                           qiskit_quantum_register_control_index: int,
+                           qiskit_quantum_register_target_index: int,
+                           control_qubit_index: int, target_qubit_index: int):
+        """
+        Apply the Controlled-Z (Controlled-Phase-Flip/Controlled-Phase-Shifter) Gate/Operation to
+        given indexes of a control IBM Qiskit's Quantum Register and the respective qubit on it, as also,
+        a target IBM Qiskit's Quantum Register and the respective qubit on it.
+
+        :param qiskit_quantum_register_control_index: the index of the control IBM Qiskit's Quantum Register.
+        :param qiskit_quantum_register_target_index: the index of the target IBM Qiskit's Quantum Register.
+        :param control_qubit_index: the index of a qubit inside the control IBM Qiskit's Quantum Register.
+        :param target_qubit_index: the index of a qubit inside the target IBM Qiskit's Quantum Register.
+        """
+
+        is_possible_to_apply_operation_control = \
+            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_control_index,
+                                                         control_qubit_index, True)
+        """
+        Check if it is possible to apply the pretended operation for
+        the control IBM Qiskit's Quantum Register and the respective control qubit.
+        """
+
+        is_possible_to_apply_operation_target = \
+            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_target_index,
+                                                         target_qubit_index, True)
+        """
+        Check if it is possible to apply the pretended operation for
+        the target IBM Qiskit's Quantum Register and the respective target qubit.
+        """
+
+        if is_possible_to_apply_operation_control and is_possible_to_apply_operation_target:
+            """
+            It is possible to apply the pretended operation for both
+            the control and target IBM Qiskit's Quantum Registers and their respective qubits.
+            """
+
+            self.quantum_circuit.cz(self.quantum_circuit.qregs[qiskit_quantum_register_control_index][control_qubit_index],
+                                    self.quantum_circuit.qregs[qiskit_quantum_register_target_index][target_qubit_index])
+            """
+            Apply the Controlled-Z (Controlled-Phase-Flip/Controlled-Phase-Shifter) Gate/Operation to
+            the given indexes of control and target IBM Qiskit's Quantum Registers and their respective qubits.
             """
 
     @staticmethod
