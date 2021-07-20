@@ -8711,6 +8711,74 @@ class QiskryptQuantumCircuit:
         :param target_qubit_index_2:
         """
 
+    def apply_controlled_controlled_pauli_x(self,
+                                            qiskit_quantum_register_control_index_1: int,
+                                            qiskit_quantum_register_control_index_2: int,
+                                            qiskit_quantum_register_target_index: int,
+                                            control_qubit_index_1: int, control_qubit_index_2: int,
+                                            target_qubit_index: int):
+        """
+
+
+        :param qiskit_quantum_register_control_index_1:
+        :param qiskit_quantum_register_control_index_2:
+        :param qiskit_quantum_register_target_index:
+        :param control_qubit_index_1:
+        :param control_qubit_index_2:
+        :param target_qubit_index:
+        """
+
+    def apply_controlled_controlled_pauli_y(self,
+                                            qiskit_quantum_register_control_index_1: int,
+                                            qiskit_quantum_register_control_index_2: int,
+                                            qiskit_quantum_register_target_index: int,
+                                            control_qubit_index_1: int, control_qubit_index_2: int,
+                                            target_qubit_index: int):
+        """
+
+
+        :param qiskit_quantum_register_control_index_1:
+        :param qiskit_quantum_register_control_index_2:
+        :param qiskit_quantum_register_target_index:
+        :param control_qubit_index_1:
+        :param control_qubit_index_2:
+        :param target_qubit_index:
+        """
+
+    def apply_controlled_controlled_pauli_z(self,
+                                            qiskit_quantum_register_control_index_1: int,
+                                            qiskit_quantum_register_control_index_2: int,
+                                            qiskit_quantum_register_target_index: int,
+                                            control_qubit_index_1: int, control_qubit_index_2: int,
+                                            target_qubit_index: int):
+        """
+
+
+        :param qiskit_quantum_register_control_index_1:
+        :param qiskit_quantum_register_control_index_2:
+        :param qiskit_quantum_register_target_index:
+        :param control_qubit_index_1:
+        :param control_qubit_index_2:
+        :param target_qubit_index:
+        """
+
+    def apply_toffolli(self,
+                       qiskit_quantum_register_control_index_1: int,
+                       qiskit_quantum_register_control_index_2: int,
+                       qiskit_quantum_register_target_index: int,
+                       control_qubit_index_1: int, control_qubit_index_2: int,
+                       target_qubit_index: int):
+        """
+
+
+        :param qiskit_quantum_register_control_index_1:
+        :param qiskit_quantum_register_control_index_2:
+        :param qiskit_quantum_register_target_index:
+        :param control_qubit_index_1:
+        :param control_qubit_index_2:
+        :param target_qubit_index:
+        """
+
     @staticmethod
     def check_if_is_a_qiskrypt_semi_quantum_register(qiskrypt_register: object) -> bool:
         """
