@@ -7709,7 +7709,8 @@ class QiskryptQuantumCircuit:
             """
 
             self.quantum_circuit.unitary(squared_root_pauli_y_unitary_matrix_operator,
-                                         self.quantum_circuit.qregs[qiskit_quantum_register_index][qubit_index])
+                                         self.quantum_circuit.qregs[qiskit_quantum_register_index][qubit_index],
+                                         label="sy")
             """
             Apply the Squared Root of the Pauli-Y Gate/Operation to the given qubit of the given IBM Qiskit's Quantum Register. 
             """
@@ -7743,7 +7744,8 @@ class QiskryptQuantumCircuit:
             """
 
             self.quantum_circuit.unitary(squared_root_pauli_z_unitary_matrix_operator,
-                                         self.quantum_circuit.qregs[qiskit_quantum_register_index][qubit_index])
+                                         self.quantum_circuit.qregs[qiskit_quantum_register_index][qubit_index],
+                                         label="sz")
             """
             Apply the Squared Root of the Pauli-Z (Phase Flip/Shift) Gate/Operation to
             the given qubit of the given IBM Qiskit's Quantum Register. 
@@ -7778,7 +7780,8 @@ class QiskryptQuantumCircuit:
             """
 
             self.quantum_circuit.unitary(squared_root_hadamard_unitary_matrix_operator,
-                                         self.quantum_circuit.qregs[qiskit_quantum_register_index][qubit_index])
+                                         self.quantum_circuit.qregs[qiskit_quantum_register_index][qubit_index],
+                                         label="sh")
             """
             Apply the Squared Root of the Hadamard Gate/Operation to
             the given qubit of the given IBM Qiskit's Quantum Register. 
@@ -7805,7 +7808,7 @@ class QiskryptQuantumCircuit:
             """
 
             squared_root_phase_s_unitary_matrix_operator = Operator([
-                [1, 0],
+                [1,        0],
                 [0, sqrt(1j)]
             ])
             """
@@ -7813,7 +7816,8 @@ class QiskryptQuantumCircuit:
             """
 
             self.quantum_circuit.unitary(squared_root_phase_s_unitary_matrix_operator,
-                                         self.quantum_circuit.qregs[qiskit_quantum_register_index][qubit_index])
+                                         self.quantum_circuit.qregs[qiskit_quantum_register_index][qubit_index],
+                                         label="ss")
             """
             Apply the Squared Root of the S (sqrt(pi/2)) Gate/Operation to
             the given qubit of the given IBM Qiskit's Quantum Register. 
@@ -7848,7 +7852,8 @@ class QiskryptQuantumCircuit:
             """
 
             self.quantum_circuit.unitary(squared_root_phase_t_unitary_matrix_operator,
-                                         self.quantum_circuit.qregs[qiskit_quantum_register_index][qubit_index])
+                                         self.quantum_circuit.qregs[qiskit_quantum_register_index][qubit_index],
+                                         label="st")
             """
             Apply the Squared Root of the T (sqrt(pi/4)) Gate/Operation to
             the given qubit of the given IBM Qiskit's Quantum Register. 
@@ -8509,7 +8514,8 @@ class QiskryptQuantumCircuit:
 
             self.quantum_circuit.unitary(controlled_phase_s_unitary_matrix_operator,
                                          [self.quantum_circuit.qregs[qiskit_quantum_register_control_index][control_qubit_index],
-                                          self.quantum_circuit.qregs[qiskit_quantum_register_target_index][target_qubit_index]])
+                                          self.quantum_circuit.qregs[qiskit_quantum_register_target_index][target_qubit_index]],
+                                         label="cs")
             """
             Apply the Controlled-Phase-S (pi/2) Gate/Operation to
             the given indexes of control and target IBM Qiskit's Quantum Registers and their respective qubits.
@@ -8565,7 +8571,8 @@ class QiskryptQuantumCircuit:
 
             self.quantum_circuit.unitary(controlled_phase_t_unitary_matrix_operator,
                                          [self.quantum_circuit.qregs[qiskit_quantum_register_control_index][control_qubit_index],
-                                          self.quantum_circuit.qregs[qiskit_quantum_register_target_index][target_qubit_index]])
+                                          self.quantum_circuit.qregs[qiskit_quantum_register_target_index][target_qubit_index]],
+                                         label="ct")
             """
             Apply the Controlled-Phase-T (pi/4) Gate/Operation to
             the given indexes of control and target IBM Qiskit's Quantum Registers and their respective qubits.
@@ -8610,9 +8617,9 @@ class QiskryptQuantumCircuit:
             """
 
             controlled_phase_s_adjoint_unitary_matrix_operator = Operator([
-                [1, 0, 0, 0],
-                [0, 1, 0, 0],
-                [0, 0, 1, 0],
+                [1, 0, 0,   0],
+                [0, 1, 0,   0],
+                [0, 0, 1,   0],
                 [0, 0, 0, -1j]
             ])
             """
@@ -8621,7 +8628,8 @@ class QiskryptQuantumCircuit:
 
             self.quantum_circuit.unitary(controlled_phase_s_adjoint_unitary_matrix_operator,
                                          [self.quantum_circuit.qregs[qiskit_quantum_register_control_index][control_qubit_index],
-                                          self.quantum_circuit.qregs[qiskit_quantum_register_target_index][target_qubit_index]])
+                                          self.quantum_circuit.qregs[qiskit_quantum_register_target_index][target_qubit_index]],
+                                         label="csdg")
             """
             Apply the Controlled-Phase-S (-pi/2) Adjoint Gate/Operation to
             the given indexes of control and target IBM Qiskit's Quantum Registers and their respective qubits.
@@ -8677,7 +8685,8 @@ class QiskryptQuantumCircuit:
 
             self.quantum_circuit.unitary(controlled_phase_t_adjoint_unitary_matrix_operator,
                                          [self.quantum_circuit.qregs[qiskit_quantum_register_control_index][control_qubit_index],
-                                          self.quantum_circuit.qregs[qiskit_quantum_register_target_index][target_qubit_index]])
+                                          self.quantum_circuit.qregs[qiskit_quantum_register_target_index][target_qubit_index]],
+                                         label="ctdg")
             """
             Apply the Controlled-Phase-T (-pi/4) Adjoint Gate/Operation to
             the given indexes of control and target IBM Qiskit's Quantum Registers and their respective qubits.
@@ -8891,7 +8900,8 @@ class QiskryptQuantumCircuit:
             self.quantum_circuit.unitary(controlled_controlled_pauli_y_unitary_matrix_operator,
                                          [self.quantum_circuit.qregs[qiskit_quantum_register_control_index_1][control_qubit_index_1],
                                           self.quantum_circuit.qregs[qiskit_quantum_register_control_index_2][control_qubit_index_2],
-                                          self.quantum_circuit.qregs[qiskit_quantum_register_target_index][target_qubit_index]])
+                                          self.quantum_circuit.qregs[qiskit_quantum_register_target_index][target_qubit_index]],
+                                         label="ccy")
             """
             Apply the Controlled-Controlled-Pauli-Y Gate/Operation to the given indexes of
             controls and target IBM Qiskit's Quantum Registers and their respective qubits.
@@ -8964,7 +8974,8 @@ class QiskryptQuantumCircuit:
             self.quantum_circuit.unitary(controlled_controlled_pauli_z_unitary_matrix_operator,
                                          [self.quantum_circuit.qregs[qiskit_quantum_register_control_index_1][control_qubit_index_1],
                                           self.quantum_circuit.qregs[qiskit_quantum_register_control_index_2][control_qubit_index_2],
-                                          self.quantum_circuit.qregs[qiskit_quantum_register_target_index][target_qubit_index]])
+                                          self.quantum_circuit.qregs[qiskit_quantum_register_target_index][target_qubit_index]],
+                                         label="ccz")
             """
             Apply the Controlled-Controlled-Pauli-Z Gate/Operation to the given indexes of
             controls and target IBM Qiskit's Quantum Registers and their respective qubits.
