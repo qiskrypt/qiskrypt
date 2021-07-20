@@ -8189,6 +8189,57 @@ class CreationQiskryptQuantumCircuitTests(TestCase):
         self.assertEqual(True, True)
 
 
+class OtherBasicAndFundamentalMethodsOfQiskryptQuantumCircuitTests(TestCase):
+    """
+    Object Class of the Unitary Tests for other basic and fundamental methods of a Qiskrypt's Quantum Circuit.
+    """
+
+    def test_no_1_revert_qiskit_quantum_circuit_operations(self):
+        """
+        Test Case #1:
+
+        - Revert the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit.
+
+        Return OK (or FAIL) if, all the Tests performed are OK (or FAIL, otherwise).
+        """
+
+        """
+        Dummy Assert Equal for the Unittest
+        """
+        self.assertEqual(True, True)
+
+    def test_no_2_revert_qiskit_quantum_circuit_wires_order(self):
+        """
+        Test Case #2:
+
+        - Revert the order of the wires of the IBM Qiskit's Quantum Circuit of
+          the Qiskrypt's Quantum Circuit.
+
+        Return OK (or FAIL) if, all the Tests performed are OK (or FAIL, otherwise).
+        """
+
+        """
+        Dummy Assert Equal for the Unittest
+        """
+        self.assertEqual(True, True)
+
+    def test_no_3_invert_qiskit_quantum_circuit(self):
+        """
+        Test Case #3:
+
+        - Invert the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit,
+          reverting the order of the Quantum Gates/Operations and
+          setting the symmetric values for their parameters.
+
+        Return OK (or FAIL) if, all the Tests performed are OK (or FAIL, otherwise).
+        """
+
+        """
+        Dummy Assert Equal for the Unittest
+        """
+        self.assertEqual(True, True)
+
+
 if __name__ == "__main__":
     """
     The Main Method for the Unitary Test.
@@ -8200,8 +8251,15 @@ if __name__ == "__main__":
     Load the Test Cases from the Unitary Tests for the creation of a Qiskrypt's Quantum Circuit.
     """
 
-    creation_qiskrypt_quantum_circuit_test_suite = \
-        TestSuite([creation_qiskrypt_quantum_circuit_test_cases])
+    other_basic_and_fundamental_methods_of_qiskrypt_quantum_circuit_test_cases = \
+        TestLoader().loadTestsFromTestCase(OtherBasicAndFundamentalMethodsOfQiskryptQuantumCircuitTests)
     """
-    Load the Test Suite with the Test Cases for the creation of a Qiskrypt's Quantum Circuit.
+    Load the Test Cases from the Unitary Tests for other basic and fundamental methods of a Qiskrypt's Quantum Circuit.
+    """
+
+    creation_qiskrypt_quantum_circuit_test_suite = \
+        TestSuite([creation_qiskrypt_quantum_circuit_test_cases,
+                   other_basic_and_fundamental_methods_of_qiskrypt_quantum_circuit_test_cases])
+    """
+    Load the Test Suite with all the Test Cases for the Qiskrypt's Quantum Circuit.
     """
