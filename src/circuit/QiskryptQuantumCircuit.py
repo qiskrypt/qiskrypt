@@ -7175,24 +7175,210 @@ class QiskryptQuantumCircuit:
 
     def prepare_and_measure_all_qubits_in_all_qiskit_quantum_registers_in_x_basis(self, is_final_measurement=True):
         """
+        Prepare (and possibly, Measure) all the indexes of qubits of all the indexes of
+        IBM Qiskit's Quantum Registers (into all the indexes of bits of all the indexes of
+        IBM Qiskit's Classical Registers), in the X-Basis.
 
-
-        :param is_final_measurement:
+        :param is_final_measurement: a boolean flag to indicate that all the indexes of qubits of
+                                     all the indexes of IBM Qiskit's Quantum Registers are pretended to
+                                     be measured into all the indexes of bits of
+                                     all the indexes of IBM Qiskit's Classical Registers,
+                                     in the Computational Basis (Z-Basis), after being prepared in the X-Basis.
         """
+
+        num_total_qiskit_quantum_registers = self.quantum_circuit.qregs.size
+        """
+        Retrieve the total number of IBM Qiskit's Quantum Registers
+        in the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit.
+        """
+
+        num_total_qiskit_classical_registers = self.quantum_circuit.cregs.size
+        """
+        Retrieve the total number of IBM Qiskit's Classical Registers
+        in the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit.
+        """
+
+        if num_total_qiskit_quantum_registers == num_total_qiskit_classical_registers:
+            """
+            If the total number of IBM Qiskit's Quantum Registers and
+            the total number of IBM Qiskit's Classical Registers are equal.
+            """
+
+            qiskit_quantum_registers_indexes = range(num_total_qiskit_quantum_registers)
+            """
+            Retrieve the indexes of the IBM Qiskit's Quantum Registers in the IBM Qiskit's Quantum Circuit.
+            """
+
+            qiskit_classical_registers_indexes = range(num_total_qiskit_classical_registers)
+            """
+            Retrieve the indexes of the IBM Qiskit's Classical Registers in the IBM Qiskit's Quantum Circuit.            
+            """
+
+            for qiskit_quantum_register_index, qiskit_classical_register_index \
+                    in zip(qiskit_quantum_registers_indexes, qiskit_classical_registers_indexes):
+                """
+                For each pair of indexes of IBM Qiskit's Quantum Registers and IBM Qiskit's Classical Registers.
+                """
+
+                self.prepare_and_measure_all_qubits_in_qiskit_quantum_register_in_x_basis(qiskit_quantum_register_index,
+                                                                                          qiskit_classical_register_index,
+                                                                                          is_final_measurement)
+                """
+                Prepare (and possibly, Measure) all the indexes of qubits of the given index of
+                the current IBM Qiskit's Quantum Register
+                (into all the indexes of bits of the given index of
+                the current IBM Qiskit's Classical Register), in the X-Basis.
+                """
+
+        else:
+            """
+            If the total number of IBM Qiskit's Quantum Registers and
+            the total number of IBM Qiskit's Classical Registers are not equal.
+            """
+
+            self.raise_num_quantum_registers_and_num_classical_registers_are_not_equal_for_operation_or_measurement_error()
+            """
+            Raise the Number of Quantum Registers and Number of Classical Registers are Not Equal for
+            Operation or Measurement Error for the Qiskrypt's Quantum Circuit.
+            """
 
     def prepare_and_measure_all_qubits_in_all_qiskit_quantum_registers_in_y_basis(self, is_final_measurement=True):
         """
+        Prepare (and possibly, Measure) all the indexes of qubits of all the indexes of
+        IBM Qiskit's Quantum Registers (into all the indexes of bits of all the indexes of
+        IBM Qiskit's Classical Registers), in the Y-Basis.
 
-
-        :param is_final_measurement:
+        :param is_final_measurement: a boolean flag to indicate that all the indexes of qubits of
+                                     all the indexes of IBM Qiskit's Quantum Registers are pretended to
+                                     be measured into all the indexes of bits of
+                                     all the indexes of IBM Qiskit's Classical Registers,
+                                     in the Computational Basis (Z-Basis), after being prepared in the Y-Basis.
         """
+
+        num_total_qiskit_quantum_registers = self.quantum_circuit.qregs.size
+        """
+        Retrieve the total number of IBM Qiskit's Quantum Registers
+        in the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit.
+        """
+
+        num_total_qiskit_classical_registers = self.quantum_circuit.cregs.size
+        """
+        Retrieve the total number of IBM Qiskit's Classical Registers
+        in the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit.
+        """
+
+        if num_total_qiskit_quantum_registers == num_total_qiskit_classical_registers:
+            """
+            If the total number of IBM Qiskit's Quantum Registers and
+            the total number of IBM Qiskit's Classical Registers are equal.
+            """
+
+            qiskit_quantum_registers_indexes = range(num_total_qiskit_quantum_registers)
+            """
+            Retrieve the indexes of the IBM Qiskit's Quantum Registers in the IBM Qiskit's Quantum Circuit.
+            """
+
+            qiskit_classical_registers_indexes = range(num_total_qiskit_classical_registers)
+            """
+            Retrieve the indexes of the IBM Qiskit's Classical Registers in the IBM Qiskit's Quantum Circuit.            
+            """
+
+            for qiskit_quantum_register_index, qiskit_classical_register_index \
+                    in zip(qiskit_quantum_registers_indexes, qiskit_classical_registers_indexes):
+                """
+                For each pair of indexes of IBM Qiskit's Quantum Registers and IBM Qiskit's Classical Registers.
+                """
+
+                self.prepare_and_measure_all_qubits_in_qiskit_quantum_register_in_y_basis(qiskit_quantum_register_index,
+                                                                                          qiskit_classical_register_index,
+                                                                                          is_final_measurement)
+                """
+                Prepare (and possibly, Measure) all the indexes of qubits of the given index of
+                the current IBM Qiskit's Quantum Register
+                (into all the indexes of bits of the given index of
+                the current IBM Qiskit's Classical Register), in the Y-Basis.
+                """
+
+        else:
+            """
+            If the total number of IBM Qiskit's Quantum Registers and
+            the total number of IBM Qiskit's Classical Registers are not equal.
+            """
+
+            self.raise_num_quantum_registers_and_num_classical_registers_are_not_equal_for_operation_or_measurement_error()
+            """
+            Raise the Number of Quantum Registers and Number of Classical Registers are Not Equal for
+            Operation or Measurement Error for the Qiskrypt's Quantum Circuit.
+            """
 
     def prepare_and_measure_all_qubits_in_all_qiskit_quantum_registers_in_z_basis(self, is_final_measurement=True):
         """
+        Prepare (and possibly, Measure) all the indexes of qubits of all the indexes of
+        IBM Qiskit's Quantum Registers (into all the indexes of bits of all the indexes of
+        IBM Qiskit's Classical Registers), in the Z-Basis.
 
-
-        :param is_final_measurement:
+        :param is_final_measurement: a boolean flag to indicate that all the indexes of qubits of
+                                     all the indexes of IBM Qiskit's Quantum Registers are pretended to
+                                     be measured into all the indexes of bits of
+                                     all the indexes of IBM Qiskit's Classical Registers,
+                                     in the Computational Basis (Z-Basis), after being prepared in the Z-Basis.
         """
+
+        num_total_qiskit_quantum_registers = self.quantum_circuit.qregs.size
+        """
+        Retrieve the total number of IBM Qiskit's Quantum Registers
+        in the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit.
+        """
+
+        num_total_qiskit_classical_registers = self.quantum_circuit.cregs.size
+        """
+        Retrieve the total number of IBM Qiskit's Classical Registers
+        in the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit.
+        """
+
+        if num_total_qiskit_quantum_registers == num_total_qiskit_classical_registers:
+            """
+            If the total number of IBM Qiskit's Quantum Registers and
+            the total number of IBM Qiskit's Classical Registers are equal.
+            """
+
+            qiskit_quantum_registers_indexes = range(num_total_qiskit_quantum_registers)
+            """
+            Retrieve the indexes of the IBM Qiskit's Quantum Registers in the IBM Qiskit's Quantum Circuit.
+            """
+
+            qiskit_classical_registers_indexes = range(num_total_qiskit_classical_registers)
+            """
+            Retrieve the indexes of the IBM Qiskit's Classical Registers in the IBM Qiskit's Quantum Circuit.            
+            """
+
+            for qiskit_quantum_register_index, qiskit_classical_register_index \
+                    in zip(qiskit_quantum_registers_indexes, qiskit_classical_registers_indexes):
+                """
+                For each pair of indexes of IBM Qiskit's Quantum Registers and IBM Qiskit's Classical Registers.
+                """
+
+                self.prepare_and_measure_all_qubits_in_qiskit_quantum_register_in_z_basis(qiskit_quantum_register_index,
+                                                                                          qiskit_classical_register_index,
+                                                                                          is_final_measurement)
+                """
+                Prepare (and possibly, Measure) all the indexes of qubits of the given index of
+                the current IBM Qiskit's Quantum Register
+                (into all the indexes of bits of the given index of
+                the current IBM Qiskit's Classical Register), in the Z-Basis.
+                """
+
+        else:
+            """
+            If the total number of IBM Qiskit's Quantum Registers and
+            the total number of IBM Qiskit's Classical Registers are not equal.
+            """
+
+            self.raise_num_quantum_registers_and_num_classical_registers_are_not_equal_for_operation_or_measurement_error()
+            """
+            Raise the Number of Quantum Registers and Number of Classical Registers are Not Equal for
+            Operation or Measurement Error for the Qiskrypt's Quantum Circuit.
+            """
 
     """
     3) Single Qubit Gates/Operations Methods:
