@@ -4896,7 +4896,7 @@ class QiskryptQuantumCircuit:
                                                                         only by a Fully-Quantum.
         """
 
-        if qiskit_quantum_register_index < self.quantum_circuit.qregs.size:
+        if qiskit_quantum_register_index < len(self.quantum_circuit.qregs):
             """
             If the given index of the IBM Qiskit's Quantum Register is valid.
             """
@@ -5013,7 +5013,7 @@ class QiskryptQuantumCircuit:
         :param bit_index: index of a bit inside that IBM Qiskit's Classical Register.
         """
 
-        if qiskit_quantum_register_index < self.quantum_circuit.qregs.size:
+        if qiskit_quantum_register_index < len(self.quantum_circuit.qregs):
             """
             If the given index of the IBM Qiskit's Quantum Register is valid.
             """
@@ -5034,7 +5034,7 @@ class QiskryptQuantumCircuit:
                     If it was found some Qiskrypt's Quantum Register in the Qiskrypt's Quantum Circuit, with the given name.
                     """
 
-                    if qiskit_classical_register_index < self.quantum_circuit.cregs.size:
+                    if qiskit_classical_register_index < len(self.quantum_circuit.cregs):
                         """
                         If the given index of the IBM Qiskit's Classical Register is valid.
                         """
@@ -5127,7 +5127,7 @@ class QiskryptQuantumCircuit:
         :param qubits_indexes: the list of indexes of qubits inside that IBM Qiskit's Quantum Register.
         """
 
-        if qiskit_quantum_register_index < self.quantum_circuit.qregs.size:
+        if qiskit_quantum_register_index < len(self.quantum_circuit.qregs):
             """
             If the given index of the IBM Qiskit's Quantum Register is valid.
             """
@@ -5187,7 +5187,7 @@ class QiskryptQuantumCircuit:
         :param qiskit_quantum_register_index: the index of an IBM Qiskit's Quantum Register.
         """
 
-        if qiskit_quantum_register_index < self.quantum_circuit.qregs.size:
+        if qiskit_quantum_register_index < len(self.quantum_circuit.qregs):
             """
             If the given index of the IBM Qiskit's Quantum Register is valid.
             """
@@ -5231,7 +5231,7 @@ class QiskryptQuantumCircuit:
         :param qubits_indexes: the list of indexes of qubits inside all the IBM Qiskit's Quantum Registers.
         """
 
-        num_total_qiskit_quantum_registers = self.quantum_circuit.qregs.size
+        num_total_qiskit_quantum_registers = len(self.quantum_circuit.qregs)
         """
         Retrieve the total number of IBM Qiskit's Quantum Registers
         in the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit.
@@ -5255,7 +5255,7 @@ class QiskryptQuantumCircuit:
         the Qiskrypt's Quantum Circuit.
         """
 
-        num_total_qiskit_quantum_registers = self.quantum_circuit.qregs.size
+        num_total_qiskit_quantum_registers = len(self.quantum_circuit.qregs)
         """
         Retrieve the total number of IBM Qiskit's Quantum Registers
         in the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit.
@@ -5306,7 +5306,7 @@ class QiskryptQuantumCircuit:
         :param qubits_indexes: the list of indexes of qubits inside that IBM Qiskit's Quantum Register.
         """
 
-        if qiskit_quantum_register_index < self.quantum_circuit.qregs.size:
+        if qiskit_quantum_register_index < len(self.quantum_circuit.qregs):
             """
             If the given index of the IBM Qiskit's Quantum Register is valid.
             """
@@ -5366,7 +5366,7 @@ class QiskryptQuantumCircuit:
         :param qiskit_quantum_register_index: the index of an IBM Qiskit's Quantum Register.
         """
 
-        if qiskit_quantum_register_index < self.quantum_circuit.qregs.size:
+        if qiskit_quantum_register_index < len(self.quantum_circuit.qregs):
             """
             If the given index of the IBM Qiskit's Quantum Register is valid.
             """
@@ -5410,7 +5410,7 @@ class QiskryptQuantumCircuit:
         :param qubits_indexes: the list of indexes of qubits inside all the IBM Qiskit's Quantum Registers.
         """
 
-        num_total_qiskit_quantum_registers = self.quantum_circuit.qregs.size
+        num_total_qiskit_quantum_registers = len(self.quantum_circuit.qregs)
         """
         Retrieve the total number of IBM Qiskit's Quantum Registers
         in the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit.
@@ -5433,7 +5433,7 @@ class QiskryptQuantumCircuit:
         in the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit.
         """
 
-        num_total_qiskit_quantum_registers = self.quantum_circuit.qregs.size
+        num_total_qiskit_quantum_registers = len(self.quantum_circuit.qregs)
         """
         Retrieve the total number of IBM Qiskit's Quantum Registers
         in the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit.
@@ -5504,7 +5504,7 @@ class QiskryptQuantumCircuit:
         :param bits_indexes: the list of indexes of bits inside that IBM Qiskit's Classical Register.
         """
 
-        if qiskit_quantum_register_index < self.quantum_circuit.qregs.size:
+        if qiskit_quantum_register_index < len(self.quantum_circuit.qregs):
             """
             If the given index of the IBM Qiskit's Quantum Register is valid.
             """
@@ -5525,7 +5525,7 @@ class QiskryptQuantumCircuit:
                 the given IBM Qiskit's Quantum Register is also valid.
                 """
 
-                if qiskit_classical_register_index < self.quantum_circuit.cregs.size:
+                if qiskit_classical_register_index < len(self.quantum_circuit.cregs):
                     """
                     If the given index of the IBM Qiskit's Classical Register is valid.
                     """
@@ -5631,12 +5631,12 @@ class QiskryptQuantumCircuit:
         :param qiskit_classical_register_index: the index of an IBM Qiskit's Classical Register.
         """
 
-        if qiskit_quantum_register_index < self.quantum_circuit.qregs.size:
+        if qiskit_quantum_register_index < len(self.quantum_circuit.qregs):
             """
             If the given index of the IBM Qiskit's Quantum Register is valid.
             """
 
-            if qiskit_classical_register_index < self.quantum_circuit.cregs.size:
+            if qiskit_classical_register_index < len(self.quantum_circuit.cregs):
                 """
                 If the given index of the IBM Qiskit's Classical Register is valid.
                 """
@@ -5730,13 +5730,13 @@ class QiskryptQuantumCircuit:
         :param bits_indexes: the list of indexes of bits inside all the IBM Qiskit's Classical Registers.
         """
 
-        num_total_qiskit_quantum_registers = self.quantum_circuit.qregs.size
+        num_total_qiskit_quantum_registers = len(self.quantum_circuit.qregs)
         """
         Retrieve the total number of IBM Qiskit's Quantum Registers
         in the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit.
         """
 
-        num_total_qiskit_classical_registers = self.quantum_circuit.cregs.size
+        num_total_qiskit_classical_registers = len(self.quantum_circuit.cregs)
         """
         Retrieve the total number of IBM Qiskit's Classical Registers
         in the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit.
@@ -5830,13 +5830,13 @@ class QiskryptQuantumCircuit:
         the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit.
         """
 
-        num_total_qiskit_quantum_registers = self.quantum_circuit.qregs.size
+        num_total_qiskit_quantum_registers = len(self.quantum_circuit.qregs)
         """
         Retrieve the total number of IBM Qiskit's Quantum Registers
         in the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit.
         """
 
-        num_total_qiskit_classical_registers = self.quantum_circuit.cregs.size
+        num_total_qiskit_classical_registers = len(self.quantum_circuit.cregs)
         """
         Retrieve the total number of IBM Qiskit's Classical Registers
         in the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit.
@@ -6116,7 +6116,7 @@ class QiskryptQuantumCircuit:
                                      in the Computational Basis (Z-Basis), after being prepared in the X-Basis.
         """
 
-        if qiskit_quantum_register_index < self.quantum_circuit.qregs.size:
+        if qiskit_quantum_register_index < len(self.quantum_circuit.qregs):
             """
             If the given index of the IBM Qiskit's Quantum Register is valid.
             """
@@ -6137,7 +6137,7 @@ class QiskryptQuantumCircuit:
                 the given IBM Qiskit's Quantum Register is also valid.
                 """
 
-                if qiskit_classical_register_index < self.quantum_circuit.cregs.size:
+                if qiskit_classical_register_index < len(self.quantum_circuit.cregs):
                     """
                     If the given index of the IBM Qiskit's Classical Register is valid.
                     """
@@ -6257,7 +6257,7 @@ class QiskryptQuantumCircuit:
                                      in the Computational Basis (Z-Basis), after being prepared in the Y-Basis.
         """
 
-        if qiskit_quantum_register_index < self.quantum_circuit.qregs.size:
+        if qiskit_quantum_register_index < len(self.quantum_circuit.qregs):
             """
             If the given index of the IBM Qiskit's Quantum Register is valid.
             """
@@ -6278,7 +6278,7 @@ class QiskryptQuantumCircuit:
                 the given IBM Qiskit's Quantum Register is also valid.
                 """
 
-                if qiskit_classical_register_index < self.quantum_circuit.cregs.size:
+                if qiskit_classical_register_index < len(self.quantum_circuit.cregs):
                     """
                     If the given index of the IBM Qiskit's Classical Register is valid.
                     """
@@ -6398,7 +6398,7 @@ class QiskryptQuantumCircuit:
                                      in the Computational Basis (Z-Basis), after being prepared in the Z-Basis.
         """
 
-        if qiskit_quantum_register_index < self.quantum_circuit.qregs.size:
+        if qiskit_quantum_register_index < len(self.quantum_circuit.qregs):
             """
             If the given index of the IBM Qiskit's Quantum Register is valid.
             """
@@ -6419,7 +6419,7 @@ class QiskryptQuantumCircuit:
                 the given IBM Qiskit's Quantum Register is also valid.
                 """
 
-                if qiskit_classical_register_index < self.quantum_circuit.cregs.size:
+                if qiskit_classical_register_index < len(self.quantum_circuit.cregs):
                     """
                     If the given index of the IBM Qiskit's Classical Register is valid.
                     """
@@ -6535,12 +6535,12 @@ class QiskryptQuantumCircuit:
                                      in the Computational Basis (Z-Basis), after being prepared in the X-Basis.
         """
 
-        if qiskit_quantum_register_index < self.quantum_circuit.qregs.size:
+        if qiskit_quantum_register_index < len(self.quantum_circuit.qregs):
             """
             If the given index of the IBM Qiskit's Quantum Register is valid.
             """
 
-            if qiskit_classical_register_index < self.quantum_circuit.cregs.size:
+            if qiskit_classical_register_index < len(self.quantum_circuit.cregs):
                 """
                 If the given index of the IBM Qiskit's Classical Register is valid.
                 """
@@ -6644,12 +6644,12 @@ class QiskryptQuantumCircuit:
                                      in the Computational Basis (Z-Basis), after being prepared in the Y-Basis.
         """
 
-        if qiskit_quantum_register_index < self.quantum_circuit.qregs.size:
+        if qiskit_quantum_register_index < len(self.quantum_circuit.qregs):
             """
             If the given index of the IBM Qiskit's Quantum Register is valid.
             """
 
-            if qiskit_classical_register_index < self.quantum_circuit.cregs.size:
+            if qiskit_classical_register_index < len(self.quantum_circuit.cregs):
                 """
                 If the given index of the IBM Qiskit's Classical Register is valid.
                 """
@@ -6753,12 +6753,12 @@ class QiskryptQuantumCircuit:
                                      in the Computational Basis (Z-Basis), after being prepared in the Z-Basis.
         """
 
-        if qiskit_quantum_register_index < self.quantum_circuit.qregs.size:
+        if qiskit_quantum_register_index < len(self.quantum_circuit.qregs):
             """
             If the given index of the IBM Qiskit's Quantum Register is valid.
             """
 
-            if qiskit_classical_register_index < self.quantum_circuit.cregs.size:
+            if qiskit_classical_register_index < len(self.quantum_circuit.cregs):
                 """
                 If the given index of the IBM Qiskit's Classical Register is valid.
                 """
@@ -6862,13 +6862,13 @@ class QiskryptQuantumCircuit:
                                      in the Computational Basis (Z-Basis), after being prepared in the X-Basis.
         """
 
-        num_total_qiskit_quantum_registers = self.quantum_circuit.qregs.size
+        num_total_qiskit_quantum_registers = len(self.quantum_circuit.qregs)
         """
         Retrieve the total number of IBM Qiskit's Quantum Registers
         in the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit.
         """
 
-        num_total_qiskit_classical_registers = self.quantum_circuit.cregs.size
+        num_total_qiskit_classical_registers = len(self.quantum_circuit.cregs)
         """
         Retrieve the total number of IBM Qiskit's Classical Registers
         in the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit.
@@ -6973,13 +6973,13 @@ class QiskryptQuantumCircuit:
                                      in the Computational Basis (Z-Basis), after being prepared in the Y-Basis.
         """
 
-        num_total_qiskit_quantum_registers = self.quantum_circuit.qregs.size
+        num_total_qiskit_quantum_registers = len(self.quantum_circuit.qregs)
         """
         Retrieve the total number of IBM Qiskit's Quantum Registers
         in the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit.
         """
 
-        num_total_qiskit_classical_registers = self.quantum_circuit.cregs.size
+        num_total_qiskit_classical_registers = len(self.quantum_circuit.cregs)
         """
         Retrieve the total number of IBM Qiskit's Classical Registers
         in the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit.
@@ -7084,13 +7084,13 @@ class QiskryptQuantumCircuit:
                                      in the Computational Basis (Z-Basis), after being prepared in the Z-Basis.
         """
 
-        num_total_qiskit_quantum_registers = self.quantum_circuit.qregs.size
+        num_total_qiskit_quantum_registers = len(self.quantum_circuit.qregs)
         """
         Retrieve the total number of IBM Qiskit's Quantum Registers
         in the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit.
         """
 
-        num_total_qiskit_classical_registers = self.quantum_circuit.cregs.size
+        num_total_qiskit_classical_registers = len(self.quantum_circuit.cregs)
         """
         Retrieve the total number of IBM Qiskit's Classical Registers
         in the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit.
@@ -7190,13 +7190,13 @@ class QiskryptQuantumCircuit:
                                      in the Computational Basis (Z-Basis), after being prepared in the X-Basis.
         """
 
-        num_total_qiskit_quantum_registers = self.quantum_circuit.qregs.size
+        num_total_qiskit_quantum_registers = len(self.quantum_circuit.qregs)
         """
         Retrieve the total number of IBM Qiskit's Quantum Registers
         in the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit.
         """
 
-        num_total_qiskit_classical_registers = self.quantum_circuit.cregs.size
+        num_total_qiskit_classical_registers = len(self.quantum_circuit.cregs)
         """
         Retrieve the total number of IBM Qiskit's Classical Registers
         in the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit.
@@ -7259,13 +7259,13 @@ class QiskryptQuantumCircuit:
                                      in the Computational Basis (Z-Basis), after being prepared in the Y-Basis.
         """
 
-        num_total_qiskit_quantum_registers = self.quantum_circuit.qregs.size
+        num_total_qiskit_quantum_registers = len(self.quantum_circuit.qregs)
         """
         Retrieve the total number of IBM Qiskit's Quantum Registers
         in the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit.
         """
 
-        num_total_qiskit_classical_registers = self.quantum_circuit.cregs.size
+        num_total_qiskit_classical_registers = len(self.quantum_circuit.cregs)
         """
         Retrieve the total number of IBM Qiskit's Classical Registers
         in the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit.
@@ -7328,13 +7328,13 @@ class QiskryptQuantumCircuit:
                                      in the Computational Basis (Z-Basis), after being prepared in the Z-Basis.
         """
 
-        num_total_qiskit_quantum_registers = self.quantum_circuit.qregs.size
+        num_total_qiskit_quantum_registers = len(self.quantum_circuit.qregs)
         """
         Retrieve the total number of IBM Qiskit's Quantum Registers
         in the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit.
         """
 
-        num_total_qiskit_classical_registers = self.quantum_circuit.cregs.size
+        num_total_qiskit_classical_registers = len(self.quantum_circuit.cregs)
         """
         Retrieve the total number of IBM Qiskit's Classical Registers
         in the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit.
