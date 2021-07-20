@@ -46,6 +46,22 @@ from unittest import TestCase, TestLoader, TestSuite
 Import TestCase, TestLoader and TestSuite from Unittest.
 """
 
+from numpy import array, sqrt
+"""
+Import the N-Dimensional Arrays and Square Root functions from Python's NumPy.
+"""
+
+from numpy.testing import assert_allclose
+"""
+Import the function for the assertion of all close values of an array,
+allowing a small value of error of the Testing Module from Python's NumPy.
+"""
+
+from qiskit import Aer, execute
+"""
+Import Aer Simulator and the Execute function from IBM's Qiskit.
+"""
+
 from qiskit import QuantumRegister
 """
 Import Quantum Register from IBM's Qiskit.
@@ -142,13 +158,13 @@ class CreationQiskryptQuantumCircuitTests(TestCase):
 
         qiskrypt_quantum_circuit = \
             QiskryptQuantumCircuit(name=quantum_circuit_name,
-                                   quantum_registers=[qiskrypt_quantum_register],
-                                   fully_quantum_registers=None,
-                                   semi_quantum_registers=None,
-                                   ancilla_quantum_registers=None,
-                                   ancilla_fully_quantum_registers=None,
-                                   ancilla_semi_quantum_registers=None,
-                                   classical_registers=None,
+                                   qiskrypt_quantum_registers=[qiskrypt_quantum_register],
+                                   qiskrypt_fully_quantum_registers=None,
+                                   qiskrypt_semi_quantum_registers=None,
+                                   qiskrypt_ancilla_quantum_registers=None,
+                                   qiskrypt_ancilla_fully_quantum_registers=None,
+                                   qiskrypt_ancilla_semi_quantum_registers=None,
+                                   qiskrypt_classical_registers=None,
                                    global_phase=0)
         """
         Create a Qiskrypt's Quantum Circuit, given its name,
@@ -270,13 +286,13 @@ class CreationQiskryptQuantumCircuitTests(TestCase):
 
         qiskrypt_quantum_circuit = \
             QiskryptQuantumCircuit(name=quantum_circuit_name,
-                                   quantum_registers=None,
-                                   fully_quantum_registers=[qiskrypt_fully_quantum_register],
-                                   semi_quantum_registers=None,
-                                   ancilla_quantum_registers=None,
-                                   ancilla_fully_quantum_registers=None,
-                                   ancilla_semi_quantum_registers=None,
-                                   classical_registers=None,
+                                   qiskrypt_quantum_registers=None,
+                                   qiskrypt_fully_quantum_registers=[qiskrypt_fully_quantum_register],
+                                   qiskrypt_semi_quantum_registers=None,
+                                   qiskrypt_ancilla_quantum_registers=None,
+                                   qiskrypt_ancilla_fully_quantum_registers=None,
+                                   qiskrypt_ancilla_semi_quantum_registers=None,
+                                   qiskrypt_classical_registers=None,
                                    global_phase=0)
         """
         Create a Qiskrypt's Quantum Circuit, given its name,
@@ -398,13 +414,13 @@ class CreationQiskryptQuantumCircuitTests(TestCase):
 
         qiskrypt_quantum_circuit = \
             QiskryptQuantumCircuit(name=quantum_circuit_name,
-                                   quantum_registers=None,
-                                   fully_quantum_registers=None,
-                                   semi_quantum_registers=[qiskrypt_semi_quantum_register],
-                                   ancilla_quantum_registers=None,
-                                   ancilla_fully_quantum_registers=None,
-                                   ancilla_semi_quantum_registers=None,
-                                   classical_registers=None,
+                                   qiskrypt_quantum_registers=None,
+                                   qiskrypt_fully_quantum_registers=None,
+                                   qiskrypt_semi_quantum_registers=[qiskrypt_semi_quantum_register],
+                                   qiskrypt_ancilla_quantum_registers=None,
+                                   qiskrypt_ancilla_fully_quantum_registers=None,
+                                   qiskrypt_ancilla_semi_quantum_registers=None,
+                                   qiskrypt_classical_registers=None,
                                    global_phase=0)
         """
         Create a Qiskrypt's Quantum Circuit, given its name,
@@ -526,13 +542,13 @@ class CreationQiskryptQuantumCircuitTests(TestCase):
 
         qiskrypt_quantum_circuit = \
             QiskryptQuantumCircuit(name=quantum_circuit_name,
-                                   quantum_registers=None,
-                                   fully_quantum_registers=None,
-                                   semi_quantum_registers=None,
-                                   ancilla_quantum_registers=[qiskrypt_ancilla_quantum_register],
-                                   ancilla_fully_quantum_registers=None,
-                                   ancilla_semi_quantum_registers=None,
-                                   classical_registers=None,
+                                   qiskrypt_quantum_registers=None,
+                                   qiskrypt_fully_quantum_registers=None,
+                                   qiskrypt_semi_quantum_registers=None,
+                                   qiskrypt_ancilla_quantum_registers=[qiskrypt_ancilla_quantum_register],
+                                   qiskrypt_ancilla_fully_quantum_registers=None,
+                                   qiskrypt_ancilla_semi_quantum_registers=None,
+                                   qiskrypt_classical_registers=None,
                                    global_phase=0)
         """
         Create a Qiskrypt's Quantum Circuit, given its name,
@@ -654,13 +670,13 @@ class CreationQiskryptQuantumCircuitTests(TestCase):
 
         qiskrypt_quantum_circuit = \
             QiskryptQuantumCircuit(name=quantum_circuit_name,
-                                   quantum_registers=None,
-                                   fully_quantum_registers=None,
-                                   semi_quantum_registers=None,
-                                   ancilla_quantum_registers=None,
-                                   ancilla_fully_quantum_registers=[qiskrypt_ancilla_fully_quantum_register],
-                                   ancilla_semi_quantum_registers=None,
-                                   classical_registers=None,
+                                   qiskrypt_quantum_registers=None,
+                                   qiskrypt_fully_quantum_registers=None,
+                                   qiskrypt_semi_quantum_registers=None,
+                                   qiskrypt_ancilla_quantum_registers=None,
+                                   qiskrypt_ancilla_fully_quantum_registers=[qiskrypt_ancilla_fully_quantum_register],
+                                   qiskrypt_ancilla_semi_quantum_registers=None,
+                                   qiskrypt_classical_registers=None,
                                    global_phase=0)
         """
         Create a Qiskrypt's Quantum Circuit, given its name,
@@ -782,13 +798,13 @@ class CreationQiskryptQuantumCircuitTests(TestCase):
 
         qiskrypt_quantum_circuit = \
             QiskryptQuantumCircuit(name=quantum_circuit_name,
-                                   quantum_registers=None,
-                                   fully_quantum_registers=None,
-                                   semi_quantum_registers=None,
-                                   ancilla_quantum_registers=None,
-                                   ancilla_fully_quantum_registers=None,
-                                   ancilla_semi_quantum_registers=[qiskrypt_ancilla_semi_quantum_register],
-                                   classical_registers=None,
+                                   qiskrypt_quantum_registers=None,
+                                   qiskrypt_fully_quantum_registers=None,
+                                   qiskrypt_semi_quantum_registers=None,
+                                   qiskrypt_ancilla_quantum_registers=None,
+                                   qiskrypt_ancilla_fully_quantum_registers=None,
+                                   qiskrypt_ancilla_semi_quantum_registers=[qiskrypt_ancilla_semi_quantum_register],
+                                   qiskrypt_classical_registers=None,
                                    global_phase=0)
         """
         Create a Qiskrypt's Quantum Circuit, given its name,
@@ -910,13 +926,13 @@ class CreationQiskryptQuantumCircuitTests(TestCase):
 
         qiskrypt_quantum_circuit = \
             QiskryptQuantumCircuit(name=quantum_circuit_name,
-                                   quantum_registers=None,
-                                   fully_quantum_registers=None,
-                                   semi_quantum_registers=None,
-                                   ancilla_quantum_registers=None,
-                                   ancilla_fully_quantum_registers=None,
-                                   ancilla_semi_quantum_registers=None,
-                                   classical_registers=[qiskrypt_classical_register],
+                                   qiskrypt_quantum_registers=None,
+                                   qiskrypt_fully_quantum_registers=None,
+                                   qiskrypt_semi_quantum_registers=None,
+                                   qiskrypt_ancilla_quantum_registers=None,
+                                   qiskrypt_ancilla_fully_quantum_registers=None,
+                                   qiskrypt_ancilla_semi_quantum_registers=None,
+                                   qiskrypt_classical_registers=[qiskrypt_classical_register],
                                    global_phase=0)
         """
         Create a Qiskrypt's Quantum Circuit, given its name,
@@ -1057,13 +1073,13 @@ class CreationQiskryptQuantumCircuitTests(TestCase):
 
         qiskrypt_quantum_circuit = \
             QiskryptQuantumCircuit(name=quantum_circuit_name,
-                                   quantum_registers=[qiskrypt_quantum_register],
-                                   fully_quantum_registers=None,
-                                   semi_quantum_registers=None,
-                                   ancilla_quantum_registers=None,
-                                   ancilla_fully_quantum_registers=None,
-                                   ancilla_semi_quantum_registers=None,
-                                   classical_registers=[qiskrypt_classical_register],
+                                   qiskrypt_quantum_registers=[qiskrypt_quantum_register],
+                                   qiskrypt_fully_quantum_registers=None,
+                                   qiskrypt_semi_quantum_registers=None,
+                                   qiskrypt_ancilla_quantum_registers=None,
+                                   qiskrypt_ancilla_fully_quantum_registers=None,
+                                   qiskrypt_ancilla_semi_quantum_registers=None,
+                                   qiskrypt_classical_registers=[qiskrypt_classical_register],
                                    global_phase=0)
         """
         Create a Qiskrypt's Quantum Circuit, given its name,
@@ -1269,13 +1285,13 @@ class CreationQiskryptQuantumCircuitTests(TestCase):
 
         qiskrypt_quantum_circuit = \
             QiskryptQuantumCircuit(name=quantum_circuit_name,
-                                   quantum_registers=None,
-                                   fully_quantum_registers=[qiskrypt_fully_quantum_register],
-                                   semi_quantum_registers=None,
-                                   ancilla_quantum_registers=None,
-                                   ancilla_fully_quantum_registers=None,
-                                   ancilla_semi_quantum_registers=None,
-                                   classical_registers=[qiskrypt_classical_register],
+                                   qiskrypt_quantum_registers=None,
+                                   qiskrypt_fully_quantum_registers=[qiskrypt_fully_quantum_register],
+                                   qiskrypt_semi_quantum_registers=None,
+                                   qiskrypt_ancilla_quantum_registers=None,
+                                   qiskrypt_ancilla_fully_quantum_registers=None,
+                                   qiskrypt_ancilla_semi_quantum_registers=None,
+                                   qiskrypt_classical_registers=[qiskrypt_classical_register],
                                    global_phase=0)
         """
         Create a Qiskrypt's Quantum Circuit, given its name,
@@ -1481,13 +1497,13 @@ class CreationQiskryptQuantumCircuitTests(TestCase):
 
         qiskrypt_quantum_circuit = \
             QiskryptQuantumCircuit(name=quantum_circuit_name,
-                                   quantum_registers=None,
-                                   fully_quantum_registers=None,
-                                   semi_quantum_registers=[qiskrypt_semi_quantum_register],
-                                   ancilla_quantum_registers=None,
-                                   ancilla_fully_quantum_registers=None,
-                                   ancilla_semi_quantum_registers=None,
-                                   classical_registers=[qiskrypt_classical_register],
+                                   qiskrypt_quantum_registers=None,
+                                   qiskrypt_fully_quantum_registers=None,
+                                   qiskrypt_semi_quantum_registers=[qiskrypt_semi_quantum_register],
+                                   qiskrypt_ancilla_quantum_registers=None,
+                                   qiskrypt_ancilla_fully_quantum_registers=None,
+                                   qiskrypt_ancilla_semi_quantum_registers=None,
+                                   qiskrypt_classical_registers=[qiskrypt_classical_register],
                                    global_phase=0)
         """
         Create a Qiskrypt's Quantum Circuit, given its name,
@@ -1693,13 +1709,13 @@ class CreationQiskryptQuantumCircuitTests(TestCase):
 
         qiskrypt_quantum_circuit = \
             QiskryptQuantumCircuit(name=quantum_circuit_name,
-                                   quantum_registers=None,
-                                   fully_quantum_registers=None,
-                                   semi_quantum_registers=None,
-                                   ancilla_quantum_registers=[qiskrypt_ancilla_quantum_register],
-                                   ancilla_fully_quantum_registers=None,
-                                   ancilla_semi_quantum_registers=None,
-                                   classical_registers=[qiskrypt_classical_register],
+                                   qiskrypt_quantum_registers=None,
+                                   qiskrypt_fully_quantum_registers=None,
+                                   qiskrypt_semi_quantum_registers=None,
+                                   qiskrypt_ancilla_quantum_registers=[qiskrypt_ancilla_quantum_register],
+                                   qiskrypt_ancilla_fully_quantum_registers=None,
+                                   qiskrypt_ancilla_semi_quantum_registers=None,
+                                   qiskrypt_classical_registers=[qiskrypt_classical_register],
                                    global_phase=0)
         """
         Create a Qiskrypt's Quantum Circuit, given its name,
@@ -1905,13 +1921,13 @@ class CreationQiskryptQuantumCircuitTests(TestCase):
 
         qiskrypt_quantum_circuit = \
             QiskryptQuantumCircuit(name=quantum_circuit_name,
-                                   quantum_registers=None,
-                                   fully_quantum_registers=None,
-                                   semi_quantum_registers=None,
-                                   ancilla_quantum_registers=None,
-                                   ancilla_fully_quantum_registers=[qiskrypt_ancilla_fully_quantum_register],
-                                   ancilla_semi_quantum_registers=None,
-                                   classical_registers=[qiskrypt_classical_register],
+                                   qiskrypt_quantum_registers=None,
+                                   qiskrypt_fully_quantum_registers=None,
+                                   qiskrypt_semi_quantum_registers=None,
+                                   qiskrypt_ancilla_quantum_registers=None,
+                                   qiskrypt_ancilla_fully_quantum_registers=[qiskrypt_ancilla_fully_quantum_register],
+                                   qiskrypt_ancilla_semi_quantum_registers=None,
+                                   qiskrypt_classical_registers=[qiskrypt_classical_register],
                                    global_phase=0)
         """
         Create a Qiskrypt's Quantum Circuit, given its name,
@@ -2117,13 +2133,13 @@ class CreationQiskryptQuantumCircuitTests(TestCase):
 
         qiskrypt_quantum_circuit = \
             QiskryptQuantumCircuit(name=quantum_circuit_name,
-                                   quantum_registers=None,
-                                   fully_quantum_registers=None,
-                                   semi_quantum_registers=None,
-                                   ancilla_quantum_registers=None,
-                                   ancilla_fully_quantum_registers=None,
-                                   ancilla_semi_quantum_registers=[qiskrypt_ancilla_semi_quantum_register],
-                                   classical_registers=[qiskrypt_classical_register],
+                                   qiskrypt_quantum_registers=None,
+                                   qiskrypt_fully_quantum_registers=None,
+                                   qiskrypt_semi_quantum_registers=None,
+                                   qiskrypt_ancilla_quantum_registers=None,
+                                   qiskrypt_ancilla_fully_quantum_registers=None,
+                                   qiskrypt_ancilla_semi_quantum_registers=[qiskrypt_ancilla_semi_quantum_register],
+                                   qiskrypt_classical_registers=[qiskrypt_classical_register],
                                    global_phase=0)
         """
         Create a Qiskrypt's Quantum Circuit, given its name,
@@ -2348,13 +2364,13 @@ class CreationQiskryptQuantumCircuitTests(TestCase):
 
         qiskrypt_quantum_circuit = \
             QiskryptQuantumCircuit(name=quantum_circuit_name,
-                                   quantum_registers=[qiskrypt_quantum_register],
-                                   fully_quantum_registers=[qiskrypt_fully_quantum_register],
-                                   semi_quantum_registers=None,
-                                   ancilla_quantum_registers=None,
-                                   ancilla_fully_quantum_registers=None,
-                                   ancilla_semi_quantum_registers=None,
-                                   classical_registers=[qiskrypt_classical_register],
+                                   qiskrypt_quantum_registers=[qiskrypt_quantum_register],
+                                   qiskrypt_fully_quantum_registers=[qiskrypt_fully_quantum_register],
+                                   qiskrypt_semi_quantum_registers=None,
+                                   qiskrypt_ancilla_quantum_registers=None,
+                                   qiskrypt_ancilla_fully_quantum_registers=None,
+                                   qiskrypt_ancilla_semi_quantum_registers=None,
+                                   qiskrypt_classical_registers=[qiskrypt_classical_register],
                                    global_phase=0)
         """
         Create a Qiskrypt's Quantum Circuit, given its name,
@@ -2638,13 +2654,13 @@ class CreationQiskryptQuantumCircuitTests(TestCase):
 
         qiskrypt_quantum_circuit = \
             QiskryptQuantumCircuit(name=quantum_circuit_name,
-                                   quantum_registers=[qiskrypt_quantum_register],
-                                   fully_quantum_registers=None,
-                                   semi_quantum_registers=[qiskrypt_semi_quantum_register],
-                                   ancilla_quantum_registers=None,
-                                   ancilla_fully_quantum_registers=None,
-                                   ancilla_semi_quantum_registers=None,
-                                   classical_registers=[qiskrypt_classical_register],
+                                   qiskrypt_quantum_registers=[qiskrypt_quantum_register],
+                                   qiskrypt_fully_quantum_registers=None,
+                                   qiskrypt_semi_quantum_registers=[qiskrypt_semi_quantum_register],
+                                   qiskrypt_ancilla_quantum_registers=None,
+                                   qiskrypt_ancilla_fully_quantum_registers=None,
+                                   qiskrypt_ancilla_semi_quantum_registers=None,
+                                   qiskrypt_classical_registers=[qiskrypt_classical_register],
                                    global_phase=0)
         """
         Create a Qiskrypt's Quantum Circuit, given its name,
@@ -2928,13 +2944,13 @@ class CreationQiskryptQuantumCircuitTests(TestCase):
 
         qiskrypt_quantum_circuit = \
             QiskryptQuantumCircuit(name=quantum_circuit_name,
-                                   quantum_registers=[qiskrypt_quantum_register],
-                                   fully_quantum_registers=None,
-                                   semi_quantum_registers=None,
-                                   ancilla_quantum_registers=[qiskrypt_ancilla_quantum_register],
-                                   ancilla_fully_quantum_registers=None,
-                                   ancilla_semi_quantum_registers=None,
-                                   classical_registers=[qiskrypt_classical_register],
+                                   qiskrypt_quantum_registers=[qiskrypt_quantum_register],
+                                   qiskrypt_fully_quantum_registers=None,
+                                   qiskrypt_semi_quantum_registers=None,
+                                   qiskrypt_ancilla_quantum_registers=[qiskrypt_ancilla_quantum_register],
+                                   qiskrypt_ancilla_fully_quantum_registers=None,
+                                   qiskrypt_ancilla_semi_quantum_registers=None,
+                                   qiskrypt_classical_registers=[qiskrypt_classical_register],
                                    global_phase=0)
         """
         Create a Qiskrypt's Quantum Circuit, given its name,
@@ -3218,13 +3234,13 @@ class CreationQiskryptQuantumCircuitTests(TestCase):
 
         qiskrypt_quantum_circuit = \
             QiskryptQuantumCircuit(name=quantum_circuit_name,
-                                   quantum_registers=[qiskrypt_quantum_register],
-                                   fully_quantum_registers=None,
-                                   semi_quantum_registers=None,
-                                   ancilla_quantum_registers=None,
-                                   ancilla_fully_quantum_registers=[qiskrypt_ancilla_fully_quantum_register],
-                                   ancilla_semi_quantum_registers=None,
-                                   classical_registers=[qiskrypt_classical_register],
+                                   qiskrypt_quantum_registers=[qiskrypt_quantum_register],
+                                   qiskrypt_fully_quantum_registers=None,
+                                   qiskrypt_semi_quantum_registers=None,
+                                   qiskrypt_ancilla_quantum_registers=None,
+                                   qiskrypt_ancilla_fully_quantum_registers=[qiskrypt_ancilla_fully_quantum_register],
+                                   qiskrypt_ancilla_semi_quantum_registers=None,
+                                   qiskrypt_classical_registers=[qiskrypt_classical_register],
                                    global_phase=0)
         """
         Create a Qiskrypt's Quantum Circuit, given its name,
@@ -3508,13 +3524,13 @@ class CreationQiskryptQuantumCircuitTests(TestCase):
 
         qiskrypt_quantum_circuit = \
             QiskryptQuantumCircuit(name=quantum_circuit_name,
-                                   quantum_registers=[qiskrypt_quantum_register],
-                                   fully_quantum_registers=None,
-                                   semi_quantum_registers=None,
-                                   ancilla_quantum_registers=None,
-                                   ancilla_fully_quantum_registers=None,
-                                   ancilla_semi_quantum_registers=[qiskrypt_ancilla_semi_quantum_register],
-                                   classical_registers=[qiskrypt_classical_register],
+                                   qiskrypt_quantum_registers=[qiskrypt_quantum_register],
+                                   qiskrypt_fully_quantum_registers=None,
+                                   qiskrypt_semi_quantum_registers=None,
+                                   qiskrypt_ancilla_quantum_registers=None,
+                                   qiskrypt_ancilla_fully_quantum_registers=None,
+                                   qiskrypt_ancilla_semi_quantum_registers=[qiskrypt_ancilla_semi_quantum_register],
+                                   qiskrypt_classical_registers=[qiskrypt_classical_register],
                                    global_phase=0)
         """
         Create a Qiskrypt's Quantum Circuit, given its name,
@@ -3817,13 +3833,13 @@ class CreationQiskryptQuantumCircuitTests(TestCase):
 
         qiskrypt_quantum_circuit = \
             QiskryptQuantumCircuit(name=quantum_circuit_name,
-                                   quantum_registers=[qiskrypt_quantum_register],
-                                   fully_quantum_registers=[qiskrypt_fully_quantum_register],
-                                   semi_quantum_registers=[qiskrypt_semi_quantum_register],
-                                   ancilla_quantum_registers=None,
-                                   ancilla_fully_quantum_registers=None,
-                                   ancilla_semi_quantum_registers=None,
-                                   classical_registers=[qiskrypt_classical_register],
+                                   qiskrypt_quantum_registers=[qiskrypt_quantum_register],
+                                   qiskrypt_fully_quantum_registers=[qiskrypt_fully_quantum_register],
+                                   qiskrypt_semi_quantum_registers=[qiskrypt_semi_quantum_register],
+                                   qiskrypt_ancilla_quantum_registers=None,
+                                   qiskrypt_ancilla_fully_quantum_registers=None,
+                                   qiskrypt_ancilla_semi_quantum_registers=None,
+                                   qiskrypt_classical_registers=[qiskrypt_classical_register],
                                    global_phase=0)
         """
         Create a Qiskrypt's Quantum Circuit, given its name,
@@ -4185,13 +4201,13 @@ class CreationQiskryptQuantumCircuitTests(TestCase):
 
         qiskrypt_quantum_circuit = \
             QiskryptQuantumCircuit(name=quantum_circuit_name,
-                                   quantum_registers=[qiskrypt_quantum_register],
-                                   fully_quantum_registers=[qiskrypt_fully_quantum_register],
-                                   semi_quantum_registers=None,
-                                   ancilla_quantum_registers=[qiskrypt_ancilla_quantum_register],
-                                   ancilla_fully_quantum_registers=None,
-                                   ancilla_semi_quantum_registers=None,
-                                   classical_registers=[qiskrypt_classical_register],
+                                   qiskrypt_quantum_registers=[qiskrypt_quantum_register],
+                                   qiskrypt_fully_quantum_registers=[qiskrypt_fully_quantum_register],
+                                   qiskrypt_semi_quantum_registers=None,
+                                   qiskrypt_ancilla_quantum_registers=[qiskrypt_ancilla_quantum_register],
+                                   qiskrypt_ancilla_fully_quantum_registers=None,
+                                   qiskrypt_ancilla_semi_quantum_registers=None,
+                                   qiskrypt_classical_registers=[qiskrypt_classical_register],
                                    global_phase=0)
         """
         Create a Qiskrypt's Quantum Circuit, given its name,
@@ -4553,13 +4569,13 @@ class CreationQiskryptQuantumCircuitTests(TestCase):
 
         qiskrypt_quantum_circuit = \
             QiskryptQuantumCircuit(name=quantum_circuit_name,
-                                   quantum_registers=[qiskrypt_quantum_register],
-                                   fully_quantum_registers=[qiskrypt_fully_quantum_register],
-                                   semi_quantum_registers=None,
-                                   ancilla_quantum_registers=None,
-                                   ancilla_fully_quantum_registers=[qiskrypt_ancilla_fully_quantum_register],
-                                   ancilla_semi_quantum_registers=None,
-                                   classical_registers=[qiskrypt_classical_register],
+                                   qiskrypt_quantum_registers=[qiskrypt_quantum_register],
+                                   qiskrypt_fully_quantum_registers=[qiskrypt_fully_quantum_register],
+                                   qiskrypt_semi_quantum_registers=None,
+                                   qiskrypt_ancilla_quantum_registers=None,
+                                   qiskrypt_ancilla_fully_quantum_registers=[qiskrypt_ancilla_fully_quantum_register],
+                                   qiskrypt_ancilla_semi_quantum_registers=None,
+                                   qiskrypt_classical_registers=[qiskrypt_classical_register],
                                    global_phase=0)
         """
         Create a Qiskrypt's Quantum Circuit, given its name,
@@ -4921,13 +4937,13 @@ class CreationQiskryptQuantumCircuitTests(TestCase):
 
         qiskrypt_quantum_circuit = \
             QiskryptQuantumCircuit(name=quantum_circuit_name,
-                                   quantum_registers=[qiskrypt_quantum_register],
-                                   fully_quantum_registers=[qiskrypt_fully_quantum_register],
-                                   semi_quantum_registers=None,
-                                   ancilla_quantum_registers=None,
-                                   ancilla_fully_quantum_registers=None,
-                                   ancilla_semi_quantum_registers=[qiskrypt_ancilla_semi_quantum_register],
-                                   classical_registers=[qiskrypt_classical_register],
+                                   qiskrypt_quantum_registers=[qiskrypt_quantum_register],
+                                   qiskrypt_fully_quantum_registers=[qiskrypt_fully_quantum_register],
+                                   qiskrypt_semi_quantum_registers=None,
+                                   qiskrypt_ancilla_quantum_registers=None,
+                                   qiskrypt_ancilla_fully_quantum_registers=None,
+                                   qiskrypt_ancilla_semi_quantum_registers=[qiskrypt_ancilla_semi_quantum_register],
+                                   qiskrypt_classical_registers=[qiskrypt_classical_register],
                                    global_phase=0)
         """
         Create a Qiskrypt's Quantum Circuit, given its name,
@@ -5308,13 +5324,13 @@ class CreationQiskryptQuantumCircuitTests(TestCase):
 
         qiskrypt_quantum_circuit = \
             QiskryptQuantumCircuit(name=quantum_circuit_name,
-                                   quantum_registers=[qiskrypt_quantum_register],
-                                   fully_quantum_registers=[qiskrypt_fully_quantum_register],
-                                   semi_quantum_registers=[qiskrypt_semi_quantum_register],
-                                   ancilla_quantum_registers=[qiskrypt_ancilla_quantum_register],
-                                   ancilla_fully_quantum_registers=None,
-                                   ancilla_semi_quantum_registers=None,
-                                   classical_registers=[qiskrypt_classical_register],
+                                   qiskrypt_quantum_registers=[qiskrypt_quantum_register],
+                                   qiskrypt_fully_quantum_registers=[qiskrypt_fully_quantum_register],
+                                   qiskrypt_semi_quantum_registers=[qiskrypt_semi_quantum_register],
+                                   qiskrypt_ancilla_quantum_registers=[qiskrypt_ancilla_quantum_register],
+                                   qiskrypt_ancilla_fully_quantum_registers=None,
+                                   qiskrypt_ancilla_semi_quantum_registers=None,
+                                   qiskrypt_classical_registers=[qiskrypt_classical_register],
                                    global_phase=0)
         """
         Create a Qiskrypt's Quantum Circuit, given its name,
@@ -5754,13 +5770,13 @@ class CreationQiskryptQuantumCircuitTests(TestCase):
 
         qiskrypt_quantum_circuit = \
             QiskryptQuantumCircuit(name=quantum_circuit_name,
-                                   quantum_registers=[qiskrypt_quantum_register],
-                                   fully_quantum_registers=[qiskrypt_fully_quantum_register],
-                                   semi_quantum_registers=[qiskrypt_semi_quantum_register],
-                                   ancilla_quantum_registers=None,
-                                   ancilla_fully_quantum_registers=[qiskrypt_ancilla_fully_quantum_register],
-                                   ancilla_semi_quantum_registers=None,
-                                   classical_registers=[qiskrypt_classical_register],
+                                   qiskrypt_quantum_registers=[qiskrypt_quantum_register],
+                                   qiskrypt_fully_quantum_registers=[qiskrypt_fully_quantum_register],
+                                   qiskrypt_semi_quantum_registers=[qiskrypt_semi_quantum_register],
+                                   qiskrypt_ancilla_quantum_registers=None,
+                                   qiskrypt_ancilla_fully_quantum_registers=[qiskrypt_ancilla_fully_quantum_register],
+                                   qiskrypt_ancilla_semi_quantum_registers=None,
+                                   qiskrypt_classical_registers=[qiskrypt_classical_register],
                                    global_phase=0)
         """
         Create a Qiskrypt's Quantum Circuit, given its name,
@@ -6200,13 +6216,13 @@ class CreationQiskryptQuantumCircuitTests(TestCase):
 
         qiskrypt_quantum_circuit = \
             QiskryptQuantumCircuit(name=quantum_circuit_name,
-                                   quantum_registers=[qiskrypt_quantum_register],
-                                   fully_quantum_registers=[qiskrypt_fully_quantum_register],
-                                   semi_quantum_registers=[qiskrypt_semi_quantum_register],
-                                   ancilla_quantum_registers=None,
-                                   ancilla_fully_quantum_registers=None,
-                                   ancilla_semi_quantum_registers=[qiskrypt_ancilla_semi_quantum_register],
-                                   classical_registers=[qiskrypt_classical_register],
+                                   qiskrypt_quantum_registers=[qiskrypt_quantum_register],
+                                   qiskrypt_fully_quantum_registers=[qiskrypt_fully_quantum_register],
+                                   qiskrypt_semi_quantum_registers=[qiskrypt_semi_quantum_register],
+                                   qiskrypt_ancilla_quantum_registers=None,
+                                   qiskrypt_ancilla_fully_quantum_registers=None,
+                                   qiskrypt_ancilla_semi_quantum_registers=[qiskrypt_ancilla_semi_quantum_register],
+                                   qiskrypt_classical_registers=[qiskrypt_classical_register],
                                    global_phase=0)
         """
         Create a Qiskrypt's Quantum Circuit, given its name,
@@ -6665,13 +6681,13 @@ class CreationQiskryptQuantumCircuitTests(TestCase):
 
         qiskrypt_quantum_circuit = \
             QiskryptQuantumCircuit(name=quantum_circuit_name,
-                                   quantum_registers=[qiskrypt_quantum_register],
-                                   fully_quantum_registers=[qiskrypt_fully_quantum_register],
-                                   semi_quantum_registers=[qiskrypt_semi_quantum_register],
-                                   ancilla_quantum_registers=[qiskrypt_ancilla_quantum_register],
-                                   ancilla_fully_quantum_registers=[qiskrypt_ancilla_fully_quantum_register],
-                                   ancilla_semi_quantum_registers=None,
-                                   classical_registers=[qiskrypt_classical_register],
+                                   qiskrypt_quantum_registers=[qiskrypt_quantum_register],
+                                   qiskrypt_fully_quantum_registers=[qiskrypt_fully_quantum_register],
+                                   qiskrypt_semi_quantum_registers=[qiskrypt_semi_quantum_register],
+                                   qiskrypt_ancilla_quantum_registers=[qiskrypt_ancilla_quantum_register],
+                                   qiskrypt_ancilla_fully_quantum_registers=[qiskrypt_ancilla_fully_quantum_register],
+                                   qiskrypt_ancilla_semi_quantum_registers=None,
+                                   qiskrypt_classical_registers=[qiskrypt_classical_register],
                                    global_phase=0)
         """
         Create a Qiskrypt's Quantum Circuit, given its name,
@@ -7190,13 +7206,13 @@ class CreationQiskryptQuantumCircuitTests(TestCase):
 
         qiskrypt_quantum_circuit = \
             QiskryptQuantumCircuit(name=quantum_circuit_name,
-                                   quantum_registers=[qiskrypt_quantum_register],
-                                   fully_quantum_registers=[qiskrypt_fully_quantum_register],
-                                   semi_quantum_registers=[qiskrypt_semi_quantum_register],
-                                   ancilla_quantum_registers=[qiskrypt_ancilla_quantum_register],
-                                   ancilla_fully_quantum_registers=None,
-                                   ancilla_semi_quantum_registers=[qiskrypt_ancilla_semi_quantum_register],
-                                   classical_registers=[qiskrypt_classical_register],
+                                   qiskrypt_quantum_registers=[qiskrypt_quantum_register],
+                                   qiskrypt_fully_quantum_registers=[qiskrypt_fully_quantum_register],
+                                   qiskrypt_semi_quantum_registers=[qiskrypt_semi_quantum_register],
+                                   qiskrypt_ancilla_quantum_registers=[qiskrypt_ancilla_quantum_register],
+                                   qiskrypt_ancilla_fully_quantum_registers=None,
+                                   qiskrypt_ancilla_semi_quantum_registers=[qiskrypt_ancilla_semi_quantum_register],
+                                   qiskrypt_classical_registers=[qiskrypt_classical_register],
                                    global_phase=0)
         """
         Create a Qiskrypt's Quantum Circuit, given its name,
@@ -7734,13 +7750,13 @@ class CreationQiskryptQuantumCircuitTests(TestCase):
 
         qiskrypt_quantum_circuit = \
             QiskryptQuantumCircuit(name=quantum_circuit_name,
-                                   quantum_registers=[qiskrypt_quantum_register],
-                                   fully_quantum_registers=[qiskrypt_fully_quantum_register],
-                                   semi_quantum_registers=[qiskrypt_semi_quantum_register],
-                                   ancilla_quantum_registers=[qiskrypt_ancilla_quantum_register],
-                                   ancilla_fully_quantum_registers=[qiskrypt_ancilla_fully_quantum_register],
-                                   ancilla_semi_quantum_registers=[qiskrypt_ancilla_semi_quantum_register],
-                                   classical_registers=[qiskrypt_classical_register],
+                                   qiskrypt_quantum_registers=[qiskrypt_quantum_register],
+                                   qiskrypt_fully_quantum_registers=[qiskrypt_fully_quantum_register],
+                                   qiskrypt_semi_quantum_registers=[qiskrypt_semi_quantum_register],
+                                   qiskrypt_ancilla_quantum_registers=[qiskrypt_ancilla_quantum_register],
+                                   qiskrypt_ancilla_fully_quantum_registers=[qiskrypt_ancilla_fully_quantum_register],
+                                   qiskrypt_ancilla_semi_quantum_registers=[qiskrypt_ancilla_semi_quantum_register],
+                                   qiskrypt_classical_registers=[qiskrypt_classical_register],
                                    global_phase=0)
         """
         Create a Qiskrypt's Quantum Circuit, given its name,
@@ -8240,6 +8256,95 @@ class OtherBasicAndFundamentalMethodsOfQiskryptQuantumCircuitTests(TestCase):
         self.assertEqual(True, True)
 
 
+class PrepareAndMeasureQubitInQiskryptQuantumCircuitTests(TestCase):
+    """
+    Object Class of the Unitary Tests for Prepare (and Measure) a qubit in a Qiskrypt's Quantum Circuit.
+    """
+
+    def test_no_1_prepare_measure_x_basis_1(self):
+        """
+        Test Case #1:
+
+        - Prepare (and Measure) a qubit in the IBM Qiskit's Quantum Circuit of
+          the Qiskrypt's Quantum Circuit.
+
+        Steps:
+        1) The Qiskrypt's Quantum Circuit is created with a Qiskrypt's Quantum Register,
+           with 1 qubit initialized in the state |0⟩;
+        2) The qubit is prepared (and measured) in the X-Basis (Diagonal Basis);
+
+        Return OK (or FAIL) if, all the Tests performed are OK (or FAIL, otherwise).
+        """
+
+        num_qubits = num_bits = 1
+        """
+        Set the number of qubits and bits,
+        for the Qiskrypt's Quantum and Classical Registers, respectively.
+        """
+
+        qiskrypt_quantum_register_prepare_and_measure_in_x_basis_1 = \
+            QiskryptQuantumRegister("qu_reg", num_qubits)
+        """
+        Create a Qiskrypt's Quantum Register with 1 qubit.
+        """
+
+        qiskrypt_classical_register_prepare_and_measure_in_x_basis_1 = \
+            QiskryptClassicalRegister("cl_reg", num_bits)
+        """
+        Create a Qiskrypt's Classical Register with 1 bit.
+        """
+
+        qiskrypt_quantum_circuit_prepare_and_measure_in_x_basis_1 = \
+            QiskryptQuantumCircuit("qu_circ",
+                                   qiskrypt_quantum_registers=[qiskrypt_quantum_register_prepare_and_measure_in_x_basis_1],
+                                   qiskrypt_fully_quantum_registers=None,
+                                   qiskrypt_semi_quantum_registers=None,
+                                   qiskrypt_ancilla_quantum_registers=None,
+                                   qiskrypt_ancilla_fully_quantum_registers=None,
+                                   qiskrypt_ancilla_semi_quantum_registers=None,
+                                   qiskrypt_classical_registers=[qiskrypt_classical_register_prepare_and_measure_in_x_basis_1],
+                                   global_phase=0, quantum_circuit=None)
+        """
+        Create a Qiskrypt's Quantum Circuit with the previously created Qiskrypt's Quantum and Classical Registers.
+        """
+
+        qiskrypt_quantum_circuit_prepare_and_measure_in_x_basis_1 \
+            .prepare_and_measure_single_qubit_in_qiskit_quantum_register_in_x_basis(0, 0, 0, 0,
+                                                                                    is_final_measurement=False)
+        """
+        Prepare (not Measuring) the given index for the single qubit of
+        the given IBM Qiskit's Quantum Register, in the X-Basis.
+        """
+
+        qiskit_state_vector_backend = Aer.get_backend("statevector_simulator")
+        """
+        Getting the Aer Simulator Backend for the State Vector Representation
+        (i.e., the quantum state represented as its state vector)
+        """
+
+        final_quantum_state_vector_state = \
+            execute(qiskrypt_quantum_circuit_prepare_and_measure_in_x_basis_1.quantum_circuit,
+                    qiskit_state_vector_backend).result().get_statevector()
+        """
+        Execute the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit
+        and store the resulted quantum state represented in a final state vector.
+        """
+
+        assert_allclose(final_quantum_state_vector_state,
+                        array([((1. / sqrt(2.)) + 0.j), ((1. / sqrt(2.)) + 0.j)]),
+                        rtol=1e-7, atol=1e-7)
+        """
+        Perform the Assertion of all close values in the values of the quantum state,
+        represented by its state vector describing the given qubit,
+        after being prepare (not measured) in the X-Basis (Diagonal Basis).
+        """
+
+        """
+        Dummy Assert Equal for the Unittest
+        """
+        self.assertEqual(True, True)
+
+
 if __name__ == "__main__":
     """
     The Main Method for the Unitary Test.
@@ -8254,7 +8359,8 @@ if __name__ == "__main__":
     other_basic_and_fundamental_methods_of_qiskrypt_quantum_circuit_test_cases = \
         TestLoader().loadTestsFromTestCase(OtherBasicAndFundamentalMethodsOfQiskryptQuantumCircuitTests)
     """
-    Load the Test Cases from the Unitary Tests for other basic and fundamental methods of a Qiskrypt's Quantum Circuit.
+    Load the Test Cases from the Unitary Tests for other basic and fundamental methods of
+    a Qiskrypt's Quantum Circuit.
     """
 
     creation_qiskrypt_quantum_circuit_test_suite = \
