@@ -4877,10 +4877,10 @@ class QiskryptQuantumCircuit:
         :return:
         """
 
-    def check_if_is_possible_to_apply_single_operation(self, qiskit_quantum_register_index: int, qubit_index: int,
-                                                       is_operation_only_supported_for_fully_quantum_registers: bool) -> bool:
+    def check_if_is_possible_to_apply_operation(self, qiskit_quantum_register_index: int, qubit_index: int,
+                                                is_operation_only_supported_for_fully_quantum_registers: bool) -> bool:
         """
-        Check if it is possible to apply a specific single Operation,
+        Check if it is possible to apply a specific Operation,
         regarding a given IBM Qiskit's Quantum Register index and a qubit index.
 
         :param qiskit_quantum_register_index: the index of an IBM Qiskit's Quantum Register.
@@ -5098,15 +5098,15 @@ class QiskryptQuantumCircuit:
         :param qubit_index: the index of a qubit inside that IBM Qiskit's Quantum Register.
         """
 
-        is_possible_to_apply_single_operation = \
-            self.check_if_is_possible_to_apply_single_operation(qiskit_quantum_register_index, qubit_index, False)
+        is_possible_to_apply_operation = \
+            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_index, qubit_index, False)
         """
-        Check if it is possible to apply the pretended single operation.
+        Check if it is possible to apply the pretended operation.
         """
 
-        if is_possible_to_apply_single_operation:
+        if is_possible_to_apply_operation:
             """
-            It is possible to apply the pretended single operation.
+            It is possible to apply the pretended operation.
             """
 
             self.quantum_circuit.barrier(self.quantum_circuit.qregs[qiskit_quantum_register_index][qubit_index])
@@ -5277,15 +5277,15 @@ class QiskryptQuantumCircuit:
         :param qubit_index: the index of a qubit inside that IBM Qiskit's Quantum Register.
         """
 
-        is_possible_to_apply_single_operation = \
-            self.check_if_is_possible_to_apply_single_operation(quantum_register_index, qubit_index, False)
+        is_possible_to_apply_operation = \
+            self.check_if_is_possible_to_apply_operation(quantum_register_index, qubit_index, False)
         """
-        Check if it is possible to apply the pretended single operation.
+        Check if it is possible to apply the pretended operation.
         """
 
-        if is_possible_to_apply_single_operation:
+        if is_possible_to_apply_operation:
             """
-            It is possible to apply the pretended single operation.
+            It is possible to apply the pretended operation.
             """
 
             self.quantum_circuit.reset(self.quantum_circuit.qregs[quantum_register_index][qubit_index])
@@ -5470,12 +5470,12 @@ class QiskryptQuantumCircuit:
                                                                            qiskit_classical_register_index,
                                                                            qubit_index, bit_index)
         """        
-        Check if it is possible to measure the pretended single qubit into the pretended single bit.
+        Check if it is possible to measure the pretended qubit into the pretended bit.
         """
 
         if is_possible_to_measure_single_qubit:
             """
-            It is possible to measure the pretended single qubit into the pretended single bit.
+            It is possible to measure the pretended qubit into the pretended bit.
             """
 
             self.quantum_circuit.measure(self.quantum_circuit.qregs[qiskit_quantum_register_index][qubit_index],
@@ -5913,15 +5913,15 @@ class QiskryptQuantumCircuit:
                                      in the Computational Basis (Z-Basis), after being prepared in the X-Basis.
         """
 
-        is_possible_to_apply_single_operation = \
-            self.check_if_is_possible_to_apply_single_operation(qiskit_quantum_register_index, qubit_index, True)
+        is_possible_to_apply_operation = \
+            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_index, qubit_index, True)
         """
-        Check if it is possible to apply the pretended single operation.
+        Check if it is possible to apply the pretended operation.
         """
 
-        if is_possible_to_apply_single_operation:
+        if is_possible_to_apply_operation:
             """
-            It is possible to apply the pretended single operation.
+            It is possible to apply the pretended operation.
             """
 
             self.apply_barrier_to_single_qubit_in_qiskit_quantum_register(qiskit_quantum_register_index, qubit_index)
@@ -5977,15 +5977,15 @@ class QiskryptQuantumCircuit:
                                      in the Computational Basis (Z-Basis), after being prepared in the Y-Basis.
         """
 
-        is_possible_to_apply_single_operation = \
-            self.check_if_is_possible_to_apply_single_operation(qiskit_quantum_register_index, qubit_index, True)
+        is_possible_to_apply_operation = \
+            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_index, qubit_index, True)
         """
-        Check if it is possible to apply the pretended single operation.
+        Check if it is possible to apply the pretended operation.
         """
 
-        if is_possible_to_apply_single_operation:
+        if is_possible_to_apply_operation:
             """
-            It is possible to apply the pretended single operation.
+            It is possible to apply the pretended operation.
             """
 
             self.apply_barrier_to_single_qubit_in_qiskit_quantum_register(qiskit_quantum_register_index, qubit_index)
@@ -6046,15 +6046,15 @@ class QiskryptQuantumCircuit:
                                      in the Computational Basis (Z-Basis), after being prepared in the Z-Basis.
         """
 
-        is_possible_to_apply_single_operation = \
-            self.check_if_is_possible_to_apply_single_operation(qiskit_quantum_register_index, qubit_index, True)
+        is_possible_to_apply_operation = \
+            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_index, qubit_index, True)
         """
-        Check if it is possible to apply the pretended single operation.
+        Check if it is possible to apply the pretended operation.
         """
 
-        if is_possible_to_apply_single_operation:
+        if is_possible_to_apply_operation:
             """
-            It is possible to apply the pretended single operation.
+            It is possible to apply the pretended operation.
             """
 
             self.apply_barrier_to_single_qubit_in_qiskit_quantum_register(qiskit_quantum_register_index, qubit_index)
@@ -7393,15 +7393,15 @@ class QiskryptQuantumCircuit:
         :param qubit_index: the index of a qubit inside that IBM Qiskit's Quantum Register.
         """
 
-        is_possible_to_apply_single_operation = \
-            self.check_if_is_possible_to_apply_single_operation(qiskit_quantum_register_index, qubit_index, True)
+        is_possible_to_apply_operation = \
+            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_index, qubit_index, True)
         """
-        Check if it is possible to apply the pretended single operation.
+        Check if it is possible to apply the pretended operation.
         """
 
-        if is_possible_to_apply_single_operation:
+        if is_possible_to_apply_operation:
             """
-            It is possible to apply the pretended single operation.
+            It is possible to apply the pretended operation.
             """
 
             self.quantum_circuit.id(self.quantum_circuit.qregs[qiskit_quantum_register_index][qubit_index])
@@ -7418,15 +7418,15 @@ class QiskryptQuantumCircuit:
         :param qubit_index: the index of a qubit inside that IBM Qiskit's Quantum Register.
         """
 
-        is_possible_to_apply_single_operation = \
-            self.check_if_is_possible_to_apply_single_operation(qiskit_quantum_register_index, qubit_index, False)
+        is_possible_to_apply_operation = \
+            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_index, qubit_index, False)
         """
-        Check if it is possible to apply the pretended single operation.
+        Check if it is possible to apply the pretended operation.
         """
 
-        if is_possible_to_apply_single_operation:
+        if is_possible_to_apply_operation:
             """
-            It is possible to apply the pretended single operation.
+            It is possible to apply the pretended operation.
             """
 
             self.quantum_circuit.x(self.quantum_circuit.qregs[qiskit_quantum_register_index][qubit_index])
@@ -7443,15 +7443,15 @@ class QiskryptQuantumCircuit:
         :param qubit_index: the index of a qubit inside that IBM Qiskit's Quantum Register.
         """
 
-        is_possible_to_apply_single_operation = \
-            self.check_if_is_possible_to_apply_single_operation(qiskit_quantum_register_index, qubit_index, True)
+        is_possible_to_apply_operation = \
+            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_index, qubit_index, True)
         """
-        Check if it is possible to apply the pretended single operation.
+        Check if it is possible to apply the pretended operation.
         """
 
-        if is_possible_to_apply_single_operation:
+        if is_possible_to_apply_operation:
             """
-            It is possible to apply the pretended single operation.
+            It is possible to apply the pretended operation.
             """
 
             self.quantum_circuit.y(self.quantum_circuit.qregs[qiskit_quantum_register_index][qubit_index])
@@ -7468,15 +7468,15 @@ class QiskryptQuantumCircuit:
         :param qubit_index: the index of a qubit inside that IBM Qiskit's Quantum Register.
         """
 
-        is_possible_to_apply_single_operation = \
-            self.check_if_is_possible_to_apply_single_operation(qiskit_quantum_register_index, qubit_index, True)
+        is_possible_to_apply_operation = \
+            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_index, qubit_index, True)
         """
-        Check if it is possible to apply the pretended single operation.
+        Check if it is possible to apply the pretended operation.
         """
 
-        if is_possible_to_apply_single_operation:
+        if is_possible_to_apply_operation:
             """
-            It is possible to apply the pretended single operation.
+            It is possible to apply the pretended operation.
             """
 
             self.quantum_circuit.z(self.quantum_circuit.qregs[qiskit_quantum_register_index][qubit_index])
@@ -7493,15 +7493,15 @@ class QiskryptQuantumCircuit:
         :param qubit_index: the index of a qubit inside that IBM Qiskit's Quantum Register.
         """
 
-        is_possible_to_apply_single_operation = \
-            self.check_if_is_possible_to_apply_single_operation(qiskit_quantum_register_index, qubit_index, True)
+        is_possible_to_apply_operation = \
+            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_index, qubit_index, True)
         """
-        Check if it is possible to apply the pretended single operation.
+        Check if it is possible to apply the pretended operation.
         """
 
-        if is_possible_to_apply_single_operation:
+        if is_possible_to_apply_operation:
             """
-            It is possible to apply the pretended single operation.
+            It is possible to apply the pretended operation.
             """
 
             self.quantum_circuit.h(self.quantum_circuit.qregs[qiskit_quantum_register_index][qubit_index])
@@ -7518,15 +7518,15 @@ class QiskryptQuantumCircuit:
         :param qubit_index: the index of a qubit inside that IBM Qiskit's Quantum Register.
         """
 
-        is_possible_to_apply_single_operation = \
-            self.check_if_is_possible_to_apply_single_operation(qiskit_quantum_register_index, qubit_index, True)
+        is_possible_to_apply_operation = \
+            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_index, qubit_index, True)
         """
-        Check if it is possible to apply the pretended single operation.
+        Check if it is possible to apply the pretended operation.
         """
 
-        if is_possible_to_apply_single_operation:
+        if is_possible_to_apply_operation:
             """
-            It is possible to apply the pretended single operation.
+            It is possible to apply the pretended operation.
             """
 
             self.quantum_circuit.s(self.quantum_circuit.qregs[qiskit_quantum_register_index][qubit_index])
@@ -7543,15 +7543,15 @@ class QiskryptQuantumCircuit:
         :param qubit_index: the index of a qubit inside that IBM Qiskit's Quantum Register.
         """
 
-        is_possible_to_apply_single_operation = \
-            self.check_if_is_possible_to_apply_single_operation(qiskit_quantum_register_index, qubit_index, False)
+        is_possible_to_apply_operation = \
+            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_index, qubit_index, False)
         """
-        Check if it is possible to apply the pretended single operation.
+        Check if it is possible to apply the pretended operation.
         """
 
-        if is_possible_to_apply_single_operation:
+        if is_possible_to_apply_operation:
             """
-            It is possible to apply the pretended single operation.
+            It is possible to apply the pretended operation.
             """
 
             self.quantum_circuit.t(self.quantum_circuit.qregs[qiskit_quantum_register_index][qubit_index])
@@ -7613,15 +7613,15 @@ class QiskryptQuantumCircuit:
         :param qubit_index: the index of a qubit inside that IBM Qiskit's Quantum Register.
         """
 
-        is_possible_to_apply_single_operation = \
-            self.check_if_is_possible_to_apply_single_operation(qiskit_quantum_register_index, qubit_index, True)
+        is_possible_to_apply_operation = \
+            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_index, qubit_index, True)
         """
-        Check if it is possible to apply the pretended single operation.
+        Check if it is possible to apply the pretended operation.
         """
 
-        if is_possible_to_apply_single_operation:
+        if is_possible_to_apply_operation:
             """
-            It is possible to apply the pretended single operation.
+            It is possible to apply the pretended operation.
             """
 
             self.quantum_circuit.sdg(self.quantum_circuit.qregs[qiskit_quantum_register_index][qubit_index])
@@ -7638,15 +7638,15 @@ class QiskryptQuantumCircuit:
         :param qubit_index: the index of a qubit inside that IBM Qiskit's Quantum Register.
         """
 
-        is_possible_to_apply_single_operation = \
-            self.check_if_is_possible_to_apply_single_operation(qiskit_quantum_register_index, qubit_index, True)
+        is_possible_to_apply_operation = \
+            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_index, qubit_index, True)
         """
-        Check if it is possible to apply the pretended single operation.
+        Check if it is possible to apply the pretended operation.
         """
 
-        if is_possible_to_apply_single_operation:
+        if is_possible_to_apply_operation:
             """
-            It is possible to apply the pretended single operation.
+            It is possible to apply the pretended operation.
             """
 
             self.quantum_circuit.tdg(self.quantum_circuit.qregs[qiskit_quantum_register_index][qubit_index])
@@ -7663,15 +7663,15 @@ class QiskryptQuantumCircuit:
         :param qubit_index: the index of a qubit inside that IBM Qiskit's Quantum Register.
         """
 
-        is_possible_to_apply_single_operation = \
-            self.check_if_is_possible_to_apply_single_operation(qiskit_quantum_register_index, qubit_index, True)
+        is_possible_to_apply_operation = \
+            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_index, qubit_index, True)
         """
-        Check if it is possible to apply the pretended single operation.
+        Check if it is possible to apply the pretended operation.
         """
 
-        if is_possible_to_apply_single_operation:
+        if is_possible_to_apply_operation:
             """
-            It is possible to apply the pretended single operation.
+            It is possible to apply the pretended operation.
             """
 
             self.quantum_circuit.sx(self.quantum_circuit.qregs[qiskit_quantum_register_index][qubit_index])
@@ -7689,15 +7689,15 @@ class QiskryptQuantumCircuit:
         :param qubit_index: the index of a qubit inside that IBM Qiskit's Quantum Register.
         """
 
-        is_possible_to_apply_single_operation = \
-            self.check_if_is_possible_to_apply_single_operation(qiskit_quantum_register_index, qubit_index, True)
+        is_possible_to_apply_operation = \
+            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_index, qubit_index, True)
         """
-        Check if it is possible to apply the pretended single operation.
+        Check if it is possible to apply the pretended operation.
         """
 
-        if is_possible_to_apply_single_operation:
+        if is_possible_to_apply_operation:
             """
-            It is possible to apply the pretended single operation.
+            It is possible to apply the pretended operation.
             """
 
             squared_root_pauli_y_unitary_matrix_operator = Operator([
@@ -7723,15 +7723,15 @@ class QiskryptQuantumCircuit:
         :param qubit_index: the index of a qubit inside that IBM Qiskit's Quantum Register.
         """
 
-        is_possible_to_apply_single_operation = \
-            self.check_if_is_possible_to_apply_single_operation(qiskit_quantum_register_index, qubit_index, True)
+        is_possible_to_apply_operation = \
+            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_index, qubit_index, True)
         """
-        Check if it is possible to apply the pretended single operation.
+        Check if it is possible to apply the pretended operation.
         """
 
-        if is_possible_to_apply_single_operation:
+        if is_possible_to_apply_operation:
             """
-            It is possible to apply the pretended single operation.
+            It is possible to apply the pretended operation.
             """
 
             squared_root_pauli_z_unitary_matrix_operator = Operator([
@@ -7758,15 +7758,15 @@ class QiskryptQuantumCircuit:
         :param qubit_index: the index of a qubit inside that IBM Qiskit's Quantum Register.
         """
 
-        is_possible_to_apply_single_operation = \
-            self.check_if_is_possible_to_apply_single_operation(qiskit_quantum_register_index, qubit_index, True)
+        is_possible_to_apply_operation = \
+            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_index, qubit_index, True)
         """
-        Check if it is possible to apply the pretended single operation.
+        Check if it is possible to apply the pretended operation.
         """
 
-        if is_possible_to_apply_single_operation:
+        if is_possible_to_apply_operation:
             """
-            It is possible to apply the pretended single operation.
+            It is possible to apply the pretended operation.
             """
 
             squared_root_hadamard_unitary_matrix_operator = Operator([
@@ -7793,15 +7793,15 @@ class QiskryptQuantumCircuit:
         :param qubit_index: the index of a qubit inside that IBM Qiskit's Quantum Register.
         """
 
-        is_possible_to_apply_single_operation = \
-            self.check_if_is_possible_to_apply_single_operation(qiskit_quantum_register_index, qubit_index, True)
+        is_possible_to_apply_operation = \
+            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_index, qubit_index, True)
         """
-        Check if it is possible to apply the pretended single operation.
+        Check if it is possible to apply the pretended operation.
         """
 
-        if is_possible_to_apply_single_operation:
+        if is_possible_to_apply_operation:
             """
-            It is possible to apply the pretended single operation.
+            It is possible to apply the pretended operation.
             """
 
             squared_root_phase_s_unitary_matrix_operator = Operator([
@@ -7828,15 +7828,15 @@ class QiskryptQuantumCircuit:
         :param qubit_index: the index of a qubit inside that IBM Qiskit's Quantum Register.
         """
 
-        is_possible_to_apply_single_operation = \
-            self.check_if_is_possible_to_apply_single_operation(qiskit_quantum_register_index, qubit_index, True)
+        is_possible_to_apply_operation = \
+            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_index, qubit_index, True)
         """
-        Check if it is possible to apply the pretended single operation.
+        Check if it is possible to apply the pretended operation.
         """
 
-        if is_possible_to_apply_single_operation:
+        if is_possible_to_apply_operation:
             """
-            It is possible to apply the pretended single operation.
+            It is possible to apply the pretended operation.
             """
 
             squared_root_phase_t_unitary_matrix_operator = Operator([
@@ -7870,11 +7870,11 @@ class QiskryptQuantumCircuit:
             equivalent to the Pauli-X Gate/Operation, which can be also executed by a Semi-Quantum Register.
             """
 
-            is_possible_to_apply_single_operation = \
-                self.check_if_is_possible_to_apply_single_operation(qiskit_quantum_register_index,
-                                                                    qubit_index, False)
+            is_possible_to_apply_operation = \
+                self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_index,
+                                                             qubit_index, False)
             """
-            Check if it is possible to apply the pretended single operation.
+            Check if it is possible to apply the pretended operation.
             """
 
         else:
@@ -7883,16 +7883,16 @@ class QiskryptQuantumCircuit:
             equivalent to the Pauli-X Gate/Operation, and thus, can be only executed by a Fully-Quantum Register.
             """
 
-            is_possible_to_apply_single_operation = \
-                self.check_if_is_possible_to_apply_single_operation(qiskit_quantum_register_index,
-                                                                    qubit_index, True)
+            is_possible_to_apply_operation = \
+                self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_index,
+                                                             qubit_index, True)
             """
-            Check if it is possible to apply the pretended single operation.
+            Check if it is possible to apply the pretended operation.
             """
 
-        if is_possible_to_apply_single_operation:
+        if is_possible_to_apply_operation:
             """
-            It is possible to apply the pretended single operation.
+            It is possible to apply the pretended operation.
             """
 
             self.quantum_circuit.rx(theta_radians, self.quantum_circuit.qregs[qiskit_quantum_register_index][qubit_index])
@@ -7933,16 +7933,16 @@ class QiskryptQuantumCircuit:
         :param qubit_index: the index of a qubit inside that IBM Qiskit's Quantum Register.
         """
 
-        is_possible_to_apply_single_operation = \
-            self.check_if_is_possible_to_apply_single_operation(qiskit_quantum_register_index,
-                                                                qubit_index, True)
+        is_possible_to_apply_operation = \
+            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_index,
+                                                         qubit_index, True)
         """
-        Check if it is possible to apply the pretended single operation.
+        Check if it is possible to apply the pretended operation.
         """
 
-        if is_possible_to_apply_single_operation:
+        if is_possible_to_apply_operation:
             """
-            It is possible to apply the pretended single operation.
+            It is possible to apply the pretended operation.
             """
 
             self.quantum_circuit.ry(theta_radians, self.quantum_circuit.qregs[qiskit_quantum_register_index][qubit_index])
@@ -7983,16 +7983,16 @@ class QiskryptQuantumCircuit:
         :param qubit_index: the index of a qubit inside that IBM Qiskit's Quantum Register.
         """
 
-        is_possible_to_apply_single_operation = \
-            self.check_if_is_possible_to_apply_single_operation(qiskit_quantum_register_index,
-                                                                qubit_index, True)
+        is_possible_to_apply_operation = \
+            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_index,
+                                                         qubit_index, True)
         """
-        Check if it is possible to apply the pretended single operation.
+        Check if it is possible to apply the pretended operation.
         """
 
-        if is_possible_to_apply_single_operation:
+        if is_possible_to_apply_operation:
             """
-            It is possible to apply the pretended single operation.
+            It is possible to apply the pretended operation.
             """
 
             self.quantum_circuit.rz(theta_radians, self.quantum_circuit.qregs[qiskit_quantum_register_index][qubit_index])
@@ -8033,16 +8033,16 @@ class QiskryptQuantumCircuit:
         :param qubit_index: the index of a qubit inside that IBM Qiskit's Quantum Register.
         """
 
-        is_possible_to_apply_single_operation = \
-            self.check_if_is_possible_to_apply_single_operation(qiskit_quantum_register_index,
-                                                                qubit_index, True)
+        is_possible_to_apply_operation = \
+            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_index,
+                                                         qubit_index, True)
         """
-        Check if it is possible to apply the pretended single operation.
+        Check if it is possible to apply the pretended operation.
         """
 
-        if is_possible_to_apply_single_operation:
+        if is_possible_to_apply_operation:
             """
-            It is possible to apply the pretended single operation.
+            It is possible to apply the pretended operation.
             """
 
             self.quantum_circuit.u1(theta_radians, self.quantum_circuit.qregs[qiskit_quantum_register_index][qubit_index])
@@ -8084,16 +8084,16 @@ class QiskryptQuantumCircuit:
         :param qubit_index: the index of a qubit inside that IBM Qiskit's Quantum Register.
         """
 
-        is_possible_to_apply_single_operation = \
-            self.check_if_is_possible_to_apply_single_operation(qiskit_quantum_register_index,
-                                                                qubit_index, True)
+        is_possible_to_apply_operation = \
+            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_index,
+                                                         qubit_index, True)
         """
-        Check if it is possible to apply the pretended single operation.
+        Check if it is possible to apply the pretended operation.
         """
 
-        if is_possible_to_apply_single_operation:
+        if is_possible_to_apply_operation:
             """
-            It is possible to apply the pretended single operation.
+            It is possible to apply the pretended operation.
             """
 
             self.quantum_circuit.u2(phi_radians, lamb_radians, self.quantum_circuit.qregs[qiskit_quantum_register_index][qubit_index])
@@ -8142,16 +8142,16 @@ class QiskryptQuantumCircuit:
         :param qubit_index: the index of a qubit inside that IBM Qiskit's Quantum Register.
         """
 
-        is_possible_to_apply_single_operation = \
-            self.check_if_is_possible_to_apply_single_operation(qiskit_quantum_register_index,
-                                                                qubit_index, True)
+        is_possible_to_apply_operation = \
+            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_index,
+                                                         qubit_index, True)
         """
-        Check if it is possible to apply the pretended single operation.
+        Check if it is possible to apply the pretended operation.
         """
 
-        if is_possible_to_apply_single_operation:
+        if is_possible_to_apply_operation:
             """
-            It is possible to apply the pretended single operation.
+            It is possible to apply the pretended operation.
             """
 
             self.quantum_circuit.u3(theta_radians, phi_radians, lamb_radians, self.quantum_circuit.qregs[qiskit_quantum_register_index][qubit_index])
@@ -8193,6 +8193,52 @@ class QiskryptQuantumCircuit:
         Apply the equivalent U3(theta_degrees, phi_degrees, lamb_degrees) Gate/Operation to the given indexes of
         an IBM Qiskit's Quantum Register and a target qubit, as also, given theta, phi and lambda angles, now in radians.
         """
+
+    """
+    4) Single Qubit Gates/Operations Methods:
+    """
+
+    def apply_swap(self, qiskit_quantum_register_index_1: int, qiskit_quantum_register_index_2: int,
+                   qubit_index_1: int, qubit_index_2: int):
+        """
+        Apply the SWAP Gate/Operation to given indexes of
+        a 1st IBM Qiskit's Quantum Register and a target qubit on it, as also,
+        another 2nd IBM Qiskit's Quantum Register and a target qubit on it.
+
+        :param qiskit_quantum_register_index_1: the index of the 1st IBM Qiskit's Quantum Register.
+        :param qiskit_quantum_register_index_2: the index of the 2nd IBM Qiskit's Quantum Register.
+        :param qubit_index_1: the index of a qubit inside the 1st IBM Qiskit's Quantum Register.
+        :param qubit_index_2: the index of a qubit inside the 2nd IBM Qiskit's Quantum Register.
+        """
+
+        is_possible_to_apply_operation_1 = \
+            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_index_1,
+                                                         qubit_index_1, False)
+        """
+        Check if it is possible to apply the pretended operation for
+        the 1st IBM Qiskit's Quantum Register and the respective target qubit.
+        """
+
+        is_possible_to_apply_operation_2 = \
+            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_index_2,
+                                                         qubit_index_2, False)
+        """
+        Check if it is possible to apply the pretended operation for
+        the 2nd IBM Qiskit's Quantum Register and the respective target qubit.
+        """
+
+        if is_possible_to_apply_operation_1 and is_possible_to_apply_operation_2:
+            """
+            It is possible to apply the pretended operation for both
+            the IBM Qiskit's Quantum Registers and their respective target qubits.
+            """
+
+            self.quantum_circuit.swap(self.quantum_circuit.qregs[qiskit_quantum_register_index_1][qubit_index_1],
+                                      self.quantum_circuit.qregs[qiskit_quantum_register_index_2][qubit_index_2])
+            """
+            Apply the SWAP Gate/Operation to the two given indexes of
+            IBM Qiskit's Quantum Registers and their respective target qubits.
+            """
 
     @staticmethod
     def check_if_is_a_qiskrypt_semi_quantum_register(qiskrypt_register: object) -> bool:
