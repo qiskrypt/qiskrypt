@@ -8282,12 +8282,12 @@ class QiskryptQuantumCircuit:
             IBM Qiskit's Quantum Registers and their respective target qubits.
             """
 
-    def apply_controlled_x(self,
-                           qiskit_quantum_register_control_index: int,
-                           qiskit_quantum_register_target_index: int,
-                           control_qubit_index: int, target_qubit_index: int):
+    def apply_controlled_pauli_x(self,
+                                 qiskit_quantum_register_control_index: int,
+                                 qiskit_quantum_register_target_index: int,
+                                 control_qubit_index: int, target_qubit_index: int):
         """
-        Apply the Controlled-X (Controlled-NOT) Gate/Operation to given indexes of
+        Apply the Controlled-Pauli-X (Controlled-NOT) Gate/Operation to given indexes of
         a control IBM Qiskit's Quantum Register and the respective qubit on it, as also,
         a target IBM Qiskit's Quantum Register and the respective qubit on it.
 
@@ -8322,16 +8322,16 @@ class QiskryptQuantumCircuit:
             self.quantum_circuit.cx(self.quantum_circuit.qregs[qiskit_quantum_register_control_index][control_qubit_index],
                                     self.quantum_circuit.qregs[qiskit_quantum_register_target_index][target_qubit_index])
             """
-            Apply the Controlled-X (Controlled-NOT) Gate/Operation to the given indexes of
+            Apply the Controlled-Pauli-X (Controlled-NOT) Gate/Operation to the given indexes of
             control and target IBM Qiskit's Quantum Registers and their respective qubits.
             """
 
-    def apply_controlled_y(self,
-                           qiskit_quantum_register_control_index: int,
-                           qiskit_quantum_register_target_index: int,
-                           control_qubit_index: int, target_qubit_index: int):
+    def apply_controlled_pauli_y(self,
+                                 qiskit_quantum_register_control_index: int,
+                                 qiskit_quantum_register_target_index: int,
+                                 control_qubit_index: int, target_qubit_index: int):
         """
-        Apply the Controlled-Y Gate/Operation to given indexes of
+        Apply the Controlled-Pauli-Y Gate/Operation to given indexes of
         a control IBM Qiskit's Quantum Register and the respective qubit on it, as also,
         a target IBM Qiskit's Quantum Register and the respective qubit on it.
 
@@ -8366,16 +8366,16 @@ class QiskryptQuantumCircuit:
             self.quantum_circuit.cy(self.quantum_circuit.qregs[qiskit_quantum_register_control_index][control_qubit_index],
                                     self.quantum_circuit.qregs[qiskit_quantum_register_target_index][target_qubit_index])
             """
-            Apply the Controlled-Y Gate/Operation to the given indexes of
+            Apply the Controlled-Pauli-Y Gate/Operation to the given indexes of
             control and target IBM Qiskit's Quantum Registers and their respective qubits.
             """
 
-    def apply_controlled_z(self,
-                           qiskit_quantum_register_control_index: int,
-                           qiskit_quantum_register_target_index: int,
-                           control_qubit_index: int, target_qubit_index: int):
+    def apply_controlled_pauli_z(self,
+                                 qiskit_quantum_register_control_index: int,
+                                 qiskit_quantum_register_target_index: int,
+                                 control_qubit_index: int, target_qubit_index: int):
         """
-        Apply the Controlled-Z (Controlled-Phase-Flip/Controlled-Phase-Shifter) Gate/Operation to
+        Apply the Controlled-Pauli-Z (Controlled-Phase-Flip/Controlled-Phase-Shifter) Gate/Operation to
         given indexes of a control IBM Qiskit's Quantum Register and the respective qubit on it, as also,
         a target IBM Qiskit's Quantum Register and the respective qubit on it.
 
@@ -8410,7 +8410,7 @@ class QiskryptQuantumCircuit:
             self.quantum_circuit.cz(self.quantum_circuit.qregs[qiskit_quantum_register_control_index][control_qubit_index],
                                     self.quantum_circuit.qregs[qiskit_quantum_register_target_index][target_qubit_index])
             """
-            Apply the Controlled-Z (Controlled-Phase-Flip/Controlled-Phase-Shifter) Gate/Operation to
+            Apply the Controlled-Pauli-Z (Controlled-Phase-Flip/Controlled-Phase-Shifter) Gate/Operation to
             the given indexes of control and target IBM Qiskit's Quantum Registers and their respective qubits.
             """
 
