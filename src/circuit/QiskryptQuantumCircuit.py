@@ -8679,6 +8679,38 @@ class QiskryptQuantumCircuit:
             the given indexes of control and target IBM Qiskit's Quantum Registers and their respective qubits.
             """
 
+    def apply_controlled_swap(self,
+                              qiskit_quantum_register_control_index: int,
+                              qiskit_quantum_register_target_index_1: int,
+                              qiskit_quantum_register_target_index_2: int,
+                              control_qubit_index: int, target_qubit_index_1: int, target_qubit_index_2: int):
+        """
+
+
+        :param qiskit_quantum_register_control_index:
+        :param qiskit_quantum_register_target_index_1:
+        :param qiskit_quantum_register_target_index_2:
+        :param control_qubit_index:
+        :param target_qubit_index_1:
+        :param target_qubit_index_2:
+        """
+
+    def apply_fredkin(self,
+                      qiskit_quantum_register_control_index: int,
+                      qiskit_quantum_register_target_index_1: int,
+                      qiskit_quantum_register_target_index_2: int,
+                      control_qubit_index: int, target_qubit_index_1: int, target_qubit_index_2: int):
+        """
+
+
+        :param qiskit_quantum_register_control_index:
+        :param qiskit_quantum_register_target_index_1:
+        :param qiskit_quantum_register_target_index_2:
+        :param control_qubit_index:
+        :param target_qubit_index_1:
+        :param target_qubit_index_2:
+        """
+
     @staticmethod
     def check_if_is_a_qiskrypt_semi_quantum_register(qiskrypt_register: object) -> bool:
         """
