@@ -8508,7 +8508,8 @@ class QiskryptQuantumCircuit:
             """
 
             self.quantum_circuit.unitary(controlled_phase_s_unitary_matrix_operator,
-                                         [control_qubit_index, target_qubit_index])
+                                         [self.quantum_circuit.qregs[qiskit_quantum_register_control_index][control_qubit_index],
+                                          self.quantum_circuit.qregs[qiskit_quantum_register_target_index][target_qubit_index]])
             """
             Apply the Controlled-Phase-S (pi/2) Gate/Operation to
             the given indexes of control and target IBM Qiskit's Quantum Registers and their respective qubits.
@@ -8563,7 +8564,8 @@ class QiskryptQuantumCircuit:
             """
 
             self.quantum_circuit.unitary(controlled_phase_t_unitary_matrix_operator,
-                                         [control_qubit_index, target_qubit_index])
+                                         [self.quantum_circuit.qregs[qiskit_quantum_register_control_index][control_qubit_index],
+                                          self.quantum_circuit.qregs[qiskit_quantum_register_target_index][target_qubit_index]])
             """
             Apply the Controlled-Phase-T (pi/4) Gate/Operation to
             the given indexes of control and target IBM Qiskit's Quantum Registers and their respective qubits.
@@ -8618,7 +8620,8 @@ class QiskryptQuantumCircuit:
             """
 
             self.quantum_circuit.unitary(controlled_phase_s_adjoint_unitary_matrix_operator,
-                                         [control_qubit_index, target_qubit_index])
+                                         [self.quantum_circuit.qregs[qiskit_quantum_register_control_index][control_qubit_index],
+                                          self.quantum_circuit.qregs[qiskit_quantum_register_target_index][target_qubit_index]])
             """
             Apply the Controlled-Phase-S (-pi/2) Adjoint Gate/Operation to
             the given indexes of control and target IBM Qiskit's Quantum Registers and their respective qubits.
@@ -8673,7 +8676,8 @@ class QiskryptQuantumCircuit:
             """
 
             self.quantum_circuit.unitary(controlled_phase_t_adjoint_unitary_matrix_operator,
-                                         [control_qubit_index, target_qubit_index])
+                                         [self.quantum_circuit.qregs[qiskit_quantum_register_control_index][control_qubit_index],
+                                          self.quantum_circuit.qregs[qiskit_quantum_register_target_index][target_qubit_index]])
             """
             Apply the Controlled-Phase-T (-pi/4) Adjoint Gate/Operation to
             the given indexes of control and target IBM Qiskit's Quantum Registers and their respective qubits.
@@ -8769,15 +8773,56 @@ class QiskryptQuantumCircuit:
                                             control_qubit_index_1: int, control_qubit_index_2: int,
                                             target_qubit_index: int):
         """
+        Apply the Controlled-Controlled-Pauli-X (Toffolli) Gate/Operation to
+        given indexes of a control IBM Qiskit's Quantum Register and the respective qubit on it, as also,
+        two target IBM Qiskit's Quantum Registers and the respective qubits on them.
 
-
-        :param qiskit_quantum_register_control_index_1:
-        :param qiskit_quantum_register_control_index_2:
-        :param qiskit_quantum_register_target_index:
-        :param control_qubit_index_1:
-        :param control_qubit_index_2:
-        :param target_qubit_index:
+        :param qiskit_quantum_register_control_index_1: the index of the 1st control IBM Qiskit's Quantum Register.
+        :param qiskit_quantum_register_control_index_2: the index of the 2nd control IBM Qiskit's Quantum Register.
+        :param qiskit_quantum_register_target_index: the index of the target IBM Qiskit's Quantum Register.
+        :param control_qubit_index_1: the index of a qubit inside the 1st control IBM Qiskit's Quantum Register.
+        :param control_qubit_index_2: the index of a qubit inside the 2nd control IBM Qiskit's Quantum Register.
+        :param target_qubit_index: the index of a qubit inside the target IBM Qiskit's Quantum Register.
         """
+
+        is_possible_to_apply_operation_control_1 = \
+            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_control_index_1,
+                                                         control_qubit_index_1, True)
+        """
+        Check if it is possible to apply the pretended operation for
+        the 1st control IBM Qiskit's Quantum Register and the respective control qubit.
+        """
+
+        is_possible_to_apply_operation_control_2 = \
+            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_control_index_2,
+                                                         control_qubit_index_2, True)
+        """
+        Check if it is possible to apply the pretended operation for
+        the 2nd control IBM Qiskit's Quantum Register and the respective control qubit.
+        """
+
+        is_possible_to_apply_operation_target = \
+            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_target_index,
+                                                         target_qubit_index, True)
+        """
+        Check if it is possible to apply the pretended operation for
+        the target IBM Qiskit's Quantum Register and the respective target qubit.
+        """
+
+        if is_possible_to_apply_operation_control_1 and is_possible_to_apply_operation_control_2 and \
+                is_possible_to_apply_operation_target:
+            """
+            It is possible to apply the pretended operation for both
+            the controls and target IBM Qiskit's Quantum Registers and their respective qubits.
+            """
+
+            self.quantum_circuit.ccx(self.quantum_circuit.qregs[qiskit_quantum_register_control_index_1][control_qubit_index_1],
+                                     self.quantum_circuit.qregs[qiskit_quantum_register_control_index_2][control_qubit_index_2],
+                                     self.quantum_circuit.qregs[qiskit_quantum_register_target_index][target_qubit_index])
+            """
+            Apply the Controlled-Controlled-Pauli-X (Toffolli) Gate/Operation to the given indexes of
+            controls and target IBM Qiskit's Quantum Registers and their respective qubits.
+            """
 
     def apply_controlled_controlled_pauli_y(self,
                                             qiskit_quantum_register_control_index_1: int,
@@ -8786,15 +8831,71 @@ class QiskryptQuantumCircuit:
                                             control_qubit_index_1: int, control_qubit_index_2: int,
                                             target_qubit_index: int):
         """
+        Apply the Controlled-Controlled-Pauli-Y Gate/Operation to
+        given indexes of a control IBM Qiskit's Quantum Register and the respective qubit on it, as also,
+        two target IBM Qiskit's Quantum Registers and the respective qubits on them.
 
-
-        :param qiskit_quantum_register_control_index_1:
-        :param qiskit_quantum_register_control_index_2:
-        :param qiskit_quantum_register_target_index:
-        :param control_qubit_index_1:
-        :param control_qubit_index_2:
-        :param target_qubit_index:
+        :param qiskit_quantum_register_control_index_1: the index of the 1st control IBM Qiskit's Quantum Register.
+        :param qiskit_quantum_register_control_index_2: the index of the 2nd control IBM Qiskit's Quantum Register.
+        :param qiskit_quantum_register_target_index: the index of the target IBM Qiskit's Quantum Register.
+        :param control_qubit_index_1: the index of a qubit inside the 1st control IBM Qiskit's Quantum Register.
+        :param control_qubit_index_2: the index of a qubit inside the 2nd control IBM Qiskit's Quantum Register.
+        :param target_qubit_index: the index of a qubit inside the target IBM Qiskit's Quantum Register.
         """
+
+        is_possible_to_apply_operation_control_1 = \
+            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_control_index_1,
+                                                         control_qubit_index_1, True)
+        """
+        Check if it is possible to apply the pretended operation for
+        the 1st control IBM Qiskit's Quantum Register and the respective control qubit.
+        """
+
+        is_possible_to_apply_operation_control_2 = \
+            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_control_index_2,
+                                                         control_qubit_index_2, True)
+        """
+        Check if it is possible to apply the pretended operation for
+        the 2nd control IBM Qiskit's Quantum Register and the respective control qubit.
+        """
+
+        is_possible_to_apply_operation_target = \
+            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_target_index,
+                                                         target_qubit_index, True)
+        """
+        Check if it is possible to apply the pretended operation for
+        the target IBM Qiskit's Quantum Register and the respective target qubit.
+        """
+
+        if is_possible_to_apply_operation_control_1 and is_possible_to_apply_operation_control_2 and \
+                is_possible_to_apply_operation_target:
+            """
+            It is possible to apply the pretended operation for both
+            the controls and target IBM Qiskit's Quantum Registers and their respective qubits.
+            """
+
+            controlled_controlled_pauli_y_unitary_matrix_operator = Operator([
+                [1, 0, 0, 0, 0, 0,  0,   0],
+                [0, 1, 0, 0, 0, 0,  0,   0],
+                [0, 0, 1, 0, 0, 0,  0,   0],
+                [0, 0, 0, 1, 0, 0,  0,   0],
+                [0, 0, 0, 0, 1, 0,  0,   0],
+                [0, 0, 0, 0, 0, 1,  0,   0],
+                [0, 0, 0, 0, 0, 0,  0, -1j],
+                [0, 0, 0, 0, 0, 0, 1j,   0]
+            ])
+            """
+            Set the Unitary Matrix/Operator for the Controlled-Controlled-Pauli-Y Gate/Operation.
+            """
+
+            self.quantum_circuit.unitary(controlled_controlled_pauli_y_unitary_matrix_operator,
+                                         [self.quantum_circuit.qregs[qiskit_quantum_register_control_index_1][control_qubit_index_1],
+                                          self.quantum_circuit.qregs[qiskit_quantum_register_control_index_2][control_qubit_index_2],
+                                          self.quantum_circuit.qregs[qiskit_quantum_register_target_index][target_qubit_index]])
+            """
+            Apply the Controlled-Controlled-Pauli-Y Gate/Operation to the given indexes of
+            controls and target IBM Qiskit's Quantum Registers and their respective qubits.
+            """
 
     def apply_controlled_controlled_pauli_z(self,
                                             qiskit_quantum_register_control_index_1: int,
@@ -8803,15 +8904,71 @@ class QiskryptQuantumCircuit:
                                             control_qubit_index_1: int, control_qubit_index_2: int,
                                             target_qubit_index: int):
         """
+        Apply the Controlled-Controlled-Pauli-Z Gate/Operation to
+        given indexes of a control IBM Qiskit's Quantum Register and the respective qubit on it, as also,
+        two target IBM Qiskit's Quantum Registers and the respective qubits on them.
 
-
-        :param qiskit_quantum_register_control_index_1:
-        :param qiskit_quantum_register_control_index_2:
-        :param qiskit_quantum_register_target_index:
-        :param control_qubit_index_1:
-        :param control_qubit_index_2:
-        :param target_qubit_index:
+        :param qiskit_quantum_register_control_index_1: the index of the 1st control IBM Qiskit's Quantum Register.
+        :param qiskit_quantum_register_control_index_2: the index of the 2nd control IBM Qiskit's Quantum Register.
+        :param qiskit_quantum_register_target_index: the index of the target IBM Qiskit's Quantum Register.
+        :param control_qubit_index_1: the index of a qubit inside the 1st control IBM Qiskit's Quantum Register.
+        :param control_qubit_index_2: the index of a qubit inside the 2nd control IBM Qiskit's Quantum Register.
+        :param target_qubit_index: the index of a qubit inside the target IBM Qiskit's Quantum Register.
         """
+
+        is_possible_to_apply_operation_control_1 = \
+            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_control_index_1,
+                                                         control_qubit_index_1, True)
+        """
+        Check if it is possible to apply the pretended operation for
+        the 1st control IBM Qiskit's Quantum Register and the respective control qubit.
+        """
+
+        is_possible_to_apply_operation_control_2 = \
+            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_control_index_2,
+                                                         control_qubit_index_2, True)
+        """
+        Check if it is possible to apply the pretended operation for
+        the 2nd control IBM Qiskit's Quantum Register and the respective control qubit.
+        """
+
+        is_possible_to_apply_operation_target = \
+            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_target_index,
+                                                         target_qubit_index, True)
+        """
+        Check if it is possible to apply the pretended operation for
+        the target IBM Qiskit's Quantum Register and the respective target qubit.
+        """
+
+        if is_possible_to_apply_operation_control_1 and is_possible_to_apply_operation_control_2 and \
+                is_possible_to_apply_operation_target:
+            """
+            It is possible to apply the pretended operation for both
+            the controls and target IBM Qiskit's Quantum Registers and their respective qubits.
+            """
+
+            controlled_controlled_pauli_z_unitary_matrix_operator = Operator([
+                [1, 0, 0, 0, 0, 0, 0,  0],
+                [0, 1, 0, 0, 0, 0, 0,  0],
+                [0, 0, 1, 0, 0, 0, 0,  0],
+                [0, 0, 0, 1, 0, 0, 0,  0],
+                [0, 0, 0, 0, 1, 0, 0,  0],
+                [0, 0, 0, 0, 0, 1, 0,  0],
+                [0, 0, 0, 0, 0, 0, 1,  0],
+                [0, 0, 0, 0, 0, 0, 0, -1]
+            ])
+            """
+            Set the Unitary Matrix/Operator for the Controlled-Controlled-Pauli-Z Gate/Operation.
+            """
+
+            self.quantum_circuit.unitary(controlled_controlled_pauli_z_unitary_matrix_operator,
+                                         [self.quantum_circuit.qregs[qiskit_quantum_register_control_index_1][control_qubit_index_1],
+                                          self.quantum_circuit.qregs[qiskit_quantum_register_control_index_2][control_qubit_index_2],
+                                          self.quantum_circuit.qregs[qiskit_quantum_register_target_index][target_qubit_index]])
+            """
+            Apply the Controlled-Controlled-Pauli-Z Gate/Operation to the given indexes of
+            controls and target IBM Qiskit's Quantum Registers and their respective qubits.
+            """
 
     def apply_toffolli(self,
                        qiskit_quantum_register_control_index_1: int,
@@ -8820,14 +8977,26 @@ class QiskryptQuantumCircuit:
                        control_qubit_index_1: int, control_qubit_index_2: int,
                        target_qubit_index: int):
         """
+        Apply the Controlled-Controlled-Pauli-X (Toffolli) Gate/Operation to
+        given indexes of a control IBM Qiskit's Quantum Register and the respective qubit on it, as also,
+        two target IBM Qiskit's Quantum Registers and the respective qubits on them.
 
+        :param qiskit_quantum_register_control_index_1: the index of the 1st control IBM Qiskit's Quantum Register.
+        :param qiskit_quantum_register_control_index_2: the index of the 2nd control IBM Qiskit's Quantum Register.
+        :param qiskit_quantum_register_target_index: the index of the target IBM Qiskit's Quantum Register.
+        :param control_qubit_index_1: the index of a qubit inside the 1st control IBM Qiskit's Quantum Register.
+        :param control_qubit_index_2: the index of a qubit inside the 2nd control IBM Qiskit's Quantum Register.
+        :param target_qubit_index: the index of a qubit inside the target IBM Qiskit's Quantum Register.
+        """
 
-        :param qiskit_quantum_register_control_index_1:
-        :param qiskit_quantum_register_control_index_2:
-        :param qiskit_quantum_register_target_index:
-        :param control_qubit_index_1:
-        :param control_qubit_index_2:
-        :param target_qubit_index:
+        self.apply_controlled_controlled_pauli_x(qiskit_quantum_register_control_index_1,
+                                                 qiskit_quantum_register_control_index_2,
+                                                 qiskit_quantum_register_target_index,
+                                                 control_qubit_index_1, control_qubit_index_2,
+                                                 target_qubit_index)
+        """
+        Apply the equivalent Controlled-Controlled-X (Toffolli) Gate/Operation to the given indexes of
+        controls and target IBM Qiskit's Quantum Registers and their respective qubits.
         """
 
     @staticmethod
