@@ -8685,15 +8685,56 @@ class QiskryptQuantumCircuit:
                               qiskit_quantum_register_target_index_2: int,
                               control_qubit_index: int, target_qubit_index_1: int, target_qubit_index_2: int):
         """
+        Apply the Controlled-SWAP (Fredkin) Gate/Operation to
+        given indexes of a control IBM Qiskit's Quantum Register and the respective qubit on it, as also,
+        two target IBM Qiskit's Quantum Registers and the respective qubits on them.
 
-
-        :param qiskit_quantum_register_control_index:
-        :param qiskit_quantum_register_target_index_1:
-        :param qiskit_quantum_register_target_index_2:
-        :param control_qubit_index:
-        :param target_qubit_index_1:
-        :param target_qubit_index_2:
+        :param qiskit_quantum_register_control_index: the index of the control IBM Qiskit's Quantum Register.
+        :param qiskit_quantum_register_target_index_1: the index of the 1st target IBM Qiskit's Quantum Register.
+        :param qiskit_quantum_register_target_index_2: the index of the 2nd target IBM Qiskit's Quantum Register.
+        :param control_qubit_index: the index of a qubit inside the control IBM Qiskit's Quantum Register.
+        :param target_qubit_index_1: the index of a qubit inside the 1st target IBM Qiskit's Quantum Register.
+        :param target_qubit_index_2: the index of a qubit inside the 2nd target IBM Qiskit's Quantum Register.
         """
+
+        is_possible_to_apply_operation_control = \
+            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_control_index,
+                                                         control_qubit_index, True)
+        """
+        Check if it is possible to apply the pretended operation for
+        the control IBM Qiskit's Quantum Register and the respective control qubit.
+        """
+
+        is_possible_to_apply_operation_target_1 = \
+            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_target_index_1,
+                                                         target_qubit_index_1, True)
+        """
+        Check if it is possible to apply the pretended operation for
+        the 1st target IBM Qiskit's Quantum Register and the respective target qubit.
+        """
+
+        is_possible_to_apply_operation_target_2 = \
+            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_target_index_2,
+                                                         target_qubit_index_2, True)
+        """
+        Check if it is possible to apply the pretended operation for
+        the 2nd target IBM Qiskit's Quantum Register and the respective target qubit.
+        """
+
+        if is_possible_to_apply_operation_control and \
+                is_possible_to_apply_operation_target_1 and is_possible_to_apply_operation_target_2:
+            """
+            It is possible to apply the pretended operation for both
+            the control and targets IBM Qiskit's Quantum Registers and their respective qubits.
+            """
+
+            self.quantum_circuit.cswap(self.quantum_circuit.qregs[qiskit_quantum_register_control_index][control_qubit_index],
+                                       self.quantum_circuit.qregs[qiskit_quantum_register_target_index_1][target_qubit_index_1],
+                                       self.quantum_circuit.qregs[qiskit_quantum_register_target_index_2][target_qubit_index_2])
+            """
+            Apply the Controlled-SWAP (Fredkin) Gate/Operation to the given indexes of
+            control and targets IBM Qiskit's Quantum Registers and their respective qubits.
+            """
 
     def apply_fredkin(self,
                       qiskit_quantum_register_control_index: int,
@@ -8701,14 +8742,24 @@ class QiskryptQuantumCircuit:
                       qiskit_quantum_register_target_index_2: int,
                       control_qubit_index: int, target_qubit_index_1: int, target_qubit_index_2: int):
         """
+        Apply the Controlled-SWAP (Fredkin) Gate/Operation to
+        given indexes of a control IBM Qiskit's Quantum Register and the respective qubit on it, as also,
+        two target IBM Qiskit's Quantum Registers and the respective qubits on them.
 
+        :param qiskit_quantum_register_control_index: the index of the control IBM Qiskit's Quantum Register.
+        :param qiskit_quantum_register_target_index_1: the index of the 1st target IBM Qiskit's Quantum Register.
+        :param qiskit_quantum_register_target_index_2: the index of the 2nd target IBM Qiskit's Quantum Register.
+        :param control_qubit_index: the index of a qubit inside the control IBM Qiskit's Quantum Register.
+        :param target_qubit_index_1: the index of a qubit inside the 1st target IBM Qiskit's Quantum Register.
+        :param target_qubit_index_2: the index of a qubit inside the 2nd target IBM Qiskit's Quantum Register.
+        """
 
-        :param qiskit_quantum_register_control_index:
-        :param qiskit_quantum_register_target_index_1:
-        :param qiskit_quantum_register_target_index_2:
-        :param control_qubit_index:
-        :param target_qubit_index_1:
-        :param target_qubit_index_2:
+        self.apply_controlled_swap(qiskit_quantum_register_control_index,
+                                   qiskit_quantum_register_target_index_1, qiskit_quantum_register_target_index_2,
+                                   control_qubit_index, target_qubit_index_1, target_qubit_index_2)
+        """
+        Apply the equivalent Controlled-SWAP (Fredkin) Gate/Operation to the given indexes of
+        control and targets IBM Qiskit's Quantum Registers and their respective qubits.
         """
 
     def apply_controlled_controlled_pauli_x(self,
