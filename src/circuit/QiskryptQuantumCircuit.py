@@ -7705,7 +7705,7 @@ class QiskryptQuantumCircuit:
                 [(1 + 1j) * (1 / 2), (1 + 1j) * (1 / 2)]
             ])
             """
-            The Unitary Matrix/Operator for the Squared Root of the Pauli-Y Gate/Operation.
+            Set the Unitary Matrix/Operator for the Squared Root of the Pauli-Y Gate/Operation.
             """
 
             self.quantum_circuit.unitary(squared_root_pauli_y_unitary_matrix_operator,
@@ -7739,7 +7739,7 @@ class QiskryptQuantumCircuit:
                 [0, 1j]
             ])
             """
-            The Unitary Matrix/Operator for the Squared Root of the Pauli-Z (Phase Flip/Shift) Gate/Operation.
+            Set the Unitary Matrix/Operator for the Squared Root of the Pauli-Z (Phase Flip/Shift) Gate/Operation.
             """
 
             self.quantum_circuit.unitary(squared_root_pauli_z_unitary_matrix_operator,
@@ -7774,7 +7774,7 @@ class QiskryptQuantumCircuit:
                 [((sqrt(2) / 4) - (sqrt(2) / 4) * 1j), ((2 - sqrt(2)) / 4) + (((2 + sqrt(2)) / 4) * 1j)]
             ])
             """
-            The Unitary Matrix/Operator for the Squared Root of the Hadamard Gate/Operation.
+            Set the Unitary Matrix/Operator for the Squared Root of the Hadamard Gate/Operation.
             """
 
             self.quantum_circuit.unitary(squared_root_hadamard_unitary_matrix_operator,
@@ -7809,7 +7809,7 @@ class QiskryptQuantumCircuit:
                 [0, sqrt(1j)]
             ])
             """
-            The Unitary Matrix/Operator for the Squared Root of the S (sqrt(pi/2)) Gate/Operation.
+            Set the Unitary Matrix/Operator for the Squared Root of the S (sqrt(pi/2)) Gate/Operation.
             """
 
             self.quantum_circuit.unitary(squared_root_phase_s_unitary_matrix_operator,
@@ -7844,7 +7844,7 @@ class QiskryptQuantumCircuit:
                 [0, sqrt(exp((1 / sqrt(2) * (1 + 1j))))]
             ])
             """
-            The Unitary Matrix/Operator for the Squared Root of the T (sqrt(pi/4)) Gate/Operation.
+            Set the Unitary Matrix/Operator for the Squared Root of the T (sqrt(pi/4)) Gate/Operation.
             """
 
             self.quantum_circuit.unitary(squared_root_phase_t_unitary_matrix_operator,
@@ -8411,6 +8411,271 @@ class QiskryptQuantumCircuit:
                                     self.quantum_circuit.qregs[qiskit_quantum_register_target_index][target_qubit_index])
             """
             Apply the Controlled-Pauli-Z (Controlled-Phase-Flip/Controlled-Phase-Shifter) Gate/Operation to
+            the given indexes of control and target IBM Qiskit's Quantum Registers and their respective qubits.
+            """
+
+    def apply_controlled_hadamard(self,
+                                  qiskit_quantum_register_control_index: int,
+                                  qiskit_quantum_register_target_index: int,
+                                  control_qubit_index: int, target_qubit_index: int):
+
+        """
+        Apply the Controlled-Hadamard Gate/Operation to
+        given indexes of a control IBM Qiskit's Quantum Register and the respective qubit on it, as also,
+        a target IBM Qiskit's Quantum Register and the respective qubit on it.
+
+        :param qiskit_quantum_register_control_index: the index of the control IBM Qiskit's Quantum Register.
+        :param qiskit_quantum_register_target_index: the index of the target IBM Qiskit's Quantum Register.
+        :param control_qubit_index: the index of a qubit inside the control IBM Qiskit's Quantum Register.
+        :param target_qubit_index: the index of a qubit inside the target IBM Qiskit's Quantum Register.
+        """
+
+        is_possible_to_apply_operation_control = \
+            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_control_index,
+                                                         control_qubit_index, True)
+        """
+        Check if it is possible to apply the pretended operation for
+        the control IBM Qiskit's Quantum Register and the respective control qubit.
+        """
+
+        is_possible_to_apply_operation_target = \
+            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_target_index,
+                                                         target_qubit_index, True)
+        """
+        Check if it is possible to apply the pretended operation for
+        the target IBM Qiskit's Quantum Register and the respective target qubit.
+        """
+
+        if is_possible_to_apply_operation_control and is_possible_to_apply_operation_target:
+            """
+            It is possible to apply the pretended operation for both
+            the control and target IBM Qiskit's Quantum Registers and their respective qubits.
+            """
+
+            self.quantum_circuit.ch(self.quantum_circuit.qregs[qiskit_quantum_register_control_index][control_qubit_index],
+                                    self.quantum_circuit.qregs[qiskit_quantum_register_target_index][target_qubit_index])
+            """
+            Apply the Controlled-Hadamard Gate/Operation to
+            the given indexes of control and target IBM Qiskit's Quantum Registers and their respective qubits.
+            """
+
+    def apply_controlled_phase_s(self,
+                                 qiskit_quantum_register_control_index: int,
+                                 qiskit_quantum_register_target_index: int,
+                                 control_qubit_index: int, target_qubit_index: int):
+
+        """
+        Apply the Controlled-Phase-S (pi/2) Gate/Operation to
+        given indexes of a control IBM Qiskit's Quantum Register and the respective qubit on it, as also,
+        a target IBM Qiskit's Quantum Register and the respective qubit on it.
+
+        :param qiskit_quantum_register_control_index: the index of the control IBM Qiskit's Quantum Register.
+        :param qiskit_quantum_register_target_index: the index of the target IBM Qiskit's Quantum Register.
+        :param control_qubit_index: the index of a qubit inside the control IBM Qiskit's Quantum Register.
+        :param target_qubit_index: the index of a qubit inside the target IBM Qiskit's Quantum Register.
+        """
+
+        is_possible_to_apply_operation_control = \
+            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_control_index,
+                                                         control_qubit_index, True)
+        """
+        Check if it is possible to apply the pretended operation for
+        the control IBM Qiskit's Quantum Register and the respective control qubit.
+        """
+
+        is_possible_to_apply_operation_target = \
+            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_target_index,
+                                                         target_qubit_index, True)
+        """
+        Check if it is possible to apply the pretended operation for
+        the target IBM Qiskit's Quantum Register and the respective target qubit.
+        """
+
+        if is_possible_to_apply_operation_control and is_possible_to_apply_operation_target:
+            """
+            It is possible to apply the pretended operation for both
+            the control and target IBM Qiskit's Quantum Registers and their respective qubits.
+            """
+
+            controlled_phase_s_unitary_matrix_operator = Operator([
+                [1, 0, 0, 0],
+                [0, 1, 0, 0],
+                [0, 0, 1, 0],
+                [0, 0, 0, 1j]
+            ])
+            """
+            Set the Unitary Matrix/Operator for the Controlled-Phase-S (pi/2) Gate/Operation.
+            """
+
+            self.quantum_circuit.unitary(controlled_phase_s_unitary_matrix_operator,
+                                         [control_qubit_index, target_qubit_index])
+            """
+            Apply the Controlled-Phase-S (pi/2) Gate/Operation to
+            the given indexes of control and target IBM Qiskit's Quantum Registers and their respective qubits.
+            """
+
+    def apply_controlled_phase_t(self,
+                                 qiskit_quantum_register_control_index: int,
+                                 qiskit_quantum_register_target_index: int,
+                                 control_qubit_index: int, target_qubit_index: int):
+
+        """
+        Apply the Controlled-Phase-T (pi/4) Gate/Operation to
+        given indexes of a control IBM Qiskit's Quantum Register and the respective qubit on it, as also,
+        a target IBM Qiskit's Quantum Register and the respective qubit on it.
+
+        :param qiskit_quantum_register_control_index: the index of the control IBM Qiskit's Quantum Register.
+        :param qiskit_quantum_register_target_index: the index of the target IBM Qiskit's Quantum Register.
+        :param control_qubit_index: the index of a qubit inside the control IBM Qiskit's Quantum Register.
+        :param target_qubit_index: the index of a qubit inside the target IBM Qiskit's Quantum Register.
+        """
+
+        is_possible_to_apply_operation_control = \
+            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_control_index,
+                                                         control_qubit_index, True)
+        """
+        Check if it is possible to apply the pretended operation for
+        the control IBM Qiskit's Quantum Register and the respective control qubit.
+        """
+
+        is_possible_to_apply_operation_target = \
+            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_target_index,
+                                                         target_qubit_index, True)
+        """
+        Check if it is possible to apply the pretended operation for
+        the target IBM Qiskit's Quantum Register and the respective target qubit.
+        """
+
+        if is_possible_to_apply_operation_control and is_possible_to_apply_operation_target:
+            """
+            It is possible to apply the pretended operation for both
+            the control and target IBM Qiskit's Quantum Registers and their respective qubits.
+            """
+
+            controlled_phase_t_unitary_matrix_operator = Operator([
+                [1, 0, 0, 0],
+                [0, 1, 0, 0],
+                [0, 0, 1, 0],
+                [0, 0, 0, exp((1 / sqrt(2) * (1 + 1j)))]
+            ])
+            """
+            Set the Unitary Matrix/Operator for the Controlled-Phase-T (pi/4) Gate/Operation.
+            """
+
+            self.quantum_circuit.unitary(controlled_phase_t_unitary_matrix_operator,
+                                         [control_qubit_index, target_qubit_index])
+            """
+            Apply the Controlled-Phase-T (pi/4) Gate/Operation to
+            the given indexes of control and target IBM Qiskit's Quantum Registers and their respective qubits.
+            """
+
+    def apply_controlled_phase_s_adjoint(self,
+                                         qiskit_quantum_register_control_index: int,
+                                         qiskit_quantum_register_target_index: int,
+                                         control_qubit_index: int, target_qubit_index: int):
+
+        """
+        Apply the Controlled-Phase-S (-pi/2) Adjoint Gate/Operation to
+        given indexes of a control IBM Qiskit's Quantum Register and the respective qubit on it, as also,
+        a target IBM Qiskit's Quantum Register and the respective qubit on it.
+
+        :param qiskit_quantum_register_control_index: the index of the control IBM Qiskit's Quantum Register.
+        :param qiskit_quantum_register_target_index: the index of the target IBM Qiskit's Quantum Register.
+        :param control_qubit_index: the index of a qubit inside the control IBM Qiskit's Quantum Register.
+        :param target_qubit_index: the index of a qubit inside the target IBM Qiskit's Quantum Register.
+        """
+
+        is_possible_to_apply_operation_control = \
+            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_control_index,
+                                                         control_qubit_index, True)
+        """
+        Check if it is possible to apply the pretended operation for
+        the control IBM Qiskit's Quantum Register and the respective control qubit.
+        """
+
+        is_possible_to_apply_operation_target = \
+            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_target_index,
+                                                         target_qubit_index, True)
+        """
+        Check if it is possible to apply the pretended operation for
+        the target IBM Qiskit's Quantum Register and the respective target qubit.
+        """
+
+        if is_possible_to_apply_operation_control and is_possible_to_apply_operation_target:
+            """
+            It is possible to apply the pretended operation for both
+            the control and target IBM Qiskit's Quantum Registers and their respective qubits.
+            """
+
+            controlled_phase_s_adjoint_unitary_matrix_operator = Operator([
+                [1, 0, 0, 0],
+                [0, 1, 0, 0],
+                [0, 0, 1, 0],
+                [0, 0, 0, -1j]
+            ])
+            """
+            Set the Unitary Matrix/Operator for the Controlled-Phase-S (-pi/2) Adjoint Gate/Operation.
+            """
+
+            self.quantum_circuit.unitary(controlled_phase_s_adjoint_unitary_matrix_operator,
+                                         [control_qubit_index, target_qubit_index])
+            """
+            Apply the Controlled-Phase-S (-pi/2) Adjoint Gate/Operation to
+            the given indexes of control and target IBM Qiskit's Quantum Registers and their respective qubits.
+            """
+
+    def apply_controlled_phase_t_adjoint(self,
+                                         qiskit_quantum_register_control_index: int,
+                                         qiskit_quantum_register_target_index: int,
+                                         control_qubit_index: int, target_qubit_index: int):
+
+        """
+        Apply the Controlled-Phase-T (-pi/4) Adjoint Gate/Operation to
+        given indexes of a control IBM Qiskit's Quantum Register and the respective qubit on it, as also,
+        a target IBM Qiskit's Quantum Register and the respective qubit on it.
+
+        :param qiskit_quantum_register_control_index: the index of the control IBM Qiskit's Quantum Register.
+        :param qiskit_quantum_register_target_index: the index of the target IBM Qiskit's Quantum Register.
+        :param control_qubit_index: the index of a qubit inside the control IBM Qiskit's Quantum Register.
+        :param target_qubit_index: the index of a qubit inside the target IBM Qiskit's Quantum Register.
+        """
+
+        is_possible_to_apply_operation_control = \
+            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_control_index,
+                                                         control_qubit_index, True)
+        """
+        Check if it is possible to apply the pretended operation for
+        the control IBM Qiskit's Quantum Register and the respective control qubit.
+        """
+
+        is_possible_to_apply_operation_target = \
+            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_target_index,
+                                                         target_qubit_index, True)
+        """
+        Check if it is possible to apply the pretended operation for
+        the target IBM Qiskit's Quantum Register and the respective target qubit.
+        """
+
+        if is_possible_to_apply_operation_control and is_possible_to_apply_operation_target:
+            """
+            It is possible to apply the pretended operation for both
+            the control and target IBM Qiskit's Quantum Registers and their respective qubits.
+            """
+
+            controlled_phase_t_adjoint_unitary_matrix_operator = Operator([
+                [1, 0, 0, 0],
+                [0, 1, 0, 0],
+                [0, 0, 1, 0],
+                [0, 0, 0, exp((1 / sqrt(2) * (1 - 1j)))]
+            ])
+            """
+            Set the Unitary Matrix/Operator for the Controlled-Phase-T (-pi/4) Adjoint Gate/Operation.
+            """
+
+            self.quantum_circuit.unitary(controlled_phase_t_adjoint_unitary_matrix_operator,
+                                         [control_qubit_index, target_qubit_index])
+            """
+            Apply the Controlled-Phase-T (-pi/4) Adjoint Gate/Operation to
             the given indexes of control and target IBM Qiskit's Quantum Registers and their respective qubits.
             """
 
