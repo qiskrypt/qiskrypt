@@ -183,21 +183,25 @@ class QiskryptQuantumCircuit:
     """
 
     def __init__(self, name="qu_circ",
-                 quantum_registers=None, fully_quantum_registers=None, semi_quantum_registers=None,
-                 ancilla_quantum_registers=None, ancilla_fully_quantum_registers=None,
-                 ancilla_semi_quantum_registers=None,
-                 classical_registers=None, global_phase=0, quantum_circuit=None):
+                 qiskrypt_quantum_registers=None,
+                 qiskrypt_fully_quantum_registers=None,
+                 qiskrypt_semi_quantum_registers=None,
+                 qiskrypt_ancilla_quantum_registers=None,
+                 qiskrypt_ancilla_fully_quantum_registers=None,
+                 qiskrypt_ancilla_semi_quantum_registers=None,
+                 qiskrypt_classical_registers=None,
+                 global_phase=0, quantum_circuit=None):
         """
-        :param name: The name for the Qiskrypt's Quantum Circuit.
-        :param quantum_registers: The Qiskrypt's Quantum Registers for the Qiskrypt's Quantum Circuit.
-        :param fully_quantum_registers: The Qiskrypt's Fully-Quantum Registers for the Qiskrypt's Quantum Circuit.
-        :param semi_quantum_registers: The Qiskrypt's Semi-Quantum Registers for the Qiskrypt's Quantum Circuit.
-        :param ancilla_quantum_registers: The Qiskrypt's Ancilla Quantum Registers for the Qiskrypt's Quantum Circuit.
-        :param ancilla_fully_quantum_registers: The Qiskrypt's Ancilla Fully-Quantum Registers for the Qiskrypt's Quantum Circuit.
-        :param ancilla_semi_quantum_registers: The Qiskrypt's Ancilla Semi-Quantum Registers for the Qiskrypt's Quantum Circuit.
-        :param classical_registers: The Qiskrypt's Classical Registers for the Qiskrypt's Quantum Circuit.
-        :param global_phase: The global phase for the Qiskrypt's Quantum Circuit.
-        :param quantum_circuit: The IBM's Qiskit Quantum Circuit.
+        :param name: the name for the Qiskrypt's Quantum Circuit.
+        :param qiskrypt_quantum_registers: the Qiskrypt's Quantum Registers for the Qiskrypt's Quantum Circuit.
+        :param qiskrypt_fully_quantum_registers: the Qiskrypt's Fully-Quantum Registers for the Qiskrypt's Quantum Circuit.
+        :param qiskrypt_semi_quantum_registers: the Qiskrypt's Semi-Quantum Registers for the Qiskrypt's Quantum Circuit.
+        :param qiskrypt_ancilla_quantum_registers: the Qiskrypt's Ancilla Quantum Registers for the Qiskrypt's Quantum Circuit.
+        :param qiskrypt_ancilla_fully_quantum_registers: the Qiskrypt's Ancilla Fully-Quantum Registers for the Qiskrypt's Quantum Circuit.
+        :param qiskrypt_ancilla_semi_quantum_registers: the Qiskrypt's Ancilla Semi-Quantum Registers for the Qiskrypt's Quantum Circuit.
+        :param qiskrypt_classical_registers: the Qiskrypt's Classical Registers for the Qiskrypt's Quantum Circuit.
+        :param global_phase: the global phase for the Qiskrypt's Quantum Circuit.
+        :param quantum_circuit: the IBM's Qiskit Quantum Circuit.
         """
 
         self.name = name
@@ -213,13 +217,13 @@ class QiskryptQuantumCircuit:
             Classical Registers.
             """
 
-            if (quantum_registers is not None) and \
-                    (fully_quantum_registers is None) and \
-                    (semi_quantum_registers is None) and \
-                    (ancilla_quantum_registers is None) and \
-                    (ancilla_fully_quantum_registers is None) and \
-                    (ancilla_semi_quantum_registers is None) and \
-                    (classical_registers is None):
+            if (qiskrypt_quantum_registers is not None) and \
+                    (qiskrypt_fully_quantum_registers is None) and \
+                    (qiskrypt_semi_quantum_registers is None) and \
+                    (qiskrypt_ancilla_quantum_registers is None) and \
+                    (qiskrypt_ancilla_fully_quantum_registers is None) and \
+                    (qiskrypt_ancilla_semi_quantum_registers is None) and \
+                    (qiskrypt_classical_registers is None):
                 """
                 If the Qiskrypt's Quantum Registers given as arguments are not None,
                 but both the Qiskrypt's Fully-Quantum, Semi-Quantum,
@@ -227,12 +231,12 @@ class QiskryptQuantumCircuit:
                 (i.e., a Qiskrypt's Quantum Circuit equivalent to a single Quantum Memory).
                 """
 
-                if isinstance(quantum_registers, list):
+                if isinstance(qiskrypt_quantum_registers, list):
                     """
                     If the Qiskrypt's Quantum Registers are lists.
                     """
 
-                    for quantum_register in quantum_registers:
+                    for quantum_register in qiskrypt_quantum_registers:
                         """
                         For each supposed Qiskrypt's Quantum Register in the list of the Qiskrypt's Quantum Registers.
                         """
@@ -252,7 +256,7 @@ class QiskryptQuantumCircuit:
                             """
                             break
 
-                    self.quantum_registers = quantum_registers
+                    self.quantum_registers = qiskrypt_quantum_registers
                     """
                     Set the Qiskrypt's Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
@@ -310,13 +314,13 @@ class QiskryptQuantumCircuit:
                     """
                     self.raise_unsupported_type_registers_error()
 
-            elif (quantum_registers is None) and \
-                    (fully_quantum_registers is not None) and \
-                    (semi_quantum_registers is None) and \
-                    (ancilla_quantum_registers is None) and \
-                    (ancilla_fully_quantum_registers is None) and \
-                    (ancilla_semi_quantum_registers is None) and \
-                    (classical_registers is None):
+            elif (qiskrypt_quantum_registers is None) and \
+                    (qiskrypt_fully_quantum_registers is not None) and \
+                    (qiskrypt_semi_quantum_registers is None) and \
+                    (qiskrypt_ancilla_quantum_registers is None) and \
+                    (qiskrypt_ancilla_fully_quantum_registers is None) and \
+                    (qiskrypt_ancilla_semi_quantum_registers is None) and \
+                    (qiskrypt_classical_registers is None):
                 """
                 If the Qiskrypt's Fully-Quantum Registers given as arguments are not None,
                 but both the Qiskrypt's Quantum, Semi-Quantum,
@@ -324,12 +328,12 @@ class QiskryptQuantumCircuit:
                 (i.e., a Qiskrypt's Quantum Circuit equivalent to a single Fully-Quantum Memory).
                 """
 
-                if isinstance(fully_quantum_registers, list):
+                if isinstance(qiskrypt_fully_quantum_registers, list):
                     """
                     If the Qiskrypt's Fully-Quantum Registers are lists.
                     """
 
-                    for fully_quantum_register in fully_quantum_registers:
+                    for fully_quantum_register in qiskrypt_fully_quantum_registers:
                         """
                         For each supposed Qiskrypt's Fully-Quantum Register in the list of the Qiskrypt's Fully-Quantum Registers.
                         """
@@ -354,7 +358,7 @@ class QiskryptQuantumCircuit:
                     Set the Qiskrypt's Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.fully_quantum_registers = fully_quantum_registers
+                    self.fully_quantum_registers = qiskrypt_fully_quantum_registers
                     """
                     Set the Qiskrypt's Fully-Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
@@ -408,11 +412,11 @@ class QiskryptQuantumCircuit:
                     """
                     self.raise_unsupported_type_registers_error()
 
-            elif (quantum_registers is None) and (fully_quantum_registers is None) and (
-                    semi_quantum_registers is not None) and \
-                    (ancilla_quantum_registers is None) and (ancilla_fully_quantum_registers is None) and (
-                    ancilla_semi_quantum_registers is None) and \
-                    (classical_registers is None):
+            elif (qiskrypt_quantum_registers is None) and (qiskrypt_fully_quantum_registers is None) and (
+                    qiskrypt_semi_quantum_registers is not None) and \
+                    (qiskrypt_ancilla_quantum_registers is None) and (qiskrypt_ancilla_fully_quantum_registers is None) and (
+                    qiskrypt_ancilla_semi_quantum_registers is None) and \
+                    (qiskrypt_classical_registers is None):
                 """
                 If the Qiskrypt's Semi-Quantum Registers given as arguments are not None,
                 but both the Qiskrypt's Quantum, Fully-Quantum,
@@ -420,12 +424,12 @@ class QiskryptQuantumCircuit:
                 (i.e., a Qiskrypt's Quantum Circuit equivalent to a single Semi-Quantum Memory).
                 """
 
-                if isinstance(semi_quantum_registers, list):
+                if isinstance(qiskrypt_semi_quantum_registers, list):
                     """
                     If the Qiskrypt's Semi-Quantum Registers are lists.
                     """
 
-                    for semi_quantum_register in semi_quantum_registers:
+                    for semi_quantum_register in qiskrypt_semi_quantum_registers:
                         """
                         For each supposed Qiskrypt's Semi-Quantum Register in the list of the Qiskrypt's Semi-Quantum Registers.
                         """
@@ -455,7 +459,7 @@ class QiskryptQuantumCircuit:
                     Set the Qiskrypt's Fully-Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.semi_quantum_registers = semi_quantum_registers
+                    self.semi_quantum_registers = qiskrypt_semi_quantum_registers
                     """
                     Set the Qiskrypt's Semi-Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
@@ -503,11 +507,11 @@ class QiskryptQuantumCircuit:
                     """
                     self.raise_unsupported_type_registers_error()
 
-            elif (quantum_registers is None) and (fully_quantum_registers is None) and (
-                    semi_quantum_registers is None) and \
-                    (ancilla_quantum_registers is not None) and (ancilla_fully_quantum_registers is None) and (
-                    ancilla_semi_quantum_registers is None) and \
-                    (classical_registers is None):
+            elif (qiskrypt_quantum_registers is None) and (qiskrypt_fully_quantum_registers is None) and (
+                    qiskrypt_semi_quantum_registers is None) and \
+                    (qiskrypt_ancilla_quantum_registers is not None) and (qiskrypt_ancilla_fully_quantum_registers is None) and (
+                    qiskrypt_ancilla_semi_quantum_registers is None) and \
+                    (qiskrypt_classical_registers is None):
                 """
                 If the Qiskrypt's Ancilla Quantum Registers given as arguments are not None,
                 but both the Qiskrypt's Quantum, Fully-Quantum, Semi-Quantum,
@@ -515,12 +519,12 @@ class QiskryptQuantumCircuit:
                 (i.e., a Qiskrypt's Quantum Circuit equivalent to a single Ancilla Quantum Memory).
                 """
 
-                if isinstance(ancilla_quantum_registers, list):
+                if isinstance(qiskrypt_ancilla_quantum_registers, list):
                     """
                     If the Qiskrypt's Ancilla Quantum Registers are lists.
                     """
 
-                    for ancilla_quantum_register in ancilla_quantum_registers:
+                    for ancilla_quantum_register in qiskrypt_ancilla_quantum_registers:
                         """
                         For each supposed Qiskrypt's Ancilla Quantum Register in the list of the Qiskrypt's Ancilla Quantum Registers.
                         """
@@ -555,7 +559,7 @@ class QiskryptQuantumCircuit:
                     Set the Qiskrypt's Semi-Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.ancilla_quantum_registers = ancilla_quantum_registers
+                    self.ancilla_quantum_registers = qiskrypt_ancilla_quantum_registers
                     """
                     Set the Qiskrypt's Ancilla Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
@@ -599,11 +603,11 @@ class QiskryptQuantumCircuit:
                     """
                     self.raise_unsupported_type_registers_error()
 
-            elif (quantum_registers is None) and (fully_quantum_registers is None) and (
-                    semi_quantum_registers is None) and \
-                    (ancilla_quantum_registers is None) and (ancilla_fully_quantum_registers is not None) and (
-                    ancilla_semi_quantum_registers is None) and \
-                    (classical_registers is None):
+            elif (qiskrypt_quantum_registers is None) and (qiskrypt_fully_quantum_registers is None) and (
+                    qiskrypt_semi_quantum_registers is None) and \
+                    (qiskrypt_ancilla_quantum_registers is None) and (qiskrypt_ancilla_fully_quantum_registers is not None) and (
+                    qiskrypt_ancilla_semi_quantum_registers is None) and \
+                    (qiskrypt_classical_registers is None):
                 """
                 If the Qiskrypt's Ancilla Fully-Quantum Registers given as arguments are not None,
                 but both the Qiskrypt's Quantum, Fully-Quantum, Semi-Quantum,
@@ -611,12 +615,12 @@ class QiskryptQuantumCircuit:
                 (i.e., a Qiskrypt's Quantum Circuit equivalent to a single Ancilla Fully-Quantum Memory).
                 """
 
-                if isinstance(ancilla_fully_quantum_registers, list):
+                if isinstance(qiskrypt_ancilla_fully_quantum_registers, list):
                     """
                     If the Qiskrypt's Ancilla Fully-Quantum Registers are lists.
                     """
 
-                    for ancilla_fully_quantum_register in ancilla_fully_quantum_registers:
+                    for ancilla_fully_quantum_register in qiskrypt_ancilla_fully_quantum_registers:
                         """
                         For each supposed Qiskrypt's Ancilla Fully-Quantum Register in the list of the Qiskrypt's Ancilla Fully-Quantum Registers.
                         """
@@ -656,7 +660,7 @@ class QiskryptQuantumCircuit:
                     Set the Qiskrypt's Ancilla Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.ancilla_fully_quantum_registers = ancilla_fully_quantum_registers
+                    self.ancilla_fully_quantum_registers = qiskrypt_ancilla_fully_quantum_registers
                     """
                     Set the Qiskrypt's Ancilla Fully-Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
@@ -694,11 +698,11 @@ class QiskryptQuantumCircuit:
                     """
                     self.raise_unsupported_type_registers_error()
 
-            elif (quantum_registers is None) and (fully_quantum_registers is None) and (
-                    semi_quantum_registers is None) and \
-                    (ancilla_quantum_registers is None) and (ancilla_fully_quantum_registers is None) and (
-                    ancilla_semi_quantum_registers is not None) and \
-                    (classical_registers is None):
+            elif (qiskrypt_quantum_registers is None) and (qiskrypt_fully_quantum_registers is None) and (
+                    qiskrypt_semi_quantum_registers is None) and \
+                    (qiskrypt_ancilla_quantum_registers is None) and (qiskrypt_ancilla_fully_quantum_registers is None) and (
+                    qiskrypt_ancilla_semi_quantum_registers is not None) and \
+                    (qiskrypt_classical_registers is None):
                 """
                 If the Qiskrypt's Ancilla Semi-Quantum Registers given as arguments are not None,
                 but both the Qiskrypt's Quantum, Fully-Quantum, Semi-Quantum,
@@ -706,12 +710,12 @@ class QiskryptQuantumCircuit:
                 (i.e., a Qiskrypt's Quantum Circuit equivalent to a single Ancilla Semi-Quantum Memory).
                 """
 
-                if isinstance(ancilla_semi_quantum_registers, list):
+                if isinstance(qiskrypt_ancilla_semi_quantum_registers, list):
                     """
                     If the Qiskrypt's Ancilla Semi-Quantum Registers are lists.
                     """
 
-                    for ancilla_semi_quantum_register in ancilla_semi_quantum_registers:
+                    for ancilla_semi_quantum_register in qiskrypt_ancilla_semi_quantum_registers:
                         """
                         For each supposed Qiskrypt's Ancilla Semi-Quantum Register in the list of the Qiskrypt's Ancilla Semi-Quantum Registers.
                         """
@@ -756,7 +760,7 @@ class QiskryptQuantumCircuit:
                     Set the Qiskrypt's Ancilla Fully-Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.ancilla_semi_quantum_registers = ancilla_semi_quantum_registers
+                    self.ancilla_semi_quantum_registers = qiskrypt_ancilla_semi_quantum_registers
                     """
                     Set the Qiskrypt's Ancilla Semi-Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
@@ -789,11 +793,11 @@ class QiskryptQuantumCircuit:
                     """
                     self.raise_unsupported_type_registers_error()
 
-            elif (quantum_registers is None) and (fully_quantum_registers is None) and (
-                    semi_quantum_registers is None) and \
-                    (ancilla_quantum_registers is None) and (ancilla_fully_quantum_registers is None) and (
-                    ancilla_semi_quantum_registers is None) and \
-                    (classical_registers is not None):
+            elif (qiskrypt_quantum_registers is None) and (qiskrypt_fully_quantum_registers is None) and (
+                    qiskrypt_semi_quantum_registers is None) and \
+                    (qiskrypt_ancilla_quantum_registers is None) and (qiskrypt_ancilla_fully_quantum_registers is None) and (
+                    qiskrypt_ancilla_semi_quantum_registers is None) and \
+                    (qiskrypt_classical_registers is not None):
                 """
                 If the Qiskrypt's Classical Registers given as arguments are not None,
                 but both the Qiskrypt's Quantum, Fully-Quantum, Semi-Quantum,
@@ -801,12 +805,12 @@ class QiskryptQuantumCircuit:
                 (i.e., a Qiskrypt's Quantum Circuit equivalent to a single Classical Memory).
                 """
 
-                if isinstance(classical_registers, list):
+                if isinstance(qiskrypt_classical_registers, list):
                     """
                     If the Qiskrypt's Classical Registers are lists.
                     """
 
-                    for classical_register in classical_registers:
+                    for classical_register in qiskrypt_classical_registers:
                         """
                         For each supposed Qiskrypt's Classical Register in the list of the Qiskrypt's Classical Registers.
                         """
@@ -856,7 +860,7 @@ class QiskryptQuantumCircuit:
                     Set the Qiskrypt's Ancilla Semi-Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.classical_registers = classical_registers
+                    self.classical_registers = qiskrypt_classical_registers
                     """
                     Set the Qiskrypt's Classical Registers of the Qiskrypt's Quantum Circuit.
                     """
@@ -884,11 +888,11 @@ class QiskryptQuantumCircuit:
                     """
                     self.raise_unsupported_type_registers_error()
 
-            elif (quantum_registers is not None) and (fully_quantum_registers is None) and (
-                    semi_quantum_registers is None) and \
-                    (ancilla_quantum_registers is None) and (ancilla_fully_quantum_registers is None) and (
-                    ancilla_semi_quantum_registers is None) and \
-                    (classical_registers is not None):
+            elif (qiskrypt_quantum_registers is not None) and (qiskrypt_fully_quantum_registers is None) and (
+                    qiskrypt_semi_quantum_registers is None) and \
+                    (qiskrypt_ancilla_quantum_registers is None) and (qiskrypt_ancilla_fully_quantum_registers is None) and (
+                    qiskrypt_ancilla_semi_quantum_registers is None) and \
+                    (qiskrypt_classical_registers is not None):
                 """
                 If the Qiskrypt's Quantum and Classical Registers given as arguments are not None,
                 but both the Qiskrypt's Fully-Quantum, Semi-Quantum,
@@ -896,12 +900,12 @@ class QiskryptQuantumCircuit:
                 (i.e., a Qiskrypt's Quantum Circuit equivalent to a hybrid Quantum/Classical Memory).
                 """
 
-                if (isinstance(quantum_registers, list)) and (isinstance(classical_registers, list)):
+                if (isinstance(qiskrypt_quantum_registers, list)) and (isinstance(qiskrypt_classical_registers, list)):
                     """
                     If the Qiskrypt's Quantum and Classical Registers are lists.
                     """
 
-                    for quantum_register in quantum_registers:
+                    for quantum_register in qiskrypt_quantum_registers:
                         """
                         For each supposed Qiskrypt's Quantum Register in the list of the Qiskrypt's Quantum Registers.
                         """
@@ -921,7 +925,7 @@ class QiskryptQuantumCircuit:
                             """
                             break
 
-                    for classical_register in classical_registers:
+                    for classical_register in qiskrypt_classical_registers:
                         """
                         For each supposed Qiskrypt's Classical Register in the list of the Qiskrypt's Classical Registers.
                         """
@@ -941,7 +945,7 @@ class QiskryptQuantumCircuit:
                             """
                             break
 
-                    self.quantum_registers = quantum_registers
+                    self.quantum_registers = qiskrypt_quantum_registers
                     """
                     Set the Qiskrypt's Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
@@ -971,7 +975,7 @@ class QiskryptQuantumCircuit:
                     Set the Qiskrypt's Ancilla Semi-Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.classical_registers = classical_registers
+                    self.classical_registers = qiskrypt_classical_registers
                     """
                     Set the Qiskrypt's Classical Registers of the Qiskrypt's Quantum Circuit.
                     """
@@ -1001,11 +1005,11 @@ class QiskryptQuantumCircuit:
                     """
                     self.raise_unsupported_type_registers_error()
 
-            elif (quantum_registers is None) and (fully_quantum_registers is not None) and (
-                    semi_quantum_registers is None) and \
-                    (ancilla_quantum_registers is None) and (ancilla_fully_quantum_registers is None) and (
-                    ancilla_semi_quantum_registers is None) and \
-                    (classical_registers is not None):
+            elif (qiskrypt_quantum_registers is None) and (qiskrypt_fully_quantum_registers is not None) and (
+                    qiskrypt_semi_quantum_registers is None) and \
+                    (qiskrypt_ancilla_quantum_registers is None) and (qiskrypt_ancilla_fully_quantum_registers is None) and (
+                    qiskrypt_ancilla_semi_quantum_registers is None) and \
+                    (qiskrypt_classical_registers is not None):
                 """
                 If the Qiskrypt's Fully-Quantum and Classical Registers given as arguments are not None,
                 but both the Qiskrypt's Quantum, Semi-Quantum,
@@ -1013,12 +1017,12 @@ class QiskryptQuantumCircuit:
                 (i.e., a Qiskrypt's Quantum Circuit equivalent to a hybrid Fully-Quantum/Classical Memory).
                 """
 
-                if (isinstance(fully_quantum_registers, list)) and (isinstance(classical_registers, list)):
+                if (isinstance(qiskrypt_fully_quantum_registers, list)) and (isinstance(qiskrypt_classical_registers, list)):
                     """
                     If the Qiskrypt's Fully-Quantum and Classical Registers are lists.
                     """
 
-                    for fully_quantum_register in fully_quantum_registers:
+                    for fully_quantum_register in qiskrypt_fully_quantum_registers:
                         """
                         For each supposed Qiskrypt's Fully-Quantum Register in the list of the Qiskrypt's Fully-Quantum Registers.
                         """
@@ -1038,7 +1042,7 @@ class QiskryptQuantumCircuit:
                             """
                             break
 
-                    for classical_register in classical_registers:
+                    for classical_register in qiskrypt_classical_registers:
                         """
                         For each supposed Qiskrypt's Classical Register in the list of the Qiskrypt's Classical Registers.
                         """
@@ -1063,7 +1067,7 @@ class QiskryptQuantumCircuit:
                     Set the Qiskrypt's Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.fully_quantum_registers = fully_quantum_registers
+                    self.fully_quantum_registers = qiskrypt_fully_quantum_registers
                     """
                     Set the Qiskrypt's Fully-Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
@@ -1088,7 +1092,7 @@ class QiskryptQuantumCircuit:
                     Set the Qiskrypt's Ancilla Semi-Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.classical_registers = classical_registers
+                    self.classical_registers = qiskrypt_classical_registers
                     """
                     Set the Qiskrypt's Classical Registers of the Qiskrypt's Quantum Circuit.
                     """
@@ -1119,11 +1123,11 @@ class QiskryptQuantumCircuit:
                     """
                     self.raise_unsupported_type_registers_error()
 
-            elif (quantum_registers is None) and (fully_quantum_registers is None) and (
-                    semi_quantum_registers is not None) and \
-                    (ancilla_quantum_registers is None) and (ancilla_fully_quantum_registers is None) and (
-                    ancilla_semi_quantum_registers is None) and \
-                    (classical_registers is not None):
+            elif (qiskrypt_quantum_registers is None) and (qiskrypt_fully_quantum_registers is None) and (
+                    qiskrypt_semi_quantum_registers is not None) and \
+                    (qiskrypt_ancilla_quantum_registers is None) and (qiskrypt_ancilla_fully_quantum_registers is None) and (
+                    qiskrypt_ancilla_semi_quantum_registers is None) and \
+                    (qiskrypt_classical_registers is not None):
                 """
                 If the Qiskrypt's Semi-Quantum and Classical Registers given as arguments are not None,
                 but both the Qiskrypt's Quantum, Fully-Quantum,
@@ -1131,12 +1135,12 @@ class QiskryptQuantumCircuit:
                 (i.e., a Qiskrypt's Quantum Circuit equivalent to a hybrid Semi-Quantum/Classical Memory).
                 """
 
-                if (isinstance(semi_quantum_registers, list)) and (isinstance(classical_registers, list)):
+                if (isinstance(qiskrypt_semi_quantum_registers, list)) and (isinstance(qiskrypt_classical_registers, list)):
                     """
                     If the Qiskrypt's Semi-Quantum and Classical Registers are lists.
                     """
 
-                    for semi_quantum_register in semi_quantum_registers:
+                    for semi_quantum_register in qiskrypt_semi_quantum_registers:
                         """
                         For each supposed Qiskrypt's Semi-Quantum Register in the list of the Qiskrypt's Semi-Quantum Registers.
                         """
@@ -1156,7 +1160,7 @@ class QiskryptQuantumCircuit:
                             """
                             break
 
-                    for classical_register in classical_registers:
+                    for classical_register in qiskrypt_classical_registers:
                         """
                         For each supposed Qiskrypt's Classical Register in the list of the Qiskrypt's Classical Registers.
                         """
@@ -1186,7 +1190,7 @@ class QiskryptQuantumCircuit:
                     Set the Qiskrypt's Fully-Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.semi_quantum_registers = semi_quantum_registers
+                    self.semi_quantum_registers = qiskrypt_semi_quantum_registers
                     """
                     Set the Qiskrypt's Semi-Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
@@ -1206,7 +1210,7 @@ class QiskryptQuantumCircuit:
                     Set the Qiskrypt's Ancilla Semi-Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.classical_registers = classical_registers
+                    self.classical_registers = qiskrypt_classical_registers
                     """
                     Set the Qiskrypt's Classical Registers of the Qiskrypt's Quantum Circuit.
                     """
@@ -1236,11 +1240,11 @@ class QiskryptQuantumCircuit:
                     """
                     self.raise_unsupported_type_registers_error()
 
-            elif (quantum_registers is None) and (fully_quantum_registers is None) and (
-                    semi_quantum_registers is None) and \
-                    (ancilla_quantum_registers is not None) and (ancilla_fully_quantum_registers is None) and (
-                    ancilla_semi_quantum_registers is None) and \
-                    (classical_registers is not None):
+            elif (qiskrypt_quantum_registers is None) and (qiskrypt_fully_quantum_registers is None) and (
+                    qiskrypt_semi_quantum_registers is None) and \
+                    (qiskrypt_ancilla_quantum_registers is not None) and (qiskrypt_ancilla_fully_quantum_registers is None) and (
+                    qiskrypt_ancilla_semi_quantum_registers is None) and \
+                    (qiskrypt_classical_registers is not None):
                 """
                 If the Qiskrypt's Ancilla Quantum and Classical Registers given as arguments are not None,
                 but both the Qiskrypt's Quantum, Fully-Quantum, Semi-Quantum,
@@ -1248,12 +1252,12 @@ class QiskryptQuantumCircuit:
                 (i.e., a Qiskrypt's Quantum Circuit equivalent to a hybrid Ancilla Quantum/Classical Memory).
                 """
 
-                if (isinstance(ancilla_quantum_registers, list)) and (isinstance(classical_registers, list)):
+                if (isinstance(qiskrypt_ancilla_quantum_registers, list)) and (isinstance(qiskrypt_classical_registers, list)):
                     """
                     If the Qiskrypt's Ancilla Quantum and Classical Registers are lists.
                     """
 
-                    for ancilla_quantum_register in ancilla_quantum_registers:
+                    for ancilla_quantum_register in qiskrypt_ancilla_quantum_registers:
                         """
                         For each supposed Qiskrypt's Ancilla Quantum Register in the list of the Qiskrypt's Ancilla Quantum Registers.
                         """
@@ -1273,7 +1277,7 @@ class QiskryptQuantumCircuit:
                             """
                             break
 
-                    for classical_register in classical_registers:
+                    for classical_register in qiskrypt_classical_registers:
                         """
                         For each supposed Qiskrypt's Classical Register in the list of the Qiskrypt's Classical Registers.
                         """
@@ -1308,7 +1312,7 @@ class QiskryptQuantumCircuit:
                     Set the Qiskrypt's Semi-Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.ancilla_quantum_registers = ancilla_quantum_registers
+                    self.ancilla_quantum_registers = qiskrypt_ancilla_quantum_registers
                     """
                     Set the Qiskrypt's Ancilla Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
@@ -1323,7 +1327,7 @@ class QiskryptQuantumCircuit:
                     Set the Qiskrypt's Ancilla Semi-Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.classical_registers = classical_registers
+                    self.classical_registers = qiskrypt_classical_registers
                     """
                     Set the Qiskrypt's Classical Registers of the Qiskrypt's Quantum Circuit.
                     """
@@ -1354,11 +1358,11 @@ class QiskryptQuantumCircuit:
                     """
                     self.raise_unsupported_type_registers_error()
 
-            elif (quantum_registers is None) and (fully_quantum_registers is None) and (
-                    semi_quantum_registers is None) and \
-                    (ancilla_quantum_registers is None) and (ancilla_fully_quantum_registers is not None) and (
-                    ancilla_semi_quantum_registers is None) and \
-                    (classical_registers is not None):
+            elif (qiskrypt_quantum_registers is None) and (qiskrypt_fully_quantum_registers is None) and (
+                    qiskrypt_semi_quantum_registers is None) and \
+                    (qiskrypt_ancilla_quantum_registers is None) and (qiskrypt_ancilla_fully_quantum_registers is not None) and (
+                    qiskrypt_ancilla_semi_quantum_registers is None) and \
+                    (qiskrypt_classical_registers is not None):
                 """
                 If the Qiskrypt's Ancilla Fully-Quantum and Classical Registers given as arguments are not None,
                 but both the Qiskrypt's Quantum, Fully-Quantum, Semi-Quantum,
@@ -1366,12 +1370,12 @@ class QiskryptQuantumCircuit:
                 (i.e., a Qiskrypt's Quantum Circuit equivalent to a hybrid Ancilla Fully-Quantum/Classical Memory).
                 """
 
-                if (isinstance(ancilla_fully_quantum_registers, list)) and (isinstance(classical_registers, list)):
+                if (isinstance(qiskrypt_ancilla_fully_quantum_registers, list)) and (isinstance(qiskrypt_classical_registers, list)):
                     """
                     If the Qiskrypt's Ancilla Fully-Quantum and Classical Registers are lists.
                     """
 
-                    for ancilla_fully_quantum_register in ancilla_fully_quantum_registers:
+                    for ancilla_fully_quantum_register in qiskrypt_ancilla_fully_quantum_registers:
                         """
                         For each supposed Qiskrypt's Ancilla Fully-Quantum Register in the list of the Qiskrypt's Ancilla Fully-Quantum Registers.
                         """
@@ -1391,7 +1395,7 @@ class QiskryptQuantumCircuit:
                             """
                             break
 
-                    for classical_register in classical_registers:
+                    for classical_register in qiskrypt_classical_registers:
                         """
                         For each supposed Qiskrypt's Classical Register in the list of the Qiskrypt's Classical Registers.
                         """
@@ -1431,7 +1435,7 @@ class QiskryptQuantumCircuit:
                     Set the Qiskrypt's Ancilla Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.ancilla_fully_quantum_registers = ancilla_fully_quantum_registers
+                    self.ancilla_fully_quantum_registers = qiskrypt_ancilla_fully_quantum_registers
                     """
                     Set the Qiskrypt's Ancilla Fully-Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
@@ -1441,7 +1445,7 @@ class QiskryptQuantumCircuit:
                     Set the Qiskrypt's Ancilla Semi-Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.classical_registers = classical_registers
+                    self.classical_registers = qiskrypt_classical_registers
                     """
                     Set the Qiskrypt's Classical Registers of the Qiskrypt's Quantum Circuit.
                     """
@@ -1471,11 +1475,11 @@ class QiskryptQuantumCircuit:
                     """
                     self.raise_unsupported_type_registers_error()
 
-            elif (quantum_registers is None) and (fully_quantum_registers is None) and (
-                    semi_quantum_registers is None) and \
-                    (ancilla_quantum_registers is None) and (ancilla_fully_quantum_registers is None) and (
-                    ancilla_semi_quantum_registers is not None) and \
-                    (classical_registers is not None):
+            elif (qiskrypt_quantum_registers is None) and (qiskrypt_fully_quantum_registers is None) and (
+                    qiskrypt_semi_quantum_registers is None) and \
+                    (qiskrypt_ancilla_quantum_registers is None) and (qiskrypt_ancilla_fully_quantum_registers is None) and (
+                    qiskrypt_ancilla_semi_quantum_registers is not None) and \
+                    (qiskrypt_classical_registers is not None):
                 """
                 If the Qiskrypt's Ancilla Semi-Quantum and Classical Registers given as arguments are not None,
                 but both the Qiskrypt's Quantum, Fully-Quantum, Semi-Quantum,
@@ -1483,12 +1487,12 @@ class QiskryptQuantumCircuit:
                 (i.e., a Qiskrypt's Quantum Circuit equivalent to a hybrid Ancilla Semi-Quantum/Classical Memory).
                 """
 
-                if (isinstance(ancilla_semi_quantum_registers, list)) and (isinstance(classical_registers, list)):
+                if (isinstance(qiskrypt_ancilla_semi_quantum_registers, list)) and (isinstance(qiskrypt_classical_registers, list)):
                     """
                     If the Qiskrypt's Ancilla Semi-Quantum and Classical Registers are lists.
                     """
 
-                    for ancilla_semi_quantum_register in ancilla_semi_quantum_registers:
+                    for ancilla_semi_quantum_register in qiskrypt_ancilla_semi_quantum_registers:
                         """
                         For each supposed Qiskrypt's Ancilla Semi-Quantum Register in the list of the Qiskrypt's Ancilla Semi-Quantum Registers.
                         """
@@ -1508,7 +1512,7 @@ class QiskryptQuantumCircuit:
                             """
                             break
 
-                    for classical_register in classical_registers:
+                    for classical_register in qiskrypt_classical_registers:
                         """
                         For each supposed Qiskrypt's Classical Register in the list of the Qiskrypt's Classical Registers.
                         """
@@ -1553,12 +1557,12 @@ class QiskryptQuantumCircuit:
                     Set the Qiskrypt's Ancilla Fully-Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.ancilla_semi_quantum_registers = ancilla_semi_quantum_registers
+                    self.ancilla_semi_quantum_registers = qiskrypt_ancilla_semi_quantum_registers
                     """
                     Set the Qiskrypt's Ancilla Semi-Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.classical_registers = classical_registers
+                    self.classical_registers = qiskrypt_classical_registers
                     """
                     Set the Qiskrypt's Classical Registers of the Qiskrypt's Quantum Circuit.
                     """
@@ -1588,24 +1592,24 @@ class QiskryptQuantumCircuit:
                     """
                     self.raise_unsupported_type_registers_error()
 
-            elif (quantum_registers is not None) and (fully_quantum_registers is not None) and (
-                    semi_quantum_registers is None) and \
-                    (ancilla_quantum_registers is None) and (ancilla_fully_quantum_registers is None) and (
-                    ancilla_semi_quantum_registers is None) and \
-                    (classical_registers is not None):
+            elif (qiskrypt_quantum_registers is not None) and (qiskrypt_fully_quantum_registers is not None) and (
+                    qiskrypt_semi_quantum_registers is None) and \
+                    (qiskrypt_ancilla_quantum_registers is None) and (qiskrypt_ancilla_fully_quantum_registers is None) and (
+                    qiskrypt_ancilla_semi_quantum_registers is None) and \
+                    (qiskrypt_classical_registers is not None):
                 """
                 If the Qiskrypt's Quantum, Fully-Quantum and Classical Registers given as arguments are not None,
                 but both the Qiskrypt's Semi-Quantum, Ancilla Quantum, Ancilla Fully-Quantum and Ancilla Semi-Quantum Registers are None
                 (i.e., a Qiskrypt's Quantum Circuit equivalent to a hybrid Quantum/Fully-Quantum/Classical Memory).
                 """
 
-                if (isinstance(quantum_registers, list)) and (isinstance(fully_quantum_registers, list)) and (
-                    isinstance(classical_registers, list)):
+                if (isinstance(qiskrypt_quantum_registers, list)) and (isinstance(qiskrypt_fully_quantum_registers, list)) and (
+                    isinstance(qiskrypt_classical_registers, list)):
                     """
                     If the Qiskrypt's Quantum, Fully-Quantum and Classical Registers are lists.
                     """
 
-                    for quantum_register in quantum_registers:
+                    for quantum_register in qiskrypt_quantum_registers:
                         """
                         For each supposed Qiskrypt's Quantum Register in the list of the Qiskrypt's Quantum Registers.
                         """
@@ -1625,7 +1629,7 @@ class QiskryptQuantumCircuit:
                             """
                             break
 
-                    for fully_quantum_register in fully_quantum_registers:
+                    for fully_quantum_register in qiskrypt_fully_quantum_registers:
                         """
                         For each supposed Qiskrypt's Fully-Quantum Register in the list of the Qiskrypt's Fully-Quantum Registers.
                         """
@@ -1645,7 +1649,7 @@ class QiskryptQuantumCircuit:
                             """
                             break
 
-                    for classical_register in classical_registers:
+                    for classical_register in qiskrypt_classical_registers:
                         """
                         For each supposed Qiskrypt's Classical Register in the list of the Qiskrypt's Classical Registers.
                         """
@@ -1665,12 +1669,12 @@ class QiskryptQuantumCircuit:
                             """
                             break
 
-                    self.quantum_registers = quantum_registers
+                    self.quantum_registers = qiskrypt_quantum_registers
                     """
                     Set the Qiskrypt's Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.fully_quantum_registers = fully_quantum_registers
+                    self.fully_quantum_registers = qiskrypt_fully_quantum_registers
                     """
                     Set the Qiskrypt's Fully-Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
@@ -1695,7 +1699,7 @@ class QiskryptQuantumCircuit:
                     Set the Qiskrypt's Ancilla Semi-Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.classical_registers = classical_registers
+                    self.classical_registers = qiskrypt_classical_registers
                     """
                     Set the Qiskrypt's Classical Registers of the Qiskrypt's Quantum Circuit.
                     """
@@ -1727,24 +1731,24 @@ class QiskryptQuantumCircuit:
                     """
                     self.raise_unsupported_type_registers_error()
 
-            elif (quantum_registers is not None) and (fully_quantum_registers is None) and (
-                    semi_quantum_registers is not None) and \
-                    (ancilla_quantum_registers is None) and (ancilla_fully_quantum_registers is None) and (
-                    ancilla_semi_quantum_registers is None) and \
-                    (classical_registers is not None):
+            elif (qiskrypt_quantum_registers is not None) and (qiskrypt_fully_quantum_registers is None) and (
+                    qiskrypt_semi_quantum_registers is not None) and \
+                    (qiskrypt_ancilla_quantum_registers is None) and (qiskrypt_ancilla_fully_quantum_registers is None) and (
+                    qiskrypt_ancilla_semi_quantum_registers is None) and \
+                    (qiskrypt_classical_registers is not None):
                 """
                 If the Qiskrypt's Quantum, Semi-Quantum and Classical Registers given as arguments are not None,
                 but both the Qiskrypt's Fully-Quantum, Ancilla Quantum, Ancilla Fully-Quantum and Ancilla Semi-Quantum Registers are None
                 (i.e., a Qiskrypt's Quantum Circuit equivalent to a hybrid Quantum/Semi-Quantum/Classical Memory).
                 """
 
-                if (isinstance(quantum_registers, list)) and (isinstance(semi_quantum_registers, list)) and (
-                    isinstance(classical_registers, list)):
+                if (isinstance(qiskrypt_quantum_registers, list)) and (isinstance(qiskrypt_semi_quantum_registers, list)) and (
+                    isinstance(qiskrypt_classical_registers, list)):
                     """
                     If the Qiskrypt's Quantum, Semi-Quantum and Classical Registers are lists.
                     """
 
-                    for quantum_register in quantum_registers:
+                    for quantum_register in qiskrypt_quantum_registers:
                         """
                         For each supposed Qiskrypt's Quantum Register in the list of the Qiskrypt's Quantum Registers.
                         """
@@ -1764,7 +1768,7 @@ class QiskryptQuantumCircuit:
                             """
                             break
 
-                    for semi_quantum_register in semi_quantum_registers:
+                    for semi_quantum_register in qiskrypt_semi_quantum_registers:
                         """
                         For each supposed Qiskrypt's Semi-Quantum Register in the list of the Qiskrypt's Semi-Quantum Registers.
                         """
@@ -1784,7 +1788,7 @@ class QiskryptQuantumCircuit:
                             """
                             break
 
-                    for classical_register in classical_registers:
+                    for classical_register in qiskrypt_classical_registers:
                         """
                         For each supposed Qiskrypt's Classical Register in the list of the Qiskrypt's Classical Registers.
                         """
@@ -1804,7 +1808,7 @@ class QiskryptQuantumCircuit:
                             """
                             break
 
-                    self.quantum_registers = quantum_registers
+                    self.quantum_registers = qiskrypt_quantum_registers
                     """
                     Set the Qiskrypt's Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
@@ -1814,7 +1818,7 @@ class QiskryptQuantumCircuit:
                     Set the Qiskrypt's Fully-Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.semi_quantum_registers = semi_quantum_registers
+                    self.semi_quantum_registers = qiskrypt_semi_quantum_registers
                     """
                     Set the Qiskrypt's Semi-Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
@@ -1834,7 +1838,7 @@ class QiskryptQuantumCircuit:
                     Set the Qiskrypt's Ancilla Semi-Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.classical_registers = classical_registers
+                    self.classical_registers = qiskrypt_classical_registers
                     """
                     Set the Qiskrypt's Classical Registers of the Qiskrypt's Quantum Circuit.
                     """
@@ -1866,11 +1870,11 @@ class QiskryptQuantumCircuit:
                     """
                     self.raise_unsupported_type_registers_error()
 
-            elif (quantum_registers is not None) and (fully_quantum_registers is None) and (
-                    semi_quantum_registers is None) and \
-                    (ancilla_quantum_registers is not None) and (ancilla_fully_quantum_registers is None) and (
-                    ancilla_semi_quantum_registers is None) and \
-                    (classical_registers is not None):
+            elif (qiskrypt_quantum_registers is not None) and (qiskrypt_fully_quantum_registers is None) and (
+                    qiskrypt_semi_quantum_registers is None) and \
+                    (qiskrypt_ancilla_quantum_registers is not None) and (qiskrypt_ancilla_fully_quantum_registers is None) and (
+                    qiskrypt_ancilla_semi_quantum_registers is None) and \
+                    (qiskrypt_classical_registers is not None):
                 """
                 If the Qiskrypt's Quantum, Ancilla Quantum and Classical Registers given as arguments are not None,
                 but both the Qiskrypt's Fully-Quantum, Semi-Quantum,
@@ -1878,12 +1882,12 @@ class QiskryptQuantumCircuit:
                 (i.e., a Qiskrypt's Quantum Circuit equivalent to a hybrid Quantum/Ancilla Quantum/Classical Memory).
                 """
 
-                if (isinstance(quantum_registers, list)) and (isinstance(ancilla_quantum_registers, list)) and (isinstance(classical_registers, list)):
+                if (isinstance(qiskrypt_quantum_registers, list)) and (isinstance(qiskrypt_ancilla_quantum_registers, list)) and (isinstance(qiskrypt_classical_registers, list)):
                     """
                     If the Qiskrypt's Quantum, Ancilla Quantum and Classical Registers are lists.
                     """
 
-                    for quantum_register in quantum_registers:
+                    for quantum_register in qiskrypt_quantum_registers:
                         """
                         For each supposed Qiskrypt's Quantum Register in the list of the Qiskrypt's Quantum Registers.
                         """
@@ -1903,7 +1907,7 @@ class QiskryptQuantumCircuit:
                             """
                             break
 
-                    for ancilla_quantum_register in ancilla_quantum_registers:
+                    for ancilla_quantum_register in qiskrypt_ancilla_quantum_registers:
                         """
                         For each supposed Qiskrypt's Ancilla Quantum Register in the list of the Qiskrypt's Ancilla Quantum Registers.
                         """
@@ -1923,7 +1927,7 @@ class QiskryptQuantumCircuit:
                             """
                             break
 
-                    for classical_register in classical_registers:
+                    for classical_register in qiskrypt_classical_registers:
                         """
                         For each supposed Qiskrypt's Classical Register in the list of the Qiskrypt's Classical Registers.
                         """
@@ -1943,7 +1947,7 @@ class QiskryptQuantumCircuit:
                             """
                             break
 
-                    self.quantum_registers = quantum_registers
+                    self.quantum_registers = qiskrypt_quantum_registers
                     """
                     Set the Qiskrypt's Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
@@ -1958,7 +1962,7 @@ class QiskryptQuantumCircuit:
                     Set the Qiskrypt's Semi-Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.ancilla_quantum_registers = ancilla_quantum_registers
+                    self.ancilla_quantum_registers = qiskrypt_ancilla_quantum_registers
                     """
                     Set the Qiskrypt's Ancilla Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
@@ -1973,7 +1977,7 @@ class QiskryptQuantumCircuit:
                     Set the Qiskrypt's Ancilla Semi-Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.classical_registers = classical_registers
+                    self.classical_registers = qiskrypt_classical_registers
                     """
                     Set the Qiskrypt's Classical Registers of the Qiskrypt's Quantum Circuit.
                     """
@@ -2005,11 +2009,11 @@ class QiskryptQuantumCircuit:
                     """
                     self.raise_unsupported_type_registers_error()
 
-            elif (quantum_registers is not None) and (fully_quantum_registers is None) and (
-                    semi_quantum_registers is None) and \
-                    (ancilla_quantum_registers is None) and (ancilla_fully_quantum_registers is not None) and (
-                    ancilla_semi_quantum_registers is None) and \
-                    (classical_registers is not None):
+            elif (qiskrypt_quantum_registers is not None) and (qiskrypt_fully_quantum_registers is None) and (
+                    qiskrypt_semi_quantum_registers is None) and \
+                    (qiskrypt_ancilla_quantum_registers is None) and (qiskrypt_ancilla_fully_quantum_registers is not None) and (
+                    qiskrypt_ancilla_semi_quantum_registers is None) and \
+                    (qiskrypt_classical_registers is not None):
                 """
                 If the Qiskrypt's Quantum, Ancilla Fully-Quantum and Classical Registers given as arguments are not None,
                 but both the Qiskrypt's Fully-Quantum, Semi-Quantum,
@@ -2017,13 +2021,13 @@ class QiskryptQuantumCircuit:
                 (i.e., a Qiskrypt's Quantum Circuit equivalent to a hybrid Quantum/Ancilla Fully-Quantum/Classical Memory).
                 """
 
-                if (isinstance(quantum_registers, list)) and (isinstance(ancilla_fully_quantum_registers, list)) and (
-                    isinstance(classical_registers, list)):
+                if (isinstance(qiskrypt_quantum_registers, list)) and (isinstance(qiskrypt_ancilla_fully_quantum_registers, list)) and (
+                    isinstance(qiskrypt_classical_registers, list)):
                     """
                     If the Qiskrypt's Quantum, Ancilla Fully-Quantum and Classical Registers are lists.
                     """
 
-                    for quantum_register in quantum_registers:
+                    for quantum_register in qiskrypt_quantum_registers:
                         """
                         For each supposed Qiskrypt's Quantum Register in the list of the Qiskrypt's Quantum Registers.
                         """
@@ -2043,7 +2047,7 @@ class QiskryptQuantumCircuit:
                             """
                             break
 
-                    for ancilla_fully_quantum_register in ancilla_fully_quantum_registers:
+                    for ancilla_fully_quantum_register in qiskrypt_ancilla_fully_quantum_registers:
                         """
                         For each supposed Qiskrypt's Ancilla Fully-Quantum Register in the list of the Qiskrypt's Ancilla Fully-Quantum Registers.
                         """
@@ -2063,7 +2067,7 @@ class QiskryptQuantumCircuit:
                             """
                             break
 
-                    for classical_register in classical_registers:
+                    for classical_register in qiskrypt_classical_registers:
                         """
                         For each supposed Qiskrypt's Classical Register in the list of the Qiskrypt's Classical Registers.
                         """
@@ -2083,7 +2087,7 @@ class QiskryptQuantumCircuit:
                             """
                             break
 
-                    self.quantum_registers = quantum_registers
+                    self.quantum_registers = qiskrypt_quantum_registers
                     """
                     Set the Qiskrypt's Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
@@ -2103,7 +2107,7 @@ class QiskryptQuantumCircuit:
                     Set the Qiskrypt's Ancilla Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.ancilla_fully_quantum_registers = ancilla_fully_quantum_registers
+                    self.ancilla_fully_quantum_registers = qiskrypt_ancilla_fully_quantum_registers
                     """
                     Set the Qiskrypt's Ancilla Fully-Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
@@ -2113,7 +2117,7 @@ class QiskryptQuantumCircuit:
                     Set the Qiskrypt's Ancilla Semi-Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.classical_registers = classical_registers
+                    self.classical_registers = qiskrypt_classical_registers
                     """
                     Set the Qiskrypt's Classical Registers of the Qiskrypt's Quantum Circuit.
                     """
@@ -2145,11 +2149,11 @@ class QiskryptQuantumCircuit:
                     """
                     self.raise_unsupported_type_registers_error()
 
-            elif (quantum_registers is not None) and (fully_quantum_registers is None) and (
-                    semi_quantum_registers is None) and \
-                    (ancilla_quantum_registers is None) and (ancilla_fully_quantum_registers is None) and (
-                    ancilla_semi_quantum_registers is not None) and \
-                    (classical_registers is not None):
+            elif (qiskrypt_quantum_registers is not None) and (qiskrypt_fully_quantum_registers is None) and (
+                    qiskrypt_semi_quantum_registers is None) and \
+                    (qiskrypt_ancilla_quantum_registers is None) and (qiskrypt_ancilla_fully_quantum_registers is None) and (
+                    qiskrypt_ancilla_semi_quantum_registers is not None) and \
+                    (qiskrypt_classical_registers is not None):
                 """
                 If the Qiskrypt's Quantum, Ancilla Semi-Quantum and Classical Registers given as arguments are not None,
                 but both the Qiskrypt's Fully-Quantum, Semi-Quantum,
@@ -2157,12 +2161,12 @@ class QiskryptQuantumCircuit:
                 (i.e., a Qiskrypt's Quantum Circuit equivalent to a hybrid Quantum/Ancilla Semi-Quantum/Classical Memory).
                 """
 
-                if (isinstance(quantum_registers, list)) and (isinstance(ancilla_semi_quantum_registers, list)) and (isinstance(classical_registers, list)):
+                if (isinstance(qiskrypt_quantum_registers, list)) and (isinstance(qiskrypt_ancilla_semi_quantum_registers, list)) and (isinstance(qiskrypt_classical_registers, list)):
                     """
                     If the Qiskrypt's Quantum, Ancilla Semi-Quantum and Classical Registers are lists.
                     """
 
-                    for quantum_register in quantum_registers:
+                    for quantum_register in qiskrypt_quantum_registers:
                         """
                         For each supposed Qiskrypt's Quantum Register in the list of the Qiskrypt's Quantum Registers.
                         """
@@ -2182,7 +2186,7 @@ class QiskryptQuantumCircuit:
                             """
                             break
 
-                    for ancilla_semi_quantum_register in ancilla_semi_quantum_registers:
+                    for ancilla_semi_quantum_register in qiskrypt_ancilla_semi_quantum_registers:
                         """
                         For each supposed Qiskrypt's Ancilla Semi-Quantum Register in the list of the Qiskrypt's Ancilla Semi-Quantum Registers.
                         """
@@ -2202,7 +2206,7 @@ class QiskryptQuantumCircuit:
                             """
                             break
 
-                    for classical_register in classical_registers:
+                    for classical_register in qiskrypt_classical_registers:
                         """
                         For each supposed Qiskrypt's Classical Register in the list of the Qiskrypt's Classical Registers.
                         """
@@ -2222,7 +2226,7 @@ class QiskryptQuantumCircuit:
                             """
                             break
 
-                    self.quantum_registers = quantum_registers
+                    self.quantum_registers = qiskrypt_quantum_registers
                     """
                     Set the Qiskrypt's Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
@@ -2247,12 +2251,12 @@ class QiskryptQuantumCircuit:
                     Set the Qiskrypt's Ancilla Fully-Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.ancilla_semi_quantum_registers = ancilla_semi_quantum_registers
+                    self.ancilla_semi_quantum_registers = qiskrypt_ancilla_semi_quantum_registers
                     """
                     Set the Qiskrypt's Ancilla Semi-Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.classical_registers = classical_registers
+                    self.classical_registers = qiskrypt_classical_registers
                     """
                     Set the Qiskrypt's Classical Registers of the Qiskrypt's Quantum Circuit.
                     """
@@ -2284,24 +2288,24 @@ class QiskryptQuantumCircuit:
                     """
                     self.raise_unsupported_type_registers_error()
 
-            elif (quantum_registers is not None) and (fully_quantum_registers is not None) and (
-                    semi_quantum_registers is not None) and \
-                    (ancilla_quantum_registers is None) and (ancilla_fully_quantum_registers is None) and (
-                    ancilla_semi_quantum_registers is None) and \
-                    (classical_registers is not None):
+            elif (qiskrypt_quantum_registers is not None) and (qiskrypt_fully_quantum_registers is not None) and (
+                    qiskrypt_semi_quantum_registers is not None) and \
+                    (qiskrypt_ancilla_quantum_registers is None) and (qiskrypt_ancilla_fully_quantum_registers is None) and (
+                    qiskrypt_ancilla_semi_quantum_registers is None) and \
+                    (qiskrypt_classical_registers is not None):
                 """
                 If the Qiskrypt's Quantum, Fully-Quantum, Semi-Quantum and Classical Registers given as arguments are not None,
                 but both the Ancilla Quantum, Ancilla Fully-Quantum Registers and Ancilla Semi-Quantum are None
                 (i.e., a Qiskrypt's Quantum Circuit equivalent to a hybrid Quantum/Fully-Quantum/Semi-Quantum/Classical Memory).
                 """
 
-                if (isinstance(quantum_registers, list)) and (isinstance(fully_quantum_registers, list)) and \
-                        (isinstance(semi_quantum_registers, list)) and (isinstance(classical_registers, list)):
+                if (isinstance(qiskrypt_quantum_registers, list)) and (isinstance(qiskrypt_fully_quantum_registers, list)) and \
+                        (isinstance(qiskrypt_semi_quantum_registers, list)) and (isinstance(qiskrypt_classical_registers, list)):
                     """
                     If the Qiskrypt's Quantum, Fully-Quantum, Semi-Quantum and Classical Registers are lists.
                     """
 
-                    for quantum_register in quantum_registers:
+                    for quantum_register in qiskrypt_quantum_registers:
                         """
                         For each supposed Qiskrypt's Quantum Register in the list of the Qiskrypt's Quantum Registers.
                         """
@@ -2321,7 +2325,7 @@ class QiskryptQuantumCircuit:
                             """
                             break
 
-                    for fully_quantum_register in fully_quantum_registers:
+                    for fully_quantum_register in qiskrypt_fully_quantum_registers:
                         """
                         For each supposed Qiskrypt's Fully-Quantum Register in the list of the Qiskrypt's Fully-Quantum Registers.
                         """
@@ -2341,7 +2345,7 @@ class QiskryptQuantumCircuit:
                             """
                             break
 
-                    for semi_quantum_register in semi_quantum_registers:
+                    for semi_quantum_register in qiskrypt_semi_quantum_registers:
                         """
                         For each supposed Qiskrypt's Semi-Quantum Register in the list of the Qiskrypt's Semi-Quantum Registers.
                         """
@@ -2361,7 +2365,7 @@ class QiskryptQuantumCircuit:
                             """
                             break
 
-                    for classical_register in classical_registers:
+                    for classical_register in qiskrypt_classical_registers:
                         """
                         For each supposed Qiskrypt's Classical Register in the list of the Qiskrypt's Classical Registers.
                         """
@@ -2381,17 +2385,17 @@ class QiskryptQuantumCircuit:
                             """
                             break
 
-                    self.quantum_registers = quantum_registers
+                    self.quantum_registers = qiskrypt_quantum_registers
                     """
                     Set the Qiskrypt's Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.fully_quantum_registers = fully_quantum_registers
+                    self.fully_quantum_registers = qiskrypt_fully_quantum_registers
                     """
                     Set the Qiskrypt's Fully-Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.semi_quantum_registers = semi_quantum_registers
+                    self.semi_quantum_registers = qiskrypt_semi_quantum_registers
                     """
                     Set the Qiskrypt's Semi-Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
@@ -2411,7 +2415,7 @@ class QiskryptQuantumCircuit:
                     Set the Qiskrypt's Ancilla Semi-Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.classical_registers = classical_registers
+                    self.classical_registers = qiskrypt_classical_registers
                     """
                     Set the Qiskrypt's Classical Registers of the Qiskrypt's Quantum Circuit.
                     """
@@ -2445,24 +2449,24 @@ class QiskryptQuantumCircuit:
                     """
                     self.raise_unsupported_type_registers_error()
 
-            elif (quantum_registers is not None) and (fully_quantum_registers is not None) and (
-                    semi_quantum_registers is None) and \
-                    (ancilla_quantum_registers is not None) and (ancilla_fully_quantum_registers is None) and (
-                    ancilla_semi_quantum_registers is None) and \
-                    (classical_registers is not None):
+            elif (qiskrypt_quantum_registers is not None) and (qiskrypt_fully_quantum_registers is not None) and (
+                    qiskrypt_semi_quantum_registers is None) and \
+                    (qiskrypt_ancilla_quantum_registers is not None) and (qiskrypt_ancilla_fully_quantum_registers is None) and (
+                    qiskrypt_ancilla_semi_quantum_registers is None) and \
+                    (qiskrypt_classical_registers is not None):
                 """
                 If the Qiskrypt's Quantum, Fully-Quantum, Ancilla Quantum and Classical Registers given as arguments are not None,
                 but both the Semi-Quantum, Ancilla Fully-Quantum Registers and Ancilla Semi-Quantum are None
                 (i.e., a Qiskrypt's Quantum Circuit equivalent to a hybrid Quantum/Fully-Quantum/Ancilla Quantum/Classical Memory).
                 """
 
-                if (isinstance(quantum_registers, list)) and (isinstance(fully_quantum_registers, list)) and \
-                        (isinstance(ancilla_quantum_registers, list)) and (isinstance(classical_registers, list)):
+                if (isinstance(qiskrypt_quantum_registers, list)) and (isinstance(qiskrypt_fully_quantum_registers, list)) and \
+                        (isinstance(qiskrypt_ancilla_quantum_registers, list)) and (isinstance(qiskrypt_classical_registers, list)):
                     """
                     If the Qiskrypt's Quantum, Fully-Quantum, Ancilla Quantum and Classical Registers are lists.
                     """
 
-                    for quantum_register in quantum_registers:
+                    for quantum_register in qiskrypt_quantum_registers:
                         """
                         For each supposed Qiskrypt's Quantum Register in the list of the Qiskrypt's Quantum Registers.
                         """
@@ -2482,7 +2486,7 @@ class QiskryptQuantumCircuit:
                             """
                             break
 
-                    for fully_quantum_register in fully_quantum_registers:
+                    for fully_quantum_register in qiskrypt_fully_quantum_registers:
                         """
                         For each supposed Qiskrypt's Fully-Quantum Register in the list of the Qiskrypt's Fully-Quantum Registers.
                         """
@@ -2502,7 +2506,7 @@ class QiskryptQuantumCircuit:
                             """
                             break
 
-                    for ancilla_quantum_register in ancilla_quantum_registers:
+                    for ancilla_quantum_register in qiskrypt_ancilla_quantum_registers:
                         """
                         For each supposed Qiskrypt's Ancilla Quantum Register in the list of the Qiskrypt's Ancilla Quantum Registers.
                         """
@@ -2522,7 +2526,7 @@ class QiskryptQuantumCircuit:
                             """
                             break
 
-                    for classical_register in classical_registers:
+                    for classical_register in qiskrypt_classical_registers:
                         """
                         For each supposed Qiskrypt's Classical Register in the list of the Qiskrypt's Classical Registers.
                         """
@@ -2542,12 +2546,12 @@ class QiskryptQuantumCircuit:
                             """
                             break
 
-                    self.quantum_registers = quantum_registers
+                    self.quantum_registers = qiskrypt_quantum_registers
                     """
                     Set the Qiskrypt's Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.fully_quantum_registers = fully_quantum_registers
+                    self.fully_quantum_registers = qiskrypt_fully_quantum_registers
                     """
                     Set the Qiskrypt's Fully-Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
@@ -2557,7 +2561,7 @@ class QiskryptQuantumCircuit:
                     Set the Qiskrypt's Semi-Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.ancilla_quantum_registers = ancilla_quantum_registers
+                    self.ancilla_quantum_registers = qiskrypt_ancilla_quantum_registers
                     """
                     Set the Qiskrypt's Ancilla Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
@@ -2572,7 +2576,7 @@ class QiskryptQuantumCircuit:
                     Set the Qiskrypt's Ancilla Semi-Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.classical_registers = classical_registers
+                    self.classical_registers = qiskrypt_classical_registers
                     """
                     Set the Qiskrypt's Classical Registers of the Qiskrypt's Quantum Circuit.
                     """
@@ -2606,24 +2610,24 @@ class QiskryptQuantumCircuit:
                     """
                     self.raise_unsupported_type_registers_error()
 
-            elif (quantum_registers is not None) and (fully_quantum_registers is not None) and (
-                    semi_quantum_registers is None) and \
-                    (ancilla_quantum_registers is None) and (ancilla_fully_quantum_registers is not None) and (
-                    ancilla_semi_quantum_registers is None) and \
-                    (classical_registers is not None):
+            elif (qiskrypt_quantum_registers is not None) and (qiskrypt_fully_quantum_registers is not None) and (
+                    qiskrypt_semi_quantum_registers is None) and \
+                    (qiskrypt_ancilla_quantum_registers is None) and (qiskrypt_ancilla_fully_quantum_registers is not None) and (
+                    qiskrypt_ancilla_semi_quantum_registers is None) and \
+                    (qiskrypt_classical_registers is not None):
                 """
                 If the Qiskrypt's Quantum, Fully-Quantum, Ancilla Fully-Quantum and Classical Registers given as arguments are not None,
                 but both the Semi-Quantum, Ancilla Quantum Registers and Ancilla Semi-Quantum are None
                 (i.e., a Qiskrypt's Quantum Circuit equivalent to a hybrid Quantum/Fully-Quantum/Ancilla Fully-Quantum/Classical Memory).
                 """
 
-                if (isinstance(quantum_registers, list)) and (isinstance(fully_quantum_registers, list)) and \
-                        (isinstance(ancilla_fully_quantum_registers, list)) and (isinstance(classical_registers, list)):
+                if (isinstance(qiskrypt_quantum_registers, list)) and (isinstance(qiskrypt_fully_quantum_registers, list)) and \
+                        (isinstance(qiskrypt_ancilla_fully_quantum_registers, list)) and (isinstance(qiskrypt_classical_registers, list)):
                     """
                     If the Qiskrypt's Quantum, Fully-Quantum, Ancilla Fully-Quantum and Classical Registers are lists.
                     """
 
-                    for quantum_register in quantum_registers:
+                    for quantum_register in qiskrypt_quantum_registers:
                         """
                         For each supposed Qiskrypt's Quantum Register in the list of the Qiskrypt's Quantum Registers.
                         """
@@ -2643,7 +2647,7 @@ class QiskryptQuantumCircuit:
                             """
                             break
 
-                    for fully_quantum_register in fully_quantum_registers:
+                    for fully_quantum_register in qiskrypt_fully_quantum_registers:
                         """
                         For each supposed Qiskrypt's Fully-Quantum Register in the list of the Qiskrypt's Fully-Quantum Registers.
                         """
@@ -2663,7 +2667,7 @@ class QiskryptQuantumCircuit:
                             """
                             break
 
-                    for ancilla_fully_quantum_register in ancilla_fully_quantum_registers:
+                    for ancilla_fully_quantum_register in qiskrypt_ancilla_fully_quantum_registers:
                         """
                         For each supposed Qiskrypt's Ancilla Fully-Quantum Register in the list of the Qiskrypt's Ancilla Fully-Quantum Registers.
                         """
@@ -2683,7 +2687,7 @@ class QiskryptQuantumCircuit:
                             """
                             break
 
-                    for classical_register in classical_registers:
+                    for classical_register in qiskrypt_classical_registers:
                         """
                         For each supposed Qiskrypt's Classical Register in the list of the Qiskrypt's Classical Registers.
                         """
@@ -2703,12 +2707,12 @@ class QiskryptQuantumCircuit:
                             """
                             break
 
-                    self.quantum_registers = quantum_registers
+                    self.quantum_registers = qiskrypt_quantum_registers
                     """
                     Set the Qiskrypt's Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.fully_quantum_registers = fully_quantum_registers
+                    self.fully_quantum_registers = qiskrypt_fully_quantum_registers
                     """
                     Set the Qiskrypt's Fully-Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
@@ -2723,7 +2727,7 @@ class QiskryptQuantumCircuit:
                     Set the Qiskrypt's Ancilla Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.ancilla_fully_quantum_registers = ancilla_fully_quantum_registers
+                    self.ancilla_fully_quantum_registers = qiskrypt_ancilla_fully_quantum_registers
                     """
                     Set the Qiskrypt's Ancilla Fully-Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
@@ -2733,7 +2737,7 @@ class QiskryptQuantumCircuit:
                     Set the Qiskrypt's Ancilla Semi-Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.classical_registers = classical_registers
+                    self.classical_registers = qiskrypt_classical_registers
                     """
                     Set the Qiskrypt's Classical Registers of the Qiskrypt's Quantum Circuit.
                     """
@@ -2767,24 +2771,24 @@ class QiskryptQuantumCircuit:
                     """
                     self.raise_unsupported_type_registers_error()
 
-            elif (quantum_registers is not None) and (fully_quantum_registers is not None) and (
-                    semi_quantum_registers is None) and \
-                    (ancilla_quantum_registers is None) and (ancilla_fully_quantum_registers is None) and (
-                    ancilla_semi_quantum_registers is not None) and \
-                    (classical_registers is not None):
+            elif (qiskrypt_quantum_registers is not None) and (qiskrypt_fully_quantum_registers is not None) and (
+                    qiskrypt_semi_quantum_registers is None) and \
+                    (qiskrypt_ancilla_quantum_registers is None) and (qiskrypt_ancilla_fully_quantum_registers is None) and (
+                    qiskrypt_ancilla_semi_quantum_registers is not None) and \
+                    (qiskrypt_classical_registers is not None):
                 """
                 If the Qiskrypt's Quantum, Fully-Quantum, Ancilla Semi-Quantum and Classical Registers given as arguments are not None,
                 but both the Semi-Quantum, Ancilla Quantum Registers and Ancilla Fully-Quantum are None
                 (i.e., a Qiskrypt's Quantum Circuit equivalent to a hybrid Quantum/Fully-Quantum/Ancilla Semi-Quantum/Classical Memory).
                 """
 
-                if (isinstance(quantum_registers, list)) and (isinstance(fully_quantum_registers, list)) and \
-                        (isinstance(ancilla_semi_quantum_registers, list)) and (isinstance(classical_registers, list)):
+                if (isinstance(qiskrypt_quantum_registers, list)) and (isinstance(qiskrypt_fully_quantum_registers, list)) and \
+                        (isinstance(qiskrypt_ancilla_semi_quantum_registers, list)) and (isinstance(qiskrypt_classical_registers, list)):
                     """
                     If the Qiskrypt's Quantum, Fully-Quantum, Ancilla Semi-Quantum and Classical Registers are lists.
                     """
 
-                    for quantum_register in quantum_registers:
+                    for quantum_register in qiskrypt_quantum_registers:
                         """
                         For each supposed Qiskrypt's Quantum Register in the list of the Qiskrypt's Quantum Registers.
                         """
@@ -2804,7 +2808,7 @@ class QiskryptQuantumCircuit:
                             """
                             break
 
-                    for fully_quantum_register in fully_quantum_registers:
+                    for fully_quantum_register in qiskrypt_fully_quantum_registers:
                         """
                         For each supposed Qiskrypt's Fully-Quantum Register in the list of the Qiskrypt's Fully-Quantum Registers.
                         """
@@ -2824,7 +2828,7 @@ class QiskryptQuantumCircuit:
                             """
                             break
 
-                    for ancilla_semi_quantum_register in ancilla_semi_quantum_registers:
+                    for ancilla_semi_quantum_register in qiskrypt_ancilla_semi_quantum_registers:
                         """
                         For each supposed Qiskrypt's Ancilla Semi-Quantum Register in the list of the Qiskrypt's Ancilla Semi-Quantum Registers.
                         """
@@ -2844,7 +2848,7 @@ class QiskryptQuantumCircuit:
                             """
                             break
 
-                    for classical_register in classical_registers:
+                    for classical_register in qiskrypt_classical_registers:
                         """
                         For each supposed Qiskrypt's Classical Register in the list of the Qiskrypt's Classical Registers.
                         """
@@ -2864,12 +2868,12 @@ class QiskryptQuantumCircuit:
                             """
                             break
 
-                    self.quantum_registers = quantum_registers
+                    self.quantum_registers = qiskrypt_quantum_registers
                     """
                     Set the Qiskrypt's Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.fully_quantum_registers = fully_quantum_registers
+                    self.fully_quantum_registers = qiskrypt_fully_quantum_registers
                     """
                     Set the Qiskrypt's Fully-Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
@@ -2889,12 +2893,12 @@ class QiskryptQuantumCircuit:
                     Set the Qiskrypt's Ancilla Fully-Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.ancilla_semi_quantum_registers = ancilla_semi_quantum_registers
+                    self.ancilla_semi_quantum_registers = qiskrypt_ancilla_semi_quantum_registers
                     """
                     Set the Qiskrypt's Ancilla Semi-Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.classical_registers = classical_registers
+                    self.classical_registers = qiskrypt_classical_registers
                     """
                     Set the Qiskrypt's Classical Registers of the Qiskrypt's Quantum Circuit.
                     """
@@ -2928,25 +2932,25 @@ class QiskryptQuantumCircuit:
                     """
                     self.raise_unsupported_type_registers_error()
 
-            elif (quantum_registers is not None) and (fully_quantum_registers is not None) and (
-                    semi_quantum_registers is not None) and \
-                    (ancilla_quantum_registers is not None) and (ancilla_fully_quantum_registers is None) and (
-                    ancilla_semi_quantum_registers is None) and \
-                    (classical_registers is not None):
+            elif (qiskrypt_quantum_registers is not None) and (qiskrypt_fully_quantum_registers is not None) and (
+                    qiskrypt_semi_quantum_registers is not None) and \
+                    (qiskrypt_ancilla_quantum_registers is not None) and (qiskrypt_ancilla_fully_quantum_registers is None) and (
+                    qiskrypt_ancilla_semi_quantum_registers is None) and \
+                    (qiskrypt_classical_registers is not None):
                 """
                 If the Qiskrypt's Quantum, Fully-Quantum, Semi-Quantum, Ancilla Quantum and Classical Registers given as arguments are not None,
                 but both the Ancilla Fully-Quantum Registers and Ancilla Semi-Quantum are None
                 (i.e., a Qiskrypt's Quantum Circuit equivalent to a hybrid Quantum/Fully-Quantum/Semi-Quantum/Ancilla Quantum/Classical Memory).
                 """
 
-                if (isinstance(quantum_registers, list)) and (isinstance(fully_quantum_registers, list)) and \
-                        (isinstance(semi_quantum_registers, list)) and (isinstance(ancilla_quantum_registers, list)) and \
-                        (isinstance(classical_registers, list)):
+                if (isinstance(qiskrypt_quantum_registers, list)) and (isinstance(qiskrypt_fully_quantum_registers, list)) and \
+                        (isinstance(qiskrypt_semi_quantum_registers, list)) and (isinstance(qiskrypt_ancilla_quantum_registers, list)) and \
+                        (isinstance(qiskrypt_classical_registers, list)):
                     """
                     If the Qiskrypt's Quantum, Fully-Quantum, Semi-Quantum, Ancilla Quantum and Classical Registers are lists.
                     """
 
-                    for quantum_register in quantum_registers:
+                    for quantum_register in qiskrypt_quantum_registers:
                         """
                         For each supposed Qiskrypt's Quantum Register in the list of the Qiskrypt's Quantum Registers.
                         """
@@ -2966,7 +2970,7 @@ class QiskryptQuantumCircuit:
                             """
                             break
 
-                    for fully_quantum_register in fully_quantum_registers:
+                    for fully_quantum_register in qiskrypt_fully_quantum_registers:
                         """
                         For each supposed Qiskrypt's Fully-Quantum Register in the list of the Qiskrypt's Fully-Quantum Registers.
                         """
@@ -2986,7 +2990,7 @@ class QiskryptQuantumCircuit:
                             """
                             break
 
-                    for semi_quantum_register in semi_quantum_registers:
+                    for semi_quantum_register in qiskrypt_semi_quantum_registers:
                         """
                         For each supposed Qiskrypt's Semi-Quantum Register in the list of the Qiskrypt's Semi-Quantum Registers.
                         """
@@ -3006,7 +3010,7 @@ class QiskryptQuantumCircuit:
                             """
                             break
 
-                    for ancilla_quantum_register in ancilla_quantum_registers:
+                    for ancilla_quantum_register in qiskrypt_ancilla_quantum_registers:
                         """
                         For each supposed Qiskrypt's Ancilla Quantum Register in the list of the Qiskrypt's Ancilla Quantum Registers.
                         """
@@ -3026,7 +3030,7 @@ class QiskryptQuantumCircuit:
                             """
                             break
 
-                    for classical_register in classical_registers:
+                    for classical_register in qiskrypt_classical_registers:
                         """
                         For each supposed Qiskrypt's Classical Register in the list of the Qiskrypt's Classical Registers.
                         """
@@ -3046,22 +3050,22 @@ class QiskryptQuantumCircuit:
                             """
                             break
 
-                    self.quantum_registers = quantum_registers
+                    self.quantum_registers = qiskrypt_quantum_registers
                     """
                     Set the Qiskrypt's Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.fully_quantum_registers = fully_quantum_registers
+                    self.fully_quantum_registers = qiskrypt_fully_quantum_registers
                     """
                     Set the Qiskrypt's Fully-Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.semi_quantum_registers = semi_quantum_registers
+                    self.semi_quantum_registers = qiskrypt_semi_quantum_registers
                     """
                     Set the Qiskrypt's Semi-Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.ancilla_quantum_registers = ancilla_quantum_registers
+                    self.ancilla_quantum_registers = qiskrypt_ancilla_quantum_registers
                     """
                     Set the Qiskrypt's Ancilla Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
@@ -3076,7 +3080,7 @@ class QiskryptQuantumCircuit:
                     Set the Qiskrypt's Ancilla Semi-Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.classical_registers = classical_registers
+                    self.classical_registers = qiskrypt_classical_registers
                     """
                     Set the Qiskrypt's Classical Registers of the Qiskrypt's Quantum Circuit.
                     """
@@ -3112,25 +3116,25 @@ class QiskryptQuantumCircuit:
                     """
                     self.raise_unsupported_type_registers_error()
 
-            elif (quantum_registers is not None) and (fully_quantum_registers is not None) and (
-                    semi_quantum_registers is not None) and \
-                    (ancilla_quantum_registers is None) and (ancilla_fully_quantum_registers is not None) and (
-                    ancilla_semi_quantum_registers is None) and \
-                    (classical_registers is not None):
+            elif (qiskrypt_quantum_registers is not None) and (qiskrypt_fully_quantum_registers is not None) and (
+                    qiskrypt_semi_quantum_registers is not None) and \
+                    (qiskrypt_ancilla_quantum_registers is None) and (qiskrypt_ancilla_fully_quantum_registers is not None) and (
+                    qiskrypt_ancilla_semi_quantum_registers is None) and \
+                    (qiskrypt_classical_registers is not None):
                 """
                 If the Qiskrypt's Quantum, Fully-Quantum, Semi-Quantum, Ancilla Fully-Quantum and Classical Registers given as arguments are not None,
                 but both the Ancilla Quantum Registers and Ancilla Semi-Quantum are None
                 (i.e., a Qiskrypt's Quantum Circuit equivalent to a hybrid Quantum/Fully-Quantum/Semi-Quantum/Ancilla Fully-Quantum/Classical Memory).
                 """
 
-                if (isinstance(quantum_registers, list)) and (isinstance(fully_quantum_registers, list)) and \
-                        (isinstance(semi_quantum_registers, list)) and (isinstance(ancilla_fully_quantum_registers, list)) and \
-                        (isinstance(classical_registers, list)):
+                if (isinstance(qiskrypt_quantum_registers, list)) and (isinstance(qiskrypt_fully_quantum_registers, list)) and \
+                        (isinstance(qiskrypt_semi_quantum_registers, list)) and (isinstance(qiskrypt_ancilla_fully_quantum_registers, list)) and \
+                        (isinstance(qiskrypt_classical_registers, list)):
                     """
                     If the Qiskrypt's Quantum, Fully-Quantum, Semi-Quantum, Ancilla Fully-Quantum and Classical Registers are lists.
                     """
 
-                    for quantum_register in quantum_registers:
+                    for quantum_register in qiskrypt_quantum_registers:
                         """
                         For each supposed Qiskrypt's Quantum Register in the list of the Qiskrypt's Quantum Registers.
                         """
@@ -3150,7 +3154,7 @@ class QiskryptQuantumCircuit:
                             """
                             break
 
-                    for fully_quantum_register in fully_quantum_registers:
+                    for fully_quantum_register in qiskrypt_fully_quantum_registers:
                         """
                         For each supposed Qiskrypt's Fully-Quantum Register in the list of the Qiskrypt's Fully-Quantum Registers.
                         """
@@ -3170,7 +3174,7 @@ class QiskryptQuantumCircuit:
                             """
                             break
 
-                    for semi_quantum_register in semi_quantum_registers:
+                    for semi_quantum_register in qiskrypt_semi_quantum_registers:
                         """
                         For each supposed Qiskrypt's Semi-Quantum Register in the list of the Qiskrypt's Semi-Quantum Registers.
                         """
@@ -3190,7 +3194,7 @@ class QiskryptQuantumCircuit:
                             """
                             break
 
-                    for ancilla_fully_quantum_register in ancilla_fully_quantum_registers:
+                    for ancilla_fully_quantum_register in qiskrypt_ancilla_fully_quantum_registers:
                         """
                         For each supposed Qiskrypt's Ancilla Fully-Quantum Register in the list of the Qiskrypt's Ancilla Fully-Quantum Registers.
                         """
@@ -3210,7 +3214,7 @@ class QiskryptQuantumCircuit:
                             """
                             break
 
-                    for classical_register in classical_registers:
+                    for classical_register in qiskrypt_classical_registers:
                         """
                         For each supposed Qiskrypt's Classical Register in the list of the Qiskrypt's Classical Registers.
                         """
@@ -3230,17 +3234,17 @@ class QiskryptQuantumCircuit:
                             """
                             break
 
-                    self.quantum_registers = quantum_registers
+                    self.quantum_registers = qiskrypt_quantum_registers
                     """
                     Set the Qiskrypt's Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.fully_quantum_registers = fully_quantum_registers
+                    self.fully_quantum_registers = qiskrypt_fully_quantum_registers
                     """
                     Set the Qiskrypt's Fully-Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.semi_quantum_registers = semi_quantum_registers
+                    self.semi_quantum_registers = qiskrypt_semi_quantum_registers
                     """
                     Set the Qiskrypt's Semi-Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
@@ -3250,7 +3254,7 @@ class QiskryptQuantumCircuit:
                     Set the Qiskrypt's Ancilla Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.ancilla_fully_quantum_registers = ancilla_fully_quantum_registers
+                    self.ancilla_fully_quantum_registers = qiskrypt_ancilla_fully_quantum_registers
                     """
                     Set the Qiskrypt's Ancilla Fully-Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
@@ -3260,7 +3264,7 @@ class QiskryptQuantumCircuit:
                     Set the Qiskrypt's Ancilla Semi-Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.classical_registers = classical_registers
+                    self.classical_registers = qiskrypt_classical_registers
                     """
                     Set the Qiskrypt's Classical Registers of the Qiskrypt's Quantum Circuit.
                     """
@@ -3296,25 +3300,25 @@ class QiskryptQuantumCircuit:
                     """
                     self.raise_unsupported_type_registers_error()
 
-            elif (quantum_registers is not None) and (fully_quantum_registers is not None) and (
-                    semi_quantum_registers is not None) and \
-                    (ancilla_quantum_registers is None) and (ancilla_fully_quantum_registers is None) and (
-                    ancilla_semi_quantum_registers is not None) and \
-                    (classical_registers is not None):
+            elif (qiskrypt_quantum_registers is not None) and (qiskrypt_fully_quantum_registers is not None) and (
+                    qiskrypt_semi_quantum_registers is not None) and \
+                    (qiskrypt_ancilla_quantum_registers is None) and (qiskrypt_ancilla_fully_quantum_registers is None) and (
+                    qiskrypt_ancilla_semi_quantum_registers is not None) and \
+                    (qiskrypt_classical_registers is not None):
                 """
                 If the Qiskrypt's Quantum, Fully-Quantum, Semi-Quantum, Ancilla Semi-Quantum and Classical Registers given as arguments are not None,
                 but both the Ancilla Quantum Registers and Ancilla Fully-Quantum are None
                 (i.e., a Qiskrypt's Quantum Circuit equivalent to a hybrid Quantum/Fully-Quantum/Semi-Quantum/Ancilla Semi-Quantum/Classical Memory).
                 """
 
-                if (isinstance(quantum_registers, list)) and (isinstance(fully_quantum_registers, list)) and \
-                        (isinstance(semi_quantum_registers, list)) and (isinstance(ancilla_semi_quantum_registers, list)) and \
-                        (isinstance(classical_registers, list)):
+                if (isinstance(qiskrypt_quantum_registers, list)) and (isinstance(qiskrypt_fully_quantum_registers, list)) and \
+                        (isinstance(qiskrypt_semi_quantum_registers, list)) and (isinstance(qiskrypt_ancilla_semi_quantum_registers, list)) and \
+                        (isinstance(qiskrypt_classical_registers, list)):
                     """
                     If the Qiskrypt's Quantum, Fully-Quantum, Semi-Quantum, Ancilla Semi-Quantum and Classical Registers are lists.
                     """
 
-                    for quantum_register in quantum_registers:
+                    for quantum_register in qiskrypt_quantum_registers:
                         """
                         For each supposed Qiskrypt's Quantum Register in the list of the Qiskrypt's Quantum Registers.
                         """
@@ -3334,7 +3338,7 @@ class QiskryptQuantumCircuit:
                             """
                             break
 
-                    for fully_quantum_register in fully_quantum_registers:
+                    for fully_quantum_register in qiskrypt_fully_quantum_registers:
                         """
                         For each supposed Qiskrypt's Fully-Quantum Register in the list of the Qiskrypt's Fully-Quantum Registers.
                         """
@@ -3354,7 +3358,7 @@ class QiskryptQuantumCircuit:
                             """
                             break
 
-                    for semi_quantum_register in semi_quantum_registers:
+                    for semi_quantum_register in qiskrypt_semi_quantum_registers:
                         """
                         For each supposed Qiskrypt's Semi-Quantum Register in the list of the Qiskrypt's Semi-Quantum Registers.
                         """
@@ -3374,7 +3378,7 @@ class QiskryptQuantumCircuit:
                             """
                             break
 
-                    for ancilla_semi_quantum_register in ancilla_semi_quantum_registers:
+                    for ancilla_semi_quantum_register in qiskrypt_ancilla_semi_quantum_registers:
                         """
                         For each supposed Qiskrypt's Ancilla Semi-Quantum Register in the list of the Qiskrypt's Ancilla Semi-Quantum Registers.
                         """
@@ -3394,7 +3398,7 @@ class QiskryptQuantumCircuit:
                             """
                             break
 
-                    for classical_register in classical_registers:
+                    for classical_register in qiskrypt_classical_registers:
                         """
                         For each supposed Qiskrypt's Classical Register in the list of the Qiskrypt's Classical Registers.
                         """
@@ -3414,17 +3418,17 @@ class QiskryptQuantumCircuit:
                             """
                             break
 
-                    self.quantum_registers = quantum_registers
+                    self.quantum_registers = qiskrypt_quantum_registers
                     """
                     Set the Qiskrypt's Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.fully_quantum_registers = fully_quantum_registers
+                    self.fully_quantum_registers = qiskrypt_fully_quantum_registers
                     """
                     Set the Qiskrypt's Fully-Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.semi_quantum_registers = semi_quantum_registers
+                    self.semi_quantum_registers = qiskrypt_semi_quantum_registers
                     """
                     Set the Qiskrypt's Semi-Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
@@ -3439,12 +3443,12 @@ class QiskryptQuantumCircuit:
                     Set the Qiskrypt's Ancilla Fully-Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.ancilla_semi_quantum_registers = ancilla_semi_quantum_registers
+                    self.ancilla_semi_quantum_registers = qiskrypt_ancilla_semi_quantum_registers
                     """
                     Set the Qiskrypt's Ancilla Semi-Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.classical_registers = classical_registers
+                    self.classical_registers = qiskrypt_classical_registers
                     """
                     Set the Qiskrypt's Classical Registers of the Qiskrypt's Quantum Circuit.
                     """
@@ -3480,11 +3484,11 @@ class QiskryptQuantumCircuit:
                     """
                     self.raise_unsupported_type_registers_error()
 
-            elif (quantum_registers is not None) and (fully_quantum_registers is not None) and (
-                    semi_quantum_registers is not None) and \
-                    (ancilla_quantum_registers is not None) and (ancilla_fully_quantum_registers is not None) and (
-                    ancilla_semi_quantum_registers is None) and \
-                    (classical_registers is not None):
+            elif (qiskrypt_quantum_registers is not None) and (qiskrypt_fully_quantum_registers is not None) and (
+                    qiskrypt_semi_quantum_registers is not None) and \
+                    (qiskrypt_ancilla_quantum_registers is not None) and (qiskrypt_ancilla_fully_quantum_registers is not None) and (
+                    qiskrypt_ancilla_semi_quantum_registers is None) and \
+                    (qiskrypt_classical_registers is not None):
                 """
                 If the Qiskrypt's Quantum, Fully-Quantum, Semi-Quantum,
                 Ancilla Quantum, Ancilla Fully-Quantum and Classical Registers given as arguments are not None,
@@ -3492,14 +3496,14 @@ class QiskryptQuantumCircuit:
                 (i.e., a Qiskrypt's Quantum Circuit equivalent to a hybrid Quantum/Fully-Quantum/Semi-Quantum/Ancilla Quantum/Ancilla Fully-Quantum/Classical Memory).
                 """
 
-                if (isinstance(quantum_registers, list)) and (isinstance(fully_quantum_registers, list)) and \
-                        (isinstance(semi_quantum_registers, list)) and (isinstance(ancilla_quantum_registers, list)) and \
-                        (isinstance(ancilla_fully_quantum_registers, list)) and (isinstance(classical_registers, list)):
+                if (isinstance(qiskrypt_quantum_registers, list)) and (isinstance(qiskrypt_fully_quantum_registers, list)) and \
+                        (isinstance(qiskrypt_semi_quantum_registers, list)) and (isinstance(qiskrypt_ancilla_quantum_registers, list)) and \
+                        (isinstance(qiskrypt_ancilla_fully_quantum_registers, list)) and (isinstance(qiskrypt_classical_registers, list)):
                     """
                     If the Qiskrypt's Quantum, Fully-Quantum, Semi-Quantum, Ancilla Quantum, Ancilla Fully-Quantum and Classical Registers are lists.
                     """
 
-                    for quantum_register in quantum_registers:
+                    for quantum_register in qiskrypt_quantum_registers:
                         """
                         For each supposed Qiskrypt's Quantum Register in the list of the Qiskrypt's Quantum Registers.
                         """
@@ -3519,7 +3523,7 @@ class QiskryptQuantumCircuit:
                             """
                             break
 
-                    for fully_quantum_register in fully_quantum_registers:
+                    for fully_quantum_register in qiskrypt_fully_quantum_registers:
                         """
                         For each supposed Qiskrypt's Fully-Quantum Register in the list of the Qiskrypt's Fully-Quantum Registers.
                         """
@@ -3539,7 +3543,7 @@ class QiskryptQuantumCircuit:
                             """
                             break
 
-                    for semi_quantum_register in semi_quantum_registers:
+                    for semi_quantum_register in qiskrypt_semi_quantum_registers:
                         """
                         For each supposed Qiskrypt's Semi-Quantum Register in the list of the Qiskrypt's Semi-Quantum Registers.
                         """
@@ -3559,7 +3563,7 @@ class QiskryptQuantumCircuit:
                             """
                             break
 
-                    for ancilla_quantum_register in ancilla_quantum_registers:
+                    for ancilla_quantum_register in qiskrypt_ancilla_quantum_registers:
                         """
                         For each supposed Qiskrypt's Ancilla Quantum Register in the list of the Qiskrypt's Ancilla Quantum Registers.
                         """
@@ -3579,7 +3583,7 @@ class QiskryptQuantumCircuit:
                             """
                             break
 
-                    for ancilla_fully_quantum_register in ancilla_fully_quantum_registers:
+                    for ancilla_fully_quantum_register in qiskrypt_ancilla_fully_quantum_registers:
                         """
                         For each supposed Qiskrypt's Ancilla Fully-Quantum Register in the list of the Qiskrypt's Ancilla Fully-Quantum Registers.
                         """
@@ -3599,7 +3603,7 @@ class QiskryptQuantumCircuit:
                             """
                             break
 
-                    for classical_register in classical_registers:
+                    for classical_register in qiskrypt_classical_registers:
                         """
                         For each supposed Qiskrypt's Classical Register in the list of the Qiskrypt's Classical Registers.
                         """
@@ -3619,27 +3623,27 @@ class QiskryptQuantumCircuit:
                             """
                             break
 
-                    self.quantum_registers = quantum_registers
+                    self.quantum_registers = qiskrypt_quantum_registers
                     """
                     Set the Qiskrypt's Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.fully_quantum_registers = fully_quantum_registers
+                    self.fully_quantum_registers = qiskrypt_fully_quantum_registers
                     """
                     Set the Qiskrypt's Fully-Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.semi_quantum_registers = semi_quantum_registers
+                    self.semi_quantum_registers = qiskrypt_semi_quantum_registers
                     """
                     Set the Qiskrypt's Semi-Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.ancilla_quantum_registers = ancilla_quantum_registers
+                    self.ancilla_quantum_registers = qiskrypt_ancilla_quantum_registers
                     """
                     Set the Qiskrypt's Ancilla Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.ancilla_fully_quantum_registers = ancilla_fully_quantum_registers
+                    self.ancilla_fully_quantum_registers = qiskrypt_ancilla_fully_quantum_registers
                     """
                     Set the Qiskrypt's Ancilla Fully-Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
@@ -3649,7 +3653,7 @@ class QiskryptQuantumCircuit:
                     Set the Qiskrypt's Ancilla Semi-Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.classical_registers = classical_registers
+                    self.classical_registers = qiskrypt_classical_registers
                     """
                     Set the Qiskrypt's Classical Registers of the Qiskrypt's Quantum Circuit.
                     """
@@ -3687,11 +3691,11 @@ class QiskryptQuantumCircuit:
                     """
                     self.raise_unsupported_type_registers_error()
 
-            elif (quantum_registers is not None) and (fully_quantum_registers is not None) and (
-                    semi_quantum_registers is not None) and \
-                    (ancilla_quantum_registers is not None) and (ancilla_fully_quantum_registers is None) and (
-                    ancilla_semi_quantum_registers is not None) and \
-                    (classical_registers is not None):
+            elif (qiskrypt_quantum_registers is not None) and (qiskrypt_fully_quantum_registers is not None) and (
+                    qiskrypt_semi_quantum_registers is not None) and \
+                    (qiskrypt_ancilla_quantum_registers is not None) and (qiskrypt_ancilla_fully_quantum_registers is None) and (
+                    qiskrypt_ancilla_semi_quantum_registers is not None) and \
+                    (qiskrypt_classical_registers is not None):
                 """
                 If the Qiskrypt's Quantum, Fully-Quantum, Semi-Quantum,
                 Ancilla Quantum, Ancilla Semi-Quantum and Classical Registers given as arguments are not None,
@@ -3699,14 +3703,14 @@ class QiskryptQuantumCircuit:
                 (i.e., a Qiskrypt's Quantum Circuit equivalent to a hybrid Quantum/Fully-Quantum/Semi-Quantum/Ancilla Quantum/Ancilla Semi-Quantum/Classical Memory).
                 """
 
-                if (isinstance(quantum_registers, list)) and (isinstance(fully_quantum_registers, list)) and \
-                        (isinstance(semi_quantum_registers, list)) and (isinstance(ancilla_quantum_registers, list)) and \
-                        (isinstance(ancilla_semi_quantum_registers, list)) and (isinstance(classical_registers, list)):
+                if (isinstance(qiskrypt_quantum_registers, list)) and (isinstance(qiskrypt_fully_quantum_registers, list)) and \
+                        (isinstance(qiskrypt_semi_quantum_registers, list)) and (isinstance(qiskrypt_ancilla_quantum_registers, list)) and \
+                        (isinstance(qiskrypt_ancilla_semi_quantum_registers, list)) and (isinstance(qiskrypt_classical_registers, list)):
                     """
                     If the Qiskrypt's Quantum, Fully-Quantum, Semi-Quantum, Ancilla Quantum, Ancilla Semi-Quantum and Classical Registers are lists.
                     """
 
-                    for quantum_register in quantum_registers:
+                    for quantum_register in qiskrypt_quantum_registers:
                         """
                         For each supposed Qiskrypt's Quantum Register in the list of the Qiskrypt's Quantum Registers.
                         """
@@ -3726,7 +3730,7 @@ class QiskryptQuantumCircuit:
                             """
                             break
 
-                    for fully_quantum_register in fully_quantum_registers:
+                    for fully_quantum_register in qiskrypt_fully_quantum_registers:
                         """
                         For each supposed Qiskrypt's Fully-Quantum Register in the list of the Qiskrypt's Fully-Quantum Registers.
                         """
@@ -3746,7 +3750,7 @@ class QiskryptQuantumCircuit:
                             """
                             break
 
-                    for semi_quantum_register in semi_quantum_registers:
+                    for semi_quantum_register in qiskrypt_semi_quantum_registers:
                         """
                         For each supposed Qiskrypt's Semi-Quantum Register in the list of the Qiskrypt's Semi-Quantum Registers.
                         """
@@ -3766,7 +3770,7 @@ class QiskryptQuantumCircuit:
                             """
                             break
 
-                    for ancilla_quantum_register in ancilla_quantum_registers:
+                    for ancilla_quantum_register in qiskrypt_ancilla_quantum_registers:
                         """
                         For each supposed Qiskrypt's Ancilla Quantum Register in the list of the Qiskrypt's Ancilla Quantum Registers.
                         """
@@ -3786,7 +3790,7 @@ class QiskryptQuantumCircuit:
                             """
                             break
 
-                    for ancilla_semi_quantum_register in ancilla_semi_quantum_registers:
+                    for ancilla_semi_quantum_register in qiskrypt_ancilla_semi_quantum_registers:
                         """
                         For each supposed Qiskrypt's Ancilla Semi-Quantum Register in the list of the Qiskrypt's Ancilla Semi-Quantum Registers.
                         """
@@ -3806,7 +3810,7 @@ class QiskryptQuantumCircuit:
                             """
                             break
 
-                    for classical_register in classical_registers:
+                    for classical_register in qiskrypt_classical_registers:
                         """
                         For each supposed Qiskrypt's Classical Register in the list of the Qiskrypt's Classical Registers.
                         """
@@ -3826,22 +3830,22 @@ class QiskryptQuantumCircuit:
                             """
                             break
 
-                    self.quantum_registers = quantum_registers
+                    self.quantum_registers = qiskrypt_quantum_registers
                     """
                     Set the Qiskrypt's Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.fully_quantum_registers = fully_quantum_registers
+                    self.fully_quantum_registers = qiskrypt_fully_quantum_registers
                     """
                     Set the Qiskrypt's Fully-Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.semi_quantum_registers = semi_quantum_registers
+                    self.semi_quantum_registers = qiskrypt_semi_quantum_registers
                     """
                     Set the Qiskrypt's Semi-Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.ancilla_quantum_registers = ancilla_quantum_registers
+                    self.ancilla_quantum_registers = qiskrypt_ancilla_quantum_registers
                     """
                     Set the Qiskrypt's Ancilla Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
@@ -3851,12 +3855,12 @@ class QiskryptQuantumCircuit:
                     Set the Qiskrypt's Ancilla Fully-Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.ancilla_semi_quantum_registers = ancilla_semi_quantum_registers
+                    self.ancilla_semi_quantum_registers = qiskrypt_ancilla_semi_quantum_registers
                     """
                     Set the Qiskrypt's Ancilla Semi-Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.classical_registers = classical_registers
+                    self.classical_registers = qiskrypt_classical_registers
                     """
                     Set the Qiskrypt's Classical Registers of the Qiskrypt's Quantum Circuit.
                     """
@@ -3894,25 +3898,25 @@ class QiskryptQuantumCircuit:
                     """
                     self.raise_unsupported_type_registers_error()
 
-            elif (quantum_registers is not None) and (fully_quantum_registers is not None) and (
-                    semi_quantum_registers is not None) and \
-                    (ancilla_quantum_registers is not None) and (ancilla_fully_quantum_registers is not None) and (
-                    ancilla_semi_quantum_registers is not None) and \
-                    (classical_registers is not None):
+            elif (qiskrypt_quantum_registers is not None) and (qiskrypt_fully_quantum_registers is not None) and (
+                    qiskrypt_semi_quantum_registers is not None) and \
+                    (qiskrypt_ancilla_quantum_registers is not None) and (qiskrypt_ancilla_fully_quantum_registers is not None) and (
+                    qiskrypt_ancilla_semi_quantum_registers is not None) and \
+                    (qiskrypt_classical_registers is not None):
                 """
                 If the Qiskrypt's Quantum, Fully-Quantum, Semi-Quantum,
                 Ancilla Quantum, Ancilla Fully-Quantum, Ancilla Semi-Quantum and Classical Registers given as arguments are not None
                 (i.e., a Qiskrypt's Quantum Circuit equivalent to a hybrid Quantum/Fully-Quantum/Semi-Quantum/Ancilla Quantum/Ancilla Fully-Quantum/Ancilla Semi-Quantum/Classical Memory).
                 """
 
-                if (isinstance(quantum_registers, list)) and (isinstance(fully_quantum_registers, list)) and \
-                        (isinstance(semi_quantum_registers, list)) and (isinstance(ancilla_quantum_registers, list)) and \
-                        (isinstance(ancilla_fully_quantum_registers, list)) and (isinstance(ancilla_semi_quantum_registers, list)) and (isinstance(classical_registers, list)):
+                if (isinstance(qiskrypt_quantum_registers, list)) and (isinstance(qiskrypt_fully_quantum_registers, list)) and \
+                        (isinstance(qiskrypt_semi_quantum_registers, list)) and (isinstance(qiskrypt_ancilla_quantum_registers, list)) and \
+                        (isinstance(qiskrypt_ancilla_fully_quantum_registers, list)) and (isinstance(qiskrypt_ancilla_semi_quantum_registers, list)) and (isinstance(qiskrypt_classical_registers, list)):
                     """
                     If the Qiskrypt's Quantum, Fully-Quantum, Semi-Quantum, Ancilla Quantum, Ancilla Fully-Quantum, Ancilla Semi-Quantum and Classical Registers are lists.
                     """
 
-                    for quantum_register in quantum_registers:
+                    for quantum_register in qiskrypt_quantum_registers:
                         """
                         For each supposed Qiskrypt's Quantum Register in the list of the Qiskrypt's Quantum Registers.
                         """
@@ -3932,7 +3936,7 @@ class QiskryptQuantumCircuit:
                             """
                             break
 
-                    for fully_quantum_register in fully_quantum_registers:
+                    for fully_quantum_register in qiskrypt_fully_quantum_registers:
                         """
                         For each supposed Qiskrypt's Fully-Quantum Register in the list of the Qiskrypt's Fully-Quantum Registers.
                         """
@@ -3952,7 +3956,7 @@ class QiskryptQuantumCircuit:
                             """
                             break
 
-                    for semi_quantum_register in semi_quantum_registers:
+                    for semi_quantum_register in qiskrypt_semi_quantum_registers:
                         """
                         For each supposed Qiskrypt's Semi-Quantum Register in the list of the Qiskrypt's Semi-Quantum Registers.
                         """
@@ -3972,7 +3976,7 @@ class QiskryptQuantumCircuit:
                             """
                             break
 
-                    for ancilla_quantum_register in ancilla_quantum_registers:
+                    for ancilla_quantum_register in qiskrypt_ancilla_quantum_registers:
                         """
                         For each supposed Qiskrypt's Ancilla Quantum Register in the list of the Qiskrypt's Ancilla Quantum Registers.
                         """
@@ -3992,7 +3996,7 @@ class QiskryptQuantumCircuit:
                             """
                             break
 
-                    for ancilla_fully_quantum_register in ancilla_fully_quantum_registers:
+                    for ancilla_fully_quantum_register in qiskrypt_ancilla_fully_quantum_registers:
                         """
                         For each supposed Qiskrypt's Ancilla Fully-Quantum Register in the list of the Qiskrypt's Ancilla Fully-Quantum Registers.
                         """
@@ -4012,7 +4016,7 @@ class QiskryptQuantumCircuit:
                             """
                             break
 
-                    for ancilla_semi_quantum_register in ancilla_semi_quantum_registers:
+                    for ancilla_semi_quantum_register in qiskrypt_ancilla_semi_quantum_registers:
                         """
                         For each supposed Qiskrypt's Ancilla Semi-Quantum Register in the list of the Qiskrypt's Ancilla Semi-Quantum Registers.
                         """
@@ -4032,7 +4036,7 @@ class QiskryptQuantumCircuit:
                             """
                             break
 
-                    for classical_register in classical_registers:
+                    for classical_register in qiskrypt_classical_registers:
                         """
                         For each supposed Qiskrypt's Classical Register in the list of the Qiskrypt's Classical Registers.
                         """
@@ -4052,37 +4056,37 @@ class QiskryptQuantumCircuit:
                             """
                             break
 
-                    self.quantum_registers = quantum_registers
+                    self.quantum_registers = qiskrypt_quantum_registers
                     """
                     Set the Qiskrypt's Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.fully_quantum_registers = fully_quantum_registers
+                    self.fully_quantum_registers = qiskrypt_fully_quantum_registers
                     """
                     Set the Qiskrypt's Fully-Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.semi_quantum_registers = semi_quantum_registers
+                    self.semi_quantum_registers = qiskrypt_semi_quantum_registers
                     """
                     Set the Qiskrypt's Semi-Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.ancilla_quantum_registers = ancilla_quantum_registers
+                    self.ancilla_quantum_registers = qiskrypt_ancilla_quantum_registers
                     """
                     Set the Qiskrypt's Ancilla Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.ancilla_fully_quantum_registers = ancilla_fully_quantum_registers
+                    self.ancilla_fully_quantum_registers = qiskrypt_ancilla_fully_quantum_registers
                     """
                     Set the Qiskrypt's Ancilla Fully-Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.ancilla_semi_quantum_registers = ancilla_semi_quantum_registers
+                    self.ancilla_semi_quantum_registers = qiskrypt_ancilla_semi_quantum_registers
                     """
                     Set the Qiskrypt's Ancilla Semi-Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.classical_registers = classical_registers
+                    self.classical_registers = qiskrypt_classical_registers
                     """
                     Set the Qiskrypt's Classical Registers of the Qiskrypt's Quantum Circuit.
                     """
