@@ -8266,7 +8266,7 @@ class PrepareAndMeasureQubitInQiskryptQuantumCircuitTests(TestCase):
         Test Case #1:
 
         - Prepare (and Measure) a qubit in the IBM Qiskit's Quantum Circuit of
-          the Qiskrypt's Quantum Circuit.
+          the Qiskrypt's Quantum Circuit, in the X-Basis (Diagonal Basis).
 
         Description of the Steps for the Unitary Test:
         1) The Qiskrypt's Quantum Circuit is created with a Qiskrypt's Quantum Register,
@@ -8283,19 +8283,19 @@ class PrepareAndMeasureQubitInQiskryptQuantumCircuitTests(TestCase):
         """
 
         qiskrypt_quantum_register_prepare_and_measure_in_x_basis_1_qubit = \
-            QiskryptQuantumRegister("qu_reg", num_qubits)
+            QiskryptQuantumRegister("qu_reg_1", num_qubits)
         """
         Create a Qiskrypt's Quantum Register with 1 qubit.
         """
 
         qiskrypt_classical_register_prepare_and_measure_in_x_basis_1_qubit = \
-            QiskryptClassicalRegister("cl_reg", num_bits)
+            QiskryptClassicalRegister("cl_reg_1", num_bits)
         """
         Create a Qiskrypt's Classical Register with 1 bit.
         """
 
         qiskrypt_quantum_circuit_prepare_and_measure_in_x_basis_1_qubit = \
-            QiskryptQuantumCircuit("qu_circ",
+            QiskryptQuantumCircuit("qu_circ_1",
                                    qiskrypt_quantum_registers=[qiskrypt_quantum_register_prepare_and_measure_in_x_basis_1_qubit],
                                    qiskrypt_fully_quantum_registers=None,
                                    qiskrypt_semi_quantum_registers=None,
@@ -8305,7 +8305,8 @@ class PrepareAndMeasureQubitInQiskryptQuantumCircuitTests(TestCase):
                                    qiskrypt_classical_registers=[qiskrypt_classical_register_prepare_and_measure_in_x_basis_1_qubit],
                                    global_phase=0, quantum_circuit=None)
         """
-        Create a Qiskrypt's Quantum Circuit with the previously created Qiskrypt's Quantum and Classical Registers.
+        Create a Qiskrypt's Quantum Circuit with
+        the previously created Qiskrypt's Quantum and Classical Registers.
         """
 
         qiskrypt_quantum_circuit_prepare_and_measure_in_x_basis_1_qubit \
@@ -8313,7 +8314,7 @@ class PrepareAndMeasureQubitInQiskryptQuantumCircuitTests(TestCase):
                                                                                     is_final_measurement=False)
         """
         Prepare (not Measuring) the given index for the single qubit of
-        the given IBM Qiskit's Quantum Register, in the X-Basis.
+        the given IBM Qiskit's Quantum Register, in the X-Basis (Diagonal Basis).
         """
 
         qiskit_state_vector_backend = Aer.get_backend("statevector_simulator")
@@ -8349,7 +8350,7 @@ class PrepareAndMeasureQubitInQiskryptQuantumCircuitTests(TestCase):
         Test Case #2:
 
         - Prepare (and Measure) a qubit in the IBM Qiskit's Quantum Circuit of
-          the Qiskrypt's Quantum Circuit.
+          the Qiskrypt's Quantum Circuit, in the X-Basis (Diagonal Basis).
 
         Description of the Steps for the Unitary Test:
         1) The Qiskrypt's Quantum Circuit is created with a Qiskrypt's Quantum Register,
@@ -8367,19 +8368,19 @@ class PrepareAndMeasureQubitInQiskryptQuantumCircuitTests(TestCase):
         """
 
         qiskrypt_quantum_register_prepare_and_measure_in_x_basis_1_qubit = \
-            QiskryptQuantumRegister("qu_reg", num_qubits)
+            QiskryptQuantumRegister("qu_reg_2", num_qubits)
         """
         Create a Qiskrypt's Quantum Register with 1 qubit.
         """
 
         qiskrypt_classical_register_prepare_and_measure_in_x_basis_1_qubit = \
-            QiskryptClassicalRegister("cl_reg", num_bits)
+            QiskryptClassicalRegister("cl_reg_2", num_bits)
         """
         Create a Qiskrypt's Classical Register with 1 bit.
         """
 
         qiskrypt_quantum_circuit_prepare_and_measure_in_x_basis_1_qubit = \
-            QiskryptQuantumCircuit("qu_circ",
+            QiskryptQuantumCircuit("qu_circ_2",
                                    qiskrypt_quantum_registers=[qiskrypt_quantum_register_prepare_and_measure_in_x_basis_1_qubit],
                                    qiskrypt_fully_quantum_registers=None,
                                    qiskrypt_semi_quantum_registers=None,
@@ -8389,7 +8390,8 @@ class PrepareAndMeasureQubitInQiskryptQuantumCircuitTests(TestCase):
                                    qiskrypt_classical_registers=[qiskrypt_classical_register_prepare_and_measure_in_x_basis_1_qubit],
                                    global_phase=0, quantum_circuit=None)
         """
-        Create a Qiskrypt's Quantum Circuit with the previously created Qiskrypt's Quantum and Classical Registers.
+        Create a Qiskrypt's Quantum Circuit with
+        the previously created Qiskrypt's Quantum and Classical Registers.
         """
 
         qiskrypt_quantum_circuit_prepare_and_measure_in_x_basis_1_qubit \
@@ -8404,7 +8406,7 @@ class PrepareAndMeasureQubitInQiskryptQuantumCircuitTests(TestCase):
                                                                                     is_final_measurement=False)
         """
         Prepare (not Measuring) the given index for the single qubit of
-        the given IBM Qiskit's Quantum Register, in the X-Basis.
+        the given IBM Qiskit's Quantum Register, in the X-Basis (Diagonal Basis).
         """
 
         qiskit_state_vector_backend = Aer.get_backend("statevector_simulator")
@@ -8440,7 +8442,7 @@ class PrepareAndMeasureQubitInQiskryptQuantumCircuitTests(TestCase):
         Test Case #3:
 
         - Prepare (and Measure) a qubit in the IBM Qiskit's Quantum Circuit of
-          the Qiskrypt's Quantum Circuit.
+          the Qiskrypt's Quantum Circuit, in the X-Basis (Diagonal Basis).
 
         Description of the Steps for the Unitary Test:
         1) The Qiskrypt's Quantum Circuit is created with a Qiskrypt's Quantum Register,
@@ -8458,19 +8460,19 @@ class PrepareAndMeasureQubitInQiskryptQuantumCircuitTests(TestCase):
         """
 
         qiskrypt_quantum_register_prepare_and_measure_in_x_basis_1_qubit = \
-            QiskryptQuantumRegister("qu_reg", num_qubits)
+            QiskryptQuantumRegister("qu_reg_3", num_qubits)
         """
         Create a Qiskrypt's Quantum Register with 1 qubit.
         """
 
         qiskrypt_classical_register_prepare_and_measure_in_x_basis_1_qubit = \
-            QiskryptClassicalRegister("cl_reg", num_bits)
+            QiskryptClassicalRegister("cl_reg_3", num_bits)
         """
         Create a Qiskrypt's Classical Register with 1 bit.
         """
 
         qiskrypt_quantum_circuit_prepare_and_measure_in_x_basis_1_qubit = \
-            QiskryptQuantumCircuit("qu_circ",
+            QiskryptQuantumCircuit("qu_circ_3",
                                    qiskrypt_quantum_registers=[qiskrypt_quantum_register_prepare_and_measure_in_x_basis_1_qubit],
                                    qiskrypt_fully_quantum_registers=None,
                                    qiskrypt_semi_quantum_registers=None,
@@ -8480,7 +8482,8 @@ class PrepareAndMeasureQubitInQiskryptQuantumCircuitTests(TestCase):
                                    qiskrypt_classical_registers=[qiskrypt_classical_register_prepare_and_measure_in_x_basis_1_qubit],
                                    global_phase=0, quantum_circuit=None)
         """
-        Create a Qiskrypt's Quantum Circuit with the previously created Qiskrypt's Quantum and Classical Registers.
+        Create a Qiskrypt's Quantum Circuit with
+        the previously created Qiskrypt's Quantum and Classical Registers.
         """
 
         qiskrypt_quantum_circuit_prepare_and_measure_in_x_basis_1_qubit \
@@ -8495,7 +8498,7 @@ class PrepareAndMeasureQubitInQiskryptQuantumCircuitTests(TestCase):
                                                                                     is_final_measurement=False)
         """
         Prepare (not Measuring) the given index for the single qubit of
-        the given IBM Qiskit's Quantum Register, in the X-Basis.
+        the given IBM Qiskit's Quantum Register, in the X-Basis (Diagonal Basis).
         """
 
         qiskit_state_vector_backend = Aer.get_backend("statevector_simulator")
@@ -8531,7 +8534,7 @@ class PrepareAndMeasureQubitInQiskryptQuantumCircuitTests(TestCase):
         Test Case #4:
 
         - Prepare (and Measure) a qubit in the IBM Qiskit's Quantum Circuit of
-          the Qiskrypt's Quantum Circuit.
+          the Qiskrypt's Quantum Circuit, in the X-Basis (Diagonal Basis).
 
         Description of the Steps for the Unitary Test:
         1) The Qiskrypt's Quantum Circuit is created with a Qiskrypt's Quantum Register,
@@ -8550,19 +8553,19 @@ class PrepareAndMeasureQubitInQiskryptQuantumCircuitTests(TestCase):
         """
 
         qiskrypt_quantum_register_prepare_and_measure_in_x_basis_1_qubit = \
-            QiskryptQuantumRegister("qu_reg", num_qubits)
+            QiskryptQuantumRegister("qu_reg_4", num_qubits)
         """
         Create a Qiskrypt's Quantum Register with 1 qubit.
         """
 
         qiskrypt_classical_register_prepare_and_measure_in_x_basis_1_qubit = \
-            QiskryptClassicalRegister("cl_reg", num_bits)
+            QiskryptClassicalRegister("cl_reg_4", num_bits)
         """
         Create a Qiskrypt's Classical Register with 1 bit.
         """
 
         qiskrypt_quantum_circuit_prepare_and_measure_in_x_basis_1_qubit = \
-            QiskryptQuantumCircuit("qu_circ",
+            QiskryptQuantumCircuit("qu_circ_4",
                                    qiskrypt_quantum_registers=[qiskrypt_quantum_register_prepare_and_measure_in_x_basis_1_qubit],
                                    qiskrypt_fully_quantum_registers=None,
                                    qiskrypt_semi_quantum_registers=None,
@@ -8572,7 +8575,8 @@ class PrepareAndMeasureQubitInQiskryptQuantumCircuitTests(TestCase):
                                    qiskrypt_classical_registers=[qiskrypt_classical_register_prepare_and_measure_in_x_basis_1_qubit],
                                    global_phase=0, quantum_circuit=None)
         """
-        Create a Qiskrypt's Quantum Circuit with the previously created Qiskrypt's Quantum and Classical Registers.
+        Create a Qiskrypt's Quantum Circuit with
+        the previously created Qiskrypt's Quantum and Classical Registers.
         """
 
         qiskrypt_quantum_circuit_prepare_and_measure_in_x_basis_1_qubit \
@@ -8594,7 +8598,7 @@ class PrepareAndMeasureQubitInQiskryptQuantumCircuitTests(TestCase):
                                                                                     is_final_measurement=False)
         """
         Prepare (not Measuring) the given index for the single qubit of
-        the given IBM Qiskit's Quantum Register, in the X-Basis.
+        the given IBM Qiskit's Quantum Register, in the X-Basis (Diagonal Basis).
         """
 
         qiskit_state_vector_backend = Aer.get_backend("statevector_simulator")
@@ -8630,7 +8634,7 @@ class PrepareAndMeasureQubitInQiskryptQuantumCircuitTests(TestCase):
         Test Case #5:
 
         - Prepare (and Measure) a qubit in the IBM Qiskit's Quantum Circuit of
-          the Qiskrypt's Quantum Circuit.
+          the Qiskrypt's Quantum Circuit, in the Y-Basis (Diagonal Basis).
 
         Description of the Steps for the Unitary Test:
         1) The Qiskrypt's Quantum Circuit is created with a Qiskrypt's Quantum Register,
@@ -8647,19 +8651,19 @@ class PrepareAndMeasureQubitInQiskryptQuantumCircuitTests(TestCase):
         """
 
         qiskrypt_quantum_register_prepare_and_measure_in_y_basis_1_qubit = \
-            QiskryptQuantumRegister("qu_reg", num_qubits)
+            QiskryptQuantumRegister("qu_reg_5", num_qubits)
         """
         Create a Qiskrypt's Quantum Register with 1 qubit.
         """
 
         qiskrypt_classical_register_prepare_and_measure_in_y_basis_1_qubit = \
-            QiskryptClassicalRegister("cl_reg", num_bits)
+            QiskryptClassicalRegister("cl_reg_5", num_bits)
         """
         Create a Qiskrypt's Classical Register with 1 bit.
         """
 
         qiskrypt_quantum_circuit_prepare_and_measure_in_y_basis_1_qubit = \
-            QiskryptQuantumCircuit("qu_circ",
+            QiskryptQuantumCircuit("qu_circ_5",
                                    qiskrypt_quantum_registers=[qiskrypt_quantum_register_prepare_and_measure_in_y_basis_1_qubit],
                                    qiskrypt_fully_quantum_registers=None,
                                    qiskrypt_semi_quantum_registers=None,
@@ -8669,7 +8673,8 @@ class PrepareAndMeasureQubitInQiskryptQuantumCircuitTests(TestCase):
                                    qiskrypt_classical_registers=[qiskrypt_classical_register_prepare_and_measure_in_y_basis_1_qubit],
                                    global_phase=0, quantum_circuit=None)
         """
-        Create a Qiskrypt's Quantum Circuit with the previously created Qiskrypt's Quantum and Classical Registers.
+        Create a Qiskrypt's Quantum Circuit with
+        the previously created Qiskrypt's Quantum and Classical Registers.
         """
 
         qiskrypt_quantum_circuit_prepare_and_measure_in_y_basis_1_qubit \
@@ -8677,7 +8682,7 @@ class PrepareAndMeasureQubitInQiskryptQuantumCircuitTests(TestCase):
                                                                                     is_final_measurement=False)
         """
         Prepare (not Measuring) the given index for the single qubit of
-        the given IBM Qiskit's Quantum Register, in the X-Basis.
+        the given IBM Qiskit's Quantum Register, in the Y-Basis (Diagonal Basis).
         """
 
         qiskit_state_vector_backend = Aer.get_backend("statevector_simulator")
@@ -8713,7 +8718,7 @@ class PrepareAndMeasureQubitInQiskryptQuantumCircuitTests(TestCase):
         Test Case #6:
 
         - Prepare (and Measure) a qubit in the IBM Qiskit's Quantum Circuit of
-          the Qiskrypt's Quantum Circuit.
+          the Qiskrypt's Quantum Circuit, in the Y-Basis (Diagonal Basis).
 
         Description of the Steps for the Unitary Test:
         1) The Qiskrypt's Quantum Circuit is created with a Qiskrypt's Quantum Register,
@@ -8731,19 +8736,19 @@ class PrepareAndMeasureQubitInQiskryptQuantumCircuitTests(TestCase):
         """
 
         qiskrypt_quantum_register_prepare_and_measure_in_y_basis_1_qubit = \
-            QiskryptQuantumRegister("qu_reg", num_qubits)
+            QiskryptQuantumRegister("qu_reg_6", num_qubits)
         """
         Create a Qiskrypt's Quantum Register with 1 qubit.
         """
 
         qiskrypt_classical_register_prepare_and_measure_in_y_basis_1_qubit = \
-            QiskryptClassicalRegister("cl_reg", num_bits)
+            QiskryptClassicalRegister("cl_reg_6", num_bits)
         """
         Create a Qiskrypt's Classical Register with 1 bit.
         """
 
         qiskrypt_quantum_circuit_prepare_and_measure_in_y_basis_1_qubit = \
-            QiskryptQuantumCircuit("qu_circ",
+            QiskryptQuantumCircuit("qu_circ_6",
                                    qiskrypt_quantum_registers=[qiskrypt_quantum_register_prepare_and_measure_in_y_basis_1_qubit],
                                    qiskrypt_fully_quantum_registers=None,
                                    qiskrypt_semi_quantum_registers=None,
@@ -8753,7 +8758,8 @@ class PrepareAndMeasureQubitInQiskryptQuantumCircuitTests(TestCase):
                                    qiskrypt_classical_registers=[qiskrypt_classical_register_prepare_and_measure_in_y_basis_1_qubit],
                                    global_phase=0, quantum_circuit=None)
         """
-        Create a Qiskrypt's Quantum Circuit with the previously created Qiskrypt's Quantum and Classical Registers.
+        Create a Qiskrypt's Quantum Circuit with
+        the previously created Qiskrypt's Quantum and Classical Registers.
         """
 
         qiskrypt_quantum_circuit_prepare_and_measure_in_y_basis_1_qubit \
@@ -8768,7 +8774,7 @@ class PrepareAndMeasureQubitInQiskryptQuantumCircuitTests(TestCase):
                                                                                     is_final_measurement=False)
         """
         Prepare (not Measuring) the given index for the single qubit of
-        the given IBM Qiskit's Quantum Register, in the Y-Basis.
+        the given IBM Qiskit's Quantum Register, in the Y-Basis (Diagonal Basis).
         """
 
         qiskit_state_vector_backend = Aer.get_backend("statevector_simulator")
@@ -8804,7 +8810,7 @@ class PrepareAndMeasureQubitInQiskryptQuantumCircuitTests(TestCase):
         Test Case #7:
 
         - Prepare (and Measure) a qubit in the IBM Qiskit's Quantum Circuit of
-          the Qiskrypt's Quantum Circuit.
+          the Qiskrypt's Quantum Circuit, in the Y-Basis (Diagonal Basis).
 
         Description of the Steps for the Unitary Test:
         1) The Qiskrypt's Quantum Circuit is created with a Qiskrypt's Quantum Register,
@@ -8822,19 +8828,19 @@ class PrepareAndMeasureQubitInQiskryptQuantumCircuitTests(TestCase):
         """
 
         qiskrypt_quantum_register_prepare_and_measure_in_y_basis_1_qubit = \
-            QiskryptQuantumRegister("qu_reg", num_qubits)
+            QiskryptQuantumRegister("qu_reg_7", num_qubits)
         """
         Create a Qiskrypt's Quantum Register with 1 qubit.
         """
 
         qiskrypt_classical_register_prepare_and_measure_in_y_basis_1_qubit = \
-            QiskryptClassicalRegister("cl_reg", num_bits)
+            QiskryptClassicalRegister("cl_reg_7", num_bits)
         """
         Create a Qiskrypt's Classical Register with 1 bit.
         """
 
         qiskrypt_quantum_circuit_prepare_and_measure_in_y_basis_1_qubit = \
-            QiskryptQuantumCircuit("qu_circ",
+            QiskryptQuantumCircuit("qu_circ_7",
                                    qiskrypt_quantum_registers=[qiskrypt_quantum_register_prepare_and_measure_in_y_basis_1_qubit],
                                    qiskrypt_fully_quantum_registers=None,
                                    qiskrypt_semi_quantum_registers=None,
@@ -8844,7 +8850,8 @@ class PrepareAndMeasureQubitInQiskryptQuantumCircuitTests(TestCase):
                                    qiskrypt_classical_registers=[qiskrypt_classical_register_prepare_and_measure_in_y_basis_1_qubit],
                                    global_phase=0, quantum_circuit=None)
         """
-        Create a Qiskrypt's Quantum Circuit with the previously created Qiskrypt's Quantum and Classical Registers.
+        Create a Qiskrypt's Quantum Circuit with
+        the previously created Qiskrypt's Quantum and Classical Registers.
         """
 
         qiskrypt_quantum_circuit_prepare_and_measure_in_y_basis_1_qubit \
@@ -8859,7 +8866,7 @@ class PrepareAndMeasureQubitInQiskryptQuantumCircuitTests(TestCase):
                                                                                     is_final_measurement=False)
         """
         Prepare (not Measuring) the given index for the single qubit of
-        the given IBM Qiskit's Quantum Register, in the Y-Basis.
+        the given IBM Qiskit's Quantum Register, in the Y-Basis (Diagonal Basis).
         """
 
         qiskit_state_vector_backend = Aer.get_backend("statevector_simulator")
@@ -8895,7 +8902,7 @@ class PrepareAndMeasureQubitInQiskryptQuantumCircuitTests(TestCase):
         Test Case #8:
 
         - Prepare (and Measure) a qubit in the IBM Qiskit's Quantum Circuit of
-          the Qiskrypt's Quantum Circuit.
+          the Qiskrypt's Quantum Circuit, in the Y-Basis (Diagonal Basis).
 
         Description of the Steps for the Unitary Test:
         1) The Qiskrypt's Quantum Circuit is created with a Qiskrypt's Quantum Register,
@@ -8914,19 +8921,19 @@ class PrepareAndMeasureQubitInQiskryptQuantumCircuitTests(TestCase):
         """
 
         qiskrypt_quantum_register_prepare_and_measure_in_y_basis_1_qubit = \
-            QiskryptQuantumRegister("qu_reg", num_qubits)
+            QiskryptQuantumRegister("qu_reg_8", num_qubits)
         """
         Create a Qiskrypt's Quantum Register with 1 qubit.
         """
 
         qiskrypt_classical_register_prepare_and_measure_in_y_basis_1_qubit = \
-            QiskryptClassicalRegister("cl_reg", num_bits)
+            QiskryptClassicalRegister("cl_reg_8", num_bits)
         """
         Create a Qiskrypt's Classical Register with 1 bit.
         """
 
         qiskrypt_quantum_circuit_prepare_and_measure_in_y_basis_1_qubit = \
-            QiskryptQuantumCircuit("qu_circ",
+            QiskryptQuantumCircuit("qu_circ_8",
                                    qiskrypt_quantum_registers=[qiskrypt_quantum_register_prepare_and_measure_in_y_basis_1_qubit],
                                    qiskrypt_fully_quantum_registers=None,
                                    qiskrypt_semi_quantum_registers=None,
@@ -8936,7 +8943,8 @@ class PrepareAndMeasureQubitInQiskryptQuantumCircuitTests(TestCase):
                                    qiskrypt_classical_registers=[qiskrypt_classical_register_prepare_and_measure_in_y_basis_1_qubit],
                                    global_phase=0, quantum_circuit=None)
         """
-        Create a Qiskrypt's Quantum Circuit with the previously created Qiskrypt's Quantum and Classical Registers.
+        Create a Qiskrypt's Quantum Circuit with
+        the previously created Qiskrypt's Quantum and Classical Registers.
         """
 
         qiskrypt_quantum_circuit_prepare_and_measure_in_y_basis_1_qubit \
@@ -8958,7 +8966,7 @@ class PrepareAndMeasureQubitInQiskryptQuantumCircuitTests(TestCase):
                                                                                     is_final_measurement=False)
         """
         Prepare (not Measuring) the given index for the single qubit of
-        the given IBM Qiskit's Quantum Register, in the Y-Basis.
+        the given IBM Qiskit's Quantum Register, in the Y-Basis (Diagonal Basis).
         """
 
         qiskit_state_vector_backend = Aer.get_backend("statevector_simulator")
@@ -8999,7 +9007,7 @@ class PrepareAndMeasureQubitInQiskryptQuantumCircuitTests(TestCase):
         Description of the Steps for the Unitary Test:
         1) The Qiskrypt's Quantum Circuit is created with a Qiskrypt's Quantum Register,
            with 1 qubit initialized in the state |0⟩;
-        2) The qubit is prepared (and measured) in the Z-Basis (Diagonal Basis), such that, |0⟩ ↦ |0⟩;
+        2) The qubit is prepared (and measured) in the Z-Basis (Computational Basis), such that, |0⟩ ↦ |0⟩;
 
         Return OK (or FAIL) if, all the Tests performed are OK (or FAIL, otherwise).
         """
@@ -9011,19 +9019,19 @@ class PrepareAndMeasureQubitInQiskryptQuantumCircuitTests(TestCase):
         """
 
         qiskrypt_quantum_register_prepare_and_measure_in_z_basis_1_qubit = \
-            QiskryptQuantumRegister("qu_reg", num_qubits)
+            QiskryptQuantumRegister("qu_reg_9", num_qubits)
         """
         Create a Qiskrypt's Quantum Register with 1 qubit.
         """
 
         qiskrypt_classical_register_prepare_and_measure_in_z_basis_1_qubit = \
-            QiskryptClassicalRegister("cl_reg", num_bits)
+            QiskryptClassicalRegister("cl_reg_9", num_bits)
         """
         Create a Qiskrypt's Classical Register with 1 bit.
         """
 
         qiskrypt_quantum_circuit_prepare_and_measure_in_z_basis_1_qubit = \
-            QiskryptQuantumCircuit("qu_circ",
+            QiskryptQuantumCircuit("qu_circ_9",
                                    qiskrypt_quantum_registers=[qiskrypt_quantum_register_prepare_and_measure_in_z_basis_1_qubit],
                                    qiskrypt_fully_quantum_registers=None,
                                    qiskrypt_semi_quantum_registers=None,
@@ -9033,7 +9041,8 @@ class PrepareAndMeasureQubitInQiskryptQuantumCircuitTests(TestCase):
                                    qiskrypt_classical_registers=[qiskrypt_classical_register_prepare_and_measure_in_z_basis_1_qubit],
                                    global_phase=0, quantum_circuit=None)
         """
-        Create a Qiskrypt's Quantum Circuit with the previously created Qiskrypt's Quantum and Classical Registers.
+        Create a Qiskrypt's Quantum Circuit with
+        the previously created Qiskrypt's Quantum and Classical Registers.
         """
 
         qiskrypt_quantum_circuit_prepare_and_measure_in_z_basis_1_qubit \
@@ -9083,7 +9092,7 @@ class PrepareAndMeasureQubitInQiskryptQuantumCircuitTests(TestCase):
         1) The Qiskrypt's Quantum Circuit is created with a Qiskrypt's Quantum Register,
            with 1 qubit initialized in the state |0⟩;
         2) It is applied the Pauli-X (Bit Flip/NOT) Gate/Operation to the 1st qubit, such that, |0⟩ ↦ |1⟩;
-        3) The qubit is prepared (and measured) in the Z-Basis (Diagonal Basis), such that, |1⟩ ↦ |1⟩;
+        3) The qubit is prepared (and measured) in the Z-Basis (Computational Basis), such that, |1⟩ ↦ |1⟩;
 
         Return OK (or FAIL) if, all the Tests performed are OK (or FAIL, otherwise).
         """
@@ -9095,19 +9104,19 @@ class PrepareAndMeasureQubitInQiskryptQuantumCircuitTests(TestCase):
         """
 
         qiskrypt_quantum_register_prepare_and_measure_in_z_basis_1_qubit = \
-            QiskryptQuantumRegister("qu_reg", num_qubits)
+            QiskryptQuantumRegister("qu_reg_10", num_qubits)
         """
         Create a Qiskrypt's Quantum Register with 1 qubit.
         """
 
         qiskrypt_classical_register_prepare_and_measure_in_z_basis_1_qubit = \
-            QiskryptClassicalRegister("cl_reg", num_bits)
+            QiskryptClassicalRegister("cl_reg_10", num_bits)
         """
         Create a Qiskrypt's Classical Register with 1 bit.
         """
 
         qiskrypt_quantum_circuit_prepare_and_measure_in_z_basis_1_qubit = \
-            QiskryptQuantumCircuit("qu_circ",
+            QiskryptQuantumCircuit("qu_circ_10",
                                    qiskrypt_quantum_registers=[qiskrypt_quantum_register_prepare_and_measure_in_z_basis_1_qubit],
                                    qiskrypt_fully_quantum_registers=None,
                                    qiskrypt_semi_quantum_registers=None,
@@ -9117,7 +9126,8 @@ class PrepareAndMeasureQubitInQiskryptQuantumCircuitTests(TestCase):
                                    qiskrypt_classical_registers=[qiskrypt_classical_register_prepare_and_measure_in_z_basis_1_qubit],
                                    global_phase=0, quantum_circuit=None)
         """
-        Create a Qiskrypt's Quantum Circuit with the previously created Qiskrypt's Quantum and Classical Registers.
+        Create a Qiskrypt's Quantum Circuit with
+        the previously created Qiskrypt's Quantum and Classical Registers.
         """
 
         qiskrypt_quantum_circuit_prepare_and_measure_in_z_basis_1_qubit \
@@ -9132,7 +9142,7 @@ class PrepareAndMeasureQubitInQiskryptQuantumCircuitTests(TestCase):
                                                                                     is_final_measurement=False)
         """
         Prepare (not Measuring) the given index for the single qubit of
-        the given IBM Qiskit's Quantum Register, in the Y-Basis.
+        the given IBM Qiskit's Quantum Register, in the Z-Basis (Computational Basis).
         """
 
         qiskit_state_vector_backend = Aer.get_backend("statevector_simulator")
@@ -9186,19 +9196,19 @@ class PrepareAndMeasureQubitInQiskryptQuantumCircuitTests(TestCase):
         """
 
         qiskrypt_quantum_register_prepare_and_measure_in_z_basis_1_qubit = \
-            QiskryptQuantumRegister("qu_reg", num_qubits)
+            QiskryptQuantumRegister("qu_reg_11", num_qubits)
         """
         Create a Qiskrypt's Quantum Register with 1 qubit.
         """
 
         qiskrypt_classical_register_prepare_and_measure_in_z_basis_1_qubit = \
-            QiskryptClassicalRegister("cl_reg", num_bits)
+            QiskryptClassicalRegister("cl_reg_11", num_bits)
         """
         Create a Qiskrypt's Classical Register with 1 bit.
         """
 
         qiskrypt_quantum_circuit_prepare_and_measure_in_z_basis_1_qubit = \
-            QiskryptQuantumCircuit("qu_circ",
+            QiskryptQuantumCircuit("qu_circ_11",
                                    qiskrypt_quantum_registers=[qiskrypt_quantum_register_prepare_and_measure_in_z_basis_1_qubit],
                                    qiskrypt_fully_quantum_registers=None,
                                    qiskrypt_semi_quantum_registers=None,
@@ -9208,7 +9218,8 @@ class PrepareAndMeasureQubitInQiskryptQuantumCircuitTests(TestCase):
                                    qiskrypt_classical_registers=[qiskrypt_classical_register_prepare_and_measure_in_z_basis_1_qubit],
                                    global_phase=0, quantum_circuit=None)
         """
-        Create a Qiskrypt's Quantum Circuit with the previously created Qiskrypt's Quantum and Classical Registers.
+        Create a Qiskrypt's Quantum Circuit with
+        the previously created Qiskrypt's Quantum and Classical Registers.
         """
 
         qiskrypt_quantum_circuit_prepare_and_measure_in_z_basis_1_qubit \
@@ -9223,7 +9234,7 @@ class PrepareAndMeasureQubitInQiskryptQuantumCircuitTests(TestCase):
                                                                                     is_final_measurement=False)
         """
         Prepare (not Measuring) the given index for the single qubit of
-        the given IBM Qiskit's Quantum Register, in the Z-Basis.
+        the given IBM Qiskit's Quantum Register, in the Z-Basis (Computational Basis).
         """
 
         qiskit_state_vector_backend = Aer.get_backend("statevector_simulator")
@@ -9259,14 +9270,14 @@ class PrepareAndMeasureQubitInQiskryptQuantumCircuitTests(TestCase):
         Test Case #12:
 
         - Prepare (and Measure) a qubit in the IBM Qiskit's Quantum Circuit of
-          the Qiskrypt's Quantum Circuit.
+          the Qiskrypt's Quantum Circuit, in the Z-Basis (Computational Basis).
 
         Description of the Steps for the Unitary Test:
         1) The Qiskrypt's Quantum Circuit is created with a Qiskrypt's Quantum Register,
            with 1 qubit initialized in the state |0⟩;
         2) It is applied the Pauli-X (Bit Flip/NOT) Gate/Operation to the 1st qubit, such that, |0⟩ ↦ |1⟩;
         3) It is applied the Hadamard Gate/Operation to the 1st qubit, such that, |1⟩ ↦ |-⟩;
-        4) The qubit is prepared (and measured) in the Y-Basis (Diagonal Basis), such that, |-⟩ ↦ |-⟩;
+        4) The qubit is prepared (and measured) in the Z-Basis (Computational Basis), such that, |-⟩ ↦ |-⟩;
 
         Return OK (or FAIL) if, all the Tests performed are OK (or FAIL, otherwise).
         """
@@ -9278,19 +9289,19 @@ class PrepareAndMeasureQubitInQiskryptQuantumCircuitTests(TestCase):
         """
 
         qiskrypt_quantum_register_prepare_and_measure_in_z_basis_1_qubit = \
-            QiskryptQuantumRegister("qu_reg", num_qubits)
+            QiskryptQuantumRegister("qu_reg_12", num_qubits)
         """
         Create a Qiskrypt's Quantum Register with 1 qubit.
         """
 
         qiskrypt_classical_register_prepare_and_measure_in_z_basis_1_qubit = \
-            QiskryptClassicalRegister("cl_reg", num_bits)
+            QiskryptClassicalRegister("cl_reg_12", num_bits)
         """
         Create a Qiskrypt's Classical Register with 1 bit.
         """
 
         qiskrypt_quantum_circuit_prepare_and_measure_in_z_basis_1_qubit = \
-            QiskryptQuantumCircuit("qu_circ",
+            QiskryptQuantumCircuit("qu_circ_12",
                                    qiskrypt_quantum_registers=[qiskrypt_quantum_register_prepare_and_measure_in_z_basis_1_qubit],
                                    qiskrypt_fully_quantum_registers=None,
                                    qiskrypt_semi_quantum_registers=None,
@@ -9300,7 +9311,8 @@ class PrepareAndMeasureQubitInQiskryptQuantumCircuitTests(TestCase):
                                    qiskrypt_classical_registers=[qiskrypt_classical_register_prepare_and_measure_in_z_basis_1_qubit],
                                    global_phase=0, quantum_circuit=None)
         """
-        Create a Qiskrypt's Quantum Circuit with the previously created Qiskrypt's Quantum and Classical Registers.
+        Create a Qiskrypt's Quantum Circuit with
+        the previously created Qiskrypt's Quantum and Classical Registers.
         """
 
         qiskrypt_quantum_circuit_prepare_and_measure_in_z_basis_1_qubit \
@@ -9322,7 +9334,7 @@ class PrepareAndMeasureQubitInQiskryptQuantumCircuitTests(TestCase):
                                                                                     is_final_measurement=False)
         """
         Prepare (not Measuring) the given index for the single qubit of
-        the given IBM Qiskit's Quantum Register, in the Y-Basis.
+        the given IBM Qiskit's Quantum Register, in the Z-Basis (Computational Basis).
         """
 
         qiskit_state_vector_backend = Aer.get_backend("statevector_simulator")
