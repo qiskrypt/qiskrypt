@@ -8625,6 +8625,370 @@ class PrepareAndMeasureQubitInQiskryptQuantumCircuitTests(TestCase):
         """
         self.assertEqual(True, True)
 
+    def test_no_5_prepare_measure_y_basis_1_qubit(self):
+        """
+        Test Case #5:
+
+        - Prepare (and Measure) a qubit in the IBM Qiskit's Quantum Circuit of
+          the Qiskrypt's Quantum Circuit.
+
+        Description of the Steps for the Unitary Test:
+        1) The Qiskrypt's Quantum Circuit is created with a Qiskrypt's Quantum Register,
+           with 1 qubit initialized in the state |0⟩;
+        2) The qubit is prepared (and measured) in the Y-Basis (Diagonal Basis), such that, |0⟩ ↦ |+i⟩;
+
+        Return OK (or FAIL) if, all the Tests performed are OK (or FAIL, otherwise).
+        """
+
+        num_qubits = num_bits = 1
+        """
+        Set the number of qubits and bits,
+        for the Qiskrypt's Quantum and Classical Registers, respectively.
+        """
+
+        qiskrypt_quantum_register_prepare_and_measure_in_y_basis_1_qubit = \
+            QiskryptQuantumRegister("qu_reg", num_qubits)
+        """
+        Create a Qiskrypt's Quantum Register with 1 qubit.
+        """
+
+        qiskrypt_classical_register_prepare_and_measure_in_y_basis_1_qubit = \
+            QiskryptClassicalRegister("cl_reg", num_bits)
+        """
+        Create a Qiskrypt's Classical Register with 1 bit.
+        """
+
+        qiskrypt_quantum_circuit_prepare_and_measure_in_y_basis_1_qubit = \
+            QiskryptQuantumCircuit("qu_circ",
+                                   qiskrypt_quantum_registers=[qiskrypt_quantum_register_prepare_and_measure_in_y_basis_1_qubit],
+                                   qiskrypt_fully_quantum_registers=None,
+                                   qiskrypt_semi_quantum_registers=None,
+                                   qiskrypt_ancilla_quantum_registers=None,
+                                   qiskrypt_ancilla_fully_quantum_registers=None,
+                                   qiskrypt_ancilla_semi_quantum_registers=None,
+                                   qiskrypt_classical_registers=[qiskrypt_classical_register_prepare_and_measure_in_y_basis_1_qubit],
+                                   global_phase=0, quantum_circuit=None)
+        """
+        Create a Qiskrypt's Quantum Circuit with the previously created Qiskrypt's Quantum and Classical Registers.
+        """
+
+        qiskrypt_quantum_circuit_prepare_and_measure_in_y_basis_1_qubit \
+            .prepare_and_measure_single_qubit_in_qiskit_quantum_register_in_y_basis(0, 0, 0, 0,
+                                                                                    is_final_measurement=False)
+        """
+        Prepare (not Measuring) the given index for the single qubit of
+        the given IBM Qiskit's Quantum Register, in the X-Basis.
+        """
+
+        qiskit_state_vector_backend = Aer.get_backend("statevector_simulator")
+        """
+        Getting the Aer Simulator Backend for the State Vector Representation
+        (i.e., the quantum state represented as its state vector).
+        """
+
+        final_quantum_state_vector_state = \
+            execute(qiskrypt_quantum_circuit_prepare_and_measure_in_y_basis_1_qubit.quantum_circuit,
+                    qiskit_state_vector_backend).result().get_statevector()
+        """
+        Execute the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit
+        and store the resulted quantum state represented in a final state vector.
+        """
+
+        assert_allclose(final_quantum_state_vector_state,
+                        array([((1. / sqrt(2.)) + 0.j), (1. / sqrt(2.)) * (0. + 1.j)]),
+                        rtol=1e-7, atol=1e-7)
+        """
+        Perform the Assertion of all close values in the values of the quantum state,
+        represented by its state vector describing the given qubit,
+        after being prepare (not measured) in the Y-Basis (Diagonal Basis), such that, |0⟩ ↦ |+i⟩.
+        """
+
+        """
+        Dummy Assert Equal for the Unittest.
+        """
+        self.assertEqual(True, True)
+
+    def test_no_6_prepare_measure_y_basis_1_qubit(self):
+        """
+        Test Case #6:
+
+        - Prepare (and Measure) a qubit in the IBM Qiskit's Quantum Circuit of
+          the Qiskrypt's Quantum Circuit.
+
+        Description of the Steps for the Unitary Test:
+        1) The Qiskrypt's Quantum Circuit is created with a Qiskrypt's Quantum Register,
+           with 1 qubit initialized in the state |0⟩;
+        2) It is applied the Pauli-X (Bit Flip/NOT) Gate/Operation to the 1st qubit, such that, |0⟩ ↦ |1⟩;
+        3) The qubit is prepared (and measured) in the Y-Basis (Diagonal Basis), such that, |1⟩ ↦ |-i⟩;
+
+        Return OK (or FAIL) if, all the Tests performed are OK (or FAIL, otherwise).
+        """
+
+        num_qubits = num_bits = 1
+        """
+        Set the number of qubits and bits,
+        for the Qiskrypt's Quantum and Classical Registers, respectively.
+        """
+
+        qiskrypt_quantum_register_prepare_and_measure_in_y_basis_1_qubit = \
+            QiskryptQuantumRegister("qu_reg", num_qubits)
+        """
+        Create a Qiskrypt's Quantum Register with 1 qubit.
+        """
+
+        qiskrypt_classical_register_prepare_and_measure_in_y_basis_1_qubit = \
+            QiskryptClassicalRegister("cl_reg", num_bits)
+        """
+        Create a Qiskrypt's Classical Register with 1 bit.
+        """
+
+        qiskrypt_quantum_circuit_prepare_and_measure_in_y_basis_1_qubit = \
+            QiskryptQuantumCircuit("qu_circ",
+                                   qiskrypt_quantum_registers=[qiskrypt_quantum_register_prepare_and_measure_in_y_basis_1_qubit],
+                                   qiskrypt_fully_quantum_registers=None,
+                                   qiskrypt_semi_quantum_registers=None,
+                                   qiskrypt_ancilla_quantum_registers=None,
+                                   qiskrypt_ancilla_fully_quantum_registers=None,
+                                   qiskrypt_ancilla_semi_quantum_registers=None,
+                                   qiskrypt_classical_registers=[qiskrypt_classical_register_prepare_and_measure_in_y_basis_1_qubit],
+                                   global_phase=0, quantum_circuit=None)
+        """
+        Create a Qiskrypt's Quantum Circuit with the previously created Qiskrypt's Quantum and Classical Registers.
+        """
+
+        qiskrypt_quantum_circuit_prepare_and_measure_in_y_basis_1_qubit \
+            .apply_pauli_x(0, 0)
+        """
+        Apply the Pauli-X (Bit Flip/NOT) Gate/Operation to the given index for
+        the single qubit of the given IBM Qiskit's Quantum Register (|0⟩ ↦ |1⟩).
+        """
+
+        qiskrypt_quantum_circuit_prepare_and_measure_in_y_basis_1_qubit \
+            .prepare_and_measure_single_qubit_in_qiskit_quantum_register_in_y_basis(0, 0, 0, 0,
+                                                                                    is_final_measurement=False)
+        """
+        Prepare (not Measuring) the given index for the single qubit of
+        the given IBM Qiskit's Quantum Register, in the Y-Basis.
+        """
+
+        qiskit_state_vector_backend = Aer.get_backend("statevector_simulator")
+        """
+        Getting the Aer Simulator Backend for the State Vector Representation
+        (i.e., the quantum state represented as its state vector).
+        """
+
+        final_quantum_state_vector_state = \
+            execute(qiskrypt_quantum_circuit_prepare_and_measure_in_y_basis_1_qubit.quantum_circuit,
+                    qiskit_state_vector_backend).result().get_statevector()
+        """
+        Execute the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit
+        and store the resulted quantum state represented in a final state vector.
+        """
+
+        assert_allclose(final_quantum_state_vector_state,
+                        array([((1. / sqrt(2.)) + 0.j), -(1. / sqrt(2.)) * (0. + 1.j)]),
+                        rtol=1e-7, atol=1e-7)
+        """
+        Perform the Assertion of all close values in the values of the quantum state,
+        represented by its state vector describing the given qubit,
+        after being prepare (not measured) in the Y-Basis (Diagonal Basis), such that, |1⟩ ↦ |-i⟩.
+        """
+
+        """
+        Dummy Assert Equal for the Unittest.
+        """
+        self.assertEqual(True, True)
+
+    def test_no_7_prepare_measure_y_basis_1_qubit(self):
+        """
+        Test Case #7:
+
+        - Prepare (and Measure) a qubit in the IBM Qiskit's Quantum Circuit of
+          the Qiskrypt's Quantum Circuit.
+
+        Description of the Steps for the Unitary Test:
+        1) The Qiskrypt's Quantum Circuit is created with a Qiskrypt's Quantum Register,
+           with 1 qubit initialized in the state |0⟩;
+        2) It is applied the Hadamard Gate/Operation to the 1st qubit, such that, |0⟩ ↦ |+⟩;
+        3) The qubit is prepared (and measured) in the Y-Basis (Diagonal Basis), such that, |+⟩ ↦ |0⟩;
+
+        Return OK (or FAIL) if, all the Tests performed are OK (or FAIL, otherwise).
+        """
+
+        num_qubits = num_bits = 1
+        """
+        Set the number of qubits and bits,
+        for the Qiskrypt's Quantum and Classical Registers, respectively.
+        """
+
+        qiskrypt_quantum_register_prepare_and_measure_in_y_basis_1_qubit = \
+            QiskryptQuantumRegister("qu_reg", num_qubits)
+        """
+        Create a Qiskrypt's Quantum Register with 1 qubit.
+        """
+
+        qiskrypt_classical_register_prepare_and_measure_in_y_basis_1_qubit = \
+            QiskryptClassicalRegister("cl_reg", num_bits)
+        """
+        Create a Qiskrypt's Classical Register with 1 bit.
+        """
+
+        qiskrypt_quantum_circuit_prepare_and_measure_in_y_basis_1_qubit = \
+            QiskryptQuantumCircuit("qu_circ",
+                                   qiskrypt_quantum_registers=[qiskrypt_quantum_register_prepare_and_measure_in_y_basis_1_qubit],
+                                   qiskrypt_fully_quantum_registers=None,
+                                   qiskrypt_semi_quantum_registers=None,
+                                   qiskrypt_ancilla_quantum_registers=None,
+                                   qiskrypt_ancilla_fully_quantum_registers=None,
+                                   qiskrypt_ancilla_semi_quantum_registers=None,
+                                   qiskrypt_classical_registers=[qiskrypt_classical_register_prepare_and_measure_in_y_basis_1_qubit],
+                                   global_phase=0, quantum_circuit=None)
+        """
+        Create a Qiskrypt's Quantum Circuit with the previously created Qiskrypt's Quantum and Classical Registers.
+        """
+
+        qiskrypt_quantum_circuit_prepare_and_measure_in_y_basis_1_qubit \
+            .apply_hadamard(0, 0)
+        """
+        Apply the Hadamard Gate/Operation to the given index for
+        the single qubit of the given IBM Qiskit's Quantum Register (|0⟩ ↦ |+⟩).
+        """
+
+        qiskrypt_quantum_circuit_prepare_and_measure_in_y_basis_1_qubit \
+            .prepare_and_measure_single_qubit_in_qiskit_quantum_register_in_y_basis(0, 0, 0, 0,
+                                                                                    is_final_measurement=False)
+        """
+        Prepare (not Measuring) the given index for the single qubit of
+        the given IBM Qiskit's Quantum Register, in the Y-Basis.
+        """
+
+        qiskit_state_vector_backend = Aer.get_backend("statevector_simulator")
+        """
+        Getting the Aer Simulator Backend for the State Vector Representation
+        (i.e., the quantum state represented as its state vector).
+        """
+
+        final_quantum_state_vector_state = \
+            execute(qiskrypt_quantum_circuit_prepare_and_measure_in_y_basis_1_qubit.quantum_circuit,
+                    qiskit_state_vector_backend).result().get_statevector()
+        """
+        Execute the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit
+        and store the resulted quantum state represented in a final state vector.
+        """
+
+        assert_allclose(final_quantum_state_vector_state,
+                        array([(1. + 0.j), (0. + 0.j)]),
+                        rtol=1e-7, atol=1e-7)
+        """
+        Perform the Assertion of all close values in the values of the quantum state,
+        represented by its state vector describing the given qubit,
+        after being prepare (not measured) in the Y-Basis (Diagonal Basis), such that, |+⟩ ↦ |0⟩.
+        """
+
+        """
+        Dummy Assert Equal for the Unittest.
+        """
+        self.assertEqual(True, True)
+
+    def test_no_8_prepare_measure_y_basis_1_qubit(self):
+        """
+        Test Case #8:
+
+        - Prepare (and Measure) a qubit in the IBM Qiskit's Quantum Circuit of
+          the Qiskrypt's Quantum Circuit.
+
+        Description of the Steps for the Unitary Test:
+        1) The Qiskrypt's Quantum Circuit is created with a Qiskrypt's Quantum Register,
+           with 1 qubit initialized in the state |0⟩;
+        2) It is applied the Pauli-X (Bit Flip/NOT) Gate/Operation to the 1st qubit, such that, |0⟩ ↦ |1⟩;
+        3) It is applied the Hadamard Gate/Operation to the 1st qubit, such that, |1⟩ ↦ |-⟩;
+        4) The qubit is prepared (and measured) in the Y-Basis (Diagonal Basis), such that, |-⟩ ↦ |1⟩;
+
+        Return OK (or FAIL) if, all the Tests performed are OK (or FAIL, otherwise).
+        """
+
+        num_qubits = num_bits = 1
+        """
+        Set the number of qubits and bits,
+        for the Qiskrypt's Quantum and Classical Registers, respectively.
+        """
+
+        qiskrypt_quantum_register_prepare_and_measure_in_y_basis_1_qubit = \
+            QiskryptQuantumRegister("qu_reg", num_qubits)
+        """
+        Create a Qiskrypt's Quantum Register with 1 qubit.
+        """
+
+        qiskrypt_classical_register_prepare_and_measure_in_y_basis_1_qubit = \
+            QiskryptClassicalRegister("cl_reg", num_bits)
+        """
+        Create a Qiskrypt's Classical Register with 1 bit.
+        """
+
+        qiskrypt_quantum_circuit_prepare_and_measure_in_y_basis_1_qubit = \
+            QiskryptQuantumCircuit("qu_circ",
+                                   qiskrypt_quantum_registers=[qiskrypt_quantum_register_prepare_and_measure_in_y_basis_1_qubit],
+                                   qiskrypt_fully_quantum_registers=None,
+                                   qiskrypt_semi_quantum_registers=None,
+                                   qiskrypt_ancilla_quantum_registers=None,
+                                   qiskrypt_ancilla_fully_quantum_registers=None,
+                                   qiskrypt_ancilla_semi_quantum_registers=None,
+                                   qiskrypt_classical_registers=[qiskrypt_classical_register_prepare_and_measure_in_y_basis_1_qubit],
+                                   global_phase=0, quantum_circuit=None)
+        """
+        Create a Qiskrypt's Quantum Circuit with the previously created Qiskrypt's Quantum and Classical Registers.
+        """
+
+        qiskrypt_quantum_circuit_prepare_and_measure_in_y_basis_1_qubit \
+            .apply_pauli_x(0, 0)
+        """
+        Apply the Pauli-X (Bit Flip/NOT) Gate/Operation to the given index for
+        the single qubit of the given IBM Qiskit's Quantum Register (|0⟩ ↦ |1⟩).
+        """
+
+        qiskrypt_quantum_circuit_prepare_and_measure_in_y_basis_1_qubit \
+            .apply_hadamard(0, 0)
+        """
+        Apply the Hadamard Gate/Operation to the given index for
+        the single qubit of the given IBM Qiskit's Quantum Register (|1⟩ ↦ |-⟩).
+        """
+
+        qiskrypt_quantum_circuit_prepare_and_measure_in_y_basis_1_qubit \
+            .prepare_and_measure_single_qubit_in_qiskit_quantum_register_in_y_basis(0, 0, 0, 0,
+                                                                                    is_final_measurement=False)
+        """
+        Prepare (not Measuring) the given index for the single qubit of
+        the given IBM Qiskit's Quantum Register, in the Y-Basis.
+        """
+
+        qiskit_state_vector_backend = Aer.get_backend("statevector_simulator")
+        """
+        Getting the Aer Simulator Backend for the State Vector Representation
+        (i.e., the quantum state represented as its state vector).
+        """
+
+        final_quantum_state_vector_state = \
+            execute(qiskrypt_quantum_circuit_prepare_and_measure_in_y_basis_1_qubit.quantum_circuit,
+                    qiskit_state_vector_backend).result().get_statevector()
+        """
+        Execute the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit
+        and store the resulted quantum state represented in a final state vector.
+        """
+
+        assert_allclose(final_quantum_state_vector_state,
+                        array([(0. + 0.j), (0. + 1.j)]),
+                        rtol=1e-7, atol=1e-7)
+        """
+        Perform the Assertion of all close values in the values of the quantum state,
+        represented by its state vector describing the given qubit,
+        after being prepare (not measured) in the Y-Basis (Diagonal Basis), such that, |-⟩ ↦ i|1⟩.
+        """
+
+        """
+        Dummy Assert Equal for the Unittest.
+        """
+        self.assertEqual(True, True)
+
 
 if __name__ == "__main__":
     """
