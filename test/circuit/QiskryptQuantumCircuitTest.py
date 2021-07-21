@@ -9375,7 +9375,7 @@ class SingleQubitGatesOperations(TestCase):
         """
         Test Case #1:
 
-        - Apply the Pauli-I Gate/Operation to a qubit of an IBM Qiskit's Quantum Register of
+        - Apply the Pauli-I (Idle) Gate/Operation to a qubit of an IBM Qiskit's Quantum Register of
           the Qiskrypt's Quantum Register of a Qiskrypt's Quantum Circuit.
 
         Description of the Steps for the Unitary Test:
@@ -9445,7 +9445,7 @@ class SingleQubitGatesOperations(TestCase):
         """
         Perform the Assertion of all close values in the values of the quantum state,
         represented by its state vector describing the given qubit,
-        after being applied the Pauli-I Quantum Gate/Operation.
+        after being applied the Pauli-I (Idle) Quantum Gate/Operation.
         """
 
         """
@@ -9535,7 +9535,7 @@ class SingleQubitGatesOperations(TestCase):
         """
         Perform the Assertion of all close values in the values of the quantum state,
         represented by its state vector describing the given qubit,
-        after being applied the Pauli-I Quantum Gate/Operation.
+        after being applied the Pauli-I (Idle) Quantum Gate/Operation.
         """
 
         """
