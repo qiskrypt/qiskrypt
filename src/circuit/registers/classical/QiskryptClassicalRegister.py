@@ -131,7 +131,8 @@ class QiskryptClassicalRegister:
         """
         Return the IBM Qiskit's Classical Register of the Qiskrypt's Classical Register.
 
-        :return self.classical_register: the IBM Qiskit's Classical Register of the Qiskrypt's Classical Register.
+        :return self.qiskit_classical_register: the IBM Qiskit's Classical Register of
+                                                the Qiskrypt's Classical Register.
         """
 
         """
