@@ -154,10 +154,12 @@ class QiskryptFullyQuantumRegister(QiskryptQuantumRegister):
 
         not_valid_qiskrypt_fully_quantum_register_index_error = QiskryptNotValidFullyQuantumRegisterIndexError()
         """
-        Retrieve the Not a Valid Qiskrypt's Fully-Quantum Register Index Error for the Qiskrypt's Fully-Quantum Register.
+        Retrieve the Not a Valid Qiskrypt's Fully-Quantum Register Index Error for
+        the Qiskrypt's Fully-Quantum Register.
         """
 
         """
-        Raise the Not a Valid Qiskrypt's Fully-Quantum Register Index Error for the Qiskrypt's Fully-Quantum Register.
+        Raise the Not a Valid Qiskrypt's Fully-Quantum Register Index Error for
+        the Qiskrypt's Fully-Quantum Register.
         """
         raise not_valid_qiskrypt_fully_quantum_register_index_error

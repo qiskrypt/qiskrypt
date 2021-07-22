@@ -110,6 +110,9 @@ class QiskryptAncillaQuantumRegister:
         :return self.name: the name of the Qiskrypt's Ancilla Quantum Register.
         """
 
+        """
+        Return the name of the Qiskrypt's Ancilla Quantum Register.
+        """
         return self.name
 
     def get_num_ancilla_qubits(self) -> int:
@@ -119,16 +122,22 @@ class QiskryptAncillaQuantumRegister:
         :return self.num_ancilla_qubits: the number of ancilla qubits of the Qiskrypt's Ancilla Quantum Register.
         """
 
+        """
+        Return the number of ancilla qubits of the Qiskrypt's Ancilla Quantum Register.
+        """
         return self.num_ancilla_qubits
 
-    def get_ancilla_quantum_register(self) -> AncillaRegister:
+    def get_qiskit_ancilla_quantum_register(self) -> AncillaRegister:
         """
         Return the IBM Qiskit's Ancilla Register of the Qiskrypt's Ancilla Quantum Register.
 
-        :return self.qiskit_ancilla_quantum_register: the IBM's Qiskit Ancilla Quantum Register of
+        :return self.qiskit_ancilla_quantum_register: the IBM Qiskit's Ancilla Quantum Register of
                                                       the Qiskrypt's Ancilla Quantum Register.
         """
 
+        """
+        Return the IBM Qiskit's Ancilla Register of the Qiskrypt's Ancilla Quantum Register.
+        """
         return self.qiskit_ancilla_quantum_register
 
     @staticmethod
