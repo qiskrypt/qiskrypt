@@ -8507,9 +8507,9 @@ class QiskryptQuantumCircuit:
             """
 
             controlled_phase_s_unitary_matrix_operator = Operator([
-                [1, 0, 0, 0],
-                [0, 1, 0, 0],
-                [0, 0, 1, 0],
+                [1, 0, 0,  0],
+                [0, 1, 0,  0],
+                [0, 0, 1,  0],
                 [0, 0, 0, 1j]
             ])
             """
@@ -8564,9 +8564,9 @@ class QiskryptQuantumCircuit:
             """
 
             controlled_phase_t_unitary_matrix_operator = Operator([
-                [1, 0, 0, 0],
-                [0, 1, 0, 0],
-                [0, 0, 1, 0],
+                [1, 0, 0,                             0],
+                [0, 1, 0,                             0],
+                [0, 0, 1,                             0],
                 [0, 0, 0, exp((1 / sqrt(2) * (1 + 1j)))]
             ])
             """
@@ -8678,9 +8678,9 @@ class QiskryptQuantumCircuit:
             """
 
             controlled_phase_t_adjoint_unitary_matrix_operator = Operator([
-                [1, 0, 0, 0],
-                [0, 1, 0, 0],
-                [0, 0, 1, 0],
+                [1, 0, 0,                             0],
+                [0, 1, 0,                             0],
+                [0, 0, 1,                             0],
                 [0, 0, 0, exp((1 / sqrt(2) * (1 - 1j)))]
             ])
             """
@@ -8777,6 +8777,34 @@ class QiskryptQuantumCircuit:
         """
         Apply the equivalent Controlled-SWAP (Fredkin) Gate/Operation to the given indexes of
         control and targets IBM Qiskit's Quantum Registers and their respective qubits.
+        """
+
+    def apply_double_controlled_pauli_x(self,
+                                        qiskit_quantum_register_index_1: int,
+                                        qiskit_quantum_register_index_2: int,
+                                        qubit_index_1: int, qubit_index_2: int):
+        """
+        Apply the Double Controlled-Pauli-X (Double Controlled-NOT) Gate/Operation to given indexes of
+        IBM Qiskit's Quantum Registers and the respective qubits on them.
+
+        :param qiskit_quantum_register_index_1: the index of the 1st IBM Qiskit's Quantum Register.
+        :param qiskit_quantum_register_index_2: the index of the 2nd IBM Qiskit's Quantum Register.
+        :param qubit_index_1: the index of a qubit inside the 1st IBM Qiskit's Quantum Register.
+        :param qubit_index_2: the index of a qubit inside the 2nd IBM Qiskit's Quantum Register.
+        """
+
+        self.apply_controlled_pauli_x(qiskit_quantum_register_index_1, qiskit_quantum_register_index_2,
+                                      qubit_index_1, qubit_index_2)
+        """
+        Apply the 1st Controlled-Pauli-X (Controlled-NOT) Gate/Operation to the indexes of
+        the IBM Qiskit's Quantum Registers and their respective qubits, in order.
+        """
+
+        self.apply_controlled_pauli_x(qiskit_quantum_register_index_2, qiskit_quantum_register_index_1,
+                                      qubit_index_2, qubit_index_1)
+        """
+        Apply the 2nd Controlled-Pauli-X (Controlled-NOT) Gate/Operation to the indexes of
+        the IBM Qiskit's Quantum Registers and their respective qubits, in reversed order.
         """
 
     def apply_controlled_controlled_pauli_x(self,
