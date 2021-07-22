@@ -64,14 +64,13 @@ class QiskryptAncillaQuantumRegister:
     Object Class of the Qiskrypt's Ancilla Quantum Register.
     """
 
-    def __init__(self, name="anc_qu_reg", num_ancilla_qubits=1, ancilla_quantum_register=None):
+    def __init__(self, name="anc_qu_reg", num_ancilla_qubits=1, qiskit_ancilla_quantum_register=None):
         """
         Constructor for the Qiskrypt's Ancilla Quantum Register.
 
-        :param name: The name of the Qiskrypt's Ancilla Quantum Register.
-        :param num_ancilla_qubits: The number of qubits of the Qiskrypt's Ancilla Quantum Register.
-        :param ancilla_quantum_register: A built-in ancilla quantum register object of
-                                         the IBM's Qiskit Ancilla Quantum Register.
+        :param name: the name of the Qiskrypt's Ancilla Quantum Register.
+        :param num_ancilla_qubits: the number of qubits of the Qiskrypt's Ancilla Quantum Register.
+        :param qiskit_ancilla_quantum_register: an IBM Qiskit's Ancilla Quantum Register.
         """
 
         self.name = name
@@ -84,24 +83,24 @@ class QiskryptAncillaQuantumRegister:
         Set the number of the qubits of the Qiskrypt's Ancilla Quantum Register.
         """
 
-        if ancilla_quantum_register is None:
+        if qiskit_ancilla_quantum_register is None:
             """
-            If the Ancilla Quantum Register is None.
+            If the IBM Qiskit's Ancilla Quantum Register is None.
             """
 
-            self.ancilla_quantum_register = AncillaRegister(name=name, size=num_ancilla_qubits)
+            self.qiskit_ancilla_quantum_register = AncillaRegister(name=name, size=num_ancilla_qubits)
             """
-            Set the built-in ancilla quantum register of the Qiskrypt's Ancilla Quantum Register.
+            Set the IBM Qiskit's Ancilla Quantum Register of the Qiskrypt's Ancilla Quantum Register.
             """
 
         else:
             """
-            If the Ancilla Quantum Register is not None.
+            If the IBM Qiskit's Ancilla Quantum Register is not None.
             """
 
-            self.ancilla_quantum_register = ancilla_quantum_register
+            self.qiskit_ancilla_quantum_register = qiskit_ancilla_quantum_register
             """
-            Set the built-in ancilla quantum register of the Qiskrypt's Ancilla Quantum Register.
+            Set the IBM Qiskit's Ancilla Quantum Register of the Qiskrypt's Ancilla Quantum Register.
             """
 
     def get_name(self) -> str:
@@ -124,16 +123,16 @@ class QiskryptAncillaQuantumRegister:
 
     def get_ancilla_quantum_register(self) -> AncillaRegister:
         """
-        Return the IBM's Qiskit Ancilla Register of the Qiskrypt's Ancilla Quantum Register.
+        Return the IBM Qiskit's Ancilla Register of the Qiskrypt's Ancilla Quantum Register.
 
-        :return self.ancilla_quantum_register: the IBM's Qiskit Ancilla Quantum Register of
-                                               the Qiskrypt's Ancilla Quantum Register.
+        :return self.qiskit_ancilla_quantum_register: the IBM's Qiskit Ancilla Quantum Register of
+                                                      the Qiskrypt's Ancilla Quantum Register.
         """
 
-        return self.ancilla_quantum_register
+        return self.qiskit_ancilla_quantum_register
 
     @staticmethod
-    def raise_not_ancilla_quantum_register_error():
+    def raise_not_ancilla_quantum_register_error() -> None:
         """
         Return/Raise a Not an Ancilla Quantum Register Error for the Qiskrypt's Ancilla Quantum Register.
 
@@ -152,9 +151,10 @@ class QiskryptAncillaQuantumRegister:
         raise not_ancilla_quantum_register_error
 
     @staticmethod
-    def raise_not_valid_qiskrypt_ancilla_quantum_register_index_error():
+    def raise_not_valid_qiskrypt_ancilla_quantum_register_index_error() -> None:
         """
-        Return/Raise a Not a Valid Qiskrypt's Ancilla Quantum Register Index Error for the Qiskrypt's Ancilla Quantum Register.
+        Return/Raise a Not a Valid Qiskrypt's Ancilla Quantum Register Index Error for
+        the Qiskrypt's Ancilla Quantum Register.
 
         :raise not_valid_qiskrypt_ancilla_quantum_register_index_error: a Not a Valid Qiskrypt's Ancilla Quantum Register Index Error for
                                                                         the Qiskrypt's Ancilla Quantum Register.
@@ -162,10 +162,12 @@ class QiskryptAncillaQuantumRegister:
 
         not_valid_qiskrypt_ancilla_quantum_register_index_error = QiskryptNotValidAncillaQuantumRegisterIndexError()
         """
-        Retrieve the Not a Valid Qiskrypt's Ancilla Quantum Register Index Error for the Qiskrypt's Ancilla Quantum Register.
+        Retrieve the Not a Valid Qiskrypt's Ancilla Quantum Register Index Error for
+        the Qiskrypt's Ancilla Quantum Register.
         """
 
         """
-        Raise the Not a Valid Qiskrypt's Ancilla Quantum Register Index Error for the Qiskrypt's Ancilla Quantum Register.
+        Raise the Not a Valid Qiskrypt's Ancilla Quantum Register Index Error for
+        the Qiskrypt's Ancilla Quantum Register.
         """
         raise not_valid_qiskrypt_ancilla_quantum_register_index_error
