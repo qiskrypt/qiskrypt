@@ -105,7 +105,7 @@ class QiskryptSemiQuantumRegister(QiskryptQuantumRegister):
 
         return super().get_num_qubits()
 
-    def get_semi_quantum_register(self):
+    def get_semi_quantum_register(self) -> QiskryptQuantumRegister:
         """
         Return the IBM's Qiskit Quantum Register of the Qiskrypt's Semi-Quantum Register.
 
@@ -116,7 +116,7 @@ class QiskryptSemiQuantumRegister(QiskryptQuantumRegister):
         return super().get_quantum_register()
 
     @staticmethod
-    def raise_unsupported_operation_error():
+    def raise_unsupported_operation_error() -> None:
         """
         Return/Raise an Unsupported Operation Error for the Qiskrypt's Semi-Quantum Register.
 
@@ -135,7 +135,7 @@ class QiskryptSemiQuantumRegister(QiskryptQuantumRegister):
         raise unsupported_operation_error
 
     @staticmethod
-    def raise_not_semi_quantum_register_error():
+    def raise_not_semi_quantum_register_error() -> None:
         """
         Return/Raise a Not a Semi-Quantum Register Error for the Qiskrypt's Semi-Quantum Register.
         :raise not_semi_quantum_register_error: a Not a Semi-Quantum Register Error for the Qiskrypt's Semi-Quantum Register.
@@ -152,7 +152,7 @@ class QiskryptSemiQuantumRegister(QiskryptQuantumRegister):
         raise not_semi_quantum_register_error
 
     @staticmethod
-    def raise_not_valid_qiskrypt_semi_quantum_register_index_error():
+    def raise_not_valid_qiskrypt_semi_quantum_register_index_error() -> None:
         """
         Return/Raise a Not a Valid Qiskrypt's Semi-Quantum Register Index Error for the Qiskrypt's Semi-Quantum Register.
 

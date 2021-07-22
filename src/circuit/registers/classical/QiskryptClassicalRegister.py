@@ -85,7 +85,7 @@ class QiskryptClassicalRegister:
 
         if qiskit_classical_register is None:
             """
-            If the Classical Register is None.
+            If the IBM Qiskit's Classical Register is None.
             """
 
             self.qiskit_classical_register = ClassicalRegister(name=name, size=num_bits)
@@ -95,7 +95,7 @@ class QiskryptClassicalRegister:
 
         else:
             """
-            If the Classical Register is not None.
+            If the IBM Qiskit's Classical Register is not None.
             """
 
             self.qiskit_classical_register = qiskit_classical_register
