@@ -70,7 +70,7 @@ class QiskryptClassicalRegister:
 
         :param name: the name of the Qiskrypt's Classical Register.
         :param num_bits: the number of bits of the Qiskrypt's Classical Register.
-        :param qiskit_classical_register: an IBM's Qiskit Classical Register.
+        :param qiskit_classical_register: an IBM Qiskit's Classical Register.
         """
 
         self.name = name
@@ -110,6 +110,9 @@ class QiskryptClassicalRegister:
         :return self.name: the name of the Qiskrypt's Classical Register.
         """
 
+        """
+        Return the name of the Qiskrypt's Classical Register.
+        """
         return self.name
 
     def get_num_bits(self) -> int:
@@ -119,15 +122,21 @@ class QiskryptClassicalRegister:
         :return self.num_bits: the number of bits of the Qiskrypt's Classical Register.
         """
 
+        """
+        Return the number of bits of the Qiskrypt's Classical Register.
+        """
         return self.num_bits
 
     def get_qiskit_classical_register(self) -> ClassicalRegister:
         """
-        Return the IBM's Qiskit Classical Register of the Qiskrypt's Classical Register.
+        Return the IBM Qiskit's Classical Register of the Qiskrypt's Classical Register.
 
-        :return self.classical_register: the IBM's Qiskit Classical Register of the Qiskrypt's Classical Register.
+        :return self.classical_register: the IBM Qiskit's Classical Register of the Qiskrypt's Classical Register.
         """
 
+        """
+        Return the IBM Qiskit's Classical Register of the Qiskrypt's Classical Register.
+        """
         return self.qiskit_classical_register
 
     @staticmethod
