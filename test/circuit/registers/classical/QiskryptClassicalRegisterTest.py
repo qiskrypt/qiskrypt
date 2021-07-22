@@ -99,7 +99,7 @@ class QiskryptClassicalRegisterTests(TestCase):
         qiskrypt_classical_register = \
             QiskryptClassicalRegister(name=classical_register_name,
                                       num_bits=classical_register_num_bits,
-                                      classical_register=None)
+                                      qiskit_classical_register=None)
         """
         Create a Qiskrypt's Classical Register, given its name and number of bits.
         """
@@ -114,7 +114,7 @@ class QiskryptClassicalRegisterTests(TestCase):
         Assertion for the number of bits of the Qiskrypt's Classical Register.
         """
 
-        assert(isinstance(qiskrypt_classical_register.get_classical_register(), ClassicalRegister))
+        assert(isinstance(qiskrypt_classical_register.get_qiskit_classical_register(), ClassicalRegister))
         """
         Assertion for the IBM's Qiskit Classical Register of the Qiskrypt's Classical Register.
         """
@@ -166,7 +166,7 @@ class QiskryptClassicalRegisterTests(TestCase):
         qiskrypt_classical_register = \
             QiskryptClassicalRegister(name=classical_register_name,
                                       num_bits=classical_register_num_bits,
-                                      classical_register=None)
+                                      qiskit_classical_register=None)
         """
         Create a Qiskrypt's Classical Register, given its name and number of bits.
         """
@@ -181,7 +181,7 @@ class QiskryptClassicalRegisterTests(TestCase):
         Assertion for the number of bits of the Qiskrypt's Classical Register.
         """
 
-        assert(isinstance(qiskrypt_classical_register.get_classical_register(), ClassicalRegister))
+        assert(isinstance(qiskrypt_classical_register.get_qiskit_classical_register(), ClassicalRegister))
         """
         Assertion for the IBM's Qiskit Classical Register of the Qiskrypt's Classical Register.
         """
@@ -233,7 +233,7 @@ class QiskryptClassicalRegisterTests(TestCase):
         qiskrypt_classical_register = \
             QiskryptClassicalRegister(name=classical_register_name,
                                       num_bits=classical_register_num_bits,
-                                      classical_register=None)
+                                      qiskit_classical_register=None)
         """
         Create a Qiskrypt's Classical Register, given its name and number of bits.
         """
@@ -248,7 +248,7 @@ class QiskryptClassicalRegisterTests(TestCase):
         Assertion for the number of bits of the Qiskrypt's Classical Register.
         """
 
-        assert(isinstance(qiskrypt_classical_register.get_classical_register(), ClassicalRegister))
+        assert(isinstance(qiskrypt_classical_register.get_qiskit_classical_register(), ClassicalRegister))
         """
         Assertion for the IBM's Qiskit Classical Register of the Qiskrypt's Classical Register.
         """
@@ -300,7 +300,7 @@ class QiskryptClassicalRegisterTests(TestCase):
         qiskrypt_classical_register = \
             QiskryptClassicalRegister(name=classical_register_name,
                                       num_bits=classical_register_num_bits,
-                                      classical_register=None)
+                                      qiskit_classical_register=None)
         """
         Create a Qiskrypt's Classical Register, given its name and number of bits.
         """
@@ -315,7 +315,7 @@ class QiskryptClassicalRegisterTests(TestCase):
         Assertion for the number of bits of the Qiskrypt's Classical Register.
         """
 
-        assert(isinstance(qiskrypt_classical_register.get_classical_register(), ClassicalRegister))
+        assert(isinstance(qiskrypt_classical_register.get_qiskit_classical_register(), ClassicalRegister))
         """
         Assertion for the IBM's Qiskit Classical Register of the Qiskrypt's Classical Register.
         """
