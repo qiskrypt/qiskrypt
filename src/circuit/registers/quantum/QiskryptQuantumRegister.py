@@ -64,14 +64,13 @@ class QiskryptQuantumRegister:
     Object Class of the Qiskrypt's Quantum Register.
     """
 
-    def __init__(self, name="qu_reg", num_qubits=1, quantum_register=None):
+    def __init__(self, name="qu_reg", num_qubits=1, qiskit_quantum_register=None):
         """
         Constructor for the Qiskrypt's Quantum Register.
 
-        :param name: The name of the Qiskrypt's Quantum Register.
-        :param num_qubits: The number of qubits of the Qiskrypt's Quantum Register.
-        :param quantum_register: A built-in quantum register object of
-                                 the IBM's Qiskit Quantum Register.
+        :param name: the name of the Qiskrypt's Quantum Register.
+        :param num_qubits: the number of qubits of the Qiskrypt's Quantum Register.
+        :param qiskit_quantum_register: an IBM Qiskit's Quantum Register.
         """
 
         self.name = name
@@ -84,24 +83,24 @@ class QiskryptQuantumRegister:
         Set the number of the qubits of the Qiskrypt's Quantum Register.
         """
 
-        if quantum_register is None:
+        if qiskit_quantum_register is None:
             """
-            If the Quantum Register is None.
+            If the IBM Qiskit's Quantum Register is None.
             """
 
-            self.quantum_register = QuantumRegister(name=name, size=num_qubits)
+            self.qiskit_quantum_register = QuantumRegister(name=name, size=num_qubits)
             """
-            Set the built-in quantum register of the Qiskrypt's Quantum Register.
+            Set the IBM Qiskit's Quantum Register of the Qiskrypt's Quantum Register.
             """
 
         else:
             """
-            If the Quantum Register is not None.
+            If the IBM Qiskit's Quantum Register is not None.
             """
 
-            self.quantum_register = quantum_register
+            self.qiskit_quantum_register = qiskit_quantum_register
             """
-            Set the built-in quantum register of the Qiskrypt's Quantum Register.
+            Set the IBM Qiskit's Quantum Register of the Qiskrypt's Quantum Register.
             """
 
     def get_name(self) -> str:
@@ -111,6 +110,9 @@ class QiskryptQuantumRegister:
         :return self.name: the name of the Qiskrypt's Quantum Register.
         """
 
+        """
+        Return the name of the Qiskrypt's Quantum Register.
+        """
         return self.name
 
     def get_num_qubits(self) -> int:
@@ -120,19 +122,26 @@ class QiskryptQuantumRegister:
         :return self.num_qubits: the number of qubits of the Qiskrypt's Quantum Register.
         """
 
+        """
+        Return the number of qubits of the Qiskrypt's Quantum Register.
+        """
         return self.num_qubits
 
-    def get_quantum_register(self) -> QuantumRegister:
+    def get_qiskit_quantum_register(self) -> QuantumRegister:
         """
-        Return the IBM's Qiskit Quantum Register of the Qiskrypt's Quantum Register.
+        Return the IBM Qiskit's Quantum Register of the Qiskrypt's Quantum Register.
 
-        :return self.quantum_register: the IBM's Qiskit Quantum Register of the Qiskrypt's Quantum Register.
+        :return self.qiskit_quantum_register: the IBM Qiskit's Quantum Register of
+                                              the Qiskrypt's Quantum Register.
         """
 
-        return self.quantum_register
+        """
+        Return the IBM Qiskit's Quantum Register of the Qiskrypt's Quantum Register.
+        """
+        return self.qiskit_quantum_register
 
     @staticmethod
-    def raise_not_quantum_register_error():
+    def raise_not_quantum_register_error() -> None:
         """
         Return/Raise a Not a Quantum Register Error for the Qiskrypt's Quantum Register.
 
@@ -151,7 +160,7 @@ class QiskryptQuantumRegister:
         raise not_quantum_register_error
 
     @staticmethod
-    def raise_not_valid_qiskrypt_quantum_register_index_error():
+    def raise_not_valid_qiskrypt_quantum_register_index_error() -> None:
         """
         Return/Raise a Not a Valid Qiskrypt's Quantum Register Index Error for the Qiskrypt's Quantum Register.
 
