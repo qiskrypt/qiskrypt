@@ -70,7 +70,7 @@ class QiskryptAncillaSemiQuantumRegister(QiskryptAncillaQuantumRegister):
     Object Class of the Qiskrypt's Ancilla Semi-Quantum Register.
     """
 
-    def __init__(self, name="anc_semi_qu_reg", num_ancilla_qubits=1, ancilla_quantum_register=None):
+    def __init__(self, name="anc_semi_qu_reg", num_ancilla_qubits=1, qiskit_ancilla_quantum_register=None):
         """
         Constructor for the Qiskrypt's Ancilla Semi-Quantum Register.
 
@@ -78,10 +78,10 @@ class QiskryptAncillaSemiQuantumRegister(QiskryptAncillaQuantumRegister):
 
         :param name: The name of the Qiskrypt's Ancilla Semi-Quantum Register.
         :param num_ancilla_qubits: The number of ancilla qubits of the Qiskrypt's Ancilla Semi-Quantum Register.
-        :param ancilla_quantum_register: A built-in ancilla quantum register object of
-                                         the IBM's Qiskit Ancilla Quantum Register.
+        :param qiskit_ancilla_quantum_register: an IBM's Qiskit Ancilla Quantum Register.
         """
-        super().__init__(name=name, num_ancilla_qubits=num_ancilla_qubits, ancilla_quantum_register=ancilla_quantum_register)
+
+        super().__init__(name=name, num_ancilla_qubits=num_ancilla_qubits, qiskit_ancilla_quantum_register=qiskit_ancilla_quantum_register)
         """
         Calls the constructor of the super-class Qiskrypt's Ancilla Quantum Register.
         """
@@ -105,15 +105,15 @@ class QiskryptAncillaSemiQuantumRegister(QiskryptAncillaQuantumRegister):
 
         return super().get_num_ancilla_qubits()
 
-    def get_ancilla_semi_quantum_register(self):
+    def get_qiskit_ancilla_semi_quantum_register(self):
         """
         Return the IBM's Qiskit Ancilla Quantum Register of the Qiskrypt's Ancilla Semi-Quantum Register.
 
-        :return super().get_ancilla_quantum_register(): the IBM's Qiskit Ancilla Quantum Register of
-                                                        the Qiskrypt's Ancilla Semi-Quantum Register.
+        :return super().get_qiskit_ancilla_quantum_register(): the IBM's Qiskit Ancilla Quantum Register of
+                                                               the Qiskrypt's Ancilla Semi-Quantum Register.
         """
 
-        return super().get_ancilla_quantum_register()
+        return super().get_qiskit_ancilla_quantum_register()
 
     @staticmethod
     def raise_unsupported_operation_error():

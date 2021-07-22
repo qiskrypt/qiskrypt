@@ -41,6 +41,11 @@ Acknowledgement(s):\n
 Import required Libraries and Packages.
 """
 
+from qiskit import QuantumRegister
+"""
+Import Quantum Register from IBM's Qiskit.
+"""
+
 from src.circuit.registers.quantum.QiskryptQuantumRegister import QiskryptQuantumRegister
 """
 Import the Qiskrypt's Quantum Register.
@@ -70,7 +75,7 @@ class QiskryptSemiQuantumRegister(QiskryptQuantumRegister):
     Object Class of the Qiskrypt's Semi-Quantum Register.
     """
 
-    def __init__(self, name="semi_qu_reg", num_qubits=1, quantum_register=None):
+    def __init__(self, name="semi_qu_reg", num_qubits=1, qiskit_quantum_register=None):
         """
         Constructor for the Qiskrypt's Semi-Quantum Register.
 
@@ -78,10 +83,9 @@ class QiskryptSemiQuantumRegister(QiskryptQuantumRegister):
 
         :param name: The name of the Qiskrypt's Semi-Quantum Register.
         :param num_qubits: The number of qubits of the Qiskrypt's Semi-Quantum Register.
-        :param quantum_register: A built-in quantum register object of
-                                 the IBM's Qiskit Quantum Register.
+        :param qiskit_quantum_register: an IBM's Qiskit Quantum Register.
         """
-        super().__init__(name=name, num_qubits=num_qubits, quantum_register=quantum_register)
+        super().__init__(name=name, num_qubits=num_qubits, qiskit_quantum_register=qiskit_quantum_register)
         """
         Calls the constructor of the super-class Qiskrypt's Quantum Register.
         """
@@ -105,15 +109,15 @@ class QiskryptSemiQuantumRegister(QiskryptQuantumRegister):
 
         return super().get_num_qubits()
 
-    def get_semi_quantum_register(self) -> QiskryptQuantumRegister:
+    def get_qiskit_semi_quantum_register(self) -> QuantumRegister:
         """
         Return the IBM's Qiskit Quantum Register of the Qiskrypt's Semi-Quantum Register.
 
-        :return super().get_quantum_register(): the IBM's Qiskit Quantum Register of
-                                                the Qiskrypt's Semi-Quantum Register.
+        :return super().get_qiskit_quantum_register(): the IBM's Qiskit Quantum Register of
+                                                       the Qiskrypt's Semi-Quantum Register.
         """
 
-        return super().get_quantum_register()
+        return super().get_qiskit_quantum_register()
 
     @staticmethod
     def raise_unsupported_operation_error() -> None:
