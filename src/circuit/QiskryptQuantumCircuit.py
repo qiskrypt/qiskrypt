@@ -304,10 +304,9 @@ class QiskryptQuantumCircuit:
                     Set the global phase of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.quantum_circuit = \
-                        QuantumCircuit(
-                            *[quantum_register.get_quantum_register() for quantum_register in self.qiskrypt_quantum_registers],
-                            name=name, global_phase=global_phase)
+                    self.qiskit_quantum_circuit = \
+                        QuantumCircuit(*[quantum_register.get_qiskit_quantum_register() for quantum_register in self.qiskrypt_quantum_registers],
+                                       name=name, global_phase=global_phase)
                     """
                     Set the IBM's Qiskit Quantum Circuit of the Qiskrypt's Quantum Circuit.
                     """
@@ -401,9 +400,9 @@ class QiskryptQuantumCircuit:
                     Set the global phase of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.quantum_circuit = \
+                    self.qiskit_quantum_circuit = \
                         QuantumCircuit(
-                            *[fully_quantum_register.get_fully_quantum_register() for fully_quantum_register in
+                            *[fully_quantum_register.get_qiskit_fully_quantum_register() for fully_quantum_register in
                               self.qiskrypt_fully_quantum_registers],
                             name=name, global_phase=global_phase)
                     """
@@ -497,8 +496,8 @@ class QiskryptQuantumCircuit:
                     Set the global phase of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.quantum_circuit = \
-                        QuantumCircuit(*[semi_quantum_register.get_semi_quantum_register() for semi_quantum_register in
+                    self.qiskit_quantum_circuit = \
+                        QuantumCircuit(*[semi_quantum_register.get_qiskit_semi_quantum_register() for semi_quantum_register in
                                          self.qiskrypt_semi_quantum_registers],
                                        name=name, global_phase=global_phase)
                     """
@@ -592,9 +591,9 @@ class QiskryptQuantumCircuit:
                     Set the global phase of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.quantum_circuit = \
+                    self.qiskit_quantum_circuit = \
                         QuantumCircuit(
-                            *[ancilla_quantum_register.get_ancilla_quantum_register() for ancilla_quantum_register in
+                            *[ancilla_quantum_register.get_qiskit_ancilla_quantum_register() for ancilla_quantum_register in
                               self.qiskrypt_ancilla_quantum_registers],
                             name=name, global_phase=global_phase)
                     """
@@ -688,8 +687,8 @@ class QiskryptQuantumCircuit:
                     Set the global phase of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.quantum_circuit = \
-                        QuantumCircuit(*[ancilla_fully_quantum_register.get_ancilla_fully_quantum_register() for
+                    self.qiskit_quantum_circuit = \
+                        QuantumCircuit(*[ancilla_fully_quantum_register.get_qiskit_ancilla_fully_quantum_register() for
                                          ancilla_fully_quantum_register in self.qiskrypt_ancilla_fully_quantum_registers],
                                        name=name, global_phase=global_phase)
                     """
@@ -783,8 +782,8 @@ class QiskryptQuantumCircuit:
                     Set the global phase of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.quantum_circuit = \
-                        QuantumCircuit(*[ancilla_semi_quantum_register.get_ancilla_semi_quantum_register() for
+                    self.qiskit_quantum_circuit = \
+                        QuantumCircuit(*[ancilla_semi_quantum_register.get_qiskit_ancilla_semi_quantum_register() for
                                          ancilla_semi_quantum_register in self.qiskrypt_ancilla_semi_quantum_registers],
                                        name=name, global_phase=global_phase)
                     """
@@ -878,8 +877,8 @@ class QiskryptQuantumCircuit:
                     Set the global phase of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.quantum_circuit = \
-                        QuantumCircuit(*[classical_register.get_classical_register() for classical_register in
+                    self.qiskit_quantum_circuit = \
+                        QuantumCircuit(*[classical_register.get_qiskit_classical_register() for classical_register in
                                          self.qiskrypt_classical_registers],
                                        name=name, global_phase=global_phase)
                     """
@@ -993,10 +992,10 @@ class QiskryptQuantumCircuit:
                     Set the global phase of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.quantum_circuit = \
+                    self.qiskit_quantum_circuit = \
                         QuantumCircuit(
-                            *[quantum_register.get_quantum_register() for quantum_register in self.qiskrypt_quantum_registers],
-                            *[classical_register.get_classical_register() for classical_register in
+                            *[quantum_register.get_qiskit_quantum_register() for quantum_register in self.qiskrypt_quantum_registers],
+                            *[classical_register.get_qiskit_classical_register() for classical_register in
                               self.qiskrypt_classical_registers],
                             name=name, global_phase=global_phase)
                     """
@@ -1110,11 +1109,11 @@ class QiskryptQuantumCircuit:
                     Set the global phase of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.quantum_circuit = \
+                    self.qiskit_quantum_circuit = \
                         QuantumCircuit(
-                            *[fully_quantum_register.get_fully_quantum_register() for fully_quantum_register in
+                            *[fully_quantum_register.get_qiskit_fully_quantum_register() for fully_quantum_register in
                               self.qiskrypt_fully_quantum_registers],
-                            *[classical_register.get_classical_register() for classical_register in
+                            *[classical_register.get_qiskit_classical_register() for classical_register in
                               self.qiskrypt_classical_registers],
                             name=name, global_phase=global_phase)
                     """
@@ -1228,10 +1227,10 @@ class QiskryptQuantumCircuit:
                     Set the global phase of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.quantum_circuit = \
-                        QuantumCircuit(*[semi_quantum_register.get_semi_quantum_register() for semi_quantum_register in
+                    self.qiskit_quantum_circuit = \
+                        QuantumCircuit(*[semi_quantum_register.get_qiskit_semi_quantum_register() for semi_quantum_register in
                                          self.qiskrypt_semi_quantum_registers],
-                                       *[classical_register.get_classical_register() for classical_register in
+                                       *[classical_register.get_qiskit_classical_register() for classical_register in
                                          self.qiskrypt_classical_registers],
                                        name=name, global_phase=global_phase)
                     """
@@ -1345,11 +1344,11 @@ class QiskryptQuantumCircuit:
                     Set the global phase of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.quantum_circuit = \
+                    self.qiskit_quantum_circuit = \
                         QuantumCircuit(
-                            *[ancilla_quantum_register.get_ancilla_quantum_register() for ancilla_quantum_register in
+                            *[ancilla_quantum_register.get_qiskit_ancilla_quantum_register() for ancilla_quantum_register in
                               self.qiskrypt_ancilla_quantum_registers],
-                            *[classical_register.get_classical_register() for classical_register in
+                            *[classical_register.get_qiskit_classical_register() for classical_register in
                               self.qiskrypt_classical_registers],
                             name=name, global_phase=global_phase)
                     """
@@ -1463,10 +1462,10 @@ class QiskryptQuantumCircuit:
                     Set the global phase of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.quantum_circuit = \
-                        QuantumCircuit(*[ancilla_fully_quantum_register.get_ancilla_fully_quantum_register() for
+                    self.qiskit_quantum_circuit = \
+                        QuantumCircuit(*[ancilla_fully_quantum_register.get_qiskit_ancilla_fully_quantum_register() for
                                          ancilla_fully_quantum_register in self.qiskrypt_ancilla_fully_quantum_registers],
-                                       *[classical_register.get_classical_register() for classical_register in
+                                       *[classical_register.get_qiskit_classical_register() for classical_register in
                                          self.qiskrypt_classical_registers],
                                        name=name, global_phase=global_phase)
                     """
@@ -1580,10 +1579,10 @@ class QiskryptQuantumCircuit:
                     Set the global phase of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.quantum_circuit = \
-                        QuantumCircuit(*[ancilla_semi_quantum_register.get_ancilla_semi_quantum_register() for
+                    self.qiskit_quantum_circuit = \
+                        QuantumCircuit(*[ancilla_semi_quantum_register.get_qiskit_ancilla_semi_quantum_register() for
                                          ancilla_semi_quantum_register in self.qiskrypt_ancilla_semi_quantum_registers],
-                                       *[classical_register.get_classical_register() for classical_register in
+                                       *[classical_register.get_qiskit_classical_register() for classical_register in
                                          self.qiskrypt_classical_registers],
                                        name=name, global_phase=global_phase)
                     """
@@ -1717,12 +1716,12 @@ class QiskryptQuantumCircuit:
                     Set the global phase of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.quantum_circuit = \
+                    self.qiskit_quantum_circuit = \
                         QuantumCircuit(
-                            *[quantum_register.get_quantum_register() for quantum_register in self.qiskrypt_quantum_registers],
-                            *[fully_quantum_register.get_fully_quantum_register() for fully_quantum_register in
+                            *[quantum_register.get_qiskit_quantum_register() for quantum_register in self.qiskrypt_quantum_registers],
+                            *[fully_quantum_register.get_qiskit_fully_quantum_register() for fully_quantum_register in
                               self.qiskrypt_fully_quantum_registers],
-                            *[classical_register.get_classical_register() for classical_register in
+                            *[classical_register.get_qiskit_classical_register() for classical_register in
                               self.qiskrypt_classical_registers],
                             name=name, global_phase=global_phase)
                     """
@@ -1856,12 +1855,12 @@ class QiskryptQuantumCircuit:
                     Set the global phase of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.quantum_circuit = \
+                    self.qiskit_quantum_circuit = \
                         QuantumCircuit(
-                            *[quantum_register.get_quantum_register() for quantum_register in self.qiskrypt_quantum_registers],
-                            *[semi_quantum_register.get_semi_quantum_register() for semi_quantum_register in
+                            *[quantum_register.get_qiskit_quantum_register() for quantum_register in self.qiskrypt_quantum_registers],
+                            *[semi_quantum_register.get_qiskit_semi_quantum_register() for semi_quantum_register in
                               self.qiskrypt_semi_quantum_registers],
-                            *[classical_register.get_classical_register() for classical_register in
+                            *[classical_register.get_qiskit_classical_register() for classical_register in
                               self.qiskrypt_classical_registers],
                             name=name, global_phase=global_phase)
                     """
@@ -1995,12 +1994,12 @@ class QiskryptQuantumCircuit:
                     Set the global phase of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.quantum_circuit = \
+                    self.qiskit_quantum_circuit = \
                         QuantumCircuit(
-                            *[quantum_register.get_quantum_register() for quantum_register in self.qiskrypt_quantum_registers],
-                            *[ancilla_quantum_register.get_ancilla_quantum_register() for ancilla_quantum_register in
+                            *[quantum_register.get_qiskit_quantum_register() for quantum_register in self.qiskrypt_quantum_registers],
+                            *[ancilla_quantum_register.get_qiskit_ancilla_quantum_register() for ancilla_quantum_register in
                               self.qiskrypt_ancilla_quantum_registers],
-                            *[classical_register.get_classical_register() for classical_register in
+                            *[classical_register.get_qiskit_classical_register() for classical_register in
                               self.qiskrypt_classical_registers],
                             name=name, global_phase=global_phase)
                     """
@@ -2135,12 +2134,12 @@ class QiskryptQuantumCircuit:
                     Set the global phase of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.quantum_circuit = \
+                    self.qiskit_quantum_circuit = \
                         QuantumCircuit(
-                            *[quantum_register.get_quantum_register() for quantum_register in self.qiskrypt_quantum_registers],
-                            *[ancilla_fully_quantum_register.get_ancilla_fully_quantum_register() for
+                            *[quantum_register.get_qiskit_quantum_register() for quantum_register in self.qiskrypt_quantum_registers],
+                            *[ancilla_fully_quantum_register.get_qiskit_ancilla_fully_quantum_register() for
                               ancilla_fully_quantum_register in self.qiskrypt_ancilla_fully_quantum_registers],
-                            *[classical_register.get_classical_register() for classical_register in
+                            *[classical_register.get_qiskit_classical_register() for classical_register in
                               self.qiskrypt_classical_registers],
                             name=name, global_phase=global_phase)
                     """
@@ -2274,12 +2273,12 @@ class QiskryptQuantumCircuit:
                     Set the global phase of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.quantum_circuit = \
+                    self.qiskit_quantum_circuit = \
                         QuantumCircuit(
-                            *[quantum_register.get_quantum_register() for quantum_register in self.qiskrypt_quantum_registers],
-                            *[ancilla_semi_quantum_register.get_ancilla_semi_quantum_register() for
+                            *[quantum_register.get_qiskit_quantum_register() for quantum_register in self.qiskrypt_quantum_registers],
+                            *[ancilla_semi_quantum_register.get_qiskit_ancilla_semi_quantum_register() for
                               ancilla_semi_quantum_register in self.qiskrypt_ancilla_semi_quantum_registers],
-                            *[classical_register.get_classical_register() for classical_register in
+                            *[classical_register.get_qiskit_classical_register() for classical_register in
                               self.qiskrypt_classical_registers],
                             name=name, global_phase=global_phase)
                     """
@@ -2433,14 +2432,14 @@ class QiskryptQuantumCircuit:
                     Set the global phase of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.quantum_circuit = \
+                    self.qiskit_quantum_circuit = \
                         QuantumCircuit(
-                            *[quantum_register.get_quantum_register() for quantum_register in self.qiskrypt_quantum_registers],
-                            *[fully_quantum_register.get_fully_quantum_register() for fully_quantum_register in
+                            *[quantum_register.get_qiskit_quantum_register() for quantum_register in self.qiskrypt_quantum_registers],
+                            *[fully_quantum_register.get_qiskit_fully_quantum_register() for fully_quantum_register in
                               self.qiskrypt_fully_quantum_registers],
-                            *[semi_quantum_register.get_semi_quantum_register() for semi_quantum_register in
+                            *[semi_quantum_register.get_qiskit_semi_quantum_register() for semi_quantum_register in
                               self.qiskrypt_semi_quantum_registers],
-                            *[classical_register.get_classical_register() for classical_register in
+                            *[classical_register.get_qiskit_classical_register() for classical_register in
                               self.qiskrypt_classical_registers],
                             name=name, global_phase=global_phase)
                     """
@@ -2594,14 +2593,14 @@ class QiskryptQuantumCircuit:
                     Set the global phase of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.quantum_circuit = \
+                    self.qiskit_quantum_circuit = \
                         QuantumCircuit(
-                            *[quantum_register.get_quantum_register() for quantum_register in self.qiskrypt_quantum_registers],
-                            *[fully_quantum_register.get_fully_quantum_register() for fully_quantum_register in
+                            *[quantum_register.get_qiskit_quantum_register() for quantum_register in self.qiskrypt_quantum_registers],
+                            *[fully_quantum_register.get_qiskit_fully_quantum_register() for fully_quantum_register in
                               self.qiskrypt_fully_quantum_registers],
-                            *[ancilla_quantum_register.get_ancilla_quantum_register() for ancilla_quantum_register in
+                            *[ancilla_quantum_register.get_qiskit_ancilla_quantum_register() for ancilla_quantum_register in
                               self.qiskrypt_ancilla_quantum_registers],
-                            *[classical_register.get_classical_register() for classical_register in
+                            *[classical_register.get_qiskit_classical_register() for classical_register in
                               self.qiskrypt_classical_registers],
                             name=name, global_phase=global_phase)
                     """
@@ -2755,14 +2754,14 @@ class QiskryptQuantumCircuit:
                     Set the global phase of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.quantum_circuit = \
+                    self.qiskit_quantum_circuit = \
                         QuantumCircuit(
-                            *[quantum_register.get_quantum_register() for quantum_register in self.qiskrypt_quantum_registers],
-                            *[fully_quantum_register.get_fully_quantum_register() for fully_quantum_register in
+                            *[quantum_register.get_qiskit_quantum_register() for quantum_register in self.qiskrypt_quantum_registers],
+                            *[fully_quantum_register.get_qiskit_fully_quantum_register() for fully_quantum_register in
                               self.qiskrypt_fully_quantum_registers],
-                            *[ancilla_fully_quantum_register.get_ancilla_fully_quantum_register() for
+                            *[ancilla_fully_quantum_register.get_qiskit_ancilla_fully_quantum_register() for
                               ancilla_fully_quantum_register in self.qiskrypt_ancilla_fully_quantum_registers],
-                            *[classical_register.get_classical_register() for classical_register in
+                            *[classical_register.get_qiskit_classical_register() for classical_register in
                               self.qiskrypt_classical_registers],
                             name=name, global_phase=global_phase)
                     """
@@ -2916,14 +2915,14 @@ class QiskryptQuantumCircuit:
                     Set the global phase of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.quantum_circuit = \
+                    self.qiskit_quantum_circuit = \
                         QuantumCircuit(
-                            *[quantum_register.get_quantum_register() for quantum_register in self.qiskrypt_quantum_registers],
-                            *[fully_quantum_register.get_fully_quantum_register() for fully_quantum_register in
+                            *[quantum_register.get_qiskit_quantum_register() for quantum_register in self.qiskrypt_quantum_registers],
+                            *[fully_quantum_register.get_qiskit_fully_quantum_register() for fully_quantum_register in
                               self.qiskrypt_fully_quantum_registers],
-                            *[ancilla_semi_quantum_register.get_ancilla_semi_quantum_register() for
+                            *[ancilla_semi_quantum_register.get_qiskit_ancilla_semi_quantum_register() for
                               ancilla_semi_quantum_register in self.qiskrypt_ancilla_semi_quantum_registers],
-                            *[classical_register.get_classical_register() for classical_register in
+                            *[classical_register.get_qiskit_classical_register() for classical_register in
                               self.qiskrypt_classical_registers],
                             name=name, global_phase=global_phase)
                     """
@@ -3098,16 +3097,16 @@ class QiskryptQuantumCircuit:
                     Set the global phase of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.quantum_circuit = \
+                    self.qiskit_quantum_circuit = \
                         QuantumCircuit(
-                            *[quantum_register.get_quantum_register() for quantum_register in self.qiskrypt_quantum_registers],
-                            *[fully_quantum_register.get_fully_quantum_register() for fully_quantum_register in
+                            *[quantum_register.get_qiskit_quantum_register() for quantum_register in self.qiskrypt_quantum_registers],
+                            *[fully_quantum_register.get_qiskit_fully_quantum_register() for fully_quantum_register in
                               self.qiskrypt_fully_quantum_registers],
-                            *[semi_quantum_register.get_semi_quantum_register() for semi_quantum_register in
+                            *[semi_quantum_register.get_qiskit_semi_quantum_register() for semi_quantum_register in
                               self.qiskrypt_semi_quantum_registers],
-                            *[ancilla_quantum_register.get_ancilla_quantum_register() for ancilla_quantum_register in
+                            *[ancilla_quantum_register.get_qiskit_ancilla_quantum_register() for ancilla_quantum_register in
                               self.qiskrypt_ancilla_quantum_registers],
-                            *[classical_register.get_classical_register() for classical_register in
+                            *[classical_register.get_qiskit_classical_register() for classical_register in
                               self.qiskrypt_classical_registers],
                             name=name, global_phase=global_phase)
                     """
@@ -3282,16 +3281,16 @@ class QiskryptQuantumCircuit:
                     Set the global phase of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.quantum_circuit = \
+                    self.qiskit_quantum_circuit = \
                         QuantumCircuit(
-                            *[quantum_register.get_quantum_register() for quantum_register in self.qiskrypt_quantum_registers],
-                            *[fully_quantum_register.get_fully_quantum_register() for fully_quantum_register in
+                            *[quantum_register.get_qiskit_quantum_register() for quantum_register in self.qiskrypt_quantum_registers],
+                            *[fully_quantum_register.get_qiskit_fully_quantum_register() for fully_quantum_register in
                               self.qiskrypt_fully_quantum_registers],
-                            *[semi_quantum_register.get_semi_quantum_register() for semi_quantum_register in
+                            *[semi_quantum_register.get_qiskit_semi_quantum_register() for semi_quantum_register in
                               self.qiskrypt_semi_quantum_registers],
-                            *[ancilla_fully_quantum_register.get_ancilla_fully_quantum_register() for
+                            *[ancilla_fully_quantum_register.get_qiskit_ancilla_fully_quantum_register() for
                               ancilla_fully_quantum_register in self.qiskrypt_ancilla_fully_quantum_registers],
-                            *[classical_register.get_classical_register() for classical_register in
+                            *[classical_register.get_qiskit_classical_register() for classical_register in
                               self.qiskrypt_classical_registers],
                             name=name, global_phase=global_phase)
                     """
@@ -3466,16 +3465,16 @@ class QiskryptQuantumCircuit:
                     Set the global phase of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.quantum_circuit = \
+                    self.qiskit_quantum_circuit = \
                         QuantumCircuit(
-                            *[quantum_register.get_quantum_register() for quantum_register in self.qiskrypt_quantum_registers],
-                            *[fully_quantum_register.get_fully_quantum_register() for fully_quantum_register in
+                            *[quantum_register.get_qiskit_quantum_register() for quantum_register in self.qiskrypt_quantum_registers],
+                            *[fully_quantum_register.get_qiskit_fully_quantum_register() for fully_quantum_register in
                               self.qiskrypt_fully_quantum_registers],
-                            *[semi_quantum_register.get_semi_quantum_register() for semi_quantum_register in
+                            *[semi_quantum_register.get_qiskit_semi_quantum_register() for semi_quantum_register in
                               self.qiskrypt_semi_quantum_registers],
-                            *[ancilla_semi_quantum_register.get_ancilla_semi_quantum_register() for
+                            *[ancilla_semi_quantum_register.get_qiskit_ancilla_semi_quantum_register() for
                               ancilla_semi_quantum_register in self.qiskrypt_ancilla_semi_quantum_registers],
-                            *[classical_register.get_classical_register() for classical_register in
+                            *[classical_register.get_qiskit_classical_register() for classical_register in
                               self.qiskrypt_classical_registers],
                             name=name, global_phase=global_phase)
                     """
@@ -3671,18 +3670,18 @@ class QiskryptQuantumCircuit:
                     Set the global phase of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.quantum_circuit = \
+                    self.qiskit_quantum_circuit = \
                         QuantumCircuit(
-                            *[quantum_register.get_quantum_register() for quantum_register in self.qiskrypt_quantum_registers],
-                            *[fully_quantum_register.get_fully_quantum_register() for fully_quantum_register in
+                            *[quantum_register.get_qiskit_quantum_register() for quantum_register in self.qiskrypt_quantum_registers],
+                            *[fully_quantum_register.get_qiskit_fully_quantum_register() for fully_quantum_register in
                               self.qiskrypt_fully_quantum_registers],
-                            *[semi_quantum_register.get_semi_quantum_register() for semi_quantum_register in
+                            *[semi_quantum_register.get_qiskit_semi_quantum_register() for semi_quantum_register in
                               self.qiskrypt_semi_quantum_registers],
-                            *[ancilla_quantum_register.get_ancilla_quantum_register() for ancilla_quantum_register in
+                            *[ancilla_quantum_register.get_qiskit_ancilla_quantum_register() for ancilla_quantum_register in
                               self.qiskrypt_ancilla_quantum_registers],
-                            *[ancilla_fully_quantum_register.get_ancilla_fully_quantum_register() for
+                            *[ancilla_fully_quantum_register.get_qiskit_ancilla_fully_quantum_register() for
                               ancilla_fully_quantum_register in self.qiskrypt_ancilla_fully_quantum_registers],
-                            *[classical_register.get_classical_register() for classical_register in
+                            *[classical_register.get_qiskit_classical_register() for classical_register in
                               self.qiskrypt_classical_registers],
                             name=name, global_phase=global_phase)
                     """
@@ -3878,18 +3877,18 @@ class QiskryptQuantumCircuit:
                     Set the global phase of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.quantum_circuit = \
+                    self.qiskit_quantum_circuit = \
                         QuantumCircuit(
-                            *[quantum_register.get_quantum_register() for quantum_register in self.qiskrypt_quantum_registers],
-                            *[fully_quantum_register.get_fully_quantum_register() for fully_quantum_register in
+                            *[quantum_register.get_qiskit_quantum_register() for quantum_register in self.qiskrypt_quantum_registers],
+                            *[fully_quantum_register.get_qiskit_fully_quantum_register() for fully_quantum_register in
                               self.qiskrypt_fully_quantum_registers],
-                            *[semi_quantum_register.get_semi_quantum_register() for semi_quantum_register in
+                            *[semi_quantum_register.get_qiskit_semi_quantum_register() for semi_quantum_register in
                               self.qiskrypt_semi_quantum_registers],
-                            *[ancilla_quantum_register.get_ancilla_quantum_register() for ancilla_quantum_register in
+                            *[ancilla_quantum_register.get_qiskit_ancilla_quantum_register() for ancilla_quantum_register in
                               self.qiskrypt_ancilla_quantum_registers],
-                            *[ancilla_semi_quantum_register.get_ancilla_semi_quantum_register() for
+                            *[ancilla_semi_quantum_register.get_qiskit_ancilla_semi_quantum_register() for
                               ancilla_semi_quantum_register in self.qiskrypt_ancilla_semi_quantum_registers],
-                            *[classical_register.get_classical_register() for classical_register in
+                            *[classical_register.get_qiskit_classical_register() for classical_register in
                               self.qiskrypt_classical_registers],
                             name=name, global_phase=global_phase)
                     """
@@ -4104,20 +4103,20 @@ class QiskryptQuantumCircuit:
                     Set the global phase of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.quantum_circuit = \
+                    self.qiskit_quantum_circuit = \
                         QuantumCircuit(
-                            *[quantum_register.get_quantum_register() for quantum_register in self.qiskrypt_quantum_registers],
-                            *[fully_quantum_register.get_fully_quantum_register() for fully_quantum_register in
+                            *[quantum_register.get_qiskit_quantum_register() for quantum_register in self.qiskrypt_quantum_registers],
+                            *[fully_quantum_register.get_qiskit_fully_quantum_register() for fully_quantum_register in
                               self.qiskrypt_fully_quantum_registers],
-                            *[semi_quantum_register.get_semi_quantum_register() for semi_quantum_register in
+                            *[semi_quantum_register.get_qiskit_semi_quantum_register() for semi_quantum_register in
                               self.qiskrypt_semi_quantum_registers],
-                            *[ancilla_quantum_register.get_ancilla_quantum_register() for ancilla_quantum_register in
+                            *[ancilla_quantum_register.get_qiskit_ancilla_quantum_register() for ancilla_quantum_register in
                               self.qiskrypt_ancilla_quantum_registers],
-                            *[ancilla_fully_quantum_register.get_ancilla_fully_quantum_register() for
+                            *[ancilla_fully_quantum_register.get_qiskit_ancilla_fully_quantum_register() for
                               ancilla_fully_quantum_register in self.qiskrypt_ancilla_fully_quantum_registers],
-                            *[ancilla_semi_quantum_register.get_ancilla_semi_quantum_register() for
+                            *[ancilla_semi_quantum_register.get_qiskit_ancilla_semi_quantum_register() for
                               ancilla_semi_quantum_register in self.qiskrypt_ancilla_semi_quantum_registers],
-                            *[classical_register.get_classical_register() for classical_register in
+                            *[classical_register.get_qiskit_classical_register() for classical_register in
                               self.qiskrypt_classical_registers],
                             name=name, global_phase=global_phase)
                     """
@@ -4260,7 +4259,7 @@ class QiskryptQuantumCircuit:
             Set the Qiskrypt's Classical Registers from the respective list of them.
             """
 
-            self.quantum_circuit = qiskit_quantum_circuit
+            self.qiskit_quantum_circuit = qiskit_quantum_circuit
             """
             Set the given IBM's Qiskit Quantum Circuit of the Qiskrypt's Quantum Circuit.
             """
@@ -4853,7 +4852,7 @@ class QiskryptQuantumCircuit:
         """
         Return the total number of qubits of the Qiskrypt's Quantum Circuit.
         """
-        return self.quantum_circuit.num_qubits
+        return self.qiskit_quantum_circuit.num_qubits
 
     def get_total_num_bits(self) -> int:
         """
@@ -4866,7 +4865,7 @@ class QiskryptQuantumCircuit:
         """
         Return the total number of bits of the Qiskrypt's Quantum Circuit.
         """
-        return self.quantum_circuit.num_clbits
+        return self.qiskit_quantum_circuit.num_clbits
 
     def get_num_qubits_in_qiskit_quantum_register(self, qiskit_quantum_register_index: int) -> int:
         """
@@ -4882,7 +4881,7 @@ class QiskryptQuantumCircuit:
         """
         Return the number of qubits in a given IBM Qiskit's Quantum Register of the Qiskrypt's Quantum Circuit.
         """
-        return self.quantum_circuit.qregs[qiskit_quantum_register_index].size
+        return self.qiskit_quantum_circuit.qregs[qiskit_quantum_register_index].size
 
     def get_num_bits_in_qiskit_classical_register(self, qiskit_classical_register_index: int) -> int:
         """
@@ -4898,7 +4897,7 @@ class QiskryptQuantumCircuit:
         """
         Return the number of bits in a given IBM Qiskit's Classical Register of the Qiskrypt's Quantum Circuit.
         """
-        return self.quantum_circuit.cregs[qiskit_classical_register_index].size
+        return self.qiskit_quantum_circuit.cregs[qiskit_classical_register_index].size
 
     def get_reversed_qiskit_quantum_circuit_operations(self) -> QuantumCircuit:
         """
@@ -4915,7 +4914,7 @@ class QiskryptQuantumCircuit:
         the Qiskrypt's Quantum Circuit
         (i.e., with the reversed order of Quantum Gates/Operations).
         """
-        return self.quantum_circuit.reverse_ops()
+        return self.qiskit_quantum_circuit.reverse_ops()
 
     def get_qiskit_quantum_circuit_with_reversed_wires_order(self) -> QuantumCircuit:
         """
@@ -4933,7 +4932,7 @@ class QiskryptQuantumCircuit:
         the Qiskrypt's Quantum Circuit, with the reversed order of wires
         (i.e., the IBM Qiskit's Quantum Circuit is "vertically" flipped).
         """
-        return self.quantum_circuit.reverse_bits()
+        return self.qiskit_quantum_circuit.reverse_bits()
 
     def get_inverted_qiskit_quantum_circuit(self) -> QuantumCircuit:
         """
@@ -4952,7 +4951,7 @@ class QiskryptQuantumCircuit:
         (i.e., with the reversed order of the Quantum Gates/Operations
          and setting the symmetric values given for their parameters).
         """
-        return self.quantum_circuit.inverse()
+        return self.qiskit_quantum_circuit.inverse()
 
     def get_repeated_qiskit_quantum_circuit(self, num_repetitions: int) -> QuantumCircuit:
         """
@@ -4971,7 +4970,7 @@ class QiskryptQuantumCircuit:
         Return the IBM Qiskit's Quantum Circuit of
         the Qiskrypt's Quantum Circuit a given number of repetitions.
         """
-        return self.quantum_circuit.repeat(num_repetitions)
+        return self.qiskit_quantum_circuit.repeat(num_repetitions)
 
     def get_powered_qiskit_quantum_circuit(self, power: int, is_to_compute_matrix_power=False) -> QuantumCircuit:
         """
@@ -4995,7 +4994,7 @@ class QiskryptQuantumCircuit:
         Return the IBM Qiskit's Quantum Circuit of
         the Qiskrypt's Quantum Circuit raised to a given power term.
         """
-        return self.quantum_circuit.power(power, is_to_compute_matrix_power)
+        return self.qiskit_quantum_circuit.power(power, is_to_compute_matrix_power)
 
     def combine_qiskrypt_quantum_circuit(self, quantum_circuit_new_name: str,
                                          other_qiskrypt_quantum_circuit: QiskryptQuantumCircuit,
@@ -5025,18 +5024,18 @@ class QiskryptQuantumCircuit:
                                                                         only by a Fully-Quantum.
         """
 
-        if qiskit_quantum_register_index < len(self.quantum_circuit.qregs):
+        if qiskit_quantum_register_index < len(self.qiskit_quantum_circuit.qregs):
             """
             If the given index of the IBM Qiskit's Quantum Register is valid.
             """
 
-            if qubit_index < self.quantum_circuit.qregs[qiskit_quantum_register_index].size:
+            if qubit_index < self.qiskit_quantum_circuit.qregs[qiskit_quantum_register_index].size:
                 """
                 If the given index of the qubit in the given IBM Qiskit's Quantum Register is also valid.
                 """
 
                 has_qiskrypt_register, qiskrypt_register = \
-                    self.find_qiskrypt_register_by_name(self.quantum_circuit.qregs[qiskit_quantum_register_index].name)
+                    self.find_qiskrypt_register_by_name(self.qiskit_quantum_circuit.qregs[qiskit_quantum_register_index].name)
                 """
                 Find and retrieve the Qiskrypt's Register in the Qiskrypt's Quantum Circuit, given its name.
                 """
@@ -5142,18 +5141,18 @@ class QiskryptQuantumCircuit:
         :param bit_index: index of a bit inside that IBM Qiskit's Classical Register.
         """
 
-        if qiskit_quantum_register_index < len(self.quantum_circuit.qregs):
+        if qiskit_quantum_register_index < len(self.qiskit_quantum_circuit.qregs):
             """
             If the given index of the IBM Qiskit's Quantum Register is valid.
             """
 
-            if qubit_index < self.quantum_circuit.qregs[qiskit_quantum_register_index].size:
+            if qubit_index < self.qiskit_quantum_circuit.qregs[qiskit_quantum_register_index].size:
                 """
                 If the given index of the qubit in the given IBM Qiskit's Quantum Register is also valid.
                 """
 
                 has_qiskrypt_quantum_register, qiskrypt_quantum_register = \
-                    self.find_qiskrypt_register_by_name(self.quantum_circuit.qregs[qiskit_quantum_register_index].name)
+                    self.find_qiskrypt_register_by_name(self.qiskit_quantum_circuit.qregs[qiskit_quantum_register_index].name)
                 """
                 Find and retrieve the Qiskrypt's Quantum Register in the Qiskrypt's Quantum Circuit, given its name.
                 """
@@ -5164,18 +5163,18 @@ class QiskryptQuantumCircuit:
                     the Qiskrypt's Quantum Circuit, with the given name.
                     """
 
-                    if qiskit_classical_register_index < len(self.quantum_circuit.cregs):
+                    if qiskit_classical_register_index < len(self.qiskit_quantum_circuit.cregs):
                         """
                         If the given index of the IBM Qiskit's Classical Register is valid.
                         """
 
-                        if bit_index < self.quantum_circuit.cregs[qiskit_classical_register_index].size:
+                        if bit_index < self.qiskit_quantum_circuit.cregs[qiskit_classical_register_index].size:
                             """
                             If the given index of the bit in the given IBM Qiskit's Classical Register is also valid.
                             """
 
                             has_qiskrypt_classical_register, qiskrypt_classical_register = \
-                                self.find_qiskrypt_register_by_name(self.quantum_circuit.cregs[qiskit_classical_register_index].name)
+                                self.find_qiskrypt_register_by_name(self.qiskit_quantum_circuit.cregs[qiskit_classical_register_index].name)
                             """
                             Find and retrieve the Qiskrypt's Classical Register in
                             the Qiskrypt's Quantum Circuit, given its name.
@@ -5246,7 +5245,7 @@ class QiskryptQuantumCircuit:
             It is possible to apply the pretended operation.
             """
 
-            self.quantum_circuit.barrier(self.quantum_circuit.qregs[qiskit_quantum_register_index][qubit_index])
+            self.qiskit_quantum_circuit.barrier(self.qiskit_quantum_circuit.qregs[qiskit_quantum_register_index][qubit_index])
             """
             Apply the Barrier Operation to the given qubit of the given IBM Qiskit's Quantum Register. 
             """
@@ -5261,7 +5260,7 @@ class QiskryptQuantumCircuit:
         :param qubits_indexes: the list of indexes of qubits inside that IBM Qiskit's Quantum Register.
         """
 
-        if qiskit_quantum_register_index < len(self.quantum_circuit.qregs):
+        if qiskit_quantum_register_index < len(self.qiskit_quantum_circuit.qregs):
             """
             If the given index of the IBM Qiskit's Quantum Register is valid.
             """
@@ -5276,7 +5275,7 @@ class QiskryptQuantumCircuit:
             Retrieve the maximum index value of the list of indexes of qubits.
             """
 
-            if max_qubit_index < self.quantum_circuit.qregs[qiskit_quantum_register_index].size:
+            if max_qubit_index < self.qiskit_quantum_circuit.qregs[qiskit_quantum_register_index].size:
                 """
                 If the maximum index value of the list of indexes of qubits in
                 the given IBM Qiskit's Quantum Register is also valid.
@@ -5322,12 +5321,12 @@ class QiskryptQuantumCircuit:
         :param qiskit_quantum_register_index: the index of an IBM Qiskit's Quantum Register.
         """
 
-        if qiskit_quantum_register_index < len(self.quantum_circuit.qregs):
+        if qiskit_quantum_register_index < len(self.qiskit_quantum_circuit.qregs):
             """
             If the given index of the IBM Qiskit's Quantum Register is valid.
             """
 
-            qiskit_quantum_register = self.quantum_circuit.qregs[qiskit_quantum_register_index]
+            qiskit_quantum_register = self.qiskit_quantum_circuit.qregs[qiskit_quantum_register_index]
             """
             Retrieve the IBM Qiskit's Quantum Register, from the given index.
             """
@@ -5366,7 +5365,7 @@ class QiskryptQuantumCircuit:
         :param qubits_indexes: the list of indexes of qubits inside all the IBM Qiskit's Quantum Registers.
         """
 
-        num_total_qiskit_quantum_registers = len(self.quantum_circuit.qregs)
+        num_total_qiskit_quantum_registers = len(self.qiskit_quantum_circuit.qregs)
         """
         Retrieve the total number of IBM Qiskit's Quantum Registers
         in the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit.
@@ -5391,7 +5390,7 @@ class QiskryptQuantumCircuit:
         the Qiskrypt's Quantum Circuit.
         """
 
-        num_total_qiskit_quantum_registers = len(self.quantum_circuit.qregs)
+        num_total_qiskit_quantum_registers = len(self.qiskit_quantum_circuit.qregs)
         """
         Retrieve the total number of IBM Qiskit's Quantum Registers
         in the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit.
@@ -5429,7 +5428,7 @@ class QiskryptQuantumCircuit:
             It is possible to apply the pretended operation.
             """
 
-            self.quantum_circuit.reset(self.quantum_circuit.qregs[quantum_register_index][qubit_index])
+            self.qiskit_quantum_circuit.reset(self.qiskit_quantum_circuit.qregs[quantum_register_index][qubit_index])
             """
             Reset the qubit of the given IBM Qiskit's Quantum Register and the current qubit index. 
             """
@@ -5444,7 +5443,7 @@ class QiskryptQuantumCircuit:
         :param qubits_indexes: the list of indexes of qubits inside that IBM Qiskit's Quantum Register.
         """
 
-        if qiskit_quantum_register_index < len(self.quantum_circuit.qregs):
+        if qiskit_quantum_register_index < len(self.qiskit_quantum_circuit.qregs):
             """
             If the given index of the IBM Qiskit's Quantum Register is valid.
             """
@@ -5459,7 +5458,7 @@ class QiskryptQuantumCircuit:
             Retrieve the maximum index value of the list of indexes of qubits.
             """
 
-            if max_qubit_index < self.quantum_circuit.qregs[qiskit_quantum_register_index].size:
+            if max_qubit_index < self.qiskit_quantum_circuit.qregs[qiskit_quantum_register_index].size:
                 """
                 If the maximum index value of the list of indexes of qubits in
                 the given IBM Qiskit's Quantum Register is also valid.
@@ -5504,12 +5503,12 @@ class QiskryptQuantumCircuit:
         :param qiskit_quantum_register_index: the index of an IBM Qiskit's Quantum Register.
         """
 
-        if qiskit_quantum_register_index < len(self.quantum_circuit.qregs):
+        if qiskit_quantum_register_index < len(self.qiskit_quantum_circuit.qregs):
             """
             If the given index of the IBM Qiskit's Quantum Register is valid.
             """
 
-            qiskit_quantum_register = self.quantum_circuit.qregs[qiskit_quantum_register_index]
+            qiskit_quantum_register = self.qiskit_quantum_circuit.qregs[qiskit_quantum_register_index]
             """
             Retrieve the IBM Qiskit's Quantum Register, from the given index.
             """
@@ -5548,7 +5547,7 @@ class QiskryptQuantumCircuit:
         :param qubits_indexes: the list of indexes of qubits inside all the IBM Qiskit's Quantum Registers.
         """
 
-        num_total_qiskit_quantum_registers = len(self.quantum_circuit.qregs)
+        num_total_qiskit_quantum_registers = len(self.qiskit_quantum_circuit.qregs)
         """
         Retrieve the total number of IBM Qiskit's Quantum Registers
         in the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit.
@@ -5571,7 +5570,7 @@ class QiskryptQuantumCircuit:
         in the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit.
         """
 
-        num_total_qiskit_quantum_registers = len(self.quantum_circuit.qregs)
+        num_total_qiskit_quantum_registers = len(self.qiskit_quantum_circuit.qregs)
         """
         Retrieve the total number of IBM Qiskit's Quantum Registers
         in the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit.
@@ -5620,8 +5619,8 @@ class QiskryptQuantumCircuit:
             It is possible to measure the pretended qubit into the pretended bit.
             """
 
-            self.quantum_circuit.measure(self.quantum_circuit.qregs[qiskit_quantum_register_index][qubit_index],
-                                         self.quantum_circuit.cregs[qiskit_classical_register_index][bit_index])
+            self.qiskit_quantum_circuit.measure(self.qiskit_quantum_circuit.qregs[qiskit_quantum_register_index][qubit_index],
+                                                self.qiskit_quantum_circuit.cregs[qiskit_classical_register_index][bit_index])
             """
             Measure the given qubit of the given IBM Qiskit's Quantum Register into
             the given bit of the given IBM Qiskit's Classical Register. 
@@ -5642,7 +5641,7 @@ class QiskryptQuantumCircuit:
         :param bits_indexes: the list of indexes of bits inside that IBM Qiskit's Classical Register.
         """
 
-        if qiskit_quantum_register_index < len(self.quantum_circuit.qregs):
+        if qiskit_quantum_register_index < len(self.qiskit_quantum_circuit.qregs):
             """
             If the given index of the IBM Qiskit's Quantum Register is valid.
             """
@@ -5657,13 +5656,13 @@ class QiskryptQuantumCircuit:
             Retrieve the maximum index value of the list of indexes of qubits.
             """
 
-            if max_qubit_index < self.quantum_circuit.qregs[qiskit_quantum_register_index].size:
+            if max_qubit_index < self.qiskit_quantum_circuit.qregs[qiskit_quantum_register_index].size:
                 """
                 If the maximum index value of the list of indexes of qubits in
                 the given IBM Qiskit's Quantum Register is also valid.
                 """
 
-                if qiskit_classical_register_index < len(self.quantum_circuit.cregs):
+                if qiskit_classical_register_index < len(self.qiskit_quantum_circuit.cregs):
                     """
                     If the given index of the IBM Qiskit's Classical Register is valid.
                     """
@@ -5678,7 +5677,7 @@ class QiskryptQuantumCircuit:
                     Retrieve the maximum index value of the list of indexes of bits.
                     """
 
-                    if max_bit_index < self.quantum_circuit.cregs[qiskit_classical_register_index].size:
+                    if max_bit_index < self.qiskit_quantum_circuit.cregs[qiskit_classical_register_index].size:
                         """
                         If the maximum index value of the list of indexes of bits in
                         the given IBM Qiskit's Classical Register is also valid.
@@ -5769,22 +5768,22 @@ class QiskryptQuantumCircuit:
         :param qiskit_classical_register_index: the index of an IBM Qiskit's Classical Register.
         """
 
-        if qiskit_quantum_register_index < len(self.quantum_circuit.qregs):
+        if qiskit_quantum_register_index < len(self.qiskit_quantum_circuit.qregs):
             """
             If the given index of the IBM Qiskit's Quantum Register is valid.
             """
 
-            if qiskit_classical_register_index < len(self.quantum_circuit.cregs):
+            if qiskit_classical_register_index < len(self.qiskit_quantum_circuit.cregs):
                 """
                 If the given index of the IBM Qiskit's Classical Register is valid.
                 """
 
-                num_qubits_qiskit_quantum_register = self.quantum_circuit.qregs[qiskit_quantum_register_index].size
+                num_qubits_qiskit_quantum_register = self.qiskit_quantum_circuit.qregs[qiskit_quantum_register_index].size
                 """
                 Retrieve the number of qubits in the given IBM Qiskit's Quantum Register inside the IBM Qiskit's Quantum Circuit.
                 """
 
-                num_bits_qiskit_classical_register = self.quantum_circuit.cregs[qiskit_classical_register_index].size
+                num_bits_qiskit_classical_register = self.qiskit_quantum_circuit.cregs[qiskit_classical_register_index].size
                 """
                 Retrieve the number of bits in the given IBM Qiskit's Classical Register inside the IBM Qiskit's Quantum Circuit.
                 """
@@ -5868,13 +5867,13 @@ class QiskryptQuantumCircuit:
         :param bits_indexes: the list of indexes of bits inside all the IBM Qiskit's Classical Registers.
         """
 
-        num_total_qiskit_quantum_registers = len(self.quantum_circuit.qregs)
+        num_total_qiskit_quantum_registers = len(self.qiskit_quantum_circuit.qregs)
         """
         Retrieve the total number of IBM Qiskit's Quantum Registers
         in the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit.
         """
 
-        num_total_qiskit_classical_registers = len(self.quantum_circuit.cregs)
+        num_total_qiskit_classical_registers = len(self.qiskit_quantum_circuit.cregs)
         """
         Retrieve the total number of IBM Qiskit's Classical Registers
         in the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit.
@@ -5968,13 +5967,13 @@ class QiskryptQuantumCircuit:
         the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit.
         """
 
-        num_total_qiskit_quantum_registers = len(self.quantum_circuit.qregs)
+        num_total_qiskit_quantum_registers = len(self.qiskit_quantum_circuit.qregs)
         """
         Retrieve the total number of IBM Qiskit's Quantum Registers
         in the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit.
         """
 
-        num_total_qiskit_classical_registers = len(self.quantum_circuit.cregs)
+        num_total_qiskit_classical_registers = len(self.qiskit_quantum_circuit.cregs)
         """
         Retrieve the total number of IBM Qiskit's Classical Registers
         in the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit.
@@ -6029,7 +6028,7 @@ class QiskryptQuantumCircuit:
         using the predefined "measure_all()" method of the IBM Qiskit's Quantum Circuit.
         """
 
-        self.quantum_circuit.measure_all()
+        self.qiskit_quantum_circuit.measure_all()
         """
         Measure all the qubits in some available IBM Qiskit's Quantum Register(s) into
         another all the of bits in an IBM Qiskit's Classical Register(s).
@@ -6254,7 +6253,7 @@ class QiskryptQuantumCircuit:
                                      in the Computational Basis (Z-Basis), after being prepared in the X-Basis.
         """
 
-        if qiskit_quantum_register_index < len(self.quantum_circuit.qregs):
+        if qiskit_quantum_register_index < len(self.qiskit_quantum_circuit.qregs):
             """
             If the given index of the IBM Qiskit's Quantum Register is valid.
             """
@@ -6269,13 +6268,13 @@ class QiskryptQuantumCircuit:
             Retrieve the maximum index value of the list of indexes of qubits.
             """
 
-            if max_qubit_index < self.quantum_circuit.qregs[qiskit_quantum_register_index].size:
+            if max_qubit_index < self.qiskit_quantum_circuit.qregs[qiskit_quantum_register_index].size:
                 """
                 If the maximum index value of the list of indexes of qubits in
                 the given IBM Qiskit's Quantum Register is also valid.
                 """
 
-                if qiskit_classical_register_index < len(self.quantum_circuit.cregs):
+                if qiskit_classical_register_index < len(self.qiskit_quantum_circuit.cregs):
                     """
                     If the given index of the IBM Qiskit's Classical Register is valid.
                     """
@@ -6290,7 +6289,7 @@ class QiskryptQuantumCircuit:
                     Retrieve the maximum index value of the list of indexes of bits.
                     """
 
-                    if max_bit_index < self.quantum_circuit.cregs[qiskit_classical_register_index].size:
+                    if max_bit_index < self.qiskit_quantum_circuit.cregs[qiskit_classical_register_index].size:
                         """
                         If the maximum index value of the list of indexes of bits in
                         the given IBM Qiskit's Classical Register is also valid.
@@ -6395,7 +6394,7 @@ class QiskryptQuantumCircuit:
                                      in the Computational Basis (Z-Basis), after being prepared in the Y-Basis.
         """
 
-        if qiskit_quantum_register_index < len(self.quantum_circuit.qregs):
+        if qiskit_quantum_register_index < len(self.qiskit_quantum_circuit.qregs):
             """
             If the given index of the IBM Qiskit's Quantum Register is valid.
             """
@@ -6410,13 +6409,13 @@ class QiskryptQuantumCircuit:
             Retrieve the maximum index value of the list of indexes of qubits.
             """
 
-            if max_qubit_index < self.quantum_circuit.qregs[qiskit_quantum_register_index].size:
+            if max_qubit_index < self.qiskit_quantum_circuit.qregs[qiskit_quantum_register_index].size:
                 """
                 If the maximum index value of the list of indexes of qubits in
                 the given IBM Qiskit's Quantum Register is also valid.
                 """
 
-                if qiskit_classical_register_index < len(self.quantum_circuit.cregs):
+                if qiskit_classical_register_index < len(self.qiskit_quantum_circuit.cregs):
                     """
                     If the given index of the IBM Qiskit's Classical Register is valid.
                     """
@@ -6431,7 +6430,7 @@ class QiskryptQuantumCircuit:
                     Retrieve the maximum index value of the list of indexes of bits.
                     """
 
-                    if max_bit_index < self.quantum_circuit.cregs[qiskit_classical_register_index].size:
+                    if max_bit_index < self.qiskit_quantum_circuit.cregs[qiskit_classical_register_index].size:
                         """
                         If the maximum index value of the list of indexes of bits in
                         the given IBM Qiskit's Classical Register is also valid.
@@ -6536,7 +6535,7 @@ class QiskryptQuantumCircuit:
                                      in the Computational Basis (Z-Basis), after being prepared in the Z-Basis.
         """
 
-        if qiskit_quantum_register_index < len(self.quantum_circuit.qregs):
+        if qiskit_quantum_register_index < len(self.qiskit_quantum_circuit.qregs):
             """
             If the given index of the IBM Qiskit's Quantum Register is valid.
             """
@@ -6551,13 +6550,13 @@ class QiskryptQuantumCircuit:
             Retrieve the maximum index value of the list of indexes of qubits.
             """
 
-            if max_qubit_index < self.quantum_circuit.qregs[qiskit_quantum_register_index].size:
+            if max_qubit_index < self.qiskit_quantum_circuit.qregs[qiskit_quantum_register_index].size:
                 """
                 If the maximum index value of the list of indexes of qubits in
                 the given IBM Qiskit's Quantum Register is also valid.
                 """
 
-                if qiskit_classical_register_index < len(self.quantum_circuit.cregs):
+                if qiskit_classical_register_index < len(self.qiskit_quantum_circuit.cregs):
                     """
                     If the given index of the IBM Qiskit's Classical Register is valid.
                     """
@@ -6572,7 +6571,7 @@ class QiskryptQuantumCircuit:
                     Retrieve the maximum index value of the list of indexes of bits.
                     """
 
-                    if max_bit_index < self.quantum_circuit.cregs[qiskit_classical_register_index].size:
+                    if max_bit_index < self.qiskit_quantum_circuit.cregs[qiskit_classical_register_index].size:
                         """
                         If the maximum index value of the list of indexes of bits in
                         the given IBM Qiskit's Classical Register is also valid.
@@ -6673,23 +6672,23 @@ class QiskryptQuantumCircuit:
                                      in the Computational Basis (Z-Basis), after being prepared in the X-Basis.
         """
 
-        if qiskit_quantum_register_index < len(self.quantum_circuit.qregs):
+        if qiskit_quantum_register_index < len(self.qiskit_quantum_circuit.qregs):
             """
             If the given index of the IBM Qiskit's Quantum Register is valid.
             """
 
-            if qiskit_classical_register_index < len(self.quantum_circuit.cregs):
+            if qiskit_classical_register_index < len(self.qiskit_quantum_circuit.cregs):
                 """
                 If the given index of the IBM Qiskit's Classical Register is valid.
                 """
 
-                num_qubits_qiskit_quantum_register = self.quantum_circuit.qregs[qiskit_quantum_register_index].size
+                num_qubits_qiskit_quantum_register = self.qiskit_quantum_circuit.qregs[qiskit_quantum_register_index].size
                 """
                 Retrieve the number of qubits in the given IBM Qiskit's Quantum Register inside
                 the IBM Qiskit's Quantum Circuit.
                 """
 
-                num_bits_qiskit_classical_register = self.quantum_circuit.cregs[qiskit_classical_register_index].size
+                num_bits_qiskit_classical_register = self.qiskit_quantum_circuit.cregs[qiskit_classical_register_index].size
                 """
                 Retrieve the number of bits in the given IBM Qiskit's Classical Register inside
                 the IBM Qiskit's Quantum Circuit.
@@ -6782,23 +6781,23 @@ class QiskryptQuantumCircuit:
                                      in the Computational Basis (Z-Basis), after being prepared in the Y-Basis.
         """
 
-        if qiskit_quantum_register_index < len(self.quantum_circuit.qregs):
+        if qiskit_quantum_register_index < len(self.qiskit_quantum_circuit.qregs):
             """
             If the given index of the IBM Qiskit's Quantum Register is valid.
             """
 
-            if qiskit_classical_register_index < len(self.quantum_circuit.cregs):
+            if qiskit_classical_register_index < len(self.qiskit_quantum_circuit.cregs):
                 """
                 If the given index of the IBM Qiskit's Classical Register is valid.
                 """
 
-                num_qubits_qiskit_quantum_register = self.quantum_circuit.qregs[qiskit_quantum_register_index].size
+                num_qubits_qiskit_quantum_register = self.qiskit_quantum_circuit.qregs[qiskit_quantum_register_index].size
                 """
                 Retrieve the number of qubits in the given IBM Qiskit's Quantum Register inside
                 the IBM Qiskit's Quantum Circuit.
                 """
 
-                num_bits_qiskit_classical_register = self.quantum_circuit.cregs[qiskit_classical_register_index].size
+                num_bits_qiskit_classical_register = self.qiskit_quantum_circuit.cregs[qiskit_classical_register_index].size
                 """
                 Retrieve the number of bits in the given IBM Qiskit's Classical Register inside
                 the IBM Qiskit's Quantum Circuit.
@@ -6891,23 +6890,23 @@ class QiskryptQuantumCircuit:
                                      in the Computational Basis (Z-Basis), after being prepared in the Z-Basis.
         """
 
-        if qiskit_quantum_register_index < len(self.quantum_circuit.qregs):
+        if qiskit_quantum_register_index < len(self.qiskit_quantum_circuit.qregs):
             """
             If the given index of the IBM Qiskit's Quantum Register is valid.
             """
 
-            if qiskit_classical_register_index < len(self.quantum_circuit.cregs):
+            if qiskit_classical_register_index < len(self.qiskit_quantum_circuit.cregs):
                 """
                 If the given index of the IBM Qiskit's Classical Register is valid.
                 """
 
-                num_qubits_qiskit_quantum_register = self.quantum_circuit.qregs[qiskit_quantum_register_index].size
+                num_qubits_qiskit_quantum_register = self.qiskit_quantum_circuit.qregs[qiskit_quantum_register_index].size
                 """
                 Retrieve the number of qubits in the given IBM Qiskit's Quantum Register inside
                 the IBM Qiskit's Quantum Circuit.
                 """
 
-                num_bits_qiskit_classical_register = self.quantum_circuit.cregs[qiskit_classical_register_index].size
+                num_bits_qiskit_classical_register = self.qiskit_quantum_circuit.cregs[qiskit_classical_register_index].size
                 """
                 Retrieve the number of bits in the given IBM Qiskit's Classical Register inside
                 the IBM Qiskit's Quantum Circuit.
@@ -7000,13 +6999,13 @@ class QiskryptQuantumCircuit:
                                      in the Computational Basis (Z-Basis), after being prepared in the X-Basis.
         """
 
-        num_total_qiskit_quantum_registers = len(self.quantum_circuit.qregs)
+        num_total_qiskit_quantum_registers = len(self.qiskit_quantum_circuit.qregs)
         """
         Retrieve the total number of IBM Qiskit's Quantum Registers
         in the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit.
         """
 
-        num_total_qiskit_classical_registers = len(self.quantum_circuit.cregs)
+        num_total_qiskit_classical_registers = len(self.qiskit_quantum_circuit.cregs)
         """
         Retrieve the total number of IBM Qiskit's Classical Registers
         in the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit.
@@ -7111,13 +7110,13 @@ class QiskryptQuantumCircuit:
                                      in the Computational Basis (Z-Basis), after being prepared in the Y-Basis.
         """
 
-        num_total_qiskit_quantum_registers = len(self.quantum_circuit.qregs)
+        num_total_qiskit_quantum_registers = len(self.qiskit_quantum_circuit.qregs)
         """
         Retrieve the total number of IBM Qiskit's Quantum Registers
         in the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit.
         """
 
-        num_total_qiskit_classical_registers = len(self.quantum_circuit.cregs)
+        num_total_qiskit_classical_registers = len(self.qiskit_quantum_circuit.cregs)
         """
         Retrieve the total number of IBM Qiskit's Classical Registers
         in the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit.
@@ -7222,13 +7221,13 @@ class QiskryptQuantumCircuit:
                                      in the Computational Basis (Z-Basis), after being prepared in the Z-Basis.
         """
 
-        num_total_qiskit_quantum_registers = len(self.quantum_circuit.qregs)
+        num_total_qiskit_quantum_registers = len(self.qiskit_quantum_circuit.qregs)
         """
         Retrieve the total number of IBM Qiskit's Quantum Registers
         in the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit.
         """
 
-        num_total_qiskit_classical_registers = len(self.quantum_circuit.cregs)
+        num_total_qiskit_classical_registers = len(self.qiskit_quantum_circuit.cregs)
         """
         Retrieve the total number of IBM Qiskit's Classical Registers
         in the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit.
@@ -7329,13 +7328,13 @@ class QiskryptQuantumCircuit:
                                      in the Computational Basis (Z-Basis), after being prepared in the X-Basis.
         """
 
-        num_total_qiskit_quantum_registers = len(self.quantum_circuit.qregs)
+        num_total_qiskit_quantum_registers = len(self.qiskit_quantum_circuit.qregs)
         """
         Retrieve the total number of IBM Qiskit's Quantum Registers
         in the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit.
         """
 
-        num_total_qiskit_classical_registers = len(self.quantum_circuit.cregs)
+        num_total_qiskit_classical_registers = len(self.qiskit_quantum_circuit.cregs)
         """
         Retrieve the total number of IBM Qiskit's Classical Registers
         in the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit.
@@ -7399,13 +7398,13 @@ class QiskryptQuantumCircuit:
                                      in the Computational Basis (Z-Basis), after being prepared in the Y-Basis.
         """
 
-        num_total_qiskit_quantum_registers = len(self.quantum_circuit.qregs)
+        num_total_qiskit_quantum_registers = len(self.qiskit_quantum_circuit.qregs)
         """
         Retrieve the total number of IBM Qiskit's Quantum Registers
         in the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit.
         """
 
-        num_total_qiskit_classical_registers = len(self.quantum_circuit.cregs)
+        num_total_qiskit_classical_registers = len(self.qiskit_quantum_circuit.cregs)
         """
         Retrieve the total number of IBM Qiskit's Classical Registers
         in the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit.
@@ -7469,13 +7468,13 @@ class QiskryptQuantumCircuit:
                                      in the Computational Basis (Z-Basis), after being prepared in the Z-Basis.
         """
 
-        num_total_qiskit_quantum_registers = len(self.quantum_circuit.qregs)
+        num_total_qiskit_quantum_registers = len(self.qiskit_quantum_circuit.qregs)
         """
         Retrieve the total number of IBM Qiskit's Quantum Registers
         in the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit.
         """
 
-        num_total_qiskit_classical_registers = len(self.quantum_circuit.cregs)
+        num_total_qiskit_classical_registers = len(self.qiskit_quantum_circuit.cregs)
         """
         Retrieve the total number of IBM Qiskit's Classical Registers
         in the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit.
@@ -7549,7 +7548,7 @@ class QiskryptQuantumCircuit:
             It is possible to apply the pretended operation.
             """
 
-            self.quantum_circuit.id(self.quantum_circuit.qregs[qiskit_quantum_register_index][qubit_index])
+            self.qiskit_quantum_circuit.id(self.qiskit_quantum_circuit.qregs[qiskit_quantum_register_index][qubit_index])
             """
             Apply the Pauli-I (Idle) Gate/Operation to the given qubit of the given IBM Qiskit's Quantum Register. 
             """
@@ -7574,7 +7573,7 @@ class QiskryptQuantumCircuit:
             It is possible to apply the pretended operation.
             """
 
-            self.quantum_circuit.x(self.quantum_circuit.qregs[qiskit_quantum_register_index][qubit_index])
+            self.qiskit_quantum_circuit.x(self.qiskit_quantum_circuit.qregs[qiskit_quantum_register_index][qubit_index])
             """
             Apply the Pauli-X (NOT/Bit Flip) Gate/Operation to the given qubit of the given IBM Qiskit's Quantum Register. 
             """
@@ -7599,7 +7598,7 @@ class QiskryptQuantumCircuit:
             It is possible to apply the pretended operation.
             """
 
-            self.quantum_circuit.y(self.quantum_circuit.qregs[qiskit_quantum_register_index][qubit_index])
+            self.qiskit_quantum_circuit.y(self.qiskit_quantum_circuit.qregs[qiskit_quantum_register_index][qubit_index])
             """
             Apply the Pauli-Y Gate/Operation to the given qubit of the given IBM Qiskit's Quantum Register. 
             """
@@ -7624,7 +7623,7 @@ class QiskryptQuantumCircuit:
             It is possible to apply the pretended operation.
             """
 
-            self.quantum_circuit.z(self.quantum_circuit.qregs[qiskit_quantum_register_index][qubit_index])
+            self.qiskit_quantum_circuit.z(self.qiskit_quantum_circuit.qregs[qiskit_quantum_register_index][qubit_index])
             """
             Apply the Pauli-Z (Phase Flip/Shift) Gate/Operation to the given qubit of the given IBM Qiskit's Quantum Register. 
             """
@@ -7649,7 +7648,7 @@ class QiskryptQuantumCircuit:
             It is possible to apply the pretended operation.
             """
 
-            self.quantum_circuit.h(self.quantum_circuit.qregs[qiskit_quantum_register_index][qubit_index])
+            self.qiskit_quantum_circuit.h(self.qiskit_quantum_circuit.qregs[qiskit_quantum_register_index][qubit_index])
             """
             Apply the Hadamard Gate/Operation to the given qubit of the given IBM Qiskit's Quantum Register. 
             """
@@ -7674,7 +7673,7 @@ class QiskryptQuantumCircuit:
             It is possible to apply the pretended operation.
             """
 
-            self.quantum_circuit.s(self.quantum_circuit.qregs[qiskit_quantum_register_index][qubit_index])
+            self.qiskit_quantum_circuit.s(self.qiskit_quantum_circuit.qregs[qiskit_quantum_register_index][qubit_index])
             """
             Apply the Phase S (pi/2) Gate/Operation to the given qubit of the given IBM Qiskit's Quantum Register. 
             """
@@ -7699,7 +7698,7 @@ class QiskryptQuantumCircuit:
             It is possible to apply the pretended operation.
             """
 
-            self.quantum_circuit.t(self.quantum_circuit.qregs[qiskit_quantum_register_index][qubit_index])
+            self.qiskit_quantum_circuit.t(self.qiskit_quantum_circuit.qregs[qiskit_quantum_register_index][qubit_index])
             """
             Apply the Phase T (pi/4) Gate/Operation to the given qubit of the given IBM Qiskit's Quantum Register. 
             """
@@ -7769,7 +7768,7 @@ class QiskryptQuantumCircuit:
             It is possible to apply the pretended operation.
             """
 
-            self.quantum_circuit.sdg(self.quantum_circuit.qregs[qiskit_quantum_register_index][qubit_index])
+            self.qiskit_quantum_circuit.sdg(self.qiskit_quantum_circuit.qregs[qiskit_quantum_register_index][qubit_index])
             """
             Apply the Phase S (-pi/2) Adjoint Gate/Operation to the given qubit of the given IBM Qiskit's Quantum Register. 
             """
@@ -7794,7 +7793,7 @@ class QiskryptQuantumCircuit:
             It is possible to apply the pretended operation.
             """
 
-            self.quantum_circuit.tdg(self.quantum_circuit.qregs[qiskit_quantum_register_index][qubit_index])
+            self.qiskit_quantum_circuit.tdg(self.qiskit_quantum_circuit.qregs[qiskit_quantum_register_index][qubit_index])
             """
             Apply the Phase T (-pi/4) Adjoint Gate/Operation to the given qubit of the given IBM Qiskit's Quantum Register. 
             """
@@ -7819,7 +7818,7 @@ class QiskryptQuantumCircuit:
             It is possible to apply the pretended operation.
             """
 
-            self.quantum_circuit.sx(self.quantum_circuit.qregs[qiskit_quantum_register_index][qubit_index])
+            self.qiskit_quantum_circuit.sx(self.qiskit_quantum_circuit.qregs[qiskit_quantum_register_index][qubit_index])
             """
             Apply the Squared Root of the Pauli-X (NOT/Bit Flip) to
             the given qubit of the given IBM Qiskit's Quantum Register. 
@@ -7853,9 +7852,9 @@ class QiskryptQuantumCircuit:
             Set the Unitary Matrix/Operator for the Squared Root of the Pauli-Y Gate/Operation.
             """
 
-            self.quantum_circuit.unitary(squared_root_pauli_y_unitary_matrix_operator,
-                                         self.quantum_circuit.qregs[qiskit_quantum_register_index][qubit_index],
-                                         label="sy")
+            self.qiskit_quantum_circuit.unitary(squared_root_pauli_y_unitary_matrix_operator,
+                                                self.qiskit_quantum_circuit.qregs[qiskit_quantum_register_index][qubit_index],
+                                                label="sy")
             """
             Apply the Squared Root of the Pauli-Y Gate/Operation to
             the given qubit of the given IBM Qiskit's Quantum Register. 
@@ -7889,9 +7888,9 @@ class QiskryptQuantumCircuit:
             Set the Unitary Matrix/Operator for the Squared Root of the Pauli-Z (Phase Flip/Shift) Gate/Operation.
             """
 
-            self.quantum_circuit.unitary(squared_root_pauli_z_unitary_matrix_operator,
-                                         self.quantum_circuit.qregs[qiskit_quantum_register_index][qubit_index],
-                                         label="sz")
+            self.qiskit_quantum_circuit.unitary(squared_root_pauli_z_unitary_matrix_operator,
+                                                self.qiskit_quantum_circuit.qregs[qiskit_quantum_register_index][qubit_index],
+                                                label="sz")
             """
             Apply the Squared Root of the Pauli-Z (Phase Flip/Shift) Gate/Operation to
             the given qubit of the given IBM Qiskit's Quantum Register. 
@@ -7925,9 +7924,9 @@ class QiskryptQuantumCircuit:
             Set the Unitary Matrix/Operator for the Squared Root of the Hadamard Gate/Operation.
             """
 
-            self.quantum_circuit.unitary(squared_root_hadamard_unitary_matrix_operator,
-                                         self.quantum_circuit.qregs[qiskit_quantum_register_index][qubit_index],
-                                         label="sh")
+            self.qiskit_quantum_circuit.unitary(squared_root_hadamard_unitary_matrix_operator,
+                                                self.qiskit_quantum_circuit.qregs[qiskit_quantum_register_index][qubit_index],
+                                                label="sh")
             """
             Apply the Squared Root of the Hadamard Gate/Operation to
             the given qubit of the given IBM Qiskit's Quantum Register. 
@@ -7961,9 +7960,9 @@ class QiskryptQuantumCircuit:
             Set the Unitary Matrix/Operator for the Squared Root of the S (sqrt(pi/2)) Gate/Operation.
             """
 
-            self.quantum_circuit.unitary(squared_root_phase_s_unitary_matrix_operator,
-                                         self.quantum_circuit.qregs[qiskit_quantum_register_index][qubit_index],
-                                         label="ss")
+            self.qiskit_quantum_circuit.unitary(squared_root_phase_s_unitary_matrix_operator,
+                                                self.qiskit_quantum_circuit.qregs[qiskit_quantum_register_index][qubit_index],
+                                                label="ss")
             """
             Apply the Squared Root of the S (sqrt(pi/2)) Gate/Operation to
             the given qubit of the given IBM Qiskit's Quantum Register. 
@@ -7997,9 +7996,9 @@ class QiskryptQuantumCircuit:
             Set the Unitary Matrix/Operator for the Squared Root of the T (sqrt(pi/4)) Gate/Operation.
             """
 
-            self.quantum_circuit.unitary(squared_root_phase_t_unitary_matrix_operator,
-                                         self.quantum_circuit.qregs[qiskit_quantum_register_index][qubit_index],
-                                         label="st")
+            self.qiskit_quantum_circuit.unitary(squared_root_phase_t_unitary_matrix_operator,
+                                                self.qiskit_quantum_circuit.qregs[qiskit_quantum_register_index][qubit_index],
+                                                label="st")
             """
             Apply the Squared Root of the T (sqrt(pi/4)) Gate/Operation to
             the given qubit of the given IBM Qiskit's Quantum Register. 
@@ -8046,8 +8045,8 @@ class QiskryptQuantumCircuit:
             It is possible to apply the pretended operation.
             """
 
-            self.quantum_circuit.rx(theta_radians,
-                                    self.quantum_circuit.qregs[qiskit_quantum_register_index][qubit_index])
+            self.qiskit_quantum_circuit.rx(theta_radians,
+                                           self.qiskit_quantum_circuit.qregs[qiskit_quantum_register_index][qubit_index])
             """
             Apply the Rotation-X (R_x(theta)) Gate/Operation to
             given indexes of an IBM Qiskit's Quantum Register and
@@ -8097,8 +8096,8 @@ class QiskryptQuantumCircuit:
             It is possible to apply the pretended operation.
             """
 
-            self.quantum_circuit.ry(theta_radians,
-                                    self.quantum_circuit.qregs[qiskit_quantum_register_index][qubit_index])
+            self.qiskit_quantum_circuit.ry(theta_radians,
+                                           self.qiskit_quantum_circuit.qregs[qiskit_quantum_register_index][qubit_index])
             """
             Apply the Rotation-Y (R_y(theta)) Gate/Operation to
             given indexes of an IBM Qiskit's Quantum Register and
@@ -8148,8 +8147,8 @@ class QiskryptQuantumCircuit:
             It is possible to apply the pretended operation.
             """
 
-            self.quantum_circuit.rz(theta_radians,
-                                    self.quantum_circuit.qregs[qiskit_quantum_register_index][qubit_index])
+            self.qiskit_quantum_circuit.rz(theta_radians,
+                                           self.qiskit_quantum_circuit.qregs[qiskit_quantum_register_index][qubit_index])
             """
             Apply the Rotation-Z (R_z(theta)) Gate/Operation to
             given indexes of an IBM Qiskit's Quantum Register and
@@ -8199,8 +8198,8 @@ class QiskryptQuantumCircuit:
             It is possible to apply the pretended operation.
             """
 
-            self.quantum_circuit.u1(theta_radians,
-                                    self.quantum_circuit.qregs[qiskit_quantum_register_index][qubit_index])
+            self.qiskit_quantum_circuit.u1(theta_radians,
+                                           self.qiskit_quantum_circuit.qregs[qiskit_quantum_register_index][qubit_index])
             """
             Apply the U1(theta) Gate/Operation to
             given indexes of an IBM Qiskit's Quantum Register and
@@ -8252,8 +8251,8 @@ class QiskryptQuantumCircuit:
             It is possible to apply the pretended operation.
             """
 
-            self.quantum_circuit.u2(phi_radians, lamb_radians,
-                                    self.quantum_circuit.qregs[qiskit_quantum_register_index][qubit_index])
+            self.qiskit_quantum_circuit.u2(phi_radians, lamb_radians,
+                                           self.qiskit_quantum_circuit.qregs[qiskit_quantum_register_index][qubit_index])
             """
             Apply the U2(phi_radians, lamb_radians) Gate/Operation to
             given indexes of an IBM Qiskit's Quantum Register and
@@ -8313,8 +8312,8 @@ class QiskryptQuantumCircuit:
             It is possible to apply the pretended operation.
             """
 
-            self.quantum_circuit.u3(theta_radians, phi_radians, lamb_radians,
-                                    self.quantum_circuit.qregs[qiskit_quantum_register_index][qubit_index])
+            self.qiskit_quantum_circuit.u3(theta_radians, phi_radians, lamb_radians,
+                                           self.qiskit_quantum_circuit.qregs[qiskit_quantum_register_index][qubit_index])
             """
             Apply the U3(theta_radians, phi_radians, lamb_radians) Gate/Operation to
             given indexes of an IBM Qiskit's Quantum Register and
@@ -8394,8 +8393,8 @@ class QiskryptQuantumCircuit:
             the IBM Qiskit's Quantum Registers and their respective target qubits.
             """
 
-            self.quantum_circuit.swap(self.quantum_circuit.qregs[qiskit_quantum_register_index_1][qubit_index_1],
-                                      self.quantum_circuit.qregs[qiskit_quantum_register_index_2][qubit_index_2])
+            self.qiskit_quantum_circuit.swap(self.qiskit_quantum_circuit.qregs[qiskit_quantum_register_index_1][qubit_index_1],
+                                             self.qiskit_quantum_circuit.qregs[qiskit_quantum_register_index_2][qubit_index_2])
             """
             Apply the SWAP Gate/Operation to the two given indexes of
             IBM Qiskit's Quantum Registers and their respective target qubits.
@@ -8436,8 +8435,8 @@ class QiskryptQuantumCircuit:
             the IBM Qiskit's Quantum Registers and their respective target qubits.
             """
 
-            self.quantum_circuit.iswap(self.quantum_circuit.qregs[qiskit_quantum_register_index_1][qubit_index_1],
-                                       self.quantum_circuit.qregs[qiskit_quantum_register_index_2][qubit_index_2])
+            self.qiskit_quantum_circuit.iswap(self.qiskit_quantum_circuit.qregs[qiskit_quantum_register_index_1][qubit_index_1],
+                                              self.qiskit_quantum_circuit.qregs[qiskit_quantum_register_index_2][qubit_index_2])
             """
             Apply the iSWAP Gate/Operation to the two given indexes of
             IBM Qiskit's Quantum Registers and their respective target qubits.
@@ -8480,8 +8479,8 @@ class QiskryptQuantumCircuit:
             the control and target IBM Qiskit's Quantum Registers and their respective qubits.
             """
 
-            self.quantum_circuit.cx(self.quantum_circuit.qregs[qiskit_quantum_register_control_index][control_qubit_index],
-                                    self.quantum_circuit.qregs[qiskit_quantum_register_target_index][target_qubit_index])
+            self.qiskit_quantum_circuit.cx(self.qiskit_quantum_circuit.qregs[qiskit_quantum_register_control_index][control_qubit_index],
+                                           self.qiskit_quantum_circuit.qregs[qiskit_quantum_register_target_index][target_qubit_index])
             """
             Apply the Controlled-Pauli-X (Controlled-NOT) Gate/Operation to the given indexes of
             control and target IBM Qiskit's Quantum Registers and their respective qubits.
@@ -8524,8 +8523,8 @@ class QiskryptQuantumCircuit:
             the control and target IBM Qiskit's Quantum Registers and their respective qubits.
             """
 
-            self.quantum_circuit.cy(self.quantum_circuit.qregs[qiskit_quantum_register_control_index][control_qubit_index],
-                                    self.quantum_circuit.qregs[qiskit_quantum_register_target_index][target_qubit_index])
+            self.qiskit_quantum_circuit.cy(self.qiskit_quantum_circuit.qregs[qiskit_quantum_register_control_index][control_qubit_index],
+                                           self.qiskit_quantum_circuit.qregs[qiskit_quantum_register_target_index][target_qubit_index])
             """
             Apply the Controlled-Pauli-Y Gate/Operation to the given indexes of
             control and target IBM Qiskit's Quantum Registers and their respective qubits.
@@ -8568,8 +8567,8 @@ class QiskryptQuantumCircuit:
             the control and target IBM Qiskit's Quantum Registers and their respective qubits.
             """
 
-            self.quantum_circuit.cz(self.quantum_circuit.qregs[qiskit_quantum_register_control_index][control_qubit_index],
-                                    self.quantum_circuit.qregs[qiskit_quantum_register_target_index][target_qubit_index])
+            self.qiskit_quantum_circuit.cz(self.qiskit_quantum_circuit.qregs[qiskit_quantum_register_control_index][control_qubit_index],
+                                           self.qiskit_quantum_circuit.qregs[qiskit_quantum_register_target_index][target_qubit_index])
             """
             Apply the Controlled-Pauli-Z (Controlled-Phase-Flip/Controlled-Phase-Shifter) Gate/Operation to
             the given indexes of control and target IBM Qiskit's Quantum Registers and their respective qubits.
@@ -8613,8 +8612,8 @@ class QiskryptQuantumCircuit:
             the control and target IBM Qiskit's Quantum Registers and their respective qubits.
             """
 
-            self.quantum_circuit.ch(self.quantum_circuit.qregs[qiskit_quantum_register_control_index][control_qubit_index],
-                                    self.quantum_circuit.qregs[qiskit_quantum_register_target_index][target_qubit_index])
+            self.qiskit_quantum_circuit.ch(self.qiskit_quantum_circuit.qregs[qiskit_quantum_register_control_index][control_qubit_index],
+                                           self.qiskit_quantum_circuit.qregs[qiskit_quantum_register_target_index][target_qubit_index])
             """
             Apply the Controlled-Hadamard Gate/Operation to
             the given indexes of control and target IBM Qiskit's Quantum Registers and their respective qubits.
@@ -8668,10 +8667,10 @@ class QiskryptQuantumCircuit:
             Set the Unitary Matrix/Operator for the Controlled-Phase-S (pi/2) Gate/Operation.
             """
 
-            self.quantum_circuit.unitary(controlled_phase_s_unitary_matrix_operator,
-                                         [self.quantum_circuit.qregs[qiskit_quantum_register_control_index][control_qubit_index],
-                                          self.quantum_circuit.qregs[qiskit_quantum_register_target_index][target_qubit_index]],
-                                         label="cs")
+            self.qiskit_quantum_circuit.unitary(controlled_phase_s_unitary_matrix_operator,
+                                                [self.qiskit_quantum_circuit.qregs[qiskit_quantum_register_control_index][control_qubit_index],
+                                                 self.qiskit_quantum_circuit.qregs[qiskit_quantum_register_target_index][target_qubit_index]],
+                                                label="cs")
             """
             Apply the Controlled-Phase-S (pi/2) Gate/Operation to
             the given indexes of control and target IBM Qiskit's Quantum Registers and their respective qubits.
@@ -8725,10 +8724,10 @@ class QiskryptQuantumCircuit:
             Set the Unitary Matrix/Operator for the Controlled-Phase-T (pi/4) Gate/Operation.
             """
 
-            self.quantum_circuit.unitary(controlled_phase_t_unitary_matrix_operator,
-                                         [self.quantum_circuit.qregs[qiskit_quantum_register_control_index][control_qubit_index],
-                                          self.quantum_circuit.qregs[qiskit_quantum_register_target_index][target_qubit_index]],
-                                         label="ct")
+            self.qiskit_quantum_circuit.unitary(controlled_phase_t_unitary_matrix_operator,
+                                                [self.qiskit_quantum_circuit.qregs[qiskit_quantum_register_control_index][control_qubit_index],
+                                                 self.qiskit_quantum_circuit.qregs[qiskit_quantum_register_target_index][target_qubit_index]],
+                                                label="ct")
             """
             Apply the Controlled-Phase-T (pi/4) Gate/Operation to
             the given indexes of control and target IBM Qiskit's Quantum Registers and their respective qubits.
@@ -8782,10 +8781,10 @@ class QiskryptQuantumCircuit:
             Set the Unitary Matrix/Operator for the Controlled-Phase-S (-pi/2) Adjoint Gate/Operation.
             """
 
-            self.quantum_circuit.unitary(controlled_phase_s_adjoint_unitary_matrix_operator,
-                                         [self.quantum_circuit.qregs[qiskit_quantum_register_control_index][control_qubit_index],
-                                          self.quantum_circuit.qregs[qiskit_quantum_register_target_index][target_qubit_index]],
-                                         label="csdg")
+            self.qiskit_quantum_circuit.unitary(controlled_phase_s_adjoint_unitary_matrix_operator,
+                                                [self.qiskit_quantum_circuit.qregs[qiskit_quantum_register_control_index][control_qubit_index],
+                                                 self.qiskit_quantum_circuit.qregs[qiskit_quantum_register_target_index][target_qubit_index]],
+                                                label="csdg")
             """
             Apply the Controlled-Phase-S (-pi/2) Adjoint Gate/Operation to
             the given indexes of control and target IBM Qiskit's Quantum Registers and their respective qubits.
@@ -8839,10 +8838,10 @@ class QiskryptQuantumCircuit:
             Set the Unitary Matrix/Operator for the Controlled-Phase-T (-pi/4) Adjoint Gate/Operation.
             """
 
-            self.quantum_circuit.unitary(controlled_phase_t_adjoint_unitary_matrix_operator,
-                                         [self.quantum_circuit.qregs[qiskit_quantum_register_control_index][control_qubit_index],
-                                          self.quantum_circuit.qregs[qiskit_quantum_register_target_index][target_qubit_index]],
-                                         label="ctdg")
+            self.qiskit_quantum_circuit.unitary(controlled_phase_t_adjoint_unitary_matrix_operator,
+                                                [self.qiskit_quantum_circuit.qregs[qiskit_quantum_register_control_index][control_qubit_index],
+                                                 self.qiskit_quantum_circuit.qregs[qiskit_quantum_register_target_index][target_qubit_index]],
+                                                label="ctdg")
             """
             Apply the Controlled-Phase-T (-pi/4) Adjoint Gate/Operation to
             the given indexes of control and target IBM Qiskit's Quantum Registers and their respective qubits.
@@ -8897,9 +8896,9 @@ class QiskryptQuantumCircuit:
             the control and targets IBM Qiskit's Quantum Registers and their respective qubits.
             """
 
-            self.quantum_circuit.cswap(self.quantum_circuit.qregs[qiskit_quantum_register_control_index][control_qubit_index],
-                                       self.quantum_circuit.qregs[qiskit_quantum_register_target_index_1][target_qubit_index_1],
-                                       self.quantum_circuit.qregs[qiskit_quantum_register_target_index_2][target_qubit_index_2])
+            self.qiskit_quantum_circuit.cswap(self.qiskit_quantum_circuit.qregs[qiskit_quantum_register_control_index][control_qubit_index],
+                                              self.qiskit_quantum_circuit.qregs[qiskit_quantum_register_target_index_1][target_qubit_index_1],
+                                              self.qiskit_quantum_circuit.qregs[qiskit_quantum_register_target_index_2][target_qubit_index_2])
             """
             Apply the Controlled-SWAP (Fredkin) Gate/Operation to the given indexes of
             control and targets IBM Qiskit's Quantum Registers and their respective qubits.
@@ -8967,8 +8966,8 @@ class QiskryptQuantumCircuit:
             the IBM Qiskit's Quantum Registers and their respective qubits.
             """
 
-            self.quantum_circuit.dcx(self.quantum_circuit.qregs[qiskit_quantum_register_index_1][qubit_index_1],
-                                     self.quantum_circuit.qregs[qiskit_quantum_register_index_2][qubit_index_2])
+            self.qiskit_quantum_circuit.dcx(self.qiskit_quantum_circuit.qregs[qiskit_quantum_register_index_1][qubit_index_1],
+                                            self.qiskit_quantum_circuit.qregs[qiskit_quantum_register_index_2][qubit_index_2])
             """
             Apply the Double Controlled-Pauli-X (Double Controlled-NOT) Gate/Operation to the given indexes of
             IBM Qiskit's Quantum Registers and their respective qubits.
@@ -9024,9 +9023,9 @@ class QiskryptQuantumCircuit:
             the controls and target IBM Qiskit's Quantum Registers and their respective qubits.
             """
 
-            self.quantum_circuit.ccx(self.quantum_circuit.qregs[qiskit_quantum_register_control_index_1][control_qubit_index_1],
-                                     self.quantum_circuit.qregs[qiskit_quantum_register_control_index_2][control_qubit_index_2],
-                                     self.quantum_circuit.qregs[qiskit_quantum_register_target_index][target_qubit_index])
+            self.qiskit_quantum_circuit.ccx(self.qiskit_quantum_circuit.qregs[qiskit_quantum_register_control_index_1][control_qubit_index_1],
+                                            self.qiskit_quantum_circuit.qregs[qiskit_quantum_register_control_index_2][control_qubit_index_2],
+                                            self.qiskit_quantum_circuit.qregs[qiskit_quantum_register_target_index][target_qubit_index])
             """
             Apply the Controlled-Controlled-Pauli-X (Toffolli) Gate/Operation to the given indexes of
             controls and target IBM Qiskit's Quantum Registers and their respective qubits.
@@ -9096,11 +9095,11 @@ class QiskryptQuantumCircuit:
             Set the Unitary Matrix/Operator for the Controlled-Controlled-Pauli-Y Gate/Operation.
             """
 
-            self.quantum_circuit.unitary(controlled_controlled_pauli_y_unitary_matrix_operator,
-                                         [self.quantum_circuit.qregs[qiskit_quantum_register_control_index_1][control_qubit_index_1],
-                                          self.quantum_circuit.qregs[qiskit_quantum_register_control_index_2][control_qubit_index_2],
-                                          self.quantum_circuit.qregs[qiskit_quantum_register_target_index][target_qubit_index]],
-                                         label="ccy")
+            self.qiskit_quantum_circuit.unitary(controlled_controlled_pauli_y_unitary_matrix_operator,
+                                                [self.qiskit_quantum_circuit.qregs[qiskit_quantum_register_control_index_1][control_qubit_index_1],
+                                                 self.qiskit_quantum_circuit.qregs[qiskit_quantum_register_control_index_2][control_qubit_index_2],
+                                                 self.qiskit_quantum_circuit.qregs[qiskit_quantum_register_target_index][target_qubit_index]],
+                                                label="ccy")
             """
             Apply the Controlled-Controlled-Pauli-Y Gate/Operation to the given indexes of
             controls and target IBM Qiskit's Quantum Registers and their respective qubits.
@@ -9170,11 +9169,11 @@ class QiskryptQuantumCircuit:
             Set the Unitary Matrix/Operator for the Controlled-Controlled-Pauli-Z Gate/Operation.
             """
 
-            self.quantum_circuit.unitary(controlled_controlled_pauli_z_unitary_matrix_operator,
-                                         [self.quantum_circuit.qregs[qiskit_quantum_register_control_index_1][control_qubit_index_1],
-                                          self.quantum_circuit.qregs[qiskit_quantum_register_control_index_2][control_qubit_index_2],
-                                          self.quantum_circuit.qregs[qiskit_quantum_register_target_index][target_qubit_index]],
-                                         label="ccz")
+            self.qiskit_quantum_circuit.unitary(controlled_controlled_pauli_z_unitary_matrix_operator,
+                                                [self.qiskit_quantum_circuit.qregs[qiskit_quantum_register_control_index_1][control_qubit_index_1],
+                                                 self.qiskit_quantum_circuit.qregs[qiskit_quantum_register_control_index_2][control_qubit_index_2],
+                                                 self.qiskit_quantum_circuit.qregs[qiskit_quantum_register_target_index][target_qubit_index]],
+                                                label="ccz")
             """
             Apply the Controlled-Controlled-Pauli-Z Gate/Operation to the given indexes of
             controls and target IBM Qiskit's Quantum Registers and their respective qubits.
@@ -9248,9 +9247,9 @@ class QiskryptQuantumCircuit:
             the IBM Qiskit's Quantum Registers and their respective qubits.
             """
 
-            self.quantum_circuit.rxx(theta_radians,
-                                     self.quantum_circuit.qregs[qiskit_quantum_register_index_1][qubit_index_1],
-                                     self.quantum_circuit.qregs[qiskit_quantum_register_index_2][qubit_index_2])
+            self.qiskit_quantum_circuit.rxx(theta_radians,
+                                            self.qiskit_quantum_circuit.qregs[qiskit_quantum_register_index_1][qubit_index_1],
+                                            self.qiskit_quantum_circuit.qregs[qiskit_quantum_register_index_2][qubit_index_2])
             """
             Apply the Ising Coupling R_(xx)(theta_radians) (Rotation_(xx)(theta_radians)) Gate/Operation to
             the given indexes of IBM Qiskit's Quantum Registers and their respective qubits.
@@ -9326,9 +9325,9 @@ class QiskryptQuantumCircuit:
             the IBM Qiskit's Quantum Registers and their respective qubits.
             """
 
-            self.quantum_circuit.ryy(theta_radians,
-                                     self.quantum_circuit.qregs[qiskit_quantum_register_index_1][qubit_index_1],
-                                     self.quantum_circuit.qregs[qiskit_quantum_register_index_2][qubit_index_2])
+            self.qiskit_quantum_circuit.ryy(theta_radians,
+                                            self.qiskit_quantum_circuit.qregs[qiskit_quantum_register_index_1][qubit_index_1],
+                                            self.qiskit_quantum_circuit.qregs[qiskit_quantum_register_index_2][qubit_index_2])
             """
             Apply the Ising Coupling R_(yy)(theta_radians) (Rotation_(yy)(theta_radians)) Gate/Operation to
             the given indexes of IBM Qiskit's Quantum Registers and their respective qubits.
@@ -9404,9 +9403,9 @@ class QiskryptQuantumCircuit:
             the IBM Qiskit's Quantum Registers and their respective qubits.
             """
 
-            self.quantum_circuit.rzz(theta_radians,
-                                     self.quantum_circuit.qregs[qiskit_quantum_register_index_1][qubit_index_1],
-                                     self.quantum_circuit.qregs[qiskit_quantum_register_index_2][qubit_index_2])
+            self.qiskit_quantum_circuit.rzz(theta_radians,
+                                            self.qiskit_quantum_circuit.qregs[qiskit_quantum_register_index_1][qubit_index_1],
+                                            self.qiskit_quantum_circuit.qregs[qiskit_quantum_register_index_2][qubit_index_2])
             """
             Apply the Ising Coupling R_(zz)(theta_radians) (Rotation_(zz)(theta_radians)) Gate/Operation to
             the given indexes of IBM Qiskit's Quantum Registers and their respective qubits.
