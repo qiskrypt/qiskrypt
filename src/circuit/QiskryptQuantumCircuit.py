@@ -9057,14 +9057,17 @@ class QiskryptQuantumCircuit:
         controls and target IBM Qiskit's Quantum Registers and their respective qubits.
         """
 
-    def apply_ising_coupling_rxx(self,
-                                 qiskit_quantum_register_index_1: int,
-                                 qiskit_quantum_register_index_2: int,
-                                 qubit_index_1: int, qubit_index_2: int):
+    def apply_ising_coupling_rxx_radians(self,
+                                         theta_radians: float,
+                                         qiskit_quantum_register_index_1: int,
+                                         qiskit_quantum_register_index_2: int,
+                                         qubit_index_1: int, qubit_index_2: int):
         """
-        Apply the Ising Coupling RXX (Rotation-X-X) Gate/Operation to
+        Apply the Ising Coupling R_(xx)(theta_radians) (Rotation_(xx)(theta_radians)) Gate/Operation to
         given indexes of IBM Qiskit's Quantum Registers and their respective qubits on them.
 
+        :param theta_radians: the theta angle in radians,
+                              for the Ising Coupling R_(xx)(theta_radians) (R_(xx)(theta_radians)) Gate/Operation.
         :param qiskit_quantum_register_index_1: the index of the 1st IBM Qiskit's Quantum Register.
         :param qiskit_quantum_register_index_2: the index of the 2nd IBM Qiskit's Quantum Register.
         :param qubit_index_1: the index of a qubit inside the 1st IBM Qiskit's Quantum Register.
@@ -9093,21 +9096,56 @@ class QiskryptQuantumCircuit:
             the IBM Qiskit's Quantum Registers and their respective qubits.
             """
 
-            self.quantum_circuit.rxx(self.quantum_circuit.qregs[qiskit_quantum_register_index_1][qubit_index_1],
+            self.quantum_circuit.rxx(theta_radians,
+                                     self.quantum_circuit.qregs[qiskit_quantum_register_index_1][qubit_index_1],
                                      self.quantum_circuit.qregs[qiskit_quantum_register_index_2][qubit_index_2])
             """
-            Apply the Ising Coupling RXX (Rotation-X-X) Gate/Operation to the given indexes of
-            IBM Qiskit's Quantum Registers and their respective qubits.
+            Apply the Ising Coupling R_(xx)(theta_radians) (Rotation_(xx)(theta_radians)) Gate/Operation to
+            the given indexes of IBM Qiskit's Quantum Registers and their respective qubits.
             """
 
-    def apply_ising_coupling_ryy(self,
-                                 qiskit_quantum_register_index_1: int,
-                                 qiskit_quantum_register_index_2: int,
-                                 qubit_index_1: int, qubit_index_2: int):
+    def apply_ising_coupling_rxx_degrees(self,
+                                         theta_degrees: float,
+                                         qiskit_quantum_register_index_1: int,
+                                         qiskit_quantum_register_index_2: int,
+                                         qubit_index_1: int, qubit_index_2: int):
         """
-        Apply the Ising Coupling RYY (Rotation-Y-Y) Gate/Operation to
+        Apply the Ising Coupling R_(xx)(theta_degrees) (Rotation_(xx)(theta_degrees)) Gate/Operation to
         given indexes of IBM Qiskit's Quantum Registers and their respective qubits on them.
 
+        :param theta_degrees: the theta angle in degrees,
+                              for the Ising Coupling R_(xx)(theta_degrees) (R_(xx)(theta_degrees)) Gate/Operation.
+        :param qiskit_quantum_register_index_1: the index of the 1st IBM Qiskit's Quantum Register.
+        :param qiskit_quantum_register_index_2: the index of the 2nd IBM Qiskit's Quantum Register.
+        :param qubit_index_1: the index of a qubit inside the 1st IBM Qiskit's Quantum Register.
+        :param qubit_index_2: the index of a qubit inside the 2nd IBM Qiskit's Quantum Register.
+        """
+
+        theta_radians = radians(theta_degrees)
+        """
+        Convert the theta angle in degrees to radians.
+        """
+
+        self.apply_ising_coupling_rxx_radians(theta_radians,
+                                              qiskit_quantum_register_index_1,
+                                              qiskit_quantum_register_index_2,
+                                              qubit_index_1, qubit_index_2)
+        """
+        Apply the Ising Coupling R_(xx)(theta_radians) (Rotation_(xx)(theta_radians)) Gate/Operation to
+        the given indexes of IBM Qiskit's Quantum Registers and their respective qubits.
+        """
+
+    def apply_ising_coupling_ryy_radians(self,
+                                         theta_radians: float,
+                                         qiskit_quantum_register_index_1: int,
+                                         qiskit_quantum_register_index_2: int,
+                                         qubit_index_1: int, qubit_index_2: int):
+        """
+        Apply the Ising Coupling R_(yy)(theta_radians) (Rotation_(yy)(theta_radians)) Gate/Operation to
+        given indexes of IBM Qiskit's Quantum Registers and their respective qubits on them.
+
+        :param theta_radians: the theta angle in radians,
+                              for the Ising Coupling R_(yy)(theta_radians) (R_(yy)(theta_radians)) Gate/Operation.
         :param qiskit_quantum_register_index_1: the index of the 1st IBM Qiskit's Quantum Register.
         :param qiskit_quantum_register_index_2: the index of the 2nd IBM Qiskit's Quantum Register.
         :param qubit_index_1: the index of a qubit inside the 1st IBM Qiskit's Quantum Register.
@@ -9136,21 +9174,56 @@ class QiskryptQuantumCircuit:
             the IBM Qiskit's Quantum Registers and their respective qubits.
             """
 
-            self.quantum_circuit.ryy(self.quantum_circuit.qregs[qiskit_quantum_register_index_1][qubit_index_1],
+            self.quantum_circuit.ryy(theta_radians,
+                                     self.quantum_circuit.qregs[qiskit_quantum_register_index_1][qubit_index_1],
                                      self.quantum_circuit.qregs[qiskit_quantum_register_index_2][qubit_index_2])
             """
-            Apply the Ising Coupling RYY (Rotation-Y-Y) Gate/Operation to the given indexes of
-            IBM Qiskit's Quantum Registers and their respective qubits.
+            Apply the Ising Coupling R_(yy)(theta_radians) (Rotation_(yy)(theta_radians)) Gate/Operation to
+            the given indexes of IBM Qiskit's Quantum Registers and their respective qubits.
             """
 
-    def apply_ising_coupling_rzz(self,
-                                 qiskit_quantum_register_index_1: int,
-                                 qiskit_quantum_register_index_2: int,
-                                 qubit_index_1: int, qubit_index_2: int):
+    def apply_ising_coupling_ryy_degrees(self,
+                                         theta_degrees: float,
+                                         qiskit_quantum_register_index_1: int,
+                                         qiskit_quantum_register_index_2: int,
+                                         qubit_index_1: int, qubit_index_2: int):
         """
-        Apply the Ising Coupling RZZ (Rotation-Z-Z) Gate/Operation to
+        Apply the Ising Coupling R_(yy)(theta_degrees) (Rotation_(yy)(theta_degrees)) Gate/Operation to
         given indexes of IBM Qiskit's Quantum Registers and their respective qubits on them.
 
+        :param theta_degrees: the theta angle in degrees,
+                              for the Ising Coupling R_(yy)(theta_degrees) (R_(yy)(theta_degrees)) Gate/Operation.
+        :param qiskit_quantum_register_index_1: the index of the 1st IBM Qiskit's Quantum Register.
+        :param qiskit_quantum_register_index_2: the index of the 2nd IBM Qiskit's Quantum Register.
+        :param qubit_index_1: the index of a qubit inside the 1st IBM Qiskit's Quantum Register.
+        :param qubit_index_2: the index of a qubit inside the 2nd IBM Qiskit's Quantum Register.
+        """
+
+        theta_radians = radians(theta_degrees)
+        """
+        Convert the theta angle in degrees to radians.
+        """
+
+        self.apply_ising_coupling_ryy_radians(theta_radians,
+                                              qiskit_quantum_register_index_1,
+                                              qiskit_quantum_register_index_2,
+                                              qubit_index_1, qubit_index_2)
+        """
+        Apply the Ising Coupling R_(yy)(theta_radians) (Rotation_(yy)(theta_radians)) Gate/Operation to
+        the given indexes of IBM Qiskit's Quantum Registers and their respective qubits.
+        """
+
+    def apply_ising_coupling_rzz_radians(self,
+                                         theta_radians: float,
+                                         qiskit_quantum_register_index_1: int,
+                                         qiskit_quantum_register_index_2: int,
+                                         qubit_index_1: int, qubit_index_2: int):
+        """
+        Apply the Ising Coupling R_(zz)(theta_radians) (Rotation_(zz)(theta_radians)) Gate/Operation to
+        given indexes of IBM Qiskit's Quantum Registers and their respective qubits on them.
+
+        :param theta_radians: the theta angle in radians,
+                              for the Ising Coupling R_(zz)(theta_radians) (R_(zz)(theta_radians)) Gate/Operation.
         :param qiskit_quantum_register_index_1: the index of the 1st IBM Qiskit's Quantum Register.
         :param qiskit_quantum_register_index_2: the index of the 2nd IBM Qiskit's Quantum Register.
         :param qubit_index_1: the index of a qubit inside the 1st IBM Qiskit's Quantum Register.
@@ -9179,12 +9252,44 @@ class QiskryptQuantumCircuit:
             the IBM Qiskit's Quantum Registers and their respective qubits.
             """
 
-            self.quantum_circuit.rzz(self.quantum_circuit.qregs[qiskit_quantum_register_index_1][qubit_index_1],
+            self.quantum_circuit.rzz(theta_radians,
+                                     self.quantum_circuit.qregs[qiskit_quantum_register_index_1][qubit_index_1],
                                      self.quantum_circuit.qregs[qiskit_quantum_register_index_2][qubit_index_2])
             """
-            Apply the Ising Coupling RZZ (Rotation-Z-Z) Gate/Operation to the given indexes of
-            IBM Qiskit's Quantum Registers and their respective qubits.
+            Apply the Ising Coupling R_(zz)(theta_radians) (Rotation_(zz)(theta_radians)) Gate/Operation to
+            the given indexes of IBM Qiskit's Quantum Registers and their respective qubits.
             """
+
+    def apply_ising_coupling_rzz_degrees(self,
+                                         theta_degrees: float,
+                                         qiskit_quantum_register_index_1: int,
+                                         qiskit_quantum_register_index_2: int,
+                                         qubit_index_1: int, qubit_index_2: int):
+        """
+        Apply the Ising Coupling R_(zz)(theta_degrees) (Rotation_(zz)(theta_degrees)) Gate/Operation to
+        given indexes of IBM Qiskit's Quantum Registers and their respective qubits on them.
+
+        :param theta_degrees: the theta angle in degrees,
+                              for the Ising Coupling R_(zz)(theta_degrees) (R_(zz)(theta_degrees)) Gate/Operation.
+        :param qiskit_quantum_register_index_1: the index of the 1st IBM Qiskit's Quantum Register.
+        :param qiskit_quantum_register_index_2: the index of the 2nd IBM Qiskit's Quantum Register.
+        :param qubit_index_1: the index of a qubit inside the 1st IBM Qiskit's Quantum Register.
+        :param qubit_index_2: the index of a qubit inside the 2nd IBM Qiskit's Quantum Register.
+        """
+
+        theta_radians = radians(theta_degrees)
+        """
+        Convert the theta angle in degrees to radians.
+        """
+
+        self.apply_ising_coupling_rzz_radians(theta_radians,
+                                              qiskit_quantum_register_index_1,
+                                              qiskit_quantum_register_index_2,
+                                              qubit_index_1, qubit_index_2)
+        """
+        Apply the Ising Coupling R_(zz)(theta_radians) (Rotation_(zz)(theta_radians)) Gate/Operation to
+        the given indexes of IBM Qiskit's Quantum Registers and their respective qubits.
+        """
 
     @staticmethod
     def check_if_is_a_qiskrypt_semi_quantum_register(qiskrypt_register: object) -> bool:
