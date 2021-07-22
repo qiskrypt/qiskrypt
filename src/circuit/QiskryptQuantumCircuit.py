@@ -8793,19 +8793,34 @@ class QiskryptQuantumCircuit:
         :param qubit_index_2: the index of a qubit inside the 2nd IBM Qiskit's Quantum Register.
         """
 
-        self.apply_controlled_pauli_x(qiskit_quantum_register_index_1, qiskit_quantum_register_index_2,
-                                      qubit_index_1, qubit_index_2)
+        is_possible_to_apply_operation_1 = \
+            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_index_1,
+                                                         qubit_index_1, True)
         """
-        Apply the 1st Controlled-Pauli-X (Controlled-NOT) Gate/Operation to the indexes of
-        the IBM Qiskit's Quantum Registers and their respective qubits, in order.
+        Check if it is possible to apply the pretended operation for
+        the control IBM Qiskit's 1st Quantum Register and the respective qubit.
         """
 
-        self.apply_controlled_pauli_x(qiskit_quantum_register_index_2, qiskit_quantum_register_index_1,
-                                      qubit_index_2, qubit_index_1)
+        is_possible_to_apply_operation_2 = \
+            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_index_2,
+                                                         qubit_index_2, True)
         """
-        Apply the 2nd Controlled-Pauli-X (Controlled-NOT) Gate/Operation to the indexes of
-        the IBM Qiskit's Quantum Registers and their respective qubits, in reversed order.
+        Check if it is possible to apply the pretended operation for
+        the target IBM Qiskit's 2nd Quantum Register and the respective qubit.
         """
+
+        if is_possible_to_apply_operation_1 and is_possible_to_apply_operation_2:
+            """
+            It is possible to apply the pretended operation for both
+            the IBM Qiskit's Quantum Registers and their respective qubits.
+            """
+
+            self.quantum_circuit.dcx(self.quantum_circuit.qregs[qiskit_quantum_register_index_1][qubit_index_1],
+                                     self.quantum_circuit.qregs[qiskit_quantum_register_index_2][qubit_index_2])
+            """
+            Apply the Double Controlled-Pauli-X (Double Controlled-NOT) Gate/Operation to the given indexes of
+            IBM Qiskit's Quantum Registers and their respective qubits.
+            """
 
     def apply_controlled_controlled_pauli_x(self,
                                             qiskit_quantum_register_control_index_1: int,
