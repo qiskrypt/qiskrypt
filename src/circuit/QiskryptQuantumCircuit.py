@@ -58,9 +58,10 @@ from math import pi, radians
 Import the pi constant and the function to convert degrees to radians from Math.
 """
 
-from numpy import sqrt, exp
+from numpy import sqrt, exp, zeros
 """
-Import Squared Root and Exponential from NumPy.
+Import the function to compute the Squared Root,
+the Exponential and a matrix of Zeros from NumPy.
 """
 
 from qiskit import QuantumCircuit
@@ -9418,6 +9419,67 @@ class QiskryptQuantumCircuit:
         Apply the Ising Coupling R_(zz)(theta_radians) (Rotation_(zz)(theta_radians)) Gate/Operation to
         the given indexes of IBM Qiskit's Quantum Registers and their respective qubits.
         """
+
+    @staticmethod
+    def create_global_molmer_sorensen_radians_qiskrypt_quantum_circuit(num_qubits: int,
+                                                                       thetas_radians: list,
+                                                                       name="qu_circ_gms") -> QiskryptQuantumCircuit:
+        """
+        Create a Qiskrypt's Quantum Circuit based on
+        the Global Mølmer-Sørensen(theta_radians) (GMS(theta_radians)) Gate/Operation for a given number of qubits,
+        based on a list of theta angles in radians to build the respective Unitary Matrix/Operator.
+
+        :param num_qubits: the number of qubits for the Qiskrypt's Quantum Circuit.
+        :param thetas_radians: the list of theta angles in radians to build the respective Unitary Matrix/Operator.
+        :param name: the name for the Qiskrypt's Quantum Circuit.
+        """
+
+        thetas_radians_unitary_matrix_operator = zeros((num_qubits, num_qubits))
+        """
+        Create the Unitary Matrix/Operator for the theta angle in radians.
+        """
+
+        for row_unitary_matrix_operator in range(num_qubits):
+            """
+            For each row of the Unitary Matrix/Operator with
+            the theta angles in radians.
+            """
+
+            for column_unitary_matrix_operator in range(num_qubits):
+                """
+                For each column of the Unitary Matrix/Operator with
+                the theta angles in radians.
+                """
+
+                theta_radians = thetas_radians[((row_unitary_matrix_operator * num_qubits) + num_qubits)]
+                """
+                Retrieve the current theta angle in radians from the list of them.
+                """
+
+                thetas_radians_unitary_matrix_operator[row_unitary_matrix_operator][column_unitary_matrix_operator] = theta_radians
+                """
+                Assign the current theta angle in radians to
+                the current element of the Unitary Matrix/Operator.
+                """
+
+        global_molmer_sorensen_radians_qiskit_quantum_circuit = GMS(num_qubits, thetas_radians)
+        """
+        Create the Qiskit's Quantum Circuit based on
+        the Global Mølmer-Sørensen(theta_radians) (GMS(theta_radians)) Gate/Operation.
+        """
+
+        global_molmer_sorensen_radians_qiskrypt_quantum_circuit = \
+            QiskryptQuantumCircuit(name, qiskit_quantum_circuit=global_molmer_sorensen_radians_qiskit_quantum_circuit)
+        """
+        Create the Qiskrypt's Quantum Circuit for
+        the Global Mølmer-Sørensen(theta_radians) (GMS(theta_radians)) Gate/Operation.
+        """
+
+        """
+        Return the Qiskrypt's Quantum Circuit for
+        the Global Mølmer-Sørensen(theta_radians) (GMS(theta_radians)) Gate/Operation.
+        """
+        return global_molmer_sorensen_radians_qiskrypt_quantum_circuit
 
     @staticmethod
     def check_if_is_a_qiskrypt_semi_quantum_register(qiskrypt_register: object) -> bool:
