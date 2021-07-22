@@ -9057,6 +9057,135 @@ class QiskryptQuantumCircuit:
         controls and target IBM Qiskit's Quantum Registers and their respective qubits.
         """
 
+    def apply_ising_coupling_rxx(self,
+                                 qiskit_quantum_register_index_1: int,
+                                 qiskit_quantum_register_index_2: int,
+                                 qubit_index_1: int, qubit_index_2: int):
+        """
+        Apply the Ising Coupling RXX (Rotation-X-X) Gate/Operation to
+        given indexes of IBM Qiskit's Quantum Registers and their respective qubits on them.
+
+        :param qiskit_quantum_register_index_1: the index of the 1st IBM Qiskit's Quantum Register.
+        :param qiskit_quantum_register_index_2: the index of the 2nd IBM Qiskit's Quantum Register.
+        :param qubit_index_1: the index of a qubit inside the 1st IBM Qiskit's Quantum Register.
+        :param qubit_index_2: the index of a qubit inside the 2nd IBM Qiskit's Quantum Register.
+        """
+
+        is_possible_to_apply_operation_1 = \
+            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_index_1,
+                                                         qubit_index_1, True)
+        """
+        Check if it is possible to apply the pretended operation for
+        the 1st IBM Qiskit's Quantum Register and the respective qubit.
+        """
+
+        is_possible_to_apply_operation_2 = \
+            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_index_2,
+                                                         qubit_index_2, True)
+        """
+        Check if it is possible to apply the pretended operation for
+        the 2nd IBM Qiskit's Quantum Register and the respective qubit.
+        """
+
+        if is_possible_to_apply_operation_1 and is_possible_to_apply_operation_2:
+            """
+            It is possible to apply the pretended operation for both
+            the IBM Qiskit's Quantum Registers and their respective qubits.
+            """
+
+            self.quantum_circuit.rxx(self.quantum_circuit.qregs[qiskit_quantum_register_index_1][qubit_index_1],
+                                     self.quantum_circuit.qregs[qiskit_quantum_register_index_2][qubit_index_2])
+            """
+            Apply the Ising Coupling RXX (Rotation-X-X) Gate/Operation to the given indexes of
+            IBM Qiskit's Quantum Registers and their respective qubits.
+            """
+
+    def apply_ising_coupling_ryy(self,
+                                 qiskit_quantum_register_index_1: int,
+                                 qiskit_quantum_register_index_2: int,
+                                 qubit_index_1: int, qubit_index_2: int):
+        """
+        Apply the Ising Coupling RYY (Rotation-Y-Y) Gate/Operation to
+        given indexes of IBM Qiskit's Quantum Registers and their respective qubits on them.
+
+        :param qiskit_quantum_register_index_1: the index of the 1st IBM Qiskit's Quantum Register.
+        :param qiskit_quantum_register_index_2: the index of the 2nd IBM Qiskit's Quantum Register.
+        :param qubit_index_1: the index of a qubit inside the 1st IBM Qiskit's Quantum Register.
+        :param qubit_index_2: the index of a qubit inside the 2nd IBM Qiskit's Quantum Register.
+        """
+
+        is_possible_to_apply_operation_1 = \
+            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_index_1,
+                                                         qubit_index_1, True)
+        """
+        Check if it is possible to apply the pretended operation for
+        the 1st IBM Qiskit's Quantum Register and the respective qubit.
+        """
+
+        is_possible_to_apply_operation_2 = \
+            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_index_2,
+                                                         qubit_index_2, True)
+        """
+        Check if it is possible to apply the pretended operation for
+        the 2nd IBM Qiskit's Quantum Register and the respective qubit.
+        """
+
+        if is_possible_to_apply_operation_1 and is_possible_to_apply_operation_2:
+            """
+            It is possible to apply the pretended operation for both
+            the IBM Qiskit's Quantum Registers and their respective qubits.
+            """
+
+            self.quantum_circuit.ryy(self.quantum_circuit.qregs[qiskit_quantum_register_index_1][qubit_index_1],
+                                     self.quantum_circuit.qregs[qiskit_quantum_register_index_2][qubit_index_2])
+            """
+            Apply the Ising Coupling RYY (Rotation-Y-Y) Gate/Operation to the given indexes of
+            IBM Qiskit's Quantum Registers and their respective qubits.
+            """
+
+    def apply_ising_coupling_rzz(self,
+                                 qiskit_quantum_register_index_1: int,
+                                 qiskit_quantum_register_index_2: int,
+                                 qubit_index_1: int, qubit_index_2: int):
+        """
+        Apply the Ising Coupling RZZ (Rotation-Z-Z) Gate/Operation to
+        given indexes of IBM Qiskit's Quantum Registers and their respective qubits on them.
+
+        :param qiskit_quantum_register_index_1: the index of the 1st IBM Qiskit's Quantum Register.
+        :param qiskit_quantum_register_index_2: the index of the 2nd IBM Qiskit's Quantum Register.
+        :param qubit_index_1: the index of a qubit inside the 1st IBM Qiskit's Quantum Register.
+        :param qubit_index_2: the index of a qubit inside the 2nd IBM Qiskit's Quantum Register.
+        """
+
+        is_possible_to_apply_operation_1 = \
+            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_index_1,
+                                                         qubit_index_1, True)
+        """
+        Check if it is possible to apply the pretended operation for
+        the 1st IBM Qiskit's Quantum Register and the respective qubit.
+        """
+
+        is_possible_to_apply_operation_2 = \
+            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_index_2,
+                                                         qubit_index_2, True)
+        """
+        Check if it is possible to apply the pretended operation for
+        the 2nd IBM Qiskit's Quantum Register and the respective qubit.
+        """
+
+        if is_possible_to_apply_operation_1 and is_possible_to_apply_operation_2:
+            """
+            It is possible to apply the pretended operation for both
+            the IBM Qiskit's Quantum Registers and their respective qubits.
+            """
+
+            self.quantum_circuit.rzz(self.quantum_circuit.qregs[qiskit_quantum_register_index_1][qubit_index_1],
+                                     self.quantum_circuit.qregs[qiskit_quantum_register_index_2][qubit_index_2])
+            """
+            Apply the Ising Coupling RZZ (Rotation-Z-Z) Gate/Operation to the given indexes of
+            IBM Qiskit's Quantum Registers and their respective qubits.
+            """
+
     @staticmethod
     def check_if_is_a_qiskrypt_semi_quantum_register(qiskrypt_register: object) -> bool:
         """
