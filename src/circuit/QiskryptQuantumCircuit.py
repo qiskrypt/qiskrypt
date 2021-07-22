@@ -38,6 +38,7 @@ Acknowledgement(s):\n
 """
 
 from __future__ import annotations
+
 """
 Import the annotations for Python
 (must be imported at the beginning of the source-code).
@@ -70,6 +71,12 @@ Import Quantum Circuit from IBM's Qiskit.
 from qiskit.quantum_info.operators import Operator
 """
 Import Operator of the Quantum_Info.Operators Module from IBM's Qiskit.
+"""
+
+from qiskit.circuit.library import GMS
+"""
+Import Global Mølmer-Sørensen (GMS) Quantum Gate/Operation of
+the Circuit.Library Module from IBM's Qiskit.
 """
 
 from src.circuit.registers.quantum.QiskryptQuantumRegister \
@@ -190,7 +197,7 @@ class QiskryptQuantumCircuit:
                  qiskrypt_ancilla_fully_quantum_registers=None,
                  qiskrypt_ancilla_semi_quantum_registers=None,
                  qiskrypt_classical_registers=None,
-                 global_phase=0, quantum_circuit=None):
+                 global_phase=0, qiskit_quantum_circuit=None):
         """
         :param name: the name for the Qiskrypt's Quantum Circuit.
         :param qiskrypt_quantum_registers: the Qiskrypt's Quantum Registers for the Qiskrypt's Quantum Circuit.
@@ -201,7 +208,7 @@ class QiskryptQuantumCircuit:
         :param qiskrypt_ancilla_semi_quantum_registers: the Qiskrypt's Ancilla Semi-Quantum Registers for the Qiskrypt's Quantum Circuit.
         :param qiskrypt_classical_registers: the Qiskrypt's Classical Registers for the Qiskrypt's Quantum Circuit.
         :param global_phase: the global phase for the Qiskrypt's Quantum Circuit.
-        :param quantum_circuit: the IBM's Qiskit Quantum Circuit.
+        :param qiskit_quantum_circuit: the IBM's Qiskit Quantum Circuit.
         """
 
         self.name = name
@@ -209,7 +216,7 @@ class QiskryptQuantumCircuit:
         Set the name of the Qiskrypt's Quantum Circuit.
         """
 
-        if quantum_circuit is None:
+        if qiskit_quantum_circuit is None:
             """
             If there is no given any IBM's Quantum Circuit, it will be created a new one,
             according to the given Qiskrypt's Quantum, Fully-Quantum, Semi-Quantum,
@@ -256,37 +263,37 @@ class QiskryptQuantumCircuit:
                             """
                             break
 
-                    self.quantum_registers = qiskrypt_quantum_registers
+                    self.qiskrypt_quantum_registers = qiskrypt_quantum_registers
                     """
                     Set the Qiskrypt's Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.fully_quantum_registers = None
+                    self.qiskrypt_fully_quantum_registers = None
                     """
                     Set the Qiskrypt's Fully-Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.semi_quantum_registers = None
+                    self.qiskrypt_semi_quantum_registers = None
                     """
                     Set the Qiskrypt's Semi-Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.ancilla_quantum_registers = None
+                    self.qiskrypt_ancilla_quantum_registers = None
                     """
                     Set the Qiskrypt's Ancilla Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.ancilla_fully_quantum_registers = None
+                    self.qiskrypt_ancilla_fully_quantum_registers = None
                     """
                     Set the Qiskrypt's Ancilla Fully-Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.ancilla_semi_quantum_registers = None
+                    self.qiskrypt_ancilla_semi_quantum_registers = None
                     """
                     Set the Qiskrypt's Ancilla Semi-Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.classical_registers = None
+                    self.qiskrypt_classical_registers = None
                     """
                     Set the Qiskrypt's Classical Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
@@ -298,7 +305,7 @@ class QiskryptQuantumCircuit:
 
                     self.quantum_circuit = \
                         QuantumCircuit(
-                            *[quantum_register.get_quantum_register() for quantum_register in self.quantum_registers],
+                            *[quantum_register.get_quantum_register() for quantum_register in self.qiskrypt_quantum_registers],
                             name=name, global_phase=global_phase)
                     """
                     Set the IBM's Qiskit Quantum Circuit of the Qiskrypt's Quantum Circuit.
@@ -353,37 +360,37 @@ class QiskryptQuantumCircuit:
                             """
                             break
 
-                    self.quantum_registers = None
+                    self.qiskrypt_quantum_registers = None
                     """
                     Set the Qiskrypt's Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.fully_quantum_registers = qiskrypt_fully_quantum_registers
+                    self.qiskrypt_fully_quantum_registers = qiskrypt_fully_quantum_registers
                     """
                     Set the Qiskrypt's Fully-Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.semi_quantum_registers = None
+                    self.qiskrypt_semi_quantum_registers = None
                     """
                     Set the Qiskrypt's Semi-Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.ancilla_quantum_registers = None
+                    self.qiskrypt_ancilla_quantum_registers = None
                     """
                     Set the Qiskrypt's Ancilla Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.ancilla_fully_quantum_registers = None
+                    self.qiskrypt_ancilla_fully_quantum_registers = None
                     """
                     Set the Qiskrypt's Ancilla Fully-Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.ancilla_semi_quantum_registers = None
+                    self.qiskrypt_ancilla_semi_quantum_registers = None
                     """
                     Set the Qiskrypt's Ancilla Semi-Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.classical_registers = None
+                    self.qiskrypt_classical_registers = None
                     """
                     Set the Qiskrypt's Classical Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
@@ -396,7 +403,7 @@ class QiskryptQuantumCircuit:
                     self.quantum_circuit = \
                         QuantumCircuit(
                             *[fully_quantum_register.get_fully_quantum_register() for fully_quantum_register in
-                              self.fully_quantum_registers],
+                              self.qiskrypt_fully_quantum_registers],
                             name=name, global_phase=global_phase)
                     """
                     Set the IBM's Qiskit Quantum Circuit of the Qiskrypt's Quantum Circuit.
@@ -449,37 +456,37 @@ class QiskryptQuantumCircuit:
                             """
                             break
 
-                    self.quantum_registers = None
+                    self.qiskrypt_quantum_registers = None
                     """
                     Set the Qiskrypt's Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.fully_quantum_registers = None
+                    self.qiskrypt_fully_quantum_registers = None
                     """
                     Set the Qiskrypt's Fully-Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.semi_quantum_registers = qiskrypt_semi_quantum_registers
+                    self.qiskrypt_semi_quantum_registers = qiskrypt_semi_quantum_registers
                     """
                     Set the Qiskrypt's Semi-Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.ancilla_quantum_registers = None
+                    self.qiskrypt_ancilla_quantum_registers = None
                     """
                     Set the Qiskrypt's Ancilla Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.ancilla_fully_quantum_registers = None
+                    self.qiskrypt_ancilla_fully_quantum_registers = None
                     """
                     Set the Qiskrypt's Ancilla Fully-Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.ancilla_semi_quantum_registers = None
+                    self.qiskrypt_ancilla_semi_quantum_registers = None
                     """
                     Set the Qiskrypt's Ancilla Semi-Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.classical_registers = None
+                    self.qiskrypt_classical_registers = None
                     """
                     Set the Qiskrypt's Classical Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
@@ -491,7 +498,7 @@ class QiskryptQuantumCircuit:
 
                     self.quantum_circuit = \
                         QuantumCircuit(*[semi_quantum_register.get_semi_quantum_register() for semi_quantum_register in
-                                         self.semi_quantum_registers],
+                                         self.qiskrypt_semi_quantum_registers],
                                        name=name, global_phase=global_phase)
                     """
                     Set the IBM's Qiskit Quantum Circuit of the Qiskrypt's Quantum Circuit.
@@ -544,37 +551,37 @@ class QiskryptQuantumCircuit:
                             """
                             break
 
-                    self.quantum_registers = None
+                    self.qiskrypt_quantum_registers = None
                     """
                     Set the Qiskrypt's Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.fully_quantum_registers = None
+                    self.qiskrypt_fully_quantum_registers = None
                     """
                     Set the Qiskrypt's Fully-Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.semi_quantum_registers = None
+                    self.qiskrypt_semi_quantum_registers = None
                     """
                     Set the Qiskrypt's Semi-Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.ancilla_quantum_registers = qiskrypt_ancilla_quantum_registers
+                    self.qiskrypt_ancilla_quantum_registers = qiskrypt_ancilla_quantum_registers
                     """
                     Set the Qiskrypt's Ancilla Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.ancilla_fully_quantum_registers = None
+                    self.qiskrypt_ancilla_fully_quantum_registers = None
                     """
                     Set the Qiskrypt's Ancilla Fully-Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.ancilla_semi_quantum_registers = None
+                    self.qiskrypt_ancilla_semi_quantum_registers = None
                     """
                     Set the Qiskrypt's Ancilla Semi-Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.classical_registers = None
+                    self.qiskrypt_classical_registers = None
                     """
                     Set the Qiskrypt's Classical Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
@@ -587,7 +594,7 @@ class QiskryptQuantumCircuit:
                     self.quantum_circuit = \
                         QuantumCircuit(
                             *[ancilla_quantum_register.get_ancilla_quantum_register() for ancilla_quantum_register in
-                              self.ancilla_quantum_registers],
+                              self.qiskrypt_ancilla_quantum_registers],
                             name=name, global_phase=global_phase)
                     """
                     Set the IBM's Qiskit Quantum Circuit of the Qiskrypt's Quantum Circuit.
@@ -640,37 +647,37 @@ class QiskryptQuantumCircuit:
                             """
                             break
 
-                    self.quantum_registers = None
+                    self.qiskrypt_quantum_registers = None
                     """
                     Set the Qiskrypt's Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.fully_quantum_registers = None
+                    self.qiskrypt_fully_quantum_registers = None
                     """
                     Set the Qiskrypt's Fully-Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.semi_quantum_registers = None
+                    self.qiskrypt_semi_quantum_registers = None
                     """
                     Set the Qiskrypt's Semi-Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.ancilla_quantum_registers = None
+                    self.qiskrypt_ancilla_quantum_registers = None
                     """
                     Set the Qiskrypt's Ancilla Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.ancilla_fully_quantum_registers = qiskrypt_ancilla_fully_quantum_registers
+                    self.qiskrypt_ancilla_fully_quantum_registers = qiskrypt_ancilla_fully_quantum_registers
                     """
                     Set the Qiskrypt's Ancilla Fully-Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.ancilla_semi_quantum_registers = None
+                    self.qiskrypt_ancilla_semi_quantum_registers = None
                     """
                     Set the Qiskrypt's Ancilla Semi-Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.classical_registers = None
+                    self.qiskrypt_classical_registers = None
                     """
                     Set the Qiskrypt's Classical Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
@@ -682,7 +689,7 @@ class QiskryptQuantumCircuit:
 
                     self.quantum_circuit = \
                         QuantumCircuit(*[ancilla_fully_quantum_register.get_ancilla_fully_quantum_register() for
-                                         ancilla_fully_quantum_register in self.ancilla_fully_quantum_registers],
+                                         ancilla_fully_quantum_register in self.qiskrypt_ancilla_fully_quantum_registers],
                                        name=name, global_phase=global_phase)
                     """
                     Set the IBM's Qiskit Quantum Circuit of the Qiskrypt's Quantum Circuit.
@@ -735,37 +742,37 @@ class QiskryptQuantumCircuit:
                             """
                             break
 
-                    self.quantum_registers = None
+                    self.qiskrypt_quantum_registers = None
                     """
                     Set the Qiskrypt's Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.fully_quantum_registers = None
+                    self.qiskrypt_fully_quantum_registers = None
                     """
                     Set the Qiskrypt's Fully-Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.semi_quantum_registers = None
+                    self.qiskrypt_semi_quantum_registers = None
                     """
                     Set the Qiskrypt's Semi-Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.ancilla_quantum_registers = None
+                    self.qiskrypt_ancilla_quantum_registers = None
                     """
                     Set the Qiskrypt's Ancilla Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.ancilla_fully_quantum_registers = None
+                    self.qiskrypt_ancilla_fully_quantum_registers = None
                     """
                     Set the Qiskrypt's Ancilla Fully-Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.ancilla_semi_quantum_registers = qiskrypt_ancilla_semi_quantum_registers
+                    self.qiskrypt_ancilla_semi_quantum_registers = qiskrypt_ancilla_semi_quantum_registers
                     """
                     Set the Qiskrypt's Ancilla Semi-Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.classical_registers = None
+                    self.qiskrypt_classical_registers = None
                     """
                     Set the Qiskrypt's Classical Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
@@ -777,7 +784,7 @@ class QiskryptQuantumCircuit:
 
                     self.quantum_circuit = \
                         QuantumCircuit(*[ancilla_semi_quantum_register.get_ancilla_semi_quantum_register() for
-                                         ancilla_semi_quantum_register in self.ancilla_semi_quantum_registers],
+                                         ancilla_semi_quantum_register in self.qiskrypt_ancilla_semi_quantum_registers],
                                        name=name, global_phase=global_phase)
                     """
                     Set the IBM's Qiskit Quantum Circuit of the Qiskrypt's Quantum Circuit.
@@ -830,37 +837,37 @@ class QiskryptQuantumCircuit:
                             """
                             break
 
-                    self.quantum_registers = None
+                    self.qiskrypt_quantum_registers = None
                     """
                     Set the Qiskrypt's Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.fully_quantum_registers = None
+                    self.qiskrypt_fully_quantum_registers = None
                     """
                     Set the Qiskrypt's Fully-Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.semi_quantum_registers = None
+                    self.qiskrypt_semi_quantum_registers = None
                     """
                     Set the Qiskrypt's Semi-Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.ancilla_quantum_registers = None
+                    self.qiskrypt_ancilla_quantum_registers = None
                     """
                     Set the Qiskrypt's Ancilla Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.ancilla_fully_quantum_registers = None
+                    self.qiskrypt_ancilla_fully_quantum_registers = None
                     """
                     Set the Qiskrypt's Ancilla Fully-Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.ancilla_semi_quantum_registers = None
+                    self.qiskrypt_ancilla_semi_quantum_registers = None
                     """
                     Set the Qiskrypt's Ancilla Semi-Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.classical_registers = qiskrypt_classical_registers
+                    self.qiskrypt_classical_registers = qiskrypt_classical_registers
                     """
                     Set the Qiskrypt's Classical Registers of the Qiskrypt's Quantum Circuit.
                     """
@@ -872,7 +879,7 @@ class QiskryptQuantumCircuit:
 
                     self.quantum_circuit = \
                         QuantumCircuit(*[classical_register.get_classical_register() for classical_register in
-                                         self.classical_registers],
+                                         self.qiskrypt_classical_registers],
                                        name=name, global_phase=global_phase)
                     """
                     Set the IBM's Qiskit Quantum Circuit of the Qiskrypt's Quantum Circuit.
@@ -945,37 +952,37 @@ class QiskryptQuantumCircuit:
                             """
                             break
 
-                    self.quantum_registers = qiskrypt_quantum_registers
+                    self.qiskrypt_quantum_registers = qiskrypt_quantum_registers
                     """
                     Set the Qiskrypt's Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.fully_quantum_registers = None
+                    self.qiskrypt_fully_quantum_registers = None
                     """
                     Set the Qiskrypt's Fully-Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.semi_quantum_registers = None
+                    self.qiskrypt_semi_quantum_registers = None
                     """
                     Set the Qiskrypt's Semi-Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.ancilla_quantum_registers = None
+                    self.qiskrypt_ancilla_quantum_registers = None
                     """
                     Set the Qiskrypt's Ancilla Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.ancilla_fully_quantum_registers = None
+                    self.qiskrypt_ancilla_fully_quantum_registers = None
                     """
                     Set the Qiskrypt's Ancilla Fully-Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.ancilla_semi_quantum_registers = None
+                    self.qiskrypt_ancilla_semi_quantum_registers = None
                     """
                     Set the Qiskrypt's Ancilla Semi-Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.classical_registers = qiskrypt_classical_registers
+                    self.qiskrypt_classical_registers = qiskrypt_classical_registers
                     """
                     Set the Qiskrypt's Classical Registers of the Qiskrypt's Quantum Circuit.
                     """
@@ -987,9 +994,9 @@ class QiskryptQuantumCircuit:
 
                     self.quantum_circuit = \
                         QuantumCircuit(
-                            *[quantum_register.get_quantum_register() for quantum_register in self.quantum_registers],
+                            *[quantum_register.get_quantum_register() for quantum_register in self.qiskrypt_quantum_registers],
                             *[classical_register.get_classical_register() for classical_register in
-                              self.classical_registers],
+                              self.qiskrypt_classical_registers],
                             name=name, global_phase=global_phase)
                     """
                     Set the IBM's Qiskit Quantum Circuit of the Qiskrypt's Quantum Circuit.
@@ -1062,37 +1069,37 @@ class QiskryptQuantumCircuit:
                             """
                             break
 
-                    self.quantum_registers = None
+                    self.qiskrypt_quantum_registers = None
                     """
                     Set the Qiskrypt's Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.fully_quantum_registers = qiskrypt_fully_quantum_registers
+                    self.qiskrypt_fully_quantum_registers = qiskrypt_fully_quantum_registers
                     """
                     Set the Qiskrypt's Fully-Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.semi_quantum_registers = None
+                    self.qiskrypt_semi_quantum_registers = None
                     """
                     Set the Qiskrypt's Semi-Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.ancilla_quantum_registers = None
+                    self.qiskrypt_ancilla_quantum_registers = None
                     """
                     Set the Qiskrypt's Ancilla Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.ancilla_fully_quantum_registers = None
+                    self.qiskrypt_ancilla_fully_quantum_registers = None
                     """
                     Set the Qiskrypt's Ancilla Fully-Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.ancilla_semi_quantum_registers = None
+                    self.qiskrypt_ancilla_semi_quantum_registers = None
                     """
                     Set the Qiskrypt's Ancilla Semi-Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.classical_registers = qiskrypt_classical_registers
+                    self.qiskrypt_classical_registers = qiskrypt_classical_registers
                     """
                     Set the Qiskrypt's Classical Registers of the Qiskrypt's Quantum Circuit.
                     """
@@ -1105,9 +1112,9 @@ class QiskryptQuantumCircuit:
                     self.quantum_circuit = \
                         QuantumCircuit(
                             *[fully_quantum_register.get_fully_quantum_register() for fully_quantum_register in
-                              self.fully_quantum_registers],
+                              self.qiskrypt_fully_quantum_registers],
                             *[classical_register.get_classical_register() for classical_register in
-                              self.classical_registers],
+                              self.qiskrypt_classical_registers],
                             name=name, global_phase=global_phase)
                     """
                     Set the IBM's Qiskit Quantum Circuit of the Qiskrypt's Quantum Circuit.
@@ -1180,37 +1187,37 @@ class QiskryptQuantumCircuit:
                             """
                             break
 
-                    self.quantum_registers = None
+                    self.qiskrypt_quantum_registers = None
                     """
                     Set the Qiskrypt's Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.fully_quantum_registers = None
+                    self.qiskrypt_fully_quantum_registers = None
                     """
                     Set the Qiskrypt's Fully-Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.semi_quantum_registers = qiskrypt_semi_quantum_registers
+                    self.qiskrypt_semi_quantum_registers = qiskrypt_semi_quantum_registers
                     """
                     Set the Qiskrypt's Semi-Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.ancilla_quantum_registers = None
+                    self.qiskrypt_ancilla_quantum_registers = None
                     """
                     Set the Qiskrypt's Ancilla Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.ancilla_fully_quantum_registers = None
+                    self.qiskrypt_ancilla_fully_quantum_registers = None
                     """
                     Set the Qiskrypt's Ancilla Fully-Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.ancilla_semi_quantum_registers = None
+                    self.qiskrypt_ancilla_semi_quantum_registers = None
                     """
                     Set the Qiskrypt's Ancilla Semi-Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.classical_registers = qiskrypt_classical_registers
+                    self.qiskrypt_classical_registers = qiskrypt_classical_registers
                     """
                     Set the Qiskrypt's Classical Registers of the Qiskrypt's Quantum Circuit.
                     """
@@ -1222,9 +1229,9 @@ class QiskryptQuantumCircuit:
 
                     self.quantum_circuit = \
                         QuantumCircuit(*[semi_quantum_register.get_semi_quantum_register() for semi_quantum_register in
-                                         self.semi_quantum_registers],
+                                         self.qiskrypt_semi_quantum_registers],
                                        *[classical_register.get_classical_register() for classical_register in
-                                         self.classical_registers],
+                                         self.qiskrypt_classical_registers],
                                        name=name, global_phase=global_phase)
                     """
                     Set the IBM's Qiskit Quantum Circuit of the Qiskrypt's Quantum Circuit.
@@ -1297,37 +1304,37 @@ class QiskryptQuantumCircuit:
                             """
                             break
 
-                    self.quantum_registers = None
+                    self.qiskrypt_quantum_registers = None
                     """
                     Set the Qiskrypt's Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.fully_quantum_registers = None
+                    self.qiskrypt_fully_quantum_registers = None
                     """
                     Set the Qiskrypt's Fully-Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.semi_quantum_registers = None
+                    self.qiskrypt_semi_quantum_registers = None
                     """
                     Set the Qiskrypt's Semi-Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.ancilla_quantum_registers = qiskrypt_ancilla_quantum_registers
+                    self.qiskrypt_ancilla_quantum_registers = qiskrypt_ancilla_quantum_registers
                     """
                     Set the Qiskrypt's Ancilla Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.ancilla_fully_quantum_registers = None
+                    self.qiskrypt_ancilla_fully_quantum_registers = None
                     """
                     Set the Qiskrypt's Ancilla Fully-Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.ancilla_semi_quantum_registers = None
+                    self.qiskrypt_ancilla_semi_quantum_registers = None
                     """
                     Set the Qiskrypt's Ancilla Semi-Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.classical_registers = qiskrypt_classical_registers
+                    self.qiskrypt_classical_registers = qiskrypt_classical_registers
                     """
                     Set the Qiskrypt's Classical Registers of the Qiskrypt's Quantum Circuit.
                     """
@@ -1340,9 +1347,9 @@ class QiskryptQuantumCircuit:
                     self.quantum_circuit = \
                         QuantumCircuit(
                             *[ancilla_quantum_register.get_ancilla_quantum_register() for ancilla_quantum_register in
-                              self.ancilla_quantum_registers],
+                              self.qiskrypt_ancilla_quantum_registers],
                             *[classical_register.get_classical_register() for classical_register in
-                              self.classical_registers],
+                              self.qiskrypt_classical_registers],
                             name=name, global_phase=global_phase)
                     """
                     Set the IBM's Qiskit Quantum Circuit of the Qiskrypt's Quantum Circuit.
@@ -1415,37 +1422,37 @@ class QiskryptQuantumCircuit:
                             """
                             break
 
-                    self.quantum_registers = None
+                    self.qiskrypt_quantum_registers = None
                     """
                     Set the Qiskrypt's Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.fully_quantum_registers = None
+                    self.qiskrypt_fully_quantum_registers = None
                     """
                     Set the Qiskrypt's Fully-Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.semi_quantum_registers = None
+                    self.qiskrypt_semi_quantum_registers = None
                     """
                     Set the Qiskrypt's Semi-Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.ancilla_quantum_registers = None
+                    self.qiskrypt_ancilla_quantum_registers = None
                     """
                     Set the Qiskrypt's Ancilla Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.ancilla_fully_quantum_registers = qiskrypt_ancilla_fully_quantum_registers
+                    self.qiskrypt_ancilla_fully_quantum_registers = qiskrypt_ancilla_fully_quantum_registers
                     """
                     Set the Qiskrypt's Ancilla Fully-Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.ancilla_semi_quantum_registers = None
+                    self.qiskrypt_ancilla_semi_quantum_registers = None
                     """
                     Set the Qiskrypt's Ancilla Semi-Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.classical_registers = qiskrypt_classical_registers
+                    self.qiskrypt_classical_registers = qiskrypt_classical_registers
                     """
                     Set the Qiskrypt's Classical Registers of the Qiskrypt's Quantum Circuit.
                     """
@@ -1457,9 +1464,9 @@ class QiskryptQuantumCircuit:
 
                     self.quantum_circuit = \
                         QuantumCircuit(*[ancilla_fully_quantum_register.get_ancilla_fully_quantum_register() for
-                                         ancilla_fully_quantum_register in self.ancilla_fully_quantum_registers],
+                                         ancilla_fully_quantum_register in self.qiskrypt_ancilla_fully_quantum_registers],
                                        *[classical_register.get_classical_register() for classical_register in
-                                         self.classical_registers],
+                                         self.qiskrypt_classical_registers],
                                        name=name, global_phase=global_phase)
                     """
                     Set the IBM's Qiskit Quantum Circuit of the Qiskrypt's Quantum Circuit.
@@ -1532,37 +1539,37 @@ class QiskryptQuantumCircuit:
                             """
                             break
 
-                    self.quantum_registers = None
+                    self.qiskrypt_quantum_registers = None
                     """
                     Set the Qiskrypt's Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.fully_quantum_registers = None
+                    self.qiskrypt_fully_quantum_registers = None
                     """
                     Set the Qiskrypt's Fully-Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.semi_quantum_registers = None
+                    self.qiskrypt_semi_quantum_registers = None
                     """
                     Set the Qiskrypt's Semi-Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.ancilla_quantum_registers = None
+                    self.qiskrypt_ancilla_quantum_registers = None
                     """
                     Set the Qiskrypt's Ancilla Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.ancilla_fully_quantum_registers = None
+                    self.qiskrypt_ancilla_fully_quantum_registers = None
                     """
                     Set the Qiskrypt's Ancilla Fully-Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.ancilla_semi_quantum_registers = qiskrypt_ancilla_semi_quantum_registers
+                    self.qiskrypt_ancilla_semi_quantum_registers = qiskrypt_ancilla_semi_quantum_registers
                     """
                     Set the Qiskrypt's Ancilla Semi-Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.classical_registers = qiskrypt_classical_registers
+                    self.qiskrypt_classical_registers = qiskrypt_classical_registers
                     """
                     Set the Qiskrypt's Classical Registers of the Qiskrypt's Quantum Circuit.
                     """
@@ -1574,9 +1581,9 @@ class QiskryptQuantumCircuit:
 
                     self.quantum_circuit = \
                         QuantumCircuit(*[ancilla_semi_quantum_register.get_ancilla_semi_quantum_register() for
-                                         ancilla_semi_quantum_register in self.ancilla_semi_quantum_registers],
+                                         ancilla_semi_quantum_register in self.qiskrypt_ancilla_semi_quantum_registers],
                                        *[classical_register.get_classical_register() for classical_register in
-                                         self.classical_registers],
+                                         self.qiskrypt_classical_registers],
                                        name=name, global_phase=global_phase)
                     """
                     Set the IBM's Qiskit Quantum Circuit of the Qiskrypt's Quantum Circuit.
@@ -1669,37 +1676,37 @@ class QiskryptQuantumCircuit:
                             """
                             break
 
-                    self.quantum_registers = qiskrypt_quantum_registers
+                    self.qiskrypt_quantum_registers = qiskrypt_quantum_registers
                     """
                     Set the Qiskrypt's Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.fully_quantum_registers = qiskrypt_fully_quantum_registers
+                    self.qiskrypt_fully_quantum_registers = qiskrypt_fully_quantum_registers
                     """
                     Set the Qiskrypt's Fully-Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.semi_quantum_registers = None
+                    self.qiskrypt_semi_quantum_registers = None
                     """
                     Set the Qiskrypt's Semi-Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.ancilla_quantum_registers = None
+                    self.qiskrypt_ancilla_quantum_registers = None
                     """
                     Set the Qiskrypt's Ancilla Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.ancilla_fully_quantum_registers = None
+                    self.qiskrypt_ancilla_fully_quantum_registers = None
                     """
                     Set the Qiskrypt's Ancilla Fully-Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.ancilla_semi_quantum_registers = None
+                    self.qiskrypt_ancilla_semi_quantum_registers = None
                     """
                     Set the Qiskrypt's Ancilla Semi-Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.classical_registers = qiskrypt_classical_registers
+                    self.qiskrypt_classical_registers = qiskrypt_classical_registers
                     """
                     Set the Qiskrypt's Classical Registers of the Qiskrypt's Quantum Circuit.
                     """
@@ -1711,11 +1718,11 @@ class QiskryptQuantumCircuit:
 
                     self.quantum_circuit = \
                         QuantumCircuit(
-                            *[quantum_register.get_quantum_register() for quantum_register in self.quantum_registers],
+                            *[quantum_register.get_quantum_register() for quantum_register in self.qiskrypt_quantum_registers],
                             *[fully_quantum_register.get_fully_quantum_register() for fully_quantum_register in
-                              self.fully_quantum_registers],
+                              self.qiskrypt_fully_quantum_registers],
                             *[classical_register.get_classical_register() for classical_register in
-                              self.classical_registers],
+                              self.qiskrypt_classical_registers],
                             name=name, global_phase=global_phase)
                     """
                     Set the IBM's Qiskit Quantum Circuit of the Qiskrypt's Quantum Circuit.
@@ -1808,37 +1815,37 @@ class QiskryptQuantumCircuit:
                             """
                             break
 
-                    self.quantum_registers = qiskrypt_quantum_registers
+                    self.qiskrypt_quantum_registers = qiskrypt_quantum_registers
                     """
                     Set the Qiskrypt's Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.fully_quantum_registers = None
+                    self.qiskrypt_fully_quantum_registers = None
                     """
                     Set the Qiskrypt's Fully-Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.semi_quantum_registers = qiskrypt_semi_quantum_registers
+                    self.qiskrypt_semi_quantum_registers = qiskrypt_semi_quantum_registers
                     """
                     Set the Qiskrypt's Semi-Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.ancilla_quantum_registers = None
+                    self.qiskrypt_ancilla_quantum_registers = None
                     """
                     Set the Qiskrypt's Ancilla Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.ancilla_fully_quantum_registers = None
+                    self.qiskrypt_ancilla_fully_quantum_registers = None
                     """
                     Set the Qiskrypt's Ancilla Fully-Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.ancilla_semi_quantum_registers = None
+                    self.qiskrypt_ancilla_semi_quantum_registers = None
                     """
                     Set the Qiskrypt's Ancilla Semi-Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.classical_registers = qiskrypt_classical_registers
+                    self.qiskrypt_classical_registers = qiskrypt_classical_registers
                     """
                     Set the Qiskrypt's Classical Registers of the Qiskrypt's Quantum Circuit.
                     """
@@ -1850,11 +1857,11 @@ class QiskryptQuantumCircuit:
 
                     self.quantum_circuit = \
                         QuantumCircuit(
-                            *[quantum_register.get_quantum_register() for quantum_register in self.quantum_registers],
+                            *[quantum_register.get_quantum_register() for quantum_register in self.qiskrypt_quantum_registers],
                             *[semi_quantum_register.get_semi_quantum_register() for semi_quantum_register in
-                              self.semi_quantum_registers],
+                              self.qiskrypt_semi_quantum_registers],
                             *[classical_register.get_classical_register() for classical_register in
-                              self.classical_registers],
+                              self.qiskrypt_classical_registers],
                             name=name, global_phase=global_phase)
                     """
                     Set the IBM's Qiskit Quantum Circuit of the Qiskrypt's Quantum Circuit.
@@ -1947,37 +1954,37 @@ class QiskryptQuantumCircuit:
                             """
                             break
 
-                    self.quantum_registers = qiskrypt_quantum_registers
+                    self.qiskrypt_quantum_registers = qiskrypt_quantum_registers
                     """
                     Set the Qiskrypt's Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.fully_quantum_registers = None
+                    self.qiskrypt_fully_quantum_registers = None
                     """
                     Set the Qiskrypt's Fully-Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.semi_quantum_registers = None
+                    self.qiskrypt_semi_quantum_registers = None
                     """
                     Set the Qiskrypt's Semi-Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.ancilla_quantum_registers = qiskrypt_ancilla_quantum_registers
+                    self.qiskrypt_ancilla_quantum_registers = qiskrypt_ancilla_quantum_registers
                     """
                     Set the Qiskrypt's Ancilla Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.ancilla_fully_quantum_registers = None
+                    self.qiskrypt_ancilla_fully_quantum_registers = None
                     """
                     Set the Qiskrypt's Ancilla Fully-Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.ancilla_semi_quantum_registers = None
+                    self.qiskrypt_ancilla_semi_quantum_registers = None
                     """
                     Set the Qiskrypt's Ancilla Semi-Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.classical_registers = qiskrypt_classical_registers
+                    self.qiskrypt_classical_registers = qiskrypt_classical_registers
                     """
                     Set the Qiskrypt's Classical Registers of the Qiskrypt's Quantum Circuit.
                     """
@@ -1989,11 +1996,11 @@ class QiskryptQuantumCircuit:
 
                     self.quantum_circuit = \
                         QuantumCircuit(
-                            *[quantum_register.get_quantum_register() for quantum_register in self.quantum_registers],
+                            *[quantum_register.get_quantum_register() for quantum_register in self.qiskrypt_quantum_registers],
                             *[ancilla_quantum_register.get_ancilla_quantum_register() for ancilla_quantum_register in
-                              self.ancilla_quantum_registers],
+                              self.qiskrypt_ancilla_quantum_registers],
                             *[classical_register.get_classical_register() for classical_register in
-                              self.classical_registers],
+                              self.qiskrypt_classical_registers],
                             name=name, global_phase=global_phase)
                     """
                     Set the IBM's Qiskit Quantum Circuit of the Qiskrypt's Quantum Circuit.
@@ -2087,37 +2094,37 @@ class QiskryptQuantumCircuit:
                             """
                             break
 
-                    self.quantum_registers = qiskrypt_quantum_registers
+                    self.qiskrypt_quantum_registers = qiskrypt_quantum_registers
                     """
                     Set the Qiskrypt's Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.fully_quantum_registers = None
+                    self.qiskrypt_fully_quantum_registers = None
                     """
                     Set the Qiskrypt's Fully-Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.semi_quantum_registers = None
+                    self.qiskrypt_semi_quantum_registers = None
                     """
                     Set the Qiskrypt's Semi-Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.ancilla_quantum_registers = None
+                    self.qiskrypt_ancilla_quantum_registers = None
                     """
                     Set the Qiskrypt's Ancilla Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.ancilla_fully_quantum_registers = qiskrypt_ancilla_fully_quantum_registers
+                    self.qiskrypt_ancilla_fully_quantum_registers = qiskrypt_ancilla_fully_quantum_registers
                     """
                     Set the Qiskrypt's Ancilla Fully-Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.ancilla_semi_quantum_registers = None
+                    self.qiskrypt_ancilla_semi_quantum_registers = None
                     """
                     Set the Qiskrypt's Ancilla Semi-Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.classical_registers = qiskrypt_classical_registers
+                    self.qiskrypt_classical_registers = qiskrypt_classical_registers
                     """
                     Set the Qiskrypt's Classical Registers of the Qiskrypt's Quantum Circuit.
                     """
@@ -2129,11 +2136,11 @@ class QiskryptQuantumCircuit:
 
                     self.quantum_circuit = \
                         QuantumCircuit(
-                            *[quantum_register.get_quantum_register() for quantum_register in self.quantum_registers],
+                            *[quantum_register.get_quantum_register() for quantum_register in self.qiskrypt_quantum_registers],
                             *[ancilla_fully_quantum_register.get_ancilla_fully_quantum_register() for
-                              ancilla_fully_quantum_register in self.ancilla_fully_quantum_registers],
+                              ancilla_fully_quantum_register in self.qiskrypt_ancilla_fully_quantum_registers],
                             *[classical_register.get_classical_register() for classical_register in
-                              self.classical_registers],
+                              self.qiskrypt_classical_registers],
                             name=name, global_phase=global_phase)
                     """
                     Set the IBM's Qiskit Quantum Circuit of the Qiskrypt's Quantum Circuit.
@@ -2226,37 +2233,37 @@ class QiskryptQuantumCircuit:
                             """
                             break
 
-                    self.quantum_registers = qiskrypt_quantum_registers
+                    self.qiskrypt_quantum_registers = qiskrypt_quantum_registers
                     """
                     Set the Qiskrypt's Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.fully_quantum_registers = None
+                    self.qiskrypt_fully_quantum_registers = None
                     """
                     Set the Qiskrypt's Fully-Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.semi_quantum_registers = None
+                    self.qiskrypt_semi_quantum_registers = None
                     """
                     Set the Qiskrypt's Semi-Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.ancilla_quantum_registers = None
+                    self.qiskrypt_ancilla_quantum_registers = None
                     """
                     Set the Qiskrypt's Ancilla Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.ancilla_fully_quantum_registers = None
+                    self.qiskrypt_ancilla_fully_quantum_registers = None
                     """
                     Set the Qiskrypt's Ancilla Fully-Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.ancilla_semi_quantum_registers = qiskrypt_ancilla_semi_quantum_registers
+                    self.qiskrypt_ancilla_semi_quantum_registers = qiskrypt_ancilla_semi_quantum_registers
                     """
                     Set the Qiskrypt's Ancilla Semi-Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.classical_registers = qiskrypt_classical_registers
+                    self.qiskrypt_classical_registers = qiskrypt_classical_registers
                     """
                     Set the Qiskrypt's Classical Registers of the Qiskrypt's Quantum Circuit.
                     """
@@ -2268,11 +2275,11 @@ class QiskryptQuantumCircuit:
 
                     self.quantum_circuit = \
                         QuantumCircuit(
-                            *[quantum_register.get_quantum_register() for quantum_register in self.quantum_registers],
+                            *[quantum_register.get_quantum_register() for quantum_register in self.qiskrypt_quantum_registers],
                             *[ancilla_semi_quantum_register.get_ancilla_semi_quantum_register() for
-                              ancilla_semi_quantum_register in self.ancilla_semi_quantum_registers],
+                              ancilla_semi_quantum_register in self.qiskrypt_ancilla_semi_quantum_registers],
                             *[classical_register.get_classical_register() for classical_register in
-                              self.classical_registers],
+                              self.qiskrypt_classical_registers],
                             name=name, global_phase=global_phase)
                     """
                     Set the IBM's Qiskit Quantum Circuit of the Qiskrypt's Quantum Circuit.
@@ -2385,37 +2392,37 @@ class QiskryptQuantumCircuit:
                             """
                             break
 
-                    self.quantum_registers = qiskrypt_quantum_registers
+                    self.qiskrypt_quantum_registers = qiskrypt_quantum_registers
                     """
                     Set the Qiskrypt's Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.fully_quantum_registers = qiskrypt_fully_quantum_registers
+                    self.qiskrypt_fully_quantum_registers = qiskrypt_fully_quantum_registers
                     """
                     Set the Qiskrypt's Fully-Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.semi_quantum_registers = qiskrypt_semi_quantum_registers
+                    self.qiskrypt_semi_quantum_registers = qiskrypt_semi_quantum_registers
                     """
                     Set the Qiskrypt's Semi-Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.ancilla_quantum_registers = None
+                    self.qiskrypt_ancilla_quantum_registers = None
                     """
                     Set the Qiskrypt's Ancilla Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.ancilla_fully_quantum_registers = None
+                    self.qiskrypt_ancilla_fully_quantum_registers = None
                     """
                     Set the Qiskrypt's Ancilla Fully-Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.ancilla_semi_quantum_registers = None
+                    self.qiskrypt_ancilla_semi_quantum_registers = None
                     """
                     Set the Qiskrypt's Ancilla Semi-Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.classical_registers = qiskrypt_classical_registers
+                    self.qiskrypt_classical_registers = qiskrypt_classical_registers
                     """
                     Set the Qiskrypt's Classical Registers of the Qiskrypt's Quantum Circuit.
                     """
@@ -2427,13 +2434,13 @@ class QiskryptQuantumCircuit:
 
                     self.quantum_circuit = \
                         QuantumCircuit(
-                            *[quantum_register.get_quantum_register() for quantum_register in self.quantum_registers],
+                            *[quantum_register.get_quantum_register() for quantum_register in self.qiskrypt_quantum_registers],
                             *[fully_quantum_register.get_fully_quantum_register() for fully_quantum_register in
-                              self.fully_quantum_registers],
+                              self.qiskrypt_fully_quantum_registers],
                             *[semi_quantum_register.get_semi_quantum_register() for semi_quantum_register in
-                              self.semi_quantum_registers],
+                              self.qiskrypt_semi_quantum_registers],
                             *[classical_register.get_classical_register() for classical_register in
-                              self.classical_registers],
+                              self.qiskrypt_classical_registers],
                             name=name, global_phase=global_phase)
                     """
                     Set the IBM's Qiskit Quantum Circuit of the Qiskrypt's Quantum Circuit.
@@ -2546,37 +2553,37 @@ class QiskryptQuantumCircuit:
                             """
                             break
 
-                    self.quantum_registers = qiskrypt_quantum_registers
+                    self.qiskrypt_quantum_registers = qiskrypt_quantum_registers
                     """
                     Set the Qiskrypt's Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.fully_quantum_registers = qiskrypt_fully_quantum_registers
+                    self.qiskrypt_fully_quantum_registers = qiskrypt_fully_quantum_registers
                     """
                     Set the Qiskrypt's Fully-Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.semi_quantum_registers = None
+                    self.qiskrypt_semi_quantum_registers = None
                     """
                     Set the Qiskrypt's Semi-Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.ancilla_quantum_registers = qiskrypt_ancilla_quantum_registers
+                    self.qiskrypt_ancilla_quantum_registers = qiskrypt_ancilla_quantum_registers
                     """
                     Set the Qiskrypt's Ancilla Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.ancilla_fully_quantum_registers = None
+                    self.qiskrypt_ancilla_fully_quantum_registers = None
                     """
                     Set the Qiskrypt's Ancilla Fully-Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.ancilla_semi_quantum_registers = None
+                    self.qiskrypt_ancilla_semi_quantum_registers = None
                     """
                     Set the Qiskrypt's Ancilla Semi-Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.classical_registers = qiskrypt_classical_registers
+                    self.qiskrypt_classical_registers = qiskrypt_classical_registers
                     """
                     Set the Qiskrypt's Classical Registers of the Qiskrypt's Quantum Circuit.
                     """
@@ -2588,13 +2595,13 @@ class QiskryptQuantumCircuit:
 
                     self.quantum_circuit = \
                         QuantumCircuit(
-                            *[quantum_register.get_quantum_register() for quantum_register in self.quantum_registers],
+                            *[quantum_register.get_quantum_register() for quantum_register in self.qiskrypt_quantum_registers],
                             *[fully_quantum_register.get_fully_quantum_register() for fully_quantum_register in
-                              self.fully_quantum_registers],
+                              self.qiskrypt_fully_quantum_registers],
                             *[ancilla_quantum_register.get_ancilla_quantum_register() for ancilla_quantum_register in
-                              self.ancilla_quantum_registers],
+                              self.qiskrypt_ancilla_quantum_registers],
                             *[classical_register.get_classical_register() for classical_register in
-                              self.classical_registers],
+                              self.qiskrypt_classical_registers],
                             name=name, global_phase=global_phase)
                     """
                     Set the IBM's Qiskit Quantum Circuit of the Qiskrypt's Quantum Circuit.
@@ -2707,37 +2714,37 @@ class QiskryptQuantumCircuit:
                             """
                             break
 
-                    self.quantum_registers = qiskrypt_quantum_registers
+                    self.qiskrypt_quantum_registers = qiskrypt_quantum_registers
                     """
                     Set the Qiskrypt's Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.fully_quantum_registers = qiskrypt_fully_quantum_registers
+                    self.qiskrypt_fully_quantum_registers = qiskrypt_fully_quantum_registers
                     """
                     Set the Qiskrypt's Fully-Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.semi_quantum_registers = None
+                    self.qiskrypt_semi_quantum_registers = None
                     """
                     Set the Qiskrypt's Semi-Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.ancilla_quantum_registers = None
+                    self.qiskrypt_ancilla_quantum_registers = None
                     """
                     Set the Qiskrypt's Ancilla Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.ancilla_fully_quantum_registers = qiskrypt_ancilla_fully_quantum_registers
+                    self.qiskrypt_ancilla_fully_quantum_registers = qiskrypt_ancilla_fully_quantum_registers
                     """
                     Set the Qiskrypt's Ancilla Fully-Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.ancilla_semi_quantum_registers = None
+                    self.qiskrypt_ancilla_semi_quantum_registers = None
                     """
                     Set the Qiskrypt's Ancilla Semi-Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.classical_registers = qiskrypt_classical_registers
+                    self.qiskrypt_classical_registers = qiskrypt_classical_registers
                     """
                     Set the Qiskrypt's Classical Registers of the Qiskrypt's Quantum Circuit.
                     """
@@ -2749,13 +2756,13 @@ class QiskryptQuantumCircuit:
 
                     self.quantum_circuit = \
                         QuantumCircuit(
-                            *[quantum_register.get_quantum_register() for quantum_register in self.quantum_registers],
+                            *[quantum_register.get_quantum_register() for quantum_register in self.qiskrypt_quantum_registers],
                             *[fully_quantum_register.get_fully_quantum_register() for fully_quantum_register in
-                              self.fully_quantum_registers],
+                              self.qiskrypt_fully_quantum_registers],
                             *[ancilla_fully_quantum_register.get_ancilla_fully_quantum_register() for
-                              ancilla_fully_quantum_register in self.ancilla_fully_quantum_registers],
+                              ancilla_fully_quantum_register in self.qiskrypt_ancilla_fully_quantum_registers],
                             *[classical_register.get_classical_register() for classical_register in
-                              self.classical_registers],
+                              self.qiskrypt_classical_registers],
                             name=name, global_phase=global_phase)
                     """
                     Set the IBM's Qiskit Quantum Circuit of the Qiskrypt's Quantum Circuit.
@@ -2868,37 +2875,37 @@ class QiskryptQuantumCircuit:
                             """
                             break
 
-                    self.quantum_registers = qiskrypt_quantum_registers
+                    self.qiskrypt_quantum_registers = qiskrypt_quantum_registers
                     """
                     Set the Qiskrypt's Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.fully_quantum_registers = qiskrypt_fully_quantum_registers
+                    self.qiskrypt_fully_quantum_registers = qiskrypt_fully_quantum_registers
                     """
                     Set the Qiskrypt's Fully-Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.semi_quantum_registers = None
+                    self.qiskrypt_semi_quantum_registers = None
                     """
                     Set the Qiskrypt's Semi-Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.ancilla_quantum_registers = None
+                    self.qiskrypt_ancilla_quantum_registers = None
                     """
                     Set the Qiskrypt's Ancilla Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.ancilla_fully_quantum_registers = None
+                    self.qiskrypt_ancilla_fully_quantum_registers = None
                     """
                     Set the Qiskrypt's Ancilla Fully-Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.ancilla_semi_quantum_registers = qiskrypt_ancilla_semi_quantum_registers
+                    self.qiskrypt_ancilla_semi_quantum_registers = qiskrypt_ancilla_semi_quantum_registers
                     """
                     Set the Qiskrypt's Ancilla Semi-Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.classical_registers = qiskrypt_classical_registers
+                    self.qiskrypt_classical_registers = qiskrypt_classical_registers
                     """
                     Set the Qiskrypt's Classical Registers of the Qiskrypt's Quantum Circuit.
                     """
@@ -2910,13 +2917,13 @@ class QiskryptQuantumCircuit:
 
                     self.quantum_circuit = \
                         QuantumCircuit(
-                            *[quantum_register.get_quantum_register() for quantum_register in self.quantum_registers],
+                            *[quantum_register.get_quantum_register() for quantum_register in self.qiskrypt_quantum_registers],
                             *[fully_quantum_register.get_fully_quantum_register() for fully_quantum_register in
-                              self.fully_quantum_registers],
+                              self.qiskrypt_fully_quantum_registers],
                             *[ancilla_semi_quantum_register.get_ancilla_semi_quantum_register() for
-                              ancilla_semi_quantum_register in self.ancilla_semi_quantum_registers],
+                              ancilla_semi_quantum_register in self.qiskrypt_ancilla_semi_quantum_registers],
                             *[classical_register.get_classical_register() for classical_register in
-                              self.classical_registers],
+                              self.qiskrypt_classical_registers],
                             name=name, global_phase=global_phase)
                     """
                     Set the IBM's Qiskit Quantum Circuit of the Qiskrypt's Quantum Circuit.
@@ -3050,37 +3057,37 @@ class QiskryptQuantumCircuit:
                             """
                             break
 
-                    self.quantum_registers = qiskrypt_quantum_registers
+                    self.qiskrypt_quantum_registers = qiskrypt_quantum_registers
                     """
                     Set the Qiskrypt's Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.fully_quantum_registers = qiskrypt_fully_quantum_registers
+                    self.qiskrypt_fully_quantum_registers = qiskrypt_fully_quantum_registers
                     """
                     Set the Qiskrypt's Fully-Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.semi_quantum_registers = qiskrypt_semi_quantum_registers
+                    self.qiskrypt_semi_quantum_registers = qiskrypt_semi_quantum_registers
                     """
                     Set the Qiskrypt's Semi-Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.ancilla_quantum_registers = qiskrypt_ancilla_quantum_registers
+                    self.qiskrypt_ancilla_quantum_registers = qiskrypt_ancilla_quantum_registers
                     """
                     Set the Qiskrypt's Ancilla Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.ancilla_fully_quantum_registers = None
+                    self.qiskrypt_ancilla_fully_quantum_registers = None
                     """
                     Set the Qiskrypt's Ancilla Fully-Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.ancilla_semi_quantum_registers = None
+                    self.qiskrypt_ancilla_semi_quantum_registers = None
                     """
                     Set the Qiskrypt's Ancilla Semi-Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.classical_registers = qiskrypt_classical_registers
+                    self.qiskrypt_classical_registers = qiskrypt_classical_registers
                     """
                     Set the Qiskrypt's Classical Registers of the Qiskrypt's Quantum Circuit.
                     """
@@ -3092,15 +3099,15 @@ class QiskryptQuantumCircuit:
 
                     self.quantum_circuit = \
                         QuantumCircuit(
-                            *[quantum_register.get_quantum_register() for quantum_register in self.quantum_registers],
+                            *[quantum_register.get_quantum_register() for quantum_register in self.qiskrypt_quantum_registers],
                             *[fully_quantum_register.get_fully_quantum_register() for fully_quantum_register in
-                              self.fully_quantum_registers],
+                              self.qiskrypt_fully_quantum_registers],
                             *[semi_quantum_register.get_semi_quantum_register() for semi_quantum_register in
-                              self.semi_quantum_registers],
+                              self.qiskrypt_semi_quantum_registers],
                             *[ancilla_quantum_register.get_ancilla_quantum_register() for ancilla_quantum_register in
-                              self.ancilla_quantum_registers],
+                              self.qiskrypt_ancilla_quantum_registers],
                             *[classical_register.get_classical_register() for classical_register in
-                              self.classical_registers],
+                              self.qiskrypt_classical_registers],
                             name=name, global_phase=global_phase)
                     """
                     Set the IBM's Qiskit Quantum Circuit of the Qiskrypt's Quantum Circuit.
@@ -3234,37 +3241,37 @@ class QiskryptQuantumCircuit:
                             """
                             break
 
-                    self.quantum_registers = qiskrypt_quantum_registers
+                    self.qiskrypt_quantum_registers = qiskrypt_quantum_registers
                     """
                     Set the Qiskrypt's Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.fully_quantum_registers = qiskrypt_fully_quantum_registers
+                    self.qiskrypt_fully_quantum_registers = qiskrypt_fully_quantum_registers
                     """
                     Set the Qiskrypt's Fully-Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.semi_quantum_registers = qiskrypt_semi_quantum_registers
+                    self.qiskrypt_semi_quantum_registers = qiskrypt_semi_quantum_registers
                     """
                     Set the Qiskrypt's Semi-Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.ancilla_quantum_registers = None
+                    self.qiskrypt_ancilla_quantum_registers = None
                     """
                     Set the Qiskrypt's Ancilla Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.ancilla_fully_quantum_registers = qiskrypt_ancilla_fully_quantum_registers
+                    self.qiskrypt_ancilla_fully_quantum_registers = qiskrypt_ancilla_fully_quantum_registers
                     """
                     Set the Qiskrypt's Ancilla Fully-Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.ancilla_semi_quantum_registers = None
+                    self.qiskrypt_ancilla_semi_quantum_registers = None
                     """
                     Set the Qiskrypt's Ancilla Semi-Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.classical_registers = qiskrypt_classical_registers
+                    self.qiskrypt_classical_registers = qiskrypt_classical_registers
                     """
                     Set the Qiskrypt's Classical Registers of the Qiskrypt's Quantum Circuit.
                     """
@@ -3276,15 +3283,15 @@ class QiskryptQuantumCircuit:
 
                     self.quantum_circuit = \
                         QuantumCircuit(
-                            *[quantum_register.get_quantum_register() for quantum_register in self.quantum_registers],
+                            *[quantum_register.get_quantum_register() for quantum_register in self.qiskrypt_quantum_registers],
                             *[fully_quantum_register.get_fully_quantum_register() for fully_quantum_register in
-                              self.fully_quantum_registers],
+                              self.qiskrypt_fully_quantum_registers],
                             *[semi_quantum_register.get_semi_quantum_register() for semi_quantum_register in
-                              self.semi_quantum_registers],
+                              self.qiskrypt_semi_quantum_registers],
                             *[ancilla_fully_quantum_register.get_ancilla_fully_quantum_register() for
-                              ancilla_fully_quantum_register in self.ancilla_fully_quantum_registers],
+                              ancilla_fully_quantum_register in self.qiskrypt_ancilla_fully_quantum_registers],
                             *[classical_register.get_classical_register() for classical_register in
-                              self.classical_registers],
+                              self.qiskrypt_classical_registers],
                             name=name, global_phase=global_phase)
                     """
                     Set the IBM's Qiskit Quantum Circuit of the Qiskrypt's Quantum Circuit.
@@ -3418,37 +3425,37 @@ class QiskryptQuantumCircuit:
                             """
                             break
 
-                    self.quantum_registers = qiskrypt_quantum_registers
+                    self.qiskrypt_quantum_registers = qiskrypt_quantum_registers
                     """
                     Set the Qiskrypt's Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.fully_quantum_registers = qiskrypt_fully_quantum_registers
+                    self.qiskrypt_fully_quantum_registers = qiskrypt_fully_quantum_registers
                     """
                     Set the Qiskrypt's Fully-Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.semi_quantum_registers = qiskrypt_semi_quantum_registers
+                    self.qiskrypt_semi_quantum_registers = qiskrypt_semi_quantum_registers
                     """
                     Set the Qiskrypt's Semi-Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.ancilla_quantum_registers = None
+                    self.qiskrypt_ancilla_quantum_registers = None
                     """
                     Set the Qiskrypt's Ancilla Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.ancilla_fully_quantum_registers = None
+                    self.qiskrypt_ancilla_fully_quantum_registers = None
                     """
                     Set the Qiskrypt's Ancilla Fully-Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.ancilla_semi_quantum_registers = qiskrypt_ancilla_semi_quantum_registers
+                    self.qiskrypt_ancilla_semi_quantum_registers = qiskrypt_ancilla_semi_quantum_registers
                     """
                     Set the Qiskrypt's Ancilla Semi-Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.classical_registers = qiskrypt_classical_registers
+                    self.qiskrypt_classical_registers = qiskrypt_classical_registers
                     """
                     Set the Qiskrypt's Classical Registers of the Qiskrypt's Quantum Circuit.
                     """
@@ -3460,15 +3467,15 @@ class QiskryptQuantumCircuit:
 
                     self.quantum_circuit = \
                         QuantumCircuit(
-                            *[quantum_register.get_quantum_register() for quantum_register in self.quantum_registers],
+                            *[quantum_register.get_quantum_register() for quantum_register in self.qiskrypt_quantum_registers],
                             *[fully_quantum_register.get_fully_quantum_register() for fully_quantum_register in
-                              self.fully_quantum_registers],
+                              self.qiskrypt_fully_quantum_registers],
                             *[semi_quantum_register.get_semi_quantum_register() for semi_quantum_register in
-                              self.semi_quantum_registers],
+                              self.qiskrypt_semi_quantum_registers],
                             *[ancilla_semi_quantum_register.get_ancilla_semi_quantum_register() for
-                              ancilla_semi_quantum_register in self.ancilla_semi_quantum_registers],
+                              ancilla_semi_quantum_register in self.qiskrypt_ancilla_semi_quantum_registers],
                             *[classical_register.get_classical_register() for classical_register in
-                              self.classical_registers],
+                              self.qiskrypt_classical_registers],
                             name=name, global_phase=global_phase)
                     """
                     Set the IBM's Qiskit Quantum Circuit of the Qiskrypt's Quantum Circuit.
@@ -3623,37 +3630,37 @@ class QiskryptQuantumCircuit:
                             """
                             break
 
-                    self.quantum_registers = qiskrypt_quantum_registers
+                    self.qiskrypt_quantum_registers = qiskrypt_quantum_registers
                     """
                     Set the Qiskrypt's Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.fully_quantum_registers = qiskrypt_fully_quantum_registers
+                    self.qiskrypt_fully_quantum_registers = qiskrypt_fully_quantum_registers
                     """
                     Set the Qiskrypt's Fully-Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.semi_quantum_registers = qiskrypt_semi_quantum_registers
+                    self.qiskrypt_semi_quantum_registers = qiskrypt_semi_quantum_registers
                     """
                     Set the Qiskrypt's Semi-Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.ancilla_quantum_registers = qiskrypt_ancilla_quantum_registers
+                    self.qiskrypt_ancilla_quantum_registers = qiskrypt_ancilla_quantum_registers
                     """
                     Set the Qiskrypt's Ancilla Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.ancilla_fully_quantum_registers = qiskrypt_ancilla_fully_quantum_registers
+                    self.qiskrypt_ancilla_fully_quantum_registers = qiskrypt_ancilla_fully_quantum_registers
                     """
                     Set the Qiskrypt's Ancilla Fully-Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.ancilla_semi_quantum_registers = None
+                    self.qiskrypt_ancilla_semi_quantum_registers = None
                     """
                     Set the Qiskrypt's Ancilla Semi-Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.classical_registers = qiskrypt_classical_registers
+                    self.qiskrypt_classical_registers = qiskrypt_classical_registers
                     """
                     Set the Qiskrypt's Classical Registers of the Qiskrypt's Quantum Circuit.
                     """
@@ -3665,17 +3672,17 @@ class QiskryptQuantumCircuit:
 
                     self.quantum_circuit = \
                         QuantumCircuit(
-                            *[quantum_register.get_quantum_register() for quantum_register in self.quantum_registers],
+                            *[quantum_register.get_quantum_register() for quantum_register in self.qiskrypt_quantum_registers],
                             *[fully_quantum_register.get_fully_quantum_register() for fully_quantum_register in
-                              self.fully_quantum_registers],
+                              self.qiskrypt_fully_quantum_registers],
                             *[semi_quantum_register.get_semi_quantum_register() for semi_quantum_register in
-                              self.semi_quantum_registers],
+                              self.qiskrypt_semi_quantum_registers],
                             *[ancilla_quantum_register.get_ancilla_quantum_register() for ancilla_quantum_register in
-                              self.ancilla_quantum_registers],
+                              self.qiskrypt_ancilla_quantum_registers],
                             *[ancilla_fully_quantum_register.get_ancilla_fully_quantum_register() for
-                              ancilla_fully_quantum_register in self.ancilla_fully_quantum_registers],
+                              ancilla_fully_quantum_register in self.qiskrypt_ancilla_fully_quantum_registers],
                             *[classical_register.get_classical_register() for classical_register in
-                              self.classical_registers],
+                              self.qiskrypt_classical_registers],
                             name=name, global_phase=global_phase)
                     """
                     Set the IBM's Qiskit Quantum Circuit of the Qiskrypt's Quantum Circuit.
@@ -3830,37 +3837,37 @@ class QiskryptQuantumCircuit:
                             """
                             break
 
-                    self.quantum_registers = qiskrypt_quantum_registers
+                    self.qiskrypt_quantum_registers = qiskrypt_quantum_registers
                     """
                     Set the Qiskrypt's Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.fully_quantum_registers = qiskrypt_fully_quantum_registers
+                    self.qiskrypt_fully_quantum_registers = qiskrypt_fully_quantum_registers
                     """
                     Set the Qiskrypt's Fully-Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.semi_quantum_registers = qiskrypt_semi_quantum_registers
+                    self.qiskrypt_semi_quantum_registers = qiskrypt_semi_quantum_registers
                     """
                     Set the Qiskrypt's Semi-Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.ancilla_quantum_registers = qiskrypt_ancilla_quantum_registers
+                    self.qiskrypt_ancilla_quantum_registers = qiskrypt_ancilla_quantum_registers
                     """
                     Set the Qiskrypt's Ancilla Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.ancilla_fully_quantum_registers = None
+                    self.qiskrypt_ancilla_fully_quantum_registers = None
                     """
                     Set the Qiskrypt's Ancilla Fully-Quantum Registers of the Qiskrypt's Quantum Circuit, as None.
                     """
 
-                    self.ancilla_semi_quantum_registers = qiskrypt_ancilla_semi_quantum_registers
+                    self.qiskrypt_ancilla_semi_quantum_registers = qiskrypt_ancilla_semi_quantum_registers
                     """
                     Set the Qiskrypt's Ancilla Semi-Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.classical_registers = qiskrypt_classical_registers
+                    self.qiskrypt_classical_registers = qiskrypt_classical_registers
                     """
                     Set the Qiskrypt's Classical Registers of the Qiskrypt's Quantum Circuit.
                     """
@@ -3872,17 +3879,17 @@ class QiskryptQuantumCircuit:
 
                     self.quantum_circuit = \
                         QuantumCircuit(
-                            *[quantum_register.get_quantum_register() for quantum_register in self.quantum_registers],
+                            *[quantum_register.get_quantum_register() for quantum_register in self.qiskrypt_quantum_registers],
                             *[fully_quantum_register.get_fully_quantum_register() for fully_quantum_register in
-                              self.fully_quantum_registers],
+                              self.qiskrypt_fully_quantum_registers],
                             *[semi_quantum_register.get_semi_quantum_register() for semi_quantum_register in
-                              self.semi_quantum_registers],
+                              self.qiskrypt_semi_quantum_registers],
                             *[ancilla_quantum_register.get_ancilla_quantum_register() for ancilla_quantum_register in
-                              self.ancilla_quantum_registers],
+                              self.qiskrypt_ancilla_quantum_registers],
                             *[ancilla_semi_quantum_register.get_ancilla_semi_quantum_register() for
-                              ancilla_semi_quantum_register in self.ancilla_semi_quantum_registers],
+                              ancilla_semi_quantum_register in self.qiskrypt_ancilla_semi_quantum_registers],
                             *[classical_register.get_classical_register() for classical_register in
-                              self.classical_registers],
+                              self.qiskrypt_classical_registers],
                             name=name, global_phase=global_phase)
                     """
                     Set the IBM's Qiskit Quantum Circuit of the Qiskrypt's Quantum Circuit.
@@ -4056,37 +4063,37 @@ class QiskryptQuantumCircuit:
                             """
                             break
 
-                    self.quantum_registers = qiskrypt_quantum_registers
+                    self.qiskrypt_quantum_registers = qiskrypt_quantum_registers
                     """
                     Set the Qiskrypt's Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.fully_quantum_registers = qiskrypt_fully_quantum_registers
+                    self.qiskrypt_fully_quantum_registers = qiskrypt_fully_quantum_registers
                     """
                     Set the Qiskrypt's Fully-Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.semi_quantum_registers = qiskrypt_semi_quantum_registers
+                    self.qiskrypt_semi_quantum_registers = qiskrypt_semi_quantum_registers
                     """
                     Set the Qiskrypt's Semi-Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.ancilla_quantum_registers = qiskrypt_ancilla_quantum_registers
+                    self.qiskrypt_ancilla_quantum_registers = qiskrypt_ancilla_quantum_registers
                     """
                     Set the Qiskrypt's Ancilla Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.ancilla_fully_quantum_registers = qiskrypt_ancilla_fully_quantum_registers
+                    self.qiskrypt_ancilla_fully_quantum_registers = qiskrypt_ancilla_fully_quantum_registers
                     """
                     Set the Qiskrypt's Ancilla Fully-Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.ancilla_semi_quantum_registers = qiskrypt_ancilla_semi_quantum_registers
+                    self.qiskrypt_ancilla_semi_quantum_registers = qiskrypt_ancilla_semi_quantum_registers
                     """
                     Set the Qiskrypt's Ancilla Semi-Quantum Registers of the Qiskrypt's Quantum Circuit.
                     """
 
-                    self.classical_registers = qiskrypt_classical_registers
+                    self.qiskrypt_classical_registers = qiskrypt_classical_registers
                     """
                     Set the Qiskrypt's Classical Registers of the Qiskrypt's Quantum Circuit.
                     """
@@ -4098,19 +4105,19 @@ class QiskryptQuantumCircuit:
 
                     self.quantum_circuit = \
                         QuantumCircuit(
-                            *[quantum_register.get_quantum_register() for quantum_register in self.quantum_registers],
+                            *[quantum_register.get_quantum_register() for quantum_register in self.qiskrypt_quantum_registers],
                             *[fully_quantum_register.get_fully_quantum_register() for fully_quantum_register in
-                              self.fully_quantum_registers],
+                              self.qiskrypt_fully_quantum_registers],
                             *[semi_quantum_register.get_semi_quantum_register() for semi_quantum_register in
-                              self.semi_quantum_registers],
+                              self.qiskrypt_semi_quantum_registers],
                             *[ancilla_quantum_register.get_ancilla_quantum_register() for ancilla_quantum_register in
-                              self.ancilla_quantum_registers],
+                              self.qiskrypt_ancilla_quantum_registers],
                             *[ancilla_fully_quantum_register.get_ancilla_fully_quantum_register() for
-                              ancilla_fully_quantum_register in self.ancilla_fully_quantum_registers],
+                              ancilla_fully_quantum_register in self.qiskrypt_ancilla_fully_quantum_registers],
                             *[ancilla_semi_quantum_register.get_ancilla_semi_quantum_register() for
-                              ancilla_semi_quantum_register in self.ancilla_semi_quantum_registers],
+                              ancilla_semi_quantum_register in self.qiskrypt_ancilla_semi_quantum_registers],
                             *[classical_register.get_classical_register() for classical_register in
-                              self.classical_registers],
+                              self.qiskrypt_classical_registers],
                             name=name, global_phase=global_phase)
                     """
                     Set the IBM's Qiskit Quantum Circuit of the Qiskrypt's Quantum Circuit.
@@ -4131,7 +4138,128 @@ class QiskryptQuantumCircuit:
             If there is given any IBM's Quantum Circuit, it will be used.
             """
 
-            self.quantum_circuit = quantum_circuit
+            num_qiskit_quantum_registers = len(qiskit_quantum_circuit.qregs)
+            """
+            Retrieve the number of IBM Qiskit's Quantum Registers.
+            """
+
+            qiskrypt_quantum_registers = []
+            """
+            Create a new list of Qiskrypt's Quantum Registers.
+            """
+
+            for qiskit_quantum_register_index in range(num_qiskit_quantum_registers):
+                """
+                For each index of a IBM Qiskit's Quantum Register.
+                """
+
+                qiskit_quantum_register = qiskit_quantum_circuit.qregs[qiskit_quantum_register_index]
+                """
+                Retrieve the current IBM Qiskit's Quantum Register.
+                """
+
+                qiskit_quantum_register_name = qiskit_quantum_register.name
+                """
+                Retrieve the name of the current IBM Qiskit's Quantum Register.
+                """
+
+                qiskit_quantum_register_num_qubits = qiskit_quantum_register.size
+                """
+                Retrieve the number of qubits of the current IBM Qiskit's Quantum Register.
+                """
+
+                qiskrypt_quantum_register = QiskryptQuantumRegister(qiskit_quantum_register_name,
+                                                                    qiskit_quantum_register_num_qubits,
+                                                                    qiskit_quantum_register)
+                """
+                Create the Qiskrypt's Quantum Register from the retrieved IBM Qiskit's Quantum Register.
+                """
+
+                qiskrypt_quantum_registers.append(qiskrypt_quantum_register)
+                """
+                Append the created Qiskrypt's Quantum Register to
+                the list of the Qiskrypt's Quantum Registers.
+                """
+
+            num_qiskit_classical_registers = len(qiskit_quantum_circuit.cregs)
+            """
+            Retrieve the number of IBM Qiskit's Classical Registers.
+            """
+
+            qiskrypt_classical_registers = []
+            """
+            Create a new list of Qiskrypt's Classical Registers.
+            """
+
+            for qiskit_classical_register_index in range(num_qiskit_classical_registers):
+                """
+                For each index of a IBM Qiskit's Classical Register.
+                """
+
+                qiskit_classical_register = qiskit_quantum_circuit.cregs[qiskit_classical_register_index]
+                """
+                Retrieve the current IBM Qiskit's Classical Register.
+                """
+
+                qiskit_classical_register_name = qiskit_classical_register.name
+                """
+                Retrieve the name of the current IBM Qiskit's Classical Register.
+                """
+
+                qiskit_classical_register_num_bits = qiskit_classical_register.size
+                """
+                Retrieve the number of bits of the current IBM Qiskit's Classical Register.
+                """
+
+                qiskrypt_classical_register = QiskryptClassicalRegister(qiskit_classical_register_name,
+                                                                        qiskit_classical_register_num_bits,
+                                                                        qiskit_classical_register)
+                """
+                Create the Qiskrypt's Classical Register from the retrieved IBM Qiskit's Classical Register.
+                """
+
+                qiskrypt_classical_registers.append(qiskrypt_classical_register)
+                """
+                Append the created Qiskrypt's Classical Register to
+                the list of the Qiskrypt's Classical Registers.
+                """
+
+            self.qiskrypt_quantum_registers = qiskrypt_quantum_registers
+            """
+            Set the Qiskrypt's Quantum Registers from the respective list of them.
+            """
+
+            self.qiskrypt_fully_quantum_registers = None
+            """
+            Set the Qiskrypt's Fully-Quantum Registers as None.
+            """
+
+            self.qiskrypt_semi_quantum_registers = None
+            """
+            Set the Qiskrypt's Semi-Quantum Registers as None.
+            """
+
+            self.qiskrypt_ancilla_quantum_registers = None
+            """
+            Set the Qiskrypt's Ancilla Quantum Registers as None.
+            """
+
+            self.qiskrypt_ancilla_fully_quantum_registers = None
+            """
+            Set the Qiskrypt's Ancilla Fully-Quantum Registers as None.
+            """
+
+            self.qiskrypt_ancilla_semi_quantum_registers = None
+            """
+            Set the Qiskrypt's Ancilla Semi-Quantum Registers as None.
+            """
+
+            self.qiskrypt_classical_registers = qiskrypt_classical_registers
+            """
+            Set the Qiskrypt's Classical Registers from the respective list of them.
+            """
+
+            self.quantum_circuit = qiskit_quantum_circuit
             """
             Set the given IBM's Qiskit Quantum Circuit of the Qiskrypt's Quantum Circuit.
             """
@@ -4156,85 +4284,85 @@ class QiskryptQuantumCircuit:
         """
         Return the Qiskrypt's Quantum Registers of the Qiskrypt's Quantum Circuit.
 
-        :return self.quantum_registers: the Qiskrypt's Quantum Registers of the Qiskrypt's Quantum Circuit.
+        :return self.qiskrypt_quantum_registers: the Qiskrypt's Quantum Registers of the Qiskrypt's Quantum Circuit.
         """
 
         """
         Return the Qiskrypt's Quantum Registers of the Qiskrypt's Quantum Circuit.
         """
-        return self.quantum_registers
+        return self.qiskrypt_quantum_registers
 
     def get_qiskrypt_fully_quantum_registers(self) -> list:
         """
         Return the Qiskrypt's Fully-Quantum Registers of the Qiskrypt's Quantum Circuit.
 
-        :return self.fully_quantum_registers: the Qiskrypt's Fully-Quantum Registers of the Qiskrypt's Quantum Circuit.
+        :return self.qiskrypt_fully_quantum_registers: the Qiskrypt's Fully-Quantum Registers of the Qiskrypt's Quantum Circuit.
         """
 
         """
         Return the Qiskrypt's Fully-Quantum Registers of the Qiskrypt's Quantum Circuit.
         """
-        return self.fully_quantum_registers
+        return self.qiskrypt_fully_quantum_registers
 
     def get_qiskrypt_semi_quantum_registers(self) -> list:
         """
         Return the Qiskrypt's Semi-Quantum Registers of the Qiskrypt's Quantum Circuit.
 
-        :return self.semi_quantum_registers: the Qiskrypt's Semi-Quantum Registers of the Qiskrypt's Quantum Circuit.
+        :return self.qiskrypt_semi_quantum_registers: the Qiskrypt's Semi-Quantum Registers of the Qiskrypt's Quantum Circuit.
         """
 
         """
         Return the Qiskrypt's Semi-Quantum Registers of the Qiskrypt's Quantum Circuit.
         """
-        return self.semi_quantum_registers
+        return self.qiskrypt_semi_quantum_registers
 
     def get_qiskrypt_ancilla_quantum_registers(self) -> list:
         """
         Return the Qiskrypt's Ancilla Quantum Registers of the Qiskrypt's Quantum Circuit.
 
-        :return self.ancilla_quantum_registers: the Qiskrypt's Ancilla Quantum Registers of the Qiskrypt's Quantum Circuit.
+        :return self.qiskrypt_ancilla_quantum_registers: the Qiskrypt's Ancilla Quantum Registers of the Qiskrypt's Quantum Circuit.
         """
 
         """
         Return the Qiskrypt's Ancilla Quantum Registers of the Qiskrypt's Quantum Circuit.
         """
-        return self.ancilla_quantum_registers
+        return self.qiskrypt_ancilla_quantum_registers
 
     def get_qiskrypt_ancilla_fully_quantum_registers(self) -> list:
         """
         Return the Qiskrypt's Ancilla Fully-Quantum Registers of the Qiskrypt's Quantum Circuit.
 
-        :return self.ancilla_fully_quantum_registers: the Qiskrypt's Ancilla Fully-Quantum Registers of the Qiskrypt's Quantum Circuit.
+        :return self.qiskrypt_ancilla_fully_quantum_registers: the Qiskrypt's Ancilla Fully-Quantum Registers of the Qiskrypt's Quantum Circuit.
         """
 
         """
         Return the Qiskrypt's Ancilla Fully-Quantum Registers of the Qiskrypt's Quantum Circuit.
         """
-        return self.ancilla_fully_quantum_registers
+        return self.qiskrypt_ancilla_fully_quantum_registers
 
     def get_qiskrypt_ancilla_semi_quantum_registers(self) -> list:
         """
         Return the Qiskrypt's Ancilla Semi-Quantum Registers of the Qiskrypt's Quantum Circuit.
 
-        :return self.ancilla_semi_quantum_registers: the Qiskrypt's Ancilla Semi-Quantum Registers of the Qiskrypt's Quantum Circuit.
+        :return self.qiskrypt_ancilla_semi_quantum_registers: the Qiskrypt's Ancilla Semi-Quantum Registers of the Qiskrypt's Quantum Circuit.
         """
 
         """
         Return the Qiskrypt's Ancilla Semi-Quantum Registers of the Qiskrypt's Quantum Circuit.
         """
-        return self.ancilla_semi_quantum_registers
+        return self.qiskrypt_ancilla_semi_quantum_registers
 
     def get_qiskrypt_classical_registers(self) -> list:
         """
         Return the Qiskrypt's Classical Registers of the Qiskrypt's Quantum Circuit.
 
-        :return self.classical_registers: the Qiskrypt's Classical Registers of the Qiskrypt's Quantum Circuit.
+        :return self.qiskrypt_classical_registers: the Qiskrypt's Classical Registers of the Qiskrypt's Quantum Circuit.
         """
 
         """
         Return the Qiskrypt's Classical Registers of the Qiskrypt's Quantum Circuit.
         """
-        return self.classical_registers
+        return self.qiskrypt_classical_registers
 
     def get_qiskrypt_quantum_register(self, qiskrypt_quantum_register_index: int) -> QiskryptQuantumRegister:
         """
@@ -4242,7 +4370,7 @@ class QiskryptQuantumCircuit:
 
         :param qiskrypt_quantum_register_index: the index of the Qiskrypt's Quantum Register of the Qiskrypt's Quantum Circuit.
 
-        :return self.quantum_registers[qiskrypt_quantum_register_index]: a specific Qiskrypt's Quantum Register of
+        :return self.qiskrypt_quantum_registers[qiskrypt_quantum_register_index]: a specific Qiskrypt's Quantum Register of
                                                                          the Qiskrypt's Quantum Circuit, given its index.
         """
 
@@ -4255,7 +4383,7 @@ class QiskryptQuantumCircuit:
             """
             Return a specific Qiskrypt's Quantum Register of the Qiskrypt's Quantum Circuit, given its index.
             """
-            return self.quantum_registers[qiskrypt_quantum_register_index]
+            return self.qiskrypt_quantum_registers[qiskrypt_quantum_register_index]
 
         else:
             """
@@ -4274,7 +4402,7 @@ class QiskryptQuantumCircuit:
 
         :param qiskrypt_fully_quantum_register_index: the index of the Qiskrypt's Fully-Quantum Register of the Qiskrypt's Quantum Circuit.
 
-        :return self.fully_quantum_registers[qiskrypt_fully_quantum_register_index]: a specific Qiskrypt's Fully-Quantum Register of
+        :return self.qiskrypt_fully_quantum_registers[qiskrypt_fully_quantum_register_index]: a specific Qiskrypt's Fully-Quantum Register of
                                                                                      the Qiskrypt's Quantum Circuit, given its index.
         """
 
@@ -4287,7 +4415,7 @@ class QiskryptQuantumCircuit:
             """
             Return a specific Qiskrypt's Fully-Quantum Register of the Qiskrypt's Quantum Circuit, given its index.
             """
-            return self.fully_quantum_registers[qiskrypt_fully_quantum_register_index]
+            return self.qiskrypt_fully_quantum_registers[qiskrypt_fully_quantum_register_index]
 
         else:
             """
@@ -4307,7 +4435,7 @@ class QiskryptQuantumCircuit:
 
         :param qiskrypt_semi_quantum_register_index: the index of the Qiskrypt's Semi-Quantum Register of the Qiskrypt's Quantum Circuit.
 
-        :return self.semi_quantum_registers[qiskrypt_semi_quantum_register_index]: a specific Qiskrypt's Semi-Quantum Register of
+        :return self.qiskrypt_semi_quantum_registers[qiskrypt_semi_quantum_register_index]: a specific Qiskrypt's Semi-Quantum Register of
                                                                                    the Qiskrypt's Quantum Circuit, given its index.
         """
 
@@ -4320,7 +4448,7 @@ class QiskryptQuantumCircuit:
             """
             Return a specific Qiskrypt's Semi-Quantum Register of the Qiskrypt's Quantum Circuit, given its index.
             """
-            return self.semi_quantum_registers[qiskrypt_semi_quantum_register_index]
+            return self.qiskrypt_semi_quantum_registers[qiskrypt_semi_quantum_register_index]
 
         else:
             """
@@ -4340,7 +4468,7 @@ class QiskryptQuantumCircuit:
 
         :param qiskrypt_ancilla_quantum_register_index: the index of the Qiskrypt's Ancilla Quantum Register of the Qiskrypt's Quantum Circuit.
 
-        :return self.ancilla_quantum_registers[qiskrypt_ancilla_quantum_register_index]: a specific Qiskrypt's Ancilla Quantum Register of
+        :return self.qiskrypt_ancilla_quantum_registers[qiskrypt_ancilla_quantum_register_index]: a specific Qiskrypt's Ancilla Quantum Register of
                                                                                          the Qiskrypt's Quantum Circuit, given its index.
         """
 
@@ -4353,7 +4481,7 @@ class QiskryptQuantumCircuit:
             """
             Return a specific Qiskrypt's Ancilla Quantum Register of the Qiskrypt's Quantum Circuit, given its index.
             """
-            return self.ancilla_quantum_registers[qiskrypt_ancilla_quantum_register_index]
+            return self.qiskrypt_ancilla_quantum_registers[qiskrypt_ancilla_quantum_register_index]
 
         else:
             """
@@ -4373,7 +4501,7 @@ class QiskryptQuantumCircuit:
 
         :param qiskrypt_ancilla_fully_quantum_register_index: the index of the Qiskrypt's Ancilla Fully-Quantum Register of the Qiskrypt's Quantum Circuit.
 
-        :return self.ancilla_fully_quantum_registers[qiskrypt_ancilla_fully_quantum_register_index]: a specific Qiskrypt's Ancilla Fully-Quantum Register of
+        :return self.qiskrypt_ancilla_fully_quantum_registers[qiskrypt_ancilla_fully_quantum_register_index]: a specific Qiskrypt's Ancilla Fully-Quantum Register of
                                                                                                      the Qiskrypt's Quantum Circuit, given its index.
         """
 
@@ -4386,7 +4514,7 @@ class QiskryptQuantumCircuit:
             """
             Return a specific Qiskrypt's Ancilla Fully-Quantum Register of the Qiskrypt's Quantum Circuit, given its index.
             """
-            return self.ancilla_fully_quantum_registers[qiskrypt_ancilla_fully_quantum_register_index]
+            return self.qiskrypt_ancilla_fully_quantum_registers[qiskrypt_ancilla_fully_quantum_register_index]
 
         else:
             """
@@ -4406,7 +4534,7 @@ class QiskryptQuantumCircuit:
 
         :param qiskrypt_ancilla_semi_quantum_register_index: the index of the Qiskrypt's Ancilla Semi-Quantum Register of the Qiskrypt's Quantum Circuit.
 
-        :return self.ancilla_semi_quantum_registers[qiskrypt_ancilla_semi_quantum_register_index]: a specific Qiskrypt's Ancilla Semi-Quantum Register of
+        :return self.qiskrypt_ancilla_semi_quantum_registers[qiskrypt_ancilla_semi_quantum_register_index]: a specific Qiskrypt's Ancilla Semi-Quantum Register of
                                                                                                    the Qiskrypt's Quantum Circuit, given its index.
         """
 
@@ -4419,7 +4547,7 @@ class QiskryptQuantumCircuit:
             """
             Return a specific Qiskrypt's Ancilla Semi-Quantum Register of the Qiskrypt's Quantum Circuit, given its index.
             """
-            return self.ancilla_semi_quantum_registers[qiskrypt_ancilla_semi_quantum_register_index]
+            return self.qiskrypt_ancilla_semi_quantum_registers[qiskrypt_ancilla_semi_quantum_register_index]
 
         else:
             """
@@ -4439,7 +4567,7 @@ class QiskryptQuantumCircuit:
 
         :param qiskrypt_classical_register_index: the index of the Qiskrypt's Classical Register of the Qiskrypt's Quantum Circuit.
 
-        :return self.classical_registers[qiskrypt_classical_register_index]: a specific Qiskrypt's Classical Register of
+        :return self.qiskrypt_classical_registers[qiskrypt_classical_register_index]: a specific Qiskrypt's Classical Register of
                                                                              the Qiskrypt's Quantum Circuit, given its index.
         """
 
@@ -4452,7 +4580,7 @@ class QiskryptQuantumCircuit:
             """
             Return a specific Qiskrypt's Classical Register of the Qiskrypt's Quantum Circuit, given its index.
             """
-            return self.classical_registers[qiskrypt_classical_register_index]
+            return self.qiskrypt_classical_registers[qiskrypt_classical_register_index]
 
         else:
             """
