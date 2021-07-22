@@ -8303,7 +8303,7 @@ class PrepareAndMeasureQubitInQiskryptQuantumCircuitTests(TestCase):
                                    qiskrypt_ancilla_fully_quantum_registers=None,
                                    qiskrypt_ancilla_semi_quantum_registers=None,
                                    qiskrypt_classical_registers=[qiskrypt_classical_register_prepare_and_measure_in_x_basis_1_qubit],
-                                   global_phase=0, quantum_circuit=None)
+                                   global_phase=0, qiskit_quantum_circuit=None)
         """
         Create a Qiskrypt's Quantum Circuit with
         the previously created Qiskrypt's Quantum and Classical Registers.
@@ -8388,7 +8388,7 @@ class PrepareAndMeasureQubitInQiskryptQuantumCircuitTests(TestCase):
                                    qiskrypt_ancilla_fully_quantum_registers=None,
                                    qiskrypt_ancilla_semi_quantum_registers=None,
                                    qiskrypt_classical_registers=[qiskrypt_classical_register_prepare_and_measure_in_x_basis_1_qubit],
-                                   global_phase=0, quantum_circuit=None)
+                                   global_phase=0, qiskit_quantum_circuit=None)
         """
         Create a Qiskrypt's Quantum Circuit with
         the previously created Qiskrypt's Quantum and Classical Registers.
@@ -8480,7 +8480,7 @@ class PrepareAndMeasureQubitInQiskryptQuantumCircuitTests(TestCase):
                                    qiskrypt_ancilla_fully_quantum_registers=None,
                                    qiskrypt_ancilla_semi_quantum_registers=None,
                                    qiskrypt_classical_registers=[qiskrypt_classical_register_prepare_and_measure_in_x_basis_1_qubit],
-                                   global_phase=0, quantum_circuit=None)
+                                   global_phase=0, qiskit_quantum_circuit=None)
         """
         Create a Qiskrypt's Quantum Circuit with
         the previously created Qiskrypt's Quantum and Classical Registers.
@@ -8573,7 +8573,7 @@ class PrepareAndMeasureQubitInQiskryptQuantumCircuitTests(TestCase):
                                    qiskrypt_ancilla_fully_quantum_registers=None,
                                    qiskrypt_ancilla_semi_quantum_registers=None,
                                    qiskrypt_classical_registers=[qiskrypt_classical_register_prepare_and_measure_in_x_basis_1_qubit],
-                                   global_phase=0, quantum_circuit=None)
+                                   global_phase=0, qiskit_quantum_circuit=None)
         """
         Create a Qiskrypt's Quantum Circuit with
         the previously created Qiskrypt's Quantum and Classical Registers.
@@ -8671,7 +8671,7 @@ class PrepareAndMeasureQubitInQiskryptQuantumCircuitTests(TestCase):
                                    qiskrypt_ancilla_fully_quantum_registers=None,
                                    qiskrypt_ancilla_semi_quantum_registers=None,
                                    qiskrypt_classical_registers=[qiskrypt_classical_register_prepare_and_measure_in_y_basis_1_qubit],
-                                   global_phase=0, quantum_circuit=None)
+                                   global_phase=0, qiskit_quantum_circuit=None)
         """
         Create a Qiskrypt's Quantum Circuit with
         the previously created Qiskrypt's Quantum and Classical Registers.
@@ -8756,7 +8756,7 @@ class PrepareAndMeasureQubitInQiskryptQuantumCircuitTests(TestCase):
                                    qiskrypt_ancilla_fully_quantum_registers=None,
                                    qiskrypt_ancilla_semi_quantum_registers=None,
                                    qiskrypt_classical_registers=[qiskrypt_classical_register_prepare_and_measure_in_y_basis_1_qubit],
-                                   global_phase=0, quantum_circuit=None)
+                                   global_phase=0, qiskit_quantum_circuit=None)
         """
         Create a Qiskrypt's Quantum Circuit with
         the previously created Qiskrypt's Quantum and Classical Registers.
@@ -8848,7 +8848,7 @@ class PrepareAndMeasureQubitInQiskryptQuantumCircuitTests(TestCase):
                                    qiskrypt_ancilla_fully_quantum_registers=None,
                                    qiskrypt_ancilla_semi_quantum_registers=None,
                                    qiskrypt_classical_registers=[qiskrypt_classical_register_prepare_and_measure_in_y_basis_1_qubit],
-                                   global_phase=0, quantum_circuit=None)
+                                   global_phase=0, qiskit_quantum_circuit=None)
         """
         Create a Qiskrypt's Quantum Circuit with
         the previously created Qiskrypt's Quantum and Classical Registers.
@@ -8941,7 +8941,7 @@ class PrepareAndMeasureQubitInQiskryptQuantumCircuitTests(TestCase):
                                    qiskrypt_ancilla_fully_quantum_registers=None,
                                    qiskrypt_ancilla_semi_quantum_registers=None,
                                    qiskrypt_classical_registers=[qiskrypt_classical_register_prepare_and_measure_in_y_basis_1_qubit],
-                                   global_phase=0, quantum_circuit=None)
+                                   global_phase=0, qiskit_quantum_circuit=None)
         """
         Create a Qiskrypt's Quantum Circuit with
         the previously created Qiskrypt's Quantum and Classical Registers.
@@ -9039,7 +9039,7 @@ class PrepareAndMeasureQubitInQiskryptQuantumCircuitTests(TestCase):
                                    qiskrypt_ancilla_fully_quantum_registers=None,
                                    qiskrypt_ancilla_semi_quantum_registers=None,
                                    qiskrypt_classical_registers=[qiskrypt_classical_register_prepare_and_measure_in_z_basis_1_qubit],
-                                   global_phase=0, quantum_circuit=None)
+                                   global_phase=0, qiskit_quantum_circuit=None)
         """
         Create a Qiskrypt's Quantum Circuit with
         the previously created Qiskrypt's Quantum and Classical Registers.
@@ -9124,7 +9124,7 @@ class PrepareAndMeasureQubitInQiskryptQuantumCircuitTests(TestCase):
                                    qiskrypt_ancilla_fully_quantum_registers=None,
                                    qiskrypt_ancilla_semi_quantum_registers=None,
                                    qiskrypt_classical_registers=[qiskrypt_classical_register_prepare_and_measure_in_z_basis_1_qubit],
-                                   global_phase=0, quantum_circuit=None)
+                                   global_phase=0, qiskit_quantum_circuit=None)
         """
         Create a Qiskrypt's Quantum Circuit with
         the previously created Qiskrypt's Quantum and Classical Registers.
@@ -9216,7 +9216,7 @@ class PrepareAndMeasureQubitInQiskryptQuantumCircuitTests(TestCase):
                                    qiskrypt_ancilla_fully_quantum_registers=None,
                                    qiskrypt_ancilla_semi_quantum_registers=None,
                                    qiskrypt_classical_registers=[qiskrypt_classical_register_prepare_and_measure_in_z_basis_1_qubit],
-                                   global_phase=0, quantum_circuit=None)
+                                   global_phase=0, qiskit_quantum_circuit=None)
         """
         Create a Qiskrypt's Quantum Circuit with
         the previously created Qiskrypt's Quantum and Classical Registers.
@@ -9309,7 +9309,7 @@ class PrepareAndMeasureQubitInQiskryptQuantumCircuitTests(TestCase):
                                    qiskrypt_ancilla_fully_quantum_registers=None,
                                    qiskrypt_ancilla_semi_quantum_registers=None,
                                    qiskrypt_classical_registers=[qiskrypt_classical_register_prepare_and_measure_in_z_basis_1_qubit],
-                                   global_phase=0, quantum_circuit=None)
+                                   global_phase=0, qiskit_quantum_circuit=None)
         """
         Create a Qiskrypt's Quantum Circuit with
         the previously created Qiskrypt's Quantum and Classical Registers.
@@ -9412,7 +9412,7 @@ class SingleQubitGatesOperations(TestCase):
                                    qiskrypt_ancilla_fully_quantum_registers=None,
                                    qiskrypt_ancilla_semi_quantum_registers=None,
                                    qiskrypt_classical_registers=[qiskrypt_classical_register_pauli_i_gate_1_qubit],
-                                   global_phase=0, quantum_circuit=None)
+                                   global_phase=0, qiskit_quantum_circuit=None)
         """
         Create a Qiskrypt's Quantum Circuit with
         the previously created Qiskrypt's Quantum and Classical Registers.
@@ -9495,7 +9495,7 @@ class SingleQubitGatesOperations(TestCase):
                                    qiskrypt_ancilla_fully_quantum_registers=None,
                                    qiskrypt_ancilla_semi_quantum_registers=None,
                                    qiskrypt_classical_registers=[qiskrypt_classical_register_pauli_i_gate_1_qubit],
-                                   global_phase=0, quantum_circuit=None)
+                                   global_phase=0, qiskit_quantum_circuit=None)
         """
         Create a Qiskrypt's Quantum Circuit with
         the previously created Qiskrypt's Quantum and Classical Registers.
@@ -9585,7 +9585,7 @@ class SingleQubitGatesOperations(TestCase):
                                    qiskrypt_ancilla_fully_quantum_registers=None,
                                    qiskrypt_ancilla_semi_quantum_registers=None,
                                    qiskrypt_classical_registers=[qiskrypt_classical_register_pauli_i_gate_1_qubit],
-                                   global_phase=0, quantum_circuit=None)
+                                   global_phase=0, qiskit_quantum_circuit=None)
         """
         Create a Qiskrypt's Quantum Circuit with
         the previously created Qiskrypt's Quantum and Classical Registers.
@@ -9676,7 +9676,7 @@ class SingleQubitGatesOperations(TestCase):
                                    qiskrypt_ancilla_fully_quantum_registers=None,
                                    qiskrypt_ancilla_semi_quantum_registers=None,
                                    qiskrypt_classical_registers=[qiskrypt_classical_register_pauli_i_gate_1_qubit],
-                                   global_phase=0, quantum_circuit=None)
+                                   global_phase=0, qiskit_quantum_circuit=None)
         """
         Create a Qiskrypt's Quantum Circuit with
         the previously created Qiskrypt's Quantum and Classical Registers.
@@ -9772,7 +9772,7 @@ class SingleQubitGatesOperations(TestCase):
                                    qiskrypt_ancilla_fully_quantum_registers=None,
                                    qiskrypt_ancilla_semi_quantum_registers=None,
                                    qiskrypt_classical_registers=[qiskrypt_classical_register_pauli_x_gate_1_qubit],
-                                   global_phase=0, quantum_circuit=None)
+                                   global_phase=0, qiskit_quantum_circuit=None)
         """
         Create a Qiskrypt's Quantum Circuit with
         the previously created Qiskrypt's Quantum and Classical Registers.
@@ -9855,7 +9855,7 @@ class SingleQubitGatesOperations(TestCase):
                                    qiskrypt_ancilla_fully_quantum_registers=None,
                                    qiskrypt_ancilla_semi_quantum_registers=None,
                                    qiskrypt_classical_registers=[qiskrypt_classical_register_pauli_x_gate_1_qubit],
-                                   global_phase=0, quantum_circuit=None)
+                                   global_phase=0, qiskit_quantum_circuit=None)
         """
         Create a Qiskrypt's Quantum Circuit with
         the previously created Qiskrypt's Quantum and Classical Registers.
@@ -9945,7 +9945,7 @@ class SingleQubitGatesOperations(TestCase):
                                    qiskrypt_ancilla_fully_quantum_registers=None,
                                    qiskrypt_ancilla_semi_quantum_registers=None,
                                    qiskrypt_classical_registers=[qiskrypt_classical_register_pauli_x_gate_1_qubit],
-                                   global_phase=0, quantum_circuit=None)
+                                   global_phase=0, qiskit_quantum_circuit=None)
         """
         Create a Qiskrypt's Quantum Circuit with
         the previously created Qiskrypt's Quantum and Classical Registers.
@@ -10005,7 +10005,8 @@ class SingleQubitGatesOperations(TestCase):
            with 1 qubit initialized in the state |0⟩;
         2) It is applied the Pauli-X (Bit Flip/NOT) Gate/Operation to the 1st qubit, such that, |0⟩ ↦ |1⟩;
         3) It is applied the Hadamard Gate/Operation to the 1st qubit, such that, |1⟩ ↦ |-⟩;
-        4) It is applied the Pauli-X (Bit Flip/NOT) Gate/Operation to the 1st qubit, such that, |-⟩ ↦ |-⟩;
+        4) It is applied the Pauli-X (Bit Flip/NOT) Gate/Operation to the 1st qubit, such that,
+           |-⟩ ↦ |Ψ⟩ = 1/sqrt(2) × (-|0⟩ + |1⟩);
 
         Return OK (or FAIL) if, all the Tests performed are OK (or FAIL, otherwise).
         """
@@ -10036,7 +10037,7 @@ class SingleQubitGatesOperations(TestCase):
                                    qiskrypt_ancilla_fully_quantum_registers=None,
                                    qiskrypt_ancilla_semi_quantum_registers=None,
                                    qiskrypt_classical_registers=[qiskrypt_classical_register_pauli_x_gate_1_qubit],
-                                   global_phase=0, quantum_circuit=None)
+                                   global_phase=0, qiskit_quantum_circuit=None)
         """
         Create a Qiskrypt's Quantum Circuit with
         the previously created Qiskrypt's Quantum and Classical Registers.
@@ -10060,7 +10061,7 @@ class SingleQubitGatesOperations(TestCase):
             .apply_pauli_x(0, 0)
         """
         Apply the Pauli-X (Bit Flip/NOT) Gate/Operation to the given index for
-        the single qubit of the given IBM Qiskit's Quantum Register (|-⟩ ↦ |-⟩).
+        the single qubit of the given IBM Qiskit's Quantum Register (|-⟩ ↦ |Ψ⟩ = 1/sqrt(2) × (-|0⟩ + |1⟩)).
         """
 
         qiskit_state_vector_backend = Aer.get_backend("statevector_simulator")
@@ -10078,7 +10079,7 @@ class SingleQubitGatesOperations(TestCase):
         """
 
         assert_allclose(final_quantum_state_vector_state,
-                        array([((1. / sqrt(2.)) + 0.j), -((1. / sqrt(2.)) + 0.j)]),
+                        array([-((1. / sqrt(2.)) + 0.j), ((1. / sqrt(2.)) + 0.j)]),
                         rtol=1e-7, atol=1e-7)
         """
         Perform the Assertion of all close values in the values of the quantum state,
