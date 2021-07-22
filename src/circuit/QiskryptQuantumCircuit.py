@@ -74,9 +74,9 @@ from qiskit.quantum_info.operators import Operator
 Import Operator of the Quantum_Info.Operators Module from IBM's Qiskit.
 """
 
-from qiskit.circuit.library import GMS
+from qiskit.circuit.library import GMS, Diagonal
 """
-Import Global Mølmer-Sørensen (GMS) Quantum Gate/Operation of
+Import the Global Mølmer-Sørensen (GMS) and the Diagonal Quantum Gates/Operations of
 the Circuit.Library Module from IBM's Qiskit.
 """
 
@@ -9426,7 +9426,7 @@ class QiskryptQuantumCircuit:
                                                                        name="qu_circ_gms") -> QiskryptQuantumCircuit:
         """
         Create a Qiskrypt's Quantum Circuit based on
-        the Global Mølmer-Sørensen(theta_radians) (GMS(theta_radians)) Gate/Operation for a given number of qubits,
+        the Global Mølmer-Sørensen(thetas_radians) (GMS(thetas_radians)) Gate/Operation for a given number of qubits,
         based on a list of theta angles in radians to build the respective Unitary Matrix/Operator.
 
         :param num_qubits: the number of qubits for the Qiskrypt's Quantum Circuit.
@@ -9462,22 +9462,113 @@ class QiskryptQuantumCircuit:
                 the current element of the Unitary Matrix/Operator.
                 """
 
-        global_molmer_sorensen_radians_qiskit_quantum_circuit = GMS(num_qubits, thetas_radians)
+        global_molmer_sorensen_radians_qiskit_quantum_circuit = GMS(num_qubits, thetas_radians_unitary_matrix_operator)
         """
         Create the Qiskit's Quantum Circuit based on
-        the Global Mølmer-Sørensen(theta_radians) (GMS(theta_radians)) Gate/Operation.
+        the Global Mølmer-Sørensen(thetas_radians) (GMS(thetas_radians)) Gate/Operation.
         """
 
         global_molmer_sorensen_radians_qiskrypt_quantum_circuit = \
             QiskryptQuantumCircuit(name, qiskit_quantum_circuit=global_molmer_sorensen_radians_qiskit_quantum_circuit)
         """
         Create the Qiskrypt's Quantum Circuit for
-        the Global Mølmer-Sørensen(theta_radians) (GMS(theta_radians)) Gate/Operation.
+        the Global Mølmer-Sørensen(thetas_radians) (GMS(thetas_radians)) Gate/Operation.
         """
 
         """
         Return the Qiskrypt's Quantum Circuit for
-        the Global Mølmer-Sørensen(theta_radians) (GMS(theta_radians)) Gate/Operation.
+        the Global Mølmer-Sørensen(thetas_radians) (GMS(thetas_radians)) Gate/Operation.
+        """
+        return global_molmer_sorensen_radians_qiskrypt_quantum_circuit
+
+    @staticmethod
+    def create_global_molmer_sorensen_degrees_qiskrypt_quantum_circuit(num_qubits: int,
+                                                                       thetas_degrees: list,
+                                                                       name="qu_circ_gms") -> QiskryptQuantumCircuit:
+        """
+        Create a Qiskrypt's Quantum Circuit based on
+        the Global Mølmer-Sørensen(theta_degrees) (GMS(theta_degrees)) Gate/Operation for a given number of qubits,
+        based on a list of theta angles in degrees to build the respective Unitary Matrix/Operator.
+
+        :param num_qubits: the number of qubits for the Qiskrypt's Quantum Circuit.
+        :param thetas_degrees: the list of theta angles in degrees to build the respective Unitary Matrix/Operator.
+        :param name: the name for the Qiskrypt's Quantum Circuit.
+        """
+
+        thetas_radians = []
+        """
+        Create a new list of theta angles in radians.
+        """
+
+        num_thetas_degrees = len(thetas_degrees)
+        """
+        Retrieve the number of theta angles in degrees.
+        """
+
+        for theta_degree_index in range(num_thetas_degrees):
+            """
+            For each index of a theta angle in degrees. 
+            """
+
+            theta_degrees = thetas_degrees[theta_degree_index]
+            """
+            Retrieve the current theta angle in degrees.
+            """
+
+            theta_radians = radians(theta_degrees)
+            """
+            Convert the current theta angle in degrees to radians.
+            """
+
+            thetas_radians.append(theta_radians)
+            """
+            Append the current theta angle converted in radians to the respective list.
+            """
+
+        thetas_radians_unitary_matrix_operator = zeros((num_qubits, num_qubits))
+        """
+        Create the Unitary Matrix/Operator for the theta angle in radians.
+        """
+
+        for row_unitary_matrix_operator in range(num_qubits):
+            """
+            For each row of the Unitary Matrix/Operator with
+            the theta angles in radians.
+            """
+
+            for column_unitary_matrix_operator in range(num_qubits):
+                """
+                For each column of the Unitary Matrix/Operator with
+                the theta angles in radians.
+                """
+
+                theta_radians = thetas_radians[((row_unitary_matrix_operator * num_qubits) + num_qubits)]
+                """
+                Retrieve the current theta angle in radians from the list of them.
+                """
+
+                thetas_radians_unitary_matrix_operator[row_unitary_matrix_operator][column_unitary_matrix_operator] = theta_radians
+                """
+                Assign the current theta angle in radians to
+                the current element of the Unitary Matrix/Operator.
+                """
+
+        global_molmer_sorensen_radians_qiskit_quantum_circuit = GMS(num_qubits, thetas_radians_unitary_matrix_operator)
+        """
+        Create the Qiskit's Quantum Circuit based on
+        the Global Mølmer-Sørensen(thetas_radians) (GMS(thetas_radians)) Gate/Operation.
+        """
+
+        global_molmer_sorensen_radians_qiskrypt_quantum_circuit = \
+            QiskryptQuantumCircuit(name, qiskit_quantum_circuit=global_molmer_sorensen_radians_qiskit_quantum_circuit)
+        """
+        Create the Qiskrypt's Quantum Circuit for
+        the Global Mølmer-Sørensen(thetas_radians) (GMS(thetas_radians)) Gate/Operation.
+        """
+
+        """
+        Return the Qiskrypt's Quantum Circuit for
+        the Global Mølmer-Sørensen(thetas_radians) (GMS(thetas_radians)) Gate/Operation.
         """
         return global_molmer_sorensen_radians_qiskrypt_quantum_circuit
 
