@@ -7695,7 +7695,7 @@ class QiskryptQuantumCircuit:
         """
 
         is_possible_to_apply_operation = \
-            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_index, qubit_index, False)
+            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_index, qubit_index, True)
         """
         Check if it is possible to apply the pretended operation.
         """
@@ -7709,6 +7709,58 @@ class QiskryptQuantumCircuit:
             """
             Apply the Phase T (pi/4) Gate/Operation to the given qubit of the given IBM Qiskit's Quantum Register. 
             """
+
+    def apply_phase_p_radians(self, theta_radians: float, qiskit_quantum_register_index: int, qubit_index: int) -> None:
+        """
+        Apply the Phase-P(theta_radians) Gate/Operation to given indexes of
+        an IBM Qiskit's Quantum Register and a target qubit,
+        considering also the given theta angle in radians.
+
+        :param theta_radians: the theta angle in radians, for the Phase-P(theta_radians) Gate/Operation.
+        :param qiskit_quantum_register_index: the index of an IBM Qiskit's Quantum Register.
+        :param qubit_index: the index of a qubit inside that IBM Qiskit's Quantum Register.
+        """
+
+        is_possible_to_apply_operation = \
+            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_index, qubit_index, True)
+        """
+        Check if it is possible to apply the pretended operation.
+        """
+
+        if is_possible_to_apply_operation:
+            """
+            It is possible to apply the pretended operation.
+            """
+
+            self.qiskit_quantum_circuit.p(theta_radians,
+                                          self.qiskit_quantum_circuit.qregs[qiskit_quantum_register_index][qubit_index])
+            """
+            Apply the Phase-P(theta_radians) Gate/Operation to
+            the given qubit of the given IBM Qiskit's Quantum Register. 
+            """
+
+    def apply_phase_p_degrees(self, theta_degrees: float, qiskit_quantum_register_index: int, qubit_index: int) -> None:
+        """
+        Apply the Phase-P(theta_degrees) Gate/Operation to given indexes of
+        an IBM Qiskit's Quantum Register and a target qubit,
+        considering also the given theta angle in radians.
+
+        :param theta_degrees: the theta angle in degrees, for the Phase-P(theta_radians) Gate/Operation.
+        :param qiskit_quantum_register_index: the index of an IBM Qiskit's Quantum Register.
+        :param qubit_index: the index of a qubit inside that IBM Qiskit's Quantum Register.
+        """
+
+        theta_radians = radians(theta_degrees)
+        """
+        Convert the theta angle in degrees to radians.
+        """
+
+        self.apply_phase_p_radians(theta_radians, qiskit_quantum_register_index, qubit_index)
+        """
+        Apply the Phase-P(theta_radians) Gate/Operation to given indexes of
+        an IBM Qiskit's Quantum Register and a target qubit,
+        considering also the given theta angle in radians.
+        """
 
     def apply_bit_flip(self, qiskit_quantum_register_index: int, qubit_index: int) -> None:
         """
@@ -7725,18 +7777,41 @@ class QiskryptQuantumCircuit:
         the given IBM Qiskit's Quantum Register. 
         """
 
-    def apply_phase_shifter(self, qiskit_quantum_register_index: int, qubit_index: int) -> None:
+    def apply_phase_shifter_radians(self,
+                                    theta_radians: float,
+                                    qiskit_quantum_register_index: int,
+                                    qubit_index: int) -> None:
         """
-        Apply the Phase Shifter Gate/Operation to given indexes of
+        Apply the Phase-Shifter(theta_radians) Gate/Operation to given indexes of
         an IBM Qiskit's Quantum Register and a target qubit.
 
+        :param theta_radians: the theta angle in radians, for the Phase-Shifter(theta_radians) Gate/Operation.
         :param qiskit_quantum_register_index: the index of an IBM Qiskit's Quantum Register.
         :param qubit_index: the index of a qubit inside that IBM Qiskit's Quantum Register.
         """
 
-        self.apply_pauli_z(qiskit_quantum_register_index, qubit_index)
+        self.apply_phase_p_radians(theta_radians, qiskit_quantum_register_index, qubit_index)
         """
-        Apply the equivalent Pauli-Z (Phase Flip/Shift) Gate/Operation to the given qubit of
+        Apply the equivalent Phase-P(theta_radians) Gate/Operation to the given qubit of
+        the given IBM Qiskit's Quantum Register. 
+        """
+
+    def apply_phase_shifter_degrees(self,
+                                    theta_degrees: float,
+                                    qiskit_quantum_register_index: int,
+                                    qubit_index: int) -> None:
+        """
+        Apply the Phase-Shifter(theta_degrees) Gate/Operation to given indexes of
+        an IBM Qiskit's Quantum Register and a target qubit.
+
+        :param theta_degrees: the theta angle in radians, for the Phase-Shifter(theta_radians) Gate/Operation.
+        :param qiskit_quantum_register_index: the index of an IBM Qiskit's Quantum Register.
+        :param qubit_index: the index of a qubit inside that IBM Qiskit's Quantum Register.
+        """
+
+        self.apply_phase_p_degrees(theta_degrees, qiskit_quantum_register_index, qubit_index)
+        """
+        Apply the equivalent Phase-P(theta_degrees) Gate/Operation to the given qubit of
         the given IBM Qiskit's Quantum Register. 
         """
 
@@ -7996,7 +8071,7 @@ class QiskryptQuantumCircuit:
             """
 
             squared_root_phase_t_unitary_matrix_operator = Operator([
-                [1, 0],
+                [1,                                   0],
                 [0, sqrt(exp((1 / sqrt(2) * (1 + 1j))))]
             ])
             """
