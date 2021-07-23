@@ -61,7 +61,7 @@ class QiskryptNotFullyQuantumRegisterError(Exception):
         """
         Constructor for the Not a Fully-Quantum Register Error for
         the Qiskrypt's Fully-Quantum Register.
-        :param message: The custom message for the Not a Fully-Quantum Register Error for
+        :param message: the custom message for the Not a Fully-Quantum Register Error for
                         the Qiskrypt's Fully-Quantum Register.
         """
         self.message = message
@@ -87,7 +87,7 @@ class QiskryptNotValidFullyQuantumRegisterIndexError(Exception):
         Constructor for the Not a Valid Fully-Quantum Register Index Error for
         the Qiskrypt's Fully-Quantum Register in the Qiskrypt's Quantum Circuit.
 
-        :param message: The custom message for the Not a Valid Fully-Quantum Register Index Error for
+        :param message: the custom message for the Not a Valid Fully-Quantum Register Index Error for
                         the Qiskrypt's Fully-Quantum Register in the Qiskrypt's Quantum Circuit.
         """
 

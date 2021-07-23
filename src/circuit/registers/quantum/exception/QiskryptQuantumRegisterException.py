@@ -62,7 +62,7 @@ class QiskryptNotQuantumRegisterError(Exception):
         Constructor for the Not a Quantum Register Error for
         the Qiskrypt's Quantum Register.
 
-        :param message: The custom message for the Not a Quantum Register Error for
+        :param message: the custom message for the Not a Quantum Register Error for
                         the Qiskrypt's Quantum Register.
         """
 
@@ -89,7 +89,7 @@ class QiskryptNotValidQuantumRegisterIndexError(Exception):
         Constructor for the Not a Valid Quantum Register Index Error for
         the Qiskrypt's Quantum Register in the Qiskrypt's Quantum Circuit.
 
-        :param message: The custom message for the Not a Valid Quantum Register Index Error for
+        :param message: the custom message for the Not a Valid Quantum Register Index Error for
                         the Qiskrypt's Quantum Register in the Qiskrypt's Quantum Circuit.
         """
 

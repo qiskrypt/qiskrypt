@@ -71,9 +71,11 @@ class QiskryptAncillaSemiQuantumRegisterUnsupportedOperationError(Exception):
         """
         Constructor for the Unsupported Operation Error for
         the Qiskrypt's Ancilla Semi-Quantum Register.
-        :param message: The custom message for the Unsupported Operation Error for
+
+        :param message: the custom message for the Unsupported Operation Error for
                         the Qiskrypt's Ancilla Semi-Quantum Register.
         """
+
         self.message = message
         """
         Set the custom message for the Unsupported Operation Error for
@@ -96,9 +98,11 @@ class QiskryptNotAncillaSemiQuantumRegisterError(Exception):
         """
         Constructor for the Not an Ancilla Semi-Quantum Register Error for
         the Qiskrypt's Ancilla Semi-Quantum Register.
-        :param message: The custom message for the Not an Ancilla Semi-Quantum Register Error for
+
+        :param message: the custom message for the Not an Ancilla Semi-Quantum Register Error for
                         the Qiskrypt's Ancilla Semi-Quantum Register.
         """
+
         self.message = message
         """
         Set the custom message for the Not an Ancilla Semi-Quantum Register Error for
@@ -122,7 +126,7 @@ class QiskryptNotValidAncillaSemiQuantumRegisterIndexError(Exception):
         Constructor for the Not a Valid Ancilla Semi-Quantum Register Index Error for
         the Qiskrypt's Ancilla Semi-Quantum Register in the Qiskrypt's Quantum Circuit.
 
-        :param message: The custom message for the Not a Valid Ancilla Semi-Quantum Register Index Error for
+        :param message: the custom message for the Not a Valid Ancilla Semi-Quantum Register Index Error for
                         the Qiskrypt's Ancilla Semi-Quantum Register in the Qiskrypt's Quantum Circuit.
         """
 

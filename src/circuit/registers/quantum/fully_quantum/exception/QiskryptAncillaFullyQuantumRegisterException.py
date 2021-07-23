@@ -61,9 +61,11 @@ class QiskryptNotAncillaFullyQuantumRegisterError(Exception):
         """
         Constructor for the Not an Ancilla Fully-Quantum Register Error for
         the Qiskrypt's Ancilla Fully-Quantum Register.
-        :param message: The custom message for the Not an Ancilla Fully-Quantum Register Error for
+
+        :param message: the custom message for the Not an Ancilla Fully-Quantum Register Error for
                         the Qiskrypt's Ancilla Fully-Quantum Register.
         """
+
         self.message = message
         """
         Set the custom message for the Not an Ancilla Fully-Quantum Register Error for
@@ -87,7 +89,7 @@ class QiskryptNotValidAncillaFullyQuantumRegisterIndexError(Exception):
         Constructor for the Not a Valid Ancilla Fully-Quantum Register Index Error for
         the Qiskrypt's Ancilla Fully-Quantum Register in the Qiskrypt's Quantum Circuit.
 
-        :param message: The custom message for the Not a Valid Ancilla Fully-Quantum Register Index Error for
+        :param message: the custom message for the Not a Valid Ancilla Fully-Quantum Register Index Error for
                         the Qiskrypt's Ancilla Fully-Quantum Register in the Qiskrypt's Quantum Circuit.
         """
 

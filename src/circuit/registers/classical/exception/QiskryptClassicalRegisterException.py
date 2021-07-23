@@ -61,7 +61,7 @@ class QiskryptNotClassicalRegisterError(Exception):
         """
         Constructor for the Not a Classical Register Error for
         the Qiskrypt's Classical Register.
-        :param message: The custom message for the Not a Classical Register Error for
+        :param message: the custom message for the Not a Classical Register Error for
                         the Qiskrypt's Classical Register.
         """
         self.message = message
@@ -87,7 +87,7 @@ class QiskryptNotValidClassicalRegisterIndexError(Exception):
         Constructor for the Not a Valid Classical Register Index Error for
         the Qiskrypt's Classical Register in the Qiskrypt's Quantum Circuit.
 
-        :param message: The custom message for the Not a Valid Classical Register Index Error for
+        :param message: the custom message for the Not a Valid Classical Register Index Error for
                         the Qiskrypt's Classical Register in the Qiskrypt's Quantum Circuit.
         """
 

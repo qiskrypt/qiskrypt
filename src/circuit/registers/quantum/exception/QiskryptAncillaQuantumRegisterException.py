@@ -61,7 +61,7 @@ class QiskryptNotAncillaQuantumRegisterError(Exception):
         """
         Constructor for the Not an Ancilla Quantum Register Error for
         the Qiskrypt's Ancilla Quantum Register.
-        :param message: The custom message for the Not an Ancilla Quantum Register Error for
+        :param message: the custom message for the Not an Ancilla Quantum Register Error for
                         the Qiskrypt's Ancilla Quantum Register.
         """
         self.message = message
@@ -87,7 +87,7 @@ class QiskryptNotValidAncillaQuantumRegisterIndexError(Exception):
         Constructor for the Not a Valid Ancilla Quantum Register Index Error for
         the Qiskrypt's Ancilla Quantum Register in the Qiskrypt's Quantum Circuit.
 
-        :param message: The custom message for the Not a Valid Ancilla Quantum Register Index Error for
+        :param message: the custom message for the Not a Valid Ancilla Quantum Register Index Error for
                         the Qiskrypt's Ancilla Quantum Register in the Qiskrypt's Quantum Circuit.
         """
 
