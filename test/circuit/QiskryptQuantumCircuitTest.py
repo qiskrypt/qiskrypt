@@ -10456,6 +10456,368 @@ class SingleQubitGatesOperations(TestCase):
         """
         self.assertEqual(True, True)
 
+#####
+
+    def test_no_13_apply_pauli_z(self):
+        """
+        Test Case #13:
+
+        - Apply the Pauli-Z (Phase Flip/Shift) Gate/Operation to a qubit of an IBM Qiskit's Quantum Register of
+          the Qiskrypt's Quantum Register of a Qiskrypt's Quantum Circuit.
+
+        Description of the Steps for the Unitary Test:
+        1) The Qiskrypt's Quantum Circuit is created with a Qiskrypt's Quantum Register,
+           with 1 qubit initialized in the state |0⟩;
+        2) It is applied the Pauli-Z (Phase Flip/Shift) Gate/Operation to the 1st qubit, such that, |0⟩ ↦ |0⟩;
+
+        Return OK (or FAIL) if, all the Tests performed are OK (or FAIL, otherwise).
+        """
+
+        num_qubits = num_bits = 1
+        """
+        Set the number of qubits and bits, for Quantum and Classical Registers, respectively.
+        """
+
+        qiskrypt_quantum_register_pauli_z_gate_1_qubit = \
+            QiskryptQuantumRegister("qu_reg_13", num_qubits)
+        """
+        Create a Qiskrypt's Quantum Register with 1 qubit.
+        """
+
+        qiskrypt_classical_register_pauli_z_gate_1_qubit = \
+            QiskryptClassicalRegister("cl_reg_13", num_bits)
+        """
+        Create a Qiskrypt's Classical Register with 1 bit.
+        """
+
+        qiskrypt_quantum_circuit_pauli_z_gate_1_qubit = \
+            QiskryptQuantumCircuit("qu_circ_13",
+                                   qiskrypt_quantum_registers=[qiskrypt_quantum_register_pauli_z_gate_1_qubit],
+                                   qiskrypt_fully_quantum_registers=None,
+                                   qiskrypt_semi_quantum_registers=None,
+                                   qiskrypt_ancilla_quantum_registers=None,
+                                   qiskrypt_ancilla_fully_quantum_registers=None,
+                                   qiskrypt_ancilla_semi_quantum_registers=None,
+                                   qiskrypt_classical_registers=[qiskrypt_classical_register_pauli_z_gate_1_qubit],
+                                   global_phase=0, qiskit_quantum_circuit=None)
+        """
+        Create a Qiskrypt's Quantum Circuit with
+        the previously created Qiskrypt's Quantum and Classical Registers.
+        """
+
+        qiskrypt_quantum_circuit_pauli_z_gate_1_qubit \
+            .apply_pauli_z(0, 0)
+        """
+        Apply the Pauli-Z (Phase Flip/Shift) Gate/Operation to the given index for
+        the single qubit of the given IBM Qiskit's Quantum Register (|0⟩ ↦ |0⟩).
+        """
+
+        qiskit_state_vector_backend = Aer.get_backend("statevector_simulator")
+        """
+        Getting the Aer Simulator Backend for the State Vector Representation
+        (i.e., the quantum state represented as its state vector).
+        """
+
+        final_quantum_state_vector_state = \
+            execute(qiskrypt_quantum_circuit_pauli_z_gate_1_qubit.qiskit_quantum_circuit,
+                    qiskit_state_vector_backend).result().get_statevector()
+        """
+        Execute the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit
+        and store the resulted quantum state represented in a final state vector.
+        """
+
+        assert_allclose(final_quantum_state_vector_state,
+                        array([(1. + 0.j), (0. + 0.j)]),
+                        rtol=1e-7, atol=1e-7)
+        """
+        Perform the Assertion of all close values in the values of the quantum state,
+        represented by its state vector describing the given qubit,
+        after being applied the Pauli-Z (Phase Flip/Shift) Quantum Gate/Operation.
+        """
+
+        """
+        Dummy Assert Equal for the Unittest.
+        """
+        self.assertEqual(True, True)
+
+    def test_no_14_apply_pauli_z(self):
+        """
+        Test Case #14:
+
+        - Apply the Pauli-Z (Phase Flip/Shift) Gate/Operation to a qubit of an IBM Qiskit's Quantum Register of
+          the Qiskrypt's Quantum Register of a Qiskrypt's Quantum Circuit.
+
+        Description of the Steps for the Unitary Test:
+        1) The Qiskrypt's Quantum Circuit is created with a Qiskrypt's Quantum Register,
+           with 1 qubit initialized in the state |0⟩;
+        2) It is applied the Pauli-X (Bit Flip/NOT) Gate/Operation to the 1st qubit, such that, |0⟩ ↦ |1⟩;
+        3) It is applied the Pauli-Z (Phase Flip/Shift) Gate/Operation to the 1st qubit, such that, |1⟩ ↦ -|1⟩;
+
+        Return OK (or FAIL) if, all the Tests performed are OK (or FAIL, otherwise).
+        """
+
+        num_qubits = num_bits = 1
+        """
+        Set the number of qubits and bits, for Quantum and Classical Registers, respectively.
+        """
+
+        qiskrypt_quantum_register_pauli_z_gate_1_qubit = \
+            QiskryptQuantumRegister("qu_reg_14", num_qubits)
+        """
+        Create a Qiskrypt's Quantum Register with 1 qubit.
+        """
+
+        qiskrypt_classical_register_pauli_z_gate_1_qubit = \
+            QiskryptClassicalRegister("cl_reg_14", num_bits)
+        """
+        Create a Qiskrypt's Classical Register with 1 bit.
+        """
+
+        qiskrypt_quantum_circuit_pauli_z_gate_1_qubit = \
+            QiskryptQuantumCircuit("qu_circ_14",
+                                   qiskrypt_quantum_registers=[qiskrypt_quantum_register_pauli_z_gate_1_qubit],
+                                   qiskrypt_fully_quantum_registers=None,
+                                   qiskrypt_semi_quantum_registers=None,
+                                   qiskrypt_ancilla_quantum_registers=None,
+                                   qiskrypt_ancilla_fully_quantum_registers=None,
+                                   qiskrypt_ancilla_semi_quantum_registers=None,
+                                   qiskrypt_classical_registers=[qiskrypt_classical_register_pauli_z_gate_1_qubit],
+                                   global_phase=0, qiskit_quantum_circuit=None)
+        """
+        Create a Qiskrypt's Quantum Circuit with
+        the previously created Qiskrypt's Quantum and Classical Registers.
+        """
+
+        qiskrypt_quantum_circuit_pauli_z_gate_1_qubit \
+            .apply_pauli_x(0, 0)
+        """
+        Apply the Pauli-X (Bit Flip/NOT) Gate/Operation to the given index for
+        the single qubit of the given IBM Qiskit's Quantum Register (|0⟩ ↦ |1⟩).
+        """
+
+        qiskrypt_quantum_circuit_pauli_z_gate_1_qubit \
+            .apply_pauli_z(0, 0)
+        """
+        Apply the Pauli-Z (Phase Flip/Shift) Gate/Operation to the given index for
+        the single qubit of the given IBM Qiskit's Quantum Register (|1⟩ ↦ -|1⟩).
+        """
+
+        qiskit_state_vector_backend = Aer.get_backend("statevector_simulator")
+        """
+        Getting the Aer Simulator Backend for the State Vector Representation
+        (i.e., the quantum state represented as its state vector).
+        """
+
+        final_quantum_state_vector_state = \
+            execute(qiskrypt_quantum_circuit_pauli_z_gate_1_qubit.qiskit_quantum_circuit,
+                    qiskit_state_vector_backend).result().get_statevector()
+        """
+        Execute the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit
+        and store the resulted quantum state represented in a final state vector.
+        """
+
+        assert_allclose(final_quantum_state_vector_state,
+                        array([(0. + 0.j), -(1. + 0.j)]),
+                        rtol=1e-7, atol=1e-7)
+        """
+        Perform the Assertion of all close values in the values of the quantum state,
+        represented by its state vector describing the given qubit,
+        after being applied the Pauli-Z (Phase Flip/Shift) Quantum Gate/Operation.
+        """
+
+        """
+        Dummy Assert Equal for the Unittest.
+        """
+        self.assertEqual(True, True)
+
+    def test_no_15_apply_pauli_z(self):
+        """
+        Test Case #15:
+
+        - Apply the Pauli-Z (Phase Flip/Shift) Gate/Operation to a qubit of an IBM Qiskit's Quantum Register of
+          the Qiskrypt's Quantum Register of a Qiskrypt's Quantum Circuit.
+
+        Description of the Steps for the Unitary Test:
+        1) The Qiskrypt's Quantum Circuit is created with a Qiskrypt's Quantum Register,
+           with 1 qubit initialized in the state |0⟩;
+        2) It is applied the Hadamard Gate/Operation to the 1st qubit, such that, |0⟩ ↦ |+⟩;
+        3) It is applied the Pauli-Z (Phase Flip/Shift) Gate/Operation to the 1st qubit, such that, |+⟩ ↦ |-⟩;
+
+        Return OK (or FAIL) if, all the Tests performed are OK (or FAIL, otherwise).
+        """
+
+        num_qubits = num_bits = 1
+        """
+        Set the number of qubits and bits, for Quantum and Classical Registers, respectively.
+        """
+
+        qiskrypt_quantum_register_pauli_z_gate_1_qubit = \
+            QiskryptQuantumRegister("qu_reg_15", num_qubits)
+        """
+        Create a Qiskrypt's Quantum Register with 1 qubit.
+        """
+
+        qiskrypt_classical_register_pauli_z_gate_1_qubit = \
+            QiskryptClassicalRegister("cl_reg_15", num_bits)
+        """
+        Create a Qiskrypt's Classical Register with 1 bit.
+        """
+
+        qiskrypt_quantum_circuit_pauli_z_gate_1_qubit = \
+            QiskryptQuantumCircuit("qu_circ_15",
+                                   qiskrypt_quantum_registers=[qiskrypt_quantum_register_pauli_z_gate_1_qubit],
+                                   qiskrypt_fully_quantum_registers=None,
+                                   qiskrypt_semi_quantum_registers=None,
+                                   qiskrypt_ancilla_quantum_registers=None,
+                                   qiskrypt_ancilla_fully_quantum_registers=None,
+                                   qiskrypt_ancilla_semi_quantum_registers=None,
+                                   qiskrypt_classical_registers=[qiskrypt_classical_register_pauli_z_gate_1_qubit],
+                                   global_phase=0, qiskit_quantum_circuit=None)
+        """
+        Create a Qiskrypt's Quantum Circuit with
+        the previously created Qiskrypt's Quantum and Classical Registers.
+        """
+
+        qiskrypt_quantum_circuit_pauli_z_gate_1_qubit \
+            .apply_hadamard(0, 0)
+        """
+        Apply the Hadamard Gate/Operation to the given index for
+        the single qubit of the given IBM Qiskit's Quantum Register (|0⟩ ↦ |+⟩).
+        """
+
+        qiskrypt_quantum_circuit_pauli_z_gate_1_qubit \
+            .apply_pauli_z(0, 0)
+        """
+        Apply the Pauli-Z (Phase Flip/Shift) Gate/Operation to the given index for
+        the single qubit of the given IBM Qiskit's Quantum Register (|+⟩ ↦ |-⟩).
+        """
+
+        qiskit_state_vector_backend = Aer.get_backend("statevector_simulator")
+        """
+        Getting the Aer Simulator Backend for the State Vector Representation
+        (i.e., the quantum state represented as its state vector).
+        """
+
+        final_quantum_state_vector_state = \
+            execute(qiskrypt_quantum_circuit_pauli_z_gate_1_qubit.qiskit_quantum_circuit,
+                    qiskit_state_vector_backend).result().get_statevector()
+        """
+        Execute the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit
+        and store the resulted quantum state represented in a final state vector.
+        """
+
+        assert_allclose(final_quantum_state_vector_state,
+                        array([((1. / sqrt(2.)) + 0.j), -((1. / sqrt(2.)) + 0.j)]),
+                        rtol=1e-7, atol=1e-7)
+        """
+        Perform the Assertion of all close values in the values of the quantum state,
+        represented by its state vector describing the given qubit,
+        after being applied the Pauli-Z (Phase Flip/Shift) Quantum Gate/Operation.
+        """
+
+        """
+        Dummy Assert Equal for the Unittest.
+        """
+        self.assertEqual(True, True)
+
+    def test_no_16_apply_pauli_z(self):
+        """
+        Test Case 16#:
+
+        - Apply the Pauli-Z (Phase Flip/Shift) Gate/Operation to a qubit of an IBM Qiskit's Quantum Register of
+          the Qiskrypt's Quantum Register of a Qiskrypt's Quantum Circuit.
+
+        Description of the Steps for the Unitary Test:
+        1) The Qiskrypt's Quantum Circuit is created with a Qiskrypt's Quantum Register,
+           with 1 qubit initialized in the state |0⟩;
+        2) It is applied the Pauli-X (Bit Flip/NOT) Gate/Operation to the 1st qubit, such that, |0⟩ ↦ |1⟩;
+        3) It is applied the Hadamard Gate/Operation to the 1st qubit, such that, |1⟩ ↦ |-⟩;
+        4) It is applied the Pauli-Z (Phase Flip/Shift) Gate/Operation to the 1st qubit, such that, |-⟩ ↦ |+⟩;
+
+        Return OK (or FAIL) if, all the Tests performed are OK (or FAIL, otherwise).
+        """
+
+        num_qubits = num_bits = 1
+        """
+        Set the number of qubits and bits, for Quantum and Classical Registers, respectively.
+        """
+
+        qiskrypt_quantum_register_pauli_z_gate_1_qubit = \
+            QiskryptQuantumRegister("qu_reg_16", num_qubits)
+        """
+        Create a Qiskrypt's Quantum Register with 1 qubit.
+        """
+
+        qiskrypt_classical_register_pauli_z_gate_1_qubit = \
+            QiskryptClassicalRegister("cl_reg_16", num_bits)
+        """
+        Create a Qiskrypt's Classical Register with 1 bit.
+        """
+
+        qiskrypt_quantum_circuit_pauli_z_gate_1_qubit = \
+            QiskryptQuantumCircuit("qu_circ_16",
+                                   qiskrypt_quantum_registers=[qiskrypt_quantum_register_pauli_z_gate_1_qubit],
+                                   qiskrypt_fully_quantum_registers=None,
+                                   qiskrypt_semi_quantum_registers=None,
+                                   qiskrypt_ancilla_quantum_registers=None,
+                                   qiskrypt_ancilla_fully_quantum_registers=None,
+                                   qiskrypt_ancilla_semi_quantum_registers=None,
+                                   qiskrypt_classical_registers=[qiskrypt_classical_register_pauli_z_gate_1_qubit],
+                                   global_phase=0, qiskit_quantum_circuit=None)
+        """
+        Create a Qiskrypt's Quantum Circuit with
+        the previously created Qiskrypt's Quantum and Classical Registers.
+        """
+
+        qiskrypt_quantum_circuit_pauli_z_gate_1_qubit \
+            .apply_pauli_x(0, 0)
+        """
+        Apply the Pauli-X (Bit Flip/NOT) Gate/Operation to the given index for
+        the single qubit of the given IBM Qiskit's Quantum Register (|0⟩ ↦ |1⟩).
+        """
+
+        qiskrypt_quantum_circuit_pauli_z_gate_1_qubit \
+            .apply_hadamard(0, 0)
+        """
+        Apply the Hadamard Gate/Operation to the given index for
+        the single qubit of the given IBM Qiskit's Quantum Register (|1⟩ ↦ |-⟩).
+        """
+
+        qiskrypt_quantum_circuit_pauli_z_gate_1_qubit \
+            .apply_pauli_z(0, 0)
+        """
+        Apply the Pauli-Z (Phase Flip/Shift) Gate/Operation to the given index for
+        the single qubit of the given IBM Qiskit's Quantum Register (|-⟩ ↦ |+⟩).
+        """
+
+        qiskit_state_vector_backend = Aer.get_backend("statevector_simulator")
+        """
+        Getting the Aer Simulator Backend for the State Vector Representation
+        (i.e., the quantum state represented as its state vector).
+        """
+
+        final_quantum_state_vector_state = \
+            execute(qiskrypt_quantum_circuit_pauli_z_gate_1_qubit.qiskit_quantum_circuit,
+                    qiskit_state_vector_backend).result().get_statevector()
+        """
+        Execute the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit
+        and store the resulted quantum state represented in a final state vector.
+        """
+
+        assert_allclose(final_quantum_state_vector_state,
+                        array([((1. / sqrt(2.)) + 0.j), ((1. / sqrt(2.)) + 0.j)]),
+                        rtol=1e-7, atol=1e-7)
+        """
+        Perform the Assertion of all close values in the values of the quantum state,
+        represented by its state vector describing the given qubit,
+        after being applied the Pauli-Z (Phase Flip/Shift) Quantum Gate/Operation.
+        """
+
+        """
+        Dummy Assert Equal for the Unittest.
+        """
+        self.assertEqual(True, True)
+
 
 if __name__ == "__main__":
     """
