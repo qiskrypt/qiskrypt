@@ -184,6 +184,13 @@ Import the Number of Qubits and Number of Bits Are Not Equal for Operation or Me
 the Qiskrypt's Quantum Circuit.
 """
 
+from src.circuit.exception.QiskryptQuantumCircuitException \
+    import QiskryptQuantumCircuitListDoNotRepresentASquareUnitaryMatrixOperatorError
+"""
+Import the List Do Not Represent a Square Unitary Matrix Operator Error for
+the Qiskrypt's Quantum Circuit.
+"""
+
 
 class QiskryptQuantumCircuit:
     """
@@ -9678,52 +9685,68 @@ class QiskryptQuantumCircuit:
         :param name: the name for the Qiskrypt's Quantum Circuit.
         """
 
-        thetas_radians_unitary_matrix_operator = zeros((num_qubits, num_qubits))
-        """
-        Create the Unitary Matrix/Operator for the theta angle in radians.
-        """
-
-        for row_unitary_matrix_operator in range(num_qubits):
+        if len(thetas_radians) == (num_qubits**2):
             """
-            For each row of the Unitary Matrix/Operator with
-            the theta angles in radians.
+            If the number of elements in the list of theta angles in radians is equal to
+            the squared number of qubits.
             """
 
-            for column_unitary_matrix_operator in range(num_qubits):
+            thetas_radians_unitary_matrix_operator = zeros((num_qubits, num_qubits))
+            """
+            Create the Unitary Matrix/Operator for the theta angle in radians.
+            """
+
+            for row_unitary_matrix_operator in range(num_qubits):
                 """
-                For each column of the Unitary Matrix/Operator with
+                For each row of the Unitary Matrix/Operator with
                 the theta angles in radians.
                 """
 
-                theta_radians = thetas_radians[((row_unitary_matrix_operator * num_qubits) + num_qubits)]
-                """
-                Retrieve the current theta angle in radians from the list of them.
-                """
+                for column_unitary_matrix_operator in range(num_qubits):
+                    """
+                    For each column of the Unitary Matrix/Operator with
+                    the theta angles in radians.
+                    """
 
-                thetas_radians_unitary_matrix_operator[row_unitary_matrix_operator][column_unitary_matrix_operator] = theta_radians
-                """
-                Assign the current theta angle in radians to
-                the current element of the Unitary Matrix/Operator.
-                """
+                    theta_radians = thetas_radians[((row_unitary_matrix_operator * num_qubits) + num_qubits)]
+                    """
+                    Retrieve the current theta angle in radians from the list of them.
+                    """
 
-        global_molmer_sorensen_radians_qiskit_quantum_circuit = GMS(num_qubits, thetas_radians_unitary_matrix_operator)
-        """
-        Create the Qiskit's Quantum Circuit based on
-        the Global Mølmer-Sørensen(thetas_radians) (GMS(thetas_radians)) Gate/Operation.
-        """
+                    thetas_radians_unitary_matrix_operator[row_unitary_matrix_operator][column_unitary_matrix_operator] = theta_radians
+                    """
+                    Assign the current theta angle in radians to
+                    the current element of the Unitary Matrix/Operator.
+                    """
 
-        global_molmer_sorensen_radians_qiskrypt_quantum_circuit = \
-            QiskryptQuantumCircuit(name, qiskit_quantum_circuit=global_molmer_sorensen_radians_qiskit_quantum_circuit)
-        """
-        Create the Qiskrypt's Quantum Circuit for
-        the Global Mølmer-Sørensen(thetas_radians) (GMS(thetas_radians)) Gate/Operation.
-        """
+            global_molmer_sorensen_radians_qiskit_quantum_circuit = GMS(num_qubits, thetas_radians_unitary_matrix_operator)
+            """
+            Create the Qiskit's Quantum Circuit based on
+            the Global Mølmer-Sørensen(thetas_radians) (GMS(thetas_radians)) Gate/Operation.
+            """
 
-        """
-        Return the Qiskrypt's Quantum Circuit for
-        the Global Mølmer-Sørensen(thetas_radians) (GMS(thetas_radians)) Gate/Operation.
-        """
-        return global_molmer_sorensen_radians_qiskrypt_quantum_circuit
+            global_molmer_sorensen_radians_qiskrypt_quantum_circuit = \
+                QiskryptQuantumCircuit(name, qiskit_quantum_circuit=global_molmer_sorensen_radians_qiskit_quantum_circuit)
+            """
+            Create the Qiskrypt's Quantum Circuit for
+            the Global Mølmer-Sørensen(thetas_radians) (GMS(thetas_radians)) Gate/Operation.
+            """
+
+            """
+            Return the Qiskrypt's Quantum Circuit for
+            the Global Mølmer-Sørensen(thetas_radians) (GMS(thetas_radians)) Gate/Operation.
+            """
+            return global_molmer_sorensen_radians_qiskrypt_quantum_circuit
+        else:
+            """
+            If the number of elements in the list of theta angles in radians is not equal to
+            the squared number of qubits.
+            """
+
+            QiskryptQuantumCircuit.raise_list_do_not_represent_a_square_unitary_matrix_operator_error()
+            """
+            Raise a List Do Not Represent a Square Unitary Matrix Operator Error for the Qiskrypt's Quantum Circuit.
+            """
 
     @staticmethod
     def create_global_molmer_sorensen_degrees_qiskrypt_quantum_circuit(num_qubits: int,
@@ -9739,82 +9762,98 @@ class QiskryptQuantumCircuit:
         :param name: the name for the Qiskrypt's Quantum Circuit.
         """
 
-        thetas_radians = []
-        """
-        Create a new list of theta angles in radians.
-        """
-
-        num_thetas_degrees = len(thetas_degrees)
-        """
-        Retrieve the number of theta angles in degrees.
-        """
-
-        for theta_degree_index in range(num_thetas_degrees):
+        if len(thetas_degrees) == (num_qubits**2):
             """
-            For each index of a theta angle in degrees. 
+            If the number of elements in the list of theta angles in degrees is equal to
+            the squared number of qubits.
             """
 
-            theta_degrees = thetas_degrees[theta_degree_index]
+            thetas_radians = []
             """
-            Retrieve the current theta angle in degrees.
-            """
-
-            theta_radians = radians(theta_degrees)
-            """
-            Convert the current theta angle in degrees to radians.
+            Create a new list of theta angles in radians.
             """
 
-            thetas_radians.append(theta_radians)
+            num_thetas_degrees = len(thetas_degrees)
             """
-            Append the current theta angle converted in radians to the respective list.
-            """
-
-        thetas_radians_unitary_matrix_operator = zeros((num_qubits, num_qubits))
-        """
-        Create the Unitary Matrix/Operator for the theta angle in radians.
-        """
-
-        for row_unitary_matrix_operator in range(num_qubits):
-            """
-            For each row of the Unitary Matrix/Operator with
-            the theta angles in radians.
+            Retrieve the number of theta angles in degrees.
             """
 
-            for column_unitary_matrix_operator in range(num_qubits):
+            for theta_degree_index in range(num_thetas_degrees):
                 """
-                For each column of the Unitary Matrix/Operator with
+                For each index of a theta angle in degrees. 
+                """
+
+                theta_degrees = thetas_degrees[theta_degree_index]
+                """
+                Retrieve the current theta angle in degrees.
+                """
+
+                theta_radians = radians(theta_degrees)
+                """
+                Convert the current theta angle in degrees to radians.
+                """
+
+                thetas_radians.append(theta_radians)
+                """
+                Append the current theta angle converted in radians to the respective list.
+                """
+
+            thetas_radians_unitary_matrix_operator = zeros((num_qubits, num_qubits))
+            """
+            Create the Unitary Matrix/Operator for the theta angle in radians.
+            """
+
+            for row_unitary_matrix_operator in range(num_qubits):
+                """
+                For each row of the Unitary Matrix/Operator with
                 the theta angles in radians.
                 """
 
-                theta_radians = thetas_radians[((row_unitary_matrix_operator * num_qubits) + num_qubits)]
-                """
-                Retrieve the current theta angle in radians from the list of them.
-                """
+                for column_unitary_matrix_operator in range(num_qubits):
+                    """
+                    For each column of the Unitary Matrix/Operator with
+                    the theta angles in radians.
+                    """
 
-                thetas_radians_unitary_matrix_operator[row_unitary_matrix_operator][column_unitary_matrix_operator] = theta_radians
-                """
-                Assign the current theta angle in radians to
-                the current element of the Unitary Matrix/Operator.
-                """
+                    theta_radians = thetas_radians[((row_unitary_matrix_operator * num_qubits) + num_qubits)]
+                    """
+                    Retrieve the current theta angle in radians from the list of them.
+                    """
 
-        global_molmer_sorensen_radians_qiskit_quantum_circuit = GMS(num_qubits, thetas_radians_unitary_matrix_operator)
-        """
-        Create the Qiskit's Quantum Circuit based on
-        the Global Mølmer-Sørensen(thetas_radians) (GMS(thetas_radians)) Gate/Operation.
-        """
+                    thetas_radians_unitary_matrix_operator[row_unitary_matrix_operator][column_unitary_matrix_operator] = theta_radians
+                    """
+                    Assign the current theta angle in radians to
+                    the current element of the Unitary Matrix/Operator.
+                    """
 
-        global_molmer_sorensen_radians_qiskrypt_quantum_circuit = \
-            QiskryptQuantumCircuit(name, qiskit_quantum_circuit=global_molmer_sorensen_radians_qiskit_quantum_circuit)
-        """
-        Create the Qiskrypt's Quantum Circuit for
-        the Global Mølmer-Sørensen(thetas_radians) (GMS(thetas_radians)) Gate/Operation.
-        """
+            global_molmer_sorensen_radians_qiskit_quantum_circuit = GMS(num_qubits, thetas_radians_unitary_matrix_operator)
+            """
+            Create the Qiskit's Quantum Circuit based on
+            the Global Mølmer-Sørensen(thetas_radians) (GMS(thetas_radians)) Gate/Operation.
+            """
 
-        """
-        Return the Qiskrypt's Quantum Circuit for
-        the Global Mølmer-Sørensen(thetas_radians) (GMS(thetas_radians)) Gate/Operation.
-        """
-        return global_molmer_sorensen_radians_qiskrypt_quantum_circuit
+            global_molmer_sorensen_radians_qiskrypt_quantum_circuit = \
+                QiskryptQuantumCircuit(name, qiskit_quantum_circuit=global_molmer_sorensen_radians_qiskit_quantum_circuit)
+            """
+            Create the Qiskrypt's Quantum Circuit for
+            the Global Mølmer-Sørensen(thetas_radians) (GMS(thetas_radians)) Gate/Operation.
+            """
+
+            """
+            Return the Qiskrypt's Quantum Circuit for
+            the Global Mølmer-Sørensen(thetas_radians) (GMS(thetas_radians)) Gate/Operation.
+            """
+            return global_molmer_sorensen_radians_qiskrypt_quantum_circuit
+        else:
+            """
+            If the number of elements in the list of theta angles in degrees is not equal to
+            the squared number of qubits.
+            """
+
+            QiskryptQuantumCircuit.raise_list_do_not_represent_a_square_unitary_matrix_operator_error()
+            """
+            Raise a List Do Not Represent a Square Unitary Matrix Operator Error for the Qiskrypt's Quantum Circuit.
+            """
 
     @staticmethod
     def check_if_is_a_qiskrypt_semi_quantum_register(qiskrypt_register: object) -> bool:
@@ -10038,3 +10077,25 @@ class QiskryptQuantumCircuit:
         Operation or Measurement Error for the Qiskrypt's Quantum Circuit.
         """
         raise num_qubits_and_num_bits_are_not_equal_for_operation_or_measurement_error
+
+    @staticmethod
+    def raise_list_do_not_represent_a_square_unitary_matrix_operator_error() -> None:
+        """
+        Return/Raise a List Do Not Represent a Square Unitary Matrix Operator Error.
+
+        :raise list_do_not_represent_a_square_unitary_matrix_operator_error: a List Do Not Represent
+                                                                             a Square Unitary Matrix Operator Error.
+        """
+
+        list_do_not_represent_a_square_unitary_matrix_operator_error = \
+            QiskryptQuantumCircuitListDoNotRepresentASquareUnitaryMatrixOperatorError()
+        """
+        Retrieve the List Do Not Represent a Square Unitary Matrix Operator Error for
+        the Qiskrypt's Quantum Circuit.
+        """
+
+        """
+        Raise the List Do Not Represent a Square Unitary Matrix Operator Error for
+        the Qiskrypt's Quantum Circuit.
+        """
+        raise list_do_not_represent_a_square_unitary_matrix_operator_error
