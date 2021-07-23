@@ -9671,6 +9671,84 @@ class QiskryptQuantumCircuit:
         the given indexes of IBM Qiskit's Quantum Registers and their respective qubits.
         """
 
+    def apply_rzx_radians(self,
+                          theta_radians: float,
+                          qiskit_quantum_register_index_1: int,
+                          qiskit_quantum_register_index_2: int,
+                          qubit_index_1: int, qubit_index_2: int) -> None:
+        """
+        Apply the R_(zx)(theta_radians) (Rotation_(zx)(theta_radians)) Gate/Operation to
+        given indexes of IBM Qiskit's Quantum Registers and their respective qubits on them.
+
+        :param theta_radians: the theta angle in radians,
+                              for the R_(zx)(theta_radians) (R_(zx)(theta_radians)) Gate/Operation.
+        :param qiskit_quantum_register_index_1: the index of the 1st IBM Qiskit's Quantum Register.
+        :param qiskit_quantum_register_index_2: the index of the 2nd IBM Qiskit's Quantum Register.
+        :param qubit_index_1: the index of a qubit inside the 1st IBM Qiskit's Quantum Register.
+        :param qubit_index_2: the index of a qubit inside the 2nd IBM Qiskit's Quantum Register.
+        """
+
+        is_possible_to_apply_operation_1 = \
+            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_index_1,
+                                                         qubit_index_1, True)
+        """
+        Check if it is possible to apply the pretended operation for
+        the 1st IBM Qiskit's Quantum Register and the respective qubit.
+        """
+
+        is_possible_to_apply_operation_2 = \
+            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_index_2,
+                                                         qubit_index_2, True)
+        """
+        Check if it is possible to apply the pretended operation for
+        the 2nd IBM Qiskit's Quantum Register and the respective qubit.
+        """
+
+        if is_possible_to_apply_operation_1 and is_possible_to_apply_operation_2:
+            """
+            It is possible to apply the pretended operation for both
+            the IBM Qiskit's Quantum Registers and their respective qubits.
+            """
+
+            self.qiskit_quantum_circuit.rzx(theta_radians,
+                                            self.qiskit_quantum_circuit.qregs[qiskit_quantum_register_index_1][qubit_index_1],
+                                            self.qiskit_quantum_circuit.qregs[qiskit_quantum_register_index_2][qubit_index_2])
+            """
+            Apply the R_(zx)(theta_radians) (Rotation_(zx)(theta_radians)) Gate/Operation to
+            the given indexes of IBM Qiskit's Quantum Registers and their respective qubits.
+            """
+
+    def apply_rzx_degrees(self,
+                          theta_degrees: float,
+                          qiskit_quantum_register_index_1: int,
+                          qiskit_quantum_register_index_2: int,
+                          qubit_index_1: int, qubit_index_2: int) -> None:
+        """
+        Apply the R_(zx)(theta_degrees) (Rotation_(zx)(theta_degrees)) Gate/Operation to
+        given indexes of IBM Qiskit's Quantum Registers and their respective qubits on them.
+
+        :param theta_degrees: the theta angle in degrees,
+                              for the R_(zx)(theta_degrees) (R_(zx)(theta_degrees)) Gate/Operation.
+        :param qiskit_quantum_register_index_1: the index of the 1st IBM Qiskit's Quantum Register.
+        :param qiskit_quantum_register_index_2: the index of the 2nd IBM Qiskit's Quantum Register.
+        :param qubit_index_1: the index of a qubit inside the 1st IBM Qiskit's Quantum Register.
+        :param qubit_index_2: the index of a qubit inside the 2nd IBM Qiskit's Quantum Register.
+        """
+
+        theta_radians = radians(theta_degrees)
+        """
+        Convert the theta angle in degrees to radians.
+        """
+
+        self.apply_rzx_radians(theta_radians,
+                               qiskit_quantum_register_index_1,
+                               qiskit_quantum_register_index_2,
+                               qubit_index_1, qubit_index_2)
+        """
+        Apply the R_(zx)(theta_radians) (Rotation_(zx)(theta_radians)) Gate/Operation to
+        the given indexes of IBM Qiskit's Quantum Registers and their respective qubits.
+        """
+
     @staticmethod
     def create_global_molmer_sorensen_radians_qiskrypt_quantum_circuit(num_qubits: int,
                                                                        thetas_radians: list,
