@@ -89,6 +89,13 @@ The custom defined message for the Number of Qubits and Number of Bits Are Not E
 the Qiskrypt's Quantum Circuit.
 """
 
+MESSAGE_LIST_DO_NOT_REPRESENT_A_SQUARE_UNITARY_MATRIX_OPERATOR_EXCEPTION = "The given list of complex numbers/angles do not represent " \
+                                                                           "a square unitary matrix/operator!!!\n"
+"""
+The custom defined message for the List Do Not Represent a Square Unitary Matrix Operator Error for
+the Qiskrypt's Quantum Circuit.
+"""
+
 
 class QiskryptQuantumCircuitUnsupportedTypeRegistersError(Exception):
     """
@@ -101,7 +108,7 @@ class QiskryptQuantumCircuitUnsupportedTypeRegistersError(Exception):
         Constructor for the Unsupported Type of Registers Error for
         the Qiskrypt's Quantum Circuit.
 
-        :param message: The custom message for the Unsupported Type of Registers Error for
+        :param message: the custom message for the Unsupported Type of Registers Error for
                         the Qiskrypt's Quantum Circuit.
         """
 
@@ -128,7 +135,7 @@ class QiskryptQuantumCircuitInvalidQiskitQuantumRegisterIndexGivenError(Exceptio
         Constructor for the Invalid Qiskit
         Quantum Register Index Given Error for the Qiskrypt's Quantum Circuit.
 
-        :param message: The custom message for the Invalid Qiskit
+        :param message: the custom message for the Invalid Qiskit
                         Quantum Register Index Given Error for the Qiskrypt's Quantum Circuit.
         """
 
@@ -155,7 +162,7 @@ class QiskryptQuantumCircuitInvalidQubitIndexGivenError(Exception):
         Constructor for the Invalid Qubit Index Given Error for
         the Qiskrypt's Quantum Circuit.
 
-        :param message: The custom message for the Invalid Qubit Index Given Error for
+        :param message: the custom message for the Invalid Qubit Index Given Error for
                         the Qiskrypt's Quantum Circuit.
         """
 
@@ -182,7 +189,7 @@ class QiskryptQuantumCircuitInvalidQiskitClassicalRegisterIndexGivenError(Except
         Constructor for the Invalid Qiskit
         Classical Register Index Given Error for the Qiskrypt's Quantum Circuit.
 
-        :param message: The custom message for the Invalid Qiskit
+        :param message: the custom message for the Invalid Qiskit
                         Classical Register Index Given Error for the Qiskrypt's Quantum Circuit.
         """
 
@@ -209,7 +216,7 @@ class QiskryptQuantumCircuitInvalidBitIndexGivenError(Exception):
         Constructor for the Invalid Bit Index Given Error for
         the Qiskrypt's Quantum Circuit.
 
-        :param message: The custom message for the Invalid Bit Index Given Error for
+        :param message: the custom message for the Invalid Bit Index Given Error for
                         the Qiskrypt's Quantum Circuit.
         """
 
@@ -236,7 +243,7 @@ class QiskryptQuantumCircuitRegisterNotFoundError(Exception):
         Constructor for the Register Not Found Error for
         the Qiskrypt's Quantum Circuit.
 
-        :param message: The custom message for the Register Not Found Error for
+        :param message: the custom message for the Register Not Found Error for
                         the Qiskrypt's Quantum Circuit.
         """
 
@@ -254,17 +261,17 @@ class QiskryptQuantumCircuitRegisterNotFoundError(Exception):
 
 class QiskryptQuantumCircuitNumQuantumRegistersAndNumClassicalRegistersAreNotEqualForOperationOrMeasurementError(Exception):
     """
-    Object Class of the Number of Quantum Registers and Number of Classical Registers Are Not Equal for
-    Operation or Measurement Error for the Qiskrypt's Quantum Circuit.
+    Object Class of the Number of Quantum Registers and Number of Classical Registers
+    Are Not Equal for Operation or Measurement Error for the Qiskrypt's Quantum Circuit.
     """
 
     def __init__(self, message=MESSAGE_NUM_QUANTUM_REGISTERS_AND_NUM_CLASSICAL_REGISTERS_ARE_NOT_EQUAL_EXCEPTION):
         """
-        Constructor for the Number of Quantum Registers and Number of Classical Registers Are Not Equal for
-        Operation or Measurement Error for the Qiskrypt's Quantum Circuit.
+        Constructor for the Number of Quantum Registers and Number of Classical Registers
+        Are Not Equal for Operation or Measurement Error for the Qiskrypt's Quantum Circuit.
 
-        :param message: The custom message for the Number of Quantum Registers and Number of Classical Registers Are Not Equal for
-                        Operation or Measurement Error for the Qiskrypt's Quantum Circuit.
+        :param message: the custom message for the Number of Quantum Registers and Number of Classical Registers
+                        Are Not Equal for Operation or Measurement Error for the Qiskrypt's Quantum Circuit.
         """
 
         self.message = message
@@ -290,7 +297,7 @@ class QiskryptQuantumCircuitNumQubitsAndNumBitsAreNotEqualForOperationOrMeasurem
         Constructor for the Number of Qubits and Number of Bits Are Not Equal for
         Operation or Measurement Error for the Qiskrypt's Quantum Circuit.
 
-        :param message: The custom message for the Number of Qubits and Number of Bits Are Not Equal for
+        :param message: the custom message for the Number of Qubits and Number of Bits Are Not Equal for
                         Operation or Measurement Error for the Qiskrypt's Quantum Circuit.
         """
 
@@ -298,6 +305,33 @@ class QiskryptQuantumCircuitNumQubitsAndNumBitsAreNotEqualForOperationOrMeasurem
         """
         Set the custom message for the Number of Qubits and Number of Bits Are Not Equal for
         Operation or Measurement Error for the Qiskrypt's Quantum Circuit.
+        """
+
+        super().__init__(self.message)
+        """
+        Calls the constructor of the super-class Exception.
+        """
+
+
+class QiskryptQuantumCircuitListDoNotRepresentASquareUnitaryMatrixOperatorError(Exception):
+    """
+    Object Class of the List Do Not Represent a Square Unitary Matrix Operator Error for
+    the Qiskrypt's Quantum Circuit.
+    """
+
+    def __init__(self, message=MESSAGE_LIST_DO_NOT_REPRESENT_A_SQUARE_UNITARY_MATRIX_OPERATOR_EXCEPTION):
+        """
+        Constructor for the List Do Not Represent a Square Unitary Matrix Operator Error for
+        the Qiskrypt's Quantum Circuit.
+
+        :param message: the custom message for the List Do Not Represent a Square Unitary Matrix Operator Error for
+                        the Qiskrypt's Quantum Circuit.
+        """
+
+        self.message = message
+        """
+        Set the custom message for the List Do Not Represent a Square Unitary Matrix Operator Error for
+        the Qiskrypt's Quantum Circuit.
         """
 
         super().__init__(self.message)
