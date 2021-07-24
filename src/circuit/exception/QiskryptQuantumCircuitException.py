@@ -115,6 +115,13 @@ The custom defined message for the Quantum Circuit Not Initialised Yet Error for
 the Qiskrypt's Quantum Circuit.
 """
 
+MESSAGE_QUANTUM_CIRCUIT_ALREADY_INITIALISED_EXCEPTION = "Quantum Circuit Already Initialised Error: " \
+                                                        "The respective Qiskrypt's Quantum Circuit was already initialised!!!\n"
+"""
+The custom defined message for the Quantum Circuit Already Initialised Error for
+the Qiskrypt's Quantum Circuit.
+"""
+
 
 class QiskryptQuantumCircuitUnsupportedTypeRegistersError(Exception):
     """
@@ -364,12 +371,14 @@ class QiskryptQuantumCircuitNotInitialisedYetError(Exception):
     Object Class of the Quantum Circuit Not Initialised Yet Error for the Qiskrypt's Quantum Circuit.
     """
 
-    def __init__(self, primitive="", message=MESSAGE_QUANTUM_CIRCUIT_NOT_INITIALISED_YET_EXCEPTION):
+    def __init__(self, message=MESSAGE_QUANTUM_CIRCUIT_NOT_INITIALISED_YET_EXCEPTION, primitive=""):
         """
         Constructor for the Quantum Circuit Not Initialised Yet Error for the Qiskrypt's Quantum Circuit.
 
         :param message: the custom message for the Quantum Circuit Not Initialised Yet Error for
                         the Qiskrypt's Quantum Circuit.
+        :param primitive: the Qiskrypt's primitive for what the Quantum Circuit Not Initialised Yet Error
+                          is being returned/raised.
         """
 
         if primitive == "":
@@ -388,9 +397,52 @@ class QiskryptQuantumCircuitNotInitialisedYetError(Exception):
             If there is any primitive, the message will contain the respective header.
             """
 
-            self.message = f"{primitive}: {message}"
+            self.message = f"{message} (related to: {primitive})"
             """
             Set the custom message for the Quantum Circuit Not Initialised Yet Error for
+            the Qiskrypt's Quantum Circuit, considering the given primitive.
+            """
+
+        super().__init__(self.message)
+        """
+        Calls the constructor of the super-class Exception.
+        """
+
+
+class QiskryptQuantumCircuitAlreadyInitialisedError(Exception):
+    """
+    Object Class of the Quantum Circuit Already Initialised Error for the Qiskrypt's Quantum Circuit.
+    """
+
+    def __init__(self, message=MESSAGE_QUANTUM_CIRCUIT_ALREADY_INITIALISED_EXCEPTION, primitive=""):
+        """
+        Constructor for the Quantum Circuit Already Initialised Error for the Qiskrypt's Quantum Circuit.
+
+        :param message: the custom message for the Quantum Circuit Already Initialised Error for
+                        the Qiskrypt's Quantum Circuit.
+        :param primitive: the Qiskrypt's primitive for what the Quantum Circuit Already Initialised Error
+                          is being returned/raised.
+        """
+
+        if primitive == "":
+            """
+            If there is no primitive, the message will not contain the respective header.
+            """
+
+            self.message = message
+            """
+            Set the custom message for the Quantum Circuit Already Initialised Error for
+            the Qiskrypt's Quantum Circuit, not considering any primitive.
+            """
+
+        else:
+            """
+            If there is any primitive, the message will contain the respective header.
+            """
+
+            self.message = f"{message} (related to: {primitive})"
+            """
+            Set the custom message for the Quantum Circuit Already Initialised Error for
             the Qiskrypt's Quantum Circuit, considering the given primitive.
             """
 
