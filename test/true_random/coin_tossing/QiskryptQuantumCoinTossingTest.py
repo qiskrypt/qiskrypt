@@ -68,9 +68,46 @@ class QiskryptQuantumCoinTossingTests(TestCase):
         Toss a Coin, through the previously created Qiskrypt's Quantum Coin Tossing.
         """
 
-        print(qiskrypt_quantum_coin_tossing.get_coin_tossing_outcome_bit())
-        print(qiskrypt_quantum_coin_tossing.get_coin_tossing_outcome_bit_as_int_base_2())
-        print(qiskrypt_quantum_coin_tossing.get_coin_tossing_outcome_bit_as_head_or_tails())
+        coin_tossing_outcome_bit = qiskrypt_quantum_coin_tossing.get_coin_tossing_outcome_bit()
+        """
+        Retrieve the classical outcome (i.e., the observation) from the Coin Tossing,
+        through the execution of the respective Qiskrypt's Quantum Circuit,
+        in a binary digit format (i.e., a bit).
+        """
+
+        if coin_tossing_outcome_bit == "0b0":
+            """
+            If the classical outcome (i.e., the observation) from the Coin Tossing is |0⟩.
+            """
+
+            self.assertEqual(qiskrypt_quantum_coin_tossing.get_coin_tossing_outcome_bit_as_int_base_2(), 0)
+            """
+            Assert if the classical outcome (i.e., the observation) from the Coin Tossing,
+            in an integer base-2 format is 0.
+            """
+
+            self.assertEqual(qiskrypt_quantum_coin_tossing.get_coin_tossing_outcome_bit_as_head_or_tails(), "HEADS")
+            """
+            Assert if the classical outcome (i.e., the observation) from the Coin Tossing,
+            in an anatomic part format is 'HEADS'.
+            """
+
+        if coin_tossing_outcome_bit == "0b1":
+            """
+            If the classical outcome (i.e., the observation) from the Coin Tossing is |1⟩.
+            """
+
+            self.assertEqual(qiskrypt_quantum_coin_tossing.get_coin_tossing_outcome_bit_as_int_base_2(), 1)
+            """
+            Assert if the classical outcome (i.e., the observation) from the Coin Tossing,
+            in an integer base-2 format is 1.
+            """
+
+            self.assertEqual(qiskrypt_quantum_coin_tossing.get_coin_tossing_outcome_bit_as_head_or_tails(), "TAILS")
+            """
+            Assert if the classical outcome (i.e., the observation) from the Coin Tossing,
+            in an anatomic part format is 'TAILS'.
+            """
 
         """
         Dummy Assert Equal for the Unittest.
