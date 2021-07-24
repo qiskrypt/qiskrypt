@@ -61,6 +61,20 @@ from src.circuit.QiskryptQuantumCircuit import QiskryptQuantumCircuit
 Import the Qiskrypt's Quantum Circuit.
 """
 
+from src.circuit.exception.QiskryptQuantumCircuitException \
+    import QiskryptQuantumCircuitNotInitialisedYetError
+"""
+Import the Quantum Circuit Not Initialised Yet Error for
+the Qiskrypt's Quantum Circuit.
+"""
+
+from src.circuit.exception.QiskryptQuantumCircuitException \
+    import QiskryptQuantumCircuitAlreadyInitialisedError
+"""
+Import the Quantum Circuit Already Initialised Error for
+the Qiskrypt's Quantum Circuit.
+"""
+
 """
 Constants.
 """
@@ -70,9 +84,9 @@ NUM_QUBITS_FOR_COIN = NUM_BITS_FOR_COIN = 1
 The number of qubits and bits needed, for a Coin (just 1 qubit/bit).
 """
 
-ANATOMIC_PARTS_OF_A_COIN = {"0b0": "HEADS", "0b1": "TAILS"}
+PHYSICAL_ANATOMIC_PARTS_OF_A_COIN = {"0b0": "HEADS", "0b1": "TAILS"}
 """
-The anatomic parts of a Coin. 
+The dictionary for the physical anatomic parts of a Coin. 
 """
 
 
@@ -261,9 +275,9 @@ class QiskryptQuantumCoinTossing:
             """
             Return the classical outcome (i.e., the observation) from the Coin Tossing,
             through the execution of the respective Qiskrypt's Quantum Circuit,
-            in an anatomic part format (i.e., 'Heads' for |0⟩ and 'Tails' for |1⟩).
+            in a physical anatomic part format (i.e., 'Heads' for |0⟩ and 'Tails' for |1⟩).
             """
-            return ANATOMIC_PARTS_OF_A_COIN[self.coin_tossing_outcome_bit]
+            return PHYSICAL_ANATOMIC_PARTS_OF_A_COIN[self.coin_tossing_outcome_bit]
 
         else:
             """
@@ -277,13 +291,14 @@ class QiskryptQuantumCoinTossing:
         Initialise the Qiskrypt's Quantum Circuit for the Qiskrypt's Quantum Coin Tossing.
         """
 
-        if self.is_qiskrypt_quantum_circuit_initialised():
+        if not self.is_qiskrypt_quantum_circuit_initialised() and not self.is_already_tossed():
             """
-            If the Qiskrypt's Quantum Circuit for
-            the Qiskrypt's Quantum Coin Tossing was already initialised.
+            If neither the Qiskrypt's Quantum Circuit for
+            the Qiskrypt's Quantum Coin Tossing was initialised yet,
+            nor the Coin was tossed yet.
             """
 
-            quantum_register_name = "qu_reg_coin"
+            quantum_register_name = "qu_reg_coin_toss"
             """
             Set the name of the Qiskrypt's Quantum Register.
             """
@@ -295,7 +310,7 @@ class QiskryptQuantumCoinTossing:
             Create a Qiskrypt's Quantum Register, given its name and number of qubits.
             """
 
-            classical_register_name = "cl_reg_coin"
+            classical_register_name = "cl_reg_coin_toss"
             """
             Set the name of the Qiskrypt's Classical Register.
             """
@@ -308,7 +323,7 @@ class QiskryptQuantumCoinTossing:
             """
 
             self.qiskrypt_quantum_circuit = \
-                QiskryptQuantumCircuit("qu_circ_coin",
+                QiskryptQuantumCircuit("qu_circ_coin_toss",
                                        qiskrypt_quantum_registers=[qiskrypt_quantum_register_coin_tossing],
                                        qiskrypt_fully_quantum_registers=None,
                                        qiskrypt_semi_quantum_registers=None,
@@ -332,10 +347,28 @@ class QiskryptQuantumCoinTossing:
         else:
             """
             If the Qiskrypt's Quantum Circuit for
-            the Qiskrypt's Quantum Coin Tossing was not initialised yet.
+            the Qiskrypt's Quantum Coin Tossing was already initialised and/or
+            the Coin was also already tossed.
             """
 
-            # TODO
+            if self.is_qiskrypt_quantum_circuit_initialised():
+                """
+                If the Qiskrypt's Quantum Circuit for
+                the Qiskrypt's Quantum Coin Tossing was already initialised.
+                """
+
+                """
+                Return/Raise a Quantum Circuit Already Initialised Error for
+                the Qiskrypt's Quantum Coin Tossing.
+                """
+                self.raise_quantum_circuit_already_initialised_error()
+
+            if self.is_already_tossed():
+                """
+                If the Coin was already tossed.
+                """
+
+                # TODO
 
     def toss_coin(self):
         """
@@ -403,4 +436,61 @@ class QiskryptQuantumCoinTossing:
             the Qiskrypt's Quantum Circuit for the Qiskrypt's Quantum Coin Tossing is not initialised yet.
             """
 
-            # TODO
+            if not self.is_qiskrypt_quantum_circuit_initialised():
+                """
+                If the Qiskrypt's Quantum Circuit for
+                the Qiskrypt's Quantum Coin Tossing is not initialised yet.
+                """
+
+                """
+                Return/Raise the Quantum Circuit Not Initialised Yet Error for
+                the Qiskrypt's Quantum Coin Tossing.
+                """
+                self.raise_quantum_circuit_not_initialised_yet_error()
+
+            if self.is_already_tossed():
+                """
+                If the Coin was already tossed.
+                """
+
+                # TODO
+
+    @staticmethod
+    def raise_quantum_circuit_not_initialised_yet_error() -> None:
+        """
+        Return/Raise a Quantum Circuit Not Initialised Yet Error for the Qiskrypt's Quantum Coin Tossing.
+
+        :raise quantum_circuit_not_initialised_yet_error: a Quantum Circuit Not Initialised Yet Error for
+                                                          the Qiskrypt's Quantum Coin Tossing.
+        """
+
+        quantum_circuit_not_initialised_yet_error = \
+            QiskryptQuantumCircuitNotInitialisedYetError(primitive="Qiskrypt's Quantum Coin Tossing")
+        """
+        Retrieve the Quantum Circuit Not Initialised Yet Error for the Qiskrypt's Quantum Coin Tossing.
+        """
+
+        """
+        Raise the Quantum Circuit Not Initialised Yet Error for the Qiskrypt's Quantum Coin Tossing.
+        """
+        raise quantum_circuit_not_initialised_yet_error
+
+    @staticmethod
+    def raise_quantum_circuit_already_initialised_error() -> None:
+        """
+        Return/Raise a Quantum Circuit Already Initialised Error for the Qiskrypt's Quantum Coin Tossing.
+
+        :raise quantum_circuit_already_initialised_error: a Quantum Circuit Already Initialised Error for
+                                                          the Qiskrypt's Quantum Coin Tossing.
+        """
+
+        quantum_circuit_already_initialised_error = \
+            QiskryptQuantumCircuitAlreadyInitialisedError(primitive="Qiskrypt's Quantum Coin Tossing")
+        """
+        Retrieve the Quantum Circuit Already Initialised Error for the Qiskrypt's Quantum Coin Tossing.
+        """
+
+        """
+        Raise the Quantum Circuit Already Initialised Error for the Qiskrypt's Quantum Coin Tossing.
+        """
+        raise quantum_circuit_already_initialised_error
