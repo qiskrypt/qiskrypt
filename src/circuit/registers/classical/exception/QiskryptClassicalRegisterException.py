@@ -41,13 +41,15 @@ Acknowledgement(s):\n
 Definition of the custom Exception messages.
 """
 
-MESSAGE_NOT_CLASSICAL_REGISTER_EXCEPTION = "Invalid Register: It was expected a Qiskrypt's Classical Register as argument!!!\n"
+MESSAGE_NOT_CLASSICAL_REGISTER_EXCEPTION = "Not a Classical Register Error: " \
+                                           "It was expected a Qiskrypt's Classical Register as argument!!!\n"
 """
 The custom defined message for the Not a Classical Register Error for
 the Qiskrypt's Classical Register.
 """
 
-MESSAGE_NOT_VALID_CLASSICAL_REGISTER_INDEX_EXCEPTION = "Invalid Index: The index of the Qiskrypt's Classical Register " \
+MESSAGE_NOT_VALID_CLASSICAL_REGISTER_INDEX_EXCEPTION = "Not a Valid Classical Register Index Error: " \
+                                                       "The index of the Qiskrypt's Classical Register " \
                                                        "tried to be accessed it is not valid!!!\n"
 """
 The custom defined message for the Not a Valid Classical Register Index Error for
