@@ -37,6 +37,10 @@ Acknowledgement(s):\n
 
 """
 
+"""
+Definition of the custom Exception messages.
+"""
+
 MESSAGE_NOT_ANCILLA_QUANTUM_REGISTER_EXCEPTION = "Invalid Register: It was expected a Qiskrypt's Ancilla Quantum Register as argument!!!\n"
 """
 The custom defined message for the Not an Ancilla Quantum Register Error for

@@ -37,6 +37,10 @@ Acknowledgement(s):\n
 
 """
 
+"""
+Definition of the custom Exception messages.
+"""
+
 MESSAGE_UNSUPPORTED_OPERATIONS_EXCEPTION = "Unsupported operation for the Qiskrypt's Ancilla Semi-Quantum Registers!!!\n"\
                                            "The Qiskrypt's Ancilla Semi-Quantum Registers only supports the operations:\n" \
                                            "   (i)            Z-MEASUREMENT: Measurement of the Qubit in Computational Basis.\n" \

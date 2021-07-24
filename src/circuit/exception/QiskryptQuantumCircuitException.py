@@ -37,8 +37,12 @@ Acknowledgement(s):\n
 
 """
 
+"""
+Definition of the custom Exception messages.
+"""
+
 MESSAGE_UNSUPPORTED_TYPE_REGISTERS_EXCEPTION = "Unsupported type of Registers for the Qiskrypt's Quantum Circuit!!!\n"\
-                                               "- The Qiskrypt's Quantum Circuit only supports Register(s) given as list..."
+                                               "The Qiskrypt's Quantum Circuit only supports Register(s) given as list..."
 """
 The custom defined message for the Unsupported Type for Registers Error for
 the Qiskrypt's Quantum Circuit.

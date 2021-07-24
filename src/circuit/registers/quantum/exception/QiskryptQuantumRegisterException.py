@@ -37,6 +37,10 @@ Acknowledgement(s):\n
 
 """
 
+"""
+Definition of the custom Exception messages.
+"""
+
 MESSAGE_NOT_QUANTUM_REGISTER_EXCEPTION = "Invalid Register: It was expected a Qiskrypt's Quantum Register as argument!!!\n"
 """
 The custom defined message for the Not a Quantum Register Error for
