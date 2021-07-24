@@ -100,6 +100,12 @@ The custom defined message for the List Do Not Represent a Square Unitary Matrix
 the Qiskrypt's Quantum Circuit.
 """
 
+MESSAGE_NOT_INITIALISED_YET_EXCEPTION = "The respective Qiskrypt's Quantum Circuit was not initialised yet!!!\n"
+"""
+The custom defined message for the Not Initialised Yet Error for
+the Qiskrypt's Quantum Circuit.
+"""
+
 
 class QiskryptQuantumCircuitUnsupportedTypeRegistersError(Exception):
     """
@@ -337,6 +343,46 @@ class QiskryptQuantumCircuitListDoNotRepresentASquareUnitaryMatrixOperatorError(
         Set the custom message for the List Do Not Represent a Square Unitary Matrix Operator Error for
         the Qiskrypt's Quantum Circuit.
         """
+
+        super().__init__(self.message)
+        """
+        Calls the constructor of the super-class Exception.
+        """
+
+
+class QiskryptQuantumCircuitNotInitialisedYetError(Exception):
+    """
+    Object Class of the Not Initialised Yet Error for the Qiskrypt's Quantum Circuit.
+    """
+
+    def __init__(self, primitive="", message=MESSAGE_NOT_INITIALISED_YET_EXCEPTION):
+        """
+        Constructor for the Not Initialised Yet Error for the Qiskrypt's Quantum Circuit.
+
+        :param message: the custom message for the Not Initialised Yet Error for the Qiskrypt's Quantum Circuit.
+        """
+
+        if primitive == "":
+            """
+            If there is no primitive, the message will not contain the respective header.
+            """
+
+            self.message = message
+            """
+            Set the custom message for the Not Initialised Yet Error for the Qiskrypt's Quantum Circuit,
+            not considering any primitive.
+            """
+
+        else:
+            """
+            If there is any primitive, the message will contain the respective header.
+            """
+
+            self.message = f"{primitive}: {message}"
+            """
+            Set the custom message for the Not Initialised Yet Error for the Qiskrypt's Quantum Circuit,
+            considering the given primitive.
+            """
 
         super().__init__(self.message)
         """
