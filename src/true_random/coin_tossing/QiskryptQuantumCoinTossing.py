@@ -150,7 +150,8 @@ class QiskryptQuantumCoinTossing:
         was already initialised or not.
 
         :return self.qiskrypt_quantum_circuit_initialised: the boolean flag to keep information about if
-                                                           the Qiskrypt's Quantum Circuit for the Qiskrypt's Quantum Coin Tossing
+                                                           the Qiskrypt's Quantum Circuit for
+                                                           the Qiskrypt's Quantum Coin Tossing
                                                            was already initialised or not.
         """
 
@@ -240,24 +241,33 @@ class QiskryptQuantumCoinTossing:
 
     def get_coin_tossing_outcome_bit_as_head_or_tails(self) -> str:
         """
+        Return the classical outcome (i.e., the observation) from the Coin Tossing,
+        through the execution of the respective Qiskrypt's Quantum Circuit,
+        in an anatomic part format (i.e., 'Heads' for |0⟩ and 'Tails' for |1⟩).
 
-
-        :return:
+        :return ANATOMIC_PARTS_OF_A_COIN[self.coin_tossing_outcome_bit]: the classical outcome
+                                                                         (i.e., the observation) from
+                                                                         the Coin Tossing, through the execution of
+                                                                         the respective Qiskrypt's Quantum Circuit,
+                                                                         in an anatomic part format
+                                                                         (i.e., 'Heads' for |0⟩ and 'Tails' for |1⟩).
         """
 
         if self.is_already_tossed():
             """
-            
+            If the Coin was already tossed.          
             """
 
             """
-            
+            Return the classical outcome (i.e., the observation) from the Coin Tossing,
+            through the execution of the respective Qiskrypt's Quantum Circuit,
+            in an anatomic part format (i.e., 'Heads' for |0⟩ and 'Tails' for |1⟩).
             """
             return ANATOMIC_PARTS_OF_A_COIN[self.coin_tossing_outcome_bit]
 
         else:
             """
-            
+            If the Coin was not tossed yet.          
             """
 
             # TODO
@@ -267,57 +277,73 @@ class QiskryptQuantumCoinTossing:
         Initialise the Qiskrypt's Quantum Circuit for the Qiskrypt's Quantum Coin Tossing.
         """
 
-        quantum_register_name = "qu_reg_coin"
-        """
-        Set the name of the Qiskrypt's Quantum Register.
-        """
+        if self.is_qiskrypt_quantum_circuit_initialised():
+            """
+            If the Qiskrypt's Quantum Circuit for
+            the Qiskrypt's Quantum Coin Tossing was already initialised.
+            """
 
-        qiskrypt_quantum_register_coin_tossing = \
-            QiskryptQuantumRegister(name=quantum_register_name,
-                                    num_qubits=NUM_QUBITS_FOR_COIN)
-        """
-        Create a Qiskrypt's Quantum Register, given its name and number of qubits.
-        """
+            quantum_register_name = "qu_reg_coin"
+            """
+            Set the name of the Qiskrypt's Quantum Register.
+            """
 
-        classical_register_name = "cl_reg_coin"
-        """
-        Set the name of the Qiskrypt's Classical Register.
-        """
+            qiskrypt_quantum_register_coin_tossing = \
+                QiskryptQuantumRegister(name=quantum_register_name,
+                                        num_qubits=NUM_QUBITS_FOR_COIN)
+            """
+            Create a Qiskrypt's Quantum Register, given its name and number of qubits.
+            """
 
-        qiskrypt_classical_register_coin_tossing = \
-            QiskryptClassicalRegister(name=classical_register_name,
-                                      num_bits=NUM_BITS_FOR_COIN)
-        """
-        Create a Qiskrypt's Classical Register, given its name and number of bits.
-        """
+            classical_register_name = "cl_reg_coin"
+            """
+            Set the name of the Qiskrypt's Classical Register.
+            """
 
-        self.qiskrypt_quantum_circuit = \
-            QiskryptQuantumCircuit("qu_circ_coin",
-                                   qiskrypt_quantum_registers=[qiskrypt_quantum_register_coin_tossing],
-                                   qiskrypt_fully_quantum_registers=None,
-                                   qiskrypt_semi_quantum_registers=None,
-                                   qiskrypt_ancilla_quantum_registers=None,
-                                   qiskrypt_ancilla_fully_quantum_registers=None,
-                                   qiskrypt_ancilla_semi_quantum_registers=None,
-                                   qiskrypt_classical_registers=[qiskrypt_classical_register_coin_tossing],
-                                   global_phase=0, qiskit_quantum_circuit=None)
-        """
-        Set the Qiskrypt's Quantum Circuit for the Qiskrypt's Quantum Coin Tossing with
-        the previously created Qiskrypt's Quantum and Classical Registers.
-        """
+            qiskrypt_classical_register_coin_tossing = \
+                QiskryptClassicalRegister(name=classical_register_name,
+                                          num_bits=NUM_BITS_FOR_COIN)
+            """
+            Create a Qiskrypt's Classical Register, given its name and number of bits.
+            """
 
-        self.qiskrypt_quantum_circuit_initialised = True
-        """
-        Set the boolean flag to keep information about if
-        the Qiskrypt's Quantum Circuit for the Qiskrypt's Quantum Coin Tossing
-        was already initialised or not, as True.
-        """
+            self.qiskrypt_quantum_circuit = \
+                QiskryptQuantumCircuit("qu_circ_coin",
+                                       qiskrypt_quantum_registers=[qiskrypt_quantum_register_coin_tossing],
+                                       qiskrypt_fully_quantum_registers=None,
+                                       qiskrypt_semi_quantum_registers=None,
+                                       qiskrypt_ancilla_quantum_registers=None,
+                                       qiskrypt_ancilla_fully_quantum_registers=None,
+                                       qiskrypt_ancilla_semi_quantum_registers=None,
+                                       qiskrypt_classical_registers=[qiskrypt_classical_register_coin_tossing],
+                                       global_phase=0, qiskit_quantum_circuit=None)
+            """
+            Set the Qiskrypt's Quantum Circuit for the Qiskrypt's Quantum Coin Tossing with
+            the previously created Qiskrypt's Quantum and Classical Registers.
+            """
+
+            self.qiskrypt_quantum_circuit_initialised = True
+            """
+            Set the boolean flag to keep information about if
+            the Qiskrypt's Quantum Circuit for the Qiskrypt's Quantum Coin Tossing
+            was already initialised or not, as True.
+            """
+
+        else:
+            """
+            If the Qiskrypt's Quantum Circuit for
+            the Qiskrypt's Quantum Coin Tossing was not initialised yet.
+            """
+
+            # TODO
 
     def toss_coin(self):
         """
-
-
-        :return:
+        Toss the Coin related to the Qiskrypt's Quantum Coin Tossing,
+        through the application of the respective Quantum Gate/Operation
+        (Hadamard Gate/Operation), execution of the respective Qiskrypt's Quantum Circuit
+        and the measurement of the qubit representing the Coin in a 50/50 Quantum Superposition,
+        storing, the classical result/outcome from the observation of it, in a bit.
         """
 
         if not self.is_already_tossed() and self.is_qiskrypt_quantum_circuit_initialised():
