@@ -75,6 +75,20 @@ Import the Quantum Circuit Already Initialised Error for
 the Qiskrypt's Quantum Circuit.
 """
 
+from src.true_random.coin_tossing.exception.QiskryptQuantumCoinTossingException \
+    import QiskryptQuantumCoinTossingCoinNotTossedYetError
+"""
+Import the Coin Not Tossed Yet Error for
+the Qiskrypt's Quantum Coin Tossing.
+"""
+
+from src.true_random.coin_tossing.exception.QiskryptQuantumCoinTossingException \
+    import QiskryptQuantumCoinTossingCoinAlreadyTossedError
+"""
+Import the Coin Already Tossed Error for
+the Qiskrypt's Quantum Coin Tossing.
+"""
+
 """
 Constants.
 """
@@ -219,7 +233,10 @@ class QiskryptQuantumCoinTossing:
             If the Coin was not tossed yet.          
             """
 
-            # TODO
+            """
+            Return/Raise a Coin Not Tossed Yet Error for the Qiskrypt's Quantum Coin Tossing.
+            """
+            self.raise_coin_not_tossed_yet_error()
 
     def get_coin_tossing_outcome_bit_as_int_base_2(self) -> int:
         """
@@ -251,7 +268,10 @@ class QiskryptQuantumCoinTossing:
             If the Coin was not tossed yet.          
             """
 
-            # TODO
+            """
+            Return/Raise a Coin Not Tossed Yet Error for the Qiskrypt's Quantum Coin Tossing.
+            """
+            self.raise_coin_not_tossed_yet_error()
 
     def get_coin_tossing_outcome_bit_as_head_or_tails(self) -> str:
         """
@@ -284,7 +304,10 @@ class QiskryptQuantumCoinTossing:
             If the Coin was not tossed yet.          
             """
 
-            # TODO
+            """
+            Return/Raise a Coin Not Tossed Yet Error for the Qiskrypt's Quantum Coin Tossing.
+            """
+            self.raise_coin_not_tossed_yet_error()
 
     def initialise_qiskrypt_quantum_circuit(self) -> None:
         """
@@ -368,7 +391,10 @@ class QiskryptQuantumCoinTossing:
                 If the Coin was already tossed.
                 """
 
-                # TODO
+                """
+                Return/Raise a Coin Already Tossed Error for the Qiskrypt's Quantum Coin Tossing.
+                """
+                self.raise_coin_already_tossed_error()
 
     def toss_coin(self):
         """
@@ -453,7 +479,10 @@ class QiskryptQuantumCoinTossing:
                 If the Coin was already tossed.
                 """
 
-                # TODO
+                """
+                Return/Raise a Coin Already Tossed Error for the Qiskrypt's Quantum Coin Tossing.
+                """
+                self.raise_coin_already_tossed_error()
 
     @staticmethod
     def raise_quantum_circuit_not_initialised_yet_error() -> None:
@@ -494,3 +523,41 @@ class QiskryptQuantumCoinTossing:
         Raise the Quantum Circuit Already Initialised Error for the Qiskrypt's Quantum Coin Tossing.
         """
         raise quantum_circuit_already_initialised_error
+
+    @staticmethod
+    def raise_coin_not_tossed_yet_error() -> None:
+        """
+        Return/Raise a Coin Not Tossed Yet Error for the Qiskrypt's Quantum Coin Tossing.
+
+        :raise coin_not_tossed_yet_error: a Coin Not Tossed Yet Error for
+                                          the Qiskrypt's Quantum Coin Tossing.
+        """
+
+        coin_not_tossed_yet_error = QiskryptQuantumCoinTossingCoinNotTossedYetError()
+        """
+        Retrieve the Coin Not Tossed Yet Error for the Qiskrypt's Quantum Coin Tossing.
+        """
+
+        """
+        Raise the Coin Not Tossed Yet Error for the Qiskrypt's Quantum Coin Tossing.
+        """
+        raise coin_not_tossed_yet_error
+
+    @staticmethod
+    def raise_coin_already_tossed_error() -> None:
+        """
+        Return/Raise a Coin Already Tossed Error for the Qiskrypt's Quantum Coin Tossing.
+
+        :raise coin_not_tossed_yet_error: a Coin Already Tossed Error for
+                                          the Qiskrypt's Quantum Coin Tossing.
+        """
+
+        coin_already_tossed_error = QiskryptQuantumCoinTossingCoinAlreadyTossedError()
+        """
+        Retrieve the Coin Already Tossed Error for the Qiskrypt's Quantum Coin Tossing.
+        """
+
+        """
+        Raise the Coin Already Tossed Error for the Qiskrypt's Quantum Coin Tossing.
+        """
+        raise coin_already_tossed_error
