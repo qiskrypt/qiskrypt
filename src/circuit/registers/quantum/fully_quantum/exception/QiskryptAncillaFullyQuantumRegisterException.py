@@ -41,14 +41,16 @@ Acknowledgement(s):\n
 Definition of the custom Exception messages.
 """
 
-MESSAGE_NOT_ANCILLA_FULLY_QUANTUM_REGISTER_EXCEPTION = "Invalid Register: It was expected a Qiskrypt's Ancilla Fully-Quantum Register as argument!!!\n"
+MESSAGE_NOT_ANCILLA_FULLY_QUANTUM_REGISTER_EXCEPTION = "Not an Ancilla Fully-Quantum Register Error: " \
+                                                       "It was expected a Qiskrypt's Ancilla Fully-Quantum Register as argument!!!\n"
 """
 The custom defined message for the Not an Ancilla Fully-Quantum Register Error for
 the Qiskrypt's Ancilla Fully-Quantum Register.
 """
 
-MESSAGE_NOT_VALID_ANCILLA_FULLY_QUANTUM_REGISTER_INDEX_EXCEPTION = "Invalid Index: The index of the Qiskrypt's Ancilla Fully-Quantum Register " \
-                                                                   "tried to be accessed it is not valid!!!\n"
+MESSAGE_NOT_VALID_ANCILLA_FULLY_QUANTUM_REGISTER_INDEX_EXCEPTION = "Not a Valid Ancilla Fully-Quantum Register Index Error: " \
+                                                                   "The index of the Qiskrypt's Ancilla Fully-Quantum Register " \
+                                                                   "tried to be accessed it is invalid!!!\n"
 """
 The custom defined message for the Not a Valid Ancilla Fully-Quantum Register Index Error for
 the Qiskrypt's Ancilla Fully-Quantum Register in the Qiskrypt's Quantum Circuit.

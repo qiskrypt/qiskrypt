@@ -41,14 +41,16 @@ Acknowledgement(s):\n
 Definition of the custom Exception messages.
 """
 
-MESSAGE_NOT_QUANTUM_REGISTER_EXCEPTION = "Invalid Register: It was expected a Qiskrypt's Quantum Register as argument!!!\n"
+MESSAGE_NOT_QUANTUM_REGISTER_EXCEPTION = "Not a Quantum Register Error: " \
+                                         "It was expected a Qiskrypt's Quantum Register as argument!!!\n"
 """
 The custom defined message for the Not a Quantum Register Error for
 the Qiskrypt's Quantum Register.
 """
 
-MESSAGE_NOT_VALID_QUANTUM_REGISTER_INDEX_EXCEPTION = "Invalid Index: The index of the Qiskrypt's Quantum Register " \
-                                                     "tried to be accessed it is not valid!!!\n"
+MESSAGE_NOT_VALID_QUANTUM_REGISTER_INDEX_EXCEPTION = "Not a Valid Quantum Register Index Error: " \
+                                                     "The index of the Qiskrypt's Quantum Register " \
+                                                     "tried to be accessed it is invalid!!!\n"
 """
 The custom defined message for the Not a Valid Quantum Register Index Error for
 the Qiskrypt's Quantum Register in the Qiskrypt's Quantum Circuit.

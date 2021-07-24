@@ -41,23 +41,25 @@ Acknowledgement(s):\n
 Definition of the custom Exception messages.
 """
 
-MESSAGE_UNSUPPORTED_OPERATIONS_EXCEPTION = "Unsupported operation for the Qiskrypt's Ancilla Semi-Quantum Registers!!!\n"\
-                                           "The Qiskrypt's Ancilla Semi-Quantum Registers only supports the operations:\n" \
-                                           "   (i)            Z-MEASUREMENT: Measurement of the Qubit in Computational Basis.\n" \
-                                           "  (ii)                  REFLECT: Reflection of the Qubit.\n" \
-                                           " (iii) CLASSICAL-STATE-CREATION: Creation of a Qubit in a Classical State.\n"
+MESSAGE_UNSUPPORTED_OPERATION_EXCEPTION = "Unsupported Operation Error:\n"\
+                                          "- The Qiskrypt's Ancilla Semi-Quantum Registers only supports the operations:\n" \
+                                          "   (i)            Z-MEASUREMENT: Measurement of the Qubit in Computational Basis.\n" \
+                                          "  (ii)                  REFLECT: Reflection of the Qubit.\n" \
+                                          " (iii) CLASSICAL-STATE-CREATION: Creation of a Qubit in a Classical State.\n"
 """
-The custom defined message for the Unsupported Operation Error for
+The custom defined message for the Unsupported Operation for Semi-Quantum Error for
 the Qiskrypt's Ancilla Semi-Quantum Register.
 """
 
-MESSAGE_NOT_ANCILLA_SEMI_QUANTUM_REGISTER_EXCEPTION = "Invalid Register: It was expected a Qiskrypt's Ancilla Semi-Quantum Register as argument!!!\n"
+MESSAGE_NOT_ANCILLA_SEMI_QUANTUM_REGISTER_EXCEPTION = "Not an Ancilla Semi-Quantum Register Error: " \
+                                                      "It was expected a Qiskrypt's Ancilla Semi-Quantum Register as argument!!!\n"
 """
 The custom defined message for the Not an Ancilla Semi-Quantum Register Error for
 the Qiskrypt's Ancilla Semi-Quantum Register.
 """
 
-MESSAGE_NOT_VALID_ANCILLA_SEMI_QUANTUM_REGISTER_INDEX_EXCEPTION = "Invalid Index: The index of the Qiskrypt's Ancilla Semi-Quantum Register " \
+MESSAGE_NOT_VALID_ANCILLA_SEMI_QUANTUM_REGISTER_INDEX_EXCEPTION = "Not a Valid Ancilla Semi-Quantum Register Index Error: " \
+                                                                  "The index of the Qiskrypt's Ancilla Semi-Quantum Register " \
                                                                   "tried to be accessed it is not valid!!!\n"
 """
 The custom defined message for the Not a Valid Ancilla Semi-Quantum Register Index Error for
@@ -71,7 +73,7 @@ class QiskryptAncillaSemiQuantumRegisterUnsupportedOperationError(Exception):
     the Qiskrypt's Ancilla Semi-Quantum Register.
     """
 
-    def __init__(self, message=MESSAGE_UNSUPPORTED_OPERATIONS_EXCEPTION):
+    def __init__(self, message=MESSAGE_UNSUPPORTED_OPERATION_EXCEPTION):
         """
         Constructor for the Unsupported Operation Error for
         the Qiskrypt's Ancilla Semi-Quantum Register.

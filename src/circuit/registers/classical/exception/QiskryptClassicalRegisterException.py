@@ -50,7 +50,7 @@ the Qiskrypt's Classical Register.
 
 MESSAGE_NOT_VALID_CLASSICAL_REGISTER_INDEX_EXCEPTION = "Not a Valid Classical Register Index Error: " \
                                                        "The index of the Qiskrypt's Classical Register " \
-                                                       "tried to be accessed it is not valid!!!\n"
+                                                       "tried to be accessed it is invalid!!!\n"
 """
 The custom defined message for the Not a Valid Classical Register Index Error for
 the Qiskrypt's Classical Register in the Qiskrypt's Quantum Circuit.
