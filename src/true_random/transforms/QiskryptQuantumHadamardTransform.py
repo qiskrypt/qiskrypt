@@ -36,3 +36,130 @@ Acknowledgement(s):\n
 - Prof. Walter Krawec (School of Engineering, University of Connecticut, United States of America).
 
 """
+from src.circuit.QiskryptQuantumCircuit import QiskryptQuantumCircuit
+
+"""
+Import required Libraries and Packages.
+"""
+
+from numba import jit, prange
+"""
+Import NoPython mode of Just-In-Time and Parallel Range from Numba.
+"""
+
+"""
+Constants.
+"""
+
+USE_NUMBA_PARALLEL = True
+"""
+The boolean flag to specify the parallelization parameter of Numba.
+"""
+
+
+class QiskryptQuantumHadamardTransform:
+
+    def __init__(self, name: str, qiskrypt_quantum_circuit: QiskryptQuantumCircuit,
+                 qiskit_quantum_registers_indexes: list, qubits_indexes: list):
+        """
+        Constructor of the Qiskrypt's Quantum Hadamard Transform.
+
+        :param name: the name for the Qiskrypt's Quantum Hadamard Transform.
+        :param qiskrypt_quantum_circuit: the Qiskrypt's Quantum Circuit of the Qiskrypt's Quantum Hadamard Transform.
+        :param qiskit_quantum_registers_indexes: the indexes of the IBM Qiskit's Quantum Registers,
+                                                 involved in the Qiskrypt's Quantum Hadamard Transform.
+        :param qubits_indexes: the indexes of the qubits in the IBM Qiskit's Quantum Registers,
+                               to which will be applied the Hadamard Gates/Operations,
+                               involved in the Qiskrypt's Quantum Hadamard Transform.
+        """
+
+        if qiskrypt_quantum_circuit is not None:
+
+            self.name = name
+            """
+            Set the name for the Qiskrypt's Quantum Hadamard Transform.
+            """
+
+            self.qiskrypt_quantum_circuit = qiskrypt_quantum_circuit
+            """
+            Set the Qiskrypt's Quantum Circuit of
+            the Qiskrypt's Quantum Hadamard Transform.
+            """
+
+            self.qiskit_quantum_registers_indexes = \
+                qiskit_quantum_registers_indexes
+            """
+            Set the indexes of the IBM Qiskit's Quantum Registers,
+            involved in the Qiskrypt's Quantum Hadamard Transform.
+            """
+
+            self.qubits_indexes = qubits_indexes
+            """
+            Set the indexes of the qubits in the IBM Qiskit's Quantum Registers,
+            to which will be applied the Hadamard Gates/Operations,
+            involved in the Qiskrypt's Quantum Hadamard Transform.
+            """
+
+    def get_name(self) -> str:
+        """
+        Return the name for the Qiskrypt's Quantum Hadamard Transform.
+
+        :return self.name: the name for the Qiskrypt's Quantum Hadamard Transform.
+        """
+
+        """
+        Return the name for the Qiskrypt's Quantum Hadamard Transform.
+        """
+        return self.name
+
+    def get_qiskrypt_quantum_circuit(self) -> QiskryptQuantumCircuit:
+        """
+        Return the Qiskrypt's Quantum Circuit of the Qiskrypt's Quantum Hadamard Transform.
+
+        :return self.qiskrypt_quantum_circuit: the Qiskrypt's Quantum Circuit of
+                                               the Qiskrypt's Quantum Hadamard Transform.
+        """
+
+        """
+        Return the Qiskrypt's Quantum Circuit of the Qiskrypt's Quantum Hadamard Transform.
+        """
+        return self.qiskrypt_quantum_circuit
+
+    def get_qiskit_quantum_registers_indexes(self) -> list:
+        """
+        Return the indexes of the IBM Qiskit's Quantum Registers,
+        involved in the Qiskrypt's Quantum Hadamard Transform.
+
+        :return self.qiskit_quantum_registers_indexes: the indexes of the IBM Qiskit's Quantum Registers,
+                                                       involved in the Qiskrypt's Quantum Hadamard Transform.
+        """
+
+        """
+        Return the indexes of the IBM Qiskit's Quantum Registers,
+        involved in the Qiskrypt's Quantum Hadamard Transform.
+        """
+        return self.qiskit_quantum_registers_indexes
+
+    def get_qubits_indexes(self) -> list:
+        """
+        Return the indexes of the qubits in the IBM Qiskit's Quantum Registers,
+        to which will be applied the Hadamard Gates/Operations,
+        involved in the Qiskrypt's Quantum Hadamard Transform.
+
+        :return self.qubits_indexes: the indexes of the qubits in the IBM Qiskit's Quantum Registers,
+                                     to which will be applied the Hadamard Gates/Operations,
+                                     involved in the Qiskrypt's Quantum Hadamard Transform.
+        """
+
+        """
+        Return the indexes of the qubits in the IBM Qiskit's Quantum Registers,
+        to which will be applied the Hadamard Gates/Operations,
+        involved in the Qiskrypt's Quantum Hadamard Transform.
+        """
+        return self.qubits_indexes
+
+    @jit(nopython=False, forceobj=True, parallel=USE_NUMBA_PARALLEL)
+    def apply_transform(self) -> None:
+        """
+
+        """
