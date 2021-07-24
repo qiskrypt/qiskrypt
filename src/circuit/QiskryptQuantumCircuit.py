@@ -4621,126 +4621,182 @@ class QiskryptQuantumCircuit:
         Retrieve the list of the Qiskrypt's Quantum Registers.
         """
 
-        for qiskrypt_quantum_register in qiskrypt_quantum_registers:
+        if qiskrypt_quantum_registers is not None:
             """
-            For each Qiskrypt's Quantum Register in the list of
-            the Qiskrypt's Quantum Registers.
+            If there is any Qiskrypt's Quantum Register on the Qiskrypt's Quantum Circuit.
             """
 
-            if qiskrypt_quantum_register.get_name() == register_name:
+            for qiskrypt_quantum_register in qiskrypt_quantum_registers:
                 """
-                If it was found a Qiskrypt's Quantum Register with the given name.
+                For each Qiskrypt's Quantum Register in the list of
+                the Qiskrypt's Quantum Registers.
                 """
 
-                """
-                Returns True a Tuple of True and the Register's object.
-                """
-                return True, qiskrypt_quantum_register
+                if qiskrypt_quantum_register.get_name() == register_name:
+                    """
+                    If it was found a Qiskrypt's Quantum Register with the given name.
+                    """
+
+                    """
+                    Returns True a Tuple of True and the Register's object.
+                    """
+                    return True, qiskrypt_quantum_register
 
         qiskrypt_fully_quantum_registers = self.get_qiskrypt_fully_quantum_registers()
         """
         Retrieve the list of the Qiskrypt's Fully-Quantum Registers.
         """
 
-        for qiskrypt_fully_quantum_register in qiskrypt_fully_quantum_registers:
+        if qiskrypt_fully_quantum_registers is not None:
             """
-            For each Qiskrypt's Fully-Quantum Register in the list of
-            the Qiskrypt's Fully-Quantum Registers.
+            If there is any Qiskrypt's Fully-Quantum Register on the Qiskrypt's Quantum Circuit.
             """
 
-            if qiskrypt_fully_quantum_register.get_name() == register_name:
+            for qiskrypt_fully_quantum_register in qiskrypt_fully_quantum_registers:
                 """
-                If it was found a Qiskrypt's Fully-Quantum Register with the given name.
+                For each Qiskrypt's Fully-Quantum Register in the list of
+                the Qiskrypt's Fully-Quantum Registers.
                 """
 
-                """
-                Returns True a Tuple of True and the Register's object.
-                """
-                return True, qiskrypt_fully_quantum_register
+                if qiskrypt_fully_quantum_register.get_name() == register_name:
+                    """
+                    If it was found a Qiskrypt's Fully-Quantum Register with the given name.
+                    """
+
+                    """
+                    Returns True a Tuple of True and the Register's object.
+                    """
+                    return True, qiskrypt_fully_quantum_register
 
         qiskrypt_semi_quantum_registers = self.get_qiskrypt_semi_quantum_registers()
         """
         Retrieve the list of the Qiskrypt's Semi-Quantum Registers.
         """
 
-        for qiskrypt_semi_quantum_register in qiskrypt_semi_quantum_registers:
+        if qiskrypt_semi_quantum_registers is not None:
             """
-            For each Qiskrypt's Semi-Quantum Register in the list of
-            the Qiskrypt's Semi-Quantum Registers.
+            If there is any Qiskrypt's Semi-Quantum Register on the Qiskrypt's Quantum Circuit.
             """
 
-            if qiskrypt_semi_quantum_register.get_name() == register_name:
+            for qiskrypt_semi_quantum_register in qiskrypt_semi_quantum_registers:
                 """
-                If it was found a Qiskrypt's Semi-Quantum Register with the given name.
+                For each Qiskrypt's Semi-Quantum Register in the list of
+                the Qiskrypt's Semi-Quantum Registers.
                 """
 
-                """
-                Returns True a Tuple of True and the Register's object.
-                """
-                return True, qiskrypt_semi_quantum_register
+                if qiskrypt_semi_quantum_register.get_name() == register_name:
+                    """
+                    If it was found a Qiskrypt's Semi-Quantum Register with the given name.
+                    """
+
+                    """
+                    Returns True a Tuple of True and the Register's object.
+                    """
+                    return True, qiskrypt_semi_quantum_register
 
         qiskrypt_ancilla_quantum_registers = self.get_qiskrypt_ancilla_quantum_registers()
         """
         Retrieve the list of the Qiskrypt's Ancilla Quantum Registers.
         """
 
-        for qiskrypt_ancilla_quantum_register in qiskrypt_ancilla_quantum_registers:
+        if qiskrypt_ancilla_quantum_registers is not None:
             """
-            For each Qiskrypt's Ancilla Quantum Register in the list of
-            the Qiskrypt's Ancilla Quantum Registers.
+            If there is any Qiskrypt's Ancilla Quantum Register on the Qiskrypt's Quantum Circuit.
             """
 
-            if qiskrypt_ancilla_quantum_register.get_name() == register_name:
+            for qiskrypt_ancilla_quantum_register in qiskrypt_ancilla_quantum_registers:
                 """
-                If it was found a Qiskrypt's Ancilla Quantum Register with the given name.
+                For each Qiskrypt's Ancilla Quantum Register in the list of
+                the Qiskrypt's Ancilla Quantum Registers.
                 """
 
-                """
-                Returns True a Tuple of True and the Register's object.
-                """
-                return True, qiskrypt_ancilla_quantum_register
+                if qiskrypt_ancilla_quantum_register.get_name() == register_name:
+                    """
+                    If it was found a Qiskrypt's Ancilla Quantum Register with the given name.
+                    """
+
+                    """
+                    Returns True a Tuple of True and the Register's object.
+                    """
+                    return True, qiskrypt_ancilla_quantum_register
 
         qiskrypt_ancilla_fully_quantum_registers = self.get_qiskrypt_ancilla_fully_quantum_registers()
         """
         Retrieve the list of the Qiskrypt's Ancilla Fully-Quantum Registers.
         """
 
-        for qiskrypt_ancilla_fully_quantum_register in qiskrypt_ancilla_fully_quantum_registers:
+        if qiskrypt_ancilla_fully_quantum_registers is not None:
             """
-            For each Qiskrypt's Ancilla Fully-Quantum Register in the list of
-            the Qiskrypt's Ancilla Fully-Quantum Registers.
+            If there is any Qiskrypt's Ancilla Fully-Quantum Register on the Qiskrypt's Quantum Circuit.
             """
 
-            if qiskrypt_ancilla_fully_quantum_register.get_name() == register_name:
+            for qiskrypt_ancilla_fully_quantum_register in qiskrypt_ancilla_fully_quantum_registers:
                 """
-                If it was found a Qiskrypt's Ancilla Fully-Quantum Register with the given name.
+                For each Qiskrypt's Ancilla Fully-Quantum Register in the list of
+                the Qiskrypt's Ancilla Fully-Quantum Registers.
                 """
 
-                """
-                Returns True a Tuple of True and the Register's object.
-                """
-                return True, qiskrypt_ancilla_fully_quantum_register
+                if qiskrypt_ancilla_fully_quantum_register.get_name() == register_name:
+                    """
+                    If it was found a Qiskrypt's Ancilla Fully-Quantum Register with the given name.
+                    """
+
+                    """
+                    Returns True a Tuple of True and the Register's object.
+                    """
+                    return True, qiskrypt_ancilla_fully_quantum_register
 
         qiskrypt_ancilla_semi_quantum_registers = self.get_qiskrypt_semi_quantum_registers()
         """
         Retrieve the list of the Qiskrypt's Ancilla Semi-Quantum Registers.
         """
 
-        for qiskrypt_ancilla_semi_quantum_register in qiskrypt_ancilla_semi_quantum_registers:
+        if qiskrypt_ancilla_semi_quantum_registers is not None:
             """
-            For each Qiskrypt's Ancilla Semi-Quantum Register in the list of
-            the Qiskrypt's Ancilla Semi-Quantum Registers.
+            If there is any Qiskrypt's Ancilla Semi-Quantum Register on the Qiskrypt's Quantum Circuit.
             """
 
-            if qiskrypt_ancilla_semi_quantum_register.get_name() == register_name:
+            for qiskrypt_ancilla_semi_quantum_register in qiskrypt_ancilla_semi_quantum_registers:
                 """
-                If it was found a Qiskrypt's Ancilla Semi-Quantum Register with the given name.
+                For each Qiskrypt's Ancilla Semi-Quantum Register in the list of
+                the Qiskrypt's Ancilla Semi-Quantum Registers.
                 """
 
+                if qiskrypt_ancilla_semi_quantum_register.get_name() == register_name:
+                    """
+                    If it was found a Qiskrypt's Ancilla Semi-Quantum Register with the given name.
+                    """
+
+                    """
+                    Returns True a Tuple of True and the Register's object.
+                    """
+                    return True, qiskrypt_ancilla_semi_quantum_register
+
+        qiskrypt_classical_registers = self.get_qiskrypt_classical_registers()
+        """
+        Retrieve the list of the Qiskrypt's Classical Registers.
+        """
+
+        if qiskrypt_classical_registers is not None:
+            """
+            If there is any Qiskrypt's Classical Register on the Qiskrypt's Quantum Circuit.
+            """
+
+            for qiskrypt_classical_register in qiskrypt_classical_registers:
                 """
-                Returns True a Tuple of True and the Register's object.
+                For each Qiskrypt's Classical Register in the list of
+                the Qiskrypt's Classical Registers.
                 """
-                return True, qiskrypt_ancilla_semi_quantum_register
+
+                if qiskrypt_classical_register.get_name() == register_name:
+                    """
+                    If it was found a Qiskrypt's Classical Register with the given name.
+                    """
+
+                    """
+                    Returns True a Tuple of True and the Register's object.
+                    """
+                    return True, qiskrypt_classical_register
 
         """
         If no Register was found with the given name, returns a Tuple of False and None.
