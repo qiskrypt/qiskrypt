@@ -759,9 +759,18 @@ Available soon.
       <td><a href="https://en.wikipedia.org/wiki/Hadamard_transform" target="_blank">[QHT]</a></td>
       <td>❌ (N/A)</td>
       <td>⌛ (v0.0.1)</td>
+   </tr>
+   <tr>
+      <td>4</td>
+      <td>Quantum Dice</td>
+      <td>-</td>
+      <td>-</td>
+      <td><a href="https://medium.com/design-ibm/truly-quantum-dice-cfe372f4c586" target="_blank">[QD]</a></td>
+      <td>❌ (N/A)</td>
+      <td>⌛ (v0.0.1)</td>
     </tr>
     <tr>
-      <td>4</td>
+      <td>5</td>
       <td>Quantum Random Number Generator<br>(QRNG)</td>
       <td>-</td>
       <td>-</td>
@@ -770,7 +779,7 @@ Available soon.
       <td>⌛ (v0.0.1)</td>
     </tr>
     <tr>
-      <td>5</td>
+      <td>6</td>
       <td>Quantum Random Walks<br>(QRW)</td>
       <td>1993</td>
       <td>Y. Aharonov, L. Davidovich and N. Zagury</td>
