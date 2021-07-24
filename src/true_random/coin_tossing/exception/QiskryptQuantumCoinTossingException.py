@@ -41,13 +41,15 @@ Acknowledgement(s):\n
 Definition of the custom Exception messages.
 """
 
-MESSAGE_COIN_NOT_TOSSED_YET_EXCEPTION = "Coin Not Tossed Yet Error: The Coin of the Quantum Coin Tossing was not tossed yet!!!\n"
+MESSAGE_COIN_NOT_TOSSED_YET_EXCEPTION = "Coin Not Tossed Yet Error: " \
+                                        "The Coin of the Quantum Coin Tossing was not tossed yet!!!\n"
 """
 The custom defined message for the Coin Not Tossed Yet Error for
 the Qiskrypt's Quantum Coin Tossing.
 """
 
-MESSAGE_COIN_ALREADY_TOSSED_EXCEPTION = "Coin Already Tossed Error: The Coin was already tossed!!!\n"
+MESSAGE_COIN_ALREADY_TOSSED_EXCEPTION = "Coin Already Tossed Error: " \
+                                        "The Coin of the Quantum Coin Tossing was already tossed!!!\n"
 """
 The custom defined message for the Coin Already Tossed Error for
 the Qiskrypt's Quantum Coin Tossing.
