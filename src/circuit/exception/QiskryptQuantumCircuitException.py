@@ -41,44 +41,50 @@ Acknowledgement(s):\n
 Definition of the custom Exception messages.
 """
 
-MESSAGE_UNSUPPORTED_TYPE_REGISTERS_EXCEPTION = "Unsupported type of Registers for the Qiskrypt's Quantum Circuit!!!\n"\
-                                               "The Qiskrypt's Quantum Circuit only supports Register(s) given as list..."
+MESSAGE_UNSUPPORTED_TYPE_REGISTERS_EXCEPTION = "Unsupported Type for Registers Error: " \
+                                               "The Qiskrypt's Quantum Circuit only supports Register(s) given as list...\n"
 """
 The custom defined message for the Unsupported Type for Registers Error for
 the Qiskrypt's Quantum Circuit.
 """
 
-MESSAGE_INVALID_QISKIT_QUANTUM_REGISTER_INDEX_GIVEN_EXCEPTION = "Invalid IBM Qiskit's Quantum Register Index Given for the Qiskrypt's Quantum Circuit!!!\n"
+MESSAGE_INVALID_QISKIT_QUANTUM_REGISTER_INDEX_GIVEN_EXCEPTION = "Invalid IBM Qiskit's Quantum Register Index Given Error: " \
+                                                                "The given index for the IBM Qiskit's Quantum Register is invalid!!!\n"
 """
 The custom defined message for the Invalid IBM Qiskit's Quantum Register Index Given Error for
 the Qiskrypt's Quantum Circuit.
 """
 
-MESSAGE_INVALID_QUBIT_INDEX_GIVEN_EXCEPTION = "Invalid Qubit Index Given for the IBM Qiskit's Quantum Register!!!\n"
+MESSAGE_INVALID_QUBIT_INDEX_GIVEN_EXCEPTION = "Invalid Qubit Index Given Error: " \
+                                              "The given index for a qubit in an IBM Qiskit's Quantum Register is invalid!!!\n"
 """
 The custom defined message for the Invalid Qubit Index Given Error for
 the IBM Qiskit's Quantum Register.
 """
 
-MESSAGE_INVALID_QISKIT_CLASSICAL_REGISTER_INDEX_GIVEN_EXCEPTION = "Invalid IBM Qiskit's Classical Register Index Given for the Qiskrypt's Quantum Circuit!!!\n"
+MESSAGE_INVALID_QISKIT_CLASSICAL_REGISTER_INDEX_GIVEN_EXCEPTION = "Invalid IBM Qiskit's Classical Register Index Given Error: " \
+                                                                  "The given index for the IBM Qiskit's Classical Register is invalid!!!\n"
 """
 The custom defined message for the Invalid IBM Qiskit's Classical Register Index Given Error for
 the Qiskrypt's Quantum Circuit.
 """
 
-MESSAGE_INVALID_BIT_INDEX_GIVEN_EXCEPTION = "Invalid Qubit Index Given for the IBM Qiskit's Classical Register!!!\n"
+MESSAGE_INVALID_BIT_INDEX_GIVEN_EXCEPTION = "Invalid Bit Index Given Error: " \
+                                            "The given index for a bit in an IBM Qiskit's Classical Register is invalid!!!\n"
 """
 The custom defined message for the Invalid Qubit Index Given Error for
 the IBM Qiskit's Classical Register.
 """
 
-MESSAGE_REGISTER_NOT_FOUND_EXCEPTION = "The supposed Qiskrypt's Register do not exist in the Qiskrypt's Quantum Circuit!!!\n"
+MESSAGE_REGISTER_NOT_FOUND_EXCEPTION = "Register Not Found Error: " \
+                                       "The supposed Qiskrypt's Register do not exist in the Qiskrypt's Quantum Circuit!!!\n"
 """
-The custom defined message for the Qiskrypt's Register Not Found Error for
+The custom defined message for the Register Not Found Error for
 the Qiskrypt's Quantum Circuit.
 """
 
-MESSAGE_NUM_QUANTUM_REGISTERS_AND_NUM_CLASSICAL_REGISTERS_ARE_NOT_EQUAL_EXCEPTION = "The number of IBM Qiskit's Quantum Registers and" \
+MESSAGE_NUM_QUANTUM_REGISTERS_AND_NUM_CLASSICAL_REGISTERS_ARE_NOT_EQUAL_EXCEPTION = "Number of Quantum Registers and Number of Classical Registers Are Not Equal Error: " \
+                                                                                    "The number of IBM Qiskit's Quantum Registers and " \
                                                                                     "the number of IBM Qiskit's Classical Registers are not equal and must be, " \
                                                                                     "in order to complete the pretended operation/measurement!!!\n"
 """
@@ -86,23 +92,26 @@ The custom defined message for the Number of Quantum Registers and Number of Cla
 the Qiskrypt's Quantum Circuit.
 """
 
-MESSAGE_NUM_QUBITS_AND_NUM_BITS_ARE_NOT_EQUAL_EXCEPTION = "The number of qubits and the number of bits are not equal and must be, " \
+MESSAGE_NUM_QUBITS_AND_NUM_BITS_ARE_NOT_EQUAL_EXCEPTION = "Number of Qubits and Number of Bits Are Not Equal Error: " \
+                                                          "The number of qubits and the number of bits are not equal and must be, " \
                                                           "in order to complete the pretended operation/measurement!!!\n"
 """
 The custom defined message for the Number of Qubits and Number of Bits Are Not Equal Error for
 the Qiskrypt's Quantum Circuit.
 """
 
-MESSAGE_LIST_DO_NOT_REPRESENT_A_SQUARE_UNITARY_MATRIX_OPERATOR_EXCEPTION = "The given list of complex numbers/angles do not represent " \
+MESSAGE_LIST_DO_NOT_REPRESENT_A_SQUARE_UNITARY_MATRIX_OPERATOR_EXCEPTION = "List Do Not Represent a Square Unitary Matrix Operator Error: " \
+                                                                           "The given list of complex numbers/angles do not represent " \
                                                                            "a square unitary matrix/operator!!!\n"
 """
 The custom defined message for the List Do Not Represent a Square Unitary Matrix Operator Error for
 the Qiskrypt's Quantum Circuit.
 """
 
-MESSAGE_NOT_INITIALISED_YET_EXCEPTION = "The respective Qiskrypt's Quantum Circuit was not initialised yet!!!\n"
+MESSAGE_QUANTUM_CIRCUIT_NOT_INITIALISED_YET_EXCEPTION = "Quantum Circuit Not Initialised Yet Error: " \
+                                                        "The respective Qiskrypt's Quantum Circuit was not initialised yet!!!\n"
 """
-The custom defined message for the Not Initialised Yet Error for
+The custom defined message for the Quantum Circuit Not Initialised Yet Error for
 the Qiskrypt's Quantum Circuit.
 """
 
@@ -352,14 +361,15 @@ class QiskryptQuantumCircuitListDoNotRepresentASquareUnitaryMatrixOperatorError(
 
 class QiskryptQuantumCircuitNotInitialisedYetError(Exception):
     """
-    Object Class of the Not Initialised Yet Error for the Qiskrypt's Quantum Circuit.
+    Object Class of the Quantum Circuit Not Initialised Yet Error for the Qiskrypt's Quantum Circuit.
     """
 
-    def __init__(self, primitive="", message=MESSAGE_NOT_INITIALISED_YET_EXCEPTION):
+    def __init__(self, primitive="", message=MESSAGE_QUANTUM_CIRCUIT_NOT_INITIALISED_YET_EXCEPTION):
         """
-        Constructor for the Not Initialised Yet Error for the Qiskrypt's Quantum Circuit.
+        Constructor for the Quantum Circuit Not Initialised Yet Error for the Qiskrypt's Quantum Circuit.
 
-        :param message: the custom message for the Not Initialised Yet Error for the Qiskrypt's Quantum Circuit.
+        :param message: the custom message for the Quantum Circuit Not Initialised Yet Error for
+                        the Qiskrypt's Quantum Circuit.
         """
 
         if primitive == "":
@@ -369,8 +379,8 @@ class QiskryptQuantumCircuitNotInitialisedYetError(Exception):
 
             self.message = message
             """
-            Set the custom message for the Not Initialised Yet Error for the Qiskrypt's Quantum Circuit,
-            not considering any primitive.
+            Set the custom message for the Quantum Circuit Not Initialised Yet Error for
+            the Qiskrypt's Quantum Circuit, not considering any primitive.
             """
 
         else:
@@ -380,8 +390,8 @@ class QiskryptQuantumCircuitNotInitialisedYetError(Exception):
 
             self.message = f"{primitive}: {message}"
             """
-            Set the custom message for the Not Initialised Yet Error for the Qiskrypt's Quantum Circuit,
-            considering the given primitive.
+            Set the custom message for the Quantum Circuit Not Initialised Yet Error for
+            the Qiskrypt's Quantum Circuit, considering the given primitive.
             """
 
         super().__init__(self.message)
