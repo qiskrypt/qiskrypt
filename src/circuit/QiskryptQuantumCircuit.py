@@ -194,7 +194,7 @@ the Qiskrypt's Quantum Circuit.
 
 class QiskryptQuantumCircuit:
     """
-    Class for the Qiskrypt's Quantum Circuit.
+    Object class for the Qiskrypt's Quantum Circuit.
     """
 
     def __init__(self, name="qu_circ",
@@ -207,6 +207,8 @@ class QiskryptQuantumCircuit:
                  qiskrypt_classical_registers=None,
                  global_phase=0, qiskit_quantum_circuit=None):
         """
+        Constructor for the Qiskrypt's Quantum Circuit.
+
         :param name: the name for the Qiskrypt's Quantum Circuit.
         :param qiskrypt_quantum_registers: the Qiskrypt's Quantum Registers for the Qiskrypt's Quantum Circuit.
         :param qiskrypt_fully_quantum_registers: the Qiskrypt's Fully-Quantum Registers for the Qiskrypt's Quantum Circuit.
@@ -4852,8 +4854,8 @@ class QiskryptQuantumCircuit:
         """
         Return the total number of qubits of the Qiskrypt's Quantum Circuit.
 
-        :return self.quantum_circuit.num_qubits: the total number of qubits of
-                                                 the Qiskrypt's Quantum Circuit.
+        :return self.qiskit_quantum_circuit.num_qubits: the total number of qubits of
+                                                        the Qiskrypt's Quantum Circuit.
         """
 
         """
@@ -4865,8 +4867,8 @@ class QiskryptQuantumCircuit:
         """
         Return the total number of bits of the Qiskrypt's Quantum Circuit.
 
-        :return self.quantum_circuit.num_qubits: the total number of bits of
-                                                 the Qiskrypt's Quantum Circuit.
+        :return self.qiskit_quantum_circuit.num_qubits: the total number of bits of
+                                                        the Qiskrypt's Quantum Circuit.
         """
 
         """
@@ -4880,9 +4882,9 @@ class QiskryptQuantumCircuit:
 
         :param qiskit_quantum_register_index: the IBM Qiskit's Quantum Register index.
 
-        :return self.quantum_circuit.qregs[qiskit_quantum_register_index].size: the number of qubits in
-                                                                                a given quantum register of
-                                                                                the Qiskrypt's Quantum Circuit.
+        :return self.qiskit_quantum_circuit.qregs[qiskit_quantum_register_index].size: the number of qubits in
+                                                                                       a given quantum register of
+                                                                                       the Qiskrypt's Quantum Circuit.
         """
 
         """
@@ -4896,9 +4898,9 @@ class QiskryptQuantumCircuit:
 
         :param qiskit_classical_register_index: the IBM Qiskit's Classical Register index.
 
-        :return self.quantum_circuit.qregs[qiskit_classical_register_index].size: the number of bits in
-                                                                                  a given classical register of
-                                                                                  the Qiskrypt's Quantum Circuit.
+        :return self.qiskit_quantum_circuit.cregs[qiskit_classical_register_index].size: the number of bits in
+                                                                                         a given classical register of
+                                                                                         the Qiskrypt's Quantum Circuit.
         """
 
         """
@@ -4906,14 +4908,27 @@ class QiskryptQuantumCircuit:
         """
         return self.qiskit_quantum_circuit.cregs[qiskit_classical_register_index].size
 
+    def get_qiskit_quantum_circuit(self) -> QuantumCircuit:
+        """
+        Return the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit.
+
+        :return self.qiskit_quantum_circuit: the IBM Qiskit's Quantum Circuit of
+                                             the Qiskrypt's Quantum Circuit.
+        """
+
+        """
+        Return the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit.
+        """
+        return self.qiskit_quantum_circuit
+
     def get_reversed_qiskit_quantum_circuit_operations(self) -> QuantumCircuit:
         """
         Return the reversed IBM Qiskit's Quantum Circuit of
         the Qiskrypt's Quantum Circuit
         (i.e., with the reversed order of Quantum Gates/Operations).
 
-        :return self.quantum_circuit.reverse_ops(): the reversed IBM Qiskit's Quantum Circuit of
-                                                    the Qiskrypt's Quantum Circuit.
+        :return self.qiskit_quantum_circuit.reverse_ops(): the reversed IBM Qiskit's Quantum Circuit of
+                                                           the Qiskrypt's Quantum Circuit.
         """
 
         """
@@ -4929,9 +4944,9 @@ class QiskryptQuantumCircuit:
         the Qiskrypt's Quantum Circuit, with the reversed order of wires
         (i.e., the IBM Qiskit's Quantum Circuit is "vertically" flipped).
 
-        :return self.quantum_circuit.reverse_bits(): the IBM Qiskit's Quantum Circuit of
-                                                     the Qiskrypt's Quantum Circuit,
-                                                     with the reversed order of wires.
+        :return self.qiskit_quantum_circuit.reverse_bits(): the IBM Qiskit's Quantum Circuit of
+                                                            the Qiskrypt's Quantum Circuit,
+                                                            with the reversed order of wires.
         """
 
         """
@@ -4948,8 +4963,8 @@ class QiskryptQuantumCircuit:
         (i.e., with the reversed order of the Quantum Gates/Operations
          and setting the symmetric values given for their parameters).
 
-        :return self.quantum_circuit.inverse(): the inverted IBM Qiskit's Quantum Circuit of
-                                                the Qiskrypt's Quantum Circuit.
+        :return self.qiskit_quantum_circuit.inverse(): the inverted IBM Qiskit's Quantum Circuit of
+                                                       the Qiskrypt's Quantum Circuit.
         """
 
         """
@@ -4968,9 +4983,9 @@ class QiskryptQuantumCircuit:
         :param num_repetitions: the number of repetitions for the IBM Qiskit's Quantum Circuit of
                                 the Qiskrypt's Quantum Circuit.
 
-        :return self.quantum_circuit.repeat(num_repetitions): the IBM Qiskit's Quantum Circuit of
-                                                              the Qiskrypt's Quantum Circuit a given number of
-                                                              repetitions.
+        :return self.qiskit_quantum_circuit.repeat(num_repetitions): the IBM Qiskit's Quantum Circuit of
+                                                                     the Qiskrypt's Quantum Circuit a given number of
+                                                                     repetitions.
         """
 
         """
@@ -4992,9 +5007,9 @@ class QiskryptQuantumCircuit:
                                            the implementation defaults to the ``repeat`` method of
                                            the IBM Qiskit's Quantum Circuit.
 
-        :return self.quantum_circuit.power(power, is_to_compute_matrix_power): the IBM Qiskit's Quantum Circuit of
-                                                                               the Qiskrypt's Quantum Circuit raised to
-                                                                               a given power term.
+        :return self.qiskit_quantum_circuit.power(power, is_to_compute_matrix_power): the IBM Qiskit's Quantum Circuit of
+                                                                                      the Qiskrypt's Quantum Circuit raised to
+                                                                                      a given power term.
         """
 
         """
