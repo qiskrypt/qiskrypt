@@ -47,6 +47,13 @@ from numba import jit, prange
 Import NoPython mode of Just-In-Time and Parallel Range from Numba.
 """
 
+from src.circuit.exception.QiskryptQuantumCircuitException \
+    import QiskryptQuantumCircuitInvalidOrNoneGivenError
+"""
+Import the Invalid or None Quantum Circuit Given Error for
+the Qiskrypt's Quantum Circuit.
+"""
+
 """
 Constants.
 """
@@ -74,6 +81,9 @@ class QiskryptQuantumHadamardTransform:
         """
 
         if qiskrypt_quantum_circuit is not None:
+            """
+            If some Qiskrypt's Quantum Circuit is given.
+            """
 
             self.name = name
             """
@@ -98,6 +108,16 @@ class QiskryptQuantumHadamardTransform:
             Set the indexes of the qubits in the IBM Qiskit's Quantum Registers,
             to which will be applied the Hadamard Gates/Operations,
             involved in the Qiskrypt's Quantum Hadamard Transform.
+            """
+        else:
+            """
+            If none Qiskrypt's Quantum Circuit is given.
+            """
+
+            self.raise_invalid_or_none_quantum_circuit_given_error()
+            """
+            Return/Raise an Invalid or None Quantum Circuit Given Error for
+            the Qiskrypt's Quantum Hadamard Transform.
             """
 
     def get_name(self) -> str:
@@ -163,3 +183,23 @@ class QiskryptQuantumHadamardTransform:
         """
 
         """
+
+    @staticmethod
+    def raise_invalid_or_none_quantum_circuit_given_error() -> None:
+        """
+        Return/Raise an Invalid or None Quantum Circuit Given Error for the Qiskrypt's Quantum Hadamard Transform.
+
+        :raise invalid_or_none_quantum_circuit_given_error: an Invalid or None Quantum Circuit Given Error for
+                                                            the Qiskrypt's Quantum Hadamard Transform.
+        """
+
+        invalid_or_none_quantum_circuit_given_error = \
+            QiskryptQuantumCircuitInvalidOrNoneGivenError(primitive="Qiskrypt's Quantum Hadamard Transform")
+        """
+        Retrieve the Invalid or None Quantum Circuit Given Error for the Qiskrypt's Quantum Hadamard Transform.
+        """
+
+        """
+        Raise the Invalid or None Quantum Circuit Given Error for the Qiskrypt's Quantum Hadamard Transform.
+        """
+        raise invalid_or_none_quantum_circuit_given_error
