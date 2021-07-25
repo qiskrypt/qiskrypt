@@ -122,16 +122,28 @@ The mission of our framework is to:
   * **Shor's Algorithm**;
 * Provide an easy and comprehensive detailed explanation of the protocols, primitives and algorithms addressed, through several illustrations and tutorials;
 
-
 ### Meet our team
 
 Our team is composed by the following members:
 
 #### Contributors
 
+<table>
+ <tr>
+  <td align="center"><br/><a href="https://github.com/rubenandrebarreiro"><img src="https://raw.githubusercontent.com/qiskrypt/qiskrypt.github.io/main/assets/images/team/contributors/PNGs/ruben-barreiro.png" width="120px;" alt=""/><br /><sub><b>Rúben Barreiro</b></sub></a><br /> <a href="https://github.com/rubenandrebarreiro" title="GitHub Profile">💻</a><br/><br/></td>
+ </tr>
+<table>
 
 #### Acknowledgments
 
+<table>
+ <tr>
+  <td align="center"><br/><a href="https://ciencias.ulisboa.pt/en/perfil/ansouto"><img src="https://raw.githubusercontent.com/qiskrypt/qiskrypt.github.io/main/assets/images/team/acknowledgements/PNGs/andre-souto.png" width="120px;" alt=""/><br /><sub><b>Prof. André Souto</b></sub></a><br /><a href="https://ciencias.ulisboa.pt/en/perfil/ansouto" title="Personal Page - FCUL">👨‍🏫</a> <a href="https://www.lasige.pt/member/andre-souto/" title="Personal Page - LASIGE">🏢</a> <a href="https://www.it.pt/Members/Index/3168" title="Personal Page - IT">🏢</a> <a href="https://github.com/andrenunosouto" title="GitHub Profile">💻</a><br/><br/></td>
+  <td align="center"><br/><a href="https://sqig.math.tecnico.ulisboa.pt/pmat"><img src="https://raw.githubusercontent.com/qiskrypt/qiskrypt.github.io/main/assets/images/team/acknowledgements/PNGs/paulo-mateus.png" width="120px;" alt=""/><br /><sub><b>Prof. Paulo Mateus</b></sub></a><br /><a href="https://math.tecnico.ulisboa.pt/professor?who=pmat" title="Personal Page - Técnico Lisboa">👨‍🏫</a> <a href="https://sqig.math.tecnico.ulisboa.pt/pmat" title="Personal Page - SQIG">🏢</a> <a href="https://www.it.pt/Members/Index/1900" title="Personal Page - IT">🏢</a><br/><br/></td>
+  <td align="center"><br/><a href="https://www.math.tecnico.ulisboa.pt/~npaunkov/"><img src="https://raw.githubusercontent.com/qiskrypt/qiskrypt.github.io/main/assets/images/team/acknowledgements/PNGs/nikola-paunkovic.png" width="120px;" alt=""/><br /><sub><b>Prof. Nikola Paunković</b></sub></a><br /><a href="https://www.math.tecnico.ulisboa.pt/~npaunkov/" title="Personal Page - Técnico Lisboa/SQIG">👨‍🏫</a> <a href="https://www.it.pt/Members/Index/1905" title="Personal Page - IT">🏢</a><br/><br/></td>
+  <td align="center"><br/><a href="http://www.walterkrawec.org/"><img src="https://raw.githubusercontent.com/qiskrypt/qiskrypt.github.io/main/assets/images/team/acknowledgements/PNGs/walter-krawec.png" width="120px;" alt=""/><br /><sub><b>Prof. Walter Krawec</b></sub></a><br /><a href="http://www.walterkrawec.org/" title="Personal Website">🌐</a> <br/><br/></td>
+ </tr>
+<table>
 
 ### Institutions involved
 
