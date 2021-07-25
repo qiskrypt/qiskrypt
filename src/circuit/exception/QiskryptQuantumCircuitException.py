@@ -108,6 +108,13 @@ The custom defined message for the List Do Not Represent a Square Unitary Matrix
 the Qiskrypt's Quantum Circuit.
 """
 
+MESSAGE_INVALID_OR_NONE_QUANTUM_CIRCUIT_GIVEN_EXCEPTION = "Invalid or None Quantum Circuit Given Error: " \
+                                                          "An invalid or none Qiskrypt's Quantum Circuit was given as argument!!!\n"
+"""
+The custom defined message for the Invalid or None Quantum Circuit Given Error for
+the Qiskrypt's Quantum Circuit.
+"""
+
 MESSAGE_QUANTUM_CIRCUIT_NOT_INITIALISED_YET_EXCEPTION = "Quantum Circuit Not Initialised Yet Error: " \
                                                         "The respective Qiskrypt's Quantum Circuit was not initialised yet!!!\n"
 """
@@ -359,6 +366,49 @@ class QiskryptQuantumCircuitListDoNotRepresentASquareUnitaryMatrixOperatorError(
         Set the custom message for the List Do Not Represent a Square Unitary Matrix Operator Error for
         the Qiskrypt's Quantum Circuit.
         """
+
+        super().__init__(self.message)
+        """
+        Calls the constructor of the super-class Exception.
+        """
+
+
+class QiskryptQuantumCircuitInvalidOrNoneGivenError(Exception):
+    """
+    Object Class of the Invalid or None Quantum Circuit Given Error for the Qiskrypt's Quantum Circuit.
+    """
+
+    def __init__(self, message=MESSAGE_INVALID_OR_NONE_QUANTUM_CIRCUIT_GIVEN_EXCEPTION, primitive=""):
+        """
+        Constructor for the Invalid or Not Quantum Circuit Given Error for the Qiskrypt's Quantum Circuit.
+
+        :param message: the custom message for the Invalid or Not Quantum Circuit Given Error for
+                        the Qiskrypt's Quantum Circuit.
+        :param primitive: the Qiskrypt's primitive for what the Invalid or None Quantum Circuit Given Error
+                          is being returned/raised.
+        """
+
+        if primitive == "":
+            """
+            If there is no primitive, the message will not contain the respective header.
+            """
+
+            self.message = message
+            """
+            Set the custom message for the Invalid or Not Quantum Circuit Given Error for
+            the Qiskrypt's Quantum Circuit, not considering any primitive.
+            """
+
+        else:
+            """
+            If there is any primitive, the message will contain the respective header.
+            """
+
+            self.message = f"{message} (related to: {primitive})"
+            """
+            Set the custom message for the Invalid or Not Quantum Circuit Given Error for
+            the Qiskrypt's Quantum Circuit, considering the given primitive.
+            """
 
         super().__init__(self.message)
         """
