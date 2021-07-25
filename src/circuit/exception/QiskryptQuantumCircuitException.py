@@ -115,6 +115,13 @@ The custom defined message for the Invalid or None Quantum Circuit Given Error f
 the Qiskrypt's Quantum Circuit.
 """
 
+MESSAGE_NOT_AN_INSTANCE_QUANTUM_CIRCUIT_EXCEPTION = "Not An Instance of Quantum Circuit Error: " \
+                                                    "The Quantum Circuit given as argument is not a Qiskrypt's Quantum Circuit!!!\n"
+"""
+The custom defined message for the Not An Instance of Quantum Circuit Error for
+the Qiskrypt's Quantum Circuit.
+"""
+
 MESSAGE_QUANTUM_CIRCUIT_NOT_INITIALISED_YET_EXCEPTION = "Quantum Circuit Not Initialised Yet Error: " \
                                                         "The respective Qiskrypt's Quantum Circuit was not initialised yet!!!\n"
 """
@@ -421,7 +428,7 @@ class QiskryptQuantumCircuitNotAnInstanceError(Exception):
     Object Class of the Not An Instance of Quantum Circuit Error for the Qiskrypt's Quantum Circuit.
     """
 
-    def __init__(self, message=MESSAGE_QUANTUM_CIRCUIT_NOT_INITIALISED_YET_EXCEPTION, primitive=""):
+    def __init__(self, message=MESSAGE_NOT_AN_INSTANCE_QUANTUM_CIRCUIT_EXCEPTION, primitive=""):
         """
         Constructor for the Not An Instance of Quantum Circuit Error for the Qiskrypt's Quantum Circuit.
 
