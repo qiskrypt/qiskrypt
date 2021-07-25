@@ -115,10 +115,10 @@ The custom defined message for the Invalid or None Quantum Circuit Given Error f
 the Qiskrypt's Quantum Circuit.
 """
 
-MESSAGE_NOT_AN_INSTANCE_QUANTUM_CIRCUIT_EXCEPTION = "Not An Instance of Quantum Circuit Error: " \
-                                                    "The Quantum Circuit given as argument is not a Qiskrypt's Quantum Circuit!!!\n"
+MESSAGE_NOT_AN_INSTANCE_OF_QUANTUM_CIRCUIT_EXCEPTION = "Not An Instance Of Quantum Circuit Error: " \
+                                                       "The Quantum Circuit given as argument is not a Qiskrypt's Quantum Circuit!!!\n"
 """
-The custom defined message for the Not An Instance of Quantum Circuit Error for
+The custom defined message for the Not An Instance Of Quantum Circuit Error for
 the Qiskrypt's Quantum Circuit.
 """
 
@@ -423,18 +423,18 @@ class QiskryptQuantumCircuitInvalidOrNoneGivenError(Exception):
         """
 
 
-class QiskryptQuantumCircuitNotAnInstanceError(Exception):
+class QiskryptQuantumCircuitNotAnInstanceOfError(Exception):
     """
     Object Class of the Not An Instance of Quantum Circuit Error for the Qiskrypt's Quantum Circuit.
     """
 
-    def __init__(self, message=MESSAGE_NOT_AN_INSTANCE_QUANTUM_CIRCUIT_EXCEPTION, primitive=""):
+    def __init__(self, message=MESSAGE_NOT_AN_INSTANCE_OF_QUANTUM_CIRCUIT_EXCEPTION, primitive=""):
         """
         Constructor for the Not An Instance of Quantum Circuit Error for the Qiskrypt's Quantum Circuit.
 
-        :param message: the custom message for the Not An Instance of Quantum Circuit Error for
+        :param message: the custom message for the Not An Instance Of Quantum Circuit Error for
                         the Qiskrypt's Quantum Circuit.
-        :param primitive: the Qiskrypt's primitive for what the Not An Instance of Quantum Circuit Error
+        :param primitive: the Qiskrypt's primitive for what the Not An Instance Of Quantum Circuit Error
                           is being returned/raised.
         """
 
@@ -445,7 +445,7 @@ class QiskryptQuantumCircuitNotAnInstanceError(Exception):
 
             self.message = message
             """
-            Set the custom message for the Not An Instance of Quantum Circuit Error for
+            Set the custom message for the Not An Instance Of Quantum Circuit Error for
             the Qiskrypt's Quantum Circuit, not considering any primitive.
             """
 
@@ -456,7 +456,7 @@ class QiskryptQuantumCircuitNotAnInstanceError(Exception):
 
             self.message = f"{message} (related to: {primitive})"
             """
-            Set the custom message for the Not An Instance of Quantum Circuit Error for
+            Set the custom message for the Not An Instance Of Quantum Circuit Error for
             the Qiskrypt's Quantum Circuit, considering the given primitive.
             """
 

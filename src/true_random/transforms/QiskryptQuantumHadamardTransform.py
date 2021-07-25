@@ -54,6 +54,13 @@ Import the Invalid or None Quantum Circuit Given Error for
 the Qiskrypt's Quantum Circuit.
 """
 
+from src.circuit.exception.QiskryptQuantumCircuitException \
+    import QiskryptQuantumCircuitNotAnInstanceOfError
+"""
+Import the Not An Instance Of Quantum Circuit Error for
+the Qiskrypt's Quantum Circuit.
+"""
+
 """
 Constants.
 """
@@ -85,30 +92,49 @@ class QiskryptQuantumHadamardTransform:
             If some Qiskrypt's Quantum Circuit is given.
             """
 
-            self.name = name
-            """
-            Set the name for the Qiskrypt's Quantum Hadamard Transform.
-            """
+            if isinstance(qiskrypt_quantum_circuit, QiskryptQuantumCircuit):
+                """
+                If the Qiskrypt's Quantum Circuit given as argument,
+                is really a Qiskrypt's Quantum Circuit.
+                """
 
-            self.qiskrypt_quantum_circuit = qiskrypt_quantum_circuit
-            """
-            Set the Qiskrypt's Quantum Circuit of
-            the Qiskrypt's Quantum Hadamard Transform.
-            """
+                self.name = name
+                """
+                Set the name for the Qiskrypt's Quantum Hadamard Transform.
+                """
 
-            self.qiskit_quantum_registers_indexes = \
-                qiskit_quantum_registers_indexes
-            """
-            Set the indexes of the IBM Qiskit's Quantum Registers,
-            involved in the Qiskrypt's Quantum Hadamard Transform.
-            """
+                self.qiskrypt_quantum_circuit = qiskrypt_quantum_circuit
+                """
+                Set the Qiskrypt's Quantum Circuit of
+                the Qiskrypt's Quantum Hadamard Transform.
+                """
 
-            self.qubits_indexes = qubits_indexes
-            """
-            Set the indexes of the qubits in the IBM Qiskit's Quantum Registers,
-            to which will be applied the Hadamard Gates/Operations,
-            involved in the Qiskrypt's Quantum Hadamard Transform.
-            """
+                self.qiskit_quantum_registers_indexes = \
+                    qiskit_quantum_registers_indexes
+                """
+                Set the indexes of the IBM Qiskit's Quantum Registers,
+                involved in the Qiskrypt's Quantum Hadamard Transform.
+                """
+
+                self.qubits_indexes = qubits_indexes
+                """
+                Set the indexes of the qubits in the IBM Qiskit's Quantum Registers,
+                to which will be applied the Hadamard Gates/Operations,
+                involved in the Qiskrypt's Quantum Hadamard Transform.
+                """
+
+            else:
+                """
+                If the Qiskrypt's Quantum Circuit given as argument,
+                is really a Qiskrypt's Quantum Circuit.
+                """
+
+                self.raise_not_an_instance_of_quantum_circuit_error()
+                """
+                Return/Raise a Not An Instance Of Quantum Circuit Error for
+                the Qiskrypt's Quantum Hadamard Transform.
+                """
+
         else:
             """
             If none Qiskrypt's Quantum Circuit is given.
@@ -203,3 +229,23 @@ class QiskryptQuantumHadamardTransform:
         Raise the Invalid or None Quantum Circuit Given Error for the Qiskrypt's Quantum Hadamard Transform.
         """
         raise invalid_or_none_quantum_circuit_given_error
+
+    @staticmethod
+    def raise_not_an_instance_of_quantum_circuit_error() -> None:
+        """
+        Return/Raise a Not An Instance Of Quantum Circuit Error for the Qiskrypt's Quantum Hadamard Transform.
+
+        :raise not_an_instance_of_quantum_circuit_error: a Not An Instance Of Quantum Circuit Error for
+                                                         the Qiskrypt's Quantum Hadamard Transform.
+        """
+
+        not_an_instance_of_quantum_circuit_error = \
+            QiskryptQuantumCircuitNotAnInstanceOfError(primitive="Qiskrypt's Quantum Hadamard Transform")
+        """
+        Retrieve the Not An Instance Of Quantum Circuit Error for the Qiskrypt's Quantum Coin Tossing.
+        """
+
+        """
+        Raise the Not An Instance Of Quantum Circuit Error for the Qiskrypt's Quantum Coin Tossing.
+        """
+        raise not_an_instance_of_quantum_circuit_error
