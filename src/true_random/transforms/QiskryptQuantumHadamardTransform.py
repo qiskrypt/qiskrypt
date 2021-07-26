@@ -42,11 +42,6 @@ from src.circuit.QiskryptQuantumCircuit import QiskryptQuantumCircuit
 Import required Libraries and Packages.
 """
 
-from numba import jit, prange
-"""
-Import NoPython mode of Just-In-Time and Parallel Range from Numba.
-"""
-
 from src.circuit.exception.QiskryptQuantumCircuitException \
     import QiskryptQuantumCircuitInvalidOrNoneGivenError
 """
@@ -98,30 +93,69 @@ class QiskryptQuantumHadamardTransform:
                 is really a Qiskrypt's Quantum Circuit.
                 """
 
-                self.name = name
+                num_qiskit_quantum_registers = len(qiskit_quantum_registers_indexes)
                 """
-                Set the name for the Qiskrypt's Quantum Hadamard Transform.
-                """
-
-                self.qiskrypt_quantum_circuit = qiskrypt_quantum_circuit
-                """
-                Set the Qiskrypt's Quantum Circuit of
-                the Qiskrypt's Quantum Hadamard Transform.
+                Retrieve the number of the IBM Qiskit's Quantum Registers
+                to which will be applied the Quantum Hadamard Transform.
                 """
 
-                self.qiskit_quantum_registers_indexes = \
-                    qiskit_quantum_registers_indexes
+                num_qubits = len(qiskit_quantum_registers_indexes)
                 """
-                Set the indexes of the IBM Qiskit's Quantum Registers,
-                involved in the Qiskrypt's Quantum Hadamard Transform.
+                Retrieve the number of the qubits
+                to which will be applied the Quantum Hadamard Transform.
                 """
 
-                self.qubits_indexes = qubits_indexes
-                """
-                Set the indexes of the qubits in the IBM Qiskit's Quantum Registers,
-                to which will be applied the Hadamard Gates/Operations,
-                involved in the Qiskrypt's Quantum Hadamard Transform.
-                """
+                if num_qiskit_quantum_registers == num_qubits:
+                    """
+                    If the number of the IBM Qiskit's Quantum Registers
+                    and the number of the qubits is the same.
+                    """
+
+                    for qiskit_quantum_register_index, qubit_index \
+                        in zip(qiskit_quantum_registers_indexes, qubits_indexes):
+                        """
+                        For each pair of indexes of IBM Qiskit's Quantum Registers and qubits. 
+                        """
+
+                        qiskrypt_quantum_circuit.check_if_is_possible_to_apply_operation(qiskit_quantum_register_index, qubit_index,
+                                                                                         is_operation_only_supported_for_fully_quantum_registers=True)
+                        """
+                        Check if it is possible to apply a specific Operation,
+                        regarding the current IBM Qiskit's Quantum Register index and the current qubit index.
+                        """
+
+                    self.name = name
+                    """
+                    Set the name for the Qiskrypt's Quantum Hadamard Transform.
+                    """
+
+                    self.qiskrypt_quantum_circuit = qiskrypt_quantum_circuit
+                    """
+                    Set the Qiskrypt's Quantum Circuit of
+                    the Qiskrypt's Quantum Hadamard Transform.
+                    """
+
+                    self.qiskit_quantum_registers_indexes = \
+                        qiskit_quantum_registers_indexes
+                    """
+                    Set the indexes of the IBM Qiskit's Quantum Registers,
+                    involved in the Qiskrypt's Quantum Hadamard Transform.
+                    """
+
+                    self.qubits_indexes = qubits_indexes
+                    """
+                    Set the indexes of the qubits in the IBM Qiskit's Quantum Registers,
+                    to which will be applied the Hadamard Gates/Operations,
+                    involved in the Qiskrypt's Quantum Hadamard Transform.
+                    """
+
+                else:
+                    """
+                    If the number of the IBM Qiskit's Quantum Registers
+                    and the number of the qubits is not the same.
+                    """
+
+                    # TODO - Throw Exception
 
             else:
                 """
@@ -204,11 +238,38 @@ class QiskryptQuantumHadamardTransform:
         """
         return self.qubits_indexes
 
-    @jit(nopython=False, forceobj=True, parallel=USE_NUMBA_PARALLEL)
     def apply_transform(self) -> None:
         """
-
+        Apply the Qiskrypt's Quantum Hadamard Transform,
+        to the specified indexes of qubits in the also specified indexes of
+        IBM Qiskit's Quantum Registers.
         """
+
+        for qiskit_quantum_register_index, qubit_index \
+            in zip(self.qiskit_quantum_registers_indexes, self.qubits_indexes):
+            """
+            For each pair of indexes of IBM Qiskit's Quantum Registers and qubits.
+            """
+
+            is_possible_to_apply_operation = self.qiskrypt_quantum_circuit\
+                .check_if_is_possible_to_apply_operation(qiskit_quantum_register_index,
+                                                         qubit_index, True)
+            """
+            Check if it is possible to apply a specific Operation,
+            regarding the current IBM Qiskit's Quantum Register index and the current qubit index.
+            """
+
+            if is_possible_to_apply_operation:
+                """
+                If is really possible to apply a specific Operation,
+                regarding the current IBM Qiskit's Quantum Register index and the current qubit index.
+                """
+
+                self.qiskrypt_quantum_circuit.apply_hadamard(qiskit_quantum_register_index, qubit_index)
+                """
+                Apply the Hadamard Gate/Operation to
+                the current pair of indexes of IBM Qiskit's Quantum Registers and qubits.
+                """
 
     @staticmethod
     def raise_invalid_or_none_quantum_circuit_given_error() -> None:
