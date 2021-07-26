@@ -5131,7 +5131,7 @@ class QiskryptQuantumCircuit:
 
                         if not self.check_if_is_a_qiskrypt_semi_quantum_register(qiskrypt_register):
                             """
-                            If the founded Qiskrypt's Register with the given name is a Semi-Quantum one.
+                            If the founded Qiskrypt's Register with the given name is not a Semi-Quantum one.
                             """
 
                             """
@@ -5141,7 +5141,7 @@ class QiskryptQuantumCircuit:
 
                         else:
                             """
-                            If the founded Qiskrypt's Register with the given name is not a Semi-Quantum one.
+                            If the founded Qiskrypt's Register with the given name is a Semi-Quantum one.
                             """
 
                             if isinstance(qiskrypt_register, QiskryptSemiQuantumRegister):
