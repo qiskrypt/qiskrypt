@@ -62,7 +62,8 @@ from qiskit import Aer, execute
 Import Aer Simulator and the Execute function from IBM's Qiskit.
 """
 
-from src.circuit.registers.quantum.QiskryptQuantumRegister import QiskryptQuantumRegister
+from src.circuit.registers.quantum.QiskryptQuantumRegister \
+    import QiskryptQuantumRegister
 """
 Import the Qiskrypt's Quantum Register.
 """
