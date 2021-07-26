@@ -400,6 +400,81 @@ class QiskryptQuantumHadamardTransformTests(TestCase):
         Return OK (or FAIL) if, all the Tests performed are OK (or FAIL, otherwise).
         """
 
+        num_qubits = 8
+        """
+        Set the number of qubits for the Qiskrypt's Quantum Register.
+        """
+
+        qiskrypt_quantum_register_quantum_hadamard_transform_8_qubits = \
+            QiskryptQuantumRegister("qu_reg_hadamard_transform_4", num_qubits)
+        """
+        Create a Qiskrypt's Quantum Register with 8 qubits.
+        """
+
+        qiskrypt_quantum_circuit_quantum_hadamard_transform_8_qubits = \
+            QiskryptQuantumCircuit("qu_circ_hadamard_transform_4",
+                                   qiskrypt_quantum_registers=[qiskrypt_quantum_register_quantum_hadamard_transform_8_qubits],
+                                   qiskrypt_fully_quantum_registers=None,
+                                   qiskrypt_semi_quantum_registers=None,
+                                   qiskrypt_ancilla_quantum_registers=None,
+                                   qiskrypt_ancilla_fully_quantum_registers=None,
+                                   qiskrypt_ancilla_semi_quantum_registers=None,
+                                   qiskrypt_classical_registers=None,
+                                   global_phase=0, qiskit_quantum_circuit=None)
+        """
+        Create a Qiskrypt's Quantum Circuit with
+        the previously created Qiskrypt's Quantum Register.
+        """
+
+        qiskrypt_quantum_hadamard_transform = \
+            QiskryptQuantumHadamardTransform("hadamard_transform_4",
+                                             qiskrypt_quantum_circuit_quantum_hadamard_transform_8_qubits,
+                                             ([0] * num_qubits), [*range(num_qubits)])
+        """
+        Create the Qiskrypt's Quantum Hadamard Transform, for 1 Qiskrypt's Quantum Register and 8 qubits.
+        """
+
+        qiskrypt_quantum_hadamard_transform.apply_transform()
+        """
+        Apply the Quantum Hadamard Transform to the Qiskrypt's Quantum Registers and qubits involved.
+        """
+
+        qiskit_state_vector_backend = Aer.get_backend("statevector_simulator")
+        """
+        Getting the Aer Simulator Backend for the State Vector Representation
+        (i.e., the quantum state represented as its state vector).
+        """
+
+        final_quantum_state_vector_state = \
+            execute(qiskrypt_quantum_circuit_quantum_hadamard_transform_8_qubits.qiskit_quantum_circuit,
+                    qiskit_state_vector_backend).result().get_statevector()
+        """
+        Execute the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit
+        and store the resulted quantum state represented in a final state vector.
+        """
+
+        num_possible_outcomes = (2 ** num_qubits)
+        """
+        Compute the number of possible outcomes (i.e., 2^(num_qubits)).
+        """
+
+        quantum_hadamard_transform_8_qubits_array_expected_amplitudes = \
+            full((num_possible_outcomes,),
+                 (1 / sqrt(num_possible_outcomes)) * (1. + 0.j))
+        """
+        Create and fill an array with the expected values/amplitudes for
+        the Qiskrypt's Quantum Hadamard Transform.
+        """
+
+        assert_allclose(final_quantum_state_vector_state,
+                        quantum_hadamard_transform_8_qubits_array_expected_amplitudes,
+                        rtol=1e-7, atol=1e-7)
+        """
+        Perform the Assertion of all close values in the values of the quantum state,
+        represented by its state vector describing the given qubit,
+        after be applied the Qiskrypt's Quantum Hadamard Transform.
+        """
+
         """
         Dummy Assert Equal for the Unittest.
         """
@@ -424,6 +499,81 @@ class QiskryptQuantumHadamardTransformTests(TestCase):
         Return OK (or FAIL) if, all the Tests performed are OK (or FAIL, otherwise).
         """
 
+        num_qubits = 16
+        """
+        Set the number of qubits for the Qiskrypt's Quantum Register.
+        """
+
+        qiskrypt_quantum_register_quantum_hadamard_transform_16_qubits = \
+            QiskryptQuantumRegister("qu_reg_hadamard_transform_5", num_qubits)
+        """
+        Create a Qiskrypt's Quantum Register with 16 qubits.
+        """
+
+        qiskrypt_quantum_circuit_quantum_hadamard_transform_16_qubits = \
+            QiskryptQuantumCircuit("qu_circ_hadamard_transform_5",
+                                   qiskrypt_quantum_registers=[qiskrypt_quantum_register_quantum_hadamard_transform_16_qubits],
+                                   qiskrypt_fully_quantum_registers=None,
+                                   qiskrypt_semi_quantum_registers=None,
+                                   qiskrypt_ancilla_quantum_registers=None,
+                                   qiskrypt_ancilla_fully_quantum_registers=None,
+                                   qiskrypt_ancilla_semi_quantum_registers=None,
+                                   qiskrypt_classical_registers=None,
+                                   global_phase=0, qiskit_quantum_circuit=None)
+        """
+        Create a Qiskrypt's Quantum Circuit with
+        the previously created Qiskrypt's Quantum Register.
+        """
+
+        qiskrypt_quantum_hadamard_transform = \
+            QiskryptQuantumHadamardTransform("hadamard_transform_5",
+                                             qiskrypt_quantum_circuit_quantum_hadamard_transform_16_qubits,
+                                             ([0] * num_qubits), [*range(num_qubits)])
+        """
+        Create the Qiskrypt's Quantum Hadamard Transform, for 1 Qiskrypt's Quantum Register and 16 qubits.
+        """
+
+        qiskrypt_quantum_hadamard_transform.apply_transform()
+        """
+        Apply the Quantum Hadamard Transform to the Qiskrypt's Quantum Registers and qubits involved.
+        """
+
+        qiskit_state_vector_backend = Aer.get_backend("statevector_simulator")
+        """
+        Getting the Aer Simulator Backend for the State Vector Representation
+        (i.e., the quantum state represented as its state vector).
+        """
+
+        final_quantum_state_vector_state = \
+            execute(qiskrypt_quantum_circuit_quantum_hadamard_transform_16_qubits.qiskit_quantum_circuit,
+                    qiskit_state_vector_backend).result().get_statevector()
+        """
+        Execute the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit
+        and store the resulted quantum state represented in a final state vector.
+        """
+
+        num_possible_outcomes = (2 ** num_qubits)
+        """
+        Compute the number of possible outcomes (i.e., 2^(num_qubits)).
+        """
+
+        quantum_hadamard_transform_16_qubits_array_expected_amplitudes = \
+            full((num_possible_outcomes,),
+                 (1 / sqrt(num_possible_outcomes)) * (1. + 0.j))
+        """
+        Create and fill an array with the expected values/amplitudes for
+        the Qiskrypt's Quantum Hadamard Transform.
+        """
+
+        assert_allclose(final_quantum_state_vector_state,
+                        quantum_hadamard_transform_16_qubits_array_expected_amplitudes,
+                        rtol=1e-7, atol=1e-7)
+        """
+        Perform the Assertion of all close values in the values of the quantum state,
+        represented by its state vector describing the given qubit,
+        after be applied the Qiskrypt's Quantum Hadamard Transform.
+        """
+
         """
         Dummy Assert Equal for the Unittest.
         """
@@ -446,6 +596,81 @@ class QiskryptQuantumHadamardTransformTests(TestCase):
            (i.e., 20 IBM Qiskit's Quantum Registers and 20 qubits);
 
         Return OK (or FAIL) if, all the Tests performed are OK (or FAIL, otherwise).
+        """
+
+        num_qubits = 20
+        """
+        Set the number of qubits for the Qiskrypt's Quantum Register.
+        """
+
+        qiskrypt_quantum_register_quantum_hadamard_transform_20_qubits = \
+            QiskryptQuantumRegister("qu_reg_hadamard_transform_6", num_qubits)
+        """
+        Create a Qiskrypt's Quantum Register with 20 qubits.
+        """
+
+        qiskrypt_quantum_circuit_quantum_hadamard_transform_20_qubits = \
+            QiskryptQuantumCircuit("qu_circ_hadamard_transform_6",
+                                   qiskrypt_quantum_registers=[qiskrypt_quantum_register_quantum_hadamard_transform_20_qubits],
+                                   qiskrypt_fully_quantum_registers=None,
+                                   qiskrypt_semi_quantum_registers=None,
+                                   qiskrypt_ancilla_quantum_registers=None,
+                                   qiskrypt_ancilla_fully_quantum_registers=None,
+                                   qiskrypt_ancilla_semi_quantum_registers=None,
+                                   qiskrypt_classical_registers=None,
+                                   global_phase=0, qiskit_quantum_circuit=None)
+        """
+        Create a Qiskrypt's Quantum Circuit with
+        the previously created Qiskrypt's Quantum Register.
+        """
+
+        qiskrypt_quantum_hadamard_transform = \
+            QiskryptQuantumHadamardTransform("hadamard_transform_4",
+                                             qiskrypt_quantum_circuit_quantum_hadamard_transform_20_qubits,
+                                             ([0] * num_qubits), [*range(num_qubits)])
+        """
+        Create the Qiskrypt's Quantum Hadamard Transform, for 1 Qiskrypt's Quantum Register and 20 qubits.
+        """
+
+        qiskrypt_quantum_hadamard_transform.apply_transform()
+        """
+        Apply the Quantum Hadamard Transform to the Qiskrypt's Quantum Registers and qubits involved.
+        """
+
+        qiskit_state_vector_backend = Aer.get_backend("statevector_simulator")
+        """
+        Getting the Aer Simulator Backend for the State Vector Representation
+        (i.e., the quantum state represented as its state vector).
+        """
+
+        final_quantum_state_vector_state = \
+            execute(qiskrypt_quantum_circuit_quantum_hadamard_transform_20_qubits.qiskit_quantum_circuit,
+                    qiskit_state_vector_backend).result().get_statevector()
+        """
+        Execute the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit
+        and store the resulted quantum state represented in a final state vector.
+        """
+
+        num_possible_outcomes = (2 ** num_qubits)
+        """
+        Compute the number of possible outcomes (i.e., 2^(num_qubits)).
+        """
+
+        quantum_hadamard_transform_20_qubits_array_expected_amplitudes = \
+            full((num_possible_outcomes,),
+                 (1 / sqrt(num_possible_outcomes)) * (1. + 0.j))
+        """
+        Create and fill an array with the expected values/amplitudes for
+        the Qiskrypt's Quantum Hadamard Transform.
+        """
+
+        assert_allclose(final_quantum_state_vector_state,
+                        quantum_hadamard_transform_20_qubits_array_expected_amplitudes,
+                        rtol=1e-7, atol=1e-7)
+        """
+        Perform the Assertion of all close values in the values of the quantum state,
+        represented by its state vector describing the given qubit,
+        after be applied the Qiskrypt's Quantum Hadamard Transform.
         """
 
         """
