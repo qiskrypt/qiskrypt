@@ -47,11 +47,30 @@ Import TestCase, TestLoader and TestSuite from Unittest.
 """
 
 from src.true_random.coin_tossing.QiskryptQuantumCoinTossing import QiskryptQuantumCoinTossing
+"""
+Import the Qiskrypt's Quantum Coin Tossing from Qiskrypt's True_Random.Coin_Tossing Module.
+"""
 
 
 class QiskryptQuantumCoinTossingTests(TestCase):
+    """
+    Object Class of the Unitary Tests for the Qiskrypt's Quantum Coin Tossing.
+    """
 
     def test_no_1_single_qiskrypt_quantum_coin_tossing(self):
+        """
+        Test Case #1:
+
+        - Initialise the Qiskrypt's Quantum Coin Tossing and its Qiskrypt's Quantum Circuit,
+          and toss the respective Coin.
+
+        Description of the Steps for the Unitary Test:
+        1) The Qiskrypt's Quantum Circuit of the Qiskrypt's Quantum Coin Tossing is initialised,
+           with just one Qiskrypt's Quantum Register and one Qiskrypt's Classical Register;
+        2) The Coin associated to the Qiskrypt's Quantum Coin Tossing is tossed;
+
+        Return OK (or FAIL) if, all the Tests performed are OK (or FAIL, otherwise).
+        """
 
         qiskrypt_quantum_coin_tossing = QiskryptQuantumCoinTossing("qu_coin_toss")
         """
