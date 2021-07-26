@@ -67,6 +67,9 @@ The boolean flag to specify the parallelization parameter of Numba.
 
 
 class QiskryptQuantumHadamardTransform:
+    """
+    Object class for the Qiskrypt's Quantum Hadamard Transform.
+    """
 
     def __init__(self, name: str, qiskrypt_quantum_circuit: QiskryptQuantumCircuit,
                  qiskit_quantum_registers_indexes: list, qubits_indexes: list):
