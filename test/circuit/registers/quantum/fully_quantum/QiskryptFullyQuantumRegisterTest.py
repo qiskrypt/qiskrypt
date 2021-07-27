@@ -99,7 +99,7 @@ class QiskryptFullyQuantumRegisterTests(TestCase):
         qiskrypt_fully_quantum_register = \
             QiskryptFullyQuantumRegister(name=fully_quantum_register_name,
                                          num_qubits=fully_quantum_register_num_qubits,
-                                         quantum_register=None)
+                                         qiskit_quantum_register=None)
         """
         Create a Qiskrypt's Fully-Quantum Register, given its name and number of qubits.
         """
@@ -114,7 +114,7 @@ class QiskryptFullyQuantumRegisterTests(TestCase):
         Assertion for the number of qubits of the Qiskrypt's Fully-Quantum Register.
         """
 
-        assert(isinstance(qiskrypt_fully_quantum_register.get_quantum_register(), QuantumRegister))
+        assert(isinstance(qiskrypt_fully_quantum_register.get_qiskit_quantum_register(), QuantumRegister))
         """
         Assertion for the IBM's Qiskit Quantum Register of the Qiskrypt's Fully-Quantum Register.
         """
@@ -166,7 +166,7 @@ class QiskryptFullyQuantumRegisterTests(TestCase):
         qiskrypt_fully_quantum_register = \
             QiskryptFullyQuantumRegister(name=fully_quantum_register_name,
                                          num_qubits=fully_quantum_register_num_qubits,
-                                         quantum_register=None)
+                                         qiskit_quantum_register=None)
         """
         Create a Qiskrypt's Fully-Quantum Register, given its name and number of qubits.
         """
@@ -181,7 +181,7 @@ class QiskryptFullyQuantumRegisterTests(TestCase):
         Assertion for the number of qubits of the Qiskrypt's Fully-Quantum Register.
         """
 
-        assert(isinstance(qiskrypt_fully_quantum_register.get_quantum_register(), QuantumRegister))
+        assert(isinstance(qiskrypt_fully_quantum_register.get_qiskit_quantum_register(), QuantumRegister))
         """
         Assertion for the IBM's Qiskit Quantum Register of the Qiskrypt's Fully-Quantum Register.
         """
@@ -233,7 +233,7 @@ class QiskryptFullyQuantumRegisterTests(TestCase):
         qiskrypt_fully_quantum_register = \
             QiskryptFullyQuantumRegister(name=fully_quantum_register_name,
                                          num_qubits=fully_quantum_register_num_qubits,
-                                         quantum_register=None)
+                                         qiskit_quantum_register=None)
         """
         Create a Qiskrypt's Fully-Quantum Register, given its name and number of qubits.
         """
@@ -248,7 +248,7 @@ class QiskryptFullyQuantumRegisterTests(TestCase):
         Assertion for the number of qubits of the Qiskrypt's Fully-Quantum Register.
         """
 
-        assert(isinstance(qiskrypt_fully_quantum_register.get_quantum_register(), QuantumRegister))
+        assert(isinstance(qiskrypt_fully_quantum_register.get_qiskit_quantum_register(), QuantumRegister))
         """
         Assertion for the IBM's Qiskit Quantum Register of the Qiskrypt's Fully-Quantum Register.
         """
@@ -300,7 +300,7 @@ class QiskryptFullyQuantumRegisterTests(TestCase):
         qiskrypt_fully_quantum_register = \
             QiskryptFullyQuantumRegister(name=fully_quantum_register_name,
                                          num_qubits=fully_quantum_register_num_qubits,
-                                         quantum_register=None)
+                                         qiskit_quantum_register=None)
         """
         Create a Qiskrypt's Fully-Quantum Register, given its name and number of qubits.
         """
@@ -315,7 +315,7 @@ class QiskryptFullyQuantumRegisterTests(TestCase):
         Assertion for the number of qubits of the Qiskrypt's Fully-Quantum Register.
         """
 
-        assert(isinstance(qiskrypt_fully_quantum_register.get_quantum_register(), QuantumRegister))
+        assert(isinstance(qiskrypt_fully_quantum_register.get_qiskit_quantum_register(), QuantumRegister))
         """
         Assertion for the IBM's Qiskit Quantum Register of the Qiskrypt's Fully-Quantum Register.
         """

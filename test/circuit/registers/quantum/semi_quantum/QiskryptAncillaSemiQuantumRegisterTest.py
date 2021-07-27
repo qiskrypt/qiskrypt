@@ -99,7 +99,7 @@ class QiskryptAncillaSemiQuantumRegisterTests(TestCase):
         qiskrypt_ancilla_semi_quantum_register = \
             QiskryptAncillaSemiQuantumRegister(name=ancilla_semi_quantum_register_name,
                                                num_ancilla_qubits=ancilla_semi_quantum_register_num_qubits,
-                                               ancilla_quantum_register=None)
+                                               qiskit_ancilla_quantum_register=None)
         """
         Create a Qiskrypt's Ancilla Semi-Quantum Register, given its name and number of qubits.
         """
@@ -114,7 +114,7 @@ class QiskryptAncillaSemiQuantumRegisterTests(TestCase):
         Assertion for the number of qubits of the Qiskrypt's Ancilla Semi-Quantum Register.
         """
 
-        assert(isinstance(qiskrypt_ancilla_semi_quantum_register.get_ancilla_quantum_register(), AncillaRegister))
+        assert(isinstance(qiskrypt_ancilla_semi_quantum_register.get_qiskit_ancilla_quantum_register(), AncillaRegister))
         """
         Assertion for the IBM's Qiskit Quantum Register of the Qiskrypt's Ancilla Semi-Quantum Register.
         """
@@ -166,7 +166,7 @@ class QiskryptAncillaSemiQuantumRegisterTests(TestCase):
         qiskrypt_ancilla_semi_quantum_register = \
             QiskryptAncillaSemiQuantumRegister(name=ancilla_semi_quantum_register_name,
                                                num_ancilla_qubits=ancilla_semi_quantum_register_num_qubits,
-                                               ancilla_quantum_register=None)
+                                               qiskit_ancilla_quantum_register=None)
         """
         Create a Qiskrypt's Ancilla Semi-Quantum Register, given its name and number of qubits.
         """
@@ -181,7 +181,7 @@ class QiskryptAncillaSemiQuantumRegisterTests(TestCase):
         Assertion for the number of qubits of the Qiskrypt's Ancilla Semi-Quantum Register.
         """
 
-        assert(isinstance(qiskrypt_ancilla_semi_quantum_register.get_ancilla_quantum_register(), AncillaRegister))
+        assert(isinstance(qiskrypt_ancilla_semi_quantum_register.get_qiskit_ancilla_quantum_register(), AncillaRegister))
         """
         Assertion for the IBM's Qiskit Ancilla Register of the Qiskrypt's Ancilla Semi-Quantum Register.
         """
@@ -233,7 +233,7 @@ class QiskryptAncillaSemiQuantumRegisterTests(TestCase):
         qiskrypt_ancilla_semi_quantum_register = \
             QiskryptAncillaSemiQuantumRegister(name=ancilla_semi_quantum_register_name,
                                                num_ancilla_qubits=ancilla_semi_quantum_register_num_qubits,
-                                               ancilla_quantum_register=None)
+                                               qiskit_ancilla_quantum_register=None)
         """
         Create a Qiskrypt's Ancilla Semi-Quantum Register, given its name and number of qubits.
         """
@@ -248,7 +248,7 @@ class QiskryptAncillaSemiQuantumRegisterTests(TestCase):
         Assertion for the number of qubits of the Qiskrypt's Ancilla Semi-Quantum Register.
         """
 
-        assert(isinstance(qiskrypt_ancilla_semi_quantum_register.get_ancilla_quantum_register(), AncillaRegister))
+        assert(isinstance(qiskrypt_ancilla_semi_quantum_register.get_qiskit_ancilla_quantum_register(), AncillaRegister))
         """
         Assertion for the IBM's Qiskit Ancilla Register of the Qiskrypt's Ancilla Semi-Quantum Register.
         """
@@ -300,7 +300,7 @@ class QiskryptAncillaSemiQuantumRegisterTests(TestCase):
         qiskrypt_ancilla_semi_quantum_register = \
             QiskryptAncillaSemiQuantumRegister(name=ancilla_semi_quantum_register_name,
                                                num_ancilla_qubits=ancilla_semi_quantum_register_num_qubits,
-                                               ancilla_quantum_register=None)
+                                               qiskit_ancilla_quantum_register=None)
         """
         Create a Qiskrypt's Ancilla Semi-Quantum Register, given its name and number of qubits.
         """
@@ -315,7 +315,7 @@ class QiskryptAncillaSemiQuantumRegisterTests(TestCase):
         Assertion for the number of qubits of the Qiskrypt's Ancilla Semi-Quantum Register.
         """
 
-        assert(isinstance(qiskrypt_ancilla_semi_quantum_register.get_ancilla_quantum_register(), AncillaRegister))
+        assert(isinstance(qiskrypt_ancilla_semi_quantum_register.get_qiskit_ancilla_quantum_register(), AncillaRegister))
         """
         Assertion for the IBM's Qiskit Ancilla Register of the Qiskrypt's Ancilla Semi-Quantum Register.
         """

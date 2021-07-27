@@ -99,7 +99,7 @@ class QiskryptSemiQuantumRegisterTests(TestCase):
         qiskrypt_semi_quantum_register = \
             QiskryptSemiQuantumRegister(name=semi_quantum_register_name,
                                         num_qubits=semi_quantum_register_num_qubits,
-                                        quantum_register=None)
+                                        qiskit_quantum_register=None)
         """
         Create a Qiskrypt's Semi-Quantum Register, given its name and number of qubits.
         """
@@ -114,7 +114,7 @@ class QiskryptSemiQuantumRegisterTests(TestCase):
         Assertion for the number of qubits of the Qiskrypt's Semi-Quantum Register.
         """
 
-        assert(isinstance(qiskrypt_semi_quantum_register.get_quantum_register(), QuantumRegister))
+        assert(isinstance(qiskrypt_semi_quantum_register.get_qiskit_quantum_register(), QuantumRegister))
         """
         Assertion for the IBM's Qiskit Quantum Register of the Qiskrypt's Semi-Quantum Register.
         """
@@ -166,7 +166,7 @@ class QiskryptSemiQuantumRegisterTests(TestCase):
         qiskrypt_semi_quantum_register = \
             QiskryptSemiQuantumRegister(name=semi_quantum_register_name,
                                         num_qubits=semi_quantum_register_num_qubits,
-                                        quantum_register=None)
+                                        qiskit_quantum_register=None)
         """
         Create a Qiskrypt's Semi-Quantum Register, given its name and number of qubits.
         """
@@ -181,7 +181,7 @@ class QiskryptSemiQuantumRegisterTests(TestCase):
         Assertion for the number of qubits of the Qiskrypt's Semi-Quantum Register.
         """
 
-        assert(isinstance(qiskrypt_semi_quantum_register.get_quantum_register(), QuantumRegister))
+        assert(isinstance(qiskrypt_semi_quantum_register.get_qiskit_quantum_register(), QuantumRegister))
         """
         Assertion for the IBM's Qiskit Quantum Register of the Qiskrypt's Semi-Quantum Register.
         """
@@ -233,7 +233,7 @@ class QiskryptSemiQuantumRegisterTests(TestCase):
         qiskrypt_semi_quantum_register = \
             QiskryptSemiQuantumRegister(name=semi_quantum_register_name,
                                         num_qubits=semi_quantum_register_num_qubits,
-                                        quantum_register=None)
+                                        qiskit_quantum_register=None)
         """
         Create a Qiskrypt's Semi-Quantum Register, given its name and number of qubits.
         """
@@ -248,7 +248,7 @@ class QiskryptSemiQuantumRegisterTests(TestCase):
         Assertion for the number of qubits of the Qiskrypt's Semi-Quantum Register.
         """
 
-        assert(isinstance(qiskrypt_semi_quantum_register.get_quantum_register(), QuantumRegister))
+        assert(isinstance(qiskrypt_semi_quantum_register.get_qiskit_quantum_register(), QuantumRegister))
         """
         Assertion for the IBM's Qiskit Quantum Register of the Qiskrypt's Semi-Quantum Register.
         """
@@ -300,7 +300,7 @@ class QiskryptSemiQuantumRegisterTests(TestCase):
         qiskrypt_semi_quantum_register = \
             QiskryptSemiQuantumRegister(name=semi_quantum_register_name,
                                         num_qubits=semi_quantum_register_num_qubits,
-                                        quantum_register=None)
+                                        qiskit_quantum_register=None)
         """
         Create a Qiskrypt's Semi-Quantum Register, given its name and number of qubits.
         """
@@ -315,7 +315,7 @@ class QiskryptSemiQuantumRegisterTests(TestCase):
         Assertion for the number of qubits of the Qiskrypt's Semi-Quantum Register.
         """
 
-        assert(isinstance(qiskrypt_semi_quantum_register.get_quantum_register(), QuantumRegister))
+        assert(isinstance(qiskrypt_semi_quantum_register.get_qiskit_quantum_register(), QuantumRegister))
         """
         Assertion for the IBM's Qiskit Quantum Register of the Qiskrypt's Semi-Quantum Register.
         """
