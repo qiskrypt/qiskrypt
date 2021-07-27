@@ -43,7 +43,8 @@ Import required Libraries and Packages.
 
 from src.common.utils.QiskryptLibraryParameters import QISKIT_QASM_SIMULATOR_MAX_NUM_QUBITS
 """
-Import the maximum number of Qubits for the QASM Simulator of the IBM's Qiskit.
+Import the maximum number of Qubits for
+the QASM (Quantum Assembly) Simulator of the IBM's Qiskit.
 """
 
 from src.circuit.QiskryptQuantumCircuit import QiskryptQuantumCircuit
@@ -118,7 +119,7 @@ class QiskryptQuantumHadamardTransform:
                         """
                         If the number of qubits given for the Qiskrypt's Quantum Hadamard Transform
                         is lower or equal to the maximum number of Qubits for
-                        the QASM Simulator of the IBM's Qiskit.
+                        the QASM (Quantum Assembly) Simulator of the IBM's Qiskit.
                         """
 
                         for qiskit_quantum_register_index, qubit_index \
@@ -163,7 +164,7 @@ class QiskryptQuantumHadamardTransform:
                         """
                         If the number of qubits given for the Qiskrypt's Quantum Hadamard Transform
                         is greater than the maximum number of Qubits for
-                        the QASM Simulator of the IBM's Qiskit.
+                        the QASM (Quantum Assembly) Simulator of the IBM's Qiskit.
                         """
 
                         # TODO - Throw Exception
