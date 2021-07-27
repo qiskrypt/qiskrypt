@@ -156,7 +156,7 @@ class QiskryptQuantumRandomBinaryGenerator(QiskryptQuantumRandomGenerator):
         given a size for the Qiskrypt's Quantum Random Binary Generator.
         """
 
-    def reset(self):
+    def reset(self) -> None:
         """
         Reset the Qiskrypt's Quantum Random Binary Generator.
         """
@@ -231,11 +231,11 @@ class QiskryptQuantumRandomBinaryGenerator(QiskryptQuantumRandomGenerator):
             the Qiskrypt's Quantum Random Binary Generator.
             """
 
-        binary_string_bits = bin(int(binary_string))
+        binary_string_bits = format(int(binary_string, base=2), f"#0{(self.get_size() + 2)}b")
         """
         Convert the binary string generated from
         the Qiskrypt's Quantum Random Binary Generator,
-        in a binary format (i.e., a sequence of bits)
+        in a binary format (i.e., a sequence of bits).
         """
 
         """
