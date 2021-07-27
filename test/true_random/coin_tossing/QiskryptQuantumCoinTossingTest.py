@@ -111,6 +111,11 @@ class QiskryptQuantumCoinTossingTests(TestCase):
             in an anatomic part format is 'HEADS'.
             """
 
+        print(f"\nThe outcome bit resulted from the Coin Tossing is: {coin_tossing_outcome_bit}\n")
+        """
+        Print the classical outcome (i.e., the observation) from the Coin Tossing.
+        """
+
         if coin_tossing_outcome_bit == "0b1":
             """
             If the classical outcome (i.e., the observation) from the Coin Tossing is |1⟩.
