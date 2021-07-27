@@ -41,12 +41,30 @@ Acknowledgement(s):\n
 Import required Libraries and Packages.
 """
 
+from src.common.utils.QiskryptLibraryParameters import QISKIT_QASM_SIMULATOR_MAX_NUM_QUBITS
+"""
+
+"""
 
 from src.circuit.QiskryptQuantumCircuit import QiskryptQuantumCircuit
-from src.circuit.registers.classical.QiskryptClassicalRegister import QiskryptClassicalRegister
-from src.circuit.registers.quantum.QiskryptQuantumRegister import QiskryptQuantumRegister
-from src.true_random.transforms.QiskryptQuantumHadamardTransform import QiskryptQuantumHadamardTransform
+"""
 
+"""
+
+from src.circuit.registers.classical.QiskryptClassicalRegister import QiskryptClassicalRegister
+"""
+
+"""
+
+from src.circuit.registers.quantum.QiskryptQuantumRegister import QiskryptQuantumRegister
+"""
+
+"""
+
+from src.true_random.transforms.QiskryptQuantumHadamardTransform import QiskryptQuantumHadamardTransform
+"""
+
+"""
 
 from datetime import datetime
 """
@@ -71,9 +89,9 @@ class QiskryptQuantumRandomGenerator:
         Set the name for the Qiskrypt's Quantum Random Generator.
         """
 
-        self.qiskrypt_quantum_hadamard_transform = None
+        self.qiskrypt_quantum_hadamard_transforms = None
         """
-        Set the Qiskrypt's Quantum Hadamard Transform, as None.
+        Set the Qiskrypt's Quantum Hadamard Transforms, as None.
         """
 
         self.size = 0
@@ -106,17 +124,20 @@ class QiskryptQuantumRandomGenerator:
         """
         return self.name
 
-    def get_qiskrypt_quantum_hadamard_transform(self) -> QiskryptQuantumHadamardTransform:
+    def get_qiskrypt_quantum_hadamard_transforms(self) -> list:
         """
-        Return the Qiskrypt's Quantum Hadamard Transform.
+        Return the list of the Qiskrypt's Quantum Hadamard Transforms of
+        the Qiskrypt's Quantum Random Generator.
 
-        :return self.qiskrypt_quantum_hadamard_transform: the Qiskrypt's Quantum Hadamard Transform.
+        :return self.qiskrypt_quantum_hadamard_transforms: the list of the Qiskrypt's Quantum Hadamard Transforms of
+                                                           the Qiskrypt's Quantum Random Generator.
         """
 
         """
-        Return the Qiskrypt's Quantum Hadamard Transform.
+        Return the list of the Qiskrypt's Quantum Hadamard Transforms of
+        the Qiskrypt's Quantum Random Generator.
         """
-        return self.qiskrypt_quantum_hadamard_transform
+        return self.qiskrypt_quantum_hadamard_transforms
 
     def get_size(self) -> int:
         """
@@ -182,55 +203,124 @@ class QiskryptQuantumRandomGenerator:
             regarding the number of qubits and bits being used, from the size given.
             """
 
-            qiskrypt_quantum_register_quantum_hadamard_transform = \
-                QiskryptQuantumRegister("qu_reg_qrg", self.size)
+            self.qiskrypt_quantum_hadamard_transforms = []
             """
-            Create a Qiskrypt's Quantum Register for the Qiskrypt's Quantum Hadamard Transform,
-            with a number of qubits corresponding to the size of the Qiskrypt's Quantum Random Generator.
+            Set the Qiskrypt's Quantum Hadamard Transforms, as an empty list.
             """
 
-            qiskrypt_classical_register_quantum_hadamard_transform = \
-                QiskryptClassicalRegister("cl_reg_qrg", self.size)
-            """
-            Create a Qiskrypt's Classical Register for the Qiskrypt's Quantum Hadamard Transform,
-            with a number of bits corresponding to the size of the Qiskrypt's Quantum Random Generator.
-            """
+            if (self.size % QISKIT_QASM_SIMULATOR_MAX_NUM_QUBITS) > 0:
+                """
+                If the size of the Qiskrypt's Quantum Random Generator is not multiple of
+                the maximum number of qubits that can be simulated in the IBM Qiskit's QASM Simulator.
+                """
 
-            qiskrypt_quantum_circuit = \
-                QiskryptQuantumCircuit("qu_circ_qrg",
-                                       qiskrypt_quantum_registers=[qiskrypt_quantum_register_quantum_hadamard_transform],
-                                       qiskrypt_fully_quantum_registers=None,
-                                       qiskrypt_semi_quantum_registers=None,
-                                       qiskrypt_ancilla_quantum_registers=None,
-                                       qiskrypt_ancilla_fully_quantum_registers=None,
-                                       qiskrypt_ancilla_semi_quantum_registers=None,
-                                       qiskrypt_classical_registers=[qiskrypt_classical_register_quantum_hadamard_transform],
-                                       global_phase=0, qiskit_quantum_circuit=None)
-            """
-            Create a Qiskrypt's Quantum Circuit with the previously created Qiskrypt's Quantum Register.
-            """
+                num_qiskrypt_quantum_hadamard_transforms = (int(self.size / QISKIT_QASM_SIMULATOR_MAX_NUM_QUBITS) + 1)
+                """
+                Set the number of Qiskrypt's Quantum Hadamard Transforms,
+                as being both the size of the Qiskrypt's Quantum Random Generator divided by
+                the maximum number of qubits that can be simulated in the IBM Qiskit's QASM Simulator,
+                plus one more Qiskrypt's Quantum Hadamard Transform for the remaining qubits.
+                """
 
-            self.qiskrypt_quantum_hadamard_transform = \
-                QiskryptQuantumHadamardTransform("quantum_hadamard_transform_qrg",
-                                                 qiskrypt_quantum_circuit,
-                                                 ([0] * self.size), [*range(self.size)])
-            """
-            Setup the Qiskrypt's Quantum Hadamard Transform for the Qiskrypt's Quantum Random Generator.
-            """
+            else:
+                """
+                If the size of the Qiskrypt's Quantum Random Generator is multiple of
+                the maximum number of qubits that can be simulated in the QASM Simulator.
+                """
 
-            self.qiskrypt_quantum_hadamard_transform.apply_transform()
-            """
-            Apply the Quantum Hadamard Transform to the Qiskrypt's Quantum Registers and qubits involved
-            in the Qiskrypt's Quantum Hadamard Transform for the Qiskrypt's Quantum Random Generator.
-            """
+                num_qiskrypt_quantum_hadamard_transforms = int(self.size / QISKIT_QASM_SIMULATOR_MAX_NUM_QUBITS)
+                """
+                Set the number of Qiskrypt's Quantum Hadamard Transforms,
+                as being only the size of the Qiskrypt's Quantum Random Generator divided by
+                the maximum number of qubits that can be simulated in the IBM Qiskit's QASM Simulator.
+                """
 
-            self.qiskrypt_quantum_hadamard_transform\
-                .qiskrypt_quantum_circuit.measure_all_qubits_in_qiskit_quantum_register(0, 0)
-            """
-            Measure all the qubits in the IBM Qiskit's Quantum Register to
-            the IBM Qiskit's Classical Register, in the Qiskrypt's Quantum Circuit of
-            the Qiskrypt's Quantum Hadamard Transform for the Qiskrypt's Quantum Random Generator.
-            """
+            for current_num_qiskrypt_quantum_hadamard_transform in range(num_qiskrypt_quantum_hadamard_transforms):
+                """
+                For each Qiskrypt's Quantum Hadamard Transform to be created.
+                """
+
+                if current_num_qiskrypt_quantum_hadamard_transform != (num_qiskrypt_quantum_hadamard_transforms - 1):
+                    """
+                    If the current Qiskrypt's Quantum Hadamard Transform to be created is the last one.
+                    """
+
+                    qiskrypt_quantum_register_quantum_hadamard_transform_size = QISKIT_QASM_SIMULATOR_MAX_NUM_QUBITS
+                    """
+                    Set the size of the current Qiskrypt's Quantum Hadamard Transform to be created,
+                    as the maximum number of qubits that can be simulated in the IBM Qiskit's QASM Simulator.
+                    """
+
+                else:
+                    """
+                    If the current Qiskrypt's Quantum Hadamard Transform to be created is not the last one yet.
+                    """
+
+                    qiskrypt_quantum_register_quantum_hadamard_transform_size = \
+                        int(self.size % QISKIT_QASM_SIMULATOR_MAX_NUM_QUBITS)
+                    """
+                    Set the size of the current Qiskrypt's Quantum Hadamard Transform to be created,
+                    as the remainder of the division of the size given initially by
+                    the maximum number of qubits that can be simulated in the IBM Qiskit's QASM Simulator.
+                    """
+
+                qiskrypt_quantum_register_quantum_hadamard_transform = \
+                    QiskryptQuantumRegister("qu_reg_qrg", qiskrypt_quantum_register_quantum_hadamard_transform_size)
+                """
+                Create a Qiskrypt's Quantum Register for the current Qiskrypt's Quantum Hadamard Transform,
+                with a number of qubits corresponding to its previously computed size.
+                """
+
+                qiskrypt_classical_register_quantum_hadamard_transform = \
+                    QiskryptClassicalRegister("cl_reg_qrg", qiskrypt_quantum_register_quantum_hadamard_transform_size)
+                """
+                Create a Qiskrypt's Classical Register for the current Qiskrypt's Quantum Hadamard Transform,
+                with a number of bits corresponding to its previously computed size.
+                """
+
+                qiskrypt_quantum_circuit = \
+                    QiskryptQuantumCircuit("qu_circ_qrg",
+                                           qiskrypt_quantum_registers=[qiskrypt_quantum_register_quantum_hadamard_transform],
+                                           qiskrypt_fully_quantum_registers=None,
+                                           qiskrypt_semi_quantum_registers=None,
+                                           qiskrypt_ancilla_quantum_registers=None,
+                                           qiskrypt_ancilla_fully_quantum_registers=None,
+                                           qiskrypt_ancilla_semi_quantum_registers=None,
+                                           qiskrypt_classical_registers=[qiskrypt_classical_register_quantum_hadamard_transform],
+                                           global_phase=0, qiskit_quantum_circuit=None)
+                """
+                Create a Qiskrypt's Quantum Circuit with the both previously created
+                Qiskrypt's Quantum Register and Qiskrypt's Classical Register.
+                """
+
+                qiskrypt_quantum_hadamard_transform = \
+                    QiskryptQuantumHadamardTransform("quantum_hadamard_transform_qrg",
+                                                     qiskrypt_quantum_circuit,
+                                                     ([0] * self.size), [*range(self.size)])
+                """
+                Setup the currently created Qiskrypt's Quantum Hadamard Transform for
+                the Qiskrypt's Quantum Random Generator.
+                """
+
+                qiskrypt_quantum_hadamard_transform.apply_transform()
+                """
+                Apply the Quantum Hadamard Transform to the Qiskrypt's Quantum Registers and qubits involved
+                in the current Qiskrypt's Quantum Hadamard Transform for the Qiskrypt's Quantum Random Generator.
+                """
+
+                qiskrypt_quantum_hadamard_transform\
+                    .qiskrypt_quantum_circuit.measure_all_qubits_in_qiskit_quantum_register(0, 0)
+                """
+                Measure all the qubits in the IBM Qiskit's Quantum Register to
+                the IBM Qiskit's Classical Register, in the Qiskrypt's Quantum Circuit of
+                the current Qiskrypt's Quantum Hadamard Transform for the Qiskrypt's Quantum Random Generator.
+                """
+
+                self.qiskrypt_quantum_hadamard_transforms.append(qiskrypt_quantum_hadamard_transform)
+                """
+                Append the current created Qiskrypt's Quantum Hadamard Transform for
+                the Qiskrypt's Quantum Random Generator.
+                """
 
             self.configured = True
             """
