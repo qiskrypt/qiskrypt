@@ -49,7 +49,7 @@ Import Aer Simulator and the Execute function from IBM's Qiskit.
 from src.true_random.random_generator.QiskryptQuantumRandomGenerator \
     import QiskryptQuantumRandomGenerator
 """
-
+Import the Qiskrypt's Quantum Random Generator.
 """
 
 
@@ -87,7 +87,8 @@ class QiskryptQuantumRandomBinaryGenerator(QiskryptQuantumRandomGenerator):
         Return the list of the Qiskrypt's Quantum Hadamard Transforms of
         the Qiskrypt's Quantum Random Binary Generator.
 
-        :return super().get_qiskrypt_quantum_hadamard_transform(): the list of the Qiskrypt's Quantum Hadamard Transform of
+        :return super().get_qiskrypt_quantum_hadamard_transform(): the list of the Qiskrypt's
+                                                                   Quantum Hadamard Transform of
                                                                    the Qiskrypt's Quantum Random Binary Generator.
         """
 
@@ -177,73 +178,85 @@ class QiskryptQuantumRandomBinaryGenerator(QiskryptQuantumRandomGenerator):
                  in a binary format (i.e., a sequence of bits)
         """
 
-        qiskrypt_quantum_hadamard_transforms = \
-            self.get_qiskrypt_quantum_hadamard_transforms()
-        """
-        Retrieve the list of the Qiskrypt's Quantum Hadamard Transforms of
-        the Qiskrypt's Quantum Random Binary Generator.
-        """
-
-        num_qiskrypt_quantum_hadamard_transforms = \
-            len(qiskrypt_quantum_hadamard_transforms)
-        """
-        Retrieve the number of the Qiskrypt's Quantum Hadamard Transforms of
-        the Qiskrypt's Quantum Random Binary Generator.
-        """
-
-        binary_string = ""
-        """
-        Initialise the binary string generated from
-        the Qiskrypt's Quantum Random Binary Generator.
-        """
-
-        for current_num_qiskrypt_quantum_hadamard_transform \
-            in range(num_qiskrypt_quantum_hadamard_transforms):
+        if super().is_configured():
             """
-            For each Qiskrypt's Quantum Hadamard Transform of
+            If the Qiskrypt's Quantum Random Binary Generator is already configured.
+            """
+
+            qiskrypt_quantum_hadamard_transforms = \
+                self.get_qiskrypt_quantum_hadamard_transforms()
+            """
+            Retrieve the list of the Qiskrypt's Quantum Hadamard Transforms of
             the Qiskrypt's Quantum Random Binary Generator.
             """
 
-            qiskrypt_quantum_hadamard_transform = \
-                qiskrypt_quantum_hadamard_transforms[current_num_qiskrypt_quantum_hadamard_transform]
+            num_qiskrypt_quantum_hadamard_transforms = \
+                len(qiskrypt_quantum_hadamard_transforms)
             """
-            Retrieve the current Qiskrypt's Quantum Hadamard Transform of
+            Retrieve the number of the Qiskrypt's Quantum Hadamard Transforms of
             the Qiskrypt's Quantum Random Binary Generator.
             """
 
-            qiskit_qasm_backend = Aer.get_backend("qasm_simulator")
+            binary_string = ""
             """
-            Getting the Aer Simulator Backend for the QASM (Quantum Assembly) Simulation
-            (i.e., the classical simulation of an IBM Qiskit's Quantum Circuit).
-            """
-
-            final_results_frequency_counting = \
-                execute(qiskrypt_quantum_hadamard_transform.get_qiskrypt_quantum_circuit().get_qiskit_quantum_circuit(),
-                        qiskit_qasm_backend, shots=1).result().get_counts()
-            """
-            Execute the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit
-            and store the resulted measurement of its final quantum state.
-            """
-
-            binary_string += final_results_frequency_counting.most_frequent()
-            """
-            Append the resulted outcome to the binary string generated from
+            Initialise the binary string generated from
             the Qiskrypt's Quantum Random Binary Generator.
             """
 
-        binary_string_bits = format(int(binary_string, base=2), f"#0{(self.get_size() + 2)}b")
-        """
-        Convert the binary string generated from
-        the Qiskrypt's Quantum Random Binary Generator,
-        in a binary format (i.e., a sequence of bits).
-        """
+            for current_num_qiskrypt_quantum_hadamard_transform \
+                in range(num_qiskrypt_quantum_hadamard_transforms):
+                """
+                For each Qiskrypt's Quantum Hadamard Transform of
+                the Qiskrypt's Quantum Random Binary Generator.
+                """
 
-        """
-        Return the binary string generated from
-        the Qiskrypt's Quantum Random Binary Generator,
-        in a binary format (i.e., a sequence of bits).
-        """
-        return binary_string_bits
+                qiskrypt_quantum_hadamard_transform = \
+                    qiskrypt_quantum_hadamard_transforms[current_num_qiskrypt_quantum_hadamard_transform]
+                """
+                Retrieve the current Qiskrypt's Quantum Hadamard Transform of
+                the Qiskrypt's Quantum Random Binary Generator.
+                """
+
+                qiskit_qasm_backend = Aer.get_backend("qasm_simulator")
+                """
+                Getting the Aer Simulator Backend for the QASM (Quantum Assembly) Simulation
+                (i.e., the classical simulation of an IBM Qiskit's Quantum Circuit).
+                """
+
+                final_results_frequency_counting = \
+                    execute(qiskrypt_quantum_hadamard_transform.get_qiskrypt_quantum_circuit().get_qiskit_quantum_circuit(),
+                            qiskit_qasm_backend, shots=1).result().get_counts()
+                """
+                Execute the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit
+                and store the resulted measurement of its final quantum state.
+                """
+
+                binary_string += final_results_frequency_counting.most_frequent()
+                """
+                Append the resulted outcome to the binary string generated from
+                the Qiskrypt's Quantum Random Binary Generator.
+                """
+
+            binary_string_bits = format(int(binary_string, base=2), f"#0{(self.get_size() + 2)}b")
+            """
+            Convert the binary string generated from
+            the Qiskrypt's Quantum Random Binary Generator,
+            in a binary format (i.e., a sequence of bits).
+            """
+
+            """
+            Return the binary string generated from
+            the Qiskrypt's Quantum Random Binary Generator,
+            in a binary format (i.e., a sequence of bits).
+            """
+            return binary_string_bits
+
+        else:
+            """
+            If the Qiskrypt's Quantum Random Binary Generator is not configured yet.
+            """
+
+            # TODO - Throw exception
 
     def generate_binary_string_as_int_base_2(self) -> int:
         """
