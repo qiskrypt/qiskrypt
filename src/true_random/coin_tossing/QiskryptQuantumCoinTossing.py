@@ -441,7 +441,7 @@ class QiskryptQuantumCoinTossing:
             """
 
             self.coin_tossing_outcome_bit = \
-                bin(int(final_results_frequency_counting.most_frequent()))
+                bin(int(final_results_frequency_counting.most_frequent(), base=2))
             """
             Set the bit outcome for the Coin Tossing,
             from the measurement of the Qiskrypt's Quantum Circuit for
