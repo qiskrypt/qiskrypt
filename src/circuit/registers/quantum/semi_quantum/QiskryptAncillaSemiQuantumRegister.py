@@ -93,6 +93,9 @@ class QiskryptAncillaSemiQuantumRegister(QiskryptAncillaQuantumRegister):
         :return super().get_name(): the name of the Qiskrypt's Ancilla Semi-Quantum Register.
         """
 
+        """
+        Return the name of the Qiskrypt's Ancilla Semi-Quantum Register.
+        """
         return super().get_name()
 
     def get_num_ancilla_qubits(self):
@@ -103,6 +106,9 @@ class QiskryptAncillaSemiQuantumRegister(QiskryptAncillaQuantumRegister):
                                                   the Qiskrypt's Ancilla Semi-Quantum Register.
         """
 
+        """
+        Return the number of ancilla qubits of the Qiskrypt's Ancilla Semi-Quantum Register.
+        """
         return super().get_num_ancilla_qubits()
 
     def get_qiskit_ancilla_semi_quantum_register(self):
@@ -113,6 +119,9 @@ class QiskryptAncillaSemiQuantumRegister(QiskryptAncillaQuantumRegister):
                                                                the Qiskrypt's Ancilla Semi-Quantum Register.
         """
 
+        """
+        Return the IBM's Qiskit Ancilla Quantum Register of the Qiskrypt's Ancilla Semi-Quantum Register.
+        """
         return super().get_qiskit_ancilla_quantum_register()
 
     @staticmethod

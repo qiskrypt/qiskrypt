@@ -97,6 +97,9 @@ class QiskryptSemiQuantumRegister(QiskryptQuantumRegister):
         :return super().get_name(): the name of the Qiskrypt's Semi-Quantum Register.
         """
 
+        """
+        Return the name of the Qiskrypt's Semi-Quantum Register.
+        """
         return super().get_name()
 
     def get_num_qubits(self):
@@ -107,6 +110,9 @@ class QiskryptSemiQuantumRegister(QiskryptQuantumRegister):
                                           the Qiskrypt's Semi-Quantum Register.
         """
 
+        """
+        Return the number of qubits of the Qiskrypt's Semi-Quantum Register.
+        """
         return super().get_num_qubits()
 
     def get_qiskit_semi_quantum_register(self) -> QuantumRegister:
@@ -117,6 +123,9 @@ class QiskryptSemiQuantumRegister(QiskryptQuantumRegister):
                                                        the Qiskrypt's Semi-Quantum Register.
         """
 
+        """
+        Return the IBM's Qiskit Quantum Register of the Qiskrypt's Semi-Quantum Register.
+        """
         return super().get_qiskit_quantum_register()
 
     @staticmethod
