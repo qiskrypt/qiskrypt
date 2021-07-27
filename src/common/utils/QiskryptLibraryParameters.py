@@ -41,7 +41,7 @@ Acknowledgement(s):\n
 The Enumerations and Constants.
 """
 
-QISKIT_QASM_SIMULATOR_MAX_NUM_QUBITS = 32
+QISKIT_QASM_SIMULATOR_MAX_NUM_QUBITS = 30
 """
 The maximum number of Qubits for the QASM Simulator of the IBM's Qiskit.
 """
