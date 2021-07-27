@@ -47,12 +47,6 @@ from src.true_random.random_generator.QiskryptQuantumRandomGenerator \
 
 """
 
-from src.true_random.transforms.QiskryptQuantumHadamardTransform \
-    import QiskryptQuantumHadamardTransform
-"""
-
-"""
-
 
 class QiskryptQuantumRandomBinaryGenerator(QiskryptQuantumRandomGenerator):
     """
@@ -83,20 +77,20 @@ class QiskryptQuantumRandomBinaryGenerator(QiskryptQuantumRandomGenerator):
         """
         return super().get_name()
 
-    def get_qiskrypt_quantum_hadamard_transform(self) -> QiskryptQuantumHadamardTransform:
+    def get_qiskrypt_quantum_hadamard_transforms(self) -> list:
         """
-        Return the Qiskrypt's Quantum Hadamard Transform of
+        Return the list of the Qiskrypt's Quantum Hadamard Transform of
         the Qiskrypt's Quantum Random Binary Generator.
 
-        :return super().get_qiskrypt_quantum_hadamard_transform(): the Qiskrypt's Quantum Hadamard Transform of
+        :return super().get_qiskrypt_quantum_hadamard_transform(): the list of the Qiskrypt's Quantum Hadamard Transform of
                                                                    the Qiskrypt's Quantum Random Binary Generator.
         """
 
         """
-        Return the Qiskrypt's Quantum Hadamard Transform of
+        Return the list of the Qiskrypt's Quantum Hadamard Transform of
         the Qiskrypt's Quantum Random Binary Generator.
         """
-        return super().get_qiskrypt_quantum_hadamard_transform()
+        return super().get_qiskrypt_quantum_hadamard_transforms()
 
     def get_size(self) -> int:
         """
