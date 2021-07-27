@@ -36,10 +36,19 @@ Acknowledgement(s):\n
 - Prof. Walter Krawec (School of Engineering, University of Connecticut, United States of America).
 
 """
-from src.circuit.QiskryptQuantumCircuit import QiskryptQuantumCircuit
 
 """
 Import required Libraries and Packages.
+"""
+
+from src.common.utils.QiskryptLibraryParameters import QISKIT_QASM_SIMULATOR_MAX_NUM_QUBITS
+"""
+Import the maximum number of Qubits for the QASM Simulator of the IBM's Qiskit.
+"""
+
+from src.circuit.QiskryptQuantumCircuit import QiskryptQuantumCircuit
+"""
+Import the Qiskrypt's Quantum Circuit.
 """
 
 from src.circuit.exception.QiskryptQuantumCircuitException \
@@ -54,15 +63,6 @@ from src.circuit.exception.QiskryptQuantumCircuitException \
 """
 Import the Not An Instance Of Quantum Circuit Error for
 the Qiskrypt's Quantum Circuit.
-"""
-
-"""
-Constants.
-"""
-
-USE_NUMBA_PARALLEL = True
-"""
-The boolean flag to specify the parallelization parameter of Numba.
 """
 
 
@@ -114,43 +114,59 @@ class QiskryptQuantumHadamardTransform:
                     and the number of the qubits is the same.
                     """
 
-                    for qiskit_quantum_register_index, qubit_index \
-                        in zip(qiskit_quantum_registers_indexes, qubits_indexes):
+                    if num_qubits <= QISKIT_QASM_SIMULATOR_MAX_NUM_QUBITS:
                         """
-                        For each pair of indexes of IBM Qiskit's Quantum Registers and qubits. 
-                        """
-
-                        qiskrypt_quantum_circuit.check_if_is_possible_to_apply_operation(qiskit_quantum_register_index, qubit_index,
-                                                                                         is_operation_only_supported_for_fully_quantum_registers=True)
-                        """
-                        Check if it is possible to apply a specific Operation,
-                        regarding the current IBM Qiskit's Quantum Register index and the current qubit index.
+                        If the number of qubits given for the Qiskrypt's Quantum Hadamard Transform
+                        is lower or equal to the maximum number of Qubits for
+                        the QASM Simulator of the IBM's Qiskit.
                         """
 
-                    self.name = name
-                    """
-                    Set the name for the Qiskrypt's Quantum Hadamard Transform.
-                    """
+                        for qiskit_quantum_register_index, qubit_index \
+                            in zip(qiskit_quantum_registers_indexes, qubits_indexes):
+                            """
+                            For each pair of indexes of IBM Qiskit's Quantum Registers and qubits. 
+                            """
 
-                    self.qiskrypt_quantum_circuit = qiskrypt_quantum_circuit
-                    """
-                    Set the Qiskrypt's Quantum Circuit of
-                    the Qiskrypt's Quantum Hadamard Transform.
-                    """
+                            qiskrypt_quantum_circuit.check_if_is_possible_to_apply_operation(qiskit_quantum_register_index, qubit_index,
+                                                                                             is_operation_only_supported_for_fully_quantum_registers=True)
+                            """
+                            Check if it is possible to apply a specific Operation,
+                            regarding the current IBM Qiskit's Quantum Register index and the current qubit index.
+                            """
 
-                    self.qiskit_quantum_registers_indexes = \
-                        qiskit_quantum_registers_indexes
-                    """
-                    Set the indexes of the IBM Qiskit's Quantum Registers,
-                    involved in the Qiskrypt's Quantum Hadamard Transform.
-                    """
+                        self.name = name
+                        """
+                        Set the name for the Qiskrypt's Quantum Hadamard Transform.
+                        """
 
-                    self.qubits_indexes = qubits_indexes
-                    """
-                    Set the indexes of the qubits in the IBM Qiskit's Quantum Registers,
-                    to which will be applied the Hadamard Gates/Operations,
-                    involved in the Qiskrypt's Quantum Hadamard Transform.
-                    """
+                        self.qiskrypt_quantum_circuit = qiskrypt_quantum_circuit
+                        """
+                        Set the Qiskrypt's Quantum Circuit of
+                        the Qiskrypt's Quantum Hadamard Transform.
+                        """
+
+                        self.qiskit_quantum_registers_indexes = \
+                            qiskit_quantum_registers_indexes
+                        """
+                        Set the indexes of the IBM Qiskit's Quantum Registers,
+                        involved in the Qiskrypt's Quantum Hadamard Transform.
+                        """
+
+                        self.qubits_indexes = qubits_indexes
+                        """
+                        Set the indexes of the qubits in the IBM Qiskit's Quantum Registers,
+                        to which will be applied the Hadamard Gates/Operations,
+                        involved in the Qiskrypt's Quantum Hadamard Transform.
+                        """
+
+                    else:
+                        """
+                        If the number of qubits given for the Qiskrypt's Quantum Hadamard Transform
+                        is greater than the maximum number of Qubits for
+                        the QASM Simulator of the IBM's Qiskit.
+                        """
+
+                        # TODO - Throw Exception
 
                 else:
                     """
