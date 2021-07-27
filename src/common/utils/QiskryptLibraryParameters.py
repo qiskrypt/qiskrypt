@@ -38,7 +38,7 @@ Acknowledgement(s):\n
 """
 
 """
-The Enumerations and Constants.
+Definition of Constants and Enumerations.
 """
 
 QISKIT_QASM_SIMULATOR_MAX_NUM_QUBITS = 30
