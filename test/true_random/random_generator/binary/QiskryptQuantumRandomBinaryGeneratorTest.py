@@ -46,8 +46,8 @@ from unittest import TestCase, TestLoader, TestSuite
 Import TestCase, TestLoader and TestSuite from Unittest.
 """
 
-from src.true_random.random_generator.binary.QiskryptQuantumRandomBinaryGenerator import \
-    QiskryptQuantumRandomBinaryGenerator
+from src.true_random.random_generator.binary.QiskryptQuantumRandomBinaryGenerator \
+    import QiskryptQuantumRandomBinaryGenerator
 """
 Import the Qiskrypt's Quantum Random Binary Generator.
 """
