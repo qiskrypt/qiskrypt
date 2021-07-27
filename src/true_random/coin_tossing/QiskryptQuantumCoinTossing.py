@@ -90,7 +90,7 @@ the Qiskrypt's Quantum Coin Tossing.
 """
 
 """
-Constants.
+Definition of Constants.
 """
 
 NUM_QUBITS_FOR_COIN = NUM_BITS_FOR_COIN = 1
