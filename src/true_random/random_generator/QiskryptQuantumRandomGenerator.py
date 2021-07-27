@@ -270,11 +270,13 @@ class QiskryptQuantumRandomGenerator:
 
                     if (self.size % QISKIT_QASM_SIMULATOR_MAX_NUM_QUBITS) == 0:
                         """
-                        
+                        If the number of qubits for the last Qiskrypt's Quantum Hadamard Transform,
+                        is equal to the maximum number of qubits that can be simulated in
+                        the IBM Qiskit's QASM (Quantum Assembly) Simulator.
                         """
 
                         qiskrypt_quantum_register_quantum_hadamard_transform_size = \
-                            int(QISKIT_QASM_SIMULATOR_MAX_NUM_QUBITS)
+                            QISKIT_QASM_SIMULATOR_MAX_NUM_QUBITS
                         """
                         Set the size of the current Qiskrypt's Quantum Hadamard Transform to be created,
                         as the remainder of the division of the size given initially by
@@ -284,7 +286,9 @@ class QiskryptQuantumRandomGenerator:
 
                     else:
                         """
-                        
+                        If the number of qubits for the last Qiskrypt's Quantum Hadamard Transform,
+                        is not equal to the maximum number of qubits that can be simulated in
+                        the IBM Qiskit's QASM (Quantum Assembly) Simulator.
                         """
 
                         qiskrypt_quantum_register_quantum_hadamard_transform_size = \
