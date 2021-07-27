@@ -43,7 +43,7 @@ The Enumerations and Constants.
 
 QISKIT_QASM_SIMULATOR_MAX_NUM_QUBITS = 30
 """
-The maximum number of Qubits for the QASM Simulator of the IBM's Qiskit.
+The maximum number of Qubits for the QASM (Quantum Assembly) Simulator of the IBM's Qiskit.
 """
 
 QISKIT_DEFAULT_NUM_EXPERIMENT_COUNTS = 1000
