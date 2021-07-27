@@ -270,21 +270,23 @@ class QiskryptQuantumRandomGenerator:
                     """
 
                 qiskrypt_quantum_register_quantum_hadamard_transform = \
-                    QiskryptQuantumRegister("qu_reg_qrg", qiskrypt_quantum_register_quantum_hadamard_transform_size)
+                    QiskryptQuantumRegister(f"qu_reg_qrg_{(current_num_qiskrypt_quantum_hadamard_transform + 1)}",
+                                            qiskrypt_quantum_register_quantum_hadamard_transform_size)
                 """
                 Create a Qiskrypt's Quantum Register for the current Qiskrypt's Quantum Hadamard Transform,
                 with a number of qubits corresponding to its previously computed size.
                 """
 
                 qiskrypt_classical_register_quantum_hadamard_transform = \
-                    QiskryptClassicalRegister("cl_reg_qrg", qiskrypt_quantum_register_quantum_hadamard_transform_size)
+                    QiskryptClassicalRegister(f"cl_reg_qrg_{(current_num_qiskrypt_quantum_hadamard_transform + 1)}",
+                                              qiskrypt_quantum_register_quantum_hadamard_transform_size)
                 """
                 Create a Qiskrypt's Classical Register for the current Qiskrypt's Quantum Hadamard Transform,
                 with a number of bits corresponding to its previously computed size.
                 """
 
                 qiskrypt_quantum_circuit = \
-                    QiskryptQuantumCircuit("qu_circ_qrg",
+                    QiskryptQuantumCircuit(f"qu_circ_qrg_{(current_num_qiskrypt_quantum_hadamard_transform + 1)}",
                                            qiskrypt_quantum_registers=[qiskrypt_quantum_register_quantum_hadamard_transform],
                                            qiskrypt_fully_quantum_registers=None,
                                            qiskrypt_semi_quantum_registers=None,
