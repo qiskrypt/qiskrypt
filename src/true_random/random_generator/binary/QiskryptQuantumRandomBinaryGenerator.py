@@ -143,7 +143,7 @@ class QiskryptQuantumRandomBinaryGenerator(QiskryptQuantumRandomGenerator):
         """
         return super().get_creation_timestamp()
 
-    def configure(self, size: int) -> None:
+    def initiate(self, size: int) -> None:
         """
         Configure the Qiskrypt's Quantum Random Binary Generator,
         given a size for the Qiskrypt's Quantum Random Binary Generator.
@@ -173,9 +173,9 @@ class QiskryptQuantumRandomBinaryGenerator(QiskryptQuantumRandomGenerator):
         the Qiskrypt's Quantum Random Binary Generator,
         in a binary format (i.e., a sequence of bits).
 
-        :return: a binary string from
-                 the Qiskrypt's Quantum Random Binary Generator,
-                 in a binary format (i.e., a sequence of bits)
+        :return binary_string_bits: a binary string from
+                                    the Qiskrypt's Quantum Random Binary Generator,
+                                    in a binary format (i.e., a sequence of bits).
         """
 
         if super().is_configured():
