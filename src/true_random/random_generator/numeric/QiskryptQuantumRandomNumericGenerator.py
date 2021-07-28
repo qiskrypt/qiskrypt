@@ -87,14 +87,9 @@ NUM_BYTES_LONG_LONG_INTEGER = 8
 The number of bytes for a Long Long Integer.
 """
 
-NUM_BYTES_FLOAT_SINGLE_PRECISION = 4
+NUM_BYTES_FLOAT = 4
 """
 The number of bytes for a Float with Single Precision.
-"""
-
-NUM_BYTES_FLOAT_DOUBLE_PRECISION = 8
-"""
-The number of bytes for a Float with Double Precision.
 """
 
 NUM_BYTES_DOUBLE = 8
@@ -111,8 +106,7 @@ DATA_TYPES = ["signed_short_int", "unsigned_short_int",
               "signed_int", "unsigned_int",
               "signed_long_int", "unsigned_long_int",
               "signed_long_long_int", "unsigned_long_long_int",
-              "signed_float_single_precision", "unsigned_float_single_precision",
-              "signed_float_double_precision", "unsigned_float_double_precision",
+              "signed_float", "unsigned_float",
               "signed_double", "unsigned_double",
               "signed_long_double", "unsigned_long_double"]
 """
@@ -127,10 +121,8 @@ SIZE_OF_NUMERIC_DATA_TYPES = {      DATA_TYPES[0]: (NUM_BYTES_SHORT_INTEGER * NU
                                     DATA_TYPES[5]: (NUM_BYTES_LONG_INTEGER * NUM_BITS_FOR_ONE_BYTE),
                                     DATA_TYPES[6]: (NUM_BYTES_LONG_LONG_INTEGER * NUM_BITS_FOR_ONE_BYTE),
                                     DATA_TYPES[7]: (NUM_BYTES_LONG_LONG_INTEGER * NUM_BITS_FOR_ONE_BYTE),
-                                    DATA_TYPES[8]: (NUM_BYTES_FLOAT_SINGLE_PRECISION * NUM_BITS_FOR_ONE_BYTE),
-                                    DATA_TYPES[9]: (NUM_BYTES_FLOAT_SINGLE_PRECISION * NUM_BITS_FOR_ONE_BYTE),
-                                   DATA_TYPES[10]: (NUM_BYTES_FLOAT_DOUBLE_PRECISION * NUM_BITS_FOR_ONE_BYTE),
-                                   DATA_TYPES[11]: (NUM_BYTES_FLOAT_DOUBLE_PRECISION * NUM_BITS_FOR_ONE_BYTE),
+                                    DATA_TYPES[8]: (NUM_BYTES_FLOAT * NUM_BITS_FOR_ONE_BYTE),
+                                    DATA_TYPES[9]: (NUM_BYTES_FLOAT * NUM_BITS_FOR_ONE_BYTE),
                                    DATA_TYPES[10]: (NUM_BYTES_DOUBLE * NUM_BITS_FOR_ONE_BYTE),
                                    DATA_TYPES[11]: (NUM_BYTES_DOUBLE * NUM_BITS_FOR_ONE_BYTE),
                                    DATA_TYPES[12]: (NUM_BYTES_LONG_DOUBLE * NUM_BITS_FOR_ONE_BYTE),
