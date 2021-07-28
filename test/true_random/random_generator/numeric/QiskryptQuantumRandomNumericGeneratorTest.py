@@ -498,6 +498,92 @@ class QiskryptQuantumRandomNumericGeneratorTests(TestCase):
         """
         self.assertEqual(True, True)
 
+    def test_no_11_qiskrypt_quantum_random_numeric_generator_signed_double(self):
+        """
+        Test Case #11:
+
+        - Initialise the Qiskrypt's Quantum Random Numeric Generator, for a Signed Double.
+
+        Description of the Steps for the Unitary Test:
+        1) The Qiskrypt's Quantum Random Numeric Generator is initialised, for Signed Double;
+        2) The Signed Double is generated from the Qiskrypt's Quantum Random Numeric Generator;
+
+        Return OK (or FAIL) if, all the Tests performed are OK (or FAIL, otherwise).
+        """
+
+        qiskrypt_quantum_random_numeric_generator = \
+            QiskryptQuantumRandomNumericGenerator("qu_rnd_sig_double_gen_11", DATA_TYPES[10])
+        """
+        Create a Qiskrypt's Quantum Random Numeric Generator, for Signed Double.
+        """
+
+        qiskrypt_quantum_random_numeric_generator.initiate()
+        """
+        Initiate/Configure the previously created Qiskrypt's Quantum Random Numeric Generator.
+        """
+
+        signed_double_number = qiskrypt_quantum_random_numeric_generator.generate_number()
+        """
+        Generate the Signed Double from the Qiskrypt's Quantum Random Numeric Generator.
+        """
+
+        print(f"\n\nTest #11:"
+              f"\n - The Signed Double generated from "
+              f"the Qiskrypt's Quantum Random Numeric Generator is:\n"
+              f"   [ {signed_double_number} ] (Decimal Format) ;\n")
+        """
+        Print the resulted Signed Double, extracted from
+        the Qiskrypt's Quantum Random Numeric Generator.
+        """
+
+        """
+        Dummy Assert Equal for the Unittest.
+        """
+        self.assertEqual(True, True)
+
+    def test_no_12_qiskrypt_quantum_random_numeric_generator_unsigned_double(self):
+        """
+        Test Case #12:
+
+        - Initialise the Qiskrypt's Quantum Random Numeric Generator, for an Unsigned Double.
+
+        Description of the Steps for the Unitary Test:
+        1) The Qiskrypt's Quantum Random Numeric Generator is initialised, for Unsigned Double;
+        2) The Unsigned Double is generated from the Qiskrypt's Quantum Random Numeric Generator;
+
+        Return OK (or FAIL) if, all the Tests performed are OK (or FAIL, otherwise).
+        """
+
+        qiskrypt_quantum_random_numeric_generator = \
+            QiskryptQuantumRandomNumericGenerator("qu_rnd_unsig_double_gen_12", DATA_TYPES[11])
+        """
+        Create a Qiskrypt's Quantum Random Numeric Generator, for Unsigned Double.
+        """
+
+        qiskrypt_quantum_random_numeric_generator.initiate()
+        """
+        Initiate/Configure the previously created Qiskrypt's Quantum Random Numeric Generator.
+        """
+
+        unsigned_double_number = qiskrypt_quantum_random_numeric_generator.generate_number()
+        """
+        Generate the Unsigned Double from the Qiskrypt's Quantum Random Numeric Generator.
+        """
+
+        print(f"\n\nTest #12:"
+              f"\n - The Unsigned Double generated from "
+              f"the Qiskrypt's Quantum Random Numeric Generator is:\n"
+              f"   [ {unsigned_double_number} ] (Decimal Format) ;\n")
+        """
+        Print the resulted Unsigned Double, extracted from
+        the Qiskrypt's Quantum Random Numeric Generator.
+        """
+
+        """
+        Dummy Assert Equal for the Unittest.
+        """
+        self.assertEqual(True, True)
+
 
 if __name__ == "__main__":
     """
