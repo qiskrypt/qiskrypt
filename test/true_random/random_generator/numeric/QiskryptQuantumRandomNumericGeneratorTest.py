@@ -154,6 +154,92 @@ class QiskryptQuantumRandomNumericGeneratorTests(TestCase):
         """
         self.assertEqual(True, True)
 
+    def test_no_3_qiskrypt_quantum_random_numeric_generator_signed_int(self):
+        """
+        Test Case #3:
+
+        - Initialise the Qiskrypt's Quantum Random Numeric Generator, for a Signed Integer.
+
+        Description of the Steps for the Unitary Test:
+        1) The Qiskrypt's Quantum Random Numeric Generator is initialised, for Signed Integers;
+        2) The Signed Integer is generated from the Qiskrypt's Quantum Random Numeric Generator;
+
+        Return OK (or FAIL) if, all the Tests performed are OK (or FAIL, otherwise).
+        """
+
+        qiskrypt_quantum_random_numeric_generator = \
+            QiskryptQuantumRandomNumericGenerator("qu_rnd_sig_short_int_gen_3", DATA_TYPES[2])
+        """
+        Create a Qiskrypt's Quantum Random Numeric Generator, for Signed Integers.
+        """
+
+        qiskrypt_quantum_random_numeric_generator.initiate()
+        """
+        Initiate/Configure the previously created Qiskrypt's Quantum Random Numeric Generator.
+        """
+
+        signed_int_number = qiskrypt_quantum_random_numeric_generator.generate_number()
+        """
+        Generate the Signed Integer from the Qiskrypt's Quantum Random Numeric Generator.
+        """
+
+        print(f"\n\nTest #3:"
+              f"\n - The Signed Integer generated from "
+              f"the Qiskrypt's Quantum Random Numeric Generator is:\n"
+              f"   [ {signed_int_number} ] (Decimal Format) ;\n")
+        """
+        Print the resulted Signed Integer, extracted from
+        the Qiskrypt's Quantum Random Numeric Generator.
+        """
+
+        """
+        Dummy Assert Equal for the Unittest.
+        """
+        self.assertEqual(True, True)
+
+    def test_no_4_qiskrypt_quantum_random_numeric_generator_unsigned_int(self):
+        """
+        Test Case #4:
+
+        - Initialise the Qiskrypt's Quantum Random Numeric Generator, for a Unsigned Integer.
+
+        Description of the Steps for the Unitary Test:
+        1) The Qiskrypt's Quantum Random Numeric Generator is initialised, for Signed Integers;
+        2) The Signed Integer is generated from the Qiskrypt's Quantum Random Numeric Generator;
+
+        Return OK (or FAIL) if, all the Tests performed are OK (or FAIL, otherwise).
+        """
+
+        qiskrypt_quantum_random_numeric_generator = \
+            QiskryptQuantumRandomNumericGenerator("qu_rnd_unsig_short_int_gen_4", DATA_TYPES[3])
+        """
+        Create a Qiskrypt's Quantum Random Numeric Generator, for Unsigned Integers.
+        """
+
+        qiskrypt_quantum_random_numeric_generator.initiate()
+        """
+        Initiate/Configure the previously created Qiskrypt's Quantum Random Numeric Generator.
+        """
+
+        unsigned_int_number = qiskrypt_quantum_random_numeric_generator.generate_number()
+        """
+        Generate the Unsigned Integer from the Qiskrypt's Quantum Random Numeric Generator.
+        """
+
+        print(f"\n\nTest #4:"
+              f"\n - The Unsigned Short Integer generated from "
+              f"the Qiskrypt's Quantum Random Numeric Generator is:\n"
+              f"   [ {unsigned_int_number} ] (Decimal Format) ;\n")
+        """
+        Print the resulted Unsigned Integer, extracted from
+        the Qiskrypt's Quantum Random Numeric Generator.
+        """
+
+        """
+        Dummy Assert Equal for the Unittest.
+        """
+        self.assertEqual(True, True)
+
 
 if __name__ == "__main__":
     """
