@@ -703,7 +703,7 @@ class QiskryptQuantumRandomNumericGenerator(QiskryptQuantumRandomGenerator):
                     double_precision_floating_point_fraction += \
                         (int(mantissa_bit) * pow(2, negative_exponent_power_counter))
                     """
-                    Adds the converted value of the current bit to a Float Mantissa,
+                    Adds the converted value of the current bit to a Double Mantissa,
                     to the fraction part of the Signed IEEE 64-bit Double Precision Floating-Point format.
                     """
 
@@ -786,6 +786,155 @@ class QiskryptQuantumRandomNumericGenerator(QiskryptQuantumRandomGenerator):
                                  Decimal(double_precision_floating_point_fraction))
                 """
                 Compute the final number in the Unsigned IEEE 64-bit Double Precision Floating-Point format,
+                considering only its exponent and fraction parts.
+                """
+
+            elif self.data_type == DATA_TYPES[12]:
+                """
+                If the data type of the numbers to be generated from
+                the Qiskrypt's Quantum Random Numeric Generator is a Signed Long Double.
+                """
+
+                sign_ieee_x86_extended_80_long_double = binary_string_bits[2]
+                """
+                Retrieve the bit for the Sign for the Long Double with
+                a Signed IEEE 80-bit Extended Precision x86 Floating-Point format.
+                """
+
+                extended_precision_x86_floating_point_sign = pow(-1, int(sign_ieee_x86_extended_80_long_double))
+                """
+                Compute the Sign of the Long Double with
+                a Signed IEEE 80-bit Extended Precision x86 Floating-Point format.
+                """
+
+                exponent_biased_ieee_x86_extended_80_long_double = int(binary_string_bits[3:18], base=2)
+                """
+                Retrieve the Exponent Biased in a Decimal Integer format from
+                the respective bits for the Long Double with
+                an IEEE 80-bit Extended Precision x86 Floating-Point format.
+                """
+
+                exponent_unbiased_ieee_x86_extended_80_long_double = (exponent_biased_ieee_x86_extended_80_long_double - 16383)
+                """
+                Compute the Exponent Unbiased from the Exponent Biased, subtracting it 16383.
+                """
+
+                extended_precision_x86_floating_point_exponent = pow(2, exponent_unbiased_ieee_x86_extended_80_long_double)
+                """
+                Compute the Exponent of the Long Double with
+                a Signed IEEE 80-bit Extended Precision x86 Floating-Point format.
+                """
+
+                mantissa_ieee_x86_extended_80_long_double = binary_string_bits[19:]
+                """
+                Retrieve the Mantissa format from
+                the respective bits for the Long Double with
+                a Signed IEEE 80-bit Extended Precision x86 Floating-Point format.
+                """
+
+                extended_precision_x86_floating_point_fraction = 1
+                """
+                Initialise the fraction part of
+                the Signed IEEE 80-bit Extended Precision x86 Floating-Point format, as 1.
+                """
+
+                negative_exponent_power_counter = -1
+                """
+                Initialise the Negative Exponent Power counter, as -1.
+                """
+
+                for mantissa_bit in mantissa_ieee_x86_extended_80_long_double:
+                    """
+                    For each bit of the Mantissa format from
+                    the respective bits for the Long Double with
+                    a Signed IEEE 80-bit Extended Precision x86 Floating-Point format.
+                    """
+
+                    extended_precision_x86_floating_point_fraction += \
+                        (int(mantissa_bit) * pow(2, negative_exponent_power_counter))
+                    """
+                    Adds the converted value of the current bit to a Long Double Mantissa,
+                    to the fraction part of the Signed IEEE 80-bit Extended Precision x86 Floating-Point format.
+                    """
+
+                    negative_exponent_power_counter -= 1
+                    """
+                    Decrement the the Negative Exponent Power counter.
+                    """
+
+                random_number = (Decimal(extended_precision_x86_floating_point_sign) *
+                                 Decimal(extended_precision_x86_floating_point_exponent) *
+                                 Decimal(extended_precision_x86_floating_point_fraction))
+                """
+                Compute the final number in the Signed IEEE 80-bit Extended Precision x86 Floating-Point format,
+                considering its sign, exponent and fraction parts.
+                """
+
+            elif self.data_type == DATA_TYPES[13]:
+                """
+                If the data type of the numbers to be generated from
+                the Qiskrypt's Quantum Random Numeric Generator is a Unsigned Long Double.
+                """
+
+                exponent_biased_ieee_x86_extended_80_long_double = int(binary_string_bits[2:18], base=2)
+                """
+                Retrieve the Exponent Biased in a Decimal Integer format from
+                the respective bits for the Long Double with
+                an Unsigned IEEE 80-bit Extended Precision x86 Floating-Point format.
+                """
+
+                exponent_unbiased_ieee_x86_extended_80_long_double = (exponent_biased_ieee_x86_extended_80_long_double - 32767)
+                """
+                Compute the Exponent Unbiased from the Exponent Biased, subtracting it 32767.
+                """
+
+                extended_precision_x86_floating_point_exponent = pow(2, exponent_unbiased_ieee_x86_extended_80_long_double)
+                """
+                Compute the Exponent of the Long Double with
+                an Unsigned IEEE 80-bit Extended Precision x86 Floating-Point format.
+                """
+
+                mantissa_ieee_x86_extended_80_long_double = binary_string_bits[19:]
+                """
+                Retrieve the Mantissa format from
+                the respective bits for the Long Double with
+                an Unsigned IEEE 80-bit Extended Precision x86 Floating-Point format.
+                """
+
+                extended_precision_x86_floating_point_fraction = 1
+                """
+                Initialise the fraction part of
+                the Unsigned IEEE 80-bit Extended Precision x86 Floating-Point format, as 1.
+                """
+
+                negative_exponent_power_counter = -1
+                """
+                Initialise the Negative Exponent Power counter, as -1.
+                """
+
+                for mantissa_bit in mantissa_ieee_x86_extended_80_long_double:
+                    """
+                    For each bit of the Mantissa format from
+                    the respective bits for the Long Double with
+                    an Unsigned IEEE 80-bit Extended Precision x86 Floating-Point format.
+                    """
+
+                    extended_precision_x86_floating_point_fraction += \
+                        (int(mantissa_bit) * pow(2, negative_exponent_power_counter))
+                    """
+                    Adds the converted value of the current bit to a Long Double Mantissa,
+                    to the fraction part of the Unsigned IEEE 80-bit Extended Precision x86 Floating-Point format.
+                    """
+
+                    negative_exponent_power_counter -= 1
+                    """
+                    Decrement the the Negative Exponent Power counter.
+                    """
+
+                random_number = (Decimal(extended_precision_x86_floating_point_exponent) *
+                                 Decimal(extended_precision_x86_floating_point_fraction))
+                """
+                Compute the final number in the Unsigned IEEE 80-bit Extended Precision x86 Floating-Point format,
                 considering only its exponent and fraction parts.
                 """
 
