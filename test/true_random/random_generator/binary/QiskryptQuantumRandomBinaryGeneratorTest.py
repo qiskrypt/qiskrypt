@@ -58,7 +58,7 @@ class QiskryptQuantumRandomBinaryGeneratorTests(TestCase):
     Object Class of the Unitary Tests for the Qiskrypt's Quantum Random Binary Generator.
     """
 
-    def test_no_1_qiskrypt_quantum_random_binary_generator_tests_length_10(self):
+    def test_no_1_qiskrypt_quantum_random_binary_generator_length_10(self):
         """
         Test Case #1:
 
@@ -84,9 +84,9 @@ class QiskryptQuantumRandomBinaryGeneratorTests(TestCase):
         Create a Qiskrypt's Quantum Random Binary Generator.
         """
 
-        qiskrypt_quantum_random_binary_generator.configure(length_binary_string)
+        qiskrypt_quantum_random_binary_generator.initiate(length_binary_string)
         """
-        Configure the previously created Qiskrypt's Quantum Random Binary Generator.
+        Initiate/Configure the previously created Qiskrypt's Quantum Random Binary Generator.
         """
 
         binary_string = qiskrypt_quantum_random_binary_generator.generate_binary_string()
@@ -114,7 +114,7 @@ class QiskryptQuantumRandomBinaryGeneratorTests(TestCase):
         """
         self.assertEqual(True, True)
 
-    def test_no_2_qiskrypt_quantum_random_binary_generator_tests_length_20(self):
+    def test_no_2_qiskrypt_quantum_random_binary_generator_length_20(self):
         """
         Test Case #2:
 
@@ -140,9 +140,9 @@ class QiskryptQuantumRandomBinaryGeneratorTests(TestCase):
         Create a Qiskrypt's Quantum Random Binary Generator.
         """
 
-        qiskrypt_quantum_random_binary_generator.configure(length_binary_string)
+        qiskrypt_quantum_random_binary_generator.initiate(length_binary_string)
         """
-        Configure the previously created Qiskrypt's Quantum Random Binary Generator.
+        Initiate/Configure the previously created Qiskrypt's Quantum Random Binary Generator.
         """
 
         binary_string = qiskrypt_quantum_random_binary_generator.generate_binary_string()
@@ -170,7 +170,7 @@ class QiskryptQuantumRandomBinaryGeneratorTests(TestCase):
         """
         self.assertEqual(True, True)
 
-    def test_no_3_qiskrypt_quantum_random_binary_generator_tests_length_40(self):
+    def test_no_3_qiskrypt_quantum_random_binary_generator_length_40(self):
         """
         Test Case #3:
 
@@ -196,9 +196,9 @@ class QiskryptQuantumRandomBinaryGeneratorTests(TestCase):
         Create a Qiskrypt's Quantum Random Binary Generator.
         """
 
-        qiskrypt_quantum_random_binary_generator.configure(length_binary_string)
+        qiskrypt_quantum_random_binary_generator.initiate(length_binary_string)
         """
-        Configure the previously created Qiskrypt's Quantum Random Binary Generator.
+        Initiate/Configure the previously created Qiskrypt's Quantum Random Binary Generator.
         """
 
         binary_string = qiskrypt_quantum_random_binary_generator.generate_binary_string()
@@ -226,7 +226,7 @@ class QiskryptQuantumRandomBinaryGeneratorTests(TestCase):
         """
         self.assertEqual(True, True)
 
-    def test_no_4_qiskrypt_quantum_random_binary_generator_tests_length_80(self):
+    def test_no_4_qiskrypt_quantum_random_binary_generator_length_80(self):
         """
         Test Case #4:
 
@@ -252,9 +252,9 @@ class QiskryptQuantumRandomBinaryGeneratorTests(TestCase):
         Create a Qiskrypt's Quantum Random Binary Generator.
         """
 
-        qiskrypt_quantum_random_binary_generator.configure(length_binary_string)
+        qiskrypt_quantum_random_binary_generator.initiate(length_binary_string)
         """
-        Configure the previously created Qiskrypt's Quantum Random Binary Generator.        
+        Initiate/Configure the previously created Qiskrypt's Quantum Random Binary Generator.        
         """
 
         binary_string = qiskrypt_quantum_random_binary_generator.generate_binary_string()
@@ -282,7 +282,7 @@ class QiskryptQuantumRandomBinaryGeneratorTests(TestCase):
         """
         self.assertEqual(True, True)
 
-    def test_no_5_qiskrypt_quantum_random_binary_generator_tests_length_120(self):
+    def test_no_5_qiskrypt_quantum_random_binary_generator_length_120(self):
         """
         Test Case #5:
 
@@ -308,9 +308,9 @@ class QiskryptQuantumRandomBinaryGeneratorTests(TestCase):
         Create a Qiskrypt's Quantum Random Binary Generator.
         """
 
-        qiskrypt_quantum_random_binary_generator.configure(length_binary_string)
+        qiskrypt_quantum_random_binary_generator.initiate(length_binary_string)
         """
-        Configure the previously created Qiskrypt's Quantum Random Binary Generator.        
+        Initiate/Configure the previously created Qiskrypt's Quantum Random Binary Generator.        
         """
 
         binary_string = qiskrypt_quantum_random_binary_generator.generate_binary_string()
@@ -338,7 +338,7 @@ class QiskryptQuantumRandomBinaryGeneratorTests(TestCase):
         """
         self.assertEqual(True, True)
 
-    def test_no_6_qiskrypt_quantum_random_binary_generator_tests_length_260(self):
+    def test_no_6_qiskrypt_quantum_random_binary_generator_length_260(self):
         """
         Test Case #6:
 
@@ -364,9 +364,9 @@ class QiskryptQuantumRandomBinaryGeneratorTests(TestCase):
         Create a Qiskrypt's Quantum Random Binary Generator.        
         """
 
-        qiskrypt_quantum_random_binary_generator.configure(length_binary_string)
+        qiskrypt_quantum_random_binary_generator.initiate(length_binary_string)
         """
-        Configure the previously created Qiskrypt's Quantum Random Binary Generator.        
+        Initiate/Configure the previously created Qiskrypt's Quantum Random Binary Generator.        
         """
 
         binary_string = qiskrypt_quantum_random_binary_generator.generate_binary_string()
