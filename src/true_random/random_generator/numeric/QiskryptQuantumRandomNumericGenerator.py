@@ -58,12 +58,6 @@ from src.true_random.random_generator.QiskryptQuantumRandomGenerator \
 Import the Qiskrypt's Quantum Random Generator.
 """
 
-from src.true_random.coin_tossing.QiskryptQuantumCoinTossing \
-    import QiskryptQuantumCoinTossing
-"""
-Import the Qiskrypt's Quantum Coin Tossing.
-"""
-
 """
 Definition of Constants and Enumerations.
 """
@@ -93,9 +87,14 @@ NUM_BYTES_LONG_LONG_INTEGER = 8
 The number of bytes for a Long Long Integer.
 """
 
-NUM_BYTES_FLOAT = 4
+NUM_BYTES_FLOAT_SINGLE_PRECISION = 4
 """
-The number of bytes for a Float.
+The number of bytes for a Float with Single Precision.
+"""
+
+NUM_BYTES_FLOAT_DOUBLE_PRECISION = 8
+"""
+The number of bytes for a Float with Double Precision.
 """
 
 NUM_BYTES_DOUBLE = 8
@@ -112,7 +111,8 @@ DATA_TYPES = ["signed_short_int", "unsigned_short_int",
               "signed_int", "unsigned_int",
               "signed_long_int", "unsigned_long_int",
               "signed_long_long_int", "unsigned_long_long_int",
-              "signed_float", "unsigned_float",
+              "signed_float_single_precision", "unsigned_float_single_precision",
+              "signed_float_double_precision", "unsigned_float_double_precision",
               "signed_double", "unsigned_double",
               "signed_long_double", "unsigned_long_double"]
 """
@@ -127,8 +127,10 @@ SIZE_OF_NUMERIC_DATA_TYPES = {      DATA_TYPES[0]: (NUM_BYTES_SHORT_INTEGER * NU
                                     DATA_TYPES[5]: (NUM_BYTES_LONG_INTEGER * NUM_BITS_FOR_ONE_BYTE),
                                     DATA_TYPES[6]: (NUM_BYTES_LONG_LONG_INTEGER * NUM_BITS_FOR_ONE_BYTE),
                                     DATA_TYPES[7]: (NUM_BYTES_LONG_LONG_INTEGER * NUM_BITS_FOR_ONE_BYTE),
-                                    DATA_TYPES[8]: (NUM_BYTES_FLOAT * NUM_BITS_FOR_ONE_BYTE),
-                                    DATA_TYPES[9]: (NUM_BYTES_FLOAT * NUM_BITS_FOR_ONE_BYTE),
+                                    DATA_TYPES[8]: (NUM_BYTES_FLOAT_SINGLE_PRECISION * NUM_BITS_FOR_ONE_BYTE),
+                                    DATA_TYPES[9]: (NUM_BYTES_FLOAT_SINGLE_PRECISION * NUM_BITS_FOR_ONE_BYTE),
+                                   DATA_TYPES[10]: (NUM_BYTES_FLOAT_DOUBLE_PRECISION * NUM_BITS_FOR_ONE_BYTE),
+                                   DATA_TYPES[11]: (NUM_BYTES_FLOAT_DOUBLE_PRECISION * NUM_BITS_FOR_ONE_BYTE),
                                    DATA_TYPES[10]: (NUM_BYTES_DOUBLE * NUM_BITS_FOR_ONE_BYTE),
                                    DATA_TYPES[11]: (NUM_BYTES_DOUBLE * NUM_BITS_FOR_ONE_BYTE),
                                    DATA_TYPES[12]: (NUM_BYTES_LONG_DOUBLE * NUM_BITS_FOR_ONE_BYTE),
@@ -495,57 +497,148 @@ class QiskryptQuantumRandomNumericGenerator(QiskryptQuantumRandomGenerator):
                 the Qiskrypt's Quantum Random Numeric Generator is a Signed Float.
                 """
 
-                random_number = unpack("f", pack("f", int(binary_string_bits, 2)))[0]
+                sign_ieee_32_float = binary_string_bits[2]
                 """
-                Convert the initial binary string generated from
-                the Qiskrypt's Quantum Random Numeric Generator,
-                in an Unsigned Float.
-                """
-
-                qiskrypt_quantum_coin_tossing = QiskryptQuantumCoinTossing("qu_coin")
-                """
-                Create a Qiskrypt's Quantum Coin Tossing.
+                Retrieve the bit for the Sign for the Float with
+                a Signed IEEE 32-bit Single Precision Floating-Point format.
                 """
 
-                qiskrypt_quantum_coin_tossing.initialise_qiskrypt_quantum_circuit()
+                single_precision_floating_point_sign = pow(-1, int(sign_ieee_32_float))
                 """
-                Initialise the Qiskrypt's Quantum Circuit of the Qiskrypt's Quantum Coin Tossing.
-                """
-
-                qiskrypt_quantum_coin_tossing.toss_coin()
-                """
-                Toss the Coin, from the Qiskrypt's Quantum Coin Tossing.
+                Compute the Sign of the Float with
+                a Signed IEEE 32-bit Single Precision Floating-Point format.
                 """
 
-                coin_tossing_outcome_bit = qiskrypt_quantum_coin_tossing.get_coin_tossing_outcome_bit()
+                exponent_biased_ieee_32_float = int(binary_string_bits[3:11], base=2)
                 """
-                Retrieve the classical outcome (i.e., the observation) from the Coin Tossing,
-                through the execution of the respective Qiskrypt's Quantum Circuit,
-                in a binary digit format (i.e., a bit).
+                Retrieve the Exponent Biased in a Decimal Integer format from
+                the respective bits for the Float with
+                a Signed IEEE 32-bit Single Precision Floating-Point format.
                 """
 
-                if coin_tossing_outcome_bit == "0b1":
+                exponent_unbiased_ieee_32_float = (exponent_biased_ieee_32_float - 127)
+                """
+                Compute the Exponent Unbiased from the Exponent Biased, subtracting it 127.
+                """
+
+                single_precision_floating_point_exponent = pow(2, exponent_unbiased_ieee_32_float)
+                """
+                Compute the Exponent of the Float with
+                a Signed IEEE 32-bit Single Precision Floating-Point format.
+                """
+
+                mantissa_ieee_32_float = binary_string_bits[12:]
+                """
+                Retrieve the Mantissa format from
+                the respective bits for the Float with
+                a Signed IEEE 32-bit Single Precision Floating-Point format.
+                """
+
+                single_precision_floating_point_fraction = 1
+                """
+                Initialise the fraction part of
+                the Signed IEEE 32-bit Single Precision Floating-Point format, as 1.
+                """
+
+                negative_exponent_power_counter = -1
+                """
+                Initialise the Negative Exponent Power counter, as -1.
+                """
+
+                for mantissa_bit in mantissa_ieee_32_float:
                     """
-                    If the classical outcome (i.e., the observation) from the Coin Tossing is one.
+                    For each bit of the Mantissa format from
+                    the respective bits for the Float with
+                    a Signed IEEE 32-bit Single Precision Floating-Point format.
                     """
 
-                    random_number *= -1
+                    single_precision_floating_point_fraction += \
+                        (int(mantissa_bit) * pow(2, negative_exponent_power_counter))
                     """
-                    In this situation, the Float random number will be multiplied by -1,
-                    in order to, result in a Signed Float number.
+                    Adds the converted value of the current bit to a Float Mantissa,
+                    to the fraction part of the Signed IEEE 32-bit Single Precision Floating-Point format.
                     """
+
+                    negative_exponent_power_counter -= 1
+                    """
+                    Decrement the the Negative Exponent Power counter.
+                    """
+
+                random_number = (single_precision_floating_point_sign *
+                                 single_precision_floating_point_exponent *
+                                 single_precision_floating_point_fraction)
+                """
+                Compute the final number in the Signed IEEE 32-bit Single Precision Floating-Point format,
+                considering its sign, exponent and fraction parts.
+                """
 
             elif self.data_type == DATA_TYPES[9]:
                 """
                 If the data type of the numbers to be generated from
-                the Qiskrypt's Quantum Random Numeric Generator is a Unsigned Float.
+                the Qiskrypt's Quantum Random Numeric Generator is an Unsigned Float.
                 """
 
-                random_number = unpack("f", pack("f", int(binary_string_bits, 2)))[0]
+                exponent_biased_ieee_32_float = int(binary_string_bits[2:11], base=2)
                 """
-                Convert the initial binary string generated from
-                the Qiskrypt's Quantum Random Numeric Generator,
-                in a final Unsigned Float.
+                Retrieve the Exponent Biased in a Decimal Integer format from
+                the respective bits for the Float with
+                an Unsigned IEEE 32-bit Single Precision Floating-Point format.
+                """
+
+                exponent_unbiased_ieee_32_float = (exponent_biased_ieee_32_float - 255)
+                """
+                Compute the Exponent Unbiased from the Exponent Biased, subtracting it 255.
+                """
+
+                single_precision_floating_point_exponent = pow(2, exponent_unbiased_ieee_32_float)
+                """
+                Compute the Exponent of the Float with
+                an Unsigned IEEE 32-bit Single Precision Floating-Point format.
+                """
+
+                mantissa_ieee_32_float = binary_string_bits[12:]
+                """
+                Retrieve the Mantissa format from
+                the respective bits for the Float with
+                an Unsigned IEEE 32-bit Single Precision Floating-Point format.
+                """
+
+                single_precision_floating_point_fraction = 1
+                """
+                Initialise the fraction part of
+                the Unsigned IEEE 32-bit Single Precision Floating-Point format, as 1.
+                """
+
+                negative_exponent_power_counter = -1
+                """
+                Initialise the Negative Exponent Power counter, as -1.
+                """
+
+                for mantissa_bit in mantissa_ieee_32_float:
+                    """
+                    For each bit of the Mantissa format from
+                    the respective bits for the Float with
+                    an Unsigned IEEE 32-bit Single Precision Floating-Point format.
+                    """
+
+                    single_precision_floating_point_fraction += \
+                        (int(mantissa_bit) * pow(2, negative_exponent_power_counter))
+                    """
+                    Adds the converted value of the current bit to a Float Mantissa,
+                    to the fraction part of the Unsigned IEEE 32-bit
+                    Single Precision Floating-Point format.
+                    """
+
+                    negative_exponent_power_counter -= 1
+                    """
+                    Decrement the the Negative Exponent Power counter.
+                    """
+
+                random_number = (single_precision_floating_point_exponent *
+                                 single_precision_floating_point_fraction)
+                """
+                Compute the final number in the Unsigned IEEE 32-bit Single Precision Floating-Point format,
+                considering only its exponent and fraction parts.
                 """
 
             """
