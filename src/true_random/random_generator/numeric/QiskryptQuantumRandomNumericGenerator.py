@@ -374,9 +374,9 @@ class QiskryptQuantumRandomNumericGenerator(QiskryptQuantumRandomGenerator):
             in a binary format (i.e., a sequence of bits).
             """
 
-            number = None
+            random_number = None
             """
-            Set the generated number initially as, None.
+            Set the random number generated initially as, None.
             """
 
             if self.data_type == DATA_TYPES[0]:
@@ -385,7 +385,7 @@ class QiskryptQuantumRandomNumericGenerator(QiskryptQuantumRandomGenerator):
                 the Qiskrypt's Quantum Random Numeric Generator is a Signed Short Integer.
                 """
 
-                number = unpack('h', pack('H', int(binary_string_bits, 2)))[0]
+                random_number = unpack("h", pack("H", int(binary_string_bits, 2)))[0]
                 """
                 Convert the initial binary string generated from
                 the Qiskrypt's Quantum Random Numeric Generator,
@@ -398,7 +398,7 @@ class QiskryptQuantumRandomNumericGenerator(QiskryptQuantumRandomGenerator):
                 the Qiskrypt's Quantum Random Numeric Generator is a Unsigned Short Integer.
                 """
 
-                number = unpack('H', pack('H', int(binary_string_bits, 2)))[0]
+                random_number = unpack("H", pack("H", int(binary_string_bits, 2)))[0]
                 """
                 Convert the initial binary string generated from
                 the Qiskrypt's Quantum Random Numeric Generator,
@@ -411,7 +411,7 @@ class QiskryptQuantumRandomNumericGenerator(QiskryptQuantumRandomGenerator):
                 the Qiskrypt's Quantum Random Numeric Generator is a Signed Integer.
                 """
 
-                number = unpack('i', pack('I', int(binary_string_bits, 2)))[0]
+                random_number = unpack("i", pack("I", int(binary_string_bits, 2)))[0]
                 """
                 Convert the initial binary string generated from
                 the Qiskrypt's Quantum Random Numeric Generator,
@@ -424,7 +424,7 @@ class QiskryptQuantumRandomNumericGenerator(QiskryptQuantumRandomGenerator):
                 the Qiskrypt's Quantum Random Numeric Generator is a Unsigned Integer.
                 """
 
-                number = unpack('I', pack('I', int(binary_string_bits, 2)))[0]
+                random_number = unpack("I", pack("I", int(binary_string_bits, 2)))[0]
                 """
                 Convert the initial binary string generated from
                 the Qiskrypt's Quantum Random Numeric Generator,
@@ -437,7 +437,7 @@ class QiskryptQuantumRandomNumericGenerator(QiskryptQuantumRandomGenerator):
                 the Qiskrypt's Quantum Random Numeric Generator is a Signed Long Integer.
                 """
 
-                number = unpack('l', pack('L', int(binary_string_bits, 2)))[0]
+                random_number = unpack("l", pack("L", int(binary_string_bits, 2)))[0]
                 """
                 Convert the initial binary string generated from
                 the Qiskrypt's Quantum Random Numeric Generator,
@@ -450,7 +450,7 @@ class QiskryptQuantumRandomNumericGenerator(QiskryptQuantumRandomGenerator):
                 the Qiskrypt's Quantum Random Numeric Generator is a Unsigned Long Integer.
                 """
 
-                number = unpack('L', pack('L', int(binary_string_bits, 2)))[0]
+                random_number = unpack("L", pack("L", int(binary_string_bits, 2)))[0]
                 """
                 Convert the initial binary string generated from
                 the Qiskrypt's Quantum Random Numeric Generator,
@@ -463,7 +463,7 @@ class QiskryptQuantumRandomNumericGenerator(QiskryptQuantumRandomGenerator):
                 the Qiskrypt's Quantum Random Numeric Generator is a Signed Long Long Integer.
                 """
 
-                number = unpack('q', pack('Q', int(binary_string_bits, 2)))[0]
+                random_number = unpack("q", pack("Q", int(binary_string_bits, 2)))[0]
                 """
                 Convert the initial binary string generated from
                 the Qiskrypt's Quantum Random Numeric Generator,
@@ -476,7 +476,7 @@ class QiskryptQuantumRandomNumericGenerator(QiskryptQuantumRandomGenerator):
                 the Qiskrypt's Quantum Random Numeric Generator is a Unsigned Long Long Integer.
                 """
 
-                number = unpack('Q', pack('Q', int(binary_string_bits, 2)))[0]
+                random_number = unpack("Q", pack("Q", int(binary_string_bits, 2)))[0]
                 """
                 Convert the initial binary string generated from
                 the Qiskrypt's Quantum Random Numeric Generator,
@@ -488,7 +488,7 @@ class QiskryptQuantumRandomNumericGenerator(QiskryptQuantumRandomGenerator):
             the Qiskrypt's Quantum Random Numeric Generator,
             in a decimal format (i.e., digits of a numeric representation).
             """
-            return number
+            return random_number
 
         else:
             """
