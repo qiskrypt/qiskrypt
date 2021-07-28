@@ -52,6 +52,12 @@ Import the Unpack and Pack functions from
 the Struct Module of the Python's Library.
 """
 
+from decimal import Decimal
+"""
+Import the Decimal function from
+the Decimal Module of the Python's Library.
+"""
+
 from src.true_random.random_generator.QiskryptQuantumRandomGenerator \
     import QiskryptQuantumRandomGenerator
 """
@@ -630,6 +636,156 @@ class QiskryptQuantumRandomNumericGenerator(QiskryptQuantumRandomGenerator):
                                  single_precision_floating_point_fraction)
                 """
                 Compute the final number in the Unsigned IEEE 32-bit Single Precision Floating-Point format,
+                considering only its exponent and fraction parts.
+                """
+
+            elif self.data_type == DATA_TYPES[10]:
+                """
+                If the data type of the numbers to be generated from
+                the Qiskrypt's Quantum Random Numeric Generator is a Signed Double.
+                """
+
+                sign_ieee_64_double = binary_string_bits[2]
+                """
+                Retrieve the bit for the Sign for the Double with
+                a Signed IEEE 64-bit Double Precision Floating-Point format.
+                """
+
+                double_precision_floating_point_sign = pow(-1, int(sign_ieee_64_double))
+                """
+                Compute the Sign of the Double with
+                a Signed IEEE 64-bit Double Precision Floating-Point format.
+                """
+
+                exponent_biased_ieee_64_double = int(binary_string_bits[3:14], base=2)
+                """
+                Retrieve the Exponent Biased in a Decimal Integer format from
+                the respective bits for the Double with
+                a Double IEEE 64-bit Single Precision Floating-Point format.
+                """
+
+                exponent_unbiased_ieee_64_double = (exponent_biased_ieee_64_double - 1023)
+                """
+                Compute the Exponent Unbiased from the Exponent Biased, subtracting it 1023.
+                """
+
+                double_precision_floating_point_exponent = pow(2, exponent_unbiased_ieee_64_double)
+                """
+                Compute the Exponent of the Double with
+                a Double IEEE 64-bit Single Precision Floating-Point format.
+                """
+
+                mantissa_ieee_64_double = binary_string_bits[15:]
+                """
+                Retrieve the Mantissa format from
+                the respective bits for the Double with
+                a Signed IEEE 64-bit Double Precision Floating-Point format.
+                """
+
+                double_precision_floating_point_fraction = 1
+                """
+                Initialise the fraction part of
+                the Signed IEEE 64-bit Double Precision Floating-Point format, as 1.
+                """
+
+                negative_exponent_power_counter = -1
+                """
+                Initialise the Negative Exponent Power counter, as -1.
+                """
+
+                for mantissa_bit in mantissa_ieee_64_double:
+                    """
+                    For each bit of the Mantissa format from
+                    the respective bits for the Double with
+                    a Signed IEEE 64-bit Double Precision Floating-Point format.
+                    """
+
+                    double_precision_floating_point_fraction += \
+                        (int(mantissa_bit) * pow(2, negative_exponent_power_counter))
+                    """
+                    Adds the converted value of the current bit to a Float Mantissa,
+                    to the fraction part of the Signed IEEE 64-bit Double Precision Floating-Point format.
+                    """
+
+                    negative_exponent_power_counter -= 1
+                    """
+                    Decrement the the Negative Exponent Power counter.
+                    """
+
+                random_number = (Decimal(double_precision_floating_point_sign) *
+                                 Decimal(double_precision_floating_point_exponent) *
+                                 Decimal(double_precision_floating_point_fraction))
+                """
+                Compute the final number in the Signed IEEE 64-bit Double Precision Floating-Point format,
+                considering its sign, exponent and fraction parts.
+                """
+
+            elif self.data_type == DATA_TYPES[11]:
+                """
+                If the data type of the numbers to be generated from
+                the Qiskrypt's Quantum Random Numeric Generator is an Unsigned Double.
+                """
+
+                exponent_biased_ieee_64_double = int(binary_string_bits[2:14], base=2)
+                """
+                Retrieve the Exponent Biased in a Decimal Integer format from
+                the respective bits for the Double with
+                an Unsigned IEEE 64-bit Double Precision Floating-Point format.
+                """
+
+                exponent_unbiased_ieee_64_double = (exponent_biased_ieee_64_double - 2047)
+                """
+                Compute the Exponent Unbiased from the Exponent Biased, subtracting it 2047.
+                """
+
+                double_precision_floating_point_exponent = pow(2, exponent_unbiased_ieee_64_double)
+                """
+                Compute the Exponent of the Double with
+                an Unsigned IEEE 64-bit Double Precision Floating-Point format.
+                """
+
+                mantissa_ieee_64_double = binary_string_bits[15:]
+                """
+                Retrieve the Mantissa format from
+                the respective bits for the Double with
+                an Unsigned IEEE 64-bit Double Precision Floating-Point format.
+                """
+
+                double_precision_floating_point_fraction = 1
+                """
+                Initialise the fraction part of
+                the Unsigned IEEE 64-bit Double Precision Floating-Point format, as 1.
+                """
+
+                negative_exponent_power_counter = -1
+                """
+                Initialise the Negative Exponent Power counter, as -1.
+                """
+
+                for mantissa_bit in mantissa_ieee_64_double:
+                    """
+                    For each bit of the Mantissa format from
+                    the respective bits for the Double with
+                    an Unsigned IEEE 64-bit Double Precision Floating-Point format.
+                    """
+
+                    double_precision_floating_point_fraction += \
+                        (int(mantissa_bit) * pow(2, negative_exponent_power_counter))
+                    """
+                    Adds the converted value of the current bit to a Double Mantissa,
+                    to the fraction part of the Unsigned IEEE 64-bit
+                    Double Precision Floating-Point format.
+                    """
+
+                    negative_exponent_power_counter -= 1
+                    """
+                    Decrement the the Negative Exponent Power counter.
+                    """
+
+                random_number = (Decimal(double_precision_floating_point_exponent) *
+                                 Decimal(double_precision_floating_point_fraction))
+                """
+                Compute the final number in the Unsigned IEEE 64-bit Double Precision Floating-Point format,
                 considering only its exponent and fraction parts.
                 """
 
