@@ -153,8 +153,7 @@ class QiskryptQuantumRandomBinaryGenerator(QiskryptQuantumRandomGenerator):
 
         super().configure(size)
         """
-        Configure the Qiskrypt's Quantum Random Binary Generator,
-        given a size for the Qiskrypt's Quantum Random Binary Generator.
+        Configure the Qiskrypt's Quantum Random Binary Generator, given its size.
         """
 
     def reset(self) -> None:
