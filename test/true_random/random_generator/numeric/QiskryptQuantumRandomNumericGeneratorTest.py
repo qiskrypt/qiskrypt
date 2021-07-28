@@ -584,6 +584,92 @@ class QiskryptQuantumRandomNumericGeneratorTests(TestCase):
         """
         self.assertEqual(True, True)
 
+    def test_no_13_qiskrypt_quantum_random_numeric_generator_signed_long_double(self):
+        """
+        Test Case #13:
+
+        - Initialise the Qiskrypt's Quantum Random Numeric Generator, for a Signed Long Double.
+
+        Description of the Steps for the Unitary Test:
+        1) The Qiskrypt's Quantum Random Numeric Generator is initialised, for Signed Long Double;
+        2) The Signed Long Double is generated from the Qiskrypt's Quantum Random Numeric Generator;
+
+        Return OK (or FAIL) if, all the Tests performed are OK (or FAIL, otherwise).
+        """
+
+        qiskrypt_quantum_random_numeric_generator = \
+            QiskryptQuantumRandomNumericGenerator("qu_rnd_sig_long_double_gen_13", DATA_TYPES[12])
+        """
+        Create a Qiskrypt's Quantum Random Numeric Generator, for Signed Long Double.
+        """
+
+        qiskrypt_quantum_random_numeric_generator.initiate()
+        """
+        Initiate/Configure the previously created Qiskrypt's Quantum Random Numeric Generator.
+        """
+
+        signed_long_double_number = qiskrypt_quantum_random_numeric_generator.generate_number()
+        """
+        Generate the Signed Long Double from the Qiskrypt's Quantum Random Numeric Generator.
+        """
+
+        print(f"\n\nTest #13:"
+              f"\n - The Signed Long Double generated from "
+              f"the Qiskrypt's Quantum Random Numeric Generator is:\n"
+              f"   [ {signed_long_double_number} ] (Decimal Format) ;\n")
+        """
+        Print the resulted Signed Long Double, extracted from
+        the Qiskrypt's Quantum Random Numeric Generator.
+        """
+
+        """
+        Dummy Assert Equal for the Unittest.
+        """
+        self.assertEqual(True, True)
+
+    def test_no_14_qiskrypt_quantum_random_numeric_generator_unsigned_long_double(self):
+        """
+        Test Case #14:
+
+        - Initialise the Qiskrypt's Quantum Random Numeric Generator, for an Unsigned Long Double.
+
+        Description of the Steps for the Unitary Test:
+        1) The Qiskrypt's Quantum Random Numeric Generator is initialised, for Unsigned Long Double;
+        2) The Unsigned Long Double is generated from the Qiskrypt's Quantum Random Numeric Generator;
+
+        Return OK (or FAIL) if, all the Tests performed are OK (or FAIL, otherwise).
+        """
+
+        qiskrypt_quantum_random_numeric_generator = \
+            QiskryptQuantumRandomNumericGenerator("qu_rnd_unsig_long_double_gen_14", DATA_TYPES[13])
+        """
+        Create a Qiskrypt's Quantum Random Numeric Generator, for Unsigned Long Double.
+        """
+
+        qiskrypt_quantum_random_numeric_generator.initiate()
+        """
+        Initiate/Configure the previously created Qiskrypt's Quantum Random Numeric Generator.
+        """
+
+        unsigned_long_double_number = qiskrypt_quantum_random_numeric_generator.generate_number()
+        """
+        Generate the Unsigned Long Double from the Qiskrypt's Quantum Random Numeric Generator.
+        """
+
+        print(f"\n\nTest #14:"
+              f"\n - The Unsigned Long Double generated from "
+              f"the Qiskrypt's Quantum Random Numeric Generator is:\n"
+              f"   [ {unsigned_long_double_number} ] (Decimal Format) ;\n")
+        """
+        Print the resulted Unsigned Long Double, extracted from
+        the Qiskrypt's Quantum Random Numeric Generator.
+        """
+
+        """
+        Dummy Assert Equal for the Unittest.
+        """
+        self.assertEqual(True, True)
+
 
 if __name__ == "__main__":
     """
