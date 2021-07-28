@@ -58,6 +58,12 @@ from src.true_random.random_generator.QiskryptQuantumRandomGenerator \
 Import the Qiskrypt's Quantum Random Generator.
 """
 
+from src.true_random.coin_tossing.QiskryptQuantumCoinTossing \
+    import QiskryptQuantumCoinTossing
+"""
+Import the Qiskrypt's Quantum Coin Tossing.
+"""
+
 """
 Definition of Constants and Enumerations.
 """
@@ -481,6 +487,65 @@ class QiskryptQuantumRandomNumericGenerator(QiskryptQuantumRandomGenerator):
                 Convert the initial binary string generated from
                 the Qiskrypt's Quantum Random Numeric Generator,
                 in a final Unsigned Long Long Integer.
+                """
+
+            elif self.data_type == DATA_TYPES[8]:
+                """
+                If the data type of the numbers to be generated from
+                the Qiskrypt's Quantum Random Numeric Generator is a Signed Float.
+                """
+
+                random_number = unpack("f", pack("f", int(binary_string_bits, 2)))[0]
+                """
+                Convert the initial binary string generated from
+                the Qiskrypt's Quantum Random Numeric Generator,
+                in an Unsigned Float.
+                """
+
+                qiskrypt_quantum_coin_tossing = QiskryptQuantumCoinTossing("qu_coin")
+                """
+                Create a Qiskrypt's Quantum Coin Tossing.
+                """
+
+                qiskrypt_quantum_coin_tossing.initialise_qiskrypt_quantum_circuit()
+                """
+                Initialise the Qiskrypt's Quantum Circuit of the Qiskrypt's Quantum Coin Tossing.
+                """
+
+                qiskrypt_quantum_coin_tossing.toss_coin()
+                """
+                Toss the Coin, from the Qiskrypt's Quantum Coin Tossing.
+                """
+
+                coin_tossing_outcome_bit = qiskrypt_quantum_coin_tossing.get_coin_tossing_outcome_bit()
+                """
+                Retrieve the classical outcome (i.e., the observation) from the Coin Tossing,
+                through the execution of the respective Qiskrypt's Quantum Circuit,
+                in a binary digit format (i.e., a bit).
+                """
+
+                if coin_tossing_outcome_bit == "0b1":
+                    """
+                    If the classical outcome (i.e., the observation) from the Coin Tossing is one.
+                    """
+
+                    random_number *= -1
+                    """
+                    In this situation, the Float random number will be multiplied by -1,
+                    in order to, result in a Signed Float number.
+                    """
+
+            elif self.data_type == DATA_TYPES[9]:
+                """
+                If the data type of the numbers to be generated from
+                the Qiskrypt's Quantum Random Numeric Generator is a Unsigned Float.
+                """
+
+                random_number = unpack("f", pack("f", int(binary_string_bits, 2)))[0]
+                """
+                Convert the initial binary string generated from
+                the Qiskrypt's Quantum Random Numeric Generator,
+                in a final Unsigned Float.
                 """
 
             """
