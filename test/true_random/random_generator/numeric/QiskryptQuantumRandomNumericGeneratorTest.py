@@ -115,11 +115,11 @@ class QiskryptQuantumRandomNumericGeneratorTests(TestCase):
         """
         Test Case #2:
 
-        - Initialise the Qiskrypt's Quantum Random Numeric Generator, for a Unsigned Short Integer.
+        - Initialise the Qiskrypt's Quantum Random Numeric Generator, for an Unsigned Short Integer.
 
         Description of the Steps for the Unitary Test:
-        1) The Qiskrypt's Quantum Random Numeric Generator is initialised, for Signed Short Integers;
-        2) The Signed Short Integer is generated from the Qiskrypt's Quantum Random Numeric Generator;
+        1) The Qiskrypt's Quantum Random Numeric Generator is initialised, for Unsigned Short Integers;
+        2) The Unsigned Short Integer is generated from the Qiskrypt's Quantum Random Numeric Generator;
 
         Return OK (or FAIL) if, all the Tests performed are OK (or FAIL, otherwise).
         """
@@ -201,11 +201,11 @@ class QiskryptQuantumRandomNumericGeneratorTests(TestCase):
         """
         Test Case #4:
 
-        - Initialise the Qiskrypt's Quantum Random Numeric Generator, for a Unsigned Integer.
+        - Initialise the Qiskrypt's Quantum Random Numeric Generator, for an Unsigned Integer.
 
         Description of the Steps for the Unitary Test:
-        1) The Qiskrypt's Quantum Random Numeric Generator is initialised, for Signed Integers;
-        2) The Signed Integer is generated from the Qiskrypt's Quantum Random Numeric Generator;
+        1) The Qiskrypt's Quantum Random Numeric Generator is initialised, for Unsigned Integers;
+        2) The Unsigned Integer is generated from the Qiskrypt's Quantum Random Numeric Generator;
 
         Return OK (or FAIL) if, all the Tests performed are OK (or FAIL, otherwise).
         """
@@ -266,7 +266,7 @@ class QiskryptQuantumRandomNumericGeneratorTests(TestCase):
 
         signed_long_int_number = qiskrypt_quantum_random_numeric_generator.generate_number()
         """
-        Generate the Signed Integer from the Qiskrypt's Quantum Random Numeric Generator.
+        Generate the Signed Long Integer from the Qiskrypt's Quantum Random Numeric Generator.
         """
 
         print(f"\n\nTest #5:"
@@ -287,11 +287,11 @@ class QiskryptQuantumRandomNumericGeneratorTests(TestCase):
         """
         Test Case #6:
 
-        - Initialise the Qiskrypt's Quantum Random Numeric Generator, for a Unsigned Long Integer.
+        - Initialise the Qiskrypt's Quantum Random Numeric Generator, for an Unsigned Long Integer.
 
         Description of the Steps for the Unitary Test:
-        1) The Qiskrypt's Quantum Random Numeric Generator is initialised, for Signed Long Integers;
-        2) The Signed Long Integer is generated from the Qiskrypt's Quantum Random Numeric Generator;
+        1) The Qiskrypt's Quantum Random Numeric Generator is initialised, for Unsigned Long Integers;
+        2) The Unsigned Long Integer is generated from the Qiskrypt's Quantum Random Numeric Generator;
 
         Return OK (or FAIL) if, all the Tests performed are OK (or FAIL, otherwise).
         """
@@ -316,6 +316,92 @@ class QiskryptQuantumRandomNumericGeneratorTests(TestCase):
               f"\n - The Unsigned Long Integer generated from "
               f"the Qiskrypt's Quantum Random Numeric Generator is:\n"
               f"   [ {unsigned_long_int_number} ] (Decimal Format) ;\n")
+        """
+        Print the resulted Unsigned Long Integer, extracted from
+        the Qiskrypt's Quantum Random Numeric Generator.
+        """
+
+        """
+        Dummy Assert Equal for the Unittest.
+        """
+        self.assertEqual(True, True)
+
+    def test_no_7_qiskrypt_quantum_random_numeric_generator_signed_long_long_int(self):
+        """
+        Test Case #7:
+
+        - Initialise the Qiskrypt's Quantum Random Numeric Generator, for a Signed Long Long Integer.
+
+        Description of the Steps for the Unitary Test:
+        1) The Qiskrypt's Quantum Random Numeric Generator is initialised, for Signed Long Long Integers;
+        2) The Signed Long Long Integer is generated from the Qiskrypt's Quantum Random Numeric Generator;
+
+        Return OK (or FAIL) if, all the Tests performed are OK (or FAIL, otherwise).
+        """
+
+        qiskrypt_quantum_random_numeric_generator = \
+            QiskryptQuantumRandomNumericGenerator("qu_rnd_sig_long_long_int_gen_7", DATA_TYPES[6])
+        """
+        Create a Qiskrypt's Quantum Random Numeric Generator, for Signed Long Long Integers.
+        """
+
+        qiskrypt_quantum_random_numeric_generator.initiate()
+        """
+        Initiate/Configure the previously created Qiskrypt's Quantum Random Numeric Generator.
+        """
+
+        signed_long_long_int_number = qiskrypt_quantum_random_numeric_generator.generate_number()
+        """
+        Generate the Signed Long Long Integer from the Qiskrypt's Quantum Random Numeric Generator.
+        """
+
+        print(f"\n\nTest #7:"
+              f"\n - The Signed Long Long Integer generated from "
+              f"the Qiskrypt's Quantum Random Numeric Generator is:\n"
+              f"   [ {signed_long_long_int_number} ] (Decimal Format) ;\n")
+        """
+        Print the resulted Signed Long Long Integer, extracted from
+        the Qiskrypt's Quantum Random Numeric Generator.
+        """
+
+        """
+        Dummy Assert Equal for the Unittest.
+        """
+        self.assertEqual(True, True)
+
+    def test_no_8_qiskrypt_quantum_random_numeric_generator_unsigned_long_long_int(self):
+        """
+        Test Case #8:
+
+        - Initialise the Qiskrypt's Quantum Random Numeric Generator, for an Unsigned Long Long Integer.
+
+        Description of the Steps for the Unitary Test:
+        1) The Qiskrypt's Quantum Random Numeric Generator is initialised, for Unsigned Long Long Integers;
+        2) The Unsigned Long Long Integer is generated from the Qiskrypt's Quantum Random Numeric Generator;
+
+        Return OK (or FAIL) if, all the Tests performed are OK (or FAIL, otherwise).
+        """
+
+        qiskrypt_quantum_random_numeric_generator = \
+            QiskryptQuantumRandomNumericGenerator("qu_rnd_unsig_long_long_int_gen_8", DATA_TYPES[7])
+        """
+        Create a Qiskrypt's Quantum Random Numeric Generator, for Unsigned Long Long Integers.
+        """
+
+        qiskrypt_quantum_random_numeric_generator.initiate()
+        """
+        Initiate/Configure the previously created Qiskrypt's Quantum Random Numeric Generator.
+        """
+
+        unsigned_long_long_int_number = qiskrypt_quantum_random_numeric_generator.generate_number()
+        """
+        Generate the Unsigned Long Long Integer from the Qiskrypt's Quantum Random Numeric Generator.
+        """
+
+        print(f"\n\nTest #8:"
+              f"\n - The Unsigned Long Long Integer generated from "
+              f"the Qiskrypt's Quantum Random Numeric Generator is:\n"
+              f"   [ {unsigned_long_long_int_number} ] (Decimal Format) ;\n")
         """
         Print the resulted Unsigned Long Integer, extracted from
         the Qiskrypt's Quantum Random Numeric Generator.
