@@ -457,6 +457,32 @@ class QiskryptQuantumRandomNumericGenerator(QiskryptQuantumRandomGenerator):
                 in a final Unsigned Long Integer.
                 """
 
+            elif self.data_type == DATA_TYPES[6]:
+                """
+                If the data type of the numbers to be generated from
+                the Qiskrypt's Quantum Random Numeric Generator is a Signed Long Long Integer.
+                """
+
+                number = unpack('q', pack('Q', int(binary_string_bits, 2)))[0]
+                """
+                Convert the initial binary string generated from
+                the Qiskrypt's Quantum Random Numeric Generator,
+                in a final Signed Long Long Integer.
+                """
+
+            elif self.data_type == DATA_TYPES[7]:
+                """
+                If the data type of the numbers to be generated from
+                the Qiskrypt's Quantum Random Numeric Generator is a Unsigned Long Long Integer.
+                """
+
+                number = unpack('Q', pack('Q', int(binary_string_bits, 2)))[0]
+                """
+                Convert the initial binary string generated from
+                the Qiskrypt's Quantum Random Numeric Generator,
+                in a final Unsigned Long Long Integer.
+                """
+
             """
             Return the number generated from
             the Qiskrypt's Quantum Random Numeric Generator,
