@@ -412,6 +412,92 @@ class QiskryptQuantumRandomNumericGeneratorTests(TestCase):
         """
         self.assertEqual(True, True)
 
+    def test_no_9_qiskrypt_quantum_random_numeric_generator_signed_float(self):
+        """
+        Test Case #9:
+
+        - Initialise the Qiskrypt's Quantum Random Numeric Generator, for a Signed Float.
+
+        Description of the Steps for the Unitary Test:
+        1) The Qiskrypt's Quantum Random Numeric Generator is initialised, for Signed Float;
+        2) The Signed Float is generated from the Qiskrypt's Quantum Random Numeric Generator;
+
+        Return OK (or FAIL) if, all the Tests performed are OK (or FAIL, otherwise).
+        """
+
+        qiskrypt_quantum_random_numeric_generator = \
+            QiskryptQuantumRandomNumericGenerator("qu_rnd_sig_float_gen_9", DATA_TYPES[8])
+        """
+        Create a Qiskrypt's Quantum Random Numeric Generator, for Signed Float.
+        """
+
+        qiskrypt_quantum_random_numeric_generator.initiate()
+        """
+        Initiate/Configure the previously created Qiskrypt's Quantum Random Numeric Generator.
+        """
+
+        signed_float_number = qiskrypt_quantum_random_numeric_generator.generate_number()
+        """
+        Generate the Signed Float from the Qiskrypt's Quantum Random Numeric Generator.
+        """
+
+        print(f"\n\nTest #9:"
+              f"\n - The Signed Float generated from "
+              f"the Qiskrypt's Quantum Random Numeric Generator is:\n"
+              f"   [ {signed_float_number} ] (Decimal Format) ;\n")
+        """
+        Print the resulted Signed Float, extracted from
+        the Qiskrypt's Quantum Random Numeric Generator.
+        """
+
+        """
+        Dummy Assert Equal for the Unittest.
+        """
+        self.assertEqual(True, True)
+
+    def test_no_10_qiskrypt_quantum_random_numeric_generator_unsigned_float(self):
+        """
+        Test Case #10:
+
+        - Initialise the Qiskrypt's Quantum Random Numeric Generator, for an Unsigned Float.
+
+        Description of the Steps for the Unitary Test:
+        1) The Qiskrypt's Quantum Random Numeric Generator is initialised, for Unsigned Float;
+        2) The Unsigned Float is generated from the Qiskrypt's Quantum Random Numeric Generator;
+
+        Return OK (or FAIL) if, all the Tests performed are OK (or FAIL, otherwise).
+        """
+
+        qiskrypt_quantum_random_numeric_generator = \
+            QiskryptQuantumRandomNumericGenerator("qu_rnd_unsig_float_gen_10", DATA_TYPES[9])
+        """
+        Create a Qiskrypt's Quantum Random Numeric Generator, for Unsigned Float.
+        """
+
+        qiskrypt_quantum_random_numeric_generator.initiate()
+        """
+        Initiate/Configure the previously created Qiskrypt's Quantum Random Numeric Generator.
+        """
+
+        unsigned_float_number = qiskrypt_quantum_random_numeric_generator.generate_number()
+        """
+        Generate the Unsigned Float from the Qiskrypt's Quantum Random Numeric Generator.
+        """
+
+        print(f"\n\nTest #10:"
+              f"\n - The Unsigned Float generated from "
+              f"the Qiskrypt's Quantum Random Numeric Generator is:\n"
+              f"   [ {unsigned_float_number} ] (Decimal Format) ;\n")
+        """
+        Print the resulted Unsigned Float, extracted from
+        the Qiskrypt's Quantum Random Numeric Generator.
+        """
+
+        """
+        Dummy Assert Equal for the Unittest.
+        """
+        self.assertEqual(True, True)
+
 
 if __name__ == "__main__":
     """
