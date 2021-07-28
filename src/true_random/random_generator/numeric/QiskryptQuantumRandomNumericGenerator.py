@@ -132,7 +132,7 @@ SIZE_OF_NUMERIC_DATA_TYPES = {      DATA_TYPES[0]: (NUM_BYTES_SHORT_INTEGER * NU
                                    DATA_TYPES[10]: (NUM_BYTES_DOUBLE * NUM_BITS_FOR_ONE_BYTE),
                                    DATA_TYPES[11]: (NUM_BYTES_DOUBLE * NUM_BITS_FOR_ONE_BYTE),
                                    DATA_TYPES[12]: (NUM_BYTES_LONG_DOUBLE * NUM_BITS_FOR_ONE_BYTE),
-                                   DATA_TYPES[13]: (NUM_BYTES_LONG_DOUBLE * NUM_BITS_FOR_ONE_BYTE)     }
+                                   DATA_TYPES[13]: (NUM_BYTES_LONG_DOUBLE * NUM_BITS_FOR_ONE_BYTE)      }
 """
 The sizes of the Data Types for all the numbers that can be possibly generated.
 """
@@ -280,9 +280,8 @@ class QiskryptQuantumRandomNumericGenerator(QiskryptQuantumRandomGenerator):
             """
 
             super().configure(SIZE_OF_NUMERIC_DATA_TYPES[self.data_type])
-            """
-            Configure the Qiskrypt's Quantum Random Numeric Generator,
-            given a size for the Qiskrypt's Quantum Random Numeric Generator.
+            """        
+            Configure the Qiskrypt's Quantum Random Numeric Generator, given its size.
             """
 
         else:
