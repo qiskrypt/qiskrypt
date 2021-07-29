@@ -172,7 +172,7 @@ class QiskryptQuantumPauliXTransformTests(TestCase):
         quantum_pauli_x_transform_1_qubit_array_expected_amplitudes[(num_possible_outcomes - 1)] = (1. + 0.j)
         """
         Fill the last position of the expected values of
-        the Qiskrypt's Quantum Pauli-X Transform, with one.
+        the Qiskrypt's Quantum Pauli-X Transform, with |1⟩.
         """
 
         assert_allclose(final_quantum_state_vector_state,
@@ -276,7 +276,7 @@ class QiskryptQuantumPauliXTransformTests(TestCase):
         quantum_pauli_x_transform_2_qubits_array_expected_amplitudes[(num_possible_outcomes - 1)] = (1. + 0.j)
         """
         Fill the last position of the expected values of
-        the Qiskrypt's Quantum Pauli-X Transform, with one.
+        the Qiskrypt's Quantum Pauli-X Transform, with |1⟩.
         """
 
         assert_allclose(final_quantum_state_vector_state,
@@ -380,7 +380,7 @@ class QiskryptQuantumPauliXTransformTests(TestCase):
         quantum_pauli_x_transform_4_qubits_array_expected_amplitudes[(num_possible_outcomes - 1)] = (1. + 0.j)
         """
         Fill the last position of the expected values of
-        the Qiskrypt's Quantum Pauli-X Transform, with one.
+        the Qiskrypt's Quantum Pauli-X Transform, with |1⟩.
         """
 
         assert_allclose(final_quantum_state_vector_state,
@@ -484,7 +484,7 @@ class QiskryptQuantumPauliXTransformTests(TestCase):
         quantum_pauli_x_transform_8_qubits_array_expected_amplitudes[(num_possible_outcomes - 1)] = (1. + 0.j)
         """
         Fill the last position of the expected values of
-        the Qiskrypt's Quantum Pauli-X Transform, with one.
+        the Qiskrypt's Quantum Pauli-X Transform, with |1⟩.
         """
 
         assert_allclose(final_quantum_state_vector_state,
@@ -588,7 +588,7 @@ class QiskryptQuantumPauliXTransformTests(TestCase):
         quantum_pauli_x_transform_16_qubits_array_expected_amplitudes[(num_possible_outcomes - 1)] = (1. + 0.j)
         """
         Fill the last position of the expected values of
-        the Qiskrypt's Quantum Pauli-X Transform, with one.
+        the Qiskrypt's Quantum Pauli-X Transform, with |1⟩.
         """
 
         assert_allclose(final_quantum_state_vector_state,
@@ -692,7 +692,7 @@ class QiskryptQuantumPauliXTransformTests(TestCase):
         quantum_pauli_x_transform_20_qubits_array_expected_amplitudes[(num_possible_outcomes - 1)] = (1. + 0.j)
         """
         Fill the last position of the expected values of
-        the Qiskrypt's Quantum Pauli-X Transform, with one.
+        the Qiskrypt's Quantum Pauli-X Transform, with |1⟩.
         """
 
         assert_allclose(final_quantum_state_vector_state,
