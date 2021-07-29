@@ -258,6 +258,17 @@ class QiskryptQuantumPauliTransform:
         """
         return self.qubits_indexes
 
+    def apply_transform(self) -> None:
+        """
+        Apply the Qiskrypt's Quantum Pauli Transform,
+        to the specified indexes of qubits in the also specified indexes of
+        IBM Qiskit's Quantum Registers.
+        """
+
+        """
+        Empty method to be override by a sub-class.
+        """
+
     @staticmethod
     def raise_invalid_or_none_quantum_circuit_given_error() -> None:
         """
