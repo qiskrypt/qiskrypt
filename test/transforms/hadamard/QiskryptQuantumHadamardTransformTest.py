@@ -73,7 +73,7 @@ from src.circuit.QiskryptQuantumCircuit import QiskryptQuantumCircuit
 Import the Qiskrypt's Quantum Circuit.
 """
 
-from src.transforms.QiskryptQuantumHadamardTransform \
+from src.transforms.hadamard.QiskryptQuantumHadamardTransform \
     import QiskryptQuantumHadamardTransform
 """
 Import the Qiskrypt's Quantum Hadamard Transform.
