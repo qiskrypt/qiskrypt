@@ -59,7 +59,7 @@ from src.circuit.registers.classical.QiskryptClassicalRegister \
 Import the Qiskrypt's Classical Register.
 """
 
-from src.transforms.QiskryptQuantumHadamardTransform \
+from src.transforms.hadamard.QiskryptQuantumHadamardTransform \
     import QiskryptQuantumHadamardTransform
 """
 Import the Qiskrypt's Quantum Hadamard Transform.
