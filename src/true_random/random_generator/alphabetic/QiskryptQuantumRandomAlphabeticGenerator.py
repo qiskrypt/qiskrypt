@@ -181,11 +181,12 @@ class QiskryptQuantumRandomAlphabeticGenerator(QiskryptQuantumRandomGenerator):
         Reset the Qiskrypt's Quantum Random Alphabetic Generator.
         """
 
-    def generate_alphabetic_string(self, use_lowercase=True, use_uppercase=True, use_punctuation=True) -> str:
+    def generate_alphabetic_string(self, use_lowercase=True, use_uppercase=True,
+                                   use_punctuation=True) -> str:
         """
         Generate and return a binary string from
         the Qiskrypt's Quantum Random Alphabetic Generator,
-        in a binary format (i.e., a sequence of bits).
+        in a string format (i.e., a sequence of characters and punctuation).
 
         :param use_lowercase: the boolean flag to keep the information about if
                               it is pretended to use lowercase characters or not.
@@ -194,9 +195,9 @@ class QiskryptQuantumRandomAlphabeticGenerator(QiskryptQuantumRandomGenerator):
         :param use_punctuation: the boolean flag to keep the information about if
                                 it is pretended to use punctuation or not.
 
-        :return alphabetic_string: a alphabetic string from
-                                   the Qiskrypt's Quantum Random Alphabetic Generator,
-                                   in a string format (i.e., a sequence of characters).
+        :return alphabetic_string: a alphabetic string from the Qiskrypt's
+                                   Quantum Random Alphabetic Generator, in a string format
+                                   (i.e., a sequence of characters and punctuation).
         """
 
         if super().is_configured():
@@ -208,7 +209,7 @@ class QiskryptQuantumRandomAlphabeticGenerator(QiskryptQuantumRandomGenerator):
                 """
                 If, at least, some of the boolean flags to keep information about if
                 it is pretended to use uppercase characters, lowercase characters or
-                punctuation or not, is set to True.
+                punctuation, or not, is set to True.
                 """
 
                 qiskrypt_quantum_hadamard_transforms = \
@@ -252,7 +253,8 @@ class QiskryptQuantumRandomAlphabeticGenerator(QiskryptQuantumRandomGenerator):
                     """
 
                     final_results_frequency_counting = \
-                        execute(qiskrypt_quantum_hadamard_transform.get_qiskrypt_quantum_circuit().get_qiskit_quantum_circuit(),
+                        execute(qiskrypt_quantum_hadamard_transform.get_qiskrypt_quantum_circuit()
+                                .get_qiskit_quantum_circuit(),
                                 qiskit_qasm_backend, shots=1).result().get_counts()
                     """
                     Execute the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit
@@ -320,7 +322,8 @@ class QiskryptQuantumRandomAlphabeticGenerator(QiskryptQuantumRandomGenerator):
                 num_short_integer_binary_blocks_for_alphabet_indexes = \
                     int(binary_string_bits_size / (NUM_BITS_FOR_ONE_BYTE * NUM_BYTES_SHORT_INTEGER))
                 """
-                Compute the number of indexes of Short Integer Binary Blocks for the sample choices of the Alphabet.
+                Compute the number of indexes of Short Integer binary blocks for
+                the sample choices of the Alphabet.
                 """
 
                 alphabetic_string = ""
@@ -347,7 +350,8 @@ class QiskryptQuantumRandomAlphabeticGenerator(QiskryptQuantumRandomGenerator):
                     Compute the Offset of the end of the current binary block from the binary string generated.
                     """
 
-                    short_integer_binary_block = binary_string[(2 + offset_binary_block_start):(2 + offset_binary_block_end)]
+                    short_integer_binary_block = \
+                        binary_string[(2 + offset_binary_block_start):(2 + offset_binary_block_end)]
                     """
                     Retrieve the current binary block from the binary string generated.
                     """
@@ -368,7 +372,7 @@ class QiskryptQuantumRandomAlphabeticGenerator(QiskryptQuantumRandomGenerator):
                 """
                 Return the alphabetic string generated from
                 the Qiskrypt's Quantum Random Alphabetic Generator,
-                in a alphabetic format (i.e., a sequence of characters).
+                in an alphabetic format (i.e., a sequence of characters).
                 """
                 return alphabetic_string
 
@@ -383,7 +387,7 @@ class QiskryptQuantumRandomAlphabeticGenerator(QiskryptQuantumRandomGenerator):
 
         else:
             """
-            If the Qiskrypt's Quantum Random Binary Generator is not configured yet.
+            If the Qiskrypt's Quantum Random Alphabetic Generator is not configured yet.
             """
 
             # TODO - Throw exception
