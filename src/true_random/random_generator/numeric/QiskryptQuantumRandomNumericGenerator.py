@@ -157,7 +157,7 @@ class QiskryptQuantumRandomNumericGenerator(QiskryptQuantumRandomGenerator):
         Calls the constructor of the super-class Qiskrypt's Quantum Random Generator.
         """
 
-        if data_type in SIZE_OF_NUMERIC_DATA_TYPES:
+        if data_type in DATA_TYPES:
             """
             If the data type of the numbers to be generated from
             the Qiskrypt's Quantum Random Numeric Generator is valid.
@@ -172,7 +172,7 @@ class QiskryptQuantumRandomNumericGenerator(QiskryptQuantumRandomGenerator):
         else:
             """
             If the data type of the numbers to be generated from
-            the Qiskrypt's Quantum Random Numeric Generator is valid.
+            the Qiskrypt's Quantum Random Numeric Generator is not valid.
             """
 
             # TODO - Throw Exception
