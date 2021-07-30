@@ -366,6 +366,44 @@ class QiskryptQuantumDiceThrowing:
             """
             self.raise_dice_not_thrown_yet_error()
 
+    def get_dice_throwing_num_points(self) -> int:
+        """
+        Return the number of points corresponding to
+        the classical outcome (i.e., the observation) from the Dice Throwing,
+        through the execution of the respective Qiskrypt's Quantum Circuit,
+        in an integer base-2 format (i.e., an integer representation of bits).
+
+        :return self.get_dice_throwing_outcome_bits_as_int_base_2() + 1: the number of points corresponding to
+                                                                         the classical outcome (i.e., the observation) from
+                                                                         the Dice Throwing, through the execution of
+                                                                         the respective Qiskrypt's Quantum Circuit,
+                                                                         in an integer base-2 format
+                                                                         (i.e., an integer representation of bits).
+        """
+
+        if self.is_already_thrown():
+            """
+            If the Dice was already thrown.          
+            """
+
+            """
+            Return the number of points corresponding to
+            the classical outcome (i.e., the observation) from the Dice Throwing,
+            through the execution of the respective Qiskrypt's Quantum Circuit,
+            in an integer base-2 format (i.e., an integer representation of a bit).
+            """
+            return int(self.dice_throwing_outcome_bits, base=2) + 1
+
+        else:
+            """
+            If the Dice was not thrown yet.          
+            """
+
+            """
+            Return/Raise a Dice Not Thrown Yet Error for the Qiskrypt's Quantum Dice Throwing.
+            """
+            self.raise_dice_not_thrown_yet_error()
+
     def configure(self, dice_type: str) -> None:
         """
         Configure the Qiskrypt's Quantum Dice Throwing,
@@ -548,6 +586,31 @@ class QiskryptQuantumDiceThrowing:
             the Dice was already thrown or not, as True.
             """
 
+            while (self.get_dice_throwing_num_points() is None) \
+                or (self.get_dice_throwing_num_points() > self.num_dice_sides):
+                """
+                                
+                """
+
+                final_results_frequency_counting = \
+                    execute(self.qiskrypt_quantum_hadamard_transform
+                            .qiskrypt_quantum_circuit.get_qiskit_quantum_circuit(),
+                            qiskit_qasm_backend, shots=1).result().get_counts()
+                """
+                Execute the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit
+                and store the resulted measurement of its final quantum state.
+                """
+
+                self.dice_throwing_outcome_bits = \
+                    bin(int(final_results_frequency_counting.most_frequent(), base=2))
+                """
+                Set the bit outcome for the Dice Throwing,
+                from the measurement of the Qiskrypt's Quantum Circuit for
+                the Qiskrypt's Quantum Coin Tossing, as the resulted outcome
+                from the measurement of the IBM Qiskit's Quantum Circuit,
+                in an binary format (i.e., the Python's representation for a bit).
+                """
+
         else:
             """
             If the Dice is already thrown and/or
@@ -600,11 +663,11 @@ class QiskryptQuantumDiceThrowing:
         """
         Return/Raise a Dice Already Thrown Error for the Qiskrypt's Quantum Dice Throwing.
 
-        :raise dice_not_thrown_yet_error: a Dice Already Thrown Error for
+        :raise dice_already_thrown_error: a Dice Already Thrown Error for
                                           the Qiskrypt's Quantum Dice Throwing.
         """
 
-        dice_not_thrown_yet_error = QiskryptQuantumDiceThrowingDiceAlreadyThrownError()
+        dice_already_thrown_error = QiskryptQuantumDiceThrowingDiceAlreadyThrownError()
         """
         Retrieve the Dice Already Thrown Error for the Qiskrypt's Quantum Dice Throwing.
         """
@@ -612,4 +675,4 @@ class QiskryptQuantumDiceThrowing:
         """
         Raise the Dice Already Thrown Error for the Qiskrypt's Quantum Dice Throwing.
         """
-        raise dice_not_thrown_yet_error
+        raise dice_already_thrown_error
