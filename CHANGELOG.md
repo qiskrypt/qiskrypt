@@ -37,17 +37,30 @@ The features added, changed and fixed on the project will be described here, adr
 * Creation of the Qiskrypt's Registers (Quantum, Fully-Quantum, Semi-Quantum, Ancilla, Ancilla Fully-Quantum, Ancilla Semi-Quantum and Classical) and their Handling of Exceptions - ([https://github.com/qiskrypt/qiskrypt/commit/d5d58e4c157bb1359f6b224953942da883c620a5](https://github.com/qiskrypt/qiskrypt/commit/d5d58e4c157bb1359f6b224953942da883c620a5))
 * Creation of the Qiskrypt's Quantum Circuit and addition of some methods - ([https://github.com/qiskrypt/qiskrypt/commit/bed13e4fbe6b125fb84f2ec59100df3f27bff3e5](https://github.com/qiskrypt/qiskrypt/commit/bed13e4fbe6b125fb84f2ec59100df3f27bff3e5))
 * Creation of the Bash Shell Executable - ([https://github.com/qiskrypt/qiskrypt/commit/e11ca4ed74fc28daa8aff7c2fd27a398c8d77359](https://github.com/qiskrypt/qiskrypt/commit/e11ca4ed74fc28daa8aff7c2fd27a398c8d77359))
-* Creation of Unitary Tests for the Qiskrypt's Registers - ([https://github.com/qiskrypt/qiskrypt/commit/c740317702a556270a84ba4b3d82520b5132c183](https://github.com/qiskrypt/qiskrypt/commit/c740317702a556270a84ba4b3d82520b5132c183))
+* Creation of the Unitary Tests for the Qiskrypt's Registers - ([https://github.com/qiskrypt/qiskrypt/commit/c740317702a556270a84ba4b3d82520b5132c183](https://github.com/qiskrypt/qiskrypt/commit/c740317702a556270a84ba4b3d82520b5132c183))
 
 
 ## Week 6 (July 11, 2021 - July 17, 2021)
 
- 
+* Some Quantum Gates/Operations added to the Qiskrypt's Quantum Circuit - ([https://github.com/qiskrypt/qiskrypt/commit/a1c8a064fc6f6c4eeb4f48f1ed30e49f4fc3b0c7](https://github.com/qiskrypt/qiskrypt/commit/a1c8a064fc6f6c4eeb4f48f1ed30e49f4fc3b0c7))
+* Creation of the Unitary Tests for the Qiskrypt's Quantum Circuit - ([https://github.com/qiskrypt/qiskrypt/commit/8209f7cc66de079ae4603ed733ae05d93e5563d8](https://github.com/qiskrypt/qiskrypt/commit/8209f7cc66de079ae4603ed733ae05d93e5563d8))
+ * Handling of the Exceptions for the Qiskrypt's Registers - ([https://github.com/qiskrypt/qiskrypt/commit/dd8c9210eeae88ff179d8dc78b6e83976c0e2ef3](https://github.com/qiskrypt/qiskrypt/commit/dd8c9210eeae88ff179d8dc78b6e83976c0e2ef3))
 
 ## Week 7 (July 18, 2021 - July 24, 2021)
 
-
+* Operations for the Preparing and Measurement of Quantum States - ([https://github.com/qiskrypt/qiskrypt/commit/3dcdb2a9aa42f16801490e80519a116f8fad7f82](https://github.com/qiskrypt/qiskrypt/commit/3dcdb2a9aa42f16801490e80519a116f8fad7f82))
+* More Quantum Gates/Operations added to the Qiskrypt's Quantum Circuit - ([https://github.com/qiskrypt/qiskrypt/commit/23c1a772084c0b610c74dd2eb0a4c2edba3c2893](https://github.com/qiskrypt/qiskrypt/commit/23c1a772084c0b610c74dd2eb0a4c2edba3c2893))
+* Creation of the Qiskrypt's Quantum Coin Tossing - ([https://github.com/qiskrypt/qiskrypt/commit/46f6f3d14878a145894efc158481d5f7d0eb1c2f](https://github.com/qiskrypt/qiskrypt/commit/46f6f3d14878a145894efc158481d5f7d0eb1c2f))
+* Creation of the Unitary Tests fo the Qiskrypt's Quantum Coin Tossing - ([https://github.com/qiskrypt/qiskrypt/commit/44f21910af93996334c6a5db48312a80558f077b](https://github.com/qiskrypt/qiskrypt/commit/44f21910af93996334c6a5db48312a80558f077b))
+* Creation of the Qiskrypt's Quantum Hadamard Transform - ([https://github.com/qiskrypt/qiskrypt/commit/e76d92ebe38069bda335d41eb3c97267330150e4](https://github.com/qiskrypt/qiskrypt/commit/e76d92ebe38069bda335d41eb3c97267330150e4))
 
 ## Week 8 (July 25, 2021 - July 31, 2021)
 
-
+* Creation of Unitary Tests for the Qiskrypt's Quantum Hadamard Transform - ([https://github.com/qiskrypt/qiskrypt/commit/a1ed9304c3a267f6b8cee5b0bcdf9d42d660430c](https://github.com/qiskrypt/qiskrypt/commit/a1ed9304c3a267f6b8cee5b0bcdf9d42d660430c))
+* Creation of the Qiskrypt's Quantum Random Generator - ([https://github.com/qiskrypt/qiskrypt/commit/6304911bf8e058a71679bae2cc2d35590c31eb25](https://github.com/qiskrypt/qiskrypt/commit/6304911bf8e058a71679bae2cc2d35590c31eb25))
+* Creation of the Qiskrypt's Quantum Random Binary Generator - ([https://github.com/qiskrypt/qiskrypt/commit/63c2c03aaf3ef598aa8adfaa04850406560d8fd3](https://github.com/qiskrypt/qiskrypt/commit/63c2c03aaf3ef598aa8adfaa04850406560d8fd3))
+* Creation of the Unitary Tests for the Qiskrypt's Quantum Random Binary Generator - ([https://github.com/qiskrypt/qiskrypt/commit/56513d7229c1fcdd23195e900b70cfcda97d6f60](https://github.com/qiskrypt/qiskrypt/commit/56513d7229c1fcdd23195e900b70cfcda97d6f60))
+* Creation of the Qiskrypt's Quantum Random Numeric Generator - ([https://github.com/qiskrypt/qiskrypt/commit/c17ce88ed64388cba741315870194a733ef11a3b](https://github.com/qiskrypt/qiskrypt/commit/c17ce88ed64388cba741315870194a733ef11a3b))
+* Creation of the Unitary Tests for the Qiskrypt's Quantum Random Numeric Generator - ([https://github.com/qiskrypt/qiskrypt/commit/eefc154fff27db484ce387b7d4546f01a3184721](https://github.com/qiskrypt/qiskrypt/commit/eefc154fff27db484ce387b7d4546f01a3184721))
+* Creation of the Pauli -X, -Y, -Z Transforms - ([https://github.com/qiskrypt/qiskrypt/commit/9ea54305ece745cbb9c4bd8cb5600fb6643e9d93](https://github.com/qiskrypt/qiskrypt/commit/9ea54305ece745cbb9c4bd8cb5600fb6643e9d93))
+* Creation of the Unitary Tests for the Pauli -X, -Y, -Z Transforms - ([https://github.com/qiskrypt/qiskrypt/commit/659a6022014167c0ba14da70b223dd6674004d9e](https://github.com/qiskrypt/qiskrypt/commit/659a6022014167c0ba14da70b223dd6674004d9e))
