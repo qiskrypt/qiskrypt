@@ -1,6 +1,6 @@
-# Qiskrypt
+# Qis|krypt⟩
 
-<img src="https://raw.githubusercontent.com/qiskrypt/qiskrypt.github.io/main/assets/images/logos/qiskrypt/PNGs/qiskrypt-logo-banner-2.png" alt="Qiskrypt - Logo" width="60%">
+<img src="https://raw.githubusercontent.com/qiskrypt/qiskrypt.github.io/main/assets/images/logos/qiskrypt/PNGs/qiskrypt-logo-banner-2.png" alt="Qis|krypt⟩ - Logo" width="60%">
 
 #### Statistics and Status
 
@@ -90,7 +90,7 @@
 
 ### About
 
-The [**Qiskrypt**](https://qiskrypt.github.io/) is a software suite of protocols of _quantum cryptography_ and _quantum communications_, as well, other _protocols_ and _algorithms_, built using the [**IBM**](https://www.ibm.com/)’s _open-source_ _Software Development Kit_ for _quantum computing_ [**Qiskit**](https://qiskit.org/).
+The [**Qis|krypt⟩**](https://qiskrypt.github.io/) is a software suite of protocols of _quantum cryptography_ and _quantum communications_, as well, other _protocols_ and _algorithms_, built using the [**IBM**](https://www.ibm.com/)’s _open-source_ _Software Development Kit_ for _quantum computing_ [**Qiskit**](https://qiskit.org/).
 
 
 #### Foundation
@@ -936,7 +936,7 @@ Other some references for some of the developed protocols can be found here:
 
 ## Copyright and License
 
-© Copyright 2021 by <a property="dct:title" rel="cc:attributionURL" href="https://github.com/qiskrypt/" target="_blank">Qiskrypt</a> and its contributors.
+© Copyright 2021 by <a property="dct:title" rel="cc:attributionURL" href="https://github.com/qiskrypt/" target="_blank">Qis|krypt⟩</a> and its contributors.
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">
  <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" />
@@ -946,7 +946,7 @@ Other some references for some of the developed protocols can be found here:
 <br />
 
 <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">
- <a property="dct:title" rel="cc:attributionURL" href="https://github.com/qiskrypt/" target="_blank">Qiskrypt</a> is distributed under the terms of the <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.
+ <a property="dct:title" rel="cc:attributionURL" href="https://github.com/qiskrypt/" target="_blank">Qis|krypt⟩</a> is distributed under the terms of the <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.
  <br />
  <br />
  <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">
@@ -964,6 +964,6 @@ See the [Contribution Graph](https://github.com/qiskrypt/qiskrypt/graphs/contrib
 
 ## Our motto
 
-"_Let's encrypt with Qiskit??! Qiskrypt!!!_"
+"_Let's encrypt with Qiskit??! Qis|krypt⟩!!!_"
 
 With love, your _qiskitter_, Rúben. ☺️ ❤️
