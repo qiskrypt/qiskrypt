@@ -177,7 +177,7 @@ class QiskryptQuantumPauliZTransformTests(TestCase):
         quantum_pauli_z_transform_1_qubit_array_expected_amplitudes[2**(num_qubits - 1)] = -(1. + 0.j)
         """
         Fill the position for the last qubit of the expected values of
-        the Qiskrypt's Quantum Pauli-Z Transform, with -|1⟩.
+        the Qiskrypt's Quantum Pauli-Z Transform, with -1.
         """
 
         assert_allclose(final_quantum_state_vector_state,
@@ -286,7 +286,7 @@ class QiskryptQuantumPauliZTransformTests(TestCase):
         quantum_pauli_z_transform_2_qubits_array_expected_amplitudes[2**(num_qubits - 1)] = -(1. + 0.j)
         """
         Fill the position for the last qubit of the expected values of
-        the Qiskrypt's Quantum Pauli-Z Transform, with -|1⟩.
+        the Qiskrypt's Quantum Pauli-Z Transform, with -1.
         """
 
         assert_allclose(final_quantum_state_vector_state,
@@ -395,7 +395,7 @@ class QiskryptQuantumPauliZTransformTests(TestCase):
         quantum_pauli_z_transform_4_qubits_array_expected_amplitudes[2**(num_qubits - 1)] = -(1. + 0.j)
         """
         Fill the position for the last qubit of the expected values of
-        the Qiskrypt's Quantum Pauli-Z Transform, with -|1⟩.
+        the Qiskrypt's Quantum Pauli-Z Transform, with -1.
         """
 
         assert_allclose(final_quantum_state_vector_state,
@@ -504,7 +504,7 @@ class QiskryptQuantumPauliZTransformTests(TestCase):
         quantum_pauli_z_transform_8_qubits_array_expected_amplitudes[2**(num_qubits - 1)] = -(1. + 0.j)
         """
         Fill the position for the last qubit of the expected values of
-        the Qiskrypt's Quantum Pauli-Z Transform, with -|1⟩.
+        the Qiskrypt's Quantum Pauli-Z Transform, with -1.
         """
 
         assert_allclose(final_quantum_state_vector_state,
@@ -613,7 +613,7 @@ class QiskryptQuantumPauliZTransformTests(TestCase):
         quantum_pauli_z_transform_16_qubits_array_expected_amplitudes[2**(num_qubits - 1)] = -(1. + 0.j)
         """
         Fill the position for the last qubit of the expected values of
-        the Qiskrypt's Quantum Pauli-Z Transform, with -|1⟩.
+        the Qiskrypt's Quantum Pauli-Z Transform, with -1.
         """
 
         assert_allclose(final_quantum_state_vector_state,
@@ -722,7 +722,7 @@ class QiskryptQuantumPauliZTransformTests(TestCase):
         quantum_pauli_z_transform_20_qubits_array_expected_amplitudes[2**(num_qubits - 1)] = -(1. + 0.j)
         """
         Fill the position for the last qubit of the expected values of
-        the Qiskrypt's Quantum Pauli-Z Transform, with -|1⟩.
+        the Qiskrypt's Quantum Pauli-Z Transform, with -1.
         """
 
         assert_allclose(final_quantum_state_vector_state,
