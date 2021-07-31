@@ -273,24 +273,10 @@ class QiskryptQuantumRandomNumericGenerator(QiskryptQuantumRandomGenerator):
         given a size for the Qiskrypt's Quantum Random Numeric Generator.
         """
 
-        if self.data_type in SIZE_OF_NUMERIC_DATA_TYPES:
-            """
-            If the data type of the numbers to be generated from
-            the Qiskrypt's Quantum Random Numeric Generator is valid.
-            """
-
-            super().configure(SIZE_OF_NUMERIC_DATA_TYPES[self.data_type])
-            """        
-            Configure the Qiskrypt's Quantum Random Numeric Generator, given its size.
-            """
-
-        else:
-            """
-            If the data type of the numbers to be generated from
-            the Qiskrypt's Quantum Random Numeric Generator is not valid.
-            """
-
-            # TODO - Throw Exception
+        super().configure(SIZE_OF_NUMERIC_DATA_TYPES[self.data_type])
+        """        
+        Configure the Qiskrypt's Quantum Random Numeric Generator, given its size.
+        """
 
     def reset(self) -> None:
         """
