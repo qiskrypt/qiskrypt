@@ -64,3 +64,12 @@ The features added, changed and fixed on the project will be described here, adr
 * Creation of the Unitary Tests for the Qiskrypt's Quantum Random Numeric Generator - ([https://github.com/qiskrypt/qiskrypt/commit/eefc154fff27db484ce387b7d4546f01a3184721](https://github.com/qiskrypt/qiskrypt/commit/eefc154fff27db484ce387b7d4546f01a3184721))
 * Creation of the Pauli -X, -Y, -Z Transforms - ([https://github.com/qiskrypt/qiskrypt/commit/9ea54305ece745cbb9c4bd8cb5600fb6643e9d93](https://github.com/qiskrypt/qiskrypt/commit/9ea54305ece745cbb9c4bd8cb5600fb6643e9d93))
 * Creation of the Unitary Tests for the Pauli -X, -Y, -Z Transforms - ([https://github.com/qiskrypt/qiskrypt/commit/659a6022014167c0ba14da70b223dd6674004d9e](https://github.com/qiskrypt/qiskrypt/commit/659a6022014167c0ba14da70b223dd6674004d9e))
+* Creation of the Qiskrypt's Quantum Random Alphabetic Generator - ([https://github.com/qiskrypt/qiskrypt/commit/d9db71c5a55515edfe6e3af0e161d88e64a18841](https://github.com/qiskrypt/qiskrypt/commit/d9db71c5a55515edfe6e3af0e161d88e64a18841))
+* Creation of the Unitary Tests for the Qiskrypt's Quantum Random Alphabetic Generator - ([https://github.com/qiskrypt/qiskrypt/commit/712345e30d271a0ee2a8dd3430cc96c2a4268d22](https://github.com/qiskrypt/qiskrypt/commit/712345e30d271a0ee2a8dd3430cc96c2a4268d22))
+* Creation of the Qiskrypt's Quantum Random Alphanumeric Generator - ([https://github.com/qiskrypt/qiskrypt/commit/2a5dda1e7ab1b732cbc4ad6756d8c2a180abe44b](https://github.com/qiskrypt/qiskrypt/commit/2a5dda1e7ab1b732cbc4ad6756d8c2a180abe44b))
+* Creation of the Unitary Tests for the Qiskrypt's Quantum Random Alphanumeric Generator - ([https://github.com/qiskrypt/qiskrypt/commit/73e921304242b5b4081b36603da9957d65b21506](https://github.com/qiskrypt/qiskrypt/commit/73e921304242b5b4081b36603da9957d65b21506))
+* Creation of the Qiskrypt's Quantum Random Password Generator - ([https://github.com/qiskrypt/qiskrypt/commit/1c2cd4bce2fb0d5883e91a345f3b3164d08b8bc8](https://github.com/qiskrypt/qiskrypt/commit/1c2cd4bce2fb0d5883e91a345f3b3164d08b8bc8))
+* Creation of the Unitary Tests for the Qiskrypt's Quantum Random Password Generator - ([https://github.com/qiskrypt/qiskrypt/commit/2a33e1389bc67707fe502d93b3176f6d459879ef](https://github.com/qiskrypt/qiskrypt/commit/2a33e1389bc67707fe502d93b3176f6d459879ef)
+
+## Week 9 (August 01, 2021 - August 07, 2021)
+
