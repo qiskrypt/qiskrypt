@@ -354,7 +354,7 @@ class QiskryptQuantumRandomAlphanumericGenerator(QiskryptQuantumRandomGenerator)
         the Qiskrypt's Quantum Random Alphanumeric Generator,
         in a string format (i.e., a sequence of characters, punctuation and numbers).
 
-        :return alphanumeric_string: a alphanumeric string from the Qiskrypt's
+        :return alphanumeric_string: an alphanumeric string from the Qiskrypt's
                                      Quantum Random Alphanumeric Generator, in a string format
                                      (i.e., a sequence of characters, punctuation and numbers).
         """

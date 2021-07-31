@@ -320,7 +320,7 @@ class QiskryptQuantumRandomAlphabeticGenerator(QiskryptQuantumRandomGenerator):
         the Qiskrypt's Quantum Random Alphabetic Generator,
         in a string format (i.e., a sequence of characters and punctuation).
 
-        :return alphabetic_string: a alphabetic string from the Qiskrypt's
+        :return alphabetic_string: an alphabetic string from the Qiskrypt's
                                    Quantum Random Alphabetic Generator, in a string format
                                    (i.e., a sequence of characters and punctuation).
         """
