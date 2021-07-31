@@ -41,12 +41,46 @@ Acknowledgement(s):\n
 Definition of the custom Exception messages.
 """
 
+MESSAGE_QUANTUM_RANDOM_GENERATOR_NOT_CONFIGURED_YET_EXCEPTION = "Quantum Random Generator Not Configured Yet Error: " \
+                                                                "The Quantum Random Generator was not configured yet!!!\n"
+"""
+The custom defined message for the Quantum Random Generator Not Configured Yet Error for
+the Qiskrypt's Quantum Random Generator.
+"""
+
 MESSAGE_QUANTUM_RANDOM_GENERATOR_ALREADY_CONFIGURED_EXCEPTION = "Quantum Random Generator Already Configured Error: " \
                                                                 "The Quantum Random Generator was already configured!!!\n"
 """
 The custom defined message for the Quantum Random Generator Already Configured Error for
 the Qiskrypt's Quantum Random Generator.
 """
+
+
+class QiskryptQuantumRandomGeneratorNotConfiguredYetError(Exception):
+    """
+    Object Class of the Quantum Random Generator Not Configured Yet Error for
+    the Qiskrypt's Quantum Random Generator.
+    """
+
+    def __init__(self, message=MESSAGE_QUANTUM_RANDOM_GENERATOR_NOT_CONFIGURED_YET_EXCEPTION):
+        """
+        Constructor for the Quantum Random Generator Not Configured Yet Error for
+        the Qiskrypt's Quantum Random Generator.
+
+        :param message: the custom message for the Quantum Random Generator Not Configured Yet Error for
+                        the Qiskrypt's Quantum Random Generator.
+        """
+
+        self.message = message
+        """
+        Set the custom message for the Quantum Random Generator Not Configured Yet Error for
+        the Qiskrypt's Quantum Random Generator.
+        """
+
+        super().__init__(self.message)
+        """
+        Calls the constructor of the super-class Exception.
+        """
 
 
 class QiskryptQuantumRandomGeneratorAlreadyConfiguredError(Exception):
