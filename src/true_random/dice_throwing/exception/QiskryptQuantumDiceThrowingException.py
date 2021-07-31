@@ -41,20 +41,6 @@ Acknowledgement(s):\n
 Definition of the custom Exception messages.
 """
 
-MESSAGE_DICE_NOT_THROWN_YET_EXCEPTION = "Dice Not Thrown Yet Error: " \
-                                        "The Dice of the Quantum Dice Throwing was not thrown yet!!!\n"
-"""
-The custom defined message for the Dice Not Thrown Yet Error for
-the Qiskrypt's Quantum Dice Throwing.
-"""
-
-MESSAGE_DICE_ALREADY_THROWN_EXCEPTION = "Dice Already Thrown Error: " \
-                                        "The Dice of the Quantum Dice Throwing was already thrown!!!\n"
-"""
-The custom defined message for the Dice Already Thrown Error for
-the Qiskrypt's Quantum Dice Throwing.
-"""
-
 MESSAGE_DICE_NOT_CONFIGURED_YET_EXCEPTION = "Dice Not Configured Yet Error: " \
                                             "The Dice of the Quantum Dice Throwing was not configured yet!!!\n"
 """
@@ -69,51 +55,19 @@ The custom defined message for the Dice Already Configured Error for
 the Qiskrypt's Quantum Dice Throwing.
 """
 
+MESSAGE_DICE_NOT_THROWN_YET_EXCEPTION = "Dice Not Thrown Yet Error: " \
+                                        "The Dice of the Quantum Dice Throwing was not thrown yet!!!\n"
+"""
+The custom defined message for the Dice Not Thrown Yet Error for
+the Qiskrypt's Quantum Dice Throwing.
+"""
 
-class QiskryptQuantumDiceThrowingDiceNotThrownYetError(Exception):
-    """
-    Object Class of the Dice Not Thrown Yet Error for the Qiskrypt's Quantum Dice Throwing.
-    """
-
-    def __init__(self, message=MESSAGE_DICE_NOT_THROWN_YET_EXCEPTION):
-        """
-        Constructor for the Dice Not Thrown Yet Error for the Qiskrypt's Quantum Dice Throwing.
-
-        :param message: the custom message for the Dice Not Thrown Yet Error for the Qiskrypt's Quantum Dice Throwing.
-        """
-
-        self.message = message
-        """
-        Set the custom message for the Dice Not Thrown Yet Error for the Qiskrypt's Quantum Dice Throwing.
-        """
-
-        super().__init__(self.message)
-        """
-        Calls the constructor of the super-class Exception.
-        """
-
-
-class QiskryptQuantumDiceThrowingDiceAlreadyThrownError(Exception):
-    """
-    Object Class of the Dice Already Thrown Error for the Qiskrypt's Quantum Dice Throwing.
-    """
-
-    def __init__(self, message=MESSAGE_DICE_ALREADY_THROWN_EXCEPTION):
-        """
-        Constructor for the Dice Already Thrown Error for the Qiskrypt's Quantum Dice Throwing.
-
-        :param message: the custom message for the Dice Already Thrown Error for the Qiskrypt's Quantum Dice Throwing.
-        """
-
-        self.message = message
-        """
-        Set the custom message for the Dice Already Thrown Error for the Qiskrypt's Quantum Dice Throwing.
-        """
-
-        super().__init__(self.message)
-        """
-        Calls the constructor of the super-class Exception.
-        """
+MESSAGE_DICE_ALREADY_THROWN_EXCEPTION = "Dice Already Thrown Error: " \
+                                        "The Dice of the Quantum Dice Throwing was already thrown!!!\n"
+"""
+The custom defined message for the Dice Already Thrown Error for
+the Qiskrypt's Quantum Dice Throwing.
+"""
 
 
 class QiskryptQuantumDiceThrowingDiceNotConfiguredYetError(Exception):
@@ -159,6 +113,52 @@ class QiskryptQuantumDiceThrowingDiceAlreadyConfiguredError(Exception):
         """
         Set the custom message for the Dice Already Configured Error for
         the Qiskrypt's Quantum Dice Throwing.
+        """
+
+        super().__init__(self.message)
+        """
+        Calls the constructor of the super-class Exception.
+        """
+
+
+class QiskryptQuantumDiceThrowingDiceNotThrownYetError(Exception):
+    """
+    Object Class of the Dice Not Thrown Yet Error for the Qiskrypt's Quantum Dice Throwing.
+    """
+
+    def __init__(self, message=MESSAGE_DICE_NOT_THROWN_YET_EXCEPTION):
+        """
+        Constructor for the Dice Not Thrown Yet Error for the Qiskrypt's Quantum Dice Throwing.
+
+        :param message: the custom message for the Dice Not Thrown Yet Error for the Qiskrypt's Quantum Dice Throwing.
+        """
+
+        self.message = message
+        """
+        Set the custom message for the Dice Not Thrown Yet Error for the Qiskrypt's Quantum Dice Throwing.
+        """
+
+        super().__init__(self.message)
+        """
+        Calls the constructor of the super-class Exception.
+        """
+
+
+class QiskryptQuantumDiceThrowingDiceAlreadyThrownError(Exception):
+    """
+    Object Class of the Dice Already Thrown Error for the Qiskrypt's Quantum Dice Throwing.
+    """
+
+    def __init__(self, message=MESSAGE_DICE_ALREADY_THROWN_EXCEPTION):
+        """
+        Constructor for the Dice Already Thrown Error for the Qiskrypt's Quantum Dice Throwing.
+
+        :param message: the custom message for the Dice Already Thrown Error for the Qiskrypt's Quantum Dice Throwing.
+        """
+
+        self.message = message
+        """
+        Set the custom message for the Dice Already Thrown Error for the Qiskrypt's Quantum Dice Throwing.
         """
 
         super().__init__(self.message)
