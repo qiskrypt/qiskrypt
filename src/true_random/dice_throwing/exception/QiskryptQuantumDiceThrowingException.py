@@ -41,6 +41,13 @@ Acknowledgement(s):\n
 Definition of the custom Exception messages.
 """
 
+MESSAGE_DICE_TYPE_NOT_VALID_EXCEPTION = "Dice Type Not Valid Error: " \
+                                        "The Dice Type of the Quantum Dice Throwing is not valid!!!\n"
+"""
+The custom defined message for the Dice Type Not Valid Error for
+the Qiskrypt's Quantum Dice Throwing.
+"""
+
 MESSAGE_DICE_NOT_CONFIGURED_YET_EXCEPTION = "Dice Not Configured Yet Error: " \
                                             "The Dice of the Quantum Dice Throwing was not configured yet!!!\n"
 """
@@ -68,6 +75,32 @@ MESSAGE_DICE_ALREADY_THROWN_EXCEPTION = "Dice Already Thrown Error: " \
 The custom defined message for the Dice Already Thrown Error for
 the Qiskrypt's Quantum Dice Throwing.
 """
+
+
+class QiskryptQuantumDiceThrowingDiceTypeNotValidError(Exception):
+    """
+    Object Class of the Dice Type Not Valid Error for the Qiskrypt's Quantum Dice Throwing.
+    """
+
+    def __init__(self, message=MESSAGE_DICE_TYPE_NOT_VALID_EXCEPTION):
+        """
+        Constructor for the Dice Type Not Valid Error for
+        the Qiskrypt's Quantum Dice Throwing.
+
+        :param message: the custom message for the Dice Type Not Valid Error for
+                        the Qiskrypt's Quantum Dice Throwing.
+        """
+
+        self.message = message
+        """
+        Set the custom message for the Dice Type Not Valid Error for
+        the Qiskrypt's Quantum Dice Throwing.
+        """
+
+        super().__init__(self.message)
+        """
+        Calls the constructor of the super-class Exception.
+        """
 
 
 class QiskryptQuantumDiceThrowingDiceNotConfiguredYetError(Exception):
