@@ -81,8 +81,8 @@ class QiskryptQuantumRandomAlphabeticGeneratorTests(TestCase):
 
         qiskrypt_quantum_random_alphabetic_generator = \
             QiskryptQuantumRandomAlphabeticGenerator("qu_rnd_alpha_gen_1",
-                                                     lowercase=True, uppercase=False,
-                                                     punctuation=False)
+                                                     lowercase_flag=True, uppercase_flag=False,
+                                                     punctuation_flag=False)
         """
         Create a Qiskrypt's Quantum Random Alphabetic Generator,
         just for lowercase characters.
@@ -144,8 +144,8 @@ class QiskryptQuantumRandomAlphabeticGeneratorTests(TestCase):
 
         qiskrypt_quantum_random_alphabetic_generator = \
             QiskryptQuantumRandomAlphabeticGenerator("qu_rnd_alpha_gen_2",
-                                                     lowercase=True, uppercase=True,
-                                                     punctuation=False)
+                                                     lowercase_flag=True, uppercase_flag=True,
+                                                     punctuation_flag=False)
         """
         Create a Qiskrypt's Quantum Random Alphabetic Generator,
         just for lowercase characters and uppercase characters.
@@ -208,8 +208,8 @@ class QiskryptQuantumRandomAlphabeticGeneratorTests(TestCase):
 
         qiskrypt_quantum_random_alphabetic_generator = \
             QiskryptQuantumRandomAlphabeticGenerator("qu_rnd_alpha_gen_3",
-                                                     lowercase=True, uppercase=True,
-                                                     punctuation=True)
+                                                     lowercase_flag=True, uppercase_flag=True,
+                                                     punctuation_flag=True)
         """
         Create a Qiskrypt's Quantum Random Alphabetic Generator,
         for lowercase characters, uppercase characters and punctuation.
@@ -271,8 +271,8 @@ class QiskryptQuantumRandomAlphabeticGeneratorTests(TestCase):
 
         qiskrypt_quantum_random_alphabetic_generator = \
             QiskryptQuantumRandomAlphabeticGenerator("qu_rnd_alpha_gen_4",
-                                                     lowercase=True, uppercase=False,
-                                                     punctuation=False)
+                                                     lowercase_flag=True, uppercase_flag=False,
+                                                     punctuation_flag=False)
         """
         Create a Qiskrypt's Quantum Random Alphabetic Generator,
         just for lowercase characters.
@@ -334,8 +334,8 @@ class QiskryptQuantumRandomAlphabeticGeneratorTests(TestCase):
 
         qiskrypt_quantum_random_alphabetic_generator = \
             QiskryptQuantumRandomAlphabeticGenerator("qu_rnd_alpha_gen_5",
-                                                     lowercase=True, uppercase=True,
-                                                     punctuation=False)
+                                                     lowercase_flag=True, uppercase_flag=True,
+                                                     punctuation_flag=False)
         """
         Create a Qiskrypt's Quantum Random Alphabetic Generator,
         just for lowercase characters and uppercase characters.
@@ -398,8 +398,8 @@ class QiskryptQuantumRandomAlphabeticGeneratorTests(TestCase):
 
         qiskrypt_quantum_random_alphabetic_generator = \
             QiskryptQuantumRandomAlphabeticGenerator("qu_rnd_alpha_gen_6",
-                                                     lowercase=True, uppercase=True,
-                                                     punctuation=True)
+                                                     lowercase_flag=True, uppercase_flag=True,
+                                                     punctuation_flag=True)
         """
         Create a Qiskrypt's Quantum Random Alphabetic Generator,
         for lowercase characters, uppercase characters and punctuation.
@@ -461,8 +461,8 @@ class QiskryptQuantumRandomAlphabeticGeneratorTests(TestCase):
 
         qiskrypt_quantum_random_alphabetic_generator = \
             QiskryptQuantumRandomAlphabeticGenerator("qu_rnd_alpha_gen_7",
-                                                     lowercase=True, uppercase=False,
-                                                     punctuation=False)
+                                                     lowercase_flag=True, uppercase_flag=False,
+                                                     punctuation_flag=False)
         """
         Create a Qiskrypt's Quantum Random Alphabetic Generator,
         just for lowercase characters.
@@ -524,8 +524,8 @@ class QiskryptQuantumRandomAlphabeticGeneratorTests(TestCase):
 
         qiskrypt_quantum_random_alphabetic_generator = \
             QiskryptQuantumRandomAlphabeticGenerator("qu_rnd_alpha_gen_8",
-                                                     lowercase=True, uppercase=True,
-                                                     punctuation=False)
+                                                     lowercase_flag=True, uppercase_flag=True,
+                                                     punctuation_flag=False)
         """
         Create a Qiskrypt's Quantum Random Alphabetic Generator,
         just for lowercase characters and uppercase characters.
@@ -588,8 +588,8 @@ class QiskryptQuantumRandomAlphabeticGeneratorTests(TestCase):
 
         qiskrypt_quantum_random_alphabetic_generator = \
             QiskryptQuantumRandomAlphabeticGenerator("qu_rnd_alpha_gen_9",
-                                                     lowercase=True, uppercase=True,
-                                                     punctuation=True)
+                                                     lowercase_flag=True, uppercase_flag=True,
+                                                     punctuation_flag=True)
         """
         Create a Qiskrypt's Quantum Random Alphabetic Generator,
         for lowercase characters, uppercase characters and punctuation.

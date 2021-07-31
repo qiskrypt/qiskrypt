@@ -81,8 +81,8 @@ class QiskryptQuantumRandomAlphanumericGeneratorTests(TestCase):
 
         qiskrypt_quantum_random_alphanumeric_generator = \
             QiskryptQuantumRandomAlphanumericGenerator("qu_rnd_alphanum_gen_1",
-                                                       lowercase=True, uppercase=False,
-                                                       punctuation=False, numbers=False)
+                                                       lowercase_flag=True, uppercase_flag=False,
+                                                       punctuation_flag=False, numbers_flag=False)
         """
         Create a Qiskrypt's Quantum Random Alphanumeric Generator,
         just for lowercase characters.
@@ -143,8 +143,8 @@ class QiskryptQuantumRandomAlphanumericGeneratorTests(TestCase):
 
         qiskrypt_quantum_random_alphanumeric_generator = \
             QiskryptQuantumRandomAlphanumericGenerator("qu_rnd_alphanum_gen_2",
-                                                       lowercase=True, uppercase=True,
-                                                       punctuation=False, numbers=False)
+                                                       lowercase_flag=True, uppercase_flag=True,
+                                                       punctuation_flag=False, numbers_flag=False)
         """
         Create a Qiskrypt's Quantum Random Alphanumeric Generator,
         just for lowercase characters and uppercase characters.
@@ -207,8 +207,8 @@ class QiskryptQuantumRandomAlphanumericGeneratorTests(TestCase):
 
         qiskrypt_quantum_random_alphanumeric_generator = \
             QiskryptQuantumRandomAlphanumericGenerator("qu_rnd_alphanum_gen_3",
-                                                       lowercase=True, uppercase=True,
-                                                       punctuation=True, numbers=False)
+                                                       lowercase_flag=True, uppercase_flag=True,
+                                                       punctuation_flag=True, numbers_flag=False)
         """
         Create a Qiskrypt's Quantum Random Alphanumeric Generator,
         just for lowercase characters, uppercase characters and punctuation.
@@ -271,8 +271,8 @@ class QiskryptQuantumRandomAlphanumericGeneratorTests(TestCase):
 
         qiskrypt_quantum_random_alphanumeric_generator = \
             QiskryptQuantumRandomAlphanumericGenerator("qu_rnd_alphanum_gen_4",
-                                                       lowercase=True, uppercase=True,
-                                                       punctuation=True, numbers=True)
+                                                       lowercase_flag=True, uppercase_flag=True,
+                                                       punctuation_flag=True, numbers_flag=True)
         """
         Create a Qiskrypt's Quantum Random Alphanumeric Generator,
         for lowercase characters, uppercase characters, punctuation and numbers.
@@ -334,8 +334,8 @@ class QiskryptQuantumRandomAlphanumericGeneratorTests(TestCase):
 
         qiskrypt_quantum_random_alphanumeric_generator = \
             QiskryptQuantumRandomAlphanumericGenerator("qu_rnd_alphanum_gen_5",
-                                                       lowercase=True, uppercase=False,
-                                                       punctuation=False, numbers=False)
+                                                       lowercase_flag=True, uppercase_flag=False,
+                                                       punctuation_flag=False, numbers_flag=False)
         """
         Create a Qiskrypt's Quantum Random Alphanumeric Generator,
         just for lowercase characters.
@@ -397,8 +397,8 @@ class QiskryptQuantumRandomAlphanumericGeneratorTests(TestCase):
 
         qiskrypt_quantum_random_alphanumeric_generator = \
             QiskryptQuantumRandomAlphanumericGenerator("qu_rnd_alphanum_gen_6",
-                                                       lowercase=True, uppercase=True,
-                                                       punctuation=False, numbers=False)
+                                                       lowercase_flag=True, uppercase_flag=True,
+                                                       punctuation_flag=False, numbers_flag=False)
         """
         Create a Qiskrypt's Quantum Random Alphanumeric Generator,
         just for lowercase characters and uppercase characters.
@@ -461,8 +461,8 @@ class QiskryptQuantumRandomAlphanumericGeneratorTests(TestCase):
 
         qiskrypt_quantum_random_alphanumeric_generator = \
             QiskryptQuantumRandomAlphanumericGenerator("qu_rnd_alphanum_gen_7",
-                                                       lowercase=True, uppercase=True,
-                                                       punctuation=True, numbers=False)
+                                                       lowercase_flag=True, uppercase_flag=True,
+                                                       punctuation_flag=True, numbers_flag=False)
         """
         Create a Qiskrypt's Quantum Random Alphanumeric Generator,
         just for lowercase characters, uppercase characters and punctuation.
@@ -525,8 +525,8 @@ class QiskryptQuantumRandomAlphanumericGeneratorTests(TestCase):
 
         qiskrypt_quantum_random_alphanumeric_generator = \
             QiskryptQuantumRandomAlphanumericGenerator("qu_rnd_alphanum_gen_8",
-                                                       lowercase=True, uppercase=True,
-                                                       punctuation=True, numbers=True)
+                                                       lowercase_flag=True, uppercase_flag=True,
+                                                       punctuation_flag=True, numbers_flag=True)
         """
         Create a Qiskrypt's Quantum Random Alphanumeric Generator,
         for lowercase characters, uppercase characters, punctuation and numbers.
@@ -588,8 +588,8 @@ class QiskryptQuantumRandomAlphanumericGeneratorTests(TestCase):
 
         qiskrypt_quantum_random_alphanumeric_generator = \
             QiskryptQuantumRandomAlphanumericGenerator("qu_rnd_alphanum_gen_9",
-                                                       lowercase=True, uppercase=False,
-                                                       punctuation=False, numbers=False)
+                                                       lowercase_flag=True, uppercase_flag=False,
+                                                       punctuation_flag=False, numbers_flag=False)
         """
         Create a Qiskrypt's Quantum Random Alphanumeric Generator,
         just for lowercase characters.
@@ -651,8 +651,8 @@ class QiskryptQuantumRandomAlphanumericGeneratorTests(TestCase):
 
         qiskrypt_quantum_random_alphanumeric_generator = \
             QiskryptQuantumRandomAlphanumericGenerator("qu_rnd_alphanum_gen_10",
-                                                       lowercase=True, uppercase=True,
-                                                       punctuation=False, numbers=False)
+                                                       lowercase_flag=True, uppercase_flag=True,
+                                                       punctuation_flag=False, numbers_flag=False)
         """
         Create a Qiskrypt's Quantum Random Alphanumeric Generator,
         just for lowercase characters and uppercase characters.
@@ -715,8 +715,8 @@ class QiskryptQuantumRandomAlphanumericGeneratorTests(TestCase):
 
         qiskrypt_quantum_random_alphanumeric_generator = \
             QiskryptQuantumRandomAlphanumericGenerator("qu_rnd_alphanum_gen_11",
-                                                       lowercase=True, uppercase=True,
-                                                       punctuation=True, numbers=False)
+                                                       lowercase_flag=True, uppercase_flag=True,
+                                                       punctuation_flag=True, numbers_flag=False)
         """
         Create a Qiskrypt's Quantum Random Alphanumeric Generator,
         just for lowercase characters, uppercase characters and punctuation.
@@ -779,8 +779,8 @@ class QiskryptQuantumRandomAlphanumericGeneratorTests(TestCase):
 
         qiskrypt_quantum_random_alphanumeric_generator = \
             QiskryptQuantumRandomAlphanumericGenerator("qu_rnd_alphanum_gen_12",
-                                                       lowercase=True, uppercase=True,
-                                                       punctuation=True, numbers=True)
+                                                       lowercase_flag=True, uppercase_flag=True,
+                                                       punctuation_flag=True, numbers_flag=True)
         """
         Create a Qiskrypt's Quantum Random Alphanumeric Generator,
         for lowercase characters, uppercase characters, punctuation and numbers.
