@@ -82,6 +82,13 @@ Import the DateTime Module from the DateTime Python's Library.
 """
 
 from src.true_random.dice_throwing.exception.QiskryptQuantumDiceThrowingException \
+    import QiskryptQuantumDiceThrowingDiceTypeNotValidError
+"""
+Import the Dice Type Not Valid Error for
+the Qiskrypt's Quantum Dice Throwing.
+"""
+
+from src.true_random.dice_throwing.exception.QiskryptQuantumDiceThrowingException \
     import QiskryptQuantumDiceThrowingDiceNotConfiguredYetError
 """
 Import the Dice Not Configured Yet Error for
@@ -517,7 +524,11 @@ class QiskryptQuantumDiceThrowing:
                 the Qiskrypt's Quantum Dice Throwing is not valid.
                 """
 
-                # TODO - Throw Exception
+                """
+                Return/Raise a Dice Type Not Valid Error for
+                the Qiskrypt's Quantum Dice Throwing.
+                """
+                self.raise_dice_type_not_valid_error()
 
             self.configured = True
             """
@@ -656,6 +667,25 @@ class QiskryptQuantumDiceThrowing:
                 Return/Raise a Dice Already Thrown Error for the Qiskrypt's Quantum Dice Throwing.
                 """
                 self.raise_dice_already_thrown_error()
+
+    @staticmethod
+    def raise_dice_type_not_valid_error() -> None:
+        """
+        Return/Raise a Dice Type Not Valid Error for the Qiskrypt's Quantum Dice Throwing.
+
+        :raise dice_type_not_valid_error: a Dice Type Not Valid Error for
+                                          the Qiskrypt's Quantum Dice Throwing.
+        """
+
+        dice_type_not_valid_error = QiskryptQuantumDiceThrowingDiceTypeNotValidError()
+        """
+        Retrieve the Dice Type Not Valid Error for the Qiskrypt's Quantum Dice Throwing.
+        """
+
+        """
+        Raise the Dice Type Not Valid Error for the Qiskrypt's Quantum Dice Throwing.
+        """
+        raise dice_type_not_valid_error
 
     @staticmethod
     def raise_dice_not_configured_yet_error() -> None:
