@@ -452,7 +452,7 @@ class QiskryptQuantumRandomAlphabeticGenerator(QiskryptQuantumRandomGenerator):
                 """
                 If none of the boolean flags to keep information about if
                 it is pretended to use uppercase characters, lowercase characters or
-                punctuation or not, is set to True.
+                punctuation, or not, is set to True.
                 """
 
                 # TODO - Throw Exception
@@ -462,4 +462,8 @@ class QiskryptQuantumRandomAlphabeticGenerator(QiskryptQuantumRandomGenerator):
             If the Qiskrypt's Quantum Random Alphabetic Generator is not configured yet.
             """
 
-            # TODO - Throw exception
+            """
+            Return/Raise a Quantum Random Generator Not Configured Yet Error for
+            the Qiskrypt's Quantum Random Generator.
+            """
+            super().raise_quantum_random_generator_not_configured_yet_error()
