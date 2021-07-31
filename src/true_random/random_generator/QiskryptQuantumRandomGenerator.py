@@ -74,9 +74,25 @@ Import the DateTime Module from the DateTime Python's Library.
 Definition of Constants and Enumerations.
 """
 
-from src.common.utils.QiskryptLibraryParameters import QISKIT_QASM_SIMULATOR_MAX_NUM_QUBITS
+from src.common.utils.QiskryptLibraryParameters \
+    import QISKIT_QASM_SIMULATOR_MAX_NUM_QUBITS
 """
-Import the maximum number of Qubits for the QASM (Quantum Assembly) Simulator of the IBM's Qiskit.
+Import the maximum number of Qubits for
+the QASM (Quantum Assembly) Simulator of the IBM's Qiskit.
+"""
+
+from src.true_random.random_generator.exception.QiskryptQuantumRandomGeneratorException \
+    import QiskryptQuantumRandomGeneratorNotConfiguredYetError
+"""
+Import the Quantum Random Generator Not Configured Yet Error for
+the Qiskrypt's Quantum Random Generator.
+"""
+
+from src.true_random.random_generator.exception.QiskryptQuantumRandomGeneratorException \
+    import QiskryptQuantumRandomGeneratorAlreadyConfiguredError
+"""
+Import the Quantum Random Generator Already Configured Error for
+the Qiskrypt's Quantum Random Generator.
 """
 
 
@@ -372,7 +388,11 @@ class QiskryptQuantumRandomGenerator:
             If the Qiskrypt's Quantum Random Generator is already configured.
             """
 
-            # TODO Throw Exception
+            """
+            Return/Raise a Quantum Random Generator Already Configured Error for
+            the Qiskrypt's Quantum Random Generator.
+            """
+            self.raise_quantum_random_generator_already_configured_error()
 
     def reset(self):
         """
@@ -389,3 +409,49 @@ class QiskryptQuantumRandomGenerator:
         Set the boolean flag to keep the information about if
         the Qiskrypt's Quantum Random Generator is configured or not, as False.
         """
+
+    @staticmethod
+    def raise_quantum_random_generator_not_configured_yet_error() -> None:
+        """
+        Return/Raise a Quantum Random Generator Not Configured Yet Error for
+        the Qiskrypt's Quantum Random Generator.
+
+        :raise quantum_random_generator_not_configured_yet_error: a Quantum Random Generator Not Configured Yet Error for
+                                                                  the Qiskrypt's Quantum Random Generator.
+        """
+
+        quantum_random_generator_not_configured_yet_error = \
+            QiskryptQuantumRandomGeneratorNotConfiguredYetError()
+        """
+        Retrieve the Quantum Random Generator Not Configured Yet Error for
+        the Qiskrypt's Quantum Random Generator.
+        """
+
+        """
+        Raise the Quantum Random Generator Not Configured Yet Error for
+        the Qiskrypt's Quantum Random Generator.
+        """
+        raise quantum_random_generator_not_configured_yet_error
+
+    @staticmethod
+    def raise_quantum_random_generator_already_configured_error() -> None:
+        """
+        Return/Raise a Quantum Random Generator Already Configured Error for
+        the Qiskrypt's Quantum Random Generator.
+
+        :raise quantum_random_generator_already_configured_error: a Quantum Random Generator Already Configured Error for
+                                                                  the Qiskrypt's Quantum Random Generator.
+        """
+
+        quantum_random_generator_already_configured_error = \
+            QiskryptQuantumRandomGeneratorAlreadyConfiguredError()
+        """
+        Retrieve the Quantum Random Generator Already Configured Error for
+        the Qiskrypt's Quantum Random Generator.
+        """
+
+        """
+        Raise the Quantum Random Generator Already Configured Error for
+        the Qiskrypt's Quantum Random Generator.
+        """
+        raise quantum_random_generator_already_configured_error
