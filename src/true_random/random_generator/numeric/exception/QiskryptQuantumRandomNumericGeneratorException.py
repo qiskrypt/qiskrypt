@@ -67,7 +67,7 @@ class QiskryptQuantumRandomNumericGeneratorInvalidDataTypeError(Exception):
         self.message = message
         """
         Set the custom message for the Quantum Random Generator Not Configured Yet Error for
-        the Qiskrypt's Quantum Random Generator.
+        the Qiskrypt's Quantum Random Numeric Generator.
         """
 
         super().__init__(self.message)
