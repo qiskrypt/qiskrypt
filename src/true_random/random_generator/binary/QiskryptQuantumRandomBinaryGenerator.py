@@ -255,7 +255,11 @@ class QiskryptQuantumRandomBinaryGenerator(QiskryptQuantumRandomGenerator):
             If the Qiskrypt's Quantum Random Binary Generator is not configured yet.
             """
 
-            # TODO - Throw exception
+            """
+            Return/Raise a Quantum Random Generator Not Configured Yet Error for
+            the Qiskrypt's Quantum Random Generator.
+            """
+            super().raise_quantum_random_generator_not_configured_yet_error()
 
     def generate_binary_string_as_int_base_2(self) -> int:
         """
@@ -284,4 +288,8 @@ class QiskryptQuantumRandomBinaryGenerator(QiskryptQuantumRandomGenerator):
             If the Qiskrypt's Quantum Random Binary Generator is not configured yet.
             """
 
-            # TODO - Throw exception
+            """
+            Return/Raise a Quantum Random Generator Not Configured Yet Error for
+            the Qiskrypt's Quantum Random Generator.
+            """
+            super().raise_quantum_random_generator_not_configured_yet_error()
