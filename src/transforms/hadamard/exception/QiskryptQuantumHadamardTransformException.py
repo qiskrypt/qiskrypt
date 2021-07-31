@@ -41,7 +41,8 @@ Acknowledgement(s):\n
 Definition of the custom Exception messages.
 """
 
-MESSAGE_NUMBER_OF_QUBITS_AND_NUMBER_OF_QUANTUM_REGISTERS_NOT_EQUAL_EXCEPTION = "Number of Qubits And Number Of Quantum Registers Not Equal Error: " \
+MESSAGE_NUMBER_OF_QUBITS_AND_NUMBER_OF_QUANTUM_REGISTERS_NOT_EQUAL_EXCEPTION = "Number of Qubits And Number Of Quantum Registers " \
+                                                                               "Not Equal Error (Quantum Hadamard Transform): " \
                                                                                "The number of qubits and the number of " \
                                                                                "Quantum Registers given are not equal!!!\n"
 """
@@ -49,7 +50,8 @@ The custom defined message for the Number of Qubits And Number Of Quantum Regist
 the Qiskrypt's Quantum Hadamard Transform.
 """
 
-MESSAGE_NUMBER_OF_QUBITS_GREATER_THAN_MAXIMUM_FOR_QASM_EXCEPTION = "Number Of Qubits Greater Than Maximum For QASM Error: " \
+MESSAGE_NUMBER_OF_QUBITS_GREATER_THAN_MAXIMUM_FOR_QASM_EXCEPTION = "Number Of Qubits Greater Than Maximum For " \
+                                                                   "QASM Error (Quantum Hadamard Transform): " \
                                                                    "The number of qubits are greater than the maximum of " \
                                                                    "qubits allowed for QASM (Quantum Assembly) Simulator (i.e., 30 qubits)!!!\n"
 """
