@@ -70,6 +70,31 @@ from src.transforms.hadamard.QiskryptQuantumHadamardTransform \
 Import the Qiskrypt's Quantum Hadamard Transform.
 """
 
+from math import ceil, log2
+"""
+Import the Logarithm of Base-2 and the  Ceil mathematical function from
+the Math Python's library.
+"""
+
+from datetime import datetime
+"""
+Import the DateTime Module from the DateTime Python's Library.
+"""
+
+from src.true_random.dice_throwing.exception.QiskryptQuantumDiceThrowingException \
+    import QiskryptQuantumDiceThrowingDiceNotConfiguredYetError
+"""
+Import the Dice Not Configured Yet Error for
+the Qiskrypt's Quantum Dice Throwing.
+"""
+
+from src.true_random.dice_throwing.exception.QiskryptQuantumDiceThrowingException \
+    import QiskryptQuantumDiceThrowingDiceAlreadyConfiguredError
+"""
+Import the Dice Already Configured Error for
+the Qiskrypt's Quantum Dice Throwing.
+"""
+
 from src.true_random.dice_throwing.exception.QiskryptQuantumDiceThrowingException \
     import QiskryptQuantumDiceThrowingDiceNotThrownYetError
 """
@@ -84,16 +109,6 @@ Import the Dice Already Thrown Error for
 the Qiskrypt's Quantum Dice Throwing.
 """
 
-from math import ceil, log2
-"""
-Import the Logarithm of Base-2 and the  Ceil mathematical function from
-the Math Python's library.
-"""
-
-from datetime import datetime
-"""
-Import the DateTime Module from the DateTime Python's Library.
-"""
 
 """
 Definition of Constants and Enumerations.
@@ -515,7 +530,11 @@ class QiskryptQuantumDiceThrowing:
             If the Qiskrypt's Quantum Dice Throwing is already configured.
             """
 
-            # TODO Throw Exception
+            """
+            Return/Raise a Dice Already Configured Error for
+            the Qiskrypt's Quantum Dice Throwing.
+            """
+            self.raise_dice_already_configured_error()
 
     def reset(self):
         """
@@ -623,11 +642,10 @@ class QiskryptQuantumDiceThrowing:
                 """
 
                 """
-                Return/Raise the Quantum Circuit Not Initialised Yet Error for
+                Return/Raise a Dice Not Configured Yet Error for
                 the Qiskrypt's Quantum Dice Throwing.
                 """
-                # self.raise_quantum_circuit_not_initialised_yet_error()
-                # TODO - Throw Exception
+                self.raise_dice_already_configured_error()
 
             if self.is_already_thrown():
                 """
@@ -638,6 +656,44 @@ class QiskryptQuantumDiceThrowing:
                 Return/Raise a Dice Already Thrown Error for the Qiskrypt's Quantum Dice Throwing.
                 """
                 self.raise_dice_already_thrown_error()
+
+    @staticmethod
+    def raise_dice_not_configured_yet_error() -> None:
+        """
+        Return/Raise a Dice Not Configured Yet Error for the Qiskrypt's Quantum Dice Throwing.
+
+        :raise dice_not_configured_yet_error: a Dice Not Configured Yet Error for
+                                              the Qiskrypt's Quantum Dice Throwing.
+        """
+
+        dice_not_configured_yet_error = QiskryptQuantumDiceThrowingDiceNotConfiguredYetError()
+        """
+        Retrieve the Dice Not Configured Yet Error for the Qiskrypt's Quantum Dice Throwing.
+        """
+
+        """
+        Raise the Dice Not Configured Yet Error for the Qiskrypt's Quantum Dice Throwing.
+        """
+        raise dice_not_configured_yet_error
+
+    @staticmethod
+    def raise_dice_already_configured_error() -> None:
+        """
+        Return/Raise a Dice Already Configured Error for the Qiskrypt's Quantum Dice Throwing.
+
+        :raise dice_already_configured_error: a Dice Already Configured Error for
+                                              the Qiskrypt's Quantum Dice Throwing.
+        """
+
+        dice_already_configured_error = QiskryptQuantumDiceThrowingDiceAlreadyConfiguredError()
+        """
+        Retrieve the Dice Already Configured Error for the Qiskrypt's Quantum Dice Throwing.
+        """
+
+        """
+        Raise the Dice Already Configured Error for the Qiskrypt's Quantum Dice Throwing.
+        """
+        raise dice_already_configured_error
 
     @staticmethod
     def raise_dice_not_thrown_yet_error() -> None:
