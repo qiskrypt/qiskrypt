@@ -66,6 +66,20 @@ Import the Not An Instance Of Quantum Circuit Error for
 the Qiskrypt's Quantum Circuit.
 """
 
+from src.transforms.hadamard.exception.QiskryptQuantumHadamardTransformException \
+    import QiskryptQuantumHadamardTransformNumberOfQubitsAndNumberOfQuantumRegistersNotEqualError
+"""
+Import the Number Of Qubits And Number Of Quantum Registers Not Equal Error for
+the Qiskrypt's Quantum Hadamard Transform.
+"""
+
+from src.transforms.hadamard.exception.QiskryptQuantumHadamardTransformException \
+    import QiskryptQuantumHadamardTransformNumberOfQubitsGreaterThanMaximumForQASMError
+"""
+Import the Number of Qubits Greater Than Maximum for QASM (Quantum Assembly) Error for
+the Qiskrypt's Quantum Hadamard Transform.
+"""
+
 
 class QiskryptQuantumHadamardTransform:
     """
@@ -167,7 +181,11 @@ class QiskryptQuantumHadamardTransform:
                         the QASM (Quantum Assembly) Simulator of the IBM's Qiskit.
                         """
 
-                        # TODO - Throw Exception
+                        self.raise_number_of_qubits_greater_than_maximum_for_qasm_error()
+                        """
+                        Return/Raise a Number of Qubits Greater Than Maximum for QASM (Quantum Assembly) Error for
+                        the Qiskrypt's Quantum Hadamard Transform.
+                        """
 
                 else:
                     """
@@ -175,7 +193,11 @@ class QiskryptQuantumHadamardTransform:
                     and the number of the qubits is not the same.
                     """
 
-                    # TODO - Throw Exception
+                    self.raise_number_of_qubits_and_number_of_quantum_registers_not_equal_error()
+                    """
+                    Return/Raise a Number Of Qubits And Number Of Quantum Registers Not Equal Error for
+                    the Qiskrypt's Quantum Hadamard Transform.
+                    """
 
             else:
                 """
@@ -330,3 +352,49 @@ class QiskryptQuantumHadamardTransform:
         Raise the Not An Instance Of Quantum Circuit Error for the Qiskrypt's Quantum Coin Tossing.
         """
         raise not_an_instance_of_quantum_circuit_error
+
+    @staticmethod
+    def raise_number_of_qubits_and_number_of_quantum_registers_not_equal_error() -> None:
+        """
+        Return/Raise a Number Of Qubits And Number Of Quantum Registers Not Equal Error for
+        the Qiskrypt's Quantum Hadamard Transform.
+
+        :raise number_of_qubits_and_number_of_quantum_registers_not_equal_error: a Number Of Qubits And Number Of Quantum Registers Not Equal Error for
+                                                                                 the Qiskrypt's Quantum Hadamard Transform.
+        """
+
+        number_of_qubits_and_number_of_quantum_registers_not_equal_error = \
+            QiskryptQuantumHadamardTransformNumberOfQubitsAndNumberOfQuantumRegistersNotEqualError()
+        """
+        Retrieve the Number Of Qubits And Number Of Quantum Registers Not Equal Error for
+        the Qiskrypt's Quantum Hadamard Transform.
+        """
+
+        """
+        Raise the Number Of Qubits And Number Of Quantum Registers Not Equal Error for
+        the Qiskrypt's Quantum Hadamard Transform.
+        """
+        raise number_of_qubits_and_number_of_quantum_registers_not_equal_error
+
+    @staticmethod
+    def raise_number_of_qubits_greater_than_maximum_for_qasm_error() -> None:
+        """
+        Return/Raise a Number of Qubits Greater Than Maximum For QASM (Quantum Assembly) Error for
+        the Qiskrypt's Quantum Hadamard Transform.
+
+        :raise number_of_qubits_greater_than_maximum_for_qasm_error: a Number of Qubits Greater Than Maximum For QASM (Quantum Assembly) Error for
+                                                                     the Qiskrypt's Quantum Hadamard Transform.
+        """
+
+        number_of_qubits_greater_than_maximum_for_qasm_error = \
+            QiskryptQuantumHadamardTransformNumberOfQubitsGreaterThanMaximumForQASMError()
+        """
+        Retrieve the Number of Qubits Greater Than Maximum For QASM (Quantum Assembly) Error for
+        the Qiskrypt's Quantum Hadamard Transform.
+        """
+
+        """
+        Raise the Number of Qubits Greater Than Maximum For QASM (Quantum Assembly) Error for
+        the Qiskrypt's Quantum Hadamard Transform.
+        """
+        raise number_of_qubits_greater_than_maximum_for_qasm_error
