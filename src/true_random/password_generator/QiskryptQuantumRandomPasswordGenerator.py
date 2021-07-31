@@ -78,7 +78,7 @@ class QiskryptQuantumRandomPasswordGenerator(QiskryptQuantumRandomGenerator):
         :param name: the name of the Qiskrypt's Quantum Random Password Generator.
         :param characters_exceptions: the exceptions specified to the characters to not be
                                       used in the Quantum Random Password Generator,
-                                      separated by the ';' character.
+                                      separated by the ' ' character.
         """
 
         super().__init__(name)
@@ -93,7 +93,7 @@ class QiskryptQuantumRandomPasswordGenerator(QiskryptQuantumRandomGenerator):
         punctuation and numbers.
         """
 
-        characters_exceptions_list = characters_exceptions.split(";")
+        characters_exceptions_list = characters_exceptions.split(" ")
         """
         Retrieve the list of the exceptions specified to
         the characters to not be used in the Quantum Random Password Generator,
