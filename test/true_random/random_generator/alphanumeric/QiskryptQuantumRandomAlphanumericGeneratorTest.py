@@ -80,9 +80,12 @@ class QiskryptQuantumRandomAlphanumericGeneratorTests(TestCase):
         """
 
         qiskrypt_quantum_random_alphanumeric_generator = \
-            QiskryptQuantumRandomAlphanumericGenerator("qu_rnd_alphanum_gen_1")
+            QiskryptQuantumRandomAlphanumericGenerator("qu_rnd_alphanum_gen_1",
+                                                       lowercase=True, uppercase=False,
+                                                       punctuation=False, numbers=False)
         """
-        Create a Qiskrypt's Quantum Random Alphanumeric Generator.
+        Create a Qiskrypt's Quantum Random Alphanumeric Generator,
+        just for lowercase characters.
         """
 
         qiskrypt_quantum_random_alphanumeric_generator.initiate(length_alphanumeric_string)
@@ -91,11 +94,9 @@ class QiskryptQuantumRandomAlphanumericGeneratorTests(TestCase):
         """
 
         alphanumeric_string = qiskrypt_quantum_random_alphanumeric_generator\
-            .generate_alphanumeric_string(use_lowercase=True, use_uppercase=False,
-                                          use_punctuation=False, user_numbers=False)
+            .generate_alphanumeric_string()
         """
-        Generate the alphanumeric string from the Qiskrypt's Quantum Random Alphanumeric Generator,
-        just for lowercase characters.
+        Generate the alphanumeric string from the Qiskrypt's Quantum Random Alphanumeric Generator.
         """
 
         print(f"\n\nTest #1:"
@@ -105,8 +106,7 @@ class QiskryptQuantumRandomAlphanumericGeneratorTests(TestCase):
               f"   (Alphanumeric Format with lowercase characters) ;\n")
         """
         Print the resulted alphanumeric string of size 10, extracted from
-        the Qiskrypt's Quantum Random Alphanumeric Generator,
-        only with lowercase characters.
+        the Qiskrypt's Quantum Random Alphanumeric Generator.
         """
 
         assert(len(alphanumeric_string) == length_alphanumeric_string)
@@ -142,9 +142,12 @@ class QiskryptQuantumRandomAlphanumericGeneratorTests(TestCase):
         """
 
         qiskrypt_quantum_random_alphanumeric_generator = \
-            QiskryptQuantumRandomAlphanumericGenerator("qu_rnd_alphanum_gen_2")
+            QiskryptQuantumRandomAlphanumericGenerator("qu_rnd_alphanum_gen_2",
+                                                       lowercase=True, uppercase=True,
+                                                       punctuation=False, numbers=False)
         """
-        Create a Qiskrypt's Quantum Random Alphanumeric Generator.
+        Create a Qiskrypt's Quantum Random Alphanumeric Generator,
+        just for lowercase characters and uppercase characters.
         """
 
         qiskrypt_quantum_random_alphanumeric_generator.initiate(length_alphanumeric_string)
@@ -153,11 +156,9 @@ class QiskryptQuantumRandomAlphanumericGeneratorTests(TestCase):
         """
 
         alphanumeric_string = qiskrypt_quantum_random_alphanumeric_generator\
-            .generate_alphanumeric_string(use_lowercase=True, use_uppercase=True,
-                                          use_punctuation=False, user_numbers=False)
+            .generate_alphanumeric_string()
         """
-        Generate the alphanumeric string from the Qiskrypt's Quantum Random Alphanumeric Generator,
-        just for lowercase characters and uppercase characters.
+        Generate the alphanumeric string from the Qiskrypt's Quantum Random Alphanumeric Generator.
         """
 
         print(f"\n\nTest #2:"
@@ -205,9 +206,12 @@ class QiskryptQuantumRandomAlphanumericGeneratorTests(TestCase):
         """
 
         qiskrypt_quantum_random_alphanumeric_generator = \
-            QiskryptQuantumRandomAlphanumericGenerator("qu_rnd_alphanum_gen_3")
+            QiskryptQuantumRandomAlphanumericGenerator("qu_rnd_alphanum_gen_3",
+                                                       lowercase=True, uppercase=True,
+                                                       punctuation=True, numbers=False)
         """
-        Create a Qiskrypt's Quantum Random Alphanumeric Generator.
+        Create a Qiskrypt's Quantum Random Alphanumeric Generator,
+        just for lowercase characters, uppercase characters and punctuation.
         """
 
         qiskrypt_quantum_random_alphanumeric_generator.initiate(length_alphanumeric_string)
@@ -216,11 +220,9 @@ class QiskryptQuantumRandomAlphanumericGeneratorTests(TestCase):
         """
 
         alphanumeric_string = qiskrypt_quantum_random_alphanumeric_generator\
-            .generate_alphanumeric_string(use_lowercase=True, use_uppercase=True,
-                                          use_punctuation=True, user_numbers=False)
+            .generate_alphanumeric_string()
         """
-        Generate the alphanumeric string from the Qiskrypt's Quantum Random Alphanumeric Generator,
-        just for lowercase characters, uppercase characters and punctuation.
+        Generate the alphanumeric string from the Qiskrypt's Quantum Random Alphanumeric Generator.
         """
 
         print(f"\n\nTest #3:"
@@ -268,9 +270,12 @@ class QiskryptQuantumRandomAlphanumericGeneratorTests(TestCase):
         """
 
         qiskrypt_quantum_random_alphanumeric_generator = \
-            QiskryptQuantumRandomAlphanumericGenerator("qu_rnd_alphanum_gen_4")
+            QiskryptQuantumRandomAlphanumericGenerator("qu_rnd_alphanum_gen_4",
+                                                       lowercase=True, uppercase=True,
+                                                       punctuation=True, numbers=True)
         """
-        Create a Qiskrypt's Quantum Random Alphanumeric Generator.
+        Create a Qiskrypt's Quantum Random Alphanumeric Generator,
+        for lowercase characters, uppercase characters, punctuation and numbers.
         """
 
         qiskrypt_quantum_random_alphanumeric_generator.initiate(length_alphanumeric_string)
@@ -279,11 +284,9 @@ class QiskryptQuantumRandomAlphanumericGeneratorTests(TestCase):
         """
 
         alphanumeric_string = qiskrypt_quantum_random_alphanumeric_generator\
-            .generate_alphanumeric_string(use_lowercase=True, use_uppercase=True,
-                                          use_punctuation=True, user_numbers=True)
+            .generate_alphanumeric_string()
         """
-        Generate the alphanumeric string from the Qiskrypt's Quantum Random Alphanumeric Generator,
-        for lowercase characters, uppercase characters, punctuation and numbers.
+        Generate the alphanumeric string from the Qiskrypt's Quantum Random Alphanumeric Generator.
         """
 
         print(f"\n\nTest #4:"
@@ -330,9 +333,12 @@ class QiskryptQuantumRandomAlphanumericGeneratorTests(TestCase):
         """
 
         qiskrypt_quantum_random_alphanumeric_generator = \
-            QiskryptQuantumRandomAlphanumericGenerator("qu_rnd_alphanum_gen_5")
+            QiskryptQuantumRandomAlphanumericGenerator("qu_rnd_alphanum_gen_5",
+                                                       lowercase=True, uppercase=False,
+                                                       punctuation=False, numbers=False)
         """
-        Create a Qiskrypt's Quantum Random Alphanumeric Generator.
+        Create a Qiskrypt's Quantum Random Alphanumeric Generator,
+        just for lowercase characters.
         """
 
         qiskrypt_quantum_random_alphanumeric_generator.initiate(length_alphanumeric_string)
@@ -341,11 +347,9 @@ class QiskryptQuantumRandomAlphanumericGeneratorTests(TestCase):
         """
 
         alphanumeric_string = qiskrypt_quantum_random_alphanumeric_generator\
-            .generate_alphanumeric_string(use_lowercase=True, use_uppercase=False,
-                                          use_punctuation=False, user_numbers=False)
+            .generate_alphanumeric_string()
         """
-        Generate the alphanumeric string from the Qiskrypt's Quantum Random Alphanumeric Generator,
-        just for lowercase characters.
+        Generate the alphanumeric string from the Qiskrypt's Quantum Random Alphanumeric Generator.
         """
 
         print(f"\n\nTest #5:"
@@ -392,9 +396,12 @@ class QiskryptQuantumRandomAlphanumericGeneratorTests(TestCase):
         """
 
         qiskrypt_quantum_random_alphanumeric_generator = \
-            QiskryptQuantumRandomAlphanumericGenerator("qu_rnd_alphanum_gen_6")
+            QiskryptQuantumRandomAlphanumericGenerator("qu_rnd_alphanum_gen_6",
+                                                       lowercase=True, uppercase=True,
+                                                       punctuation=False, numbers=False)
         """
-        Create a Qiskrypt's Quantum Random Alphanumeric Generator.
+        Create a Qiskrypt's Quantum Random Alphanumeric Generator,
+        just for lowercase characters and uppercase characters.
         """
 
         qiskrypt_quantum_random_alphanumeric_generator.initiate(length_alphanumeric_string)
@@ -403,11 +410,9 @@ class QiskryptQuantumRandomAlphanumericGeneratorTests(TestCase):
         """
 
         alphanumeric_string = qiskrypt_quantum_random_alphanumeric_generator\
-            .generate_alphanumeric_string(use_lowercase=True, use_uppercase=True,
-                                          use_punctuation=False, user_numbers=False)
+            .generate_alphanumeric_string()
         """
-        Generate the alphanumeric string from the Qiskrypt's Quantum Random Alphanumeric Generator,
-        just for lowercase characters and uppercase characters.
+        Generate the alphanumeric string from the Qiskrypt's Quantum Random Alphanumeric Generator.
         """
 
         print(f"\n\nTest #6:"
@@ -455,9 +460,12 @@ class QiskryptQuantumRandomAlphanumericGeneratorTests(TestCase):
         """
 
         qiskrypt_quantum_random_alphanumeric_generator = \
-            QiskryptQuantumRandomAlphanumericGenerator("qu_rnd_alphanum_gen_7")
+            QiskryptQuantumRandomAlphanumericGenerator("qu_rnd_alphanum_gen_7",
+                                                       lowercase=True, uppercase=True,
+                                                       punctuation=True, numbers=False)
         """
-        Create a Qiskrypt's Quantum Random Alphanumeric Generator.
+        Create a Qiskrypt's Quantum Random Alphanumeric Generator,
+        just for lowercase characters, uppercase characters and punctuation.
         """
 
         qiskrypt_quantum_random_alphanumeric_generator.initiate(length_alphanumeric_string)
@@ -466,11 +474,9 @@ class QiskryptQuantumRandomAlphanumericGeneratorTests(TestCase):
         """
 
         alphanumeric_string = qiskrypt_quantum_random_alphanumeric_generator\
-            .generate_alphanumeric_string(use_lowercase=True, use_uppercase=True,
-                                          use_punctuation=True, user_numbers=False)
+            .generate_alphanumeric_string()
         """
-        Generate the alphanumeric string from the Qiskrypt's Quantum Random Alphanumeric Generator,
-        just for lowercase characters, uppercase characters and punctuation.
+        Generate the alphanumeric string from the Qiskrypt's Quantum Random Alphanumeric Generator.
         """
 
         print(f"\n\nTest #7:"
@@ -518,9 +524,12 @@ class QiskryptQuantumRandomAlphanumericGeneratorTests(TestCase):
         """
 
         qiskrypt_quantum_random_alphanumeric_generator = \
-            QiskryptQuantumRandomAlphanumericGenerator("qu_rnd_alphanum_gen_8")
+            QiskryptQuantumRandomAlphanumericGenerator("qu_rnd_alphanum_gen_8",
+                                                       lowercase=True, uppercase=True,
+                                                       punctuation=True, numbers=True)
         """
-        Create a Qiskrypt's Quantum Random Alphanumeric Generator.
+        Create a Qiskrypt's Quantum Random Alphanumeric Generator,
+        for lowercase characters, uppercase characters, punctuation and numbers.
         """
 
         qiskrypt_quantum_random_alphanumeric_generator.initiate(length_alphanumeric_string)
@@ -529,11 +538,9 @@ class QiskryptQuantumRandomAlphanumericGeneratorTests(TestCase):
         """
 
         alphanumeric_string = qiskrypt_quantum_random_alphanumeric_generator\
-            .generate_alphanumeric_string(use_lowercase=True, use_uppercase=True,
-                                          use_punctuation=True, user_numbers=True)
+            .generate_alphanumeric_string()
         """
-        Generate the alphanumeric string from the Qiskrypt's Quantum Random Alphanumeric Generator,
-        for lowercase characters, uppercase characters, punctuation and numbers.
+        Generate the alphanumeric string from the Qiskrypt's Quantum Random Alphanumeric Generator.
         """
 
         print(f"\n\nTest #8:"
@@ -580,9 +587,12 @@ class QiskryptQuantumRandomAlphanumericGeneratorTests(TestCase):
         """
 
         qiskrypt_quantum_random_alphanumeric_generator = \
-            QiskryptQuantumRandomAlphanumericGenerator("qu_rnd_alphanum_gen_9")
+            QiskryptQuantumRandomAlphanumericGenerator("qu_rnd_alphanum_gen_9",
+                                                       lowercase=True, uppercase=False,
+                                                       punctuation=False, numbers=False)
         """
-        Create a Qiskrypt's Quantum Random Alphanumeric Generator.
+        Create a Qiskrypt's Quantum Random Alphanumeric Generator,
+        just for lowercase characters.
         """
 
         qiskrypt_quantum_random_alphanumeric_generator.initiate(length_alphanumeric_string)
@@ -591,11 +601,9 @@ class QiskryptQuantumRandomAlphanumericGeneratorTests(TestCase):
         """
 
         alphanumeric_string = qiskrypt_quantum_random_alphanumeric_generator\
-            .generate_alphanumeric_string(use_lowercase=True, use_uppercase=False,
-                                          use_punctuation=False, user_numbers=False)
+            .generate_alphanumeric_string()
         """
-        Generate the alphanumeric string from the Qiskrypt's Quantum Random Alphanumeric Generator,
-        just for lowercase characters.
+        Generate the alphanumeric string from the Qiskrypt's Quantum Random Alphanumeric Generator.
         """
 
         print(f"\n\nTest #9:"
@@ -642,9 +650,12 @@ class QiskryptQuantumRandomAlphanumericGeneratorTests(TestCase):
         """
 
         qiskrypt_quantum_random_alphanumeric_generator = \
-            QiskryptQuantumRandomAlphanumericGenerator("qu_rnd_alphanum_gen_10")
+            QiskryptQuantumRandomAlphanumericGenerator("qu_rnd_alphanum_gen_10",
+                                                       lowercase=True, uppercase=True,
+                                                       punctuation=False, numbers=False)
         """
-        Create a Qiskrypt's Quantum Random Alphanumeric Generator.
+        Create a Qiskrypt's Quantum Random Alphanumeric Generator,
+        just for lowercase characters and uppercase characters.
         """
 
         qiskrypt_quantum_random_alphanumeric_generator.initiate(length_alphanumeric_string)
@@ -653,11 +664,9 @@ class QiskryptQuantumRandomAlphanumericGeneratorTests(TestCase):
         """
 
         alphanumeric_string = qiskrypt_quantum_random_alphanumeric_generator\
-            .generate_alphanumeric_string(use_lowercase=True, use_uppercase=True,
-                                          use_punctuation=False, user_numbers=False)
+            .generate_alphanumeric_string()
         """
-        Generate the alphanumeric string from the Qiskrypt's Quantum Random Alphanumeric Generator,
-        just for lowercase characters and uppercase characters.
+        Generate the alphanumeric string from the Qiskrypt's Quantum Random Alphanumeric Generator.
         """
 
         print(f"\n\nTest #10:"
@@ -705,9 +714,12 @@ class QiskryptQuantumRandomAlphanumericGeneratorTests(TestCase):
         """
 
         qiskrypt_quantum_random_alphanumeric_generator = \
-            QiskryptQuantumRandomAlphanumericGenerator("qu_rnd_alphanum_gen_11")
+            QiskryptQuantumRandomAlphanumericGenerator("qu_rnd_alphanum_gen_11",
+                                                       lowercase=True, uppercase=True,
+                                                       punctuation=True, numbers=False)
         """
-        Create a Qiskrypt's Quantum Random Alphanumeric Generator.
+        Create a Qiskrypt's Quantum Random Alphanumeric Generator,
+        just for lowercase characters, uppercase characters and punctuation.
         """
 
         qiskrypt_quantum_random_alphanumeric_generator.initiate(length_alphanumeric_string)
@@ -716,11 +728,9 @@ class QiskryptQuantumRandomAlphanumericGeneratorTests(TestCase):
         """
 
         alphanumeric_string = qiskrypt_quantum_random_alphanumeric_generator\
-            .generate_alphanumeric_string(use_lowercase=True, use_uppercase=True,
-                                          use_punctuation=True, user_numbers=False)
+            .generate_alphanumeric_string()
         """
-        Generate the alphanumeric string from the Qiskrypt's Quantum Random Alphanumeric Generator,
-        just for lowercase characters, uppercase characters and punctuation.
+        Generate the alphanumeric string from the Qiskrypt's Quantum Random Alphanumeric Generator.
         """
 
         print(f"\n\nTest #11:"
@@ -768,9 +778,12 @@ class QiskryptQuantumRandomAlphanumericGeneratorTests(TestCase):
         """
 
         qiskrypt_quantum_random_alphanumeric_generator = \
-            QiskryptQuantumRandomAlphanumericGenerator("qu_rnd_alphanum_gen_12")
+            QiskryptQuantumRandomAlphanumericGenerator("qu_rnd_alphanum_gen_12",
+                                                       lowercase=True, uppercase=True,
+                                                       punctuation=True, numbers=True)
         """
-        Create a Qiskrypt's Quantum Random Alphanumeric Generator.
+        Create a Qiskrypt's Quantum Random Alphanumeric Generator,
+        for lowercase characters, uppercase characters, punctuation and numbers.
         """
 
         qiskrypt_quantum_random_alphanumeric_generator.initiate(length_alphanumeric_string)
@@ -779,11 +792,9 @@ class QiskryptQuantumRandomAlphanumericGeneratorTests(TestCase):
         """
 
         alphanumeric_string = qiskrypt_quantum_random_alphanumeric_generator\
-            .generate_alphanumeric_string(use_lowercase=True, use_uppercase=True,
-                                          use_punctuation=True, user_numbers=True)
+            .generate_alphanumeric_string()
         """
-        Generate the alphanumeric string from the Qiskrypt's Quantum Random Alphanumeric Generator,
-        for lowercase characters, uppercase characters, punctuation and numbers.
+        Generate the alphanumeric string from the Qiskrypt's Quantum Random Alphanumeric Generator.
         """
 
         print(f"\n\nTest #12:"

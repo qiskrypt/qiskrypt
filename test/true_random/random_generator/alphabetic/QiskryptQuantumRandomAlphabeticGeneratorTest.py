@@ -84,7 +84,8 @@ class QiskryptQuantumRandomAlphabeticGeneratorTests(TestCase):
                                                      lowercase=True, uppercase=False,
                                                      punctuation=False)
         """
-        Create a Qiskrypt's Quantum Random Alphabetic Generator.
+        Create a Qiskrypt's Quantum Random Alphabetic Generator,
+        just for lowercase characters.
         """
 
         qiskrypt_quantum_random_alphabetic_generator.initiate(length_alphabetic_string)
@@ -95,8 +96,7 @@ class QiskryptQuantumRandomAlphabeticGeneratorTests(TestCase):
         alphabetic_string = qiskrypt_quantum_random_alphabetic_generator\
             .generate_alphabetic_string()
         """
-        Generate the alphabetic string from the Qiskrypt's Quantum Random Alphabetic Generator,
-        just for lowercase characters.
+        Generate the alphabetic string from the Qiskrypt's Quantum Random Alphabetic Generator.
         """
 
         print(f"\n\nTest #1:"
@@ -147,7 +147,8 @@ class QiskryptQuantumRandomAlphabeticGeneratorTests(TestCase):
                                                      lowercase=True, uppercase=True,
                                                      punctuation=False)
         """
-        Create a Qiskrypt's Quantum Random Alphabetic Generator.
+        Create a Qiskrypt's Quantum Random Alphabetic Generator,
+        just for lowercase characters and uppercase characters.
         """
 
         qiskrypt_quantum_random_alphabetic_generator.initiate(length_alphabetic_string)
@@ -158,8 +159,7 @@ class QiskryptQuantumRandomAlphabeticGeneratorTests(TestCase):
         alphabetic_string = qiskrypt_quantum_random_alphabetic_generator\
             .generate_alphabetic_string()
         """
-        Generate the alphabetic string from the Qiskrypt's Quantum Random Alphabetic Generator,
-        just for lowercase characters and uppercase characters.
+        Generate the alphabetic string from the Qiskrypt's Quantum Random Alphabetic Generator.
         """
 
         print(f"\n\nTest #2:"
@@ -211,7 +211,8 @@ class QiskryptQuantumRandomAlphabeticGeneratorTests(TestCase):
                                                      lowercase=True, uppercase=True,
                                                      punctuation=True)
         """
-        Create a Qiskrypt's Quantum Random Alphabetic Generator.
+        Create a Qiskrypt's Quantum Random Alphabetic Generator,
+        for lowercase characters, uppercase characters and punctuation.
         """
 
         qiskrypt_quantum_random_alphabetic_generator.initiate(length_alphabetic_string)
@@ -222,8 +223,7 @@ class QiskryptQuantumRandomAlphabeticGeneratorTests(TestCase):
         alphabetic_string = qiskrypt_quantum_random_alphabetic_generator\
             .generate_alphabetic_string()
         """
-        Generate the alphabetic string from the Qiskrypt's Quantum Random Alphabetic Generator,
-        just for lowercase characters, uppercase characters and punctuation.
+        Generate the alphabetic string from the Qiskrypt's Quantum Random Alphabetic Generator.
         """
 
         print(f"\n\nTest #3:"
@@ -274,7 +274,8 @@ class QiskryptQuantumRandomAlphabeticGeneratorTests(TestCase):
                                                      lowercase=True, uppercase=False,
                                                      punctuation=False)
         """
-        Create a Qiskrypt's Quantum Random Alphabetic Generator.
+        Create a Qiskrypt's Quantum Random Alphabetic Generator,
+        just for lowercase characters.
         """
 
         qiskrypt_quantum_random_alphabetic_generator.initiate(length_alphabetic_string)
@@ -285,8 +286,7 @@ class QiskryptQuantumRandomAlphabeticGeneratorTests(TestCase):
         alphabetic_string = qiskrypt_quantum_random_alphabetic_generator\
             .generate_alphabetic_string()
         """
-        Generate the alphabetic string from the Qiskrypt's Quantum Random Alphabetic Generator,
-        just for lowercase characters.
+        Generate the alphabetic string from the Qiskrypt's Quantum Random Alphabetic Generator.
         """
 
         print(f"\n\nTest #4:"
@@ -337,7 +337,8 @@ class QiskryptQuantumRandomAlphabeticGeneratorTests(TestCase):
                                                      lowercase=True, uppercase=True,
                                                      punctuation=False)
         """
-        Create a Qiskrypt's Quantum Random Alphabetic Generator.
+        Create a Qiskrypt's Quantum Random Alphabetic Generator,
+        just for lowercase characters and uppercase characters.
         """
 
         qiskrypt_quantum_random_alphabetic_generator.initiate(length_alphabetic_string)
@@ -348,8 +349,7 @@ class QiskryptQuantumRandomAlphabeticGeneratorTests(TestCase):
         alphabetic_string = qiskrypt_quantum_random_alphabetic_generator\
             .generate_alphabetic_string()
         """
-        Generate the alphabetic string from the Qiskrypt's Quantum Random Alphabetic Generator,
-        just for lowercase characters and uppercase characters.
+        Generate the alphabetic string from the Qiskrypt's Quantum Random Alphabetic Generator.
         """
 
         print(f"\n\nTest #5:"
@@ -401,7 +401,8 @@ class QiskryptQuantumRandomAlphabeticGeneratorTests(TestCase):
                                                      lowercase=True, uppercase=True,
                                                      punctuation=True)
         """
-        Create a Qiskrypt's Quantum Random Alphabetic Generator.
+        Create a Qiskrypt's Quantum Random Alphabetic Generator,
+        for lowercase characters, uppercase characters and punctuation.
         """
 
         qiskrypt_quantum_random_alphabetic_generator.initiate(length_alphabetic_string)
@@ -412,8 +413,7 @@ class QiskryptQuantumRandomAlphabeticGeneratorTests(TestCase):
         alphabetic_string = qiskrypt_quantum_random_alphabetic_generator\
             .generate_alphabetic_string()
         """
-        Generate the alphabetic string from the Qiskrypt's Quantum Random Alphabetic Generator,
-        just for lowercase characters, uppercase characters and punctuation.
+        Generate the alphabetic string from the Qiskrypt's Quantum Random Alphabetic Generator.
         """
 
         print(f"\n\nTest #6:"
@@ -464,7 +464,8 @@ class QiskryptQuantumRandomAlphabeticGeneratorTests(TestCase):
                                                      lowercase=True, uppercase=False,
                                                      punctuation=False)
         """
-        Create a Qiskrypt's Quantum Random Alphabetic Generator.
+        Create a Qiskrypt's Quantum Random Alphabetic Generator,
+        just for lowercase characters.
         """
 
         qiskrypt_quantum_random_alphabetic_generator.initiate(length_alphabetic_string)
@@ -475,8 +476,7 @@ class QiskryptQuantumRandomAlphabeticGeneratorTests(TestCase):
         alphabetic_string = qiskrypt_quantum_random_alphabetic_generator\
             .generate_alphabetic_string()
         """
-        Generate the alphabetic string from the Qiskrypt's Quantum Random Alphabetic Generator,
-        just for lowercase characters.
+        Generate the alphabetic string from the Qiskrypt's Quantum Random Alphabetic Generator.
         """
 
         print(f"\n\nTest #7:"
@@ -527,7 +527,8 @@ class QiskryptQuantumRandomAlphabeticGeneratorTests(TestCase):
                                                      lowercase=True, uppercase=True,
                                                      punctuation=False)
         """
-        Create a Qiskrypt's Quantum Random Alphabetic Generator.
+        Create a Qiskrypt's Quantum Random Alphabetic Generator,
+        just for lowercase characters and uppercase characters.
         """
 
         qiskrypt_quantum_random_alphabetic_generator.initiate(length_alphabetic_string)
@@ -538,8 +539,7 @@ class QiskryptQuantumRandomAlphabeticGeneratorTests(TestCase):
         alphabetic_string = qiskrypt_quantum_random_alphabetic_generator\
             .generate_alphabetic_string()
         """
-        Generate the alphabetic string from the Qiskrypt's Quantum Random Alphabetic Generator,
-        just for lowercase characters and uppercase characters.
+        Generate the alphabetic string from the Qiskrypt's Quantum Random Alphabetic Generator.
         """
 
         print(f"\n\nTest #8:"
@@ -591,7 +591,8 @@ class QiskryptQuantumRandomAlphabeticGeneratorTests(TestCase):
                                                      lowercase=True, uppercase=True,
                                                      punctuation=True)
         """
-        Create a Qiskrypt's Quantum Random Alphabetic Generator.
+        Create a Qiskrypt's Quantum Random Alphabetic Generator,
+        for lowercase characters, uppercase characters and punctuation.
         """
 
         qiskrypt_quantum_random_alphabetic_generator.initiate(length_alphabetic_string)
@@ -602,8 +603,7 @@ class QiskryptQuantumRandomAlphabeticGeneratorTests(TestCase):
         alphabetic_string = qiskrypt_quantum_random_alphabetic_generator\
             .generate_alphabetic_string()
         """
-        Generate the alphabetic string from the Qiskrypt's Quantum Random Alphabetic Generator,
-        just for lowercase characters, uppercase characters and punctuation.
+        Generate the alphabetic string from the Qiskrypt's Quantum Random Alphabetic Generator.
         """
 
         print(f"\n\nTest #9:"
