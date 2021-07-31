@@ -37,9 +37,15 @@ Acknowledgement(s):\n
 
 """
 
-import string
 """
 Import required Libraries and Packages.
+"""
+
+from string import ascii_lowercase, ascii_uppercase, punctuation, digits
+"""
+Import the ASCII's lowercase characters,
+the ASCII's uppercase characters, punctuation and digits from
+the String Python's library.
 """
 
 from math import ceil, log2
@@ -65,19 +71,19 @@ class QiskryptQuantumRandomAlphanumericGenerator(QiskryptQuantumRandomGenerator)
     Object class for the Qiskrypt's Quantum Random Alphanumeric Generator.
     """
 
-    def __init__(self, name: str, lowercase=True, uppercase=True, punctuation=True, numbers=True):
+    def __init__(self, name: str, lowercase_flag=True, uppercase_flag=True, punctuation_flag=True, numbers_flag=True):
         """
         Constructor of the Qiskrypt's Quantum Random Alphanumeric Generator.
 
         :param name: the name of the Qiskrypt's Quantum Random Alphanumeric Generator.
-        :param lowercase: the boolean flag to keep the information about if
-                          it is pretended to use lowercase characters or not.
-        :param uppercase: the boolean flag to keep the information about if
-                          it is pretended to use uppercase characters or not.
-        :param punctuation: the boolean flag to keep the information about if
-                            it is pretended to use punctuation or not.
-        :param numbers: the boolean flag to keep the information about if
-                        it is pretended to use numbers or not.
+        :param lowercase_flag: the boolean flag to keep the information about if
+                               it is pretended to use lowercase characters or not.
+        :param uppercase_flag: the boolean flag to keep the information about if
+                               it is pretended to use uppercase characters or not.
+        :param punctuation_flag: the boolean flag to keep the information about if
+                                 it is pretended to use punctuation or not.
+        :param numbers_flag: the boolean flag to keep the information about if
+                             it is pretended to use numbers or not.
         """
 
         super().__init__(name)
@@ -85,25 +91,25 @@ class QiskryptQuantumRandomAlphanumericGenerator(QiskryptQuantumRandomGenerator)
         Calls the constructor of the super-class Qiskrypt's Quantum Random Generator.
         """
 
-        self.lowercase = lowercase
+        self.lowercase_flag = lowercase_flag
         """
         Set the boolean flag to keep the information about if
         it is pretended to use lowercase characters or not. 
         """
 
-        self.uppercase = uppercase
+        self.uppercase_flag = uppercase_flag
         """
         Set the boolean flag to keep the information about if
         it is pretended to use uppercase characters or not.
         """
 
-        self.punctuation = punctuation
+        self.punctuation_flag = punctuation_flag
         """
         Set the boolean flag to keep the information about if
         it is pretended to use punctuation or not.
         """
 
-        self.numbers = numbers
+        self.numbers_flag = numbers_flag
         """
         Set the boolean flag to keep the information about if
         it is pretended to use numbers or not.
@@ -114,46 +120,46 @@ class QiskryptQuantumRandomAlphanumericGenerator(QiskryptQuantumRandomGenerator)
         Initialise the available Alphabet, as an empty string.
         """
 
-        if self.lowercase:
+        if self.lowercase_flag:
             """
             If the boolean flag to keep the information about if
             it is pretended to use lowercase characters or not, is True.
             """
 
-            self.available_alphabet += string.ascii_lowercase
+            self.available_alphabet += ascii_lowercase
             """
             Append the ASCII lowercase characters to the available Alphabet.
             """
 
-        if self.uppercase:
+        if self.uppercase_flag:
             """
             If the boolean flag to keep the information about if
             it is pretended to use uppercase characters or not, is True.
             """
 
-            self.available_alphabet += string.ascii_uppercase
+            self.available_alphabet += ascii_uppercase
             """
             Append the ASCII uppercase characters to the available Alphabet.
             """
 
-        if self.punctuation:
+        if self.punctuation_flag:
             """
             If the boolean flag to keep the information about if
             it is pretended to use punctuation or not, is True.
             """
 
-            self.available_alphabet += string.punctuation
+            self.available_alphabet += punctuation
             """
             Append the punctuation characters to the available Alphabet.
             """
 
-        if self.numbers:
+        if self.numbers_flag:
             """
             If the boolean flag to keep the information about if
             it is pretended to use punctuation or not, is True.
             """
 
-            self.available_alphabet += string.digits
+            self.available_alphabet += digits
             """
             Append the digit characters to the available Alphabet.
             """
@@ -175,60 +181,60 @@ class QiskryptQuantumRandomAlphanumericGenerator(QiskryptQuantumRandomGenerator)
         Return the boolean flag to keep the information about if
         it is pretended to use lowercase characters or not.
 
-        :return self.lowercase: the boolean flag to keep the information about if
-                                it is pretended to use lowercase characters or not.
+        :return self.lowercase_flag: the boolean flag to keep the information about if
+                                     it is pretended to use lowercase characters or not.
         """
 
         """
         Return the boolean flag to keep the information about if
         it is pretended to use lowercase characters or not.
         """
-        return self.lowercase
+        return self.lowercase_flag
 
     def use_uppercase(self) -> bool:
         """
         Return the boolean flag to keep the information about if
         it is pretended to use uppercase characters or not.
 
-        :return self.uppercase: the boolean flag to keep the information about if
-                                it is pretended to use uppercase characters or not.
+        :return self.uppercase_flag: the boolean flag to keep the information about if
+                                     it is pretended to use uppercase characters or not.
         """
 
         """
         Return the boolean flag to keep the information about if
         it is pretended to use uppercase characters or not.
         """
-        return self.uppercase
+        return self.uppercase_flag
 
     def use_punctuation(self) -> bool:
         """
         Return the boolean flag to keep the information about if
         it is pretended to use punctuation or not.
 
-        :return self.punctuation: the boolean flag to keep the information about if
-                                  it is pretended to use punctuation or not.
+        :return self.punctuation_flag: the boolean flag to keep the information about if
+                                       it is pretended to use punctuation or not.
         """
 
         """
         Return the boolean flag to keep the information about if
         it is pretended to use punctuation or not.
         """
-        return self.punctuation
+        return self.punctuation_flag
 
     def use_numbers(self) -> bool:
         """
         Return the boolean flag to keep the information about if
         it is pretended to use numbers or not.
 
-        :return self.numbers: the boolean flag to keep the information about if
-                              it is pretended to use numbers or not.
+        :return self.numbers_flag: the boolean flag to keep the information about if
+                                   it is pretended to use numbers or not.
         """
 
         """
         Return the boolean flag to keep the information about if
         it is pretended to use numbers or not.
         """
-        return self.numbers
+        return self.numbers_flag
 
     def get_available_alphabet(self) -> str:
         """
@@ -351,7 +357,7 @@ class QiskryptQuantumRandomAlphanumericGenerator(QiskryptQuantumRandomGenerator)
             If the Qiskrypt's Quantum Random Alphanumeric Generator is already configured.
             """
 
-            if self.lowercase or self.uppercase or self.punctuation or self.numbers:
+            if self.lowercase_flag or self.uppercase_flag or self.punctuation_flag or self.numbers_flag:
                 """
                 If, at least, some of the boolean flags to keep information about if
                 it is pretended to use uppercase characters, lowercase characters,
