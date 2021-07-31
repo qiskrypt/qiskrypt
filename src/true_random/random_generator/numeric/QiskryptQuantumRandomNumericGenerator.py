@@ -64,6 +64,13 @@ from src.true_random.random_generator.QiskryptQuantumRandomGenerator \
 Import the Qiskrypt's Quantum Random Generator.
 """
 
+from src.true_random.random_generator.numeric.exception.QiskryptQuantumRandomNumericGeneratorException \
+    import QiskryptQuantumRandomNumericGeneratorInvalidDataTypeError
+"""
+Import the Invalid Data Type Error for
+the Qiskrypt's Quantum Random Numeric Generator.
+"""
+
 """
 Definition of Constants and Enumerations.
 """
@@ -175,7 +182,11 @@ class QiskryptQuantumRandomNumericGenerator(QiskryptQuantumRandomGenerator):
             the Qiskrypt's Quantum Random Numeric Generator is not valid.
             """
 
-            # TODO - Throw Exception
+            """
+            Return/Raise an Invalid Data Type Error for
+            the Qiskrypt's Quantum Random Numeric Generator.
+            """
+            self.raise_invalid_data_type_error()
 
     def get_name(self) -> str:
         """
@@ -940,3 +951,22 @@ class QiskryptQuantumRandomNumericGenerator(QiskryptQuantumRandomGenerator):
             the Qiskrypt's Quantum Random Generator.
             """
             super().raise_quantum_random_generator_not_configured_yet_error()
+
+    @staticmethod
+    def raise_invalid_data_type_error() -> None:
+        """
+        Return/Raise an Invalid Data Type Error for the Qiskrypt's Quantum Random Numeric Generator.
+
+        :raise invalid_data_type_error: an Invalid Data Type Error for
+                                        the Qiskrypt's Quantum Random Numeric Generator.
+        """
+
+        invalid_data_type_error = QiskryptQuantumRandomNumericGeneratorInvalidDataTypeError()
+        """
+        Retrieve the Invalid Data Type Error for the Qiskrypt's Quantum Random Numeric Generator.
+        """
+
+        """
+        Raise the Invalid Data Type Error for the Qiskrypt's Quantum Random Numeric Generator.
+        """
+        raise invalid_data_type_error
