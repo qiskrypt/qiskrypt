@@ -65,6 +65,13 @@ from src.true_random.random_generator.QiskryptQuantumRandomGenerator \
 Import the Qiskrypt's Quantum Random Generator.
 """
 
+from src.true_random.random_generator.alphanumeric.exception.QiskryptQuantumRandomAlphanumericGeneratorException \
+    import QiskryptQuantumRandomAlphanumericGeneratorNoCharactersGroupChosenError
+"""
+Import the No Characters Group Chosen Error for
+the Qiskrypt's Quantum Random Alphanumeric Generator.
+"""
+
 
 class QiskryptQuantumRandomAlphanumericGenerator(QiskryptQuantumRandomGenerator):
     """
@@ -495,7 +502,11 @@ class QiskryptQuantumRandomAlphanumericGenerator(QiskryptQuantumRandomGenerator)
                 punctuation or numbers, or not, is set to True.
                 """
 
-                # TODO - Throw Exception
+                """
+                Return/Raise a No Characters Group Chosen Error for
+                the Qiskrypt's Quantum Random Alphanumeric Generator.
+                """
+                self.raise_no_characters_group_chosen_error()
 
         else:
             """
@@ -507,3 +518,26 @@ class QiskryptQuantumRandomAlphanumericGenerator(QiskryptQuantumRandomGenerator)
             the Qiskrypt's Quantum Random Generator.
             """
             super().raise_quantum_random_generator_not_configured_yet_error()
+
+    @staticmethod
+    def raise_no_characters_group_chosen_error() -> None:
+        """
+        Return/Raise a No Characters Group Chosen Error for
+        the Qiskrypt's Quantum Random Alphanumeric Generator.
+
+        :raise no_characters_group_chosen_error: a No Characters Group Chosen Error for
+                                                 the Qiskrypt's Quantum Random Alphanumeric Generator.
+        """
+
+        no_characters_group_chosen_error = \
+            QiskryptQuantumRandomAlphanumericGeneratorNoCharactersGroupChosenError()
+        """
+        Retrieve the No Characters Group Chosen Error for
+        the Qiskrypt's Quantum Random Alphanumeric Generator.
+        """
+
+        """
+        Raise the No Characters Group Chosen Error for
+        the Qiskrypt's Quantum Random Alphanumeric Generator.
+        """
+        raise no_characters_group_chosen_error
