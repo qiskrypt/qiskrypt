@@ -935,4 +935,8 @@ class QiskryptQuantumRandomNumericGenerator(QiskryptQuantumRandomGenerator):
             If the Qiskrypt's Quantum Random Numeric Generator is not configured yet.
             """
 
-            # TODO - Throw exception
+            """
+            Return/Raise a Quantum Random Generator Not Configured Yet Error for
+            the Qiskrypt's Quantum Random Generator.
+            """
+            super().raise_quantum_random_generator_not_configured_yet_error()
