@@ -71,11 +71,11 @@ class QiskryptQuantumRandomAlphabeticGenerator(QiskryptQuantumRandomGenerator):
 
         :param name: the name of the Qiskrypt's Quantum Random Alphabetic Generator.
         :param lowercase: the boolean flag to keep the information about if
-                              it is pretended to use lowercase characters or not.
+                          it is pretended to use lowercase characters or not.
         :param uppercase: the boolean flag to keep the information about if
-                              it is pretended to use uppercase characters or not.
+                          it is pretended to use uppercase characters or not.
         :param punctuation: the boolean flag to keep the information about if
-                                it is pretended to use punctuation or not.
+                            it is pretended to use punctuation or not.
         """
 
         super().__init__(name)

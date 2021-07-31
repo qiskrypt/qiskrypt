@@ -36,10 +36,16 @@ Acknowledgement(s):\n
 - Prof. Walter Krawec (School of Engineering, University of Connecticut, United States of America).
 
 """
-import string
 
+import string
 """
 Import required Libraries and Packages.
+"""
+
+from math import ceil, log2
+"""
+Import the Logarithm of Base-2 and the  Ceil mathematical function from
+the Math Python's library.
 """
 
 from qiskit import Aer, execute
@@ -53,37 +59,104 @@ from src.true_random.random_generator.QiskryptQuantumRandomGenerator \
 Import the Qiskrypt's Quantum Random Generator.
 """
 
-"""
-Definition of Constants and Enumerations.
-"""
-
-NUM_BITS_FOR_ONE_BYTE = 8
-"""
-The number of bits of a byte.
-"""
-
-NUM_BYTES_SHORT_INTEGER = 2
-"""
-The number of bytes for a Short Integer.
-"""
-
 
 class QiskryptQuantumRandomAlphanumericGenerator(QiskryptQuantumRandomGenerator):
     """
     Object class for the Qiskrypt's Quantum Random Alphanumeric Generator.
     """
 
-    def __init__(self, name: str):
+    def __init__(self, name: str, lowercase=True, uppercase=True, punctuation=True, numbers=True):
         """
         Constructor of the Qiskrypt's Quantum Random Alphanumeric Generator.
 
         :param name: the name of the Qiskrypt's Quantum Random Alphanumeric Generator.
+        :param lowercase: the boolean flag to keep the information about if
+                          it is pretended to use lowercase characters or not.
+        :param uppercase: the boolean flag to keep the information about if
+                          it is pretended to use uppercase characters or not.
+        :param punctuation: the boolean flag to keep the information about if
+                            it is pretended to use punctuation or not.
+        :param numbers: the boolean flag to keep the information about if
+                        it is pretended to use numbers or not.
         """
 
         super().__init__(name)
         """
         Calls the constructor of the super-class Qiskrypt's Quantum Random Generator.
         """
+
+        self.lowercase = lowercase
+        """
+        Set the boolean flag to keep the information about if
+        it is pretended to use lowercase characters or not. 
+        """
+
+        self.uppercase = uppercase
+        """
+        Set the boolean flag to keep the information about if
+        it is pretended to use uppercase characters or not.
+        """
+
+        self.punctuation = punctuation
+        """
+        Set the boolean flag to keep the information about if
+        it is pretended to use punctuation or not.
+        """
+
+        self.numbers = numbers
+        """
+        Set the boolean flag to keep the information about if
+        it is pretended to use numbers or not.
+        """
+
+        self.available_alphabet = ""
+        """
+        Initialise the available Alphabet, as an empty string.
+        """
+
+        if self.lowercase:
+            """
+            If the boolean flag to keep the information about if
+            it is pretended to use lowercase characters or not, is True.
+            """
+
+            self.available_alphabet += string.ascii_lowercase
+            """
+            Append the ASCII lowercase characters to the available Alphabet.
+            """
+
+        if self.uppercase:
+            """
+            If the boolean flag to keep the information about if
+            it is pretended to use uppercase characters or not, is True.
+            """
+
+            self.available_alphabet += string.ascii_uppercase
+            """
+            Append the ASCII uppercase characters to the available Alphabet.
+            """
+
+        if self.punctuation:
+            """
+            If the boolean flag to keep the information about if
+            it is pretended to use punctuation or not, is True.
+            """
+
+            self.available_alphabet += string.punctuation
+            """
+            Append the punctuation characters to the available Alphabet.
+            """
+
+        if self.numbers:
+            """
+            If the boolean flag to keep the information about if
+            it is pretended to use punctuation or not, is True.
+            """
+
+            self.available_alphabet += string.digits
+            """
+            Append the digit characters to the available Alphabet.
+            """
 
     def get_name(self) -> str:
         """
@@ -96,6 +169,81 @@ class QiskryptQuantumRandomAlphanumericGenerator(QiskryptQuantumRandomGenerator)
         Return the name of the Qiskrypt's Quantum Random Alphanumeric Generator.
         """
         return super().get_name()
+
+    def use_lowercase(self) -> bool:
+        """
+        Return the boolean flag to keep the information about if
+        it is pretended to use lowercase characters or not.
+
+        :return self.lowercase: the boolean flag to keep the information about if
+                                it is pretended to use lowercase characters or not.
+        """
+
+        """
+        Return the boolean flag to keep the information about if
+        it is pretended to use lowercase characters or not.
+        """
+        return self.lowercase
+
+    def use_uppercase(self) -> bool:
+        """
+        Return the boolean flag to keep the information about if
+        it is pretended to use uppercase characters or not.
+
+        :return self.uppercase: the boolean flag to keep the information about if
+                                it is pretended to use uppercase characters or not.
+        """
+
+        """
+        Return the boolean flag to keep the information about if
+        it is pretended to use uppercase characters or not.
+        """
+        return self.uppercase
+
+    def use_punctuation(self) -> bool:
+        """
+        Return the boolean flag to keep the information about if
+        it is pretended to use punctuation or not.
+
+        :return self.punctuation: the boolean flag to keep the information about if
+                                  it is pretended to use punctuation or not.
+        """
+
+        """
+        Return the boolean flag to keep the information about if
+        it is pretended to use punctuation or not.
+        """
+        return self.punctuation
+
+    def use_numbers(self) -> bool:
+        """
+        Return the boolean flag to keep the information about if
+        it is pretended to use numbers or not.
+
+        :return self.numbers: the boolean flag to keep the information about if
+                              it is pretended to use numbers or not.
+        """
+
+        """
+        Return the boolean flag to keep the information about if
+        it is pretended to use numbers or not.
+        """
+        return self.numbers
+
+    def get_available_alphabet(self) -> str:
+        """
+        Return the available Alphabet for
+        the Qiskrypt's Quantum Random Alphanumeric Generator.
+
+        :return self.available_alphabet: the available Alphabet for
+                                         the Qiskrypt's Quantum Random Alphanumeric Generator.
+        """
+
+        """
+        Return the available Alphabet for
+        the Qiskrypt's Quantum Random Alphanumeric Generator.
+        """
+        return self.available_alphabet
 
     def get_qiskrypt_quantum_hadamard_transforms(self) -> list:
         """
@@ -166,7 +314,13 @@ class QiskryptQuantumRandomAlphanumericGenerator(QiskryptQuantumRandomGenerator)
         :param size: the size of the Qiskrypt's Quantum Random Alphanumeric Generator.
         """
 
-        super().configure((size * NUM_BITS_FOR_ONE_BYTE * NUM_BYTES_SHORT_INTEGER))
+        length_binary_string_for_choices = ceil(log2(len(self.available_alphabet)))
+        """
+        Set the length of the binary string,
+        representing the possible choices for the available Alphabet.
+        """
+
+        super().configure((size * length_binary_string_for_choices))
         """
         Configure the Qiskrypt's Quantum Random Alphanumeric Generator, given its size.
         """
@@ -181,23 +335,13 @@ class QiskryptQuantumRandomAlphanumericGenerator(QiskryptQuantumRandomGenerator)
         Reset the Qiskrypt's Quantum Random Alphanumeric Generator.
         """
 
-    def generate_alphanumeric_string(self, use_lowercase=True, use_uppercase=True,
-                                     use_punctuation=True, user_numbers=True) -> str:
+    def generate_alphanumeric_string(self) -> str:
         """
         Generate and return a binary string from
         the Qiskrypt's Quantum Random Alphanumeric Generator,
         in a string format (i.e., a sequence of characters, punctuation and numbers).
 
-        :param use_lowercase: the boolean flag to keep the information about if
-                              it is pretended to use lowercase characters or not.
-        :param use_uppercase: the boolean flag to keep the information about if
-                              it is pretended to use uppercase characters or not.
-        :param use_punctuation: the boolean flag to keep the information about if
-                                it is pretended to use punctuation or not.
-        :param user_numbers: the boolean flag to keep the information about if
-                             it is pretended to use numbers or not.
-
-        :return alphanumeric_string: a alphabetic string from the Qiskrypt's
+        :return alphanumeric_string: a alphanumeric string from the Qiskrypt's
                                      Quantum Random Alphanumeric Generator, in a string format
                                      (i.e., a sequence of characters, punctuation and numbers).
         """
@@ -207,11 +351,11 @@ class QiskryptQuantumRandomAlphanumericGenerator(QiskryptQuantumRandomGenerator)
             If the Qiskrypt's Quantum Random Alphanumeric Generator is already configured.
             """
 
-            if use_lowercase or use_uppercase or use_punctuation or user_numbers:
+            if self.lowercase or self.uppercase or self.punctuation or self.numbers:
                 """
                 If, at least, some of the boolean flags to keep information about if
                 it is pretended to use uppercase characters, lowercase characters,
-                punctuation or number, or not, is set to True.
+                punctuation or numbers, or not, is set to True.
                 """
 
                 qiskrypt_quantum_hadamard_transforms = \
@@ -276,55 +420,6 @@ class QiskryptQuantumRandomAlphanumericGenerator(QiskryptQuantumRandomGenerator)
                 in a binary format (i.e., a sequence of bits).
                 """
 
-                available_alphabet = ""
-                """
-                Initialise the available Alphabet, as an empty string.
-                """
-
-                if use_lowercase:
-                    """
-                    If the boolean flag to keep the information about if
-                    it is pretended to use lowercase characters or not, is True.
-                    """
-
-                    available_alphabet += string.ascii_lowercase
-                    """
-                    Append the ASCII lowercase characters to the available Alphabet.
-                    """
-
-                if use_uppercase:
-                    """
-                    If the boolean flag to keep the information about if
-                    it is pretended to use uppercase characters or not, is True.
-                    """
-
-                    available_alphabet += string.ascii_uppercase
-                    """
-                    Append the ASCII uppercase characters to the available Alphabet.
-                    """
-
-                if use_punctuation:
-                    """
-                    If the boolean flag to keep the information about if
-                    it is pretended to use punctuation or not, is True.
-                    """
-
-                    available_alphabet += string.punctuation
-                    """
-                    Append the punctuation characters to the available Alphabet.
-                    """
-
-                if user_numbers:
-                    """
-                    If the boolean flag to keep the information about if
-                    it is pretended to use numbers or not, is True.
-                    """
-
-                    available_alphabet += string.digits
-                    """
-                    Append the number digits to the available Alphabet.
-                    """
-
                 binary_string_bits_size = len(binary_string_bits[2:])
                 """
                 Retrieve the length of the binary string generated from
@@ -332,10 +427,10 @@ class QiskryptQuantumRandomAlphanumericGenerator(QiskryptQuantumRandomGenerator)
                 in a binary format (i.e., a sequence of bits). 
                 """
 
-                num_short_integer_binary_blocks_for_alphabet_indexes = \
-                    int(binary_string_bits_size / (NUM_BITS_FOR_ONE_BYTE * NUM_BYTES_SHORT_INTEGER))
+                num_binary_alphabet_indexes = \
+                    int(binary_string_bits_size / ceil(log2(len(self.available_alphabet))))
                 """
-                Compute the number of indexes of Short Integer binary blocks for
+                Compute the number of indexes of small integers of base-2 binary blocks for
                 the sample choices of the Alphabet.
                 """
 
@@ -344,50 +439,46 @@ class QiskryptQuantumRandomAlphanumericGenerator(QiskryptQuantumRandomGenerator)
                 Initialise the alphanumeric string, as an empty string.
                 """
 
-                for short_integer_binary_block_for_alphabet_index \
-                        in range(num_short_integer_binary_blocks_for_alphabet_indexes):
+                for num_binary_alphabet_index in range(num_binary_alphabet_indexes):
                     """
-                    For each index of Short Integer binary block for
+                    For each index of small integers of base-2 binary block for
                     the sample choices of the available Alphabet.
                     """
 
-                    offset_binary_block_start = (short_integer_binary_block_for_alphabet_index *
-                                                 NUM_BITS_FOR_ONE_BYTE * NUM_BYTES_SHORT_INTEGER)
+                    offset_binary_block_start = (num_binary_alphabet_index * ceil(log2(len(self.available_alphabet))))
                     """
-                    Compute the Offset of the start of the current binary block from
-                    the binary string generated.
+                    Compute the Offset of the start of the current binary block from the binary string generated.
                     """
 
-                    offset_binary_block_end = ((short_integer_binary_block_for_alphabet_index + 1) *
-                                                NUM_BITS_FOR_ONE_BYTE * NUM_BYTES_SHORT_INTEGER)
+                    offset_binary_block_end = ((num_binary_alphabet_index + 1) * ceil(log2(len(self.available_alphabet))))
                     """
-                    Compute the Offset of the end of the current binary block from
-                    the binary string generated.
+                    Compute the Offset of the end of the current binary block from the binary string generated.
                     """
 
-                    short_integer_binary_block = \
+                    alphabet_binary_block = \
                         binary_string[(2 + offset_binary_block_start):(2 + offset_binary_block_end)]
                     """
                     Retrieve the current binary block from the binary string generated.
                     """
 
-                    alphabet_index = int(((int(short_integer_binary_block, base=2)) *
-                                          len(available_alphabet)) / (2**16 - 1))
+                    alphabet_index = int(((int(alphabet_binary_block, base=2)) *
+                                          (len(self.available_alphabet)) - 1) /
+                                         (2 ** (ceil(log2(len(self.available_alphabet)))) - 1))
                     """
                     Compute and re-scale the computed binary block for
                     the current sample choice of the available Alphabet.
                     """
 
-                    alphanumeric_string += available_alphabet[alphabet_index]
+                    alphanumeric_string += self.available_alphabet[alphabet_index]
                     """
                     Retrieve the current sample choice of the available Alphabet and append it to
                     the alphanumeric string being generated.
                     """
 
                 """
-                Return the alphabetic string generated from
+                Return the alphanumeric string generated from
                 the Qiskrypt's Quantum Random Alphanumeric Generator,
-                in an alphanumeric format (i.e., a sequence of characters and digits).
+                in an alphanumeric format (i.e., a sequence of characters).
                 """
                 return alphanumeric_string
 
