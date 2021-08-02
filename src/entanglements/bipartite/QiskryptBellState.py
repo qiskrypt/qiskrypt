@@ -251,8 +251,8 @@ class QiskryptBellState(QiskryptQuantumEntanglement):
         """
         Prepare the Bipartite Quantum Entanglement,
         for the specified Qiskrypt's Bell State, as a quantum entangled state,
-        or even, as the final classical outcome/result, after be performed a measurement on
-        that quantum entangled state.
+        or even, apply also the measurement of that Quantum Entangled State, on the Computational Basis,
+        to allow the extraction of its final classical outcome/result.
 
         :param is_to_measure_at_computational_basis: the boolean flag to keep the information about
                                                      if it will be performed a measurement of
@@ -430,6 +430,199 @@ class QiskryptBellState(QiskryptQuantumEntanglement):
             If the boolean flag to keep the information about
             if it will be performed a measurement of
             the Qiskrypt's Bell State on the Computational Basis, is True.
+            """
+
+            self.qiskrypt_quantum_circuit\
+                .measure_single_qubit_in_qiskit_quantum_register(self.qiskit_quantum_register_control_index,
+                                                                 qiskit_classical_register_control_index,
+                                                                 self.control_qubit_index, control_bit_index)
+            """
+            Measure the control qubit in the control IBM Qiskit's Quantum Register into
+            the respective control bit in the control IBM Qiskit's Classical Register,
+            inside the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit.
+            """
+
+            self.qiskrypt_quantum_circuit\
+                .measure_single_qubit_in_qiskit_quantum_register(self.qiskit_quantum_register_target_index,
+                                                                 qiskit_classical_register_target_index,
+                                                                 self.target_qubit_index, target_bit_index)
+            """
+            Measure the target qubit in the target IBM Qiskit's Quantum Register into
+            the respective target bit in the target IBM Qiskit's Classical Register,
+            inside the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit.
+            """
+
+    def measure_bipartite_entanglement_at_bell_state_basis(self, is_to_measure_at_bell_state_basis=False,
+                                                           qiskit_classical_register_control_index=None,
+                                                           qiskit_classical_register_target_index=None,
+                                                           control_bit_index=None, target_bit_index=None) -> None:
+        """
+        Perform all the necessary Quantum Gates/Operations to prepare the Qiskrypt's Bell State,
+        at the Bell State Basis, or even, apply also the measurements,
+        to allow the extraction of its final classical outcome/result.
+
+        :param is_to_measure_at_bell_state_basis: the boolean flag to keep the information about
+                                                  if it will be performed a measurement of
+                                                  the Qiskrypt's Bell State on the Bell State Basis.
+        :param qiskit_classical_register_control_index: the index of the control IBM Qiskit's Classical Register,
+                                                        where it belongs the bit to store the final classical outcome/result,
+                                                        after be performed a measurement on the qubit inside
+                                                        the control IBM Qiskit's Quantum Register.
+        :param qiskit_classical_register_target_index: the index of the target IBM Qiskit's Classical Register,
+                                                       where it belongs the bit to store the final classical outcome/result,
+                                                       after be performed a measurement on the qubit inside
+                                                       the target IBM Qiskit's Quantum Register.
+        :param control_bit_index: the index of a bit inside the control IBM Qiskit's Classical Register,
+                                  where it will be stored the final classical outcome/result,
+                                  after be performed a measurement on the qubit inside
+                                  the control IBM Qiskit's Quantum Register.
+        :param target_bit_index: the index of a bit inside the target IBM Qiskit's Classical Register,
+                                 where it will be stored the final classical outcome/result,
+                                 after be performed a measurement on the qubit inside
+                                 the target IBM Qiskit's Quantum Register.
+        """
+
+        self.qiskrypt_quantum_circuit \
+            .apply_barrier_to_single_qubit_in_qiskit_quantum_register(self.qiskit_quantum_register_control_index,
+                                                                      self.control_qubit_index)
+        """
+        Apply a barrier to the control IBM Qiskit's Quantum Register and the respective control qubit.
+        """
+
+        self.qiskrypt_quantum_circuit \
+            .apply_barrier_to_single_qubit_in_qiskit_quantum_register(self.qiskit_quantum_register_target_index,
+                                                                      self.target_qubit_index)
+        """
+        Apply a barrier to the target IBM Qiskit's Quantum Register and the respective control qubit.
+        """
+
+        if (self.get_bell_state_sub_type() == POSSIBLE_CONFIGURATIONS_BELL_STATES[0]) \
+            or (self.get_bell_state_sub_type() == POSSIBLE_CONFIGURATIONS_BELL_STATES[1]):
+            """
+            If the sub-type of the Qiskrypt's Bell State is, |ϕ^+⟩ = 1/sqrt(2) x (|00⟩ + |11⟩)
+            (also known as, EPR Pair).
+            """
+
+            self.qiskrypt_quantum_circuit\
+                .apply_controlled_pauli_x(self.qiskit_quantum_register_control_index,
+                                          self.control_qubit_index,
+                                          self.qiskit_quantum_register_target_index,
+                                          self.target_qubit_index)
+            """
+            Apply the Controlled-Pauli-X (Controlled-NOT) Gate/Operation to given indexes of
+            the control IBM Qiskit's Quantum Register and the respective qubit on it, as also,
+            the target IBM Qiskit's Quantum Register and the respective qubit on it. 
+            """
+
+            self.qiskrypt_quantum_circuit.apply_hadamard(self.qiskit_quantum_register_control_index,
+                                                         self.control_qubit_index)
+            """
+            Apply the Hadamard Gate/Operation to the given indexes of
+            the control IBM Qiskit's Quantum Register and the respective control qubit on it.
+            """
+
+        elif self.get_bell_state_sub_type() == POSSIBLE_CONFIGURATIONS_BELL_STATES[2]:
+            """
+            If the sub-type of the Qiskrypt's Bell State is, |ϕ^-⟩ = 1/sqrt(2) x (|00⟩ - |11⟩).
+            """
+
+            self.qiskrypt_quantum_circuit\
+                .apply_controlled_pauli_x(self.qiskit_quantum_register_control_index,
+                                          self.control_qubit_index,
+                                          self.qiskit_quantum_register_target_index,
+                                          self.target_qubit_index)
+            """
+            Apply the Controlled-Pauli-X (Controlled-NOT) Gate/Operation to given indexes of
+            the control IBM Qiskit's Quantum Register and the respective qubit on it, as also,
+            the target IBM Qiskit's Quantum Register and the respective qubit on it. 
+            """
+
+            self.qiskrypt_quantum_circuit.apply_pauli_z(self.qiskit_quantum_register_control_index,
+                                                        self.control_qubit_index)
+            """
+            Apply the Pauli-Z (Phase Flip/Shift) Gate/Operation to the given indexes of
+            the control IBM Qiskit's Quantum Register and the respective control qubit on it.
+            """
+
+            self.qiskrypt_quantum_circuit.apply_hadamard(self.qiskit_quantum_register_control_index,
+                                                         self.control_qubit_index)
+            """
+            Apply the Hadamard Gate/Operation to the given indexes of
+            the control IBM Qiskit's Quantum Register and the respective control qubit on it.
+            """
+
+        elif self.get_bell_state_sub_type() == POSSIBLE_CONFIGURATIONS_BELL_STATES[3]:
+            """
+            If the sub-type of the Qiskrypt's Bell State is, |ψ^+⟩ = 1/sqrt(2) x (|01⟩ + |10⟩).
+            """
+
+            self.qiskrypt_quantum_circuit\
+                .apply_controlled_pauli_x(self.qiskit_quantum_register_control_index,
+                                          self.control_qubit_index,
+                                          self.qiskit_quantum_register_target_index,
+                                          self.target_qubit_index)
+            """
+            Apply the Controlled-Pauli-X (Controlled-NOT) Gate/Operation to given indexes of
+            the control IBM Qiskit's Quantum Register and the respective qubit on it, as also,
+            the target IBM Qiskit's Quantum Register and the respective qubit on it. 
+            """
+
+            self.qiskrypt_quantum_circuit.apply_pauli_x(self.qiskit_quantum_register_target_index,
+                                                        self.target_qubit_index)
+            """
+            Apply the Pauli-X (NOT/Bit Flip) Gate/Operation to the given indexes of
+            the target IBM Qiskit's Quantum Register and the respective target qubit on it.
+            """
+
+            self.qiskrypt_quantum_circuit.apply_hadamard(self.qiskit_quantum_register_control_index,
+                                                         self.control_qubit_index)
+            """
+            Apply the Hadamard Gate/Operation to the given indexes of
+            the control IBM Qiskit's Quantum Register and the respective control qubit on it.
+            """
+
+        elif self.get_bell_state_sub_type() == POSSIBLE_CONFIGURATIONS_BELL_STATES[4]:
+            """
+            If the sub-type of the Qiskrypt's Bell State is, |ψ^+⟩ = 1/sqrt(2) x (|01⟩ - |10⟩).
+            """
+
+            self.qiskrypt_quantum_circuit.apply_pauli_z(self.qiskit_quantum_register_target_index,
+                                                        self.target_qubit_index)
+            """
+            Apply the Pauli-Z (Phase Flip/Shift) Gate/Operation to the given indexes of
+            the target IBM Qiskit's Quantum Register and the respective target qubit on it.
+            """
+
+            self.qiskrypt_quantum_circuit\
+                .apply_controlled_pauli_x(self.qiskit_quantum_register_control_index,
+                                          self.control_qubit_index,
+                                          self.qiskit_quantum_register_target_index,
+                                          self.target_qubit_index)
+            """
+            Apply the Controlled-Pauli-X (Controlled-NOT) Gate/Operation to given indexes of
+            the control IBM Qiskit's Quantum Register and the respective qubit on it, as also,
+            the target IBM Qiskit's Quantum Register and the respective qubit on it. 
+            """
+
+            self.qiskrypt_quantum_circuit.apply_pauli_x(self.qiskit_quantum_register_target_index,
+                                                        self.target_qubit_index)
+            """
+            Apply the Pauli-X (NOT/Bit Flip) Gate/Operation to the given indexes of
+            the target IBM Qiskit's Quantum Register and the respective target qubit on it.
+            """
+
+            self.qiskrypt_quantum_circuit.apply_hadamard(self.qiskit_quantum_register_control_index,
+                                                         self.control_qubit_index)
+            """
+            Apply the Hadamard Gate/Operation to the given indexes of
+            the control IBM Qiskit's Quantum Register and the respective control qubit on it.
+            """
+
+        if is_to_measure_at_bell_state_basis:
+            """
+            If the boolean flag to keep the information about
+            if it will be performed a measurement of
+            the Qiskrypt's Bell State on the Bell State Basis, is True.
             """
 
             self.qiskrypt_quantum_circuit\
