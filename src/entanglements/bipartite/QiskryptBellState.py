@@ -256,7 +256,7 @@ class QiskryptBellState(QiskryptQuantumEntanglement):
 
         :param is_to_measure_at_computational_basis: the boolean flag to keep the information about
                                                      if it will be performed a measurement of
-                                                     the Qiskrypt's Bell State on the Bell State Basis.
+                                                     the Qiskrypt's Bell State on the Computational Basis.
         :param qiskit_classical_register_control_index: the index of the control IBM Qiskit's Classical Register,
                                                         where it belongs the bit to store the final classical outcome/result,
                                                         after be performed a measurement on the qubit inside
@@ -427,8 +427,9 @@ class QiskryptBellState(QiskryptQuantumEntanglement):
 
         if is_to_measure_at_computational_basis:
             """
-            If it is to be performed the measurement of the qubits on
-            the IBM Qiskit's Quantum Registers, associated to the Qiskrypt's Bell State.
+            If the boolean flag to keep the information about
+            if it will be performed a measurement of
+            the Qiskrypt's Bell State on the Computational Basis, is True.
             """
 
             self.qiskrypt_quantum_circuit\
