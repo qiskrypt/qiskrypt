@@ -67,7 +67,7 @@ the Qiskrypt's Quantum Entanglement.
 POSSIBLE_CONFIGURATIONS_BELL_STATES = ["EPR_PAIR_STATE", "BELL_STATE_PHI_PLUS", "BELL_STATE_PHI_MINUS",
                                        "BELL_STATE_PSI_PLUS", "BELL_STATE_PSI_MINUS"]
 """
-The available Quantum Entanglement types for
+The available configurations for Bell States for
 the Qiskrypt's Quantum Entanglement.
 """
 
@@ -123,9 +123,10 @@ class QiskryptQuantumEntanglement:
                 from which it will be configured the Qiskrypt's Quantum Entanglement.
                 """
 
-                if quantum_entanglement_type == POSSIBLE_QUANTUM_ENTANGLEMENT_TYPES[0]:
+                if (quantum_entanglement_type is not None) \
+                    and (quantum_entanglement_type == POSSIBLE_QUANTUM_ENTANGLEMENT_TYPES[0]):
                     """
-                    If the Qiskrypt's Quantum Entanglement is a Bell State.
+                    If the Qiskrypt's Quantum Entanglement is a valid Bell State.
                     """
 
                     if bell_state_sub_type in POSSIBLE_CONFIGURATIONS_BELL_STATES:
@@ -150,7 +151,7 @@ class QiskryptQuantumEntanglement:
 
                 else:
                     """
-                    If the Qiskrypt's Quantum Entanglement is not a Bell State.
+                    If the Qiskrypt's Quantum Entanglement is not a valid Bell State.
                     """
 
                     self.bell_state_sub_type = None
