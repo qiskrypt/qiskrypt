@@ -1,0 +1,189 @@
+"""
+
+Copyrights:\n
+- © Qiskrypt, 2021 - All rights reserved.\n
+
+Powered by:\n
+- IBM
+- IBM Quantum
+- IBM Qiskit
+
+
+Description:\n
+- The Qiskrypt is a software suite of protocols of
+  quantum cryptography, quantum communication and
+  other protocols/algorithms, built using the IBM's Qiskit.
+
+College(s):\n
+- NOVA School of Science and Technology, NOVA University of Lisbon, Portugal.
+- Faculty of Sciences, University of Lisbon, Portugal.
+- Tecnico Lisboa, University of Lisbon, Portugal.
+- School of Engineering, University of Connecticut, United States of America.
+
+Other Institution(s):\n
+- Instituto de Telecomunicacoes, Portugal.
+- SQIG, Portugal.
+- LASIGE, Portugal.
+- UT Austin Program, Portugal.
+
+Author(s):\n
+- Ruben Barreiro (NOVA School of Science and Technology, NOVA University of Lisbon, Portugal).
+
+Acknowledgement(s):\n
+- Prof. Andre Souto (Faculty of Sciences, University of Lisbon, Portugal).
+- Prof. Paulo Mateus (Tecnico Lisboa, University of Lisbon, Portugal).
+- Prof. Nikola Paunkovic (Tecnico Lisboa, University of Lisbon, Portugal).
+- Prof. Walter Krawec (School of Engineering, University of Connecticut, United States of America).
+
+"""
+
+"""
+Import required Libraries and Packages.
+"""
+
+from src.entanglements.QiskryptQuantumEntanglement \
+    import QiskryptQuantumEntanglement
+"""
+Import the Qiskrypt's Quantum Entanglement.
+"""
+
+from src.entanglements.QiskryptQuantumEntanglement \
+    import POSSIBLE_QUANTUM_ENTANGLEMENT_CARDINALITIES
+"""
+Import the available Quantum Entanglement cardinalities for
+the Qiskrypt's Quantum Entanglement.
+"""
+
+from src.entanglements.QiskryptQuantumEntanglement \
+    import POSSIBLE_QUANTUM_ENTANGLEMENT_TYPES
+"""
+Import the available Quantum Entanglement types for
+the Qiskrypt's Quantum Entanglement.
+"""
+
+from src.entanglements.QiskryptQuantumEntanglement \
+    import POSSIBLE_CONFIGURATIONS_BELL_STATES
+"""
+Import the available configurations for Bell States for
+the Qiskrypt's Quantum Entanglement.
+"""
+
+from src.circuit.QiskryptQuantumCircuit \
+    import QiskryptQuantumCircuit
+"""
+Import the Qiskrypt's Quantum Circuit.
+"""
+
+
+class QiskryptBellState(QiskryptQuantumEntanglement):
+    """
+    Object class for the Qiskrypt's Bell State.
+    """
+
+    def __init__(self, name: str, qiskrypt_quantum_circuit: QiskryptQuantumCircuit, bell_state_sub_type: str):
+        """
+        Constructor of the Qiskrypt's Bell State.
+
+        :param name: the name of the Qiskrypt's Bell State.
+        :param qiskrypt_quantum_circuit: the name of the Qiskrypt's Bell State.
+        :param bell_state_sub_type: the sub-type of the Qiskrypt's Bell State.
+        """
+
+        if bell_state_sub_type in POSSIBLE_CONFIGURATIONS_BELL_STATES:
+            """
+            If the Qiskrypt's Quantum Entanglement is a valid Bell State.
+            """
+
+            if (qiskrypt_quantum_circuit.get_total_num_qubits() >= 2) \
+                and (qiskrypt_quantum_circuit.get_total_num_bits() >= 2):
+                """
+                If the number of qubits and bits of
+                the given Qiskrypt's Quantum Circuit is greater or equal than 2.
+                """
+
+                super().__init__(name, POSSIBLE_QUANTUM_ENTANGLEMENT_CARDINALITIES[0],
+                                 POSSIBLE_QUANTUM_ENTANGLEMENT_TYPES[0],
+                                 qiskrypt_quantum_circuit, bell_state_sub_type)
+                """
+                Calls the constructor of the super-class Qiskrypt's Quantum Entanglement.
+                """
+
+            else:
+                """
+                If the number of qubits and bits of
+                the given Qiskrypt's Quantum Circuit is strictly lower than 2.
+                """
+
+                # TODO - Throw Exception
+
+        else:
+            """
+            If the Qiskrypt's Quantum Entanglement is not a valid Bell State.
+            """
+
+            # TODO - Throw Exception
+
+    def get_name(self):
+        """
+        Return the name of the Qiskrypt's Bell State.
+
+        :return super().get_name(): the name of the Qiskrypt's Bell State.
+        """
+
+        """
+        Return the name of the Qiskrypt's Bell State.
+        """
+        return super().get_name()
+
+    def get_quantum_entanglement_cardinality(self):
+        """
+        Return the cardinality of the Qiskrypt's Bell State.
+
+        :return super().get_quantum_entanglement_cardinality(): the cardinality of
+                                                                the Qiskrypt's Bell State.
+        """
+
+        """
+        Return the cardinality of the Qiskrypt's Bell State.
+        """
+        return super().get_quantum_entanglement_cardinality()
+
+    def get_quantum_entanglement_type(self):
+        """
+        Return the type of the Qiskrypt's Bell State.
+
+        :return super().get_quantum_entanglement_type(): the type of the Qiskrypt's Bell State.
+        """
+
+        """
+        Return the type of the Qiskrypt's Bell State.
+        """
+        return super().get_quantum_entanglement_type()
+
+    def get_qiskrypt_quantum_circuit(self):
+        """
+        Return the Qiskrypt's Quantum Circuit,
+        from which it will be configured the Qiskrypt's Bell State.
+
+        :return super().get_qiskrypt_quantum_circuit(): the Qiskrypt's Quantum Circuit,
+                                                        from which it will be configured
+                                                        the Qiskrypt's Bell State.
+        """
+
+        """
+        Return the Qiskrypt's Quantum Circuit,
+        from which it will be configured the Qiskrypt's Bell State.
+        """
+        return super().get_qiskrypt_quantum_circuit()
+
+    def get_bell_state_sub_type(self):
+        """
+        Return the sub-type of the Qiskrypt's Bell State.
+
+        :return super().get_bell_state_sub_type(): the sub-type of the Qiskrypt's Bell State.
+        """
+
+        """
+        Return the sub-type of the Qiskrypt's Bell State.
+        """
+        return super().get_bell_state_sub_type()
