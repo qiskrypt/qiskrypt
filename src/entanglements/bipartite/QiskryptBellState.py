@@ -108,6 +108,26 @@ class QiskryptBellState(QiskryptQuantumEntanglement):
                 Calls the constructor of the super-class Qiskrypt's Quantum Entanglement.
                 """
 
+                self.qiskit_quantum_register_control_index = None
+                """
+                Set the index of the control IBM Qiskit's Quantum Register, as None.
+                """
+
+                self.qiskit_quantum_register_target_index = None
+                """
+                Set the index of the target IBM Qiskit's Quantum Register, as None.
+                """
+
+                self.control_qubit_index = None
+                """
+                Set the index of a qubit inside the control IBM Qiskit's Quantum Register, as None.
+                """
+
+                self.target_qubit_index = None
+                """
+                Set the index of a qubit inside the target IBM Qiskit's Quantum Register, as None.
+                """
+
             else:
                 """
                 If the number of qubits and bits of
@@ -187,3 +207,37 @@ class QiskryptBellState(QiskryptQuantumEntanglement):
         Return the sub-type of the Qiskrypt's Bell State.
         """
         return super().get_bell_state_sub_type()
+
+    def configure(self, qiskit_quantum_register_control_index: int,
+                  qiskit_quantum_register_target_index: int,
+                  control_qubit_index: int, target_qubit_index: int) -> None:
+        """
+        Configure the Qiskrypt's Bell State,
+        regarding its control IBM Qiskit's Quantum Register and control qubit,
+        as well, its target IBM Qiskit's Quantum Register and target qubit.
+
+        :param qiskit_quantum_register_control_index: the index of the control IBM Qiskit's Quantum Register.
+        :param qiskit_quantum_register_target_index: the index of the target IBM Qiskit's Quantum Register.
+        :param control_qubit_index: the index of a qubit inside the control IBM Qiskit's Quantum Register.
+        :param target_qubit_index: the index of a qubit inside the target IBM Qiskit's Quantum Register.
+        """
+
+        self.qiskit_quantum_register_control_index = qiskit_quantum_register_control_index
+        """
+        Set the index of the control IBM Qiskit's Quantum Register, as the given index for it.
+        """
+
+        self.qiskit_quantum_register_target_index = qiskit_quantum_register_target_index
+        """
+        Set the index of the target IBM Qiskit's Quantum Register, as the given index for it.
+        """
+
+        self.control_qubit_index = control_qubit_index
+        """
+        Set the index of a qubit inside the control IBM Qiskit's Quantum Register, as the given index for it.
+        """
+
+        self.target_qubit_index = target_qubit_index
+        """
+        Set the index of a qubit inside the target IBM Qiskit's Quantum Register, as the given index for it.
+        """
