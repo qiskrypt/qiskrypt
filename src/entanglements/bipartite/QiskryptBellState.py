@@ -94,10 +94,9 @@ class QiskryptBellState(QiskryptQuantumEntanglement):
             If the Qiskrypt's Quantum Entanglement is a valid Bell State.
             """
 
-            if (qiskrypt_quantum_circuit.get_total_num_qubits() >= 2) \
-                and (qiskrypt_quantum_circuit.get_total_num_bits() >= 2):
+            if qiskrypt_quantum_circuit.get_total_num_qubits() >= 2:
                 """
-                If the number of qubits and bits of
+                If the number of qubits of
                 the given Qiskrypt's Quantum Circuit is greater or equal than 2.
                 """
 
@@ -432,25 +431,39 @@ class QiskryptBellState(QiskryptQuantumEntanglement):
             the Qiskrypt's Bell State on the Computational Basis, is True.
             """
 
-            self.qiskrypt_quantum_circuit\
-                .measure_single_qubit_in_qiskit_quantum_register(self.qiskit_quantum_register_control_index,
-                                                                 qiskit_classical_register_control_index,
-                                                                 self.control_qubit_index, control_bit_index)
-            """
-            Measure the control qubit in the control IBM Qiskit's Quantum Register into
-            the respective control bit in the control IBM Qiskit's Classical Register,
-            inside the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit.
-            """
+            if self.qiskrypt_quantum_circuit.get_total_num_bits() >= 2:
+                """
+                If the number of bits of
+                the given Qiskrypt's Quantum Circuit is greater or equal than 2.
+                """
 
-            self.qiskrypt_quantum_circuit\
-                .measure_single_qubit_in_qiskit_quantum_register(self.qiskit_quantum_register_target_index,
-                                                                 qiskit_classical_register_target_index,
-                                                                 self.target_qubit_index, target_bit_index)
-            """
-            Measure the target qubit in the target IBM Qiskit's Quantum Register into
-            the respective target bit in the target IBM Qiskit's Classical Register,
-            inside the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit.
-            """
+                self.qiskrypt_quantum_circuit\
+                    .measure_single_qubit_in_qiskit_quantum_register(self.qiskit_quantum_register_control_index,
+                                                                     qiskit_classical_register_control_index,
+                                                                     self.control_qubit_index, control_bit_index)
+                """
+                Measure the control qubit in the control IBM Qiskit's Quantum Register into
+                the respective control bit in the control IBM Qiskit's Classical Register,
+                inside the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit.
+                """
+
+                self.qiskrypt_quantum_circuit\
+                    .measure_single_qubit_in_qiskit_quantum_register(self.qiskit_quantum_register_target_index,
+                                                                     qiskit_classical_register_target_index,
+                                                                     self.target_qubit_index, target_bit_index)
+                """
+                Measure the target qubit in the target IBM Qiskit's Quantum Register into
+                the respective target bit in the target IBM Qiskit's Classical Register,
+                inside the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit.
+                """
+
+            else:
+                """
+                If the number of bits of
+                the given Qiskrypt's Quantum Circuit is lower than 2.
+                """
+
+                # TODO - Throw Exception
 
     def measure_bipartite_entanglement_at_bell_state_basis(self, is_to_measure_at_bell_state_basis=False,
                                                            qiskit_classical_register_control_index=None,
@@ -625,22 +638,36 @@ class QiskryptBellState(QiskryptQuantumEntanglement):
             the Qiskrypt's Bell State on the Bell State Basis, is True.
             """
 
-            self.qiskrypt_quantum_circuit\
-                .measure_single_qubit_in_qiskit_quantum_register(self.qiskit_quantum_register_control_index,
-                                                                 qiskit_classical_register_control_index,
-                                                                 self.control_qubit_index, control_bit_index)
-            """
-            Measure the control qubit in the control IBM Qiskit's Quantum Register into
-            the respective control bit in the control IBM Qiskit's Classical Register,
-            inside the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit.
-            """
+            if self.qiskrypt_quantum_circuit.get_total_num_bits() >= 2:
+                """
+                If the number of bits of
+                the given Qiskrypt's Quantum Circuit is greater or equal than 2.
+                """
 
-            self.qiskrypt_quantum_circuit\
-                .measure_single_qubit_in_qiskit_quantum_register(self.qiskit_quantum_register_target_index,
-                                                                 qiskit_classical_register_target_index,
-                                                                 self.target_qubit_index, target_bit_index)
-            """
-            Measure the target qubit in the target IBM Qiskit's Quantum Register into
-            the respective target bit in the target IBM Qiskit's Classical Register,
-            inside the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit.
-            """
+                self.qiskrypt_quantum_circuit\
+                    .measure_single_qubit_in_qiskit_quantum_register(self.qiskit_quantum_register_control_index,
+                                                                     qiskit_classical_register_control_index,
+                                                                     self.control_qubit_index, control_bit_index)
+                """
+                Measure the control qubit in the control IBM Qiskit's Quantum Register into
+                the respective control bit in the control IBM Qiskit's Classical Register,
+                inside the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit.
+                """
+
+                self.qiskrypt_quantum_circuit\
+                    .measure_single_qubit_in_qiskit_quantum_register(self.qiskit_quantum_register_target_index,
+                                                                     qiskit_classical_register_target_index,
+                                                                     self.target_qubit_index, target_bit_index)
+                """
+                Measure the target qubit in the target IBM Qiskit's Quantum Register into
+                the respective target bit in the target IBM Qiskit's Classical Register,
+                inside the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit.
+                """
+
+            else:
+                """
+                If the number of bits of
+                the given Qiskrypt's Quantum Circuit is lower than 2.
+                """
+
+                # TODO - Throw Exception
