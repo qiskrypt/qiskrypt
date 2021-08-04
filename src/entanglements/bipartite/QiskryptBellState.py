@@ -142,7 +142,7 @@ class QiskryptBellState(QiskryptQuantumEntanglement):
 
             # TODO - Throw Exception
 
-    def get_name(self):
+    def get_name(self) -> str:
         """
         Return the name of the Qiskrypt's Bell State.
 
@@ -154,7 +154,7 @@ class QiskryptBellState(QiskryptQuantumEntanglement):
         """
         return super().get_name()
 
-    def get_quantum_entanglement_cardinality(self):
+    def get_quantum_entanglement_cardinality(self) -> str:
         """
         Return the cardinality of the Qiskrypt's Bell State.
 
@@ -167,7 +167,7 @@ class QiskryptBellState(QiskryptQuantumEntanglement):
         """
         return super().get_quantum_entanglement_cardinality()
 
-    def get_quantum_entanglement_type(self):
+    def get_quantum_entanglement_type(self) -> str:
         """
         Return the type of the Qiskrypt's Bell State.
 
@@ -179,7 +179,7 @@ class QiskryptBellState(QiskryptQuantumEntanglement):
         """
         return super().get_quantum_entanglement_type()
 
-    def get_qiskrypt_quantum_circuit(self):
+    def get_qiskrypt_quantum_circuit(self) -> QiskryptQuantumCircuit:
         """
         Return the Qiskrypt's Quantum Circuit,
         from which it will be configured the Qiskrypt's Bell State.
@@ -195,7 +195,7 @@ class QiskryptBellState(QiskryptQuantumEntanglement):
         """
         return super().get_qiskrypt_quantum_circuit()
 
-    def get_bell_state_sub_type(self):
+    def get_bell_state_sub_type(self) -> str:
         """
         Return the sub-type of the Qiskrypt's Bell State.
 
@@ -206,6 +206,62 @@ class QiskryptBellState(QiskryptQuantumEntanglement):
         Return the sub-type of the Qiskrypt's Bell State.
         """
         return super().get_bell_state_sub_type()
+
+    def get_qiskit_quantum_register_control_index(self) -> int:
+        """
+        Return the index of the control IBM Qiskit's Quantum Register of the Qiskrypt's Bell State.
+
+        :return self.qiskit_quantum_register_control_index: the index of the control
+                                                            IBM Qiskit's Quantum Register of
+                                                            the Qiskrypt's Bell State.
+        """
+
+        """
+        Return the index of the control IBM Qiskit's Quantum Register of the Qiskrypt's Bell State.
+        """
+        return self.qiskit_quantum_register_control_index
+
+    def get_qiskit_quantum_register_target_index(self) -> int:
+        """
+        Return the index of the target IBM Qiskit's Quantum Register of the Qiskrypt's Bell State.
+
+        :return self.qiskit_quantum_register_target_index: the index of the target
+                                                           IBM Qiskit's Quantum Register of
+                                                           the Qiskrypt's Bell State.
+        """
+
+        """
+        Return the index of the target IBM Qiskit's Quantum Register of the Qiskrypt's Bell State.
+        """
+        return self.qiskit_quantum_register_target_index
+
+    def get_control_qubit_index(self) -> int:
+        """
+        Return the index of a qubit inside the control IBM Qiskit's Quantum Register of the Qiskrypt's Bell State.
+
+        :return self.control_qubit_index: the index of a qubit inside
+                                          the control IBM Qiskit's Quantum Register of
+                                          the Qiskrypt's Bell State.
+        """
+
+        """
+        Return the index of a qubit inside the control IBM Qiskit's Quantum Register of the Qiskrypt's Bell State.
+        """
+        return self.control_qubit_index
+
+    def get_target_qubit_index(self) -> int:
+        """
+        Return the index of a qubit inside the target IBM Qiskit's Quantum Register of the Qiskrypt's Bell State.
+
+        :return self.target_qubit_index: the index of a qubit inside
+                                         the target IBM Qiskit's Quantum Register of
+                                         the Qiskrypt's Bell State.
+        """
+
+        """
+        Return the index of a qubit inside the target IBM Qiskit's Quantum Register of the Qiskrypt's Bell State.
+        """
+        return self.target_qubit_index
 
     def configure(self, qiskit_quantum_register_control_index: int,
                   qiskit_quantum_register_target_index: int,
