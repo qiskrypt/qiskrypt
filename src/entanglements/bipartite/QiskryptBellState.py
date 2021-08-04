@@ -375,7 +375,7 @@ class QiskryptBellState(QiskryptQuantumEntanglement):
 
         elif self.get_bell_state_sub_type() == POSSIBLE_CONFIGURATIONS_BELL_STATES[4]:
             """
-            If the sub-type of the Qiskrypt's Bell State is, |ψ^+⟩ = 1/sqrt(2) x (|01⟩ - |10⟩).
+            If the sub-type of the Qiskrypt's Bell State is, |ψ^-⟩ = 1/sqrt(2) x (|01⟩ - |10⟩).
             """
 
             self.qiskrypt_quantum_circuit.apply_hadamard(self.qiskit_quantum_register_control_index,
