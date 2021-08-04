@@ -243,10 +243,10 @@ class QiskryptBellState(QiskryptQuantumEntanglement):
         as the given index for it.
         """
 
-    def prepare_bipartite_entanglement(self, is_to_measure_at_computational_basis=False,
-                                       qiskit_classical_register_control_index=None,
-                                       qiskit_classical_register_target_index=None,
-                                       control_bit_index=None, target_bit_index=None) -> None:
+    def prepare_bipartite_entanglement_at_computational_basis(self, is_to_measure_at_computational_basis=False,
+                                                              qiskit_classical_register_control_index=None,
+                                                              qiskit_classical_register_target_index=None,
+                                                              control_bit_index=None, target_bit_index=None) -> None:
         """
         Prepare the Bipartite Quantum Entanglement,
         for the specified Qiskrypt's Bell State, as a quantum entangled state,
@@ -465,13 +465,14 @@ class QiskryptBellState(QiskryptQuantumEntanglement):
 
                 # TODO - Throw Exception
 
-    def measure_bipartite_entanglement_at_bell_state_basis(self, is_to_measure_at_bell_state_basis=False,
+    def prepare_bipartite_entanglement_at_bell_state_basis(self, is_to_measure_at_bell_state_basis=False,
                                                            qiskit_classical_register_control_index=None,
                                                            qiskit_classical_register_target_index=None,
                                                            control_bit_index=None, target_bit_index=None) -> None:
         """
-        Perform all the necessary Quantum Gates/Operations to prepare the Qiskrypt's Bell State,
-        at the Bell State Basis, or even, apply also the measurements,
+        Prepare the Bipartite Quantum Entanglement,
+        for the specified Qiskrypt's Bell State, as a quantum entangled state,
+        or even, apply also the measurement of that Quantum Entangled State, on the Bell State Basis,
         to allow the extraction of its final classical outcome/result.
 
         :param is_to_measure_at_bell_state_basis: the boolean flag to keep the information about
