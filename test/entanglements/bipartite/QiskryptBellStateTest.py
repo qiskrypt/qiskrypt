@@ -1696,6 +1696,1144 @@ class QiskryptBellStateTests(TestCase):
         """
         self.assertEqual(True, True)
 
+    def test_no_13_prepare_and_measure_bell_state_psi_plus_00(self):
+        """
+        Test Case #13:
+
+        - Initialise the Qiskrypt's Bell State and prepare it, as an Entangled Quantum State.
+
+        Description of the Steps for the Unitary Test:
+        1) The Qiskrypt's Quantum Register is prepared on the quantum state, |00⟩;
+        2) The Qiskrypt's Bell State is initialised and configured;
+        3) The Qiskrypt's Bell State with the configuration,
+           |ψ^+⟩ = 1/sqrt(2) x (|01⟩ + |10⟩),
+           is prepared, without measuring it, on the Computational Basis;
+        4) The Qiskrypt's Bell State with the configuration,
+           |ψ^+⟩ = 1/sqrt(2) x (|01⟩ + |10⟩),
+           is prepared, without measuring it, on the Bell State Basis,
+           resulting on the initial quantum state, |00⟩;
+
+        Return OK (or FAIL) if, all the Tests performed are OK (or FAIL, otherwise).
+        """
+
+        quantum_register_name = "qu_reg"
+        """
+        Set the name of the Qiskrypt's Quantum Register.
+        """
+
+        quantum_register_num_qubits = 2
+        """
+        Set the number of qubits for the Qiskrypt's Quantum Register.
+        """
+
+        qiskrypt_quantum_register = \
+            QiskryptQuantumRegister(name=quantum_register_name,
+                                    num_qubits=quantum_register_num_qubits,
+                                    qiskit_quantum_register=None)
+        """
+        Create a Qiskrypt's Quantum Register, given its name and number of qubits.
+        """
+
+        quantum_circuit_name = "qu_circ"
+        """
+        Set the name of the Qiskrypt's Quantum Circuit.
+        """
+
+        qiskrypt_quantum_circuit_bell_state_psi_plus_13 = \
+            QiskryptQuantumCircuit(name=quantum_circuit_name,
+                                   qiskrypt_quantum_registers=[qiskrypt_quantum_register],
+                                   qiskrypt_fully_quantum_registers=None,
+                                   qiskrypt_semi_quantum_registers=None,
+                                   qiskrypt_ancilla_quantum_registers=None,
+                                   qiskrypt_ancilla_fully_quantum_registers=None,
+                                   qiskrypt_ancilla_semi_quantum_registers=None,
+                                   qiskrypt_classical_registers=None,
+                                   global_phase=0)
+        """
+        Create a Qiskrypt's Quantum Circuit, given its name,
+        Qiskrypt's Quantum Registers, Qiskrypt's Fully-Quantum Registers,
+        Qiskrypt's Semi-Quantum Registers,
+        Qiskrypt's Ancilla Quantum Registers, Qiskrypt's Ancilla Fully-Quantum Registers,
+        Qiskrypt's Ancilla Semi-Quantum Registers,
+        Qiskrypt's Classical Registers and
+        Global Phase.
+        """
+
+        qiskrypt_bell_state_psi_plus_13 = \
+            QiskryptBellState("bell_state_psi_plus_13",
+                              qiskrypt_quantum_circuit_bell_state_psi_plus_13,
+                              POSSIBLE_CONFIGURATIONS_BELL_STATES[3])
+        """
+        Create a Qiskrypt's Bell State, for a generation of a Bell's State with the configuration,
+        |ψ^+⟩ = 1/sqrt(2) x (|01⟩ + |10⟩).
+        """
+
+        qiskrypt_bell_state_psi_plus_13.configure(0, 0, 0, 1)
+        """
+        Configure the Qiskrypt's Bell State, regarding its control IBM Qiskit's Quantum Register
+        and control qubit, as well, its target IBM Qiskit's Quantum Register and target qubit.
+        """
+
+        qiskrypt_bell_state_psi_plus_13\
+            .prepare_bipartite_entanglement_at_computational_basis(is_to_measure_at_computational_basis=False,
+                                                                   qiskit_classical_register_control_index=None,
+                                                                   qiskit_classical_register_target_index=None,
+                                                                   control_bit_index=None, target_bit_index=None)
+        """
+        Prepare the Bipartite Quantum Entanglement,
+        for the specified Qiskrypt's Bell State, as a quantum entangled state,
+        without measure it, on the Computational Basis.
+        """
+
+        qiskrypt_bell_state_psi_plus_13\
+            .prepare_bipartite_entanglement_at_bell_state_basis(is_to_measure_at_bell_state_basis=False,
+                                                                qiskit_classical_register_control_index=None,
+                                                                qiskit_classical_register_target_index=None,
+                                                                control_bit_index=None, target_bit_index=None)
+        """
+        Prepare the Bipartite Quantum Entanglement,
+        for the specified Qiskrypt's Bell State, as a quantum entangled state,
+        without measure it, on the Bell State Basis.
+        """
+
+        qiskit_state_vector_backend = Aer.get_backend("statevector_simulator")
+        """
+        Getting the Aer Simulator Backend for the State Vector Representation
+        (i.e., the quantum state represented as its state vector).
+        """
+
+        final_quantum_state_vector_state = \
+            execute(qiskrypt_bell_state_psi_plus_13.qiskrypt_quantum_circuit.qiskit_quantum_circuit,
+                    qiskit_state_vector_backend).result().get_statevector()
+        """
+        Execute the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit
+        and store the resulted quantum state represented in a final state vector.
+        """
+
+        assert_allclose(final_quantum_state_vector_state,
+                        array([(1. + 0.j),
+                               (0. + 0.j),
+                               (0. + 0.j),
+                               (0. + 0.j)]),
+                        rtol=1e-7, atol=1e-7)
+        """
+        Perform the Assertion of all close values in the values of the quantum state,
+        represented by its state vector describing the given qubits,
+        after be initialised a quantum state as |00⟩,
+        then prepared Bell's State with the configuration,
+        |ψ^+⟩ = 1/sqrt(2) x (|01⟩ + |10⟩),
+        on the Computational Basis and then reverting it,
+        by preparing it on the Bell State Basis.
+        """
+
+        """
+        Dummy Assert Equal for the Unittest.
+        """
+        self.assertEqual(True, True)
+
+    def test_no_14_prepare_and_measure_bell_state_psi_plus_01(self):
+        """
+        Test Case #14:
+
+        - Initialise the Qiskrypt's Bell State and prepare it, as an Entangled Quantum State.
+
+        Description of the Steps for the Unitary Test:
+        1) The Qiskrypt's Quantum Register is prepared on the quantum state, |01⟩;
+        2) The Qiskrypt's Bell State is initialised and configured;
+        3) The Qiskrypt's Bell State with the configuration,
+           |ψ^+⟩ = 1/sqrt(2) x (|01⟩ + |10⟩),
+           is prepared, without measuring it, on the Computational Basis;
+        4) The Qiskrypt's Bell State with the configuration,
+           |ψ^+⟩ = 1/sqrt(2) x (|01⟩ + |10⟩),
+           is prepared, without measuring it, on the Bell State Basis,
+           resulting on the initial quantum state, |01⟩;
+
+        Return OK (or FAIL) if, all the Tests performed are OK (or FAIL, otherwise).
+        """
+
+        quantum_register_name = "qu_reg"
+        """
+        Set the name of the Qiskrypt's Quantum Register.
+        """
+
+        quantum_register_num_qubits = 2
+        """
+        Set the number of qubits for the Qiskrypt's Quantum Register.
+        """
+
+        qiskrypt_quantum_register = \
+            QiskryptQuantumRegister(name=quantum_register_name,
+                                    num_qubits=quantum_register_num_qubits,
+                                    qiskit_quantum_register=None)
+        """
+        Create a Qiskrypt's Quantum Register, given its name and number of qubits.
+        """
+
+        quantum_circuit_name = "qu_circ"
+        """
+        Set the name of the Qiskrypt's Quantum Circuit.
+        """
+
+        qiskrypt_quantum_circuit_bell_state_psi_plus_14 = \
+            QiskryptQuantumCircuit(name=quantum_circuit_name,
+                                   qiskrypt_quantum_registers=[qiskrypt_quantum_register],
+                                   qiskrypt_fully_quantum_registers=None,
+                                   qiskrypt_semi_quantum_registers=None,
+                                   qiskrypt_ancilla_quantum_registers=None,
+                                   qiskrypt_ancilla_fully_quantum_registers=None,
+                                   qiskrypt_ancilla_semi_quantum_registers=None,
+                                   qiskrypt_classical_registers=None,
+                                   global_phase=0)
+        """
+        Create a Qiskrypt's Quantum Circuit, given its name,
+        Qiskrypt's Quantum Registers, Qiskrypt's Fully-Quantum Registers,
+        Qiskrypt's Semi-Quantum Registers,
+        Qiskrypt's Ancilla Quantum Registers, Qiskrypt's Ancilla Fully-Quantum Registers,
+        Qiskrypt's Ancilla Semi-Quantum Registers,
+        Qiskrypt's Classical Registers and
+        Global Phase.
+        """
+
+        qiskrypt_quantum_circuit_bell_state_psi_plus_14 \
+            .apply_pauli_x(0, 0)
+        """
+        Apply the Pauli-X (Bit Flip/NOT) Gate/Operation to the given index for
+        the single qubit of the given IBM Qiskit's Quantum Register (|00⟩ ↦ |01⟩).
+        """
+
+        qiskrypt_bell_state_psi_plus_14 = \
+            QiskryptBellState("bell_state_psi_plus_14",
+                              qiskrypt_quantum_circuit_bell_state_psi_plus_14,
+                              POSSIBLE_CONFIGURATIONS_BELL_STATES[3])
+        """
+        Create a Qiskrypt's Bell State, for a generation of a Bell's State with the configuration,
+        |ψ^+⟩ = 1/sqrt(2) x (|01⟩ + |10⟩).
+        """
+
+        qiskrypt_bell_state_psi_plus_14.configure(0, 0, 0, 1)
+        """
+        Configure the Qiskrypt's Bell State, regarding its control IBM Qiskit's Quantum Register
+        and control qubit, as well, its target IBM Qiskit's Quantum Register and target qubit.
+        """
+
+        qiskrypt_bell_state_psi_plus_14\
+            .prepare_bipartite_entanglement_at_computational_basis(is_to_measure_at_computational_basis=False,
+                                                                   qiskit_classical_register_control_index=None,
+                                                                   qiskit_classical_register_target_index=None,
+                                                                   control_bit_index=None, target_bit_index=None)
+        """
+        Prepare the Bipartite Quantum Entanglement,
+        for the specified Qiskrypt's Bell State, as a quantum entangled state,
+        without measure it, on the Computational Basis.
+        """
+
+        qiskrypt_bell_state_psi_plus_14\
+            .prepare_bipartite_entanglement_at_bell_state_basis(is_to_measure_at_bell_state_basis=False,
+                                                                qiskit_classical_register_control_index=None,
+                                                                qiskit_classical_register_target_index=None,
+                                                                control_bit_index=None, target_bit_index=None)
+        """
+        Prepare the Bipartite Quantum Entanglement,
+        for the specified Qiskrypt's Bell State, as a quantum entangled state,
+        without measure it, on the Bell State Basis.
+        """
+
+        qiskit_state_vector_backend = Aer.get_backend("statevector_simulator")
+        """
+        Getting the Aer Simulator Backend for the State Vector Representation
+        (i.e., the quantum state represented as its state vector).
+        """
+
+        final_quantum_state_vector_state = \
+            execute(qiskrypt_bell_state_psi_plus_14.qiskrypt_quantum_circuit.qiskit_quantum_circuit,
+                    qiskit_state_vector_backend).result().get_statevector()
+        """
+        Execute the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit
+        and store the resulted quantum state represented in a final state vector.
+        """
+
+        assert_allclose(final_quantum_state_vector_state,
+                        array([(0. + 0.j),
+                               (1. + 0.j),
+                               (0. + 0.j),
+                               (0. + 0.j)]),
+                        rtol=1e-7, atol=1e-7)
+        """
+        Perform the Assertion of all close values in the values of the quantum state,
+        represented by its state vector describing the given qubits,
+        after be initialised a quantum state as |01⟩,
+        then prepared Bell's State with the configuration,
+        |ψ^+⟩ = 1/sqrt(2) x (|01⟩ + |10⟩),
+        on the Computational Basis and then reverting it,
+        by preparing it on the Bell State Basis.
+        """
+
+        """
+        Dummy Assert Equal for the Unittest.
+        """
+        self.assertEqual(True, True)
+
+    def test_no_15_prepare_and_measure_bell_state_psi_plus_10(self):
+        """
+        Test Case #15:
+
+        - Initialise the Qiskrypt's Bell State and prepare it, as an Entangled Quantum State.
+
+        Description of the Steps for the Unitary Test:
+        1) The Qiskrypt's Quantum Register is prepared on the quantum state, |10⟩;
+        2) The Qiskrypt's Bell State is initialised and configured;
+        3) The Qiskrypt's Bell State with the configuration,
+           |ψ^+⟩ = 1/sqrt(2) x (|01⟩ + |10⟩),
+           is prepared, without measuring it, on the Computational Basis;
+        4) The Qiskrypt's Bell State with the configuration,
+           |ψ^+⟩ = 1/sqrt(2) x (|01⟩ + |10⟩),
+           is prepared, without measuring it, on the Bell State Basis,
+           resulting on the initial quantum state, |10⟩;
+
+        Return OK (or FAIL) if, all the Tests performed are OK (or FAIL, otherwise).
+        """
+
+        quantum_register_name = "qu_reg"
+        """
+        Set the name of the Qiskrypt's Quantum Register.
+        """
+
+        quantum_register_num_qubits = 2
+        """
+        Set the number of qubits for the Qiskrypt's Quantum Register.
+        """
+
+        qiskrypt_quantum_register = \
+            QiskryptQuantumRegister(name=quantum_register_name,
+                                    num_qubits=quantum_register_num_qubits,
+                                    qiskit_quantum_register=None)
+        """
+        Create a Qiskrypt's Quantum Register, given its name and number of qubits.
+        """
+
+        quantum_circuit_name = "qu_circ"
+        """
+        Set the name of the Qiskrypt's Quantum Circuit.
+        """
+
+        qiskrypt_quantum_circuit_bell_state_psi_plus_15 = \
+            QiskryptQuantumCircuit(name=quantum_circuit_name,
+                                   qiskrypt_quantum_registers=[qiskrypt_quantum_register],
+                                   qiskrypt_fully_quantum_registers=None,
+                                   qiskrypt_semi_quantum_registers=None,
+                                   qiskrypt_ancilla_quantum_registers=None,
+                                   qiskrypt_ancilla_fully_quantum_registers=None,
+                                   qiskrypt_ancilla_semi_quantum_registers=None,
+                                   qiskrypt_classical_registers=None,
+                                   global_phase=0)
+        """
+        Create a Qiskrypt's Quantum Circuit, given its name,
+        Qiskrypt's Quantum Registers, Qiskrypt's Fully-Quantum Registers,
+        Qiskrypt's Semi-Quantum Registers,
+        Qiskrypt's Ancilla Quantum Registers, Qiskrypt's Ancilla Fully-Quantum Registers,
+        Qiskrypt's Ancilla Semi-Quantum Registers,
+        Qiskrypt's Classical Registers and
+        Global Phase.
+        """
+
+        qiskrypt_quantum_circuit_bell_state_psi_plus_15 \
+            .apply_pauli_x(0, 1)
+        """
+        Apply the Pauli-X (Bit Flip/NOT) Gate/Operation to the given index for
+        the single qubit of the given IBM Qiskit's Quantum Register (|00⟩ ↦ |10⟩).
+        """
+
+        qiskrypt_bell_state_psi_plus_15 = \
+            QiskryptBellState("bell_state_psi_plus_15",
+                              qiskrypt_quantum_circuit_bell_state_psi_plus_15,
+                              POSSIBLE_CONFIGURATIONS_BELL_STATES[3])
+        """
+        Create a Qiskrypt's Bell State, for a generation of a Bell's State with the configuration,
+        |ψ^+⟩ = 1/sqrt(2) x (|01⟩ + |10⟩).
+        """
+
+        qiskrypt_bell_state_psi_plus_15.configure(0, 0, 0, 1)
+        """
+        Configure the Qiskrypt's Bell State, regarding its control IBM Qiskit's Quantum Register
+        and control qubit, as well, its target IBM Qiskit's Quantum Register and target qubit.
+        """
+
+        qiskrypt_bell_state_psi_plus_15\
+            .prepare_bipartite_entanglement_at_computational_basis(is_to_measure_at_computational_basis=False,
+                                                                   qiskit_classical_register_control_index=None,
+                                                                   qiskit_classical_register_target_index=None,
+                                                                   control_bit_index=None, target_bit_index=None)
+        """
+        Prepare the Bipartite Quantum Entanglement,
+        for the specified Qiskrypt's Bell State, as a quantum entangled state,
+        without measure it, on the Computational Basis.
+        """
+
+        qiskrypt_bell_state_psi_plus_15\
+            .prepare_bipartite_entanglement_at_bell_state_basis(is_to_measure_at_bell_state_basis=False,
+                                                                qiskit_classical_register_control_index=None,
+                                                                qiskit_classical_register_target_index=None,
+                                                                control_bit_index=None, target_bit_index=None)
+        """
+        Prepare the Bipartite Quantum Entanglement,
+        for the specified Qiskrypt's Bell State, as a quantum entangled state,
+        without measure it, on the Bell State Basis.
+        """
+
+        qiskit_state_vector_backend = Aer.get_backend("statevector_simulator")
+        """
+        Getting the Aer Simulator Backend for the State Vector Representation
+        (i.e., the quantum state represented as its state vector).
+        """
+
+        final_quantum_state_vector_state = \
+            execute(qiskrypt_bell_state_psi_plus_15.qiskrypt_quantum_circuit.qiskit_quantum_circuit,
+                    qiskit_state_vector_backend).result().get_statevector()
+        """
+        Execute the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit
+        and store the resulted quantum state represented in a final state vector.
+        """
+
+        assert_allclose(final_quantum_state_vector_state,
+                        array([(0. + 0.j),
+                               (0. + 0.j),
+                               (1. + 0.j),
+                               (0. + 0.j)]),
+                        rtol=1e-7, atol=1e-7)
+        """
+        Perform the Assertion of all close values in the values of the quantum state,
+        represented by its state vector describing the given qubits,
+        after be initialised a quantum state as |10⟩,
+        then prepared Bell's State with the configuration,
+        |ψ^+⟩ = 1/sqrt(2) x (|01⟩ + |10⟩),
+        on the Computational Basis and then reverting it,
+        by preparing it on the Bell State Basis.
+        """
+
+        """
+        Dummy Assert Equal for the Unittest.
+        """
+        self.assertEqual(True, True)
+
+    def test_no_16_prepare_and_measure_bell_state_psi_plus_11(self):
+        """
+        Test Case #16:
+
+        - Initialise the Qiskrypt's Bell State and prepare it, as an Entangled Quantum State.
+
+        Description of the Steps for the Unitary Test:
+        1) The Qiskrypt's Quantum Register is prepared on the quantum state, |11⟩;
+        2) The Qiskrypt's Bell State is initialised and configured;
+        3) The Qiskrypt's Bell State with the configuration,
+           |ψ^+⟩ = 1/sqrt(2) x (|01⟩ + |10⟩),
+           is prepared, without measuring it, on the Computational Basis;
+        4) The Qiskrypt's Bell State with the configuration,
+           |ψ^+⟩ = 1/sqrt(2) x (|01⟩ + |10⟩),
+           is prepared, without measuring it, on the Bell State Basis,
+           resulting on the initial quantum state, |11⟩;
+
+        Return OK (or FAIL) if, all the Tests performed are OK (or FAIL, otherwise).
+        """
+
+        quantum_register_name = "qu_reg"
+        """
+        Set the name of the Qiskrypt's Quantum Register.
+        """
+
+        quantum_register_num_qubits = 2
+        """
+        Set the number of qubits for the Qiskrypt's Quantum Register.
+        """
+
+        qiskrypt_quantum_register = \
+            QiskryptQuantumRegister(name=quantum_register_name,
+                                    num_qubits=quantum_register_num_qubits,
+                                    qiskit_quantum_register=None)
+        """
+        Create a Qiskrypt's Quantum Register, given its name and number of qubits.
+        """
+
+        quantum_circuit_name = "qu_circ"
+        """
+        Set the name of the Qiskrypt's Quantum Circuit.
+        """
+
+        qiskrypt_quantum_circuit_bell_state_psi_plus_16 = \
+            QiskryptQuantumCircuit(name=quantum_circuit_name,
+                                   qiskrypt_quantum_registers=[qiskrypt_quantum_register],
+                                   qiskrypt_fully_quantum_registers=None,
+                                   qiskrypt_semi_quantum_registers=None,
+                                   qiskrypt_ancilla_quantum_registers=None,
+                                   qiskrypt_ancilla_fully_quantum_registers=None,
+                                   qiskrypt_ancilla_semi_quantum_registers=None,
+                                   qiskrypt_classical_registers=None,
+                                   global_phase=0)
+        """
+        Create a Qiskrypt's Quantum Circuit, given its name,
+        Qiskrypt's Quantum Registers, Qiskrypt's Fully-Quantum Registers,
+        Qiskrypt's Semi-Quantum Registers,
+        Qiskrypt's Ancilla Quantum Registers, Qiskrypt's Ancilla Fully-Quantum Registers,
+        Qiskrypt's Ancilla Semi-Quantum Registers,
+        Qiskrypt's Classical Registers and
+        Global Phase.
+        """
+
+        qiskrypt_quantum_circuit_bell_state_psi_plus_16 \
+            .apply_pauli_x(0, 0)
+        """
+        Apply the Pauli-X (Bit Flip/NOT) Gate/Operation to the given index for
+        the single qubit of the given IBM Qiskit's Quantum Register (|00⟩ ↦ |01⟩).
+        """
+
+        qiskrypt_quantum_circuit_bell_state_psi_plus_16 \
+            .apply_pauli_x(0, 1)
+        """
+        Apply the Pauli-X (Bit Flip/NOT) Gate/Operation to the given index for
+        the single qubit of the given IBM Qiskit's Quantum Register (|01⟩ ↦ |11⟩).
+        """
+
+        qiskrypt_bell_state_psi_plus_16 = \
+            QiskryptBellState("bell_state_psi_plus_16",
+                              qiskrypt_quantum_circuit_bell_state_psi_plus_16,
+                              POSSIBLE_CONFIGURATIONS_BELL_STATES[3])
+        """
+        Create a Qiskrypt's Bell State, for a generation of a Bell's State with the configuration,
+        |ψ^+⟩ = 1/sqrt(2) x (|01⟩ + |10⟩).
+        """
+
+        qiskrypt_bell_state_psi_plus_16.configure(0, 0, 0, 1)
+        """
+        Configure the Qiskrypt's Bell State, regarding its control IBM Qiskit's Quantum Register
+        and control qubit, as well, its target IBM Qiskit's Quantum Register and target qubit.
+        """
+
+        qiskrypt_bell_state_psi_plus_16\
+            .prepare_bipartite_entanglement_at_computational_basis(is_to_measure_at_computational_basis=False,
+                                                                   qiskit_classical_register_control_index=None,
+                                                                   qiskit_classical_register_target_index=None,
+                                                                   control_bit_index=None, target_bit_index=None)
+        """
+        Prepare the Bipartite Quantum Entanglement,
+        for the specified Qiskrypt's Bell State, as a quantum entangled state,
+        without measure it, on the Computational Basis.
+        """
+
+        qiskrypt_bell_state_psi_plus_16\
+            .prepare_bipartite_entanglement_at_bell_state_basis(is_to_measure_at_bell_state_basis=False,
+                                                                qiskit_classical_register_control_index=None,
+                                                                qiskit_classical_register_target_index=None,
+                                                                control_bit_index=None, target_bit_index=None)
+        """
+        Prepare the Bipartite Quantum Entanglement,
+        for the specified Qiskrypt's Bell State, as a quantum entangled state,
+        without measure it, on the Bell State Basis.
+        """
+
+        qiskit_state_vector_backend = Aer.get_backend("statevector_simulator")
+        """
+        Getting the Aer Simulator Backend for the State Vector Representation
+        (i.e., the quantum state represented as its state vector).
+        """
+
+        final_quantum_state_vector_state = \
+            execute(qiskrypt_bell_state_psi_plus_16.qiskrypt_quantum_circuit.qiskit_quantum_circuit,
+                    qiskit_state_vector_backend).result().get_statevector()
+        """
+        Execute the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit
+        and store the resulted quantum state represented in a final state vector.
+        """
+
+        assert_allclose(final_quantum_state_vector_state,
+                        array([(0. + 0.j),
+                               (0. + 0.j),
+                               (0. + 0.j),
+                               (1. + 0.j)]),
+                        rtol=1e-7, atol=1e-7)
+        """
+        Perform the Assertion of all close values in the values of the quantum state,
+        represented by its state vector describing the given qubits,
+        after be initialised a quantum state as |11⟩,
+        then prepared Bell's State with the configuration,
+        |ψ^+⟩ = 1/sqrt(2) x (|01⟩ + |10⟩),
+        on the Computational Basis and then reverting it,
+        by preparing it on the Bell State Basis.
+        """
+
+        """
+        Dummy Assert Equal for the Unittest.
+        """
+        self.assertEqual(True, True)
+
+######
+
+    def test_no_17_prepare_and_measure_bell_state_psi_minus_00(self):
+        """
+        Test Case #17:
+
+        - Initialise the Qiskrypt's Bell State and prepare it, as an Entangled Quantum State.
+
+        Description of the Steps for the Unitary Test:
+        1) The Qiskrypt's Quantum Register is prepared on the quantum state, |00⟩;
+        2) The Qiskrypt's Bell State is initialised and configured;
+        3) The Qiskrypt's Bell State with the configuration,
+           |ψ^-⟩ = 1/sqrt(2) x (|01⟩ - |10⟩),
+           is prepared, without measuring it, on the Computational Basis;
+        4) The Qiskrypt's Bell State with the configuration,
+           |ψ^-⟩ = 1/sqrt(2) x (|01⟩ - |10⟩),
+           is prepared, without measuring it, on the Bell State Basis,
+           resulting on the initial quantum state, |00⟩;
+
+        Return OK (or FAIL) if, all the Tests performed are OK (or FAIL, otherwise).
+        """
+
+        quantum_register_name = "qu_reg"
+        """
+        Set the name of the Qiskrypt's Quantum Register.
+        """
+
+        quantum_register_num_qubits = 2
+        """
+        Set the number of qubits for the Qiskrypt's Quantum Register.
+        """
+
+        qiskrypt_quantum_register = \
+            QiskryptQuantumRegister(name=quantum_register_name,
+                                    num_qubits=quantum_register_num_qubits,
+                                    qiskit_quantum_register=None)
+        """
+        Create a Qiskrypt's Quantum Register, given its name and number of qubits.
+        """
+
+        quantum_circuit_name = "qu_circ"
+        """
+        Set the name of the Qiskrypt's Quantum Circuit.
+        """
+
+        qiskrypt_quantum_circuit_bell_state_psi_minus_17 = \
+            QiskryptQuantumCircuit(name=quantum_circuit_name,
+                                   qiskrypt_quantum_registers=[qiskrypt_quantum_register],
+                                   qiskrypt_fully_quantum_registers=None,
+                                   qiskrypt_semi_quantum_registers=None,
+                                   qiskrypt_ancilla_quantum_registers=None,
+                                   qiskrypt_ancilla_fully_quantum_registers=None,
+                                   qiskrypt_ancilla_semi_quantum_registers=None,
+                                   qiskrypt_classical_registers=None,
+                                   global_phase=0)
+        """
+        Create a Qiskrypt's Quantum Circuit, given its name,
+        Qiskrypt's Quantum Registers, Qiskrypt's Fully-Quantum Registers,
+        Qiskrypt's Semi-Quantum Registers,
+        Qiskrypt's Ancilla Quantum Registers, Qiskrypt's Ancilla Fully-Quantum Registers,
+        Qiskrypt's Ancilla Semi-Quantum Registers,
+        Qiskrypt's Classical Registers and
+        Global Phase.
+        """
+
+        qiskrypt_bell_state_psi_minus_17 = \
+            QiskryptBellState("bell_state_psi_minus_17",
+                              qiskrypt_quantum_circuit_bell_state_psi_minus_17,
+                              POSSIBLE_CONFIGURATIONS_BELL_STATES[4])
+        """
+        Create a Qiskrypt's Bell State, for a generation of a Bell's State with the configuration,
+        |ψ^-⟩ = 1/sqrt(2) x (|01⟩ - |10⟩).
+        """
+
+        qiskrypt_bell_state_psi_minus_17.configure(0, 0, 0, 1)
+        """
+        Configure the Qiskrypt's Bell State, regarding its control IBM Qiskit's Quantum Register
+        and control qubit, as well, its target IBM Qiskit's Quantum Register and target qubit.
+        """
+
+        qiskrypt_bell_state_psi_minus_17\
+            .prepare_bipartite_entanglement_at_computational_basis(is_to_measure_at_computational_basis=False,
+                                                                   qiskit_classical_register_control_index=None,
+                                                                   qiskit_classical_register_target_index=None,
+                                                                   control_bit_index=None, target_bit_index=None)
+        """
+        Prepare the Bipartite Quantum Entanglement,
+        for the specified Qiskrypt's Bell State, as a quantum entangled state,
+        without measure it, on the Computational Basis.
+        """
+
+        qiskrypt_bell_state_psi_minus_17\
+            .prepare_bipartite_entanglement_at_bell_state_basis(is_to_measure_at_bell_state_basis=False,
+                                                                qiskit_classical_register_control_index=None,
+                                                                qiskit_classical_register_target_index=None,
+                                                                control_bit_index=None, target_bit_index=None)
+        """
+        Prepare the Bipartite Quantum Entanglement,
+        for the specified Qiskrypt's Bell State, as a quantum entangled state,
+        without measure it, on the Bell State Basis.
+        """
+
+        qiskit_state_vector_backend = Aer.get_backend("statevector_simulator")
+        """
+        Getting the Aer Simulator Backend for the State Vector Representation
+        (i.e., the quantum state represented as its state vector).
+        """
+
+        final_quantum_state_vector_state = \
+            execute(qiskrypt_bell_state_psi_minus_17.qiskrypt_quantum_circuit.qiskit_quantum_circuit,
+                    qiskit_state_vector_backend).result().get_statevector()
+        """
+        Execute the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit
+        and store the resulted quantum state represented in a final state vector.
+        """
+
+        assert_allclose(final_quantum_state_vector_state,
+                        array([(1. + 0.j),
+                               (0. + 0.j),
+                               (0. + 0.j),
+                               (0. + 0.j)]),
+                        rtol=1e-7, atol=1e-7)
+        """
+        Perform the Assertion of all close values in the values of the quantum state,
+        represented by its state vector describing the given qubits,
+        after be initialised a quantum state as |00⟩,
+        then prepared Bell's State with the configuration,
+        |ψ^-⟩ = 1/sqrt(2) x (|01⟩ - |10⟩),
+        on the Computational Basis and then reverting it,
+        by preparing it on the Bell State Basis.
+        """
+
+        """
+        Dummy Assert Equal for the Unittest.
+        """
+        self.assertEqual(True, True)
+
+    def test_no_18_prepare_and_measure_bell_state_psi_minus_01(self):
+        """
+        Test Case #18:
+
+        - Initialise the Qiskrypt's Bell State and prepare it, as an Entangled Quantum State.
+
+        Description of the Steps for the Unitary Test:
+        1) The Qiskrypt's Quantum Register is prepared on the quantum state, |01⟩;
+        2) The Qiskrypt's Bell State is initialised and configured;
+        3) The Qiskrypt's Bell State with the configuration,
+           |ψ^-⟩ = 1/sqrt(2) x (|01⟩ - |10⟩),
+           is prepared, without measuring it, on the Computational Basis;
+        4) The Qiskrypt's Bell State with the configuration,
+           |ψ^-⟩ = 1/sqrt(2) x (|01⟩ - |10⟩),
+           is prepared, without measuring it, on the Bell State Basis,
+           resulting on the initial quantum state, |01⟩;
+
+        Return OK (or FAIL) if, all the Tests performed are OK (or FAIL, otherwise).
+        """
+
+        quantum_register_name = "qu_reg"
+        """
+        Set the name of the Qiskrypt's Quantum Register.
+        """
+
+        quantum_register_num_qubits = 2
+        """
+        Set the number of qubits for the Qiskrypt's Quantum Register.
+        """
+
+        qiskrypt_quantum_register = \
+            QiskryptQuantumRegister(name=quantum_register_name,
+                                    num_qubits=quantum_register_num_qubits,
+                                    qiskit_quantum_register=None)
+        """
+        Create a Qiskrypt's Quantum Register, given its name and number of qubits.
+        """
+
+        quantum_circuit_name = "qu_circ"
+        """
+        Set the name of the Qiskrypt's Quantum Circuit.
+        """
+
+        qiskrypt_quantum_circuit_bell_state_psi_minus_18 = \
+            QiskryptQuantumCircuit(name=quantum_circuit_name,
+                                   qiskrypt_quantum_registers=[qiskrypt_quantum_register],
+                                   qiskrypt_fully_quantum_registers=None,
+                                   qiskrypt_semi_quantum_registers=None,
+                                   qiskrypt_ancilla_quantum_registers=None,
+                                   qiskrypt_ancilla_fully_quantum_registers=None,
+                                   qiskrypt_ancilla_semi_quantum_registers=None,
+                                   qiskrypt_classical_registers=None,
+                                   global_phase=0)
+        """
+        Create a Qiskrypt's Quantum Circuit, given its name,
+        Qiskrypt's Quantum Registers, Qiskrypt's Fully-Quantum Registers,
+        Qiskrypt's Semi-Quantum Registers,
+        Qiskrypt's Ancilla Quantum Registers, Qiskrypt's Ancilla Fully-Quantum Registers,
+        Qiskrypt's Ancilla Semi-Quantum Registers,
+        Qiskrypt's Classical Registers and
+        Global Phase.
+        """
+
+        qiskrypt_quantum_circuit_bell_state_psi_minus_18 \
+            .apply_pauli_x(0, 0)
+        """
+        Apply the Pauli-X (Bit Flip/NOT) Gate/Operation to the given index for
+        the single qubit of the given IBM Qiskit's Quantum Register (|00⟩ ↦ |01⟩).
+        """
+
+        qiskrypt_bell_state_psi_minus_18 = \
+            QiskryptBellState("bell_state_psi_minus_18",
+                              qiskrypt_quantum_circuit_bell_state_psi_minus_18,
+                              POSSIBLE_CONFIGURATIONS_BELL_STATES[4])
+        """
+        Create a Qiskrypt's Bell State, for a generation of a Bell's State with the configuration,
+        |ψ^-⟩ = 1/sqrt(2) x (|01⟩ - |10⟩).
+        """
+
+        qiskrypt_bell_state_psi_minus_18.configure(0, 0, 0, 1)
+        """
+        Configure the Qiskrypt's Bell State, regarding its control IBM Qiskit's Quantum Register
+        and control qubit, as well, its target IBM Qiskit's Quantum Register and target qubit.
+        """
+
+        qiskrypt_bell_state_psi_minus_18\
+            .prepare_bipartite_entanglement_at_computational_basis(is_to_measure_at_computational_basis=False,
+                                                                   qiskit_classical_register_control_index=None,
+                                                                   qiskit_classical_register_target_index=None,
+                                                                   control_bit_index=None, target_bit_index=None)
+        """
+        Prepare the Bipartite Quantum Entanglement,
+        for the specified Qiskrypt's Bell State, as a quantum entangled state,
+        without measure it, on the Computational Basis.
+        """
+
+        qiskrypt_bell_state_psi_minus_18\
+            .prepare_bipartite_entanglement_at_bell_state_basis(is_to_measure_at_bell_state_basis=False,
+                                                                qiskit_classical_register_control_index=None,
+                                                                qiskit_classical_register_target_index=None,
+                                                                control_bit_index=None, target_bit_index=None)
+        """
+        Prepare the Bipartite Quantum Entanglement,
+        for the specified Qiskrypt's Bell State, as a quantum entangled state,
+        without measure it, on the Bell State Basis.
+        """
+
+        qiskit_state_vector_backend = Aer.get_backend("statevector_simulator")
+        """
+        Getting the Aer Simulator Backend for the State Vector Representation
+        (i.e., the quantum state represented as its state vector).
+        """
+
+        final_quantum_state_vector_state = \
+            execute(qiskrypt_bell_state_psi_minus_18.qiskrypt_quantum_circuit.qiskit_quantum_circuit,
+                    qiskit_state_vector_backend).result().get_statevector()
+        """
+        Execute the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit
+        and store the resulted quantum state represented in a final state vector.
+        """
+
+        assert_allclose(final_quantum_state_vector_state,
+                        array([(0. + 0.j),
+                               (1. + 0.j),
+                               (0. + 0.j),
+                               (0. + 0.j)]),
+                        rtol=1e-7, atol=1e-7)
+        """
+        Perform the Assertion of all close values in the values of the quantum state,
+        represented by its state vector describing the given qubits,
+        after be initialised a quantum state as |01⟩,
+        then prepared Bell's State with the configuration,
+        |ψ^-⟩ = 1/sqrt(2) x (|01⟩ - |10⟩),
+        on the Computational Basis and then reverting it,
+        by preparing it on the Bell State Basis.
+        """
+
+        """
+        Dummy Assert Equal for the Unittest.
+        """
+        self.assertEqual(True, True)
+
+    def test_no_19_prepare_and_measure_bell_state_psi_minus_10(self):
+        """
+        Test Case #19:
+
+        - Initialise the Qiskrypt's Bell State and prepare it, as an Entangled Quantum State.
+
+        Description of the Steps for the Unitary Test:
+        1) The Qiskrypt's Quantum Register is prepared on the quantum state, |10⟩;
+        2) The Qiskrypt's Bell State is initialised and configured;
+        3) The Qiskrypt's Bell State with the configuration,
+           |ψ^-⟩ = 1/sqrt(2) x (|01⟩ - |10⟩),
+           is prepared, without measuring it, on the Computational Basis;
+        4) The Qiskrypt's Bell State with the configuration,
+           |ψ^-⟩ = 1/sqrt(2) x (|01⟩ - |10⟩),
+           is prepared, without measuring it, on the Bell State Basis,
+           resulting on the initial quantum state, |10⟩;
+
+        Return OK (or FAIL) if, all the Tests performed are OK (or FAIL, otherwise).
+        """
+
+        quantum_register_name = "qu_reg"
+        """
+        Set the name of the Qiskrypt's Quantum Register.
+        """
+
+        quantum_register_num_qubits = 2
+        """
+        Set the number of qubits for the Qiskrypt's Quantum Register.
+        """
+
+        qiskrypt_quantum_register = \
+            QiskryptQuantumRegister(name=quantum_register_name,
+                                    num_qubits=quantum_register_num_qubits,
+                                    qiskit_quantum_register=None)
+        """
+        Create a Qiskrypt's Quantum Register, given its name and number of qubits.
+        """
+
+        quantum_circuit_name = "qu_circ"
+        """
+        Set the name of the Qiskrypt's Quantum Circuit.
+        """
+
+        qiskrypt_quantum_circuit_bell_state_psi_minus_19 = \
+            QiskryptQuantumCircuit(name=quantum_circuit_name,
+                                   qiskrypt_quantum_registers=[qiskrypt_quantum_register],
+                                   qiskrypt_fully_quantum_registers=None,
+                                   qiskrypt_semi_quantum_registers=None,
+                                   qiskrypt_ancilla_quantum_registers=None,
+                                   qiskrypt_ancilla_fully_quantum_registers=None,
+                                   qiskrypt_ancilla_semi_quantum_registers=None,
+                                   qiskrypt_classical_registers=None,
+                                   global_phase=0)
+        """
+        Create a Qiskrypt's Quantum Circuit, given its name,
+        Qiskrypt's Quantum Registers, Qiskrypt's Fully-Quantum Registers,
+        Qiskrypt's Semi-Quantum Registers,
+        Qiskrypt's Ancilla Quantum Registers, Qiskrypt's Ancilla Fully-Quantum Registers,
+        Qiskrypt's Ancilla Semi-Quantum Registers,
+        Qiskrypt's Classical Registers and
+        Global Phase.
+        """
+
+        qiskrypt_quantum_circuit_bell_state_psi_minus_19 \
+            .apply_pauli_x(0, 1)
+        """
+        Apply the Pauli-X (Bit Flip/NOT) Gate/Operation to the given index for
+        the single qubit of the given IBM Qiskit's Quantum Register (|00⟩ ↦ |10⟩).
+        """
+
+        qiskrypt_bell_state_psi_minus_19 = \
+            QiskryptBellState("bell_state_psi_minus_19",
+                              qiskrypt_quantum_circuit_bell_state_psi_minus_19,
+                              POSSIBLE_CONFIGURATIONS_BELL_STATES[4])
+        """
+        Create a Qiskrypt's Bell State, for a generation of a Bell's State with the configuration,
+        |ψ^-⟩ = 1/sqrt(2) x (|01⟩ - |10⟩).
+        """
+
+        qiskrypt_bell_state_psi_minus_19.configure(0, 0, 0, 1)
+        """
+        Configure the Qiskrypt's Bell State, regarding its control IBM Qiskit's Quantum Register
+        and control qubit, as well, its target IBM Qiskit's Quantum Register and target qubit.
+        """
+
+        qiskrypt_bell_state_psi_minus_19\
+            .prepare_bipartite_entanglement_at_computational_basis(is_to_measure_at_computational_basis=False,
+                                                                   qiskit_classical_register_control_index=None,
+                                                                   qiskit_classical_register_target_index=None,
+                                                                   control_bit_index=None, target_bit_index=None)
+        """
+        Prepare the Bipartite Quantum Entanglement,
+        for the specified Qiskrypt's Bell State, as a quantum entangled state,
+        without measure it, on the Computational Basis.
+        """
+
+        qiskrypt_bell_state_psi_minus_19\
+            .prepare_bipartite_entanglement_at_bell_state_basis(is_to_measure_at_bell_state_basis=False,
+                                                                qiskit_classical_register_control_index=None,
+                                                                qiskit_classical_register_target_index=None,
+                                                                control_bit_index=None, target_bit_index=None)
+        """
+        Prepare the Bipartite Quantum Entanglement,
+        for the specified Qiskrypt's Bell State, as a quantum entangled state,
+        without measure it, on the Bell State Basis.
+        """
+
+        qiskit_state_vector_backend = Aer.get_backend("statevector_simulator")
+        """
+        Getting the Aer Simulator Backend for the State Vector Representation
+        (i.e., the quantum state represented as its state vector).
+        """
+
+        final_quantum_state_vector_state = \
+            execute(qiskrypt_bell_state_psi_minus_19.qiskrypt_quantum_circuit.qiskit_quantum_circuit,
+                    qiskit_state_vector_backend).result().get_statevector()
+        """
+        Execute the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit
+        and store the resulted quantum state represented in a final state vector.
+        """
+
+        assert_allclose(final_quantum_state_vector_state,
+                        array([(0. + 0.j),
+                               (0. + 0.j),
+                               (1. + 0.j),
+                               (0. + 0.j)]),
+                        rtol=1e-7, atol=1e-7)
+        """
+        Perform the Assertion of all close values in the values of the quantum state,
+        represented by its state vector describing the given qubits,
+        after be initialised a quantum state as |10⟩,
+        then prepared Bell's State with the configuration,
+        |ψ^-⟩ = 1/sqrt(2) x (|01⟩ - |10⟩),
+        on the Computational Basis and then reverting it,
+        by preparing it on the Bell State Basis.
+        """
+
+        """
+        Dummy Assert Equal for the Unittest.
+        """
+        self.assertEqual(True, True)
+
+    def test_no_20_prepare_and_measure_bell_state_psi_minus_11(self):
+        """
+        Test Case #20:
+
+        - Initialise the Qiskrypt's Bell State and prepare it, as an Entangled Quantum State.
+
+        Description of the Steps for the Unitary Test:
+        1) The Qiskrypt's Quantum Register is prepared on the quantum state, |11⟩;
+        2) The Qiskrypt's Bell State is initialised and configured;
+        3) The Qiskrypt's Bell State with the configuration,
+           |ψ^-⟩ = 1/sqrt(2) x (|01⟩ - |10⟩),
+           is prepared, without measuring it, on the Computational Basis;
+        4) The Qiskrypt's Bell State with the configuration,
+           |ψ^-⟩ = 1/sqrt(2) x (|01⟩ - |10⟩),
+           is prepared, without measuring it, on the Bell State Basis,
+           resulting on the initial quantum state, |11⟩;
+
+        Return OK (or FAIL) if, all the Tests performed are OK (or FAIL, otherwise).
+        """
+
+        quantum_register_name = "qu_reg"
+        """
+        Set the name of the Qiskrypt's Quantum Register.
+        """
+
+        quantum_register_num_qubits = 2
+        """
+        Set the number of qubits for the Qiskrypt's Quantum Register.
+        """
+
+        qiskrypt_quantum_register = \
+            QiskryptQuantumRegister(name=quantum_register_name,
+                                    num_qubits=quantum_register_num_qubits,
+                                    qiskit_quantum_register=None)
+        """
+        Create a Qiskrypt's Quantum Register, given its name and number of qubits.
+        """
+
+        quantum_circuit_name = "qu_circ"
+        """
+        Set the name of the Qiskrypt's Quantum Circuit.
+        """
+
+        qiskrypt_quantum_circuit_bell_state_psi_minus_20 = \
+            QiskryptQuantumCircuit(name=quantum_circuit_name,
+                                   qiskrypt_quantum_registers=[qiskrypt_quantum_register],
+                                   qiskrypt_fully_quantum_registers=None,
+                                   qiskrypt_semi_quantum_registers=None,
+                                   qiskrypt_ancilla_quantum_registers=None,
+                                   qiskrypt_ancilla_fully_quantum_registers=None,
+                                   qiskrypt_ancilla_semi_quantum_registers=None,
+                                   qiskrypt_classical_registers=None,
+                                   global_phase=0)
+        """
+        Create a Qiskrypt's Quantum Circuit, given its name,
+        Qiskrypt's Quantum Registers, Qiskrypt's Fully-Quantum Registers,
+        Qiskrypt's Semi-Quantum Registers,
+        Qiskrypt's Ancilla Quantum Registers, Qiskrypt's Ancilla Fully-Quantum Registers,
+        Qiskrypt's Ancilla Semi-Quantum Registers,
+        Qiskrypt's Classical Registers and
+        Global Phase.
+        """
+
+        qiskrypt_quantum_circuit_bell_state_psi_minus_20 \
+            .apply_pauli_x(0, 0)
+        """
+        Apply the Pauli-X (Bit Flip/NOT) Gate/Operation to the given index for
+        the single qubit of the given IBM Qiskit's Quantum Register (|00⟩ ↦ |01⟩).
+        """
+
+        qiskrypt_quantum_circuit_bell_state_psi_minus_20 \
+            .apply_pauli_x(0, 1)
+        """
+        Apply the Pauli-X (Bit Flip/NOT) Gate/Operation to the given index for
+        the single qubit of the given IBM Qiskit's Quantum Register (|01⟩ ↦ |11⟩).
+        """
+
+        qiskrypt_bell_state_psi_minus_20 = \
+            QiskryptBellState("bell_state_psi_minus_20",
+                              qiskrypt_quantum_circuit_bell_state_psi_minus_20,
+                              POSSIBLE_CONFIGURATIONS_BELL_STATES[4])
+        """
+        Create a Qiskrypt's Bell State, for a generation of a Bell's State with the configuration,
+        |ψ^-⟩ = 1/sqrt(2) x (|01⟩ - |10⟩).
+        """
+
+        qiskrypt_bell_state_psi_minus_20.configure(0, 0, 0, 1)
+        """
+        Configure the Qiskrypt's Bell State, regarding its control IBM Qiskit's Quantum Register
+        and control qubit, as well, its target IBM Qiskit's Quantum Register and target qubit.
+        """
+
+        qiskrypt_bell_state_psi_minus_20\
+            .prepare_bipartite_entanglement_at_computational_basis(is_to_measure_at_computational_basis=False,
+                                                                   qiskit_classical_register_control_index=None,
+                                                                   qiskit_classical_register_target_index=None,
+                                                                   control_bit_index=None, target_bit_index=None)
+        """
+        Prepare the Bipartite Quantum Entanglement,
+        for the specified Qiskrypt's Bell State, as a quantum entangled state,
+        without measure it, on the Computational Basis.
+        """
+
+        qiskrypt_bell_state_psi_minus_20\
+            .prepare_bipartite_entanglement_at_bell_state_basis(is_to_measure_at_bell_state_basis=False,
+                                                                qiskit_classical_register_control_index=None,
+                                                                qiskit_classical_register_target_index=None,
+                                                                control_bit_index=None, target_bit_index=None)
+        """
+        Prepare the Bipartite Quantum Entanglement,
+        for the specified Qiskrypt's Bell State, as a quantum entangled state,
+        without measure it, on the Bell State Basis.
+        """
+
+        qiskit_state_vector_backend = Aer.get_backend("statevector_simulator")
+        """
+        Getting the Aer Simulator Backend for the State Vector Representation
+        (i.e., the quantum state represented as its state vector).
+        """
+
+        final_quantum_state_vector_state = \
+            execute(qiskrypt_bell_state_psi_minus_20.qiskrypt_quantum_circuit.qiskit_quantum_circuit,
+                    qiskit_state_vector_backend).result().get_statevector()
+        """
+        Execute the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit
+        and store the resulted quantum state represented in a final state vector.
+        """
+
+        assert_allclose(final_quantum_state_vector_state,
+                        array([(0. + 0.j),
+                               (0. + 0.j),
+                               (0. + 0.j),
+                               (1. + 0.j)]),
+                        rtol=1e-7, atol=1e-7)
+        """
+        Perform the Assertion of all close values in the values of the quantum state,
+        represented by its state vector describing the given qubits,
+        after be initialised a quantum state as |11⟩,
+        then prepared Bell's State with the configuration,
+        |ψ^-⟩ = 1/sqrt(2) x (|01⟩ - |10⟩),
+        on the Computational Basis and then reverting it,
+        by preparing it on the Bell State Basis.
+        """
+
+        """
+        Dummy Assert Equal for the Unittest.
+        """
+        self.assertEqual(True, True)
+
 
 if __name__ == "__main__":
     """
