@@ -88,7 +88,7 @@ class QiskryptGHZState(QiskryptQuantumEntanglement):
             """
 
             super().__init__(name, POSSIBLE_QUANTUM_ENTANGLEMENT_CARDINALITIES[1],
-                             POSSIBLE_QUANTUM_ENTANGLEMENT_TYPES[0],
+                             POSSIBLE_QUANTUM_ENTANGLEMENT_TYPES[1],
                              qiskrypt_quantum_circuit)
             """
             Calls the constructor of the super-class Qiskrypt's Quantum Entanglement.
