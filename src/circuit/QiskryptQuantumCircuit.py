@@ -5391,6 +5391,48 @@ class QiskryptQuantumCircuit:
             Raise an Invalid IBM Qiskit's Quantum Register Index Given Error for the Qiskrypt's Quantum Circuit.
             """
 
+    def apply_barriers_set_qubits_in_set_qiskit_quantum_registers(self, qiskit_quantum_registers_indexes: list,
+                                                                  qubits_indexes: list) -> None:
+        """
+        Apply Barriers Operations to given indexes of
+        an IBM Qiskit's Quantum Registers and a list of target qubits indexes.
+
+        :param qiskit_quantum_registers_indexes: the indexes of the IBM Qiskit's Quantum Registers.
+        :param qubits_indexes: the list of indexes of qubits inside the IBM Qiskit's Quantum Registers.
+        """
+
+        if len(qiskit_quantum_registers_indexes) == len(qubits_indexes):
+            """
+            If both the lists of the indexes of the IBM Qiskit's Quantum Registers and
+            of the indexes of qubits inside them, have the same size.
+            """
+
+            qiskit_quantum_register_qubit_indexes_pairs = zip(qiskit_quantum_registers_indexes, qubits_indexes)
+            """
+            Zip both the lists of the indexes of the IBM Qiskit's Quantum Registers and
+            of the indexes of qubits inside them, as pairs.
+            """
+
+            for qiskit_quantum_register_index, qubit_index in qiskit_quantum_register_qubit_indexes_pairs:
+                """
+                For each pair of indexes of an IBM Qiskit's Quantum Register and a qubit inside it.
+                """
+
+                self.apply_barrier_to_single_qubit_in_qiskit_quantum_register(qiskit_quantum_register_index,
+                                                                              qubit_index)
+                """
+                Apply the Barrier Operation the index of the current IBM Qiskit's Quantum Register and
+                the index of the current qubit.
+                """
+
+        else:
+            """
+            If both the lists of the indexes of the IBM Qiskit's Quantum Registers and
+            of the indexes of qubits inside them, don't have the same size.
+            """
+
+            # TODO - Throw Exception
+
     def apply_barriers_to_all_qubits_in_qiskit_quantum_register(self, qiskit_quantum_register_index: int) -> None:
         """
         Apply Barriers Operations to all qubit indexes in
@@ -5833,6 +5875,66 @@ class QiskryptQuantumCircuit:
             Raise an Invalid IBM Qiskit's Quantum Register Index Given Error for
             the Qiskrypt's Quantum Circuit.
             """
+
+    def measure_set_qubits_in_set_qiskit_quantum_registers(self,
+                                                           qiskit_quantum_registers_indexes: list,
+                                                           qiskit_classical_registers_indexes: list,
+                                                           qubits_indexes: list, bits_indexes: list) -> None:
+        """
+        Measure a set of qubits in a respective set of IBM Qiskit's Quantum Registers into
+        another set of bits in a respective set of IBM Qiskit's Classical Registers,
+        inside the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit.
+
+        :param qiskit_quantum_registers_indexes: the list of indexes of the IBM Qiskit's Quantum Registers.
+        :param qiskit_classical_registers_indexes: the list of indexes of the IBM Qiskit's Classical Registers.
+        :param qubits_indexes: the list of indexes of qubits inside the IBM Qiskit's Quantum Registers.
+        :param bits_indexes: the list of indexes of bits inside the IBM Qiskit's Classical Registers.
+        """
+
+        if len(qiskit_quantum_registers_indexes) == len(qiskit_classical_registers_indexes) == \
+                len(qubits_indexes) == len(bits_indexes):
+            """
+            If both the lists of the indexes of the IBM Qiskit's Quantum Registers,
+            of the indexes of qubits inside them, as well,
+            of the indexes of the IBM Qiskit's Classical Registers,
+            of the indexes of bits inside them, have the same size.
+            """
+
+            qiskit_quantum_classical_registers_qubits_and_bits_indexes_pairs = \
+                zip(qiskit_quantum_registers_indexes, qubits_indexes,
+                    qiskit_classical_registers_indexes, bits_indexes)
+            """
+            Zip both the lists of the indexes of the IBM Qiskit's Quantum Registers,
+            of the indexes of qubits inside them, as well,
+            of the indexes of the IBM Qiskit's Classical Registers,
+            of the indexes of bits inside them, as tuples.
+            """
+
+            for qiskit_quantum_register_index, qubit_index, qiskit_classical_register_index, bit_index in \
+                    qiskit_quantum_classical_registers_qubits_and_bits_indexes_pairs:
+                """
+                For each tuple of indexes of an IBM Qiskit's Quantum Register, a qubit inside it,
+                as well, of an IBM Qiskit's Classical Register and a bit inside it.
+                """
+
+                self.measure_single_qubit_in_qiskit_quantum_register(qiskit_quantum_register_index,
+                                                                     qiskit_classical_register_index,
+                                                                     qubit_index, bit_index)
+                """
+                Measure the current single qubit in the current IBM Qiskit's Quantum Register into
+                the current single bit in the current IBM Qiskit's Classical Register,
+                inside the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit.
+                """
+
+        else:
+            """
+            If both the lists of the indexes of the IBM Qiskit's Quantum Registers,
+            of the indexes of qubits inside them, as well,
+            of the indexes of the IBM Qiskit's Classical Registers,
+            of the indexes of bits inside them, don't have the same size.
+            """
+
+            # TODO - Throw Exception
 
     def measure_all_qubits_in_qiskit_quantum_register(self,
                                                       qiskit_quantum_register_index: int,
