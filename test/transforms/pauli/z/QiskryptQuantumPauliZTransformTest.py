@@ -104,13 +104,13 @@ class QiskryptQuantumPauliZTransformTests(TestCase):
         Return OK (or FAIL) if, all the Tests performed are OK (or FAIL, otherwise).
         """
 
-        num_qubits = 1
+        quantum_register_num_qubits = 1
         """
         Set the number of qubits for the Qiskrypt's Quantum Register.
         """
 
         qiskrypt_quantum_register_quantum_pauli_z_transform_1_qubit = \
-            QiskryptQuantumRegister("qu_reg_pauli_z_transform_1", num_qubits)
+            QiskryptQuantumRegister("qu_reg_pauli_z_transform_1", quantum_register_num_qubits)
         """
         Create a Qiskrypt's Quantum Register with 1 qubit.
         """
@@ -130,7 +130,7 @@ class QiskryptQuantumPauliZTransformTests(TestCase):
         the previously created Qiskrypt's Quantum Register.
         """
 
-        qiskrypt_quantum_circuit_quantum_pauli_z_transform_1_qubit.apply_pauli_x(0, (num_qubits - 1))
+        qiskrypt_quantum_circuit_quantum_pauli_z_transform_1_qubit.apply_pauli_x(0, (quantum_register_num_qubits - 1))
         """
         Apply the Pauli-X Gate/Operation to the last qubit of the Qiskrypt's Quantum Register.
         """
@@ -138,7 +138,8 @@ class QiskryptQuantumPauliZTransformTests(TestCase):
         qiskrypt_quantum_pauli_z_transform = \
             QiskryptQuantumPauliZTransform("pauli_z_transform_1",
                                            qiskrypt_quantum_circuit_quantum_pauli_z_transform_1_qubit,
-                                           ([0] * num_qubits), [*range(num_qubits)])
+                                           ([0] * quantum_register_num_qubits),
+                                           [*range(quantum_register_num_qubits)])
         """
         Create the Qiskrypt's Quantum Pauli-Z Transform, for 1 Qiskrypt's Quantum Register and 1 qubit.
         """
@@ -162,9 +163,9 @@ class QiskryptQuantumPauliZTransformTests(TestCase):
         and store the resulted quantum state represented in a final state vector.
         """
 
-        num_possible_outcomes = (2 ** num_qubits)
+        num_possible_outcomes = (2 ** quantum_register_num_qubits)
         """
-        Compute the number of possible outcomes (i.e., 2^(num_qubits)).
+        Compute the number of possible outcomes (i.e., 2^(quantum_register_num_qubits)).
         """
 
         quantum_pauli_z_transform_1_qubit_array_expected_amplitudes = \
@@ -174,7 +175,7 @@ class QiskryptQuantumPauliZTransformTests(TestCase):
         the Qiskrypt's Quantum Pauli-Z Transform.
         """
 
-        quantum_pauli_z_transform_1_qubit_array_expected_amplitudes[2**(num_qubits - 1)] = -(1. + 0.j)
+        quantum_pauli_z_transform_1_qubit_array_expected_amplitudes[2**(quantum_register_num_qubits - 1)] = -(1. + 0.j)
         """
         Fill the position for the last qubit of the expected values of
         the Qiskrypt's Quantum Pauli-Z Transform, with -1.
@@ -213,13 +214,13 @@ class QiskryptQuantumPauliZTransformTests(TestCase):
         Return OK (or FAIL) if, all the Tests performed are OK (or FAIL, otherwise).
         """
 
-        num_qubits = 2
+        quantum_register_num_qubits = 2
         """
         Set the number of qubits for the Qiskrypt's Quantum Register.
         """
 
         qiskrypt_quantum_register_quantum_pauli_z_transform_2_qubits = \
-            QiskryptQuantumRegister("qu_reg_pauli_z_transform_2", num_qubits)
+            QiskryptQuantumRegister("qu_reg_pauli_z_transform_2", quantum_register_num_qubits)
         """
         Create a Qiskrypt's Quantum Register with 2 qubits.
         """
@@ -242,12 +243,13 @@ class QiskryptQuantumPauliZTransformTests(TestCase):
         qiskrypt_quantum_pauli_z_transform = \
             QiskryptQuantumPauliZTransform("pauli_z_transform_2",
                                            qiskrypt_quantum_circuit_quantum_pauli_z_transform_2_qubits,
-                                           ([0] * num_qubits), [*range(num_qubits)])
+                                           ([0] * quantum_register_num_qubits),
+                                           [*range(quantum_register_num_qubits)])
         """
         Create the Qiskrypt's Quantum Pauli-Z Transform, for 2 Qiskrypt's Quantum Registers and 2 qubits.
         """
 
-        qiskrypt_quantum_circuit_quantum_pauli_z_transform_2_qubits.apply_pauli_x(0, (num_qubits - 1))
+        qiskrypt_quantum_circuit_quantum_pauli_z_transform_2_qubits.apply_pauli_x(0, (quantum_register_num_qubits - 1))
         """
         Apply the Pauli-X Gate/Operation to the last qubit of the Qiskrypt's Quantum Register.
         """
@@ -271,9 +273,9 @@ class QiskryptQuantumPauliZTransformTests(TestCase):
         and store the resulted quantum state represented in a final state vector.
         """
 
-        num_possible_outcomes = (2 ** num_qubits)
+        num_possible_outcomes = (2 ** quantum_register_num_qubits)
         """
-        Compute the number of possible outcomes (i.e., 2^(num_qubits)).
+        Compute the number of possible outcomes (i.e., 2^(quantum_register_num_qubits)).
         """
 
         quantum_pauli_z_transform_2_qubits_array_expected_amplitudes = \
@@ -283,7 +285,7 @@ class QiskryptQuantumPauliZTransformTests(TestCase):
         the Qiskrypt's Quantum Pauli-Z Transform.
         """
 
-        quantum_pauli_z_transform_2_qubits_array_expected_amplitudes[2**(num_qubits - 1)] = -(1. + 0.j)
+        quantum_pauli_z_transform_2_qubits_array_expected_amplitudes[2**(quantum_register_num_qubits - 1)] = -(1. + 0.j)
         """
         Fill the position for the last qubit of the expected values of
         the Qiskrypt's Quantum Pauli-Z Transform, with -1.
@@ -322,13 +324,13 @@ class QiskryptQuantumPauliZTransformTests(TestCase):
         Return OK (or FAIL) if, all the Tests performed are OK (or FAIL, otherwise).
         """
 
-        num_qubits = 4
+        quantum_register_num_qubits = 4
         """
         Set the number of qubits for the Qiskrypt's Quantum Register.
         """
 
         qiskrypt_quantum_register_quantum_pauli_z_transform_4_qubits = \
-            QiskryptQuantumRegister("qu_reg_pauli_z_transform_3", num_qubits)
+            QiskryptQuantumRegister("qu_reg_pauli_z_transform_3", quantum_register_num_qubits)
         """
         Create a Qiskrypt's Quantum Register with 4 qubits.
         """
@@ -351,12 +353,13 @@ class QiskryptQuantumPauliZTransformTests(TestCase):
         qiskrypt_quantum_pauli_z_transform = \
             QiskryptQuantumPauliZTransform("pauli_z_transform_3",
                                            qiskrypt_quantum_circuit_quantum_pauli_z_transform_4_qubits,
-                                           ([0] * num_qubits), [*range(num_qubits)])
+                                           ([0] * quantum_register_num_qubits),
+                                           [*range(quantum_register_num_qubits)])
         """
         Create the Qiskrypt's Quantum Pauli-Z Transform, for 1 Qiskrypt's Quantum Register and 4 qubits.
         """
 
-        qiskrypt_quantum_circuit_quantum_pauli_z_transform_4_qubits.apply_pauli_x(0, (num_qubits - 1))
+        qiskrypt_quantum_circuit_quantum_pauli_z_transform_4_qubits.apply_pauli_x(0, (quantum_register_num_qubits - 1))
         """
         Apply the Pauli-X Gate/Operation to the last qubit of the Qiskrypt's Quantum Register.
         """
@@ -380,9 +383,9 @@ class QiskryptQuantumPauliZTransformTests(TestCase):
         and store the resulted quantum state represented in a final state vector.
         """
 
-        num_possible_outcomes = (2 ** num_qubits)
+        num_possible_outcomes = (2 ** quantum_register_num_qubits)
         """
-        Compute the number of possible outcomes (i.e., 2^(num_qubits)).
+        Compute the number of possible outcomes (i.e., 2^(quantum_register_num_qubits)).
         """
 
         quantum_pauli_z_transform_4_qubits_array_expected_amplitudes = \
@@ -392,7 +395,7 @@ class QiskryptQuantumPauliZTransformTests(TestCase):
         the Qiskrypt's Quantum Pauli-Z Transform.
         """
 
-        quantum_pauli_z_transform_4_qubits_array_expected_amplitudes[2**(num_qubits - 1)] = -(1. + 0.j)
+        quantum_pauli_z_transform_4_qubits_array_expected_amplitudes[2**(quantum_register_num_qubits - 1)] = -(1. + 0.j)
         """
         Fill the position for the last qubit of the expected values of
         the Qiskrypt's Quantum Pauli-Z Transform, with -1.
@@ -431,13 +434,13 @@ class QiskryptQuantumPauliZTransformTests(TestCase):
         Return OK (or FAIL) if, all the Tests performed are OK (or FAIL, otherwise).
         """
 
-        num_qubits = 8
+        quantum_register_num_qubits = 8
         """
         Set the number of qubits for the Qiskrypt's Quantum Register.
         """
 
         qiskrypt_quantum_register_quantum_pauli_z_transform_8_qubits = \
-            QiskryptQuantumRegister("qu_reg_pauli_z_transform_4", num_qubits)
+            QiskryptQuantumRegister("qu_reg_pauli_z_transform_4", quantum_register_num_qubits)
         """
         Create a Qiskrypt's Quantum Register with 8 qubits.
         """
@@ -460,12 +463,13 @@ class QiskryptQuantumPauliZTransformTests(TestCase):
         qiskrypt_quantum_pauli_z_transform = \
             QiskryptQuantumPauliZTransform("pauli_z_transform_4",
                                            qiskrypt_quantum_circuit_quantum_pauli_z_transform_8_qubits,
-                                           ([0] * num_qubits), [*range(num_qubits)])
+                                           ([0] * quantum_register_num_qubits),
+                                           [*range(quantum_register_num_qubits)])
         """
         Create the Qiskrypt's Quantum Pauli-Z Transform, for 1 Qiskrypt's Quantum Register and 8 qubits.
         """
 
-        qiskrypt_quantum_circuit_quantum_pauli_z_transform_8_qubits.apply_pauli_x(0, (num_qubits - 1))
+        qiskrypt_quantum_circuit_quantum_pauli_z_transform_8_qubits.apply_pauli_x(0, (quantum_register_num_qubits - 1))
         """
         Apply the Pauli-X Gate/Operation to the last qubit of the Qiskrypt's Quantum Register.
         """
@@ -489,9 +493,9 @@ class QiskryptQuantumPauliZTransformTests(TestCase):
         and store the resulted quantum state represented in a final state vector.
         """
 
-        num_possible_outcomes = (2 ** num_qubits)
+        num_possible_outcomes = (2 ** quantum_register_num_qubits)
         """
-        Compute the number of possible outcomes (i.e., 2^(num_qubits)).
+        Compute the number of possible outcomes (i.e., 2^(quantum_register_num_qubits)).
         """
 
         quantum_pauli_z_transform_8_qubits_array_expected_amplitudes = \
@@ -501,7 +505,7 @@ class QiskryptQuantumPauliZTransformTests(TestCase):
         the Qiskrypt's Quantum Pauli-X Transform.
         """
 
-        quantum_pauli_z_transform_8_qubits_array_expected_amplitudes[2**(num_qubits - 1)] = -(1. + 0.j)
+        quantum_pauli_z_transform_8_qubits_array_expected_amplitudes[2**(quantum_register_num_qubits - 1)] = -(1. + 0.j)
         """
         Fill the position for the last qubit of the expected values of
         the Qiskrypt's Quantum Pauli-Z Transform, with -1.
@@ -540,13 +544,13 @@ class QiskryptQuantumPauliZTransformTests(TestCase):
         Return OK (or FAIL) if, all the Tests performed are OK (or FAIL, otherwise).
         """
 
-        num_qubits = 16
+        quantum_register_num_qubits = 16
         """
         Set the number of qubits for the Qiskrypt's Quantum Register.
         """
 
         qiskrypt_quantum_register_quantum_pauli_z_transform_16_qubits = \
-            QiskryptQuantumRegister("qu_reg_pauli_z_transform_5", num_qubits)
+            QiskryptQuantumRegister("qu_reg_pauli_z_transform_5", quantum_register_num_qubits)
         """
         Create a Qiskrypt's Quantum Register with 16 qubits.
         """
@@ -569,12 +573,13 @@ class QiskryptQuantumPauliZTransformTests(TestCase):
         qiskrypt_quantum_pauli_z_transform = \
             QiskryptQuantumPauliZTransform("pauli_z_transform_5",
                                            qiskrypt_quantum_circuit_quantum_pauli_z_transform_16_qubits,
-                                           ([0] * num_qubits), [*range(num_qubits)])
+                                           ([0] * quantum_register_num_qubits),
+                                           [*range(quantum_register_num_qubits)])
         """
         Create the Qiskrypt's Quantum Pauli-Z Transform, for 1 Qiskrypt's Quantum Register and 16 qubits.
         """
 
-        qiskrypt_quantum_circuit_quantum_pauli_z_transform_16_qubits.apply_pauli_x(0, (num_qubits - 1))
+        qiskrypt_quantum_circuit_quantum_pauli_z_transform_16_qubits.apply_pauli_x(0, (quantum_register_num_qubits - 1))
         """
         Apply the Pauli-X Gate/Operation to the last qubit of the Qiskrypt's Quantum Register.
         """
@@ -598,9 +603,9 @@ class QiskryptQuantumPauliZTransformTests(TestCase):
         and store the resulted quantum state represented in a final state vector.
         """
 
-        num_possible_outcomes = (2 ** num_qubits)
+        num_possible_outcomes = (2 ** quantum_register_num_qubits)
         """
-        Compute the number of possible outcomes (i.e., 2^(num_qubits)).
+        Compute the number of possible outcomes (i.e., 2^(quantum_register_num_qubits)).
         """
 
         quantum_pauli_z_transform_16_qubits_array_expected_amplitudes = \
@@ -610,7 +615,7 @@ class QiskryptQuantumPauliZTransformTests(TestCase):
         the Qiskrypt's Quantum Pauli-Z Transform.
         """
 
-        quantum_pauli_z_transform_16_qubits_array_expected_amplitudes[2**(num_qubits - 1)] = -(1. + 0.j)
+        quantum_pauli_z_transform_16_qubits_array_expected_amplitudes[2**(quantum_register_num_qubits - 1)] = -(1. + 0.j)
         """
         Fill the position for the last qubit of the expected values of
         the Qiskrypt's Quantum Pauli-Z Transform, with -1.
@@ -649,13 +654,13 @@ class QiskryptQuantumPauliZTransformTests(TestCase):
         Return OK (or FAIL) if, all the Tests performed are OK (or FAIL, otherwise).
         """
 
-        num_qubits = 20
+        quantum_register_num_qubits = 20
         """
         Set the number of qubits for the Qiskrypt's Quantum Register.
         """
 
         qiskrypt_quantum_register_quantum_pauli_z_transform_20_qubits = \
-            QiskryptQuantumRegister("qu_reg_pauli_z_transform_6", num_qubits)
+            QiskryptQuantumRegister("qu_reg_pauli_z_transform_6", quantum_register_num_qubits)
         """
         Create a Qiskrypt's Quantum Register with 20 qubits.
         """
@@ -678,12 +683,13 @@ class QiskryptQuantumPauliZTransformTests(TestCase):
         qiskrypt_quantum_pauli_z_transform = \
             QiskryptQuantumPauliZTransform("pauli_z_transform_4",
                                            qiskrypt_quantum_circuit_quantum_pauli_z_transform_20_qubits,
-                                           ([0] * num_qubits), [*range(num_qubits)])
+                                           ([0] * quantum_register_num_qubits),
+                                           [*range(quantum_register_num_qubits)])
         """
         Create the Qiskrypt's Quantum Pauli-Z Transform, for 1 Qiskrypt's Quantum Register and 20 qubits.
         """
 
-        qiskrypt_quantum_circuit_quantum_pauli_z_transform_20_qubits.apply_pauli_x(0, (num_qubits - 1))
+        qiskrypt_quantum_circuit_quantum_pauli_z_transform_20_qubits.apply_pauli_x(0, (quantum_register_num_qubits - 1))
         """
         Apply the Pauli-X Gate/Operation to the last qubit of the Qiskrypt's Quantum Register.
         """
@@ -707,9 +713,9 @@ class QiskryptQuantumPauliZTransformTests(TestCase):
         and store the resulted quantum state represented in a final state vector.
         """
 
-        num_possible_outcomes = (2 ** num_qubits)
+        num_possible_outcomes = (2 ** quantum_register_num_qubits)
         """
-        Compute the number of possible outcomes (i.e., 2^(num_qubits)).
+        Compute the number of possible outcomes (i.e., 2^(quantum_register_num_qubits)).
         """
 
         quantum_pauli_z_transform_20_qubits_array_expected_amplitudes = \
@@ -719,7 +725,7 @@ class QiskryptQuantumPauliZTransformTests(TestCase):
         the Qiskrypt's Quantum Pauli-Z Transform.
         """
 
-        quantum_pauli_z_transform_20_qubits_array_expected_amplitudes[2**(num_qubits - 1)] = -(1. + 0.j)
+        quantum_pauli_z_transform_20_qubits_array_expected_amplitudes[2**(quantum_register_num_qubits - 1)] = -(1. + 0.j)
         """
         Fill the position for the last qubit of the expected values of
         the Qiskrypt's Quantum Pauli-Z Transform, with -1.
