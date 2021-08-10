@@ -178,7 +178,7 @@ class QiskryptBellStateTests(TestCase):
                                                                    control_bit_index=None, target_bit_index=None)
         """
         Prepare the Bipartite Quantum Entanglement,
-        for the specified Qiskrypt's Bell State, as a quantum entangled state,
+        for the specified Qiskrypt's Bell State, as a Quantum Entangled State,
         without measure it, on the Computational Basis.
         """
 
@@ -294,7 +294,7 @@ class QiskryptBellStateTests(TestCase):
                                                                    control_bit_index=None, target_bit_index=None)
         """
         Prepare the Bipartite Quantum Entanglement,
-        for the specified Qiskrypt's Bell State, as a quantum entangled state,
+        for the specified Qiskrypt's Bell State, as a Quantum Entangled State,
         without measure it, on the Computational Basis.
         """
 
@@ -409,7 +409,7 @@ class QiskryptBellStateTests(TestCase):
                                                                    control_bit_index=None, target_bit_index=None)
         """
         Prepare the Bipartite Quantum Entanglement,
-        for the specified Qiskrypt's Bell State, as a quantum entangled state,
+        for the specified Qiskrypt's Bell State, as a Quantum Entangled State,
         without measure it, on the Computational Basis.
         """
 
@@ -524,7 +524,7 @@ class QiskryptBellStateTests(TestCase):
                                                                    control_bit_index=None, target_bit_index=None)
         """
         Prepare the Bipartite Quantum Entanglement,
-        for the specified Qiskrypt's Bell State, as a quantum entangled state,
+        for the specified Qiskrypt's Bell State, as a Quantum Entangled State,
         without measure it, on the Computational Basis.
         """
 
@@ -564,7 +564,8 @@ class QiskryptBellStateTests(TestCase):
         """
         Test Case #5:
 
-        - Initialise the Qiskrypt's Bell State and prepare it, as an Entangled Quantum State.
+        - Initialise the Qiskrypt's Bell State, prepare it, as an Entangled Quantum State,
+          and then, measure in the Bell State Basis.
 
         Description of the Steps for the Unitary Test:
         1) The Qiskrypt's Quantum Register is prepared on the quantum state, |00⟩;
@@ -645,7 +646,7 @@ class QiskryptBellStateTests(TestCase):
                                                                    control_bit_index=None, target_bit_index=None)
         """
         Prepare the Bipartite Quantum Entanglement,
-        for the specified Qiskrypt's Bell State, as a quantum entangled state,
+        for the specified Qiskrypt's Bell State, as a Quantum Entangled State,
         without measure it, on the Computational Basis.
         """
 
@@ -656,7 +657,7 @@ class QiskryptBellStateTests(TestCase):
                                                                 control_bit_index=None, target_bit_index=None)
         """
         Prepare the Bipartite Quantum Entanglement,
-        for the specified Qiskrypt's Bell State, as a quantum entangled state,
+        for the specified Qiskrypt's Bell State, as a Quantum Entangled State,
         without measure it, on the Bell State Basis.
         """
 
@@ -699,7 +700,8 @@ class QiskryptBellStateTests(TestCase):
         """
         Test Case #6:
 
-        - Initialise the Qiskrypt's Bell State and prepare it, as an Entangled Quantum State.
+        - Initialise the Qiskrypt's Bell State, prepare it, as an Entangled Quantum State,
+          and then, measure in the Bell State Basis.
 
         Description of the Steps for the Unitary Test:
         1) The Qiskrypt's Quantum Register is prepared on the quantum state, |01⟩;
@@ -787,7 +789,7 @@ class QiskryptBellStateTests(TestCase):
                                                                    control_bit_index=None, target_bit_index=None)
         """
         Prepare the Bipartite Quantum Entanglement,
-        for the specified Qiskrypt's Bell State, as a quantum entangled state,
+        for the specified Qiskrypt's Bell State, as a Quantum Entangled State,
         without measure it, on the Computational Basis.
         """
 
@@ -798,7 +800,7 @@ class QiskryptBellStateTests(TestCase):
                                                                 control_bit_index=None, target_bit_index=None)
         """
         Prepare the Bipartite Quantum Entanglement,
-        for the specified Qiskrypt's Bell State, as a quantum entangled state,
+        for the specified Qiskrypt's Bell State, as a Quantum Entangled State,
         without measure it, on the Bell State Basis.
         """
 
@@ -841,7 +843,8 @@ class QiskryptBellStateTests(TestCase):
         """
         Test Case #7:
 
-        - Initialise the Qiskrypt's Bell State and prepare it, as an Entangled Quantum State.
+        - Initialise the Qiskrypt's Bell State, prepare it, as an Entangled Quantum State,
+          and then, measure in the Bell State Basis.
 
         Description of the Steps for the Unitary Test:
         1) The Qiskrypt's Quantum Register is prepared on the quantum state, |10⟩;
@@ -929,7 +932,7 @@ class QiskryptBellStateTests(TestCase):
                                                                    control_bit_index=None, target_bit_index=None)
         """
         Prepare the Bipartite Quantum Entanglement,
-        for the specified Qiskrypt's Bell State, as a quantum entangled state,
+        for the specified Qiskrypt's Bell State, as a Quantum Entangled State,
         without measure it, on the Computational Basis.
         """
 
@@ -940,7 +943,7 @@ class QiskryptBellStateTests(TestCase):
                                                                 control_bit_index=None, target_bit_index=None)
         """
         Prepare the Bipartite Quantum Entanglement,
-        for the specified Qiskrypt's Bell State, as a quantum entangled state,
+        for the specified Qiskrypt's Bell State, as a Quantum Entangled State,
         without measure it, on the Bell State Basis.
         """
 
@@ -983,7 +986,8 @@ class QiskryptBellStateTests(TestCase):
         """
         Test Case #8:
 
-        - Initialise the Qiskrypt's Bell State and prepare it, as an Entangled Quantum State.
+        - Initialise the Qiskrypt's Bell State, prepare it, as an Entangled Quantum State,
+          and then, measure in the Bell State Basis.
 
         Description of the Steps for the Unitary Test:
         1) The Qiskrypt's Quantum Register is prepared on the quantum state, |11⟩;
@@ -1078,7 +1082,7 @@ class QiskryptBellStateTests(TestCase):
                                                                    control_bit_index=None, target_bit_index=None)
         """
         Prepare the Bipartite Quantum Entanglement,
-        for the specified Qiskrypt's Bell State, as a quantum entangled state,
+        for the specified Qiskrypt's Bell State, as a Quantum Entangled State,
         without measure it, on the Computational Basis.
         """
 
@@ -1089,7 +1093,7 @@ class QiskryptBellStateTests(TestCase):
                                                                 control_bit_index=None, target_bit_index=None)
         """
         Prepare the Bipartite Quantum Entanglement,
-        for the specified Qiskrypt's Bell State, as a quantum entangled state,
+        for the specified Qiskrypt's Bell State, as a Quantum Entangled State,
         without measure it, on the Bell State Basis.
         """
 
@@ -1132,7 +1136,8 @@ class QiskryptBellStateTests(TestCase):
         """
         Test Case #9:
 
-        - Initialise the Qiskrypt's Bell State and prepare it, as an Entangled Quantum State.
+        - Initialise the Qiskrypt's Bell State, prepare it, as an Entangled Quantum State,
+          and then, measure in the Bell State Basis.
 
         Description of the Steps for the Unitary Test:
         1) The Qiskrypt's Quantum Register is prepared on the quantum state, |00⟩;
@@ -1213,7 +1218,7 @@ class QiskryptBellStateTests(TestCase):
                                                                    control_bit_index=None, target_bit_index=None)
         """
         Prepare the Bipartite Quantum Entanglement,
-        for the specified Qiskrypt's Bell State, as a quantum entangled state,
+        for the specified Qiskrypt's Bell State, as a Quantum Entangled State,
         without measure it, on the Computational Basis.
         """
 
@@ -1224,7 +1229,7 @@ class QiskryptBellStateTests(TestCase):
                                                                 control_bit_index=None, target_bit_index=None)
         """
         Prepare the Bipartite Quantum Entanglement,
-        for the specified Qiskrypt's Bell State, as a quantum entangled state,
+        for the specified Qiskrypt's Bell State, as a Quantum Entangled State,
         without measure it, on the Bell State Basis.
         """
 
@@ -1267,7 +1272,8 @@ class QiskryptBellStateTests(TestCase):
         """
         Test Case #10:
 
-        - Initialise the Qiskrypt's Bell State and prepare it, as an Entangled Quantum State.
+        - Initialise the Qiskrypt's Bell State, prepare it, as an Entangled Quantum State,
+          and then, measure in the Bell State Basis.
 
         Description of the Steps for the Unitary Test:
         1) The Qiskrypt's Quantum Register is prepared on the quantum state, |01⟩;
@@ -1355,7 +1361,7 @@ class QiskryptBellStateTests(TestCase):
                                                                    control_bit_index=None, target_bit_index=None)
         """
         Prepare the Bipartite Quantum Entanglement,
-        for the specified Qiskrypt's Bell State, as a quantum entangled state,
+        for the specified Qiskrypt's Bell State, as a Quantum Entangled State,
         without measure it, on the Computational Basis.
         """
 
@@ -1366,7 +1372,7 @@ class QiskryptBellStateTests(TestCase):
                                                                 control_bit_index=None, target_bit_index=None)
         """
         Prepare the Bipartite Quantum Entanglement,
-        for the specified Qiskrypt's Bell State, as a quantum entangled state,
+        for the specified Qiskrypt's Bell State, as a Quantum Entangled State,
         without measure it, on the Bell State Basis.
         """
 
@@ -1409,7 +1415,8 @@ class QiskryptBellStateTests(TestCase):
         """
         Test Case #11:
 
-        - Initialise the Qiskrypt's Bell State and prepare it, as an Entangled Quantum State.
+        - Initialise the Qiskrypt's Bell State, prepare it, as an Entangled Quantum State,
+          and then, measure in the Bell State Basis.
 
         Description of the Steps for the Unitary Test:
         1) The Qiskrypt's Quantum Register is prepared on the quantum state, |10⟩;
@@ -1497,7 +1504,7 @@ class QiskryptBellStateTests(TestCase):
                                                                    control_bit_index=None, target_bit_index=None)
         """
         Prepare the Bipartite Quantum Entanglement,
-        for the specified Qiskrypt's Bell State, as a quantum entangled state,
+        for the specified Qiskrypt's Bell State, as a Quantum Entangled State,
         without measure it, on the Computational Basis.
         """
 
@@ -1508,7 +1515,7 @@ class QiskryptBellStateTests(TestCase):
                                                                 control_bit_index=None, target_bit_index=None)
         """
         Prepare the Bipartite Quantum Entanglement,
-        for the specified Qiskrypt's Bell State, as a quantum entangled state,
+        for the specified Qiskrypt's Bell State, as a Quantum Entangled State,
         without measure it, on the Bell State Basis.
         """
 
@@ -1551,7 +1558,8 @@ class QiskryptBellStateTests(TestCase):
         """
         Test Case #12:
 
-        - Initialise the Qiskrypt's Bell State and prepare it, as an Entangled Quantum State.
+        - Initialise the Qiskrypt's Bell State, prepare it, as an Entangled Quantum State,
+          and then, measure in the Bell State Basis.
 
         Description of the Steps for the Unitary Test:
         1) The Qiskrypt's Quantum Register is prepared on the quantum state, |11⟩;
@@ -1646,7 +1654,7 @@ class QiskryptBellStateTests(TestCase):
                                                                    control_bit_index=None, target_bit_index=None)
         """
         Prepare the Bipartite Quantum Entanglement,
-        for the specified Qiskrypt's Bell State, as a quantum entangled state,
+        for the specified Qiskrypt's Bell State, as a Quantum Entangled State,
         without measure it, on the Computational Basis.
         """
 
@@ -1657,7 +1665,7 @@ class QiskryptBellStateTests(TestCase):
                                                                 control_bit_index=None, target_bit_index=None)
         """
         Prepare the Bipartite Quantum Entanglement,
-        for the specified Qiskrypt's Bell State, as a quantum entangled state,
+        for the specified Qiskrypt's Bell State, as a Quantum Entangled State,
         without measure it, on the Bell State Basis.
         """
 
@@ -1700,7 +1708,8 @@ class QiskryptBellStateTests(TestCase):
         """
         Test Case #13:
 
-        - Initialise the Qiskrypt's Bell State and prepare it, as an Entangled Quantum State.
+        - Initialise the Qiskrypt's Bell State, prepare it, as an Entangled Quantum State,
+          and then, measure in the Bell State Basis.
 
         Description of the Steps for the Unitary Test:
         1) The Qiskrypt's Quantum Register is prepared on the quantum state, |00⟩;
@@ -1781,7 +1790,7 @@ class QiskryptBellStateTests(TestCase):
                                                                    control_bit_index=None, target_bit_index=None)
         """
         Prepare the Bipartite Quantum Entanglement,
-        for the specified Qiskrypt's Bell State, as a quantum entangled state,
+        for the specified Qiskrypt's Bell State, as a Quantum Entangled State,
         without measure it, on the Computational Basis.
         """
 
@@ -1792,7 +1801,7 @@ class QiskryptBellStateTests(TestCase):
                                                                 control_bit_index=None, target_bit_index=None)
         """
         Prepare the Bipartite Quantum Entanglement,
-        for the specified Qiskrypt's Bell State, as a quantum entangled state,
+        for the specified Qiskrypt's Bell State, as a Quantum Entangled State,
         without measure it, on the Bell State Basis.
         """
 
@@ -1835,7 +1844,8 @@ class QiskryptBellStateTests(TestCase):
         """
         Test Case #14:
 
-        - Initialise the Qiskrypt's Bell State and prepare it, as an Entangled Quantum State.
+        - Initialise the Qiskrypt's Bell State, prepare it, as an Entangled Quantum State,
+          and then, measure in the Bell State Basis.
 
         Description of the Steps for the Unitary Test:
         1) The Qiskrypt's Quantum Register is prepared on the quantum state, |01⟩;
@@ -1923,7 +1933,7 @@ class QiskryptBellStateTests(TestCase):
                                                                    control_bit_index=None, target_bit_index=None)
         """
         Prepare the Bipartite Quantum Entanglement,
-        for the specified Qiskrypt's Bell State, as a quantum entangled state,
+        for the specified Qiskrypt's Bell State, as a Quantum Entangled State,
         without measure it, on the Computational Basis.
         """
 
@@ -1934,7 +1944,7 @@ class QiskryptBellStateTests(TestCase):
                                                                 control_bit_index=None, target_bit_index=None)
         """
         Prepare the Bipartite Quantum Entanglement,
-        for the specified Qiskrypt's Bell State, as a quantum entangled state,
+        for the specified Qiskrypt's Bell State, as a Quantum Entangled State,
         without measure it, on the Bell State Basis.
         """
 
@@ -1977,7 +1987,8 @@ class QiskryptBellStateTests(TestCase):
         """
         Test Case #15:
 
-        - Initialise the Qiskrypt's Bell State and prepare it, as an Entangled Quantum State.
+        - Initialise the Qiskrypt's Bell State, prepare it, as an Entangled Quantum State,
+          and then, measure in the Bell State Basis.
 
         Description of the Steps for the Unitary Test:
         1) The Qiskrypt's Quantum Register is prepared on the quantum state, |10⟩;
@@ -2065,7 +2076,7 @@ class QiskryptBellStateTests(TestCase):
                                                                    control_bit_index=None, target_bit_index=None)
         """
         Prepare the Bipartite Quantum Entanglement,
-        for the specified Qiskrypt's Bell State, as a quantum entangled state,
+        for the specified Qiskrypt's Bell State, as a Quantum Entangled State,
         without measure it, on the Computational Basis.
         """
 
@@ -2076,7 +2087,7 @@ class QiskryptBellStateTests(TestCase):
                                                                 control_bit_index=None, target_bit_index=None)
         """
         Prepare the Bipartite Quantum Entanglement,
-        for the specified Qiskrypt's Bell State, as a quantum entangled state,
+        for the specified Qiskrypt's Bell State, as a Quantum Entangled State,
         without measure it, on the Bell State Basis.
         """
 
@@ -2119,7 +2130,8 @@ class QiskryptBellStateTests(TestCase):
         """
         Test Case #16:
 
-        - Initialise the Qiskrypt's Bell State and prepare it, as an Entangled Quantum State.
+        - Initialise the Qiskrypt's Bell State, prepare it, as an Entangled Quantum State,
+          and then, measure in the Bell State Basis.
 
         Description of the Steps for the Unitary Test:
         1) The Qiskrypt's Quantum Register is prepared on the quantum state, |11⟩;
@@ -2214,7 +2226,7 @@ class QiskryptBellStateTests(TestCase):
                                                                    control_bit_index=None, target_bit_index=None)
         """
         Prepare the Bipartite Quantum Entanglement,
-        for the specified Qiskrypt's Bell State, as a quantum entangled state,
+        for the specified Qiskrypt's Bell State, as a Quantum Entangled State,
         without measure it, on the Computational Basis.
         """
 
@@ -2225,7 +2237,7 @@ class QiskryptBellStateTests(TestCase):
                                                                 control_bit_index=None, target_bit_index=None)
         """
         Prepare the Bipartite Quantum Entanglement,
-        for the specified Qiskrypt's Bell State, as a quantum entangled state,
+        for the specified Qiskrypt's Bell State, as a Quantum Entangled State,
         without measure it, on the Bell State Basis.
         """
 
@@ -2264,13 +2276,12 @@ class QiskryptBellStateTests(TestCase):
         """
         self.assertEqual(True, True)
 
-######
-
     def test_no_17_prepare_and_measure_bell_state_psi_minus_00(self):
         """
         Test Case #17:
 
-        - Initialise the Qiskrypt's Bell State and prepare it, as an Entangled Quantum State.
+        - Initialise the Qiskrypt's Bell State, prepare it, as an Entangled Quantum State,
+          and then, measure in the Bell State Basis.
 
         Description of the Steps for the Unitary Test:
         1) The Qiskrypt's Quantum Register is prepared on the quantum state, |00⟩;
@@ -2351,7 +2362,7 @@ class QiskryptBellStateTests(TestCase):
                                                                    control_bit_index=None, target_bit_index=None)
         """
         Prepare the Bipartite Quantum Entanglement,
-        for the specified Qiskrypt's Bell State, as a quantum entangled state,
+        for the specified Qiskrypt's Bell State, as a Quantum Entangled State,
         without measure it, on the Computational Basis.
         """
 
@@ -2362,7 +2373,7 @@ class QiskryptBellStateTests(TestCase):
                                                                 control_bit_index=None, target_bit_index=None)
         """
         Prepare the Bipartite Quantum Entanglement,
-        for the specified Qiskrypt's Bell State, as a quantum entangled state,
+        for the specified Qiskrypt's Bell State, as a Quantum Entangled State,
         without measure it, on the Bell State Basis.
         """
 
@@ -2405,7 +2416,8 @@ class QiskryptBellStateTests(TestCase):
         """
         Test Case #18:
 
-        - Initialise the Qiskrypt's Bell State and prepare it, as an Entangled Quantum State.
+        - Initialise the Qiskrypt's Bell State, prepare it, as an Entangled Quantum State,
+          and then, measure in the Bell State Basis.
 
         Description of the Steps for the Unitary Test:
         1) The Qiskrypt's Quantum Register is prepared on the quantum state, |01⟩;
@@ -2493,7 +2505,7 @@ class QiskryptBellStateTests(TestCase):
                                                                    control_bit_index=None, target_bit_index=None)
         """
         Prepare the Bipartite Quantum Entanglement,
-        for the specified Qiskrypt's Bell State, as a quantum entangled state,
+        for the specified Qiskrypt's Bell State, as a Quantum Entangled State,
         without measure it, on the Computational Basis.
         """
 
@@ -2504,7 +2516,7 @@ class QiskryptBellStateTests(TestCase):
                                                                 control_bit_index=None, target_bit_index=None)
         """
         Prepare the Bipartite Quantum Entanglement,
-        for the specified Qiskrypt's Bell State, as a quantum entangled state,
+        for the specified Qiskrypt's Bell State, as a Quantum Entangled State,
         without measure it, on the Bell State Basis.
         """
 
@@ -2547,7 +2559,8 @@ class QiskryptBellStateTests(TestCase):
         """
         Test Case #19:
 
-        - Initialise the Qiskrypt's Bell State and prepare it, as an Entangled Quantum State.
+        - Initialise the Qiskrypt's Bell State, prepare it, as an Entangled Quantum State,
+          and then, measure in the Bell State Basis.
 
         Description of the Steps for the Unitary Test:
         1) The Qiskrypt's Quantum Register is prepared on the quantum state, |10⟩;
@@ -2635,7 +2648,7 @@ class QiskryptBellStateTests(TestCase):
                                                                    control_bit_index=None, target_bit_index=None)
         """
         Prepare the Bipartite Quantum Entanglement,
-        for the specified Qiskrypt's Bell State, as a quantum entangled state,
+        for the specified Qiskrypt's Bell State, as a Quantum Entangled State,
         without measure it, on the Computational Basis.
         """
 
@@ -2646,7 +2659,7 @@ class QiskryptBellStateTests(TestCase):
                                                                 control_bit_index=None, target_bit_index=None)
         """
         Prepare the Bipartite Quantum Entanglement,
-        for the specified Qiskrypt's Bell State, as a quantum entangled state,
+        for the specified Qiskrypt's Bell State, as a Quantum Entangled State,
         without measure it, on the Bell State Basis.
         """
 
@@ -2689,7 +2702,8 @@ class QiskryptBellStateTests(TestCase):
         """
         Test Case #20:
 
-        - Initialise the Qiskrypt's Bell State and prepare it, as an Entangled Quantum State.
+        - Initialise the Qiskrypt's Bell State, prepare it, as an Entangled Quantum State,
+          and then, measure in the Bell State Basis.
 
         Description of the Steps for the Unitary Test:
         1) The Qiskrypt's Quantum Register is prepared on the quantum state, |11⟩;
@@ -2784,7 +2798,7 @@ class QiskryptBellStateTests(TestCase):
                                                                    control_bit_index=None, target_bit_index=None)
         """
         Prepare the Bipartite Quantum Entanglement,
-        for the specified Qiskrypt's Bell State, as a quantum entangled state,
+        for the specified Qiskrypt's Bell State, as a Quantum Entangled State,
         without measure it, on the Computational Basis.
         """
 
@@ -2795,7 +2809,7 @@ class QiskryptBellStateTests(TestCase):
                                                                 control_bit_index=None, target_bit_index=None)
         """
         Prepare the Bipartite Quantum Entanglement,
-        for the specified Qiskrypt's Bell State, as a quantum entangled state,
+        for the specified Qiskrypt's Bell State, as a Quantum Entangled State,
         without measure it, on the Bell State Basis.
         """
 
