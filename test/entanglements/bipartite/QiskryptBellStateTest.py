@@ -98,11 +98,12 @@ class QiskryptBellStateTests(TestCase):
     Object Class of the Unitary Tests for the Qiskrypt's Bell State.
     """
 
-    def test_no_1_prepare_qiskrypt_bell_state_phi_plus_epr_pair(self):
+    def test_no_1_prepare_computational_basis_qiskrypt_bell_state_phi_plus_epr_pair(self):
         """
         Test Case #1:
 
-        - Initialise the Qiskrypt's Bell State and prepare it, as an Entangled Quantum State.
+        - Initialise the Qiskrypt's Bell State and prepare it, as an Entangled Quantum State,
+          in the Computational Basis.
 
         Description of the Steps for the Unitary Test:
         1) The Qiskrypt's Bell State is initialised and configured;
@@ -214,11 +215,12 @@ class QiskryptBellStateTests(TestCase):
         """
         self.assertEqual(True, True)
 
-    def test_no_2_prepare_qiskrypt_bell_state_phi_minus(self):
+    def test_no_2_prepare_computational_basis_qiskrypt_bell_state_phi_minus(self):
         """
         Test Case #2:
 
-        - Initialise the Qiskrypt's Bell State and prepare it, as an Entangled Quantum State.
+        - Initialise the Qiskrypt's Bell State and prepare it, as an Entangled Quantum State,
+          in the Computational Basis.
 
         Description of the Steps for the Unitary Test:
         1) The Qiskrypt's Bell State is initialised and configured;
@@ -330,11 +332,12 @@ class QiskryptBellStateTests(TestCase):
         """
         self.assertEqual(True, True)
 
-    def test_no_3_prepare_qiskrypt_bell_state_phi_plus_epr_pair(self):
+    def test_no_3_prepare_computational_basis_qiskrypt_bell_state_phi_plus_epr_pair(self):
         """
         Test Case #3:
 
-        - Initialise the Qiskrypt's Bell State and prepare it, as an Entangled Quantum State.
+        - Initialise the Qiskrypt's Bell State and prepare it, as an Entangled Quantum State,
+          in the Computational Basis.
 
         Description of the Steps for the Unitary Test:
         1) The Qiskrypt's Bell State is initialised and configured;
@@ -445,11 +448,12 @@ class QiskryptBellStateTests(TestCase):
         """
         self.assertEqual(True, True)
 
-    def test_no_4_prepare_qiskrypt_bell_state_psi_minus(self):
+    def test_no_4_prepare_computational_basis_qiskrypt_bell_state_psi_minus(self):
         """
         Test Case #4:
 
-        - Initialise the Qiskrypt's Bell State and prepare it, as an Entangled Quantum State.
+        - Initialise the Qiskrypt's Bell State and prepare it, as an Entangled Quantum State,
+          in the Computational Basis.
 
         Description of the Steps for the Unitary Test:
         1) The Qiskrypt's Bell State is initialised and configured;
@@ -560,12 +564,12 @@ class QiskryptBellStateTests(TestCase):
         """
         self.assertEqual(True, True)
 
-    def test_no_5_prepare_and_measure_bell_state_phi_plus_epr_pair_00(self):
+    def test_no_5_prepare_bell_state_basis_bell_state_phi_plus_epr_pair_00(self):
         """
         Test Case #5:
 
         - Initialise the Qiskrypt's Bell State, prepare it, as an Entangled Quantum State,
-          and then, measure in the Bell State Basis.
+          in the Bell State Basis.
 
         Description of the Steps for the Unitary Test:
         1) The Qiskrypt's Quantum Register is prepared on the quantum state, |00⟩;
@@ -696,12 +700,12 @@ class QiskryptBellStateTests(TestCase):
         """
         self.assertEqual(True, True)
 
-    def test_no_6_prepare_and_measure_bell_state_phi_plus_epr_pair_01(self):
+    def test_no_6_prepare_computational_basis_bell_state_phi_plus_epr_pair_01(self):
         """
         Test Case #6:
 
         - Initialise the Qiskrypt's Bell State, prepare it, as an Entangled Quantum State,
-          and then, measure in the Bell State Basis.
+          in the Bell State Basis.
 
         Description of the Steps for the Unitary Test:
         1) The Qiskrypt's Quantum Register is prepared on the quantum state, |01⟩;
@@ -839,12 +843,12 @@ class QiskryptBellStateTests(TestCase):
         """
         self.assertEqual(True, True)
 
-    def test_no_7_prepare_and_measure_bell_state_phi_plus_epr_pair_10(self):
+    def test_no_7_prepare_bell_state_basis_bell_state_phi_plus_epr_pair_10(self):
         """
         Test Case #7:
 
         - Initialise the Qiskrypt's Bell State, prepare it, as an Entangled Quantum State,
-          and then, measure in the Bell State Basis.
+          in the Bell State Basis.
 
         Description of the Steps for the Unitary Test:
         1) The Qiskrypt's Quantum Register is prepared on the quantum state, |10⟩;
@@ -982,7 +986,7 @@ class QiskryptBellStateTests(TestCase):
         """
         self.assertEqual(True, True)
 
-    def test_no_8_prepare_and_measure_bell_state_phi_plus_epr_pair_11(self):
+    def test_no_8_prepare_bell_state_basis_bell_state_phi_plus_epr_pair_11(self):
         """
         Test Case #8:
 
@@ -1132,7 +1136,7 @@ class QiskryptBellStateTests(TestCase):
         """
         self.assertEqual(True, True)
 
-    def test_no_9_prepare_and_measure_bell_state_phi_minus_00(self):
+    def test_no_9_prepare_bell_state_basis_bell_state_phi_minus_00(self):
         """
         Test Case #9:
 
@@ -1268,7 +1272,7 @@ class QiskryptBellStateTests(TestCase):
         """
         self.assertEqual(True, True)
 
-    def test_no_10_prepare_and_measure_bell_state_phi_minus_01(self):
+    def test_no_10_prepare_bell_state_basis_bell_state_phi_minus_01(self):
         """
         Test Case #10:
 
@@ -1411,7 +1415,7 @@ class QiskryptBellStateTests(TestCase):
         """
         self.assertEqual(True, True)
 
-    def test_no_11_prepare_and_measure_bell_state_phi_minus_10(self):
+    def test_no_11_prepare_bell_state_basis_bell_state_phi_minus_10(self):
         """
         Test Case #11:
 
@@ -1554,7 +1558,7 @@ class QiskryptBellStateTests(TestCase):
         """
         self.assertEqual(True, True)
 
-    def test_no_12_prepare_and_measure_bell_state_phi_minus_11(self):
+    def test_no_12_prepare_bell_state_basis_bell_state_phi_minus_11(self):
         """
         Test Case #12:
 
@@ -1704,7 +1708,7 @@ class QiskryptBellStateTests(TestCase):
         """
         self.assertEqual(True, True)
 
-    def test_no_13_prepare_and_measure_bell_state_psi_plus_00(self):
+    def test_no_13_prepare_bell_state_basis_bell_state_psi_plus_00(self):
         """
         Test Case #13:
 
@@ -1840,7 +1844,7 @@ class QiskryptBellStateTests(TestCase):
         """
         self.assertEqual(True, True)
 
-    def test_no_14_prepare_and_measure_bell_state_psi_plus_01(self):
+    def test_no_14_prepare_bell_state_basis_bell_state_psi_plus_01(self):
         """
         Test Case #14:
 
@@ -1983,7 +1987,7 @@ class QiskryptBellStateTests(TestCase):
         """
         self.assertEqual(True, True)
 
-    def test_no_15_prepare_and_measure_bell_state_psi_plus_10(self):
+    def test_no_15_prepare_bell_state_basis_bell_state_psi_plus_10(self):
         """
         Test Case #15:
 
@@ -2126,7 +2130,7 @@ class QiskryptBellStateTests(TestCase):
         """
         self.assertEqual(True, True)
 
-    def test_no_16_prepare_and_measure_bell_state_psi_plus_11(self):
+    def test_no_16_prepare_bell_state_basis_bell_state_psi_plus_11(self):
         """
         Test Case #16:
 
@@ -2276,7 +2280,7 @@ class QiskryptBellStateTests(TestCase):
         """
         self.assertEqual(True, True)
 
-    def test_no_17_prepare_and_measure_bell_state_psi_minus_00(self):
+    def test_no_17_prepare_bell_state_basis_bell_state_psi_minus_00(self):
         """
         Test Case #17:
 
@@ -2412,7 +2416,7 @@ class QiskryptBellStateTests(TestCase):
         """
         self.assertEqual(True, True)
 
-    def test_no_18_prepare_and_measure_bell_state_psi_minus_01(self):
+    def test_no_18_prepare_bell_state_basis_bell_state_psi_minus_01(self):
         """
         Test Case #18:
 
@@ -2555,7 +2559,7 @@ class QiskryptBellStateTests(TestCase):
         """
         self.assertEqual(True, True)
 
-    def test_no_19_prepare_and_measure_bell_state_psi_minus_10(self):
+    def test_no_19_prepare_bell_state_basis_bell_state_psi_minus_10(self):
         """
         Test Case #19:
 
@@ -2698,7 +2702,7 @@ class QiskryptBellStateTests(TestCase):
         """
         self.assertEqual(True, True)
 
-    def test_no_20_prepare_and_measure_bell_state_psi_minus_11(self):
+    def test_no_20_prepare_bell_state_basis_bell_state_psi_minus_11(self):
         """
         Test Case #20:
 
