@@ -305,7 +305,7 @@ class QiskryptBellState(QiskryptQuantumEntanglement):
                                                               control_bit_index=None, target_bit_index=None) -> None:
         """
         Prepare the Bipartite Quantum Entanglement,
-        for the specified Qiskrypt's Bell State, as a quantum entangled state,
+        for the specified Qiskrypt's Bell State, as a Quantum Entangled State,
         or even, apply also the measurement of that Quantum Entangled State, on the Computational Basis,
         to allow the extraction of its final classical outcome/result.
 
@@ -364,7 +364,7 @@ class QiskryptBellState(QiskryptQuantumEntanglement):
                                           self.qiskit_quantum_register_target_index,
                                           self.target_qubit_index)
             """
-            Apply the Controlled-Pauli-X (Controlled-NOT) Gate/Operation to given indexes of
+            Apply the Controlled-Pauli-X (Controlled-NOT) Gate/Operation to the given indexes of
             the control IBM Qiskit's Quantum Register and the respective qubit on it, as also,
             the target IBM Qiskit's Quantum Register and the respective qubit on it. 
             """
@@ -394,7 +394,7 @@ class QiskryptBellState(QiskryptQuantumEntanglement):
                                           self.qiskit_quantum_register_target_index,
                                           self.target_qubit_index)
             """
-            Apply the Controlled-Pauli-X (Controlled-NOT) Gate/Operation to given indexes of
+            Apply the Controlled-Pauli-X (Controlled-NOT) Gate/Operation to the given indexes of
             the control IBM Qiskit's Quantum Register and the respective qubit on it, as also,
             the target IBM Qiskit's Quantum Register and the respective qubit on it. 
             """
@@ -424,7 +424,7 @@ class QiskryptBellState(QiskryptQuantumEntanglement):
                                           self.qiskit_quantum_register_target_index,
                                           self.target_qubit_index)
             """
-            Apply the Controlled-Pauli-X (Controlled-NOT) Gate/Operation to given indexes of
+            Apply the Controlled-Pauli-X (Controlled-NOT) Gate/Operation to the given indexes of
             the control IBM Qiskit's Quantum Register and the respective qubit on it, as also,
             the target IBM Qiskit's Quantum Register and the respective qubit on it. 
             """
@@ -454,7 +454,7 @@ class QiskryptBellState(QiskryptQuantumEntanglement):
                                           self.qiskit_quantum_register_target_index,
                                           self.target_qubit_index)
             """
-            Apply the Controlled-Pauli-X (Controlled-NOT) Gate/Operation to given indexes of
+            Apply the Controlled-Pauli-X (Controlled-NOT) Gate/Operation to the given indexes of
             the control IBM Qiskit's Quantum Register and the respective qubit on it, as also,
             the target IBM Qiskit's Quantum Register and the respective qubit on it. 
             """
@@ -527,7 +527,7 @@ class QiskryptBellState(QiskryptQuantumEntanglement):
                                                            control_bit_index=None, target_bit_index=None) -> None:
         """
         Prepare the Bipartite Quantum Entanglement,
-        for the specified Qiskrypt's Bell State, as a quantum entangled state,
+        for the specified Qiskrypt's Bell State, as a Quantum Entangled State,
         or even, apply also the measurement of that Quantum Entangled State, on the Bell State Basis,
         to allow the extraction of its final classical outcome/result.
 
@@ -579,7 +579,7 @@ class QiskryptBellState(QiskryptQuantumEntanglement):
                                           self.qiskit_quantum_register_target_index,
                                           self.target_qubit_index)
             """
-            Apply the Controlled-Pauli-X (Controlled-NOT) Gate/Operation to given indexes of
+            Apply the Controlled-Pauli-X (Controlled-NOT) Gate/Operation to the given indexes of
             the control IBM Qiskit's Quantum Register and the respective qubit on it, as also,
             the target IBM Qiskit's Quantum Register and the respective qubit on it. 
             """
@@ -602,7 +602,7 @@ class QiskryptBellState(QiskryptQuantumEntanglement):
                                           self.qiskit_quantum_register_target_index,
                                           self.target_qubit_index)
             """
-            Apply the Controlled-Pauli-X (Controlled-NOT) Gate/Operation to given indexes of
+            Apply the Controlled-Pauli-X (Controlled-NOT) Gate/Operation to the given indexes of
             the control IBM Qiskit's Quantum Register and the respective qubit on it, as also,
             the target IBM Qiskit's Quantum Register and the respective qubit on it. 
             """
@@ -632,7 +632,7 @@ class QiskryptBellState(QiskryptQuantumEntanglement):
                                           self.qiskit_quantum_register_target_index,
                                           self.target_qubit_index)
             """
-            Apply the Controlled-Pauli-X (Controlled-NOT) Gate/Operation to given indexes of
+            Apply the Controlled-Pauli-X (Controlled-NOT) Gate/Operation to the given indexes of
             the control IBM Qiskit's Quantum Register and the respective qubit on it, as also,
             the target IBM Qiskit's Quantum Register and the respective qubit on it. 
             """
@@ -669,7 +669,7 @@ class QiskryptBellState(QiskryptQuantumEntanglement):
                                           self.qiskit_quantum_register_target_index,
                                           self.target_qubit_index)
             """
-            Apply the Controlled-Pauli-X (Controlled-NOT) Gate/Operation to given indexes of
+            Apply the Controlled-Pauli-X (Controlled-NOT) Gate/Operation to the given indexes of
             the control IBM Qiskit's Quantum Register and the respective qubit on it, as also,
             the target IBM Qiskit's Quantum Register and the respective qubit on it. 
             """
