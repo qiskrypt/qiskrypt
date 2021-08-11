@@ -714,7 +714,7 @@ Available soon.
 Available soon.
 
 
-## Other references
+### Other references
 
 Other some references for some of the developed protocols can be found here:
 * [Quantum Protocol Zoo](https://wiki.veriqloud.fr/)
