@@ -57,8 +57,8 @@ The available Quantum Entanglement cardinalities for
 the Qiskrypt's Quantum Entanglement.
 """
 
-POSSIBLE_QUANTUM_ENTANGLEMENT_TYPES = ["BELL_STATE", "GHZ_STATE", "W_STATE", "DICKE_STATE",
-                                       "RESOURCE_STATE", "GRAPH_STATE", "CLUSTER_STATE"]
+POSSIBLE_QUANTUM_ENTANGLEMENT_TYPES = ["BELL_STATE", "GHZ_STATE", "W_STATE", "GHZ_LIKE",
+                                       "DICKE_STATE", "RESOURCE_STATE", "WERNER_STATE"]
 """
 The available Quantum Entanglement types for
 the Qiskrypt's Quantum Entanglement.
@@ -68,6 +68,12 @@ POSSIBLE_CONFIGURATIONS_BELL_STATES = ["EPR_PAIR_STATE", "BELL_STATE_PHI_PLUS", 
                                        "BELL_STATE_PSI_PLUS", "BELL_STATE_PSI_MINUS"]
 """
 The available configurations for Bell States for
+the Qiskrypt's Quantum Entanglement.
+"""
+
+POSSIBLE_CONFIGURATIONS_RESOURCE_STATES = ["GRAPH_STATE", "CLUSTER_STATE"]
+"""
+The available configurations for Resource States for
 the Qiskrypt's Quantum Entanglement.
 """
 
@@ -123,8 +129,7 @@ class QiskryptQuantumEntanglement:
                 from which it will be configured the Qiskrypt's Quantum Entanglement.
                 """
 
-                if (quantum_entanglement_type is not None) \
-                    and (quantum_entanglement_type == POSSIBLE_QUANTUM_ENTANGLEMENT_TYPES[0]):
+                if quantum_entanglement_type == POSSIBLE_QUANTUM_ENTANGLEMENT_TYPES[0]:
                     """
                     If the Qiskrypt's Quantum Entanglement is a valid Bell State.
                     """
