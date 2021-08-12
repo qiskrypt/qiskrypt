@@ -288,27 +288,29 @@ class QiskryptWState(QiskryptQuantumEntanglement):
             """
 
             self.qiskrypt_quantum_circuit.apply_ry_radians(-theta_radians,
-                                                           (quantum_register_operator_index - 2),
-                                                           (qubit_operator_index - 2))
+                                                           self.qiskit_quantum_registers_indexes[(qiskit_quantum_register_index - 2)],
+                                                           self.qubits_indexes[(qubit_operator_index - 2)])
             """
             Apply the Rotation-Y (R_y(-theta_radians)) Gate/Operation, with the symmetric theta angle in radians,
             to the given indexes of the current operator index for the IBM Qiskit's Quantum Register and
             the current operator index for the qubit on it.
             """
 
-            self.qiskrypt_quantum_circuit.apply_controlled_pauli_z((quantum_register_operator_index - 1),
-                                                                   (quantum_register_operator_index - 2),
-                                                                   (qubit_operator_index - 1),
-                                                                   (qubit_operator_index - 2))
+            self.qiskrypt_quantum_circuit\
+                .apply_controlled_pauli_z(self.qiskit_quantum_registers_indexes[(quantum_register_operator_index - 1)],
+                                          self.qiskit_quantum_registers_indexes[(quantum_register_operator_index - 2)],
+                                          self.qubits_indexes[(qubit_operator_index - 1)],
+                                          self.qubits_indexes[(qubit_operator_index - 2)])
             """
             Apply the Controlled-Pauli-Z (Controlled-Phase-Flip/Controlled-Phase-Shifter) Gate/Operation to
             the given indexes of the control IBM Qiskit's Quantum Register and the respective qubit on it, as also,
             the current target IBM Qiskit's Quantum Register and the current respective qubit on it.
             """
 
-            self.qiskrypt_quantum_circuit.apply_ry_radians(theta_radians,
-                                                           (quantum_register_operator_index - 2),
-                                                           (qubit_operator_index - 2))
+            self.qiskrypt_quantum_circuit\
+                .apply_ry_radians(theta_radians,
+                                  self.qiskit_quantum_registers_indexes[(qiskit_quantum_register_index - 2)],
+                                  self.qubits_indexes[(qubit_operator_index - 2)])
             """
             Apply again the Rotation-Y (R_y(theta_radians)) Gate/Operation, with the regular theta angle in radians,
             to the given indexes of the current operator index for the IBM Qiskit's Quantum Register and
@@ -331,10 +333,11 @@ class QiskryptWState(QiskryptQuantumEntanglement):
             Compute the operator index for the qubit inside the IBM Qiskit's Quantum Register.
             """
 
-            self.qiskrypt_quantum_circuit.apply_controlled_pauli_x((quantum_register_operator_index - 2),
-                                                                   (quantum_register_operator_index - 1),
-                                                                   (qubit_operator_index - 2),
-                                                                   (qubit_operator_index - 1))
+            self.qiskrypt_quantum_circuit\
+                .apply_controlled_pauli_x(self.qiskit_quantum_registers_indexes[(quantum_register_operator_index - 2)],
+                                          self.qiskit_quantum_registers_indexes[(quantum_register_operator_index - 1)],
+                                          self.qubits_indexes[(qubit_operator_index - 2)],
+                                          self.qubits_indexes[(qubit_operator_index - 1)])
             """
             Apply the Controlled-Pauli-X (Controlled-NOT) Gate/Operation to
             the given indexes of the control IBM Qiskit's Quantum Register and the respective qubit on it, as also,
