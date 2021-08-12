@@ -563,7 +563,7 @@ class QiskryptBellState(QiskryptQuantumEntanglement):
             .apply_barrier_to_single_qubit_in_qiskit_quantum_register(self.qiskit_quantum_register_target_index,
                                                                       self.target_qubit_index)
         """
-        Apply a barrier to the target IBM Qiskit's Quantum Register and the respective control qubit.
+        Apply a barrier to the target IBM Qiskit's Quantum Register and the respective target qubit.
         """
 
         if (self.get_bell_state_sub_type() == POSSIBLE_CONFIGURATIONS_BELL_STATES[0]) \
@@ -687,6 +687,20 @@ class QiskryptBellState(QiskryptQuantumEntanglement):
             Apply the Hadamard Gate/Operation to the given indexes of
             the control IBM Qiskit's Quantum Register and the respective control qubit on it.
             """
+
+        self.qiskrypt_quantum_circuit \
+            .apply_barrier_to_single_qubit_in_qiskit_quantum_register(self.qiskit_quantum_register_control_index,
+                                                                      self.control_qubit_index)
+        """
+        Apply a barrier to the control IBM Qiskit's Quantum Register and the respective control qubit.
+        """
+
+        self.qiskrypt_quantum_circuit \
+            .apply_barrier_to_single_qubit_in_qiskit_quantum_register(self.qiskit_quantum_register_target_index,
+                                                                      self.target_qubit_index)
+        """
+        Apply a barrier to the target IBM Qiskit's Quantum Register and the respective target qubit.
+        """
 
         if is_to_measure_at_bell_state_basis:
             """

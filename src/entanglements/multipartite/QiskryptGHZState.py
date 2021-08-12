@@ -309,7 +309,7 @@ class QiskryptGHZState(QiskryptQuantumEntanglement):
             .apply_barriers_set_qubits_in_set_qiskit_quantum_registers(self.qiskit_quantum_registers_target_indexes,
                                                                        self.target_qubits_indexes)
         """
-        Apply barriers to the target IBM Qiskit's Quantum Registers and the respective control qubits.
+        Apply barriers to the target IBM Qiskit's Quantum Registers and the respective target qubits.
         """
 
         self.qiskrypt_quantum_circuit.apply_hadamard(self.qiskit_quantum_register_control_index,
@@ -353,7 +353,7 @@ class QiskryptGHZState(QiskryptQuantumEntanglement):
             .apply_barriers_set_qubits_in_set_qiskit_quantum_registers(self.qiskit_quantum_registers_target_indexes,
                                                                        self.target_qubits_indexes)
         """
-        Apply barriers to the target IBM Qiskit's Quantum Registers and the respective control qubits.
+        Apply barriers to the target IBM Qiskit's Quantum Registers and the respective target qubits.
         """
 
         if is_to_measure_at_computational_basis:
@@ -445,7 +445,7 @@ class QiskryptGHZState(QiskryptQuantumEntanglement):
             .apply_barriers_set_qubits_in_set_qiskit_quantum_registers(self.qiskit_quantum_registers_target_indexes,
                                                                        self.target_qubits_indexes)
         """
-        Apply barriers to the target IBM Qiskit's Quantum Registers and the respective control qubits.
+        Apply barriers to the target IBM Qiskit's Quantum Registers and the respective target qubits.
         """
 
         qiskit_quantum_registers_target_indexes_reversed = self.qiskit_quantum_registers_target_indexes.copy()
@@ -511,7 +511,7 @@ class QiskryptGHZState(QiskryptQuantumEntanglement):
             .apply_barriers_set_qubits_in_set_qiskit_quantum_registers(self.qiskit_quantum_registers_target_indexes,
                                                                        self.target_qubits_indexes)
         """
-        Apply barriers to the target IBM Qiskit's Quantum Registers and the respective control qubits.
+        Apply barriers to the target IBM Qiskit's Quantum Registers and the respective target qubits.
         """
 
         if is_to_measure_at_ghz_state_basis:
