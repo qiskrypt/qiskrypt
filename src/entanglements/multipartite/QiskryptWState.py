@@ -430,10 +430,11 @@ class QiskryptWState(QiskryptQuantumEntanglement):
             For each pair of indexes for an IBM Qiskit's Quantum Register and a qubit. 
             """
 
-            self.qiskrypt_quantum_circuit.apply_controlled_pauli_x(qiskit_quantum_register_index,
-                                                                   (qiskit_quantum_register_index + 1),
-                                                                   qubit_index,
-                                                                   (qubit_index + 1))
+            self.qiskrypt_quantum_circuit\
+                .apply_controlled_pauli_x(self.qiskit_quantum_registers_indexes[qiskit_quantum_register_index],
+                                          self.qiskit_quantum_registers_indexes[(qiskit_quantum_register_index + 1)],
+                                          self.qubits_indexes[qubit_index],
+                                          self.qubits_indexes[(qubit_index + 1)])
             """
             Apply the Controlled-Pauli-X (Controlled-NOT) Gate/Operation to
             the given indexes of the control IBM Qiskit's Quantum Register and the respective qubit on it, as also,
@@ -453,28 +454,31 @@ class QiskryptWState(QiskryptQuantumEntanglement):
             the IBM Qiskit's Quantum Register.
             """
 
-            self.qiskrypt_quantum_circuit.apply_ry_radians(-theta_radians,
-                                                           (qiskit_quantum_register_index + 1),
-                                                           qubit_index)
+            self.qiskrypt_quantum_circuit\
+                .apply_ry_radians(-theta_radians,
+                                  self.qiskit_quantum_registers_indexes[(qiskit_quantum_register_index + 1)],
+                                  self.qubits_indexes[qubit_index])
             """
             Apply the Rotation-Y (R_y(-theta_radians)) Gate/Operation, with the symmetric theta angle in radians,
             to the given indexes of the current index for the IBM Qiskit's Quantum Register and
             the current index for the qubit on it.
             """
 
-            self.qiskrypt_quantum_circuit.apply_controlled_pauli_z((qiskit_quantum_register_index + 1),
-                                                                   qiskit_quantum_register_index,
-                                                                   (qubit_index + 1),
-                                                                   qubit_index)
+            self.qiskrypt_quantum_circuit\
+                .apply_controlled_pauli_z(self.qiskit_quantum_registers_indexes[(qiskit_quantum_register_index + 1)],
+                                          self.qiskit_quantum_registers_indexes[qiskit_quantum_register_index],
+                                          self.qubits_indexes[(qubit_index + 1)],
+                                          self.qubits_indexes[qubit_index])
             """
             Apply the Controlled-Pauli-Z (Controlled-Phase-Flip/Controlled-Phase-Shifter) Gate/Operation to
             the given indexes of the control IBM Qiskit's Quantum Register and the respective qubit on it, as also,
             the current target IBM Qiskit's Quantum Register and the current respective qubit on it.
             """
 
-            self.qiskrypt_quantum_circuit.apply_ry_radians(theta_radians,
-                                                           (qiskit_quantum_register_index + 1),
-                                                           qubit_index)
+            self.qiskrypt_quantum_circuit\
+                .apply_ry_radians(theta_radians,
+                                  self.qiskit_quantum_registers_indexes[(qiskit_quantum_register_index + 1)],
+                                  self.qubits_indexes[qubit_index])
             """
             Apply the Rotation-Y (R_y(-theta_radians)) Gate/Operation, with the symmetric theta angle in radians,
             to the given indexes of the current index for the IBM Qiskit's Quantum Register and
