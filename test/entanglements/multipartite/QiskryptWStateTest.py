@@ -102,7 +102,7 @@ class QiskryptWStateTests(TestCase):
         Description of the Steps for the Unitary Test:
         1) The Qiskrypt's W State is initialised and configured, for 3 qubits;
         2) The Qiskrypt's W State with the configuration,
-           |W_3⟩ = 1/sqrt(3) x (|001⟩ + |010⟩ + |100⟩),
+           |W_3⟩ = (1. / sqrt(3)) x (|001⟩ + |010⟩ + |100⟩),
            is prepared, without measuring it, on the Computational Basis;
 
         Return OK (or FAIL) if, all the Tests performed are OK (or FAIL, otherwise).
@@ -153,10 +153,10 @@ class QiskryptWStateTests(TestCase):
 
         qiskrypt_w_state_3_qubits_1 = \
             QiskryptWState("w_state_3_qubits_1",
-                            qiskrypt_quantum_circuit_w_state_3_qubits_1)
+                           qiskrypt_quantum_circuit_w_state_3_qubits_1)
         """
-        Create a Qiskrypt's W State, for a generation of a W State with 3 qubits,
-        with the configuration, |W_3⟩ = 1/sqrt(3) x (|001⟩ + |010⟩ + |100⟩).
+        Create a Qiskrypt's W State, for a generation of a W State with 3 qubits, with the configuration,
+        |W_3⟩ = (1. / sqrt(3)) x (|001⟩ + |010⟩ + |100⟩).
         """
 
         qiskrypt_w_state_3_qubits_1.configure([0, 0, 0],
@@ -229,6 +229,438 @@ class QiskryptWStateTests(TestCase):
         represented by its state vector describing the given qubits,
         after be prepared a W State with the configuration,
         |W_3⟩ = (1. / sqrt(3)) x (|001⟩ + |010⟩ + |100⟩).
+        """
+
+        """
+        Dummy Assert Equal for the Unittest.
+        """
+        self.assertEqual(True, True)
+
+    def test_no_2_prepare_computational_basis_qiskrypt_w_state_4_qubits(self):
+        """
+        Test Case #2:
+
+        - Initialise the Qiskrypt's W State and prepare it, as an Entangled Quantum State,
+          in the Computational Basis.
+
+        Description of the Steps for the Unitary Test:
+        1) The Qiskrypt's W State is initialised and configured, for 4 qubits;
+        2) The Qiskrypt's W State with the configuration,
+           |W_4⟩ = (1. / sqrt(4)) x (|0001⟩ + |0010⟩ + |0100⟩ + |1000⟩),
+           is prepared, without measuring it, on the Computational Basis;
+
+        Return OK (or FAIL) if, all the Tests performed are OK (or FAIL, otherwise).
+        """
+
+        quantum_register_name = "qu_reg"
+        """
+        Set the name of the Qiskrypt's Quantum Register.
+        """
+
+        quantum_register_num_qubits = 4
+        """
+        Set the number of qubits for the Qiskrypt's Quantum Register.
+        """
+
+        qiskrypt_quantum_register = \
+            QiskryptQuantumRegister(name=quantum_register_name,
+                                    num_qubits=quantum_register_num_qubits,
+                                    qiskit_quantum_register=None)
+        """
+        Create a Qiskrypt's Quantum Register, given its name and number of qubits.
+        """
+
+        quantum_circuit_name = "qu_circ"
+        """
+        Set the name of the Qiskrypt's Quantum Circuit.
+        """
+
+        qiskrypt_quantum_circuit_w_state_4_qubits_2 = \
+            QiskryptQuantumCircuit(name=quantum_circuit_name,
+                                   qiskrypt_quantum_registers=[qiskrypt_quantum_register],
+                                   qiskrypt_fully_quantum_registers=None,
+                                   qiskrypt_semi_quantum_registers=None,
+                                   qiskrypt_ancilla_quantum_registers=None,
+                                   qiskrypt_ancilla_fully_quantum_registers=None,
+                                   qiskrypt_ancilla_semi_quantum_registers=None,
+                                   qiskrypt_classical_registers=None,
+                                   global_phase=0)
+        """
+        Create a Qiskrypt's Quantum Circuit, given its name,
+        Qiskrypt's Quantum Registers, Qiskrypt's Fully-Quantum Registers,
+        Qiskrypt's Semi-Quantum Registers,
+        Qiskrypt's Ancilla Quantum Registers, Qiskrypt's Ancilla Fully-Quantum Registers,
+        Qiskrypt's Ancilla Semi-Quantum Registers,
+        Qiskrypt's Classical Registers and
+        Global Phase.
+        """
+
+        qiskrypt_w_state_4_qubits_2 = \
+            QiskryptWState("w_state_4_qubits_2",
+                           qiskrypt_quantum_circuit_w_state_4_qubits_2)
+        """
+        Create a Qiskrypt's W State, for a generation of a W State with 4 qubits, with the configuration,
+        |W_4⟩ = (1. / sqrt(4)) x (|0001⟩ + |0010⟩ + |0100⟩ + |1000⟩).
+        """
+
+        qiskrypt_w_state_4_qubits_2.configure([0, 0, 0, 0],
+                                              [0, 1, 2, 3])
+        """
+        Configure the Qiskrypt's W State, regarding its IBM Qiskit's Quantum Registers and qubits.
+        """
+
+        qiskrypt_w_state_4_qubits_2 \
+            .prepare_multipartite_entanglement_at_computational_basis(is_to_measure_at_computational_basis=False,
+                                                                      qiskit_classical_registers_indexes=None,
+                                                                      bits_indexes=None)
+        """
+        Prepare the Multipartite Quantum Entanglement,
+        for the specified Qiskrypt's W State, as a Quantum Entangled State,
+        without measure it, on the Computational Basis.
+        """
+
+        qiskit_state_vector_backend = Aer.get_backend("statevector_simulator")
+        """
+        Getting the Aer Simulator Backend for the State Vector Representation
+        (i.e., the quantum state represented as its state vector).
+        """
+
+        final_quantum_state_vector_state = \
+            execute(qiskrypt_w_state_4_qubits_2.qiskrypt_quantum_circuit.qiskit_quantum_circuit,
+                    qiskit_state_vector_backend).result().get_statevector()
+        """
+        Execute the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit
+        and store the resulted quantum state represented in a final state vector.
+        """
+
+        num_possible_outcomes = (2 ** quantum_register_num_qubits)
+        """
+        Compute the number of possible outcomes (i.e., 2^(quantum_register_num_qubits)).
+        """
+
+        w_state_4_qubits_array_expected_amplitudes = \
+            full((num_possible_outcomes,), (0. + 0.j))
+        """
+        Create and fill an array with the zeros for the expected values of
+        the Qiskrypt's W State, with 4 qubits.
+        """
+
+        for qubit_index in range(quantum_register_num_qubits):
+            """
+            For each index of the current qubit for
+            the IBM Qiskit's Quantum Register defined previously.
+            """
+
+            current_index_expected_amplitude = (2 ** qubit_index)
+            """
+            Compute the index for the expected amplitude,
+            regarding the index of the current qubit for
+            the IBM Qiskit's Quantum Register defined previously.
+            """
+
+            w_state_4_qubits_array_expected_amplitudes[current_index_expected_amplitude] = \
+                ((1. / sqrt(quantum_register_num_qubits)) * (1. + 0.j))
+            """
+            Fill the current computed position of the expected values of
+            the Qiskrypt's W State, with ((1. / sqrt(4)) * (1. + 0.j)).
+            """
+
+        assert_allclose(final_quantum_state_vector_state,
+                        w_state_4_qubits_array_expected_amplitudes,
+                        rtol=1e-7, atol=1e-7)
+        """
+        Perform the Assertion of all close values in the values of the quantum state,
+        represented by its state vector describing the given qubits,
+        after be prepared a W State with the configuration,
+        |W_4⟩ = (1. / sqrt(4)) x (|0001⟩ + |0010⟩ + |0100⟩ + |1000⟩).
+        """
+
+        """
+        Dummy Assert Equal for the Unittest.
+        """
+        self.assertEqual(True, True)
+
+    def test_no_3_prepare_computational_basis_qiskrypt_w_state_5_qubits(self):
+        """
+        Test Case #3:
+
+        - Initialise the Qiskrypt's W State and prepare it, as an Entangled Quantum State,
+          in the Computational Basis.
+
+        Description of the Steps for the Unitary Test:
+        1) The Qiskrypt's W State is initialised and configured, for 5 qubits;
+        2) The Qiskrypt's W State with the configuration,
+           |W_5⟩ = (1. / sqrt(5)) x (|00001⟩ + |00010⟩ + |00100⟩ + |01000⟩ + |10000⟩),
+           is prepared, without measuring it, on the Computational Basis;
+
+        Return OK (or FAIL) if, all the Tests performed are OK (or FAIL, otherwise).
+        """
+
+        quantum_register_name = "qu_reg"
+        """
+        Set the name of the Qiskrypt's Quantum Register.
+        """
+
+        quantum_register_num_qubits = 5
+        """
+        Set the number of qubits for the Qiskrypt's Quantum Register.
+        """
+
+        qiskrypt_quantum_register = \
+            QiskryptQuantumRegister(name=quantum_register_name,
+                                    num_qubits=quantum_register_num_qubits,
+                                    qiskit_quantum_register=None)
+        """
+        Create a Qiskrypt's Quantum Register, given its name and number of qubits.
+        """
+
+        quantum_circuit_name = "qu_circ"
+        """
+        Set the name of the Qiskrypt's Quantum Circuit.
+        """
+
+        qiskrypt_quantum_circuit_w_state_5_qubits_3 = \
+            QiskryptQuantumCircuit(name=quantum_circuit_name,
+                                   qiskrypt_quantum_registers=[qiskrypt_quantum_register],
+                                   qiskrypt_fully_quantum_registers=None,
+                                   qiskrypt_semi_quantum_registers=None,
+                                   qiskrypt_ancilla_quantum_registers=None,
+                                   qiskrypt_ancilla_fully_quantum_registers=None,
+                                   qiskrypt_ancilla_semi_quantum_registers=None,
+                                   qiskrypt_classical_registers=None,
+                                   global_phase=0)
+        """
+        Create a Qiskrypt's Quantum Circuit, given its name,
+        Qiskrypt's Quantum Registers, Qiskrypt's Fully-Quantum Registers,
+        Qiskrypt's Semi-Quantum Registers,
+        Qiskrypt's Ancilla Quantum Registers, Qiskrypt's Ancilla Fully-Quantum Registers,
+        Qiskrypt's Ancilla Semi-Quantum Registers,
+        Qiskrypt's Classical Registers and
+        Global Phase.
+        """
+
+        qiskrypt_w_state_5_qubits_3 = \
+            QiskryptWState("w_state_5_qubits_3",
+                           qiskrypt_quantum_circuit_w_state_5_qubits_3)
+        """
+        Create a Qiskrypt's W State, for a generation of a W State with 5 qubits, with the configuration,
+        |W_5⟩ = (1. / sqrt(5)) x (|00001⟩ + |00010⟩ + |00100⟩ + |01000⟩ + |10000⟩).
+        """
+
+        qiskrypt_w_state_5_qubits_3.configure([0, 0, 0, 0, 0],
+                                              [0, 1, 2, 3, 4])
+        """
+        Configure the Qiskrypt's W State, regarding its IBM Qiskit's Quantum Registers and qubits.
+        """
+
+        qiskrypt_w_state_5_qubits_3 \
+            .prepare_multipartite_entanglement_at_computational_basis(is_to_measure_at_computational_basis=False,
+                                                                      qiskit_classical_registers_indexes=None,
+                                                                      bits_indexes=None)
+        """
+        Prepare the Multipartite Quantum Entanglement,
+        for the specified Qiskrypt's W State, as a Quantum Entangled State,
+        without measure it, on the Computational Basis.
+        """
+
+        qiskit_state_vector_backend = Aer.get_backend("statevector_simulator")
+        """
+        Getting the Aer Simulator Backend for the State Vector Representation
+        (i.e., the quantum state represented as its state vector).
+        """
+
+        final_quantum_state_vector_state = \
+            execute(qiskrypt_w_state_5_qubits_3.qiskrypt_quantum_circuit.qiskit_quantum_circuit,
+                    qiskit_state_vector_backend).result().get_statevector()
+        """
+        Execute the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit
+        and store the resulted quantum state represented in a final state vector.
+        """
+
+        num_possible_outcomes = (2 ** quantum_register_num_qubits)
+        """
+        Compute the number of possible outcomes (i.e., 2^(quantum_register_num_qubits)).
+        """
+
+        w_state_5_qubits_array_expected_amplitudes = \
+            full((num_possible_outcomes,), (0. + 0.j))
+        """
+        Create and fill an array with the zeros for the expected values of
+        the Qiskrypt's W State, with 5 qubits.
+        """
+
+        for qubit_index in range(quantum_register_num_qubits):
+            """
+            For each index of the current qubit for
+            the IBM Qiskit's Quantum Register defined previously.
+            """
+
+            current_index_expected_amplitude = (2 ** qubit_index)
+            """
+            Compute the index for the expected amplitude,
+            regarding the index of the current qubit for
+            the IBM Qiskit's Quantum Register defined previously.
+            """
+
+            w_state_5_qubits_array_expected_amplitudes[current_index_expected_amplitude] = \
+                ((1. / sqrt(quantum_register_num_qubits)) * (1. + 0.j))
+            """
+            Fill the current computed position of the expected values of
+            the Qiskrypt's W State, with ((1. / sqrt(5)) * (1. + 0.j)).
+            """
+
+        assert_allclose(final_quantum_state_vector_state,
+                        w_state_5_qubits_array_expected_amplitudes,
+                        rtol=1e-7, atol=1e-7)
+        """
+        Perform the Assertion of all close values in the values of the quantum state,
+        represented by its state vector describing the given qubits,
+        after be prepared a W State with the configuration,
+        |W_5⟩ = (1. / sqrt(5)) x (|00001⟩ + |00010⟩ + |00100⟩ + |01000⟩ + |10000⟩).
+        """
+
+        """
+        Dummy Assert Equal for the Unittest.
+        """
+        self.assertEqual(True, True)
+
+    def test_no_4_prepare_computational_basis_qiskrypt_w_state_6_qubits(self):
+        """
+        Test Case #4:
+
+        - Initialise the Qiskrypt's W State and prepare it, as an Entangled Quantum State,
+          in the Computational Basis.
+
+        Description of the Steps for the Unitary Test:
+        1) The Qiskrypt's W State is initialised and configured, for 6 qubits;
+        2) The Qiskrypt's W State with the configuration,
+           |W_6⟩ = (1. / sqrt(6)) x (|000001⟩ + |000010⟩ + |000100⟩ + |001000⟩ + |010000⟩ + |100000⟩),
+           is prepared, without measuring it, on the Computational Basis;
+
+        Return OK (or FAIL) if, all the Tests performed are OK (or FAIL, otherwise).
+        """
+
+        quantum_register_name = "qu_reg"
+        """
+        Set the name of the Qiskrypt's Quantum Register.
+        """
+
+        quantum_register_num_qubits = 6
+        """
+        Set the number of qubits for the Qiskrypt's Quantum Register.
+        """
+
+        qiskrypt_quantum_register = \
+            QiskryptQuantumRegister(name=quantum_register_name,
+                                    num_qubits=quantum_register_num_qubits,
+                                    qiskit_quantum_register=None)
+        """
+        Create a Qiskrypt's Quantum Register, given its name and number of qubits.
+        """
+
+        quantum_circuit_name = "qu_circ"
+        """
+        Set the name of the Qiskrypt's Quantum Circuit.
+        """
+
+        qiskrypt_quantum_circuit_w_state_6_qubits_4 = \
+            QiskryptQuantumCircuit(name=quantum_circuit_name,
+                                   qiskrypt_quantum_registers=[qiskrypt_quantum_register],
+                                   qiskrypt_fully_quantum_registers=None,
+                                   qiskrypt_semi_quantum_registers=None,
+                                   qiskrypt_ancilla_quantum_registers=None,
+                                   qiskrypt_ancilla_fully_quantum_registers=None,
+                                   qiskrypt_ancilla_semi_quantum_registers=None,
+                                   qiskrypt_classical_registers=None,
+                                   global_phase=0)
+        """
+        Create a Qiskrypt's Quantum Circuit, given its name,
+        Qiskrypt's Quantum Registers, Qiskrypt's Fully-Quantum Registers,
+        Qiskrypt's Semi-Quantum Registers,
+        Qiskrypt's Ancilla Quantum Registers, Qiskrypt's Ancilla Fully-Quantum Registers,
+        Qiskrypt's Ancilla Semi-Quantum Registers,
+        Qiskrypt's Classical Registers and
+        Global Phase.
+        """
+
+        qiskrypt_w_state_6_qubits_4 = \
+            QiskryptWState("w_state_6_qubits_4",
+                           qiskrypt_quantum_circuit_w_state_6_qubits_4)
+        """
+        Create a Qiskrypt's W State, for a generation of a W State with 6 qubits, with the configuration,
+        |W_6⟩ = (1. / sqrt(6)) x (|000001⟩ + |000010⟩ + |000100⟩ + |001000⟩ + |010000⟩ + |100000⟩).
+        """
+
+        qiskrypt_w_state_6_qubits_4.configure([0, 0, 0, 0, 0, 0],
+                                              [0, 1, 2, 3, 4, 5])
+        """
+        Configure the Qiskrypt's W State, regarding its IBM Qiskit's Quantum Registers and qubits.
+        """
+
+        qiskrypt_w_state_6_qubits_4 \
+            .prepare_multipartite_entanglement_at_computational_basis(is_to_measure_at_computational_basis=False,
+                                                                      qiskit_classical_registers_indexes=None,
+                                                                      bits_indexes=None)
+        """
+        Prepare the Multipartite Quantum Entanglement,
+        for the specified Qiskrypt's W State, as a Quantum Entangled State,
+        without measure it, on the Computational Basis.
+        """
+
+        qiskit_state_vector_backend = Aer.get_backend("statevector_simulator")
+        """
+        Getting the Aer Simulator Backend for the State Vector Representation
+        (i.e., the quantum state represented as its state vector).
+        """
+
+        final_quantum_state_vector_state = \
+            execute(qiskrypt_w_state_6_qubits_4.qiskrypt_quantum_circuit.qiskit_quantum_circuit,
+                    qiskit_state_vector_backend).result().get_statevector()
+        """
+        Execute the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit
+        and store the resulted quantum state represented in a final state vector.
+        """
+
+        num_possible_outcomes = (2 ** quantum_register_num_qubits)
+        """
+        Compute the number of possible outcomes (i.e., 2^(quantum_register_num_qubits)).
+        """
+
+        w_state_6_qubits_array_expected_amplitudes = \
+            full((num_possible_outcomes,), (0. + 0.j))
+        """
+        Create and fill an array with the zeros for the expected values of
+        the Qiskrypt's W State, with 6 qubits.
+        """
+
+        for qubit_index in range(quantum_register_num_qubits):
+            """
+            For each index of the current qubit for
+            the IBM Qiskit's Quantum Register defined previously.
+            """
+
+            current_index_expected_amplitude = (2 ** qubit_index)
+            """
+            Compute the index for the expected amplitude,
+            regarding the index of the current qubit for
+            the IBM Qiskit's Quantum Register defined previously.
+            """
+
+            w_state_6_qubits_array_expected_amplitudes[current_index_expected_amplitude] = \
+                ((1. / sqrt(quantum_register_num_qubits)) * (1. + 0.j))
+            """
+            Fill the current computed position of the expected values of
+            the Qiskrypt's W State, with ((1. / sqrt(6)) * (1. + 0.j)).
+            """
+
+        assert_allclose(final_quantum_state_vector_state,
+                        w_state_6_qubits_array_expected_amplitudes,
+                        rtol=1e-7, atol=1e-7)
+        """
+        Perform the Assertion of all close values in the values of the quantum state,
+        represented by its state vector describing the given qubits,
+        after be prepared a W State with the configuration,
+        |W_6⟩ = (1. / sqrt(6)) x (|000001⟩ + |000010⟩ + |000100⟩ + |001000⟩ + |010000⟩ + |100000⟩).
         """
 
         """
