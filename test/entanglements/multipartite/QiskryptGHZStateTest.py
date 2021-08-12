@@ -203,16 +203,16 @@ class QiskryptGHZStateTests(TestCase):
         the Qiskrypt's GHZ State, with 3 qubits.
         """
 
-        ghz_state_3_qubits_array_expected_amplitudes[0] = ((1 / sqrt(2)) * (1. + 0.j))
+        ghz_state_3_qubits_array_expected_amplitudes[0] = ((1. / sqrt(2)) * (1. + 0.j))
         """
         Fill the first position of the expected values of
-        the Qiskrypt's GHZ State, with ((1 / sqrt(2)) * (1. + 0.j)).
+        the Qiskrypt's GHZ State, with ((1. / sqrt(2)) * (1. + 0.j)).
         """
 
-        ghz_state_3_qubits_array_expected_amplitudes[(num_possible_outcomes - 1)] = ((1 / sqrt(2)) * (1. + 0.j))
+        ghz_state_3_qubits_array_expected_amplitudes[(num_possible_outcomes - 1)] = ((1. / sqrt(2)) * (1. + 0.j))
         """
         Fill the last position of the expected values of
-        the Qiskrypt's GHZ State, with ((1 / sqrt(2)) * (1. + 0.j)).
+        the Qiskrypt's GHZ State, with ((1. / sqrt(2)) * (1. + 0.j)).
         """
 
         assert_allclose(final_quantum_state_vector_state,
@@ -240,7 +240,7 @@ class QiskryptGHZStateTests(TestCase):
         Description of the Steps for the Unitary Test:
         1) The Qiskrypt's GHZ State is initialised and configured, for 4 qubits;
         2) The Qiskrypt's GHZ State with the configuration,
-           |GHZ_4⟩ = 1/sqrt(2) x (|0000⟩ + |1111⟩),
+           |GHZ_4⟩ = (1. / sqrt(2)) x (|0000⟩ + |1111⟩),
            is prepared, without measuring it, on the Computational Basis;
 
         Return OK (or FAIL) if, all the Tests performed are OK (or FAIL, otherwise).
@@ -294,7 +294,7 @@ class QiskryptGHZStateTests(TestCase):
                              qiskrypt_quantum_circuit_ghz_state_4_qubits_2)
         """
         Create a Qiskrypt's GHZ State, for a generation of a GHZ State with 4 qubits,
-        with the configuration, |GHZ_4⟩ = 1/sqrt(2) x (|0000⟩ + |1111⟩).
+        with the configuration, |GHZ_4⟩ = (1. / sqrt(2)) x (|0000⟩ + |1111⟩).
         """
 
         qiskrypt_ghz_state_4_qubits_2.configure(0, [0, 0, 0],
@@ -341,16 +341,16 @@ class QiskryptGHZStateTests(TestCase):
         the Qiskrypt's GHZ State, with 4 qubits.
         """
 
-        ghz_state_4_qubits_array_expected_amplitudes[0] = ((1 / sqrt(2)) * (1. + 0.j))
+        ghz_state_4_qubits_array_expected_amplitudes[0] = ((1. / sqrt(2)) * (1. + 0.j))
         """
         Fill the first position of the expected values of
-        the Qiskrypt's GHZ State, with ((1 / sqrt(2)) * (1. + 0.j)).
+        the Qiskrypt's GHZ State, with ((1. / sqrt(2)) * (1. + 0.j)).
         """
 
-        ghz_state_4_qubits_array_expected_amplitudes[(num_possible_outcomes - 1)] = ((1 / sqrt(2)) * (1. + 0.j))
+        ghz_state_4_qubits_array_expected_amplitudes[(num_possible_outcomes - 1)] = ((1. / sqrt(2)) * (1. + 0.j))
         """
         Fill the last position of the expected values of
-        the Qiskrypt's GHZ State, with ((1 / sqrt(2)) * (1. + 0.j)).
+        the Qiskrypt's GHZ State, with ((1. / sqrt(2)) * (1. + 0.j)).
         """
 
         assert_allclose(final_quantum_state_vector_state,
@@ -360,7 +360,7 @@ class QiskryptGHZStateTests(TestCase):
         Perform the Assertion of all close values in the values of the quantum state,
         represented by its state vector describing the given qubits,
         after be prepared a GHZ State with the configuration,
-        |GHZ_4⟩ = 1/sqrt(2) x (|0000⟩ + |1111⟩).
+        |GHZ_4⟩ = (1. / sqrt(2)) x (|0000⟩ + |1111⟩).
         """
 
         """
@@ -479,16 +479,16 @@ class QiskryptGHZStateTests(TestCase):
         the Qiskrypt's GHZ State, with 5 qubits.
         """
 
-        ghz_state_5_qubits_array_expected_amplitudes[0] = ((1 / sqrt(2)) * (1. + 0.j))
+        ghz_state_5_qubits_array_expected_amplitudes[0] = ((1. / sqrt(2)) * (1. + 0.j))
         """
         Fill the first position of the expected values of
-        the Qiskrypt's GHZ State, with ((1 / sqrt(2)) * (1. + 0.j)).
+        the Qiskrypt's GHZ State, with ((1. / sqrt(2)) * (1. + 0.j)).
         """
 
-        ghz_state_5_qubits_array_expected_amplitudes[(num_possible_outcomes - 1)] = ((1 / sqrt(2)) * (1. + 0.j))
+        ghz_state_5_qubits_array_expected_amplitudes[(num_possible_outcomes - 1)] = ((1. / sqrt(2)) * (1. + 0.j))
         """
         Fill the last position of the expected values of
-        the Qiskrypt's GHZ State, with ((1 / sqrt(2)) * (1. + 0.j)).
+        the Qiskrypt's GHZ State, with ((1. / sqrt(2)) * (1. + 0.j)).
         """
 
         assert_allclose(final_quantum_state_vector_state,
@@ -617,16 +617,16 @@ class QiskryptGHZStateTests(TestCase):
         the Qiskrypt's GHZ State, with 5 qubits.
         """
 
-        ghz_state_6_qubits_array_expected_amplitudes[0] = ((1 / sqrt(2)) * (1. + 0.j))
+        ghz_state_6_qubits_array_expected_amplitudes[0] = ((1. / sqrt(2)) * (1. + 0.j))
         """
         Fill the first position of the expected values of
-        the Qiskrypt's GHZ State, with ((1 / sqrt(2)) * (1. + 0.j)).
+        the Qiskrypt's GHZ State, with ((1. / sqrt(2)) * (1. + 0.j)).
         """
 
-        ghz_state_6_qubits_array_expected_amplitudes[(num_possible_outcomes - 1)] = ((1 / sqrt(2)) * (1. + 0.j))
+        ghz_state_6_qubits_array_expected_amplitudes[(num_possible_outcomes - 1)] = ((1. / sqrt(2)) * (1. + 0.j))
         """
         Fill the last position of the expected values of
-        the Qiskrypt's GHZ State, with ((1 / sqrt(2)) * (1. + 0.j)).
+        the Qiskrypt's GHZ State, with ((1. / sqrt(2)) * (1. + 0.j)).
         """
 
         assert_allclose(final_quantum_state_vector_state,
@@ -968,7 +968,7 @@ class QiskryptGHZStateTests(TestCase):
         Description of the Steps for the Unitary Test:
         1) The Qiskrypt's GHZ State is initialised and configured, for 4 qubits;
         2) The Qiskrypt's GHZ State with the configuration,
-           |GHZ_4⟩ = 1/sqrt(2) x (|0000⟩ + |1111⟩),
+           |GHZ_4⟩ = (1. / sqrt(2)) x (|0000⟩ + |1111⟩),
            is prepared, without measuring it, on the Computational Basis;
         3) The Qiskrypt's GHZ State with configuration,
            |GHZ_4⟩ = |0000⟩, is prepared, without measuring it,
@@ -1025,7 +1025,7 @@ class QiskryptGHZStateTests(TestCase):
                              qiskrypt_quantum_circuit_ghz_state_4_qubits_0000_7)
         """
         Create a Qiskrypt's GHZ State, for a generation of a GHZ State with 4 qubits,
-        with the configuration, |GHZ_4⟩ = 1/sqrt(2) x (|0000⟩ + |1111⟩).
+        with the configuration, |GHZ_4⟩ = (1. / sqrt(2)) x (|0000⟩ + |1111⟩).
         """
 
         qiskrypt_ghz_state_4_qubits_0000_7.configure(0, [0, 0, 0],
@@ -1115,7 +1115,7 @@ class QiskryptGHZStateTests(TestCase):
         1) The Qiskrypt's Quantum Pauli-X Transform is initialised and configured, for 4 qubits;
         2) The Qiskrypt's GHZ State is initialised and configured, for 4 qubits;
         3) The Qiskrypt's GHZ State with the configuration,
-           |GHZ_4⟩ = 1/sqrt(2) x (-|0001⟩ + |1110⟩),
+           |GHZ_4⟩ = (1. / sqrt(2)) x (-|0001⟩ + |1110⟩),
            is prepared, without measuring it, on the Computational Basis;
         4) The Qiskrypt's GHZ State with configuration,
            |GHZ_4⟩ = |1111⟩, is prepared, without measuring it,
@@ -1193,7 +1193,7 @@ class QiskryptGHZStateTests(TestCase):
                              qiskrypt_quantum_circuit_ghz_state_4_qubits_1111_8)
         """
         Create a Qiskrypt's GHZ State, for a generation of a GHZ State with 4 qubits,
-        with the configuration, |GHZ_4⟩ = 1/sqrt(2) x (-|0001⟩ + |1110⟩).
+        with the configuration, |GHZ_4⟩ = (1. / sqrt(2)) x (-|0001⟩ + |1110⟩).
         """
 
         qiskrypt_ghz_state_4_qubits_1111_8.configure(0, [0, 0, 0],
