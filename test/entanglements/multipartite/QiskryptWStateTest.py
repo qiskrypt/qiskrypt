@@ -1526,22 +1526,6 @@ class QiskryptWStateTests(TestCase):
         without measure it, on the Computational Basis.
         """
 
-        qiskit_state_vector_backend = Aer.get_backend("statevector_simulator")
-        """
-        Getting the Aer Simulator Backend for the State Vector Representation
-        (i.e., the quantum state represented as its state vector).
-        """
-
-        final_quantum_state_vector_state = \
-            execute(qiskrypt_w_state_5_qubits_11111_10.qiskrypt_quantum_circuit.qiskit_quantum_circuit,
-                    qiskit_state_vector_backend).result().get_statevector()
-        """
-        Execute the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit
-        and store the resulted quantum state represented in a final state vector.
-        """
-
-        print(final_quantum_state_vector_state)
-
         qiskrypt_w_state_5_qubits_11111_10 \
             .prepare_multipartite_entanglement_at_w_state_basis(is_to_measure_at_w_state_basis=False,
                                                                 qiskit_classical_registers_indexes=None,
