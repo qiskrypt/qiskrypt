@@ -102,7 +102,7 @@ class QiskryptGHZStateTests(TestCase):
         Description of the Steps for the Unitary Test:
         1) The Qiskrypt's GHZ State is initialised and configured, for 3 qubits;
         2) The Qiskrypt's GHZ State with the configuration,
-           |GHZ_3⟩ = 1/sqrt(2) x (|000⟩ + |111⟩),
+           |GHZ_3⟩ = (1. / sqrt(2)) x (|000⟩ + |111⟩),
            is prepared, without measuring it, on the Computational Basis;
 
         Return OK (or FAIL) if, all the Tests performed are OK (or FAIL, otherwise).
@@ -156,7 +156,7 @@ class QiskryptGHZStateTests(TestCase):
                              qiskrypt_quantum_circuit_ghz_state_3_qubits_1)
         """
         Create a Qiskrypt's GHZ State, for a generation of a GHZ State with 3 qubits,
-        with the configuration, |GHZ_3⟩ = 1/sqrt(2) x (|000⟩ + |111⟩).
+        with the configuration, |GHZ_3⟩ = (1. / sqrt(2)) x (|000⟩ + |111⟩).
         """
 
         qiskrypt_ghz_state_3_qubits_1.configure(0, [0, 0],
@@ -222,7 +222,7 @@ class QiskryptGHZStateTests(TestCase):
         Perform the Assertion of all close values in the values of the quantum state,
         represented by its state vector describing the given qubits,
         after be prepared a GHZ State with the configuration,
-        |GHZ_3⟩ = 1/sqrt(2) x (|000⟩ + |111⟩).
+        |GHZ_3⟩ = (1. / sqrt(2)) x (|000⟩ + |111⟩).
         """
 
         """
@@ -378,7 +378,7 @@ class QiskryptGHZStateTests(TestCase):
         Description of the Steps for the Unitary Test:
         1) The Qiskrypt's GHZ State is initialised and configured, for 5 qubits;
         2) The Qiskrypt's GHZ State with the configuration,
-           |GHZ_5⟩ = 1/sqrt(2) x (|00000⟩ + |11111⟩),
+           |GHZ_5⟩ = (1. / sqrt(2)) x (|00000⟩ + |11111⟩),
            is prepared, without measuring it, on the Computational Basis;
 
         Return OK (or FAIL) if, all the Tests performed are OK (or FAIL, otherwise).
@@ -432,7 +432,7 @@ class QiskryptGHZStateTests(TestCase):
                              qiskrypt_quantum_circuit_ghz_state_5_qubits_1)
         """
         Create a Qiskrypt's GHZ State, for a generation of a GHZ State with 5 qubits,
-        with the configuration, |GHZ_5⟩ = 1/sqrt(2) x (|00000⟩ + |11111⟩).
+        with the configuration, |GHZ_5⟩ = (1. / sqrt(2)) x (|00000⟩ + |11111⟩).
         """
 
         qiskrypt_ghz_state_5_qubits_3.configure(0, [0, 0, 0, 0],
@@ -498,7 +498,7 @@ class QiskryptGHZStateTests(TestCase):
         Perform the Assertion of all close values in the values of the quantum state,
         represented by its state vector describing the given qubits,
         after be prepared a GHZ State with the configuration,
-        |GHZ_5⟩ = 1/sqrt(2) x (|00000⟩ + |11111⟩).
+        |GHZ_5⟩ = (1. / sqrt(2)) x (|00000⟩ + |11111⟩).
         """
 
         """
@@ -516,7 +516,7 @@ class QiskryptGHZStateTests(TestCase):
         Description of the Steps for the Unitary Test:
         1) The Qiskrypt's GHZ State is initialised and configured, for 6 qubits;
         2) The Qiskrypt's GHZ State with the configuration,
-           |GHZ_6⟩ = 1/sqrt(2) x (|000000⟩ + |111111⟩),
+           |GHZ_6⟩ = (1. / sqrt(2)) x (|000000⟩ + |111111⟩),
            is prepared, without measuring it, on the Computational Basis;
 
         Return OK (or FAIL) if, all the Tests performed are OK (or FAIL, otherwise).
@@ -570,7 +570,7 @@ class QiskryptGHZStateTests(TestCase):
                              qiskrypt_quantum_circuit_ghz_state_6_qubits_4)
         """
         Create a Qiskrypt's GHZ State, for a generation of a GHZ State with 6 qubits,
-        with the configuration, |GHZ_6⟩ = 1/sqrt(2) x (|000000⟩ + |111111⟩).
+        with the configuration, |GHZ_6⟩ = (1. / sqrt(2)) x (|000000⟩ + |111111⟩).
         """
 
         qiskrypt_ghz_state_6_qubits_4.configure(0, [0, 0, 0, 0, 0],
@@ -636,7 +636,7 @@ class QiskryptGHZStateTests(TestCase):
         Perform the Assertion of all close values in the values of the quantum state,
         represented by its state vector describing the given qubits,
         after be prepared a GHZ State with the configuration,
-        |GHZ_6⟩ = 1/sqrt(2) x (|000000⟩ + |111111⟩).
+        |GHZ_6⟩ = (1. / sqrt(2)) x (|000000⟩ + |111111⟩).
         """
 
         """
@@ -654,7 +654,7 @@ class QiskryptGHZStateTests(TestCase):
         Description of the Steps for the Unitary Test:
         1) The Qiskrypt's GHZ State is initialised and configured, for 3 qubits;
         2) The Qiskrypt's GHZ State with the configuration,
-           |GHZ_3⟩ = 1/sqrt(2) x (|000⟩ + |111⟩),
+           |GHZ_3⟩ = (1. / sqrt(2)) x (|000⟩ + |111⟩),
            is prepared, without measuring it, on the Computational Basis;
         3) The Qiskrypt's GHZ State with configuration,
            |GHZ_3⟩ = |000⟩, is prepared, without measuring it,
@@ -711,7 +711,7 @@ class QiskryptGHZStateTests(TestCase):
                              qiskrypt_quantum_circuit_ghz_state_3_qubits_000_5)
         """
         Create a Qiskrypt's GHZ State, for a generation of a GHZ State with 3 qubits,
-        with the configuration, |GHZ_3⟩ = 1/sqrt(2) x (|000⟩ + |111⟩).
+        with the configuration, |GHZ_3⟩ = (1. / sqrt(2)) x (|000⟩ + |111⟩).
         """
 
         qiskrypt_ghz_state_3_qubits_000_5.configure(0, [0, 0],
@@ -801,7 +801,7 @@ class QiskryptGHZStateTests(TestCase):
         1) The Qiskrypt's Quantum Pauli-X Transform is initialised and configured, for 3 qubits;
         2) The Qiskrypt's GHZ State is initialised and configured, for 3 qubits;
         3) The Qiskrypt's GHZ State with the configuration,
-           |GHZ_3⟩ = 1/sqrt(2) x (-|001⟩ + |110⟩),
+           |GHZ_3⟩ = (1. / sqrt(2)) x (-|001⟩ + |110⟩),
            is prepared, without measuring it, on the Computational Basis;
         4) The Qiskrypt's GHZ State with configuration,
            |GHZ_3⟩ = |111⟩, is prepared, without measuring it,
@@ -879,7 +879,7 @@ class QiskryptGHZStateTests(TestCase):
                              qiskrypt_quantum_circuit_ghz_state_3_qubits_111_6)
         """
         Create a Qiskrypt's GHZ State, for a generation of a GHZ State with 3 qubits,
-        with the configuration, |GHZ_3⟩ = 1/sqrt(2) x (-|001⟩ + |110⟩).
+        with the configuration, |GHZ_3⟩ = (1. / sqrt(2)) x (-|001⟩ + |110⟩).
         """
 
         qiskrypt_ghz_state_3_qubits_111_6.configure(0, [0, 0],
@@ -1282,7 +1282,7 @@ class QiskryptGHZStateTests(TestCase):
         Description of the Steps for the Unitary Test:
         1) The Qiskrypt's GHZ State is initialised and configured, for 5 qubits;
         2) The Qiskrypt's GHZ State with the configuration,
-           |GHZ_5⟩ = 1/sqrt(2) x (|00000⟩ + |11111⟩),
+           |GHZ_5⟩ = (1. / sqrt(2)) x (|00000⟩ + |11111⟩),
            is prepared, without measuring it, on the Computational Basis;
         3) The Qiskrypt's GHZ State with configuration,
            |GHZ_5⟩ = |00000⟩, is prepared, without measuring it,
@@ -1339,7 +1339,7 @@ class QiskryptGHZStateTests(TestCase):
                              qiskrypt_quantum_circuit_ghz_state_5_qubits_00000_9)
         """
         Create a Qiskrypt's GHZ State, for a generation of a GHZ State with 5 qubits,
-        with the configuration, |GHZ_5⟩ = 1/sqrt(2) x (|00000⟩ + |11111⟩).
+        with the configuration, |GHZ_5⟩ = (1. / sqrt(2)) x (|00000⟩ + |11111⟩).
         """
 
         qiskrypt_ghz_state_5_qubits_00000_9.configure(0, [0, 0, 0, 0],
@@ -1429,7 +1429,7 @@ class QiskryptGHZStateTests(TestCase):
         1) The Qiskrypt's Quantum Pauli-X Transform is initialised and configured, for 5 qubits;
         2) The Qiskrypt's GHZ State is initialised and configured, for 5 qubits;
         3) The Qiskrypt's GHZ State with the configuration,
-           |GHZ_5⟩ = 1/sqrt(2) x (-|00001⟩ + |11110⟩),
+           |GHZ_5⟩ = (1. / sqrt(2)= x (-|00001⟩ + |11110⟩),
            is prepared, without measuring it, on the Computational Basis;
         4) The Qiskrypt's GHZ State with configuration,
            |GHZ_5⟩ = |11111⟩, is prepared, without measuring it,
@@ -1507,7 +1507,7 @@ class QiskryptGHZStateTests(TestCase):
                              qiskrypt_quantum_circuit_ghz_state_5_qubits_11111_10)
         """
         Create a Qiskrypt's GHZ State, for a generation of a GHZ State with 5 qubits,
-        with the configuration, |GHZ_5⟩ = 1/sqrt(2) x (-|00001⟩ + |11110⟩).
+        with the configuration, |GHZ_5⟩ = (1. / sqrt(2)) x (-|00001⟩ + |11110⟩).
         """
 
         qiskrypt_ghz_state_5_qubits_11111_10.configure(0, [0, 0, 0, 0],
@@ -1596,7 +1596,7 @@ class QiskryptGHZStateTests(TestCase):
         Description of the Steps for the Unitary Test:
         1) The Qiskrypt's GHZ State is initialised and configured, for 6 qubits;
         2) The Qiskrypt's GHZ State with the configuration,
-           |GHZ_6⟩ = 1/sqrt(2) x (|000000⟩ + |111111⟩),
+           |GHZ_6⟩ = (1. / sqrt(2)) x (|000000⟩ + |111111⟩),
            is prepared, without measuring it, on the Computational Basis;
         3) The Qiskrypt's GHZ State with configuration,
            |GHZ_6⟩ = |000000⟩, is prepared, without measuring it,
@@ -1653,7 +1653,7 @@ class QiskryptGHZStateTests(TestCase):
                              qiskrypt_quantum_circuit_ghz_state_6_qubits_000000_11)
         """
         Create a Qiskrypt's GHZ State, for a generation of a GHZ State with 6 qubits,
-        with the configuration, |GHZ_6⟩ = 1/sqrt(2) x (|000000⟩ + |111111⟩).
+        with the configuration, |GHZ_6⟩ = (1. / sqrt(2)) x (|000000⟩ + |111111⟩).
         """
 
         qiskrypt_ghz_state_6_qubits_000000_11.configure(0, [0, 0, 0, 0, 0],
@@ -1743,10 +1743,10 @@ class QiskryptGHZStateTests(TestCase):
         1) The Qiskrypt's Quantum Pauli-X Transform is initialised and configured, for 6 qubits;
         2) The Qiskrypt's GHZ State is initialised and configured, for 6 qubits;
         3) The Qiskrypt's GHZ State with the configuration,
-           |GHZ_6⟩ = 1/sqrt(2) x (-|0001⟩ + |1110⟩),
+           |GHZ_6⟩ = (1. / sqrt(2)) x (-|0001⟩ + |1110⟩),
            is prepared, without measuring it, on the Computational Basis;
         4) The Qiskrypt's GHZ State with configuration,
-           |GHZ_6⟩ = |1111⟩, is prepared, without measuring it,
+           |GHZ_6⟩ = |111111⟩, is prepared, without measuring it,
            on the GHZ State Basis;
 
         Return OK (or FAIL) if, all the Tests performed are OK (or FAIL, otherwise).
@@ -1821,7 +1821,7 @@ class QiskryptGHZStateTests(TestCase):
                              qiskrypt_quantum_circuit_ghz_state_6_qubits_111111_12)
         """
         Create a Qiskrypt's GHZ State, for a generation of a GHZ State with 6 qubits,
-        with the configuration, |GHZ_6⟩ = 1/sqrt(2) x (-|000001⟩ + |111110⟩).
+        with the configuration, |GHZ_6⟩ = (1. / sqrt(2)) x (-|000001⟩ + |111110⟩).
         """
 
         qiskrypt_ghz_state_6_qubits_111111_12.configure(0, [0, 0, 0, 0, 0],
