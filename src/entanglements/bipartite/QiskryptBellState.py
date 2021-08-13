@@ -489,8 +489,7 @@ class QiskryptBellState(QiskryptQuantumEntanglement):
 
             if self.qiskrypt_quantum_circuit.get_total_num_bits() >= 2:
                 """
-                If the number of bits of
-                the given Qiskrypt's Quantum Circuit is greater or equal than 2.
+                If the number of bits of the given Qiskrypt's Quantum Circuit is greater or equal than 2.
                 """
 
                 self.qiskrypt_quantum_circuit\
@@ -515,8 +514,7 @@ class QiskryptBellState(QiskryptQuantumEntanglement):
 
             else:
                 """
-                If the number of bits of
-                the given Qiskrypt's Quantum Circuit is lower than 2.
+                If the number of bits of the given Qiskrypt's Quantum Circuit is lower than 2.
                 """
 
                 # TODO - Throw Exception
@@ -711,8 +709,7 @@ class QiskryptBellState(QiskryptQuantumEntanglement):
 
             if self.qiskrypt_quantum_circuit.get_total_num_bits() >= 2:
                 """
-                If the number of bits of
-                the given Qiskrypt's Quantum Circuit is greater or equal than 2.
+                If the number of bits of the given Qiskrypt's Quantum Circuit is greater or equal than 2.
                 """
 
                 self.qiskrypt_quantum_circuit\
@@ -737,8 +734,7 @@ class QiskryptBellState(QiskryptQuantumEntanglement):
 
             else:
                 """
-                If the number of bits of
-                the given Qiskrypt's Quantum Circuit is lower than 2.
+                If the number of bits of the given Qiskrypt's Quantum Circuit is lower than 2.
                 """
 
                 # TODO - Throw Exception

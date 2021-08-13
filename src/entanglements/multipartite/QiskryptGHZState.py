@@ -363,13 +363,11 @@ class QiskryptGHZState(QiskryptQuantumEntanglement):
             the Qiskrypt's GHZ State on the Computational Basis, is True.
             """
 
-            if self.qiskrypt_quantum_circuit.get_total_num_bits() >= \
-                    (len(qiskit_classical_registers_target_indexes) + 1):
+            if self.qiskrypt_quantum_circuit.get_total_num_bits() >= (len(target_bits_indexes) + 1):
                 """
-                If the number of bits of
-                the given Qiskrypt's Quantum Circuit is greater or equal than
-                the number of the target IBM Qiskit's Classical Registers (and the respective target bits),
-                plus one, for the control IBM Qiskit's Classical Register (and the respective control bit).
+                If the number of bits of the given Qiskrypt's Quantum Circuit is greater or equal than
+                the number of the target bits inside the target IBM Qiskit's Classical Registers,
+                plus one, for the control bit inside the control IBM Qiskit's Classical Register.
                 """
 
                 self.qiskrypt_quantum_circuit\
@@ -395,10 +393,9 @@ class QiskryptGHZState(QiskryptQuantumEntanglement):
 
             else:
                 """
-                If the number of bits of
-                the given Qiskrypt's Quantum Circuit is lower than
-                the number of the target IBM Qiskit's Classical Registers (and the respective target bits),
-                plus one, for the control IBM Qiskit's Classical Register (and the respective control bit).
+                If the number of bits of the given Qiskrypt's Quantum Circuit is lower than
+                the number of the target bits inside the target IBM Qiskit's Classical Registers,
+                plus one, for the control bit inside the control IBM Qiskit's Classical Register.
                 """
 
                 # TODO - Throw Exception
@@ -521,13 +518,11 @@ class QiskryptGHZState(QiskryptQuantumEntanglement):
             the Qiskrypt's GHZ State on the GHZ State Basis, is True.
             """
 
-            if self.qiskrypt_quantum_circuit.get_total_num_bits() >= \
-                    (len(qiskit_classical_registers_target_indexes) + 1):
+            if self.qiskrypt_quantum_circuit.get_total_num_bits() >= (len(target_bits_indexes) + 1):
                 """
-                If the number of bits of
-                the given Qiskrypt's Quantum Circuit is greater or equal than
-                the number of the target IBM Qiskit's Classical Registers (and the respective target bits),
-                plus one, for the control IBM Qiskit's Classical Register (and the respective control bit).
+                If the number of bits of the given Qiskrypt's Quantum Circuit is greater or equal than
+                the number of the target bits inside the target IBM Qiskit's Classical Registers,
+                plus one, for the control bit inside the control IBM Qiskit's Classical Register.
                 """
 
                 self.qiskrypt_quantum_circuit\
@@ -553,10 +548,9 @@ class QiskryptGHZState(QiskryptQuantumEntanglement):
 
             else:
                 """
-                If the number of bits of
-                the given Qiskrypt's Quantum Circuit is lower than
-                the number of the target IBM Qiskit's Classical Registers (and the respective target bits),
-                plus one, for the control IBM Qiskit's Classical Register (and the respective control bit).
+                If the number of bits of the given Qiskrypt's Quantum Circuit is lower than
+                the number of the target bits inside the target IBM Qiskit's Classical Registers,
+                plus one, for the control bit inside the control IBM Qiskit's Classical Register.
                 """
 
                 # TODO - Throw Exception

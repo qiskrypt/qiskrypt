@@ -358,12 +358,10 @@ class QiskryptWState(QiskryptQuantumEntanglement):
             the Qiskrypt's W State on the Computational Basis, is True.
             """
 
-            if self.qiskrypt_quantum_circuit.get_total_num_bits() >= \
-                    len(qiskit_classical_registers_indexes):
+            if self.qiskrypt_quantum_circuit.get_total_num_bits() >= len(bits_indexes):
                 """
-                If the number of bits of
-                the given Qiskrypt's Quantum Circuit is greater or equal than
-                the number of the IBM Qiskit's Classical Registers (and the respective bits).
+                If the number of bits of the given Qiskrypt's Quantum Circuit is greater or equal than
+                the number of the bits inside the IBM Qiskit's Classical Register.
                 """
 
                 self.qiskrypt_quantum_circuit\
@@ -380,7 +378,7 @@ class QiskryptWState(QiskryptQuantumEntanglement):
             else:
                 """
                 If the number of bits of the given Qiskrypt's Quantum Circuit is lower than
-                the number of the IBM Qiskit's Classical Registers (and the respective bits).
+                the number of the bits inside the IBM Qiskit's Classical Register.
                 """
 
                 # TODO - Throw Exception
@@ -499,12 +497,10 @@ class QiskryptWState(QiskryptQuantumEntanglement):
             the Qiskrypt's W State on the W State Basis, is True.
             """
 
-            if self.qiskrypt_quantum_circuit.get_total_num_bits() >= \
-                    len(qiskit_classical_registers_indexes):
+            if self.qiskrypt_quantum_circuit.get_total_num_bits() >= len(bits_indexes):
                 """
-                If the number of bits of
-                the given Qiskrypt's Quantum Circuit is greater or equal than
-                the number of the IBM Qiskit's Classical Registers (and the respective bits).
+                If the number of bits of the given Qiskrypt's Quantum Circuit is greater or equal than
+                the number of the bits inside the IBM Qiskit's Classical Register.
                 """
 
                 self.qiskrypt_quantum_circuit\
@@ -521,7 +517,7 @@ class QiskryptWState(QiskryptQuantumEntanglement):
             else:
                 """
                 If the number of bits of the given Qiskrypt's Quantum Circuit is lower than
-                the number of the IBM Qiskit's Classical Registers (and the respective bits).
+                the number of the bits inside the IBM Qiskit's Classical Register.
                 """
 
                 # TODO - Throw Exception
