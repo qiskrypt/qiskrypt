@@ -47,6 +47,16 @@ from src.entanglements.QiskryptQuantumEntanglement \
 Import the Qiskrypt's Quantum Entanglement.
 """
 
+from src.circuit.QiskryptQuantumCircuit \
+    import QiskryptQuantumCircuit
+"""
+Import the Qiskrypt's Quantum Circuit.
+"""
+
+"""
+Import of constants and enumerations.
+"""
+
 from src.entanglements.QiskryptQuantumEntanglement \
     import POSSIBLE_QUANTUM_ENTANGLEMENT_CARDINALITIES
 """
@@ -65,13 +75,7 @@ from src.entanglements.QiskryptQuantumEntanglement \
     import POSSIBLE_CONFIGURATIONS_RESOURCE_STATES
 """
 Import the available configurations for the types of
-the Qiskrypt's Resource States.
-"""
-
-from src.circuit.QiskryptQuantumCircuit \
-    import QiskryptQuantumCircuit
-"""
-Import the Qiskrypt's Quantum Circuit.
+the Qiskrypt's Resource State.
 """
 
 
