@@ -106,7 +106,7 @@ The mission of our framework is to:
 * Provide _open-source_ implementations of _quantum cryptographic protocols_, including:
   * **Key Distributions/Agreements**:
     * **Quantum Key Distributions** (**QKDs**); 
-    * **Semi-Quantum Key Distribution** (**SQKDs**);
+    * **Semi-Quantum Key Distributions** (**SQKDs**);
     * **Quantum Conference Key Agreements** (**QCKAs**);
     * **Semi-Quantum Conference Key Agreements** (**SQCKAs**);
   * **Quantum Secure Multiparty Computations**
