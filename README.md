@@ -90,37 +90,44 @@
 
 ### About
 
-The [**Qis|krypt⟩**](https://qiskrypt.github.io/) is a software suite of protocols of _quantum cryptography_ and _quantum communications_, as well, other _protocols_ and _algorithms_, built using the [**IBM**](https://www.ibm.com/)’s _open-source_ _Software Development Kit_ for _quantum computing_ [**Qiskit**](https://qiskit.org/).
+The [**Qis|krypt⟩**](https://qiskrypt.github.io/) is a software suite of protocols of _quantum cryptography_ and _quantum communications_, as well, other _protocols_ and _algorithms_, built using [**IBM**](https://www.ibm.com/)’s _open-source_ _Software Development Kit_ for _quantum computing_ [**Qiskit**](https://qiskit.org/).
 
 
 #### Foundation
 
-This _framework_ started as a proposal for the [**IBM**](https://www.ibm.com/) [**Hackathon Europe 2021**](https://qiskithackathoneurope.bemyapp.com/), achieving its 2nd phase (finals, with the top 20 teams), as well, as an idea developed by a team of students, researchers and professors, mostly from [**NOVA School of Science and Technology**](https://www.fct.unl.pt/en), [**Técnico Lisboa**](https://tecnico.ulisboa.pt/en/), [**Faculty of Sciences of University of Lisbon**](https://ciencias.ulisboa.pt/en), [**Instituto de Telecomunicações**](https://www.it.pt/), [**Security and Quantum Information Group (SQIG)**](https://sqigmath.tecnico.ulisboa.pt/), [**LASIGE**](https://www.lasige.pt/), [**UT Austin Portugal**](https://utaustinportugal.org/) and [**School of Engineering from University of Connecticut**](https://www.engr.uconn.edu/).
+This _framework_ started as a proposal for the [**IBM**](https://www.ibm.com/) [**Hackathon Europe 2021**](https://qiskithackathoneurope.bemyapp.com/), achieving its 2nd phase (finals, with the top 20 teams), as well, as an idea developed by a team of students, researchers, and professors, mostly from [**NOVA School of Science and Technology**](https://www.fct.unl.pt/en), [**Técnico Lisboa**](https://tecnico.ulisboa.pt/en/), [**Faculty of Sciences of University of Lisbon**](https://ciencias.ulisboa.pt/en), [**Instituto de Telecomunicações**](https://www.it.pt/), [**Security and Quantum Information Group (SQIG)**](https://sqigmath.tecnico.ulisboa.pt/), [**LASIGE**](https://www.lasige.pt/), [**UT Austin Portugal**](https://utaustinportugal.org/) and [**School of Engineering from University of Connecticut**](https://www.engr.uconn.edu/).
 
-The aim of our _framework_ is to provide all the known _quantum cryptographic protocols_, in a single place, as an accessible solution, and being easy to use.
+Our _framework_ aims to provide all the known _quantum cryptographic protocols_, in a single place, as an accessible solution, being easy to use.
 
 ### Mission
 
 The mission of our framework is to:
-* Emphasize the importance of _quantum cryptography_, as a long-term solution for the _post-quantum era_;
+* Emphasize the importance of _quantum cryptography_, as the better solution for the long-term, in the _post-quantum era_;
 * Provide _open-source_ implementations of _quantum cryptographic protocols_, including:
-  * **Quantum Key Distributions** (**QKDs**); 
-  * **Semi-Quantum Key Distribution** (**SQKDs**);
-  * **Quantum Conference Key Agreements** (**QCKAs**);
-  * **Semi-Quantum Conference Key Agreements** (**SQCKAs**);
-  * **Quantum One-Time Pads** (**QOTPs**);
-  * **SWAP Test**/**Quantum Fingerprinting**;
+  * **Key Distributions/Agreements**:
+    * **Quantum Key Distributions** (**QKDs**); 
+    * **Semi-Quantum Key Distribution** (**SQKDs**);
+    * **Quantum Conference Key Agreements** (**QCKAs**);
+    * **Semi-Quantum Conference Key Agreements** (**SQCKAs**);
+  * **Quantum Secure Multiparty Computations**
+  * **Quantum Symmetric Encryption**;
+  * **Quantum Zero-Knowledge Proofs**;
+  * **Quantum Data Authentication**:
+    * **Quantum Data Signature**;
+    * **Quantum Message Authentication**;
+  * **Quantum Data Integrity**:
+  * **Quantum Cryptocurrencies**;
 * Offer some important primitives for _quantum communications_ and _quantum networks_, such as:
   * **Quantum Teleportation**;
   * **Quantum Entanglement Swapping**;
   * **Quantum Entanglement Distillation/Purification**;
   * **Quantum Repeaters**;
   * **Quantum Internet/Network Protocols**;
-* Offer, as well, some _quantum algortithms_ for _quantum_ _cryptanalysis_ and _quantum_ _attacks_, such as:
+* Offer, as well, some _quantum algorithms_ for _quantum_ _cryptanalysis_ and _quantum_ _attacks_, such as:
   * **Grover's Algorithm**;
   * **Simon's Algorithm**;
   * **Shor's Algorithm**;
-* Provide an easy and comprehensive detailed explanation of the protocols, primitives and algorithms addressed, through several illustrations and tutorials;
+* Provide an easy and comprehensive detailed explanation of the protocols, primitives, and algorithms addressed, through several illustrations and tutorials;
 
 ### Meet our team
 
