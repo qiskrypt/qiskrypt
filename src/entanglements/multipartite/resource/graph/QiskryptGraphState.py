@@ -85,10 +85,10 @@ class QiskryptGraphState(QiskryptResourceState):
         :param qiskrypt_quantum_circuit: the name of the Qiskrypt's Graph State.
         """
 
-        if qiskrypt_quantum_circuit.get_total_num_qubits() >= 1:
+        if qiskrypt_quantum_circuit.get_total_num_qubits() >= 1 and \
+                qiskrypt_quantum_circuit.get_total_num_bits() >= 1:
             """
-            If the number of qubits of
-            the given Qiskrypt's Quantum Circuit is greater or equal than 1.
+            If the number of qubits and bits of the given Qiskrypt's Quantum Circuit is greater or equal than 1.
             """
 
             super().__init__(name, qiskrypt_quantum_circuit, POSSIBLE_CONFIGURATIONS_RESOURCE_STATES[0])
@@ -238,15 +238,17 @@ class QiskryptGraphState(QiskryptResourceState):
         """
         Configure the Qiskrypt's Graph State,
         regarding its IBM Qiskit's Quantum Registers, qubits representing the vertices of the Graph State,
-        as well, the pairs of qubits inside IBM Qiskit's Quantum Registers, as also,
-        the IBM Qiskit's Quantum Registers themselves, representing the edges of the Graph State.
+        as well, a dictionary with the pairs of qubits inside IBM Qiskit's Quantum Registers, as also,
+        the respective IBM Qiskit's Quantum Registers themselves, representing the edges of the Graph State.
 
         :param qiskit_quantum_registers_indexes: the indexes of the IBM Qiskit's Quantum Registers,
                                                  associated to the Graph State itself.
         :param qubits_vertices_indexes: the indexes of the qubits inside the IBM Qiskit's Quantum Register,
                                         representing the vertices of the Graph State.
-        :param qubits_pairs_edges_indexes: the pairs of indexes of the qubits inside the IBM Qiskit's Quantum Registers,
-                                           as well, the IBM Qiskit's Quantum Registers themselves,
+        :param qubits_pairs_edges_indexes: the pairs of indexes of the qubits inside the
+                                           IBM Qiskit's Quantum Registers, as well, a dictionary with
+                                           the pairs of qubits inside IBM Qiskit's Quantum Registers, as also,
+                                           the respective IBM Qiskit's Quantum Registers themselves,
                                            representing the edges of the Graph State.
         """
 
