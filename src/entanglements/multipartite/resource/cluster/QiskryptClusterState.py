@@ -288,6 +288,17 @@ class QiskryptClusterState(QiskryptResourceState):
             """
 
         self.qiskrypt_quantum_circuit \
+            .apply_controlled_pauli_z(self.qiskit_quantum_registers_indexes[0],
+                                      self.qiskit_quantum_registers_indexes[(num_quantum_registers - 1)],
+                                      self.qubits_vertices_indexes[0],
+                                      self.qubits_vertices_indexes[(num_qubits_vertices - 1)])
+        """
+        Apply the Controlled-Pauli-Z (Controlled-Phase-Flip/Controlled-Phase-Shifter) Gate/Operation to
+        the indexes of the first IBM Qiskit's Quantum Register and the respective qubit on it, as also,
+        of the last IBM Qiskit's Quantum Register and the current respective qubit on it.
+        """
+
+        self.qiskrypt_quantum_circuit \
             .apply_barriers_set_qubits_in_set_qiskit_quantum_registers(self.qiskit_quantum_registers_indexes,
                                                                        self.qubits_vertices_indexes)
         """
