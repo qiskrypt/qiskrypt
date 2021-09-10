@@ -86,10 +86,10 @@ class QiskryptClusterState(QiskryptResourceState):
         :param qiskrypt_quantum_circuit: the name of the Qiskrypt's Cluster State.
         """
 
-        if qiskrypt_quantum_circuit.get_total_num_qubits() >= 1 and \
-                qiskrypt_quantum_circuit.get_total_num_bits() >= 1:
+        if qiskrypt_quantum_circuit.get_total_num_qubits() >= 1:
             """
-            If the number of qubits and bits of the given Qiskrypt's Quantum Circuit is greater or equal than 1.
+            If the number of qubits of
+            the given Qiskrypt's Quantum Circuit is greater or equal than 1.
             """
 
             super().__init__(name, qiskrypt_quantum_circuit, POSSIBLE_CONFIGURATIONS_RESOURCE_STATES[1])
@@ -111,7 +111,7 @@ class QiskryptClusterState(QiskryptResourceState):
 
         else:
             """
-            If the number of qubits and bits of
+            If the number of qubits of
             the given Qiskrypt's Quantum Circuit is strictly lower than 1.
             """
 
@@ -230,7 +230,7 @@ class QiskryptClusterState(QiskryptResourceState):
                                       representing the vertices of the Cluster State.
         """
 
-        self.qiskrypt_quantum_circuit \
+        super().get_qiskrypt_quantum_circuit() \
             .apply_barriers_set_qubits_in_set_qiskit_quantum_registers(self.qiskit_quantum_registers_indexes,
                                                                        self.qubits_vertices_indexes)
         """
