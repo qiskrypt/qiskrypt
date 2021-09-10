@@ -34,6 +34,7 @@ Acknowledgement(s):\n
 - Prof. Paulo Mateus (Tecnico Lisboa, University of Lisbon, Portugal).
 - Prof. Nikola Paunkovic (Tecnico Lisboa, University of Lisbon, Portugal).
 - Prof. Walter Krawec (School of Engineering, University of Connecticut, United States of America).
+- Prof. Antonio Ravara (NOVA School of Science and Technology, NOVA University of Lisbon, Portugal).
 
 """
 
