@@ -78,15 +78,36 @@ class QiskryptClusterState(QiskryptResourceState):
         :param qiskrypt_quantum_circuit: the name of the Qiskrypt's Cluster State.
         """
 
-        if qiskrypt_quantum_circuit.get_total_num_qubits() >= 3:
+        if qiskrypt_quantum_circuit.get_total_num_qubits() >= 1 and \
+                qiskrypt_quantum_circuit.get_total_num_bits() >= 1:
             """
-            If the number of qubits of the given Qiskrypt's Quantum Circuit is greater or equal than 3.
+            If the number of qubits and bits of the given Qiskrypt's Quantum Circuit is greater or equal than 1.
             """
 
             super().__init__(name, qiskrypt_quantum_circuit, POSSIBLE_CONFIGURATIONS_RESOURCE_STATES[1])
             """
             Calls the constructor of the super-class Qiskrypt's Resource State.
             """
+
+            self.qiskit_quantum_registers_indexes = None
+            """
+            Set the indexes of the IBM Qiskit's Quantum Registers, associated to the Cluster State itself,
+            as the given indexes for it, as None.
+            """
+
+            self.qubits_vertices_indexes = None
+            """
+            Set the indexes of the qubits inside the IBM Qiskit's Quantum Register,
+            representing the vertices of the Cluster State, as the given indexes for it, as None.
+            """
+
+        else:
+            """
+            If the number of qubits and bits of
+            the given Qiskrypt's Quantum Circuit is strictly lower than 1.
+            """
+
+            # TODO - Throw Exception
 
     def get_name(self) -> str:
         """
@@ -151,3 +172,28 @@ class QiskryptClusterState(QiskryptResourceState):
         Return the resource type of the Qiskrypt's Cluster State.
         """
         return self.resource_type
+
+    def configure(self, qiskit_quantum_registers_indexes: list,
+                  qubits_vertices_indexes: list) -> None:
+        """
+        Configure the Qiskrypt's Cluster State,
+        regarding its IBM Qiskit's Quantum Registers and
+        the qubits representing the vertices of the Cluster State, being ordered.
+
+        :param qiskit_quantum_registers_indexes: the indexes of the IBM Qiskit's Quantum Registers,
+                                                 associated to the Cluster State itself.
+        :param qubits_vertices_indexes: the indexes of the qubits inside the IBM Qiskit's Quantum Register,
+                                        representing the vertices of the Cluster State.
+        """
+
+        self.qiskit_quantum_registers_indexes = qiskit_quantum_registers_indexes
+        """
+        Set the indexes of the IBM Qiskit's Quantum Registers, associated to the Graph State itself,
+        as the given indexes for it.
+        """
+
+        self.qubits_vertices_indexes = qubits_vertices_indexes
+        """
+        Set the indexes of the qubits inside the IBM Qiskit's Quantum Register,
+        representing the vertices of the Graph State, as the given indexes for it.
+        """
