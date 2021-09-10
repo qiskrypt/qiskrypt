@@ -360,7 +360,7 @@ class QiskryptGraphState(QiskryptResourceState):
             """
             Apply the Controlled-Pauli-Z (Controlled-Phase-Flip/Controlled-Phase-Shifter) Gate/Operation to
             the indexes of the control IBM Qiskit's Quantum Register and the respective qubit on it, as also,
-            the current target IBM Qiskit's Quantum Register and the current respective qubit on it.
+            of the current target IBM Qiskit's Quantum Register and the current respective qubit on it.
             """
 
         self.qiskrypt_quantum_circuit \

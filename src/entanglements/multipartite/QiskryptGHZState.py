@@ -340,7 +340,7 @@ class QiskryptGHZState(QiskryptQuantumEntanglement):
             """
             Apply the Controlled-Pauli-X (Controlled-NOT) Gate/Operation to the given indexes of
             the control IBM Qiskit's Quantum Register and the respective qubit on it, as also,
-            the current target IBM Qiskit's Quantum Register and the current respective qubit on it.
+            of the current target IBM Qiskit's Quantum Register and the current respective qubit on it.
             """
 
         self.qiskrypt_quantum_circuit \
@@ -487,7 +487,7 @@ class QiskryptGHZState(QiskryptQuantumEntanglement):
             """
             Apply the Controlled-Pauli-X (Controlled-NOT) Gate/Operation to the given indexes of
             the control IBM Qiskit's Quantum Register and the respective reversed qubit on it, as also,
-            the current reversed target IBM Qiskit's Quantum Register and
+            of the current reversed target IBM Qiskit's Quantum Register and
             the current respective reversed qubit on it.
             """
 
