@@ -86,10 +86,10 @@ class QiskryptGraphState(QiskryptResourceState):
         :param qiskrypt_quantum_circuit: the name of the Qiskrypt's Graph State.
         """
 
-        if qiskrypt_quantum_circuit.get_total_num_qubits() >= 1 and \
-                qiskrypt_quantum_circuit.get_total_num_bits() >= 1:
+        if qiskrypt_quantum_circuit.get_total_num_qubits() >= 1:
             """
-            If the number of qubits and bits of the given Qiskrypt's Quantum Circuit is greater or equal than 1.
+            If the number of qubits of
+            the given Qiskrypt's Quantum Circuit is greater or equal than 1.
             """
 
             super().__init__(name, qiskrypt_quantum_circuit, POSSIBLE_CONFIGURATIONS_RESOURCE_STATES[0])
@@ -118,7 +118,7 @@ class QiskryptGraphState(QiskryptResourceState):
 
         else:
             """
-            If the number of qubits and bits of
+            If the number of qubits of
             the given Qiskrypt's Quantum Circuit is strictly lower than 1.
             """
 
