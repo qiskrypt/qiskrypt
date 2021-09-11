@@ -27,14 +27,6 @@
 [![keyword of this version no. 3](https://img.shields.io/badge/📌%20keyword-quantum&nbsp;computing-brown.svg)](https://github.com/qiskrypt/qiskrypt/)
 [![keyword of this version no. 4](https://img.shields.io/badge/📌%20keyword-quantum&nbsp;mechanics-brown.svg)](https://github.com/qiskrypt/qiskrypt/)
 
-[![contributor for this repository](https://img.shields.io/badge/contributor-rubenandrebarreiro-blue.svg?label=👤%20contributor)](https://github.com/rubenandrebarreiro/)
-
-[![acknowledgement for this repository no. 1](https://img.shields.io/badge/acknowledgement-andrenunosouto-purple.svg?label=👥%20acknowledgement)](https://ciencias.ulisboa.pt/pt/perfil/ansouto)
-[![acknowledgement for this repository no. 2](https://img.shields.io/badge/acknowledgement-paulo&nbsp;mateus-purple.svg?label=👥%20acknowledgement)](http://sqig.math.ist.utl.pt/pmat/)
-
-[![acknowledgement for this repository no. 3](https://img.shields.io/badge/acknowledgement-nikola&nbsp;paunkovic-purple.svg?label=👥%20acknowledgement)](https://www.math.tecnico.ulisboa.pt/~npaunkov/)
-[![acknowledgement for this repository no. 4](https://img.shields.io/badge/acknowledgement-walter&nbsp;krawec-purple.svg?label=👥%20acknowledgement)](http://www.walterkrawec.org/)
-
 [![liberapay goal progress](https://img.shields.io/liberapay/goal/qiskrypt?label=🎯%20goal&nbsp;progress)](https://liberapay.com/qiskrypt/)
 [![liberapay receiving](https://img.shields.io/liberapay/receives/qiskrypt?label=💰%20receives)](https://liberapay.com/qiskrypt/)
 [![license of this project](https://img.shields.io/badge/license-creative&nbsp;commons&nbsp;by&#8211;nc&#8211;nd&#8211;4.0-darkblue.svg?label=📜%20license)](https://github.com/qiskrypt/qiskrypt/blob/main/LICENSE.md)
