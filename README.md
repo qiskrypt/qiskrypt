@@ -258,6 +258,6 @@ See the [Contribution Graph](https://github.com/qiskrypt/qiskrypt/graphs/contrib
 
 ## Our motto
 
-"_Let's encrypt with **Qiskit**??! **Qis|krypt⟩**!!!_"
+"_Let's encrypt with_ **Qiskit**_??!_ **Qis|krypt⟩**_!!!_"
 
 With love, your _qiskitter_, Rúben. ☺️ ❤️
