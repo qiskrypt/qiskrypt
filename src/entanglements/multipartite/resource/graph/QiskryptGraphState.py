@@ -246,11 +246,11 @@ class QiskryptGraphState(QiskryptResourceState):
                                                  associated to the Graph State itself.
         :param qubits_vertices_indexes: the indexes of the qubits inside the IBM Qiskit's Quantum Register,
                                         representing the vertices of the Graph State.
-        :param qubits_pairs_edges_indexes: the pairs of indexes of the qubits inside the
-                                           IBM Qiskit's Quantum Registers, as well, a dictionary with
-                                           the pairs of qubits inside IBM Qiskit's Quantum Registers, as also,
-                                           the respective IBM Qiskit's Quantum Registers themselves,
-                                           representing the edges of the Graph State.
+        :param qubits_pairs_edges_indexes: a list of pairs of edges for the Graph State, where each edge is
+                                           composed by two pairs, and each pair it is a representation of a qubit
+                                           modeling a vertex of the that edge itself, i.e., each vertex is a pair
+                                           containing the index of the IBM Qiskit's Quantum Register and
+                                           the respective qubit inside it.
         """
 
         if self.are_qubits_pairs_edges_indexes_valid_for_graph_state(qiskit_quantum_registers_indexes,
