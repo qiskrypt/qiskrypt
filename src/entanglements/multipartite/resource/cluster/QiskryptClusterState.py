@@ -196,14 +196,14 @@ class QiskryptClusterState(QiskryptResourceState):
 
         self.qiskit_quantum_registers_indexes = qiskit_quantum_registers_indexes
         """
-        Set the indexes of the IBM Qiskit's Quantum Registers, associated to the Graph State itself,
+        Set the indexes of the IBM Qiskit's Quantum Registers, associated to the Cluster State itself,
         as the given indexes for it.
         """
 
         self.qubits_vertices_indexes = qubits_vertices_indexes
         """
         Set the indexes of the qubits inside the IBM Qiskit's Quantum Register,
-        representing the vertices of the Graph State, as the given indexes for it.
+        representing the vertices of the Cluster State, as the given indexes for it.
         """
 
     def prepare_multipartite_entanglement_at_computational_basis(self, is_to_measure_at_computational_basis=False,
@@ -230,7 +230,7 @@ class QiskryptClusterState(QiskryptResourceState):
                                       representing the vertices of the Cluster State.
         """
 
-        super().get_qiskrypt_quantum_circuit() \
+        self.qiskrypt_quantum_circuit \
             .apply_barriers_set_qubits_in_set_qiskit_quantum_registers(self.qiskit_quantum_registers_indexes,
                                                                        self.qubits_vertices_indexes)
         """
@@ -303,22 +303,22 @@ class QiskryptClusterState(QiskryptResourceState):
             .apply_barriers_set_qubits_in_set_qiskit_quantum_registers(self.qiskit_quantum_registers_indexes,
                                                                        self.qubits_vertices_indexes)
         """
-        Apply barriers to the IBM Qiskit's Quantum Registers, associated to the Graph State itself and
-        the respective qubits, representing the vertices of the Graph State.
+        Apply barriers to the IBM Qiskit's Quantum Registers, associated to the Cluster State itself and
+        the respective qubits, representing the vertices of the Cluster State.
         """
 
         if is_to_measure_at_computational_basis:
             """
             If the boolean flag to keep the information about
             if it will be performed a measurement of
-            the Qiskrypt's Graph State on the Computational Basis, is True.
+            the Qiskrypt's Cluster State on the Computational Basis, is True.
             """
 
             if self.qiskrypt_quantum_circuit.get_total_num_bits() >= len(bits_vertices_indexes):
                 """
                 If the number of bits of the given Qiskrypt's Quantum Circuit is greater or equal than
                 the number of the bits inside the IBM Qiskit's Classical Registers,
-                representing the vertices of the Graph State.
+                representing the vertices of the Cluster State.
                 """
 
                 self.qiskrypt_quantum_circuit\
@@ -336,7 +336,161 @@ class QiskryptClusterState(QiskryptResourceState):
                 """
                 If the number of bits of the given Qiskrypt's Quantum Circuit is lower than
                 the number of the bits inside the IBM Qiskit's Classical Registers,
-                representing the vertices of the Graph State.
+                representing the vertices of the Cluster State.
+                """
+
+                # TODO - Throw Exception
+
+    def prepare_multipartite_entanglement_at_cluster_state_basis(self, is_to_measure_at_cluster_state_basis=False,
+                                                                 qiskit_classical_registers_indexes=None,
+                                                                 bits_vertices_indexes=None) -> None:
+        """
+        Prepare the Multipartite Quantum Entanglement,
+        for the specified Qiskrypt's Cluster State, as a Quantum Entangled State,
+        or even, apply also the measurement of that Quantum Entangled State, on the Cluster State Basis,
+        to allow the extraction of its final classical outcome/result.
+
+        :param is_to_measure_at_cluster_state_basis: the boolean flag to keep the information about
+                                                     if it will be performed a measurement of
+                                                     the Qiskrypt's Cluster State on the Cluster State Basis.
+        :param qiskit_classical_registers_indexes: the indexes of the target IBM Qiskit's Classical Registers,
+                                                   where it belongs the bits to store the final classical outcomes/results,
+                                                   after be performed a measurement on the qubits inside
+                                                   the target IBM Qiskit's Quantum Registers.
+        :param bits_vertices_indexes: the indexes of the bits inside the target IBM Qiskit's Classical Registers,
+                                      where it will be stored the final classical outcomes/results,
+                                      after be performed a measurement on the qubits inside
+                                      the target IBM Qiskit's Quantum Registers.
+        """
+
+        self.qiskrypt_quantum_circuit \
+            .apply_barriers_set_qubits_in_set_qiskit_quantum_registers(self.qiskit_quantum_registers_indexes,
+                                                                       self.qubits_vertices_indexes)
+        """
+        Apply barriers to the IBM Qiskit's Quantum Registers, associated to the Cluster State itself and
+        the respective qubits, representing the vertices of the Cluster State.
+        """
+
+        num_quantum_registers = len(self.qiskit_quantum_registers_indexes)
+        """
+        Retrieve the number of the IBM Qiskit's Quantum Registers for the Qiskrypt's Cluster State.
+        """
+
+        num_qubits_vertices = len(self.qubits_vertices_indexes)
+        """
+        Retrieve the number of qubits for the Qiskrypt's Cluster State, representing its vertices.
+        """
+
+        self.qiskrypt_quantum_circuit \
+            .apply_controlled_pauli_z(self.qiskit_quantum_registers_indexes[0],
+                                      self.qiskit_quantum_registers_indexes[(num_quantum_registers - 1)],
+                                      self.qubits_vertices_indexes[0],
+                                      self.qubits_vertices_indexes[(num_qubits_vertices - 1)])
+        """
+        Apply the Controlled-Pauli-Z (Controlled-Phase-Flip/Controlled-Phase-Shifter) Gate/Operation to
+        the indexes of the first IBM Qiskit's Quantum Register and the respective qubit on it, as also,
+        of the last IBM Qiskit's Quantum Register and the current respective qubit on it.
+        """
+
+        qiskit_quantum_registers_indexes_reversed = self.qiskit_quantum_registers_indexes.copy()
+        """
+        Create a copy of the list of indexes of the IBM Qiskit's Quantum Registers, for its own reversal.
+        """
+
+        qubits_vertices_indexes_reversed = self.qubits_vertices_indexes.copy()
+        """
+        Create a copy of the list of indexes of the qubits,
+        representing the vertices of the Cluster State, for its own reversal.
+        """
+
+        qiskit_quantum_registers_indexes_reversed.reverse()
+        """
+        Reverse the list of indexes of the IBM Qiskit's Quantum Registers.
+        """
+
+        qubits_vertices_indexes_reversed.reverse()
+        """
+        Reverse the list of indexes of the qubits, representing the vertices of the Cluster State.
+        """
+
+        for qiskit_quantum_register_index, qubit_vertex_index in \
+                zip(range((num_quantum_registers - 1)), range((num_qubits_vertices - 1))):
+            """
+            For each pair of indexes for an IBM Qiskit's Quantum Register and a qubit,
+            representing a vertex of the Qiskrypt's Cluster State. 
+            """
+
+            self.qiskrypt_quantum_circuit \
+                .apply_controlled_pauli_z(qiskit_quantum_registers_indexes_reversed[(qiskit_quantum_register_index + 1)],
+                                          qiskit_quantum_registers_indexes_reversed[qiskit_quantum_register_index],
+                                          qubits_vertices_indexes_reversed[(qubit_vertex_index + 1)],
+                                          qubits_vertices_indexes_reversed[qubit_vertex_index])
+            """
+            Apply the Controlled-Pauli-Z (Controlled-Phase-Flip/Controlled-Phase-Shifter) Gate/Operation to
+            the indexes of the current IBM Qiskit's Quantum Register and the respective qubit on it, as also,
+            of the next IBM Qiskit's Quantum Register and the current respective qubit on it.
+            """
+
+        qiskrypt_quantum_hadamard_transform_cluster_state = \
+            QiskryptQuantumHadamardTransform("hadamard_transform_cluster_state",
+                                             self.qiskrypt_quantum_circuit,
+                                             self.qiskit_quantum_registers_indexes,
+                                             self.qubits_vertices_indexes)
+        """
+        Create the Qiskrypt's Quantum Hadamard Transform, for the Qiskrypt's Quantum Register and qubits involved.
+        """
+
+        qiskrypt_quantum_hadamard_transform_cluster_state.apply_transform()
+        """
+        Apply the Quantum Hadamard Transform to the Qiskrypt's Quantum Registers and qubits,
+        involved on the Qiskrypt's Cluster State.
+        """
+
+        self.qiskrypt_quantum_circuit = \
+            qiskrypt_quantum_hadamard_transform_cluster_state.get_qiskrypt_quantum_circuit()
+        """
+        Update the Qiskrypt's Quantum Circuit for the Cluster State,
+        from the previously created Qiskrypt's Quantum Hadamard Transform.
+        """
+
+        self.qiskrypt_quantum_circuit \
+            .apply_barriers_set_qubits_in_set_qiskit_quantum_registers(self.qiskit_quantum_registers_indexes,
+                                                                       self.qubits_vertices_indexes)
+        """
+        Apply barriers to the IBM Qiskit's Quantum Registers, associated to the Cluster State itself and
+        the respective qubits, representing the vertices of the Cluster State.
+        """
+
+        if is_to_measure_at_cluster_state_basis:
+            """
+            If the boolean flag to keep the information about
+            if it will be performed a measurement of
+            the Qiskrypt's Cluster State on the Cluster State Basis, is True.
+            """
+
+            if self.qiskrypt_quantum_circuit.get_total_num_bits() >= len(bits_vertices_indexes):
+                """
+                If the number of bits of the given Qiskrypt's Quantum Circuit is greater or equal than
+                the number of the bits inside the IBM Qiskit's Classical Registers,
+                representing the vertices of the Cluster State.
+                """
+
+                self.qiskrypt_quantum_circuit \
+                    .measure_set_qubits_in_set_qiskit_quantum_registers(self.qiskit_quantum_registers_indexes,
+                                                                        qiskit_classical_registers_indexes,
+                                                                        self.qubits_vertices_indexes,
+                                                                        bits_vertices_indexes)
+                """
+                Measure the qubits in the IBM Qiskit's Quantum Registers into
+                the respective bits in the IBM Qiskit's Classical Registers,
+                inside the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit.
+                """
+
+            else:
+                """
+                If the number of bits of the given Qiskrypt's Quantum Circuit is lower than
+                the number of the bits inside the IBM Qiskit's Classical Registers,
+                representing the vertices of the Cluster State.
                 """
 
                 # TODO - Throw Exception
