@@ -47,7 +47,7 @@ from unittest import TestCase, TestLoader, TestSuite
 Import TestCase, TestLoader and TestSuite from Unittest.
 """
 
-from src.true_random.password_generator.QiskryptQuantumRandomPasswordGenerator \
+from src.quantum.true_random.password_generator.QiskryptQuantumRandomPasswordGenerator \
     import QiskryptQuantumRandomPasswordGenerator
 """
 Import the Qiskrypt's Quantum Random Password Generator.

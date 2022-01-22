@@ -52,22 +52,22 @@ from qiskit import ClassicalRegister
 Import Classical Register from IBM's Qiskit.
 """
 
-from src.circuit.registers.quantum.QiskryptQuantumRegister import QiskryptQuantumRegister
+from src.quantum.circuit.registers.quantum.QiskryptQuantumRegister import QiskryptQuantumRegister
 """
 Import the Qiskrypt's Quantum Register.
 """
 
-from src.circuit.registers.quantum.fully_quantum.QiskryptFullyQuantumRegister import QiskryptFullyQuantumRegister
+from src.quantum.circuit.registers.quantum.fully_quantum.QiskryptFullyQuantumRegister import QiskryptFullyQuantumRegister
 """
 Import the Qiskrypt's Fully-Quantum Register.
 """
 
-from src.circuit.registers.quantum.semi_quantum.QiskryptSemiQuantumRegister import QiskryptSemiQuantumRegister
+from src.quantum.circuit.registers.quantum.semi_quantum.QiskryptSemiQuantumRegister import QiskryptSemiQuantumRegister
 """
 Import the Qiskrypt's Semi-Quantum Register.
 """
 
-from src.circuit.registers.classical.QiskryptClassicalRegister import QiskryptClassicalRegister
+from src.quantum.circuit.registers.classical.QiskryptClassicalRegister import QiskryptClassicalRegister
 """
 Import the Qiskrypt's Classical Register.
 """

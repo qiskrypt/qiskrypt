@@ -63,18 +63,18 @@ from qiskit import Aer, execute
 Import Aer Simulator and the Execute function from IBM's Qiskit.
 """
 
-from src.circuit.registers.quantum.QiskryptQuantumRegister \
+from src.quantum.circuit.registers.quantum.QiskryptQuantumRegister \
     import QiskryptQuantumRegister
 """
 Import the Qiskrypt's Quantum Register.
 """
 
-from src.circuit.QiskryptQuantumCircuit import QiskryptQuantumCircuit
+from src.quantum.circuit import QiskryptQuantumCircuit
 """
 Import the Qiskrypt's Quantum Circuit.
 """
 
-from src.transforms.hadamard.QiskryptQuantumHadamardTransform \
+from src.quantum.transforms.hadamard.QiskryptQuantumHadamardTransform \
     import QiskryptQuantumHadamardTransform
 """
 Import the Qiskrypt's Quantum Hadamard Transform.

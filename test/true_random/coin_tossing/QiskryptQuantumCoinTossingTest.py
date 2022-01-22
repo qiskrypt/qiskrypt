@@ -47,7 +47,7 @@ from unittest import TestCase, TestLoader, TestSuite
 Import TestCase, TestLoader and TestSuite from Unittest.
 """
 
-from src.true_random.coin_tossing.QiskryptQuantumCoinTossing import QiskryptQuantumCoinTossing
+from src.quantum.true_random import QiskryptQuantumCoinTossing
 """
 Import the Qiskrypt's Quantum Coin Tossing from Qiskrypt's True_Random.Coin_Tossing Module.
 """

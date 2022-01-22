@@ -63,19 +63,19 @@ from qiskit import Aer, execute
 Import Aer Simulator and the Execute function from IBM's Qiskit.
 """
 
-from src.circuit.registers.quantum.QiskryptQuantumRegister \
+from src.quantum.circuit.registers.quantum.QiskryptQuantumRegister \
     import QiskryptQuantumRegister
 """
 Import the Qiskrypt's Quantum Register.
 """
 
-from src.circuit.QiskryptQuantumCircuit \
+from src.quantum.circuit \
     import QiskryptQuantumCircuit
 """
 Import the Qiskrypt's Quantum Circuit.
 """
 
-from src.entanglements.bipartite.QiskryptBellState \
+from src.quantum.entanglements.bipartite.QiskryptBellState \
     import QiskryptBellState
 """
 Import the Qiskrypt's Bell State.
@@ -86,7 +86,7 @@ Import the Qiskrypt's Bell State.
 Import required Constants and Enumerations.
 """
 
-from src.entanglements.QiskryptQuantumEntanglement \
+from src.quantum.entanglements.QiskryptQuantumEntanglement \
     import POSSIBLE_CONFIGURATIONS_BELL_STATES
 """
 Import the available configurations for Bell States for

@@ -47,7 +47,7 @@ from unittest import TestCase, TestLoader, TestSuite
 Import TestCase, TestLoader and TestSuite from Unittest.
 """
 
-from src.true_random.dice_throwing.QiskryptQuantumDiceThrowing \
+from src.quantum.true_random \
     import QiskryptQuantumDiceThrowing
 """
 Import the Qiskrypt's Quantum Dice Throwing.
@@ -57,7 +57,7 @@ Import the Qiskrypt's Quantum Dice Throwing.
 Definition of Constants and Enumerations.
 """
 
-from src.true_random.dice_throwing.QiskryptQuantumDiceThrowing \
+from src.quantum.true_random \
     import DICE_TYPES
 """
 Import the Dice Types for all the configurations available for

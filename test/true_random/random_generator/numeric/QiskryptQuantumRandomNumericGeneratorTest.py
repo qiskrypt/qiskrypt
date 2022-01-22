@@ -47,7 +47,7 @@ from unittest import TestCase, TestLoader, TestSuite
 Import TestCase, TestLoader and TestSuite from Unittest.
 """
 
-from src.true_random.random_generator.numeric.QiskryptQuantumRandomNumericGenerator \
+from src.quantum.true_random.random_generator.numeric \
     import QiskryptQuantumRandomNumericGenerator
 """
 Import the Qiskrypt's Quantum Random Numeric Generator.
@@ -57,7 +57,7 @@ Import the Qiskrypt's Quantum Random Numeric Generator.
 Definition of Constants and Enumerations.
 """
 
-from src.true_random.random_generator.numeric.QiskryptQuantumRandomNumericGenerator \
+from src.quantum.true_random.random_generator.numeric \
     import DATA_TYPES
 """
 Import the Data Types for all the numbers that can be possibly generated.

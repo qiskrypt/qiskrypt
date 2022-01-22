@@ -47,7 +47,7 @@ from unittest import TestCase, TestLoader, TestSuite
 Import TestCase, TestLoader and TestSuite from Unittest.
 """
 
-from src.true_random.random_generator.alphabetic.QiskryptQuantumRandomAlphabeticGenerator \
+from src.quantum.true_random \
     import QiskryptQuantumRandomAlphabeticGenerator
 """
 Import the Qiskrypt's Quantum Random Alphabetic Generator.
