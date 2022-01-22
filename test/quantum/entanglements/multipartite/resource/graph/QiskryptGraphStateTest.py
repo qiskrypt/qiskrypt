@@ -822,6 +822,155 @@ class QiskryptGraphStateTests(TestCase):
         """
         self.assertEqual(True, True)
 
+    def test_no_6_prepare_computational_basis_qiskrypt_graph_state_square_4_qubits(self):
+        """
+        Test Case #6:
+
+        - Initialise the Qiskrypt's Graph State and prepare it, as an Entangled Quantum State,
+          in the Computational Basis.
+
+        Description of the Steps for the Unitary Test:
+        1) The Qiskrypt's Graph State is initialised and configured, for 4 qubits,
+           as a vertex path, with the configuration,
+            |K_4⟩ = (1 / 4) x (|0000⟩ + |0001⟩ + |0010⟩ - |0011⟩ +
+                               |0100⟩ - |0101⟩ + |0110⟩ + |0111⟩ +
+                               |1000⟩ + |1001⟩ - |1010⟩ + |1011⟩ -
+                               |1100⟩ + |1101⟩ + |1110⟩ + |1111⟩);
+        2) The Edges are: {(0,1) ; (0,2) ; (1,3) ; (2,3)},
+           and this is a square, K_4;
+        3) The Qiskrypt's Graph State is prepared, without measuring it, on the Computational Basis;
+
+        Return OK (or FAIL) if, all the Tests performed are OK (or FAIL, otherwise).
+        """
+
+        quantum_register_name = "qu_reg"
+        """
+        Set the name of the Qiskrypt's Quantum Register.
+        """
+
+        quantum_register_num_qubits = 4
+        """
+        Set the number of qubits for the Qiskrypt's Quantum Register.
+        """
+
+        qiskrypt_quantum_register = \
+            QiskryptQuantumRegister(name=quantum_register_name,
+                                    num_qubits=quantum_register_num_qubits,
+                                    qiskit_quantum_register=None)
+        """
+        Create a Qiskrypt's Quantum Register, given its name and number of qubits.
+        """
+
+        quantum_circuit_name = "qu_circ"
+        """
+        Set the name of the Qiskrypt's Quantum Circuit.
+        """
+
+        qiskrypt_quantum_circuit_graph_state_vertex_path_4_qubits_6 = \
+            QiskryptQuantumCircuit(name=quantum_circuit_name,
+                                   qiskrypt_quantum_registers=[qiskrypt_quantum_register],
+                                   qiskrypt_fully_quantum_registers=None,
+                                   qiskrypt_semi_quantum_registers=None,
+                                   qiskrypt_ancilla_quantum_registers=None,
+                                   qiskrypt_ancilla_fully_quantum_registers=None,
+                                   qiskrypt_ancilla_semi_quantum_registers=None,
+                                   qiskrypt_classical_registers=None,
+                                   global_phase=0)
+        """
+        Create a Qiskrypt's Quantum Circuit, given its name,
+        Qiskrypt's Quantum Registers, Qiskrypt's Fully-Quantum Registers,
+        Qiskrypt's Semi-Quantum Registers,
+        Qiskrypt's Ancilla Quantum Registers, Qiskrypt's Ancilla Fully-Quantum Registers,
+        Qiskrypt's Ancilla Semi-Quantum Registers,
+        Qiskrypt's Classical Registers and
+        Global Phase.
+        """
+
+        qiskrypt_graph_state_vertex_path_4_qubits_6 = \
+            QiskryptGraphState("graph_state_vertex_path_4_qubits_6",
+                               qiskrypt_quantum_circuit_graph_state_vertex_path_4_qubits_6)
+        """
+        Create a Qiskrypt's Graph State, for a generation of a Graph State,
+        as a vertex path, with 4 qubits.
+        """
+
+        qiskrypt_graph_state_vertex_path_4_qubits_6.configure([0, 0, 0, 0],
+                                                              [0, 1, 2, 3], [[[0, 0], [0, 1]],
+                                                                             [[0, 0], [0, 2]],
+                                                                             [[0, 1], [0, 3]],
+                                                                             [[0, 2], [0, 3]]])
+        """
+        Configure the Qiskrypt's Graph State, regarding its IBM Qiskit's Quantum Registers
+        and qubits, as well, its pairs of edges.
+        """
+
+        qiskrypt_graph_state_vertex_path_4_qubits_6 \
+            .prepare_multipartite_entanglement_at_computational_basis(is_to_measure_at_computational_basis=False,
+                                                                      qiskit_classical_registers_indexes=None,
+                                                                      bits_vertices_indexes=None)
+        """
+        Prepare the Multipartite Quantum Entanglement,
+        for the specified Qiskrypt's Graph State, as a Quantum Entangled State,
+        without measure it, on the Computational Basis.
+        """
+
+        qiskit_state_vector_backend = Aer.get_backend("statevector_simulator")
+        """
+        Getting the Aer Simulator Backend for the State Vector Representation
+        (i.e., the quantum_regime state represented as its state vector).
+        """
+
+        final_quantum_state_vector_state = \
+            execute(qiskrypt_graph_state_vertex_path_4_qubits_6.qiskrypt_quantum_circuit.qiskit_quantum_circuit,
+                    qiskit_state_vector_backend).result().get_statevector()
+        """
+        Execute the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit
+        and store the resulted quantum_regime state represented in a final state vector.
+        """
+
+        num_possible_outcomes = (2 ** quantum_register_num_qubits)
+        """
+        Compute the number of possible outcomes (i.e., 2^(quantum_register_num_qubits)).
+        """
+
+        graph_state_vertex_path_4_qubits_array_expected_amplitudes = \
+            full((num_possible_outcomes,), (1 / sqrt(num_possible_outcomes)) * (1. + 0.j))
+        """
+        Create and fill an array with (1. / 4) for the expected values of
+        the Qiskrypt's Graph State, as a vertex path, with 4 qubits.
+        """
+
+        qubits_indexes_symmetric_phase = [3, 5, 10, 12]
+        """
+        Compute the list of indexes of IBM Qiskit's Quantum Registers and qubits,
+        in a Quantum Superposition of States, expected to have symmetric phase.
+        """
+
+        for qubit_index_symmetric_phase in qubits_indexes_symmetric_phase:
+            """
+            For each index of the IBM Qiskit's Quantum Registers and qubits,
+            in a Quantum Superposition of States, expected to have symmetric phase.
+            """
+
+            graph_state_vertex_path_4_qubits_array_expected_amplitudes[qubit_index_symmetric_phase] *= -1.0
+            """
+            Fill the current position of the expected values of
+            the Qiskrypt's Graph State, with -((1. / 4) * (1. + 0.j)).
+            """
+
+        assert_allclose(final_quantum_state_vector_state,
+                        graph_state_vertex_path_4_qubits_array_expected_amplitudes,
+                        rtol=1e-7, atol=1e-7)
+        """
+        Perform the Assertion of all close values in the values of the quantum_regime state,
+        represented by its state vector describing the given qubits, after be prepared a Graph State.
+        """
+
+        """
+        Dummy Assert Equal for the Unittest.
+        """
+        self.assertEqual(True, True)
+
 
 if __name__ == "__main__":
     """
