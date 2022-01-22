@@ -1,7 +1,7 @@
 """
 
 Copyrights:\n
-- © Qiskrypt, 2021 - All rights reserved.\n
+- © Qiskrypt, 2022 - All rights reserved.\n
 
 Powered by:\n
 - IBM
