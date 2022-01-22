@@ -1,3 +1,5 @@
+venv/
+venv/**/*.py
 /venv/
 /venv/**/*.py
 /venv/Include/
