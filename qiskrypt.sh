@@ -8,7 +8,7 @@
 
 # Description:
 # - The Qiskrypt is a software suite of protocols of
-#   quantum cryptography, quantum communication and
+#   quantum_regime cryptography, quantum_regime communication and
 #   other protocols/algorithms, built using the IBM's Qiskit.
 
 # College(s):
