@@ -1,3 +1,4 @@
 /venv/
 /venv/Include/
 /venv/Lib/
+/venv/Lib/**/*.py
