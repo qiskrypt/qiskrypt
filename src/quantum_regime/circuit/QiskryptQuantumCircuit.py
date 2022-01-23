@@ -11,7 +11,7 @@ Powered by:\n
 
 Description:\n
 - The Qiskrypt is a software suite of protocols of
-  quantum_regime cryptography, quantum_regime communication and
+  quantum cryptography, quantum communication and
   other protocols/algorithms, built using the IBM's Qiskit.
 
 College(s):\n
@@ -4936,12 +4936,12 @@ class QiskryptQuantumCircuit:
 
     def get_num_qubits_in_qiskit_quantum_register(self, qiskit_quantum_register_index: int) -> int:
         """
-        Return the number of qubits in a given quantum_regime register of the Qiskrypt's Quantum Circuit.
+        Return the number of qubits in a given quantum register of the Qiskrypt's Quantum Circuit.
 
         :param qiskit_quantum_register_index: the IBM Qiskit's Quantum Register index.
 
         :return self.qiskit_quantum_circuit.qregs[qiskit_quantum_register_index].size: the number of qubits in
-                                                                                       a given quantum_regime register of
+                                                                                       a given quantum register of
                                                                                        the Qiskrypt's Quantum Circuit.
         """
 
