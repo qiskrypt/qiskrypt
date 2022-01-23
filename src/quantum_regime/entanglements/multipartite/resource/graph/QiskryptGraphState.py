@@ -11,7 +11,7 @@ Powered by:\n
 
 Description:\n
 - The Qiskrypt is a software suite of protocols of
-  quantum_regime cryptography, quantum_regime communication and
+  quantum cryptography, quantum communication and
   other protocols/algorithms, built using the IBM's Qiskit.
 
 College(s):\n
@@ -287,18 +287,18 @@ class QiskryptGraphState(QiskryptResourceState):
         Prepare the Multipartite Quantum Entanglement,
         for the specified Qiskrypt's Graph State, as a Quantum Entangled State,
         or even, apply also the measurement of that Quantum Entangled State, on the Computational Basis,
-        to allow the extraction of its final classical_regime outcome/result.
+        to allow the extraction of its final classical outcome/result.
 
         :param is_to_measure_at_computational_basis: the boolean flag to keep the information about
                                                      if it will be performed a measurement of
                                                      the Qiskrypt's Graph State on the Computational Basis.
         :param qiskit_classical_registers_indexes: the indexes of the IBM Qiskit's Classical Registers,
-                                                   where it belongs the bits to store the final classical_regime outcomes/results,
+                                                   where it belongs the bits to store the final classical outcomes/results,
                                                    after be performed a measurement on the qubits inside
                                                    the IBM Qiskit's Quantum Registers,
                                                    associated to the Graph State itself.
         :param bits_vertices_indexes: the indexes of the bits inside the IBM Qiskit's Classical Registers,
-                                      where it will be stored the final classical_regime outcomes/results,
+                                      where it will be stored the final classical outcomes/results,
                                       after be performed a measurement on the qubits inside
                                       the IBM Qiskit's Quantum Registers,
                                       representing the vertices of the Graph State.
@@ -387,6 +387,146 @@ class QiskryptGraphState(QiskryptResourceState):
                 """
 
                 self.qiskrypt_quantum_circuit\
+                    .measure_set_qubits_in_set_qiskit_quantum_registers(self.qiskit_quantum_registers_indexes,
+                                                                        qiskit_classical_registers_indexes,
+                                                                        self.qubits_vertices_indexes,
+                                                                        bits_vertices_indexes)
+                """
+                Measure the qubits in the IBM Qiskit's Quantum Registers into
+                the respective bits in the IBM Qiskit's Classical Registers,
+                inside the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit.
+                """
+
+            else:
+                """
+                If the number of bits of the given Qiskrypt's Quantum Circuit is lower than
+                the number of the bits inside the IBM Qiskit's Classical Registers,
+                representing the vertices of the Graph State.
+                """
+
+                # TODO - Throw Exception
+
+    def prepare_multipartite_entanglement_at_graph_state_basis(self, is_to_measure_at_graph_state_basis=False,
+                                                               qiskit_classical_registers_indexes=None,
+                                                               bits_vertices_indexes=None) -> None:
+        """
+        Prepare the Multipartite Quantum Entanglement,
+        for the specified Qiskrypt's Graph State, as a Quantum Entangled State,
+        or even, apply also the measurement of that Quantum Entangled State, on the Graph State Basis,
+        to allow the extraction of its final classical outcome/result.
+
+        :param is_to_measure_at_graph_state_basis: the boolean flag to keep the information about
+                                                   if it will be performed a measurement of
+                                                   the Qiskrypt's Graph State on the Graph State Basis.
+        :param qiskit_classical_registers_indexes: the indexes of the IBM Qiskit's Classical Registers,
+                                                   where it belongs the bits to store the final classical outcomes/results,
+                                                   after be performed a measurement on the qubits inside
+                                                   the IBM Qiskit's Quantum Registers,
+                                                   associated to the Graph State itself.
+        :param bits_vertices_indexes: the indexes of the bits inside the IBM Qiskit's Classical Registers,
+                                      where it will be stored the final classical outcomes/results,
+                                      after be performed a measurement on the qubits inside
+                                      the IBM Qiskit's Quantum Registers,
+                                      representing the vertices of the Graph State.
+        """
+
+        qubits_pairs_edges_indexes_reversed = self.qubits_pairs_edges_indexes
+        """
+        Duplicate the list of the pairs of indexes of the qubits inside the IBM Qiskit's Quantum Registers,
+        as well, the IBM Qiskit's Quantum Registers themselves,
+        representing the edges of the Graph State, as the given indexes for it.
+        """
+
+        qubits_pairs_edges_indexes_reversed.reverse()
+        """
+        Reverse the list of the pairs of indexes of the qubits inside the IBM Qiskit's Quantum Registers,
+        as well, the IBM Qiskit's Quantum Registers themselves,
+        representing the edges of the Graph State, as the given indexes for it.
+        """
+
+        self.qiskrypt_quantum_circuit \
+            .apply_barriers_set_qubits_in_set_qiskit_quantum_registers(self.qiskit_quantum_registers_indexes,
+                                                                       self.qubits_vertices_indexes)
+        """
+        Apply barriers to the IBM Qiskit's Quantum Registers, associated to the Graph State itself and
+        the respective qubits, representing the vertices of the Graph State.
+        """
+
+        for qubits_pair_edge_indexes_reversed in qubits_pairs_edges_indexes_reversed:
+            """
+            For each reversed edge pair of indexes of qubits,
+            inside the respective IBM Qiskit's Quantum Registers.
+            """
+
+            qiskit_quantum_register_and_qubit_pair_control = qubits_pair_edge_indexes_reversed[0]
+            """
+            Retrieve the reversed pair of the IBM Qiskit's Quantum Register and the respective qubit,
+            for the 1st vertex of the current edge pair, to be the control IBM Qiskit's Quantum Register and
+            the respective control qubit.
+            """
+
+            qiskit_quantum_register_and_qubit_pair_target = qubits_pair_edge_indexes_reversed[1]
+            """
+            Retrieve the reversed pair of the IBM Qiskit's Quantum Register and the respective qubit,
+            for the 2nd vertex of the current edge pair, to be the target IBM Qiskit's Quantum Register and
+            the respective target qubit.
+            """
+
+            self.qiskrypt_quantum_circuit.apply_controlled_pauli_z(qiskit_quantum_register_and_qubit_pair_control[0],
+                                                                   qiskit_quantum_register_and_qubit_pair_target[0],
+                                                                   qiskit_quantum_register_and_qubit_pair_control[1],
+                                                                   qiskit_quantum_register_and_qubit_pair_target[1])
+            """
+            Apply the Controlled-Pauli-Z (Controlled-Phase-Flip/Controlled-Phase-Shifter) Gate/Operation to
+            the indexes of the control IBM Qiskit's Quantum Register and the respective qubit on it, as also,
+            of the current target IBM Qiskit's Quantum Register and the current respective qubit on it.
+            """
+
+        qiskrypt_quantum_hadamard_transform_graph_state = \
+            QiskryptQuantumHadamardTransform("hadamard_transform_graph_state",
+                                             self.qiskrypt_quantum_circuit,
+                                             self.qiskit_quantum_registers_indexes,
+                                             self.qubits_vertices_indexes)
+        """
+        Create the Qiskrypt's Quantum Hadamard Transform, for the Qiskrypt's Quantum Register and qubits involved.
+        """
+
+        qiskrypt_quantum_hadamard_transform_graph_state.apply_transform()
+        """
+        Apply the Quantum Hadamard Transform to the Qiskrypt's Quantum Registers and qubits,
+        involved on the Qiskrypt's Graph State.
+        """
+
+        self.qiskrypt_quantum_circuit = \
+            qiskrypt_quantum_hadamard_transform_graph_state.get_qiskrypt_quantum_circuit()
+        """
+        Update the Qiskrypt's Quantum Circuit for the Graph State,
+        from the previously created Qiskrypt's Quantum Hadamard Transform.
+        """
+
+        self.qiskrypt_quantum_circuit \
+            .apply_barriers_set_qubits_in_set_qiskit_quantum_registers(self.qiskit_quantum_registers_indexes,
+                                                                       self.qubits_vertices_indexes)
+        """
+        Apply barriers to the IBM Qiskit's Quantum Registers, associated to the Graph State itself and
+        the respective qubits, representing the vertices of the Graph State.
+        """
+
+        if is_to_measure_at_graph_state_basis:
+            """
+            If the boolean flag to keep the information about
+            if it will be performed a measurement of
+            the Qiskrypt's Graph State on the Graph State Basis, is True.
+            """
+
+            if self.qiskrypt_quantum_circuit.get_total_num_bits() >= len(bits_vertices_indexes):
+                """
+                If the number of bits of the given Qiskrypt's Quantum Circuit is greater or equal than
+                the number of the bits inside the IBM Qiskit's Classical Registers,
+                representing the vertices of the Graph State.
+                """
+
+                self.qiskrypt_quantum_circuit \
                     .measure_set_qubits_in_set_qiskit_quantum_registers(self.qiskit_quantum_registers_indexes,
                                                                         qiskit_classical_registers_indexes,
                                                                         self.qubits_vertices_indexes,
