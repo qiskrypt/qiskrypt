@@ -11,7 +11,7 @@ Powered by:\n
 
 Description:\n
 - The Qiskrypt is a software suite of protocols of
-  quantum_regime cryptography, quantum_regime communication and
+  quantum cryptography, quantum communication and
   other protocols/algorithms, built using the IBM's Qiskit.
 
 College(s):\n
@@ -50,5 +50,5 @@ The maximum number of Qubits for the QASM (Quantum Assembly) Simulator of the IB
 QISKIT_DEFAULT_NUM_EXPERIMENT_COUNTS = 1000
 """
 The default number of experiment counts for the final result,
-for simulation or executions of quantum_regime circuits, using the IBM's Qiskit.
+for simulation or executions of quantum circuits, using the IBM's Qiskit.
 """

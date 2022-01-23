@@ -11,7 +11,7 @@ Powered by:\n
 
 Description:\n
 - The Qiskrypt is a software suite of protocols of
-  quantum_regime cryptography, quantum_regime communication and
+  quantum cryptography, quantum communication and
   other protocols/algorithms, built using the IBM's Qiskit.
 
 College(s):\n
@@ -213,18 +213,18 @@ class QiskryptClusterState(QiskryptResourceState):
         Prepare the Multipartite Quantum Entanglement,
         for the specified Qiskrypt's Cluster State, as a Quantum Entangled State,
         or even, apply also the measurement of that Quantum Entangled State, on the Computational Basis,
-        to allow the extraction of its final classical_regime outcome/result.
+        to allow the extraction of its final classical outcome/result.
 
         :param is_to_measure_at_computational_basis: the boolean flag to keep the information about
                                                      if it will be performed a measurement of
                                                      the Qiskrypt's Cluster State on the Computational Basis.
         :param qiskit_classical_registers_indexes: the indexes of the IBM Qiskit's Classical Registers,
-                                                   where it belongs the bits to store the final classical_regime outcomes/results,
+                                                   where it belongs the bits to store the final classical outcomes/results,
                                                    after be performed a measurement on the qubits inside
                                                    the IBM Qiskit's Quantum Registers,
                                                    associated to the Cluster State itself.
         :param bits_vertices_indexes: the indexes of the bits inside the IBM Qiskit's Classical Registers,
-                                      where it will be stored the final classical_regime outcomes/results,
+                                      where it will be stored the final classical outcomes/results,
                                       after be performed a measurement on the qubits inside
                                       the IBM Qiskit's Quantum Registers,
                                       representing the vertices of the Cluster State.
@@ -348,17 +348,17 @@ class QiskryptClusterState(QiskryptResourceState):
         Prepare the Multipartite Quantum Entanglement,
         for the specified Qiskrypt's Cluster State, as a Quantum Entangled State,
         or even, apply also the measurement of that Quantum Entangled State, on the Cluster State Basis,
-        to allow the extraction of its final classical_regime outcome/result.
+        to allow the extraction of its final classical outcome/result.
 
         :param is_to_measure_at_cluster_state_basis: the boolean flag to keep the information about
                                                      if it will be performed a measurement of
                                                      the Qiskrypt's Cluster State on the Cluster State Basis.
         :param qiskit_classical_registers_indexes: the indexes of the target IBM Qiskit's Classical Registers,
-                                                   where it belongs the bits to store the final classical_regime outcomes/results,
+                                                   where it belongs the bits to store the final classical outcomes/results,
                                                    after be performed a measurement on the qubits inside
                                                    the target IBM Qiskit's Quantum Registers.
         :param bits_vertices_indexes: the indexes of the bits inside the target IBM Qiskit's Classical Registers,
-                                      where it will be stored the final classical_regime outcomes/results,
+                                      where it will be stored the final classical outcomes/results,
                                       after be performed a measurement on the qubits inside
                                       the target IBM Qiskit's Quantum Registers.
         """

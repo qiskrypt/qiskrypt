@@ -11,7 +11,7 @@ Powered by:\n
 
 Description:\n
 - The Qiskrypt is a software suite of protocols of
-  quantum_regime cryptography, quantum_regime communication and
+  quantum cryptography, quantum communication and
   other protocols/algorithms, built using the IBM's Qiskit.
 
 College(s):\n
@@ -187,7 +187,7 @@ class QiskryptBellStateTests(TestCase):
         qiskit_state_vector_backend = Aer.get_backend("statevector_simulator")
         """
         Getting the Aer Simulator Backend for the State Vector Representation
-        (i.e., the quantum_regime state represented as its state vector).
+        (i.e., the quantum state represented as its state vector).
         """
 
         final_quantum_state_vector_state = \
@@ -195,7 +195,7 @@ class QiskryptBellStateTests(TestCase):
                     qiskit_state_vector_backend).result().get_statevector()
         """
         Execute the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit
-        and store the resulted quantum_regime state represented in a final state vector.
+        and store the resulted quantum state represented in a final state vector.
         """
 
         assert_allclose(final_quantum_state_vector_state,
@@ -205,7 +205,7 @@ class QiskryptBellStateTests(TestCase):
                                ((1. / sqrt(2.)) + 0.j)]),
                         rtol=1e-7, atol=1e-7)
         """
-        Perform the Assertion of all close values in the values of the quantum_regime state,
+        Perform the Assertion of all close values in the values of the quantum state,
         represented by its state vector describing the given qubits,
         after be prepared a Bell's State with the configuration,
         |ϕ^+⟩ = 1/sqrt(2) x (|00⟩ + |11⟩) (also known as, EPR Pair).
@@ -304,7 +304,7 @@ class QiskryptBellStateTests(TestCase):
         qiskit_state_vector_backend = Aer.get_backend("statevector_simulator")
         """
         Getting the Aer Simulator Backend for the State Vector Representation
-        (i.e., the quantum_regime state represented as its state vector).
+        (i.e., the quantum state represented as its state vector).
         """
 
         final_quantum_state_vector_state = \
@@ -312,7 +312,7 @@ class QiskryptBellStateTests(TestCase):
                     qiskit_state_vector_backend).result().get_statevector()
         """
         Execute the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit
-        and store the resulted quantum_regime state represented in a final state vector.
+        and store the resulted quantum state represented in a final state vector.
         """
 
         assert_allclose(final_quantum_state_vector_state,
@@ -322,7 +322,7 @@ class QiskryptBellStateTests(TestCase):
                                -((1. / sqrt(2.)) + 0.j)]),
                         rtol=1e-7, atol=1e-7)
         """
-        Perform the Assertion of all close values in the values of the quantum_regime state,
+        Perform the Assertion of all close values in the values of the quantum state,
         represented by its state vector describing the given qubits,
         after be prepared a Bell's State with the configuration,
         |ϕ^-⟩ = 1/sqrt(2) x (|00⟩ - |11⟩).
@@ -420,7 +420,7 @@ class QiskryptBellStateTests(TestCase):
         qiskit_state_vector_backend = Aer.get_backend("statevector_simulator")
         """
         Getting the Aer Simulator Backend for the State Vector Representation
-        (i.e., the quantum_regime state represented as its state vector).
+        (i.e., the quantum state represented as its state vector).
         """
 
         final_quantum_state_vector_state = \
@@ -428,7 +428,7 @@ class QiskryptBellStateTests(TestCase):
                     qiskit_state_vector_backend).result().get_statevector()
         """
         Execute the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit
-        and store the resulted quantum_regime state represented in a final state vector.
+        and store the resulted quantum state represented in a final state vector.
         """
 
         assert_allclose(final_quantum_state_vector_state,
@@ -438,7 +438,7 @@ class QiskryptBellStateTests(TestCase):
                                (0. + 0.j)]),
                         rtol=1e-7, atol=1e-7)
         """
-        Perform the Assertion of all close values in the values of the quantum_regime state,
+        Perform the Assertion of all close values in the values of the quantum state,
         represented by its state vector describing the given qubits,
         after be prepared a Bell's State with the configuration,
         |ψ^+⟩ = 1/sqrt(2) x (|01⟩ + |10⟩).
@@ -536,7 +536,7 @@ class QiskryptBellStateTests(TestCase):
         qiskit_state_vector_backend = Aer.get_backend("statevector_simulator")
         """
         Getting the Aer Simulator Backend for the State Vector Representation
-        (i.e., the quantum_regime state represented as its state vector).
+        (i.e., the quantum state represented as its state vector).
         """
 
         final_quantum_state_vector_state = \
@@ -544,7 +544,7 @@ class QiskryptBellStateTests(TestCase):
                     qiskit_state_vector_backend).result().get_statevector()
         """
         Execute the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit
-        and store the resulted quantum_regime state represented in a final state vector.
+        and store the resulted quantum state represented in a final state vector.
         """
 
         assert_allclose(final_quantum_state_vector_state,
@@ -554,7 +554,7 @@ class QiskryptBellStateTests(TestCase):
                                (0. + 0.j)]),
                         rtol=1e-7, atol=1e-7)
         """
-        Perform the Assertion of all close values in the values of the quantum_regime state,
+        Perform the Assertion of all close values in the values of the quantum state,
         represented by its state vector describing the given qubits,
         after be prepared a Bell's State with the configuration,
         |ψ^-⟩ = 1/sqrt(2) x (|01⟩ - |10⟩).
@@ -573,7 +573,7 @@ class QiskryptBellStateTests(TestCase):
           in the Bell State Basis.
 
         Description of the Steps for the Unitary Test:
-        1) The Qiskrypt's Quantum Register is prepared on the quantum_regime state, |00⟩;
+        1) The Qiskrypt's Quantum Register is prepared on the quantum state, |00⟩;
         2) The Qiskrypt's Bell State is initialised and configured;
         3) The Qiskrypt's Bell State with the configuration,
            |ϕ^+⟩ = 1/sqrt(2) x (|00⟩ + |11⟩) (also known as, EPR Pair),
@@ -581,7 +581,7 @@ class QiskryptBellStateTests(TestCase):
         4) The Qiskrypt's Bell State with the configuration,
            |ϕ^+⟩ = 1/sqrt(2) x (|00⟩ + |11⟩) (also known as, EPR Pair),
            is prepared, without measuring it, on the Bell State Basis,
-           resulting on the initial quantum_regime state, |00⟩;
+           resulting on the initial quantum state, |00⟩;
 
         Return OK (or FAIL) if, all the Tests performed are OK (or FAIL, otherwise).
         """
@@ -669,7 +669,7 @@ class QiskryptBellStateTests(TestCase):
         qiskit_state_vector_backend = Aer.get_backend("statevector_simulator")
         """
         Getting the Aer Simulator Backend for the State Vector Representation
-        (i.e., the quantum_regime state represented as its state vector).
+        (i.e., the quantum state represented as its state vector).
         """
 
         final_quantum_state_vector_state = \
@@ -677,7 +677,7 @@ class QiskryptBellStateTests(TestCase):
                     qiskit_state_vector_backend).result().get_statevector()
         """
         Execute the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit
-        and store the resulted quantum_regime state represented in a final state vector.
+        and store the resulted quantum state represented in a final state vector.
         """
 
         assert_allclose(final_quantum_state_vector_state,
@@ -687,9 +687,9 @@ class QiskryptBellStateTests(TestCase):
                                (0. + 0.j)]),
                         rtol=1e-7, atol=1e-7)
         """
-        Perform the Assertion of all close values in the values of the quantum_regime state,
+        Perform the Assertion of all close values in the values of the quantum state,
         represented by its state vector describing the given qubits,
-        after be initialised a quantum_regime state as |00⟩,
+        after be initialised a quantum state as |00⟩,
         then prepared Bell's State with the configuration,
         |ϕ^+⟩ = 1/sqrt(2) x (|00⟩ + |11⟩) (also known as, EPR Pair),
         on the Computational Basis and then reverting it,
@@ -709,7 +709,7 @@ class QiskryptBellStateTests(TestCase):
           in the Bell State Basis.
 
         Description of the Steps for the Unitary Test:
-        1) The Qiskrypt's Quantum Register is prepared on the quantum_regime state, |01⟩;
+        1) The Qiskrypt's Quantum Register is prepared on the quantum state, |01⟩;
         2) The Qiskrypt's Bell State is initialised and configured;
         3) The Qiskrypt's Bell State with the configuration,
            |ϕ^+⟩ = 1/sqrt(2) x (|00⟩ + |11⟩) (also known as, EPR Pair),
@@ -717,7 +717,7 @@ class QiskryptBellStateTests(TestCase):
         4) The Qiskrypt's Bell State with the configuration,
            |ϕ^+⟩ = 1/sqrt(2) x (|00⟩ + |11⟩) (also known as, EPR Pair),
            is prepared, without measuring it, on the Bell State Basis,
-           resulting on the initial quantum_regime state, |01⟩;
+           resulting on the initial quantum state, |01⟩;
 
         Return OK (or FAIL) if, all the Tests performed are OK (or FAIL, otherwise).
         """
@@ -812,7 +812,7 @@ class QiskryptBellStateTests(TestCase):
         qiskit_state_vector_backend = Aer.get_backend("statevector_simulator")
         """
         Getting the Aer Simulator Backend for the State Vector Representation
-        (i.e., the quantum_regime state represented as its state vector).
+        (i.e., the quantum state represented as its state vector).
         """
 
         final_quantum_state_vector_state = \
@@ -820,7 +820,7 @@ class QiskryptBellStateTests(TestCase):
                     qiskit_state_vector_backend).result().get_statevector()
         """
         Execute the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit
-        and store the resulted quantum_regime state represented in a final state vector.
+        and store the resulted quantum state represented in a final state vector.
         """
 
         assert_allclose(final_quantum_state_vector_state,
@@ -830,9 +830,9 @@ class QiskryptBellStateTests(TestCase):
                                (0. + 0.j)]),
                         rtol=1e-7, atol=1e-7)
         """
-        Perform the Assertion of all close values in the values of the quantum_regime state,
+        Perform the Assertion of all close values in the values of the quantum state,
         represented by its state vector describing the given qubits,
-        after be initialised a quantum_regime state as |01⟩,
+        after be initialised a quantum state as |01⟩,
         then prepared Bell's State with the configuration,
         |ϕ^+⟩ = 1/sqrt(2) x (|00⟩ + |11⟩) (also known as, EPR Pair),
         on the Computational Basis and then reverting it,
@@ -852,7 +852,7 @@ class QiskryptBellStateTests(TestCase):
           in the Bell State Basis.
 
         Description of the Steps for the Unitary Test:
-        1) The Qiskrypt's Quantum Register is prepared on the quantum_regime state, |10⟩;
+        1) The Qiskrypt's Quantum Register is prepared on the quantum state, |10⟩;
         2) The Qiskrypt's Bell State is initialised and configured;
         3) The Qiskrypt's Bell State with the configuration,
            |ϕ^+⟩ = 1/sqrt(2) x (|00⟩ + |11⟩) (also known as, EPR Pair),
@@ -860,7 +860,7 @@ class QiskryptBellStateTests(TestCase):
         4) The Qiskrypt's Bell State with the configuration,
            |ϕ^+⟩ = 1/sqrt(2) x (|00⟩ + |11⟩) (also known as, EPR Pair),
            is prepared, without measuring it, on the Bell State Basis,
-           resulting on the initial quantum_regime state, |10⟩;
+           resulting on the initial quantum state, |10⟩;
 
         Return OK (or FAIL) if, all the Tests performed are OK (or FAIL, otherwise).
         """
@@ -955,7 +955,7 @@ class QiskryptBellStateTests(TestCase):
         qiskit_state_vector_backend = Aer.get_backend("statevector_simulator")
         """
         Getting the Aer Simulator Backend for the State Vector Representation
-        (i.e., the quantum_regime state represented as its state vector).
+        (i.e., the quantum state represented as its state vector).
         """
 
         final_quantum_state_vector_state = \
@@ -963,7 +963,7 @@ class QiskryptBellStateTests(TestCase):
                     qiskit_state_vector_backend).result().get_statevector()
         """
         Execute the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit
-        and store the resulted quantum_regime state represented in a final state vector.
+        and store the resulted quantum state represented in a final state vector.
         """
 
         assert_allclose(final_quantum_state_vector_state,
@@ -973,9 +973,9 @@ class QiskryptBellStateTests(TestCase):
                                (0. + 0.j)]),
                         rtol=1e-7, atol=1e-7)
         """
-        Perform the Assertion of all close values in the values of the quantum_regime state,
+        Perform the Assertion of all close values in the values of the quantum state,
         represented by its state vector describing the given qubits,
-        after be initialised a quantum_regime state as |10⟩,
+        after be initialised a quantum state as |10⟩,
         then prepared Bell's State with the configuration,
         |ϕ^+⟩ = 1/sqrt(2) x (|00⟩ + |11⟩) (also known as, EPR Pair),
         on the Computational Basis and then reverting it,
@@ -995,7 +995,7 @@ class QiskryptBellStateTests(TestCase):
           and then, measure in the Bell State Basis.
 
         Description of the Steps for the Unitary Test:
-        1) The Qiskrypt's Quantum Register is prepared on the quantum_regime state, |11⟩;
+        1) The Qiskrypt's Quantum Register is prepared on the quantum state, |11⟩;
         2) The Qiskrypt's Bell State is initialised and configured;
         3) The Qiskrypt's Bell State with the configuration,
            |ϕ^+⟩ = 1/sqrt(2) x (|00⟩ + |11⟩) (also known as, EPR Pair),
@@ -1003,7 +1003,7 @@ class QiskryptBellStateTests(TestCase):
         4) The Qiskrypt's Bell State with the configuration,
            |ϕ^+⟩ = 1/sqrt(2) x (|00⟩ + |11⟩) (also known as, EPR Pair),
            is prepared, without measuring it, on the Bell State Basis,
-           resulting on the initial quantum_regime state, |11⟩;
+           resulting on the initial quantum state, |11⟩;
 
         Return OK (or FAIL) if, all the Tests performed are OK (or FAIL, otherwise).
         """
@@ -1105,7 +1105,7 @@ class QiskryptBellStateTests(TestCase):
         qiskit_state_vector_backend = Aer.get_backend("statevector_simulator")
         """
         Getting the Aer Simulator Backend for the State Vector Representation
-        (i.e., the quantum_regime state represented as its state vector).
+        (i.e., the quantum state represented as its state vector).
         """
 
         final_quantum_state_vector_state = \
@@ -1113,7 +1113,7 @@ class QiskryptBellStateTests(TestCase):
                     qiskit_state_vector_backend).result().get_statevector()
         """
         Execute the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit
-        and store the resulted quantum_regime state represented in a final state vector.
+        and store the resulted quantum state represented in a final state vector.
         """
 
         assert_allclose(final_quantum_state_vector_state,
@@ -1123,9 +1123,9 @@ class QiskryptBellStateTests(TestCase):
                                (1. + 0.j)]),
                         rtol=1e-7, atol=1e-7)
         """
-        Perform the Assertion of all close values in the values of the quantum_regime state,
+        Perform the Assertion of all close values in the values of the quantum state,
         represented by its state vector describing the given qubits,
-        after be initialised a quantum_regime state as |11⟩,
+        after be initialised a quantum state as |11⟩,
         then prepared Bell's State with the configuration,
         |ϕ^+⟩ = 1/sqrt(2) x (|00⟩ + |11⟩) (also known as, EPR Pair),
         on the Computational Basis and then reverting it,
@@ -1145,7 +1145,7 @@ class QiskryptBellStateTests(TestCase):
           and then, measure in the Bell State Basis.
 
         Description of the Steps for the Unitary Test:
-        1) The Qiskrypt's Quantum Register is prepared on the quantum_regime state, |00⟩;
+        1) The Qiskrypt's Quantum Register is prepared on the quantum state, |00⟩;
         2) The Qiskrypt's Bell State is initialised and configured;
         3) The Qiskrypt's Bell State with the configuration,
            |ϕ^-⟩ = 1/sqrt(2) x (|00⟩ - |11⟩),
@@ -1153,7 +1153,7 @@ class QiskryptBellStateTests(TestCase):
         4) The Qiskrypt's Bell State with the configuration,
            |ϕ^-⟩ = 1/sqrt(2) x (|00⟩ - |11⟩),
            is prepared, without measuring it, on the Bell State Basis,
-           resulting on the initial quantum_regime state, |00⟩;
+           resulting on the initial quantum state, |00⟩;
 
         Return OK (or FAIL) if, all the Tests performed are OK (or FAIL, otherwise).
         """
@@ -1241,7 +1241,7 @@ class QiskryptBellStateTests(TestCase):
         qiskit_state_vector_backend = Aer.get_backend("statevector_simulator")
         """
         Getting the Aer Simulator Backend for the State Vector Representation
-        (i.e., the quantum_regime state represented as its state vector).
+        (i.e., the quantum state represented as its state vector).
         """
 
         final_quantum_state_vector_state = \
@@ -1249,7 +1249,7 @@ class QiskryptBellStateTests(TestCase):
                     qiskit_state_vector_backend).result().get_statevector()
         """
         Execute the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit
-        and store the resulted quantum_regime state represented in a final state vector.
+        and store the resulted quantum state represented in a final state vector.
         """
 
         assert_allclose(final_quantum_state_vector_state,
@@ -1259,9 +1259,9 @@ class QiskryptBellStateTests(TestCase):
                                (0. + 0.j)]),
                         rtol=1e-7, atol=1e-7)
         """
-        Perform the Assertion of all close values in the values of the quantum_regime state,
+        Perform the Assertion of all close values in the values of the quantum state,
         represented by its state vector describing the given qubits,
-        after be initialised a quantum_regime state as |00⟩,
+        after be initialised a quantum state as |00⟩,
         then prepared Bell's State with the configuration,
         |ϕ^+⟩ = 1/sqrt(2) x (|00⟩ - |11⟩),
         on the Computational Basis and then reverting it,
@@ -1281,7 +1281,7 @@ class QiskryptBellStateTests(TestCase):
           and then, measure in the Bell State Basis.
 
         Description of the Steps for the Unitary Test:
-        1) The Qiskrypt's Quantum Register is prepared on the quantum_regime state, |01⟩;
+        1) The Qiskrypt's Quantum Register is prepared on the quantum state, |01⟩;
         2) The Qiskrypt's Bell State is initialised and configured;
         3) The Qiskrypt's Bell State with the configuration,
            |ϕ^-⟩ = 1/sqrt(2) x (|00⟩ - |11⟩),
@@ -1289,7 +1289,7 @@ class QiskryptBellStateTests(TestCase):
         4) The Qiskrypt's Bell State with the configuration,
            |ϕ^-⟩ = 1/sqrt(2) x (|00⟩ - |11⟩),
            is prepared, without measuring it, on the Bell State Basis,
-           resulting on the initial quantum_regime state, |01⟩;
+           resulting on the initial quantum state, |01⟩;
 
         Return OK (or FAIL) if, all the Tests performed are OK (or FAIL, otherwise).
         """
@@ -1384,7 +1384,7 @@ class QiskryptBellStateTests(TestCase):
         qiskit_state_vector_backend = Aer.get_backend("statevector_simulator")
         """
         Getting the Aer Simulator Backend for the State Vector Representation
-        (i.e., the quantum_regime state represented as its state vector).
+        (i.e., the quantum state represented as its state vector).
         """
 
         final_quantum_state_vector_state = \
@@ -1392,7 +1392,7 @@ class QiskryptBellStateTests(TestCase):
                     qiskit_state_vector_backend).result().get_statevector()
         """
         Execute the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit
-        and store the resulted quantum_regime state represented in a final state vector.
+        and store the resulted quantum state represented in a final state vector.
         """
 
         assert_allclose(final_quantum_state_vector_state,
@@ -1402,9 +1402,9 @@ class QiskryptBellStateTests(TestCase):
                                (0. + 0.j)]),
                         rtol=1e-7, atol=1e-7)
         """
-        Perform the Assertion of all close values in the values of the quantum_regime state,
+        Perform the Assertion of all close values in the values of the quantum state,
         represented by its state vector describing the given qubits,
-        after be initialised a quantum_regime state as |01⟩,
+        after be initialised a quantum state as |01⟩,
         then prepared Bell's State with the configuration,
         |ϕ^+⟩ = 1/sqrt(2) x (|00⟩ - |11⟩),
         on the Computational Basis and then reverting it,
@@ -1424,7 +1424,7 @@ class QiskryptBellStateTests(TestCase):
           and then, measure in the Bell State Basis.
 
         Description of the Steps for the Unitary Test:
-        1) The Qiskrypt's Quantum Register is prepared on the quantum_regime state, |10⟩;
+        1) The Qiskrypt's Quantum Register is prepared on the quantum state, |10⟩;
         2) The Qiskrypt's Bell State is initialised and configured;
         3) The Qiskrypt's Bell State with the configuration,
            |ϕ^-⟩ = 1/sqrt(2) x (|00⟩ - |11⟩),
@@ -1432,7 +1432,7 @@ class QiskryptBellStateTests(TestCase):
         4) The Qiskrypt's Bell State with the configuration,
            |ϕ^-⟩ = 1/sqrt(2) x (|00⟩ - |11⟩),
            is prepared, without measuring it, on the Bell State Basis,
-           resulting on the initial quantum_regime state, |10⟩;
+           resulting on the initial quantum state, |10⟩;
 
         Return OK (or FAIL) if, all the Tests performed are OK (or FAIL, otherwise).
         """
@@ -1527,7 +1527,7 @@ class QiskryptBellStateTests(TestCase):
         qiskit_state_vector_backend = Aer.get_backend("statevector_simulator")
         """
         Getting the Aer Simulator Backend for the State Vector Representation
-        (i.e., the quantum_regime state represented as its state vector).
+        (i.e., the quantum state represented as its state vector).
         """
 
         final_quantum_state_vector_state = \
@@ -1535,7 +1535,7 @@ class QiskryptBellStateTests(TestCase):
                     qiskit_state_vector_backend).result().get_statevector()
         """
         Execute the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit
-        and store the resulted quantum_regime state represented in a final state vector.
+        and store the resulted quantum state represented in a final state vector.
         """
 
         assert_allclose(final_quantum_state_vector_state,
@@ -1545,9 +1545,9 @@ class QiskryptBellStateTests(TestCase):
                                (0. + 0.j)]),
                         rtol=1e-7, atol=1e-7)
         """
-        Perform the Assertion of all close values in the values of the quantum_regime state,
+        Perform the Assertion of all close values in the values of the quantum state,
         represented by its state vector describing the given qubits,
-        after be initialised a quantum_regime state as |10⟩,
+        after be initialised a quantum state as |10⟩,
         then prepared Bell's State with the configuration,
         |ϕ^+⟩ = 1/sqrt(2) x (|00⟩ - |11⟩),
         on the Computational Basis and then reverting it,
@@ -1567,7 +1567,7 @@ class QiskryptBellStateTests(TestCase):
           and then, measure in the Bell State Basis.
 
         Description of the Steps for the Unitary Test:
-        1) The Qiskrypt's Quantum Register is prepared on the quantum_regime state, |11⟩;
+        1) The Qiskrypt's Quantum Register is prepared on the quantum state, |11⟩;
         2) The Qiskrypt's Bell State is initialised and configured;
         3) The Qiskrypt's Bell State with the configuration,
            |ϕ^-⟩ = 1/sqrt(2) x (|00⟩ - |11⟩),
@@ -1575,7 +1575,7 @@ class QiskryptBellStateTests(TestCase):
         4) The Qiskrypt's Bell State with the configuration,
            |ϕ^-⟩ = 1/sqrt(2) x (|00⟩ - |11⟩),
            is prepared, without measuring it, on the Bell State Basis,
-           resulting on the initial quantum_regime state, |11⟩;
+           resulting on the initial quantum state, |11⟩;
 
         Return OK (or FAIL) if, all the Tests performed are OK (or FAIL, otherwise).
         """
@@ -1677,7 +1677,7 @@ class QiskryptBellStateTests(TestCase):
         qiskit_state_vector_backend = Aer.get_backend("statevector_simulator")
         """
         Getting the Aer Simulator Backend for the State Vector Representation
-        (i.e., the quantum_regime state represented as its state vector).
+        (i.e., the quantum state represented as its state vector).
         """
 
         final_quantum_state_vector_state = \
@@ -1685,7 +1685,7 @@ class QiskryptBellStateTests(TestCase):
                     qiskit_state_vector_backend).result().get_statevector()
         """
         Execute the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit
-        and store the resulted quantum_regime state represented in a final state vector.
+        and store the resulted quantum state represented in a final state vector.
         """
 
         assert_allclose(final_quantum_state_vector_state,
@@ -1695,9 +1695,9 @@ class QiskryptBellStateTests(TestCase):
                                (1. + 0.j)]),
                         rtol=1e-7, atol=1e-7)
         """
-        Perform the Assertion of all close values in the values of the quantum_regime state,
+        Perform the Assertion of all close values in the values of the quantum state,
         represented by its state vector describing the given qubits,
-        after be initialised a quantum_regime state as |11⟩,
+        after be initialised a quantum state as |11⟩,
         then prepared Bell's State with the configuration,
         |ϕ^+⟩ = 1/sqrt(2) x (|00⟩ - |11⟩),
         on the Computational Basis and then reverting it,
@@ -1717,7 +1717,7 @@ class QiskryptBellStateTests(TestCase):
           and then, measure in the Bell State Basis.
 
         Description of the Steps for the Unitary Test:
-        1) The Qiskrypt's Quantum Register is prepared on the quantum_regime state, |00⟩;
+        1) The Qiskrypt's Quantum Register is prepared on the quantum state, |00⟩;
         2) The Qiskrypt's Bell State is initialised and configured;
         3) The Qiskrypt's Bell State with the configuration,
            |ψ^+⟩ = 1/sqrt(2) x (|01⟩ + |10⟩),
@@ -1725,7 +1725,7 @@ class QiskryptBellStateTests(TestCase):
         4) The Qiskrypt's Bell State with the configuration,
            |ψ^+⟩ = 1/sqrt(2) x (|01⟩ + |10⟩),
            is prepared, without measuring it, on the Bell State Basis,
-           resulting on the initial quantum_regime state, |00⟩;
+           resulting on the initial quantum state, |00⟩;
 
         Return OK (or FAIL) if, all the Tests performed are OK (or FAIL, otherwise).
         """
@@ -1813,7 +1813,7 @@ class QiskryptBellStateTests(TestCase):
         qiskit_state_vector_backend = Aer.get_backend("statevector_simulator")
         """
         Getting the Aer Simulator Backend for the State Vector Representation
-        (i.e., the quantum_regime state represented as its state vector).
+        (i.e., the quantum state represented as its state vector).
         """
 
         final_quantum_state_vector_state = \
@@ -1821,7 +1821,7 @@ class QiskryptBellStateTests(TestCase):
                     qiskit_state_vector_backend).result().get_statevector()
         """
         Execute the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit
-        and store the resulted quantum_regime state represented in a final state vector.
+        and store the resulted quantum state represented in a final state vector.
         """
 
         assert_allclose(final_quantum_state_vector_state,
@@ -1831,9 +1831,9 @@ class QiskryptBellStateTests(TestCase):
                                (0. + 0.j)]),
                         rtol=1e-7, atol=1e-7)
         """
-        Perform the Assertion of all close values in the values of the quantum_regime state,
+        Perform the Assertion of all close values in the values of the quantum state,
         represented by its state vector describing the given qubits,
-        after be initialised a quantum_regime state as |00⟩,
+        after be initialised a quantum state as |00⟩,
         then prepared Bell's State with the configuration,
         |ψ^+⟩ = 1/sqrt(2) x (|01⟩ + |10⟩),
         on the Computational Basis and then reverting it,
@@ -1853,7 +1853,7 @@ class QiskryptBellStateTests(TestCase):
           and then, measure in the Bell State Basis.
 
         Description of the Steps for the Unitary Test:
-        1) The Qiskrypt's Quantum Register is prepared on the quantum_regime state, |01⟩;
+        1) The Qiskrypt's Quantum Register is prepared on the quantum state, |01⟩;
         2) The Qiskrypt's Bell State is initialised and configured;
         3) The Qiskrypt's Bell State with the configuration,
            |ψ^+⟩ = 1/sqrt(2) x (|01⟩ + |10⟩),
@@ -1861,7 +1861,7 @@ class QiskryptBellStateTests(TestCase):
         4) The Qiskrypt's Bell State with the configuration,
            |ψ^+⟩ = 1/sqrt(2) x (|01⟩ + |10⟩),
            is prepared, without measuring it, on the Bell State Basis,
-           resulting on the initial quantum_regime state, |01⟩;
+           resulting on the initial quantum state, |01⟩;
 
         Return OK (or FAIL) if, all the Tests performed are OK (or FAIL, otherwise).
         """
@@ -1956,7 +1956,7 @@ class QiskryptBellStateTests(TestCase):
         qiskit_state_vector_backend = Aer.get_backend("statevector_simulator")
         """
         Getting the Aer Simulator Backend for the State Vector Representation
-        (i.e., the quantum_regime state represented as its state vector).
+        (i.e., the quantum state represented as its state vector).
         """
 
         final_quantum_state_vector_state = \
@@ -1964,7 +1964,7 @@ class QiskryptBellStateTests(TestCase):
                     qiskit_state_vector_backend).result().get_statevector()
         """
         Execute the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit
-        and store the resulted quantum_regime state represented in a final state vector.
+        and store the resulted quantum state represented in a final state vector.
         """
 
         assert_allclose(final_quantum_state_vector_state,
@@ -1974,9 +1974,9 @@ class QiskryptBellStateTests(TestCase):
                                (0. + 0.j)]),
                         rtol=1e-7, atol=1e-7)
         """
-        Perform the Assertion of all close values in the values of the quantum_regime state,
+        Perform the Assertion of all close values in the values of the quantum state,
         represented by its state vector describing the given qubits,
-        after be initialised a quantum_regime state as |01⟩,
+        after be initialised a quantum state as |01⟩,
         then prepared Bell's State with the configuration,
         |ψ^+⟩ = 1/sqrt(2) x (|01⟩ + |10⟩),
         on the Computational Basis and then reverting it,
@@ -1996,7 +1996,7 @@ class QiskryptBellStateTests(TestCase):
           and then, measure in the Bell State Basis.
 
         Description of the Steps for the Unitary Test:
-        1) The Qiskrypt's Quantum Register is prepared on the quantum_regime state, |10⟩;
+        1) The Qiskrypt's Quantum Register is prepared on the quantum state, |10⟩;
         2) The Qiskrypt's Bell State is initialised and configured;
         3) The Qiskrypt's Bell State with the configuration,
            |ψ^+⟩ = 1/sqrt(2) x (|01⟩ + |10⟩),
@@ -2004,7 +2004,7 @@ class QiskryptBellStateTests(TestCase):
         4) The Qiskrypt's Bell State with the configuration,
            |ψ^+⟩ = 1/sqrt(2) x (|01⟩ + |10⟩),
            is prepared, without measuring it, on the Bell State Basis,
-           resulting on the initial quantum_regime state, |10⟩;
+           resulting on the initial quantum state, |10⟩;
 
         Return OK (or FAIL) if, all the Tests performed are OK (or FAIL, otherwise).
         """
@@ -2099,7 +2099,7 @@ class QiskryptBellStateTests(TestCase):
         qiskit_state_vector_backend = Aer.get_backend("statevector_simulator")
         """
         Getting the Aer Simulator Backend for the State Vector Representation
-        (i.e., the quantum_regime state represented as its state vector).
+        (i.e., the quantum state represented as its state vector).
         """
 
         final_quantum_state_vector_state = \
@@ -2107,7 +2107,7 @@ class QiskryptBellStateTests(TestCase):
                     qiskit_state_vector_backend).result().get_statevector()
         """
         Execute the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit
-        and store the resulted quantum_regime state represented in a final state vector.
+        and store the resulted quantum state represented in a final state vector.
         """
 
         assert_allclose(final_quantum_state_vector_state,
@@ -2117,9 +2117,9 @@ class QiskryptBellStateTests(TestCase):
                                (0. + 0.j)]),
                         rtol=1e-7, atol=1e-7)
         """
-        Perform the Assertion of all close values in the values of the quantum_regime state,
+        Perform the Assertion of all close values in the values of the quantum state,
         represented by its state vector describing the given qubits,
-        after be initialised a quantum_regime state as |10⟩,
+        after be initialised a quantum state as |10⟩,
         then prepared Bell's State with the configuration,
         |ψ^+⟩ = 1/sqrt(2) x (|01⟩ + |10⟩),
         on the Computational Basis and then reverting it,
@@ -2139,7 +2139,7 @@ class QiskryptBellStateTests(TestCase):
           and then, measure in the Bell State Basis.
 
         Description of the Steps for the Unitary Test:
-        1) The Qiskrypt's Quantum Register is prepared on the quantum_regime state, |11⟩;
+        1) The Qiskrypt's Quantum Register is prepared on the quantum state, |11⟩;
         2) The Qiskrypt's Bell State is initialised and configured;
         3) The Qiskrypt's Bell State with the configuration,
            |ψ^+⟩ = 1/sqrt(2) x (|01⟩ + |10⟩),
@@ -2147,7 +2147,7 @@ class QiskryptBellStateTests(TestCase):
         4) The Qiskrypt's Bell State with the configuration,
            |ψ^+⟩ = 1/sqrt(2) x (|01⟩ + |10⟩),
            is prepared, without measuring it, on the Bell State Basis,
-           resulting on the initial quantum_regime state, |11⟩;
+           resulting on the initial quantum state, |11⟩;
 
         Return OK (or FAIL) if, all the Tests performed are OK (or FAIL, otherwise).
         """
@@ -2249,7 +2249,7 @@ class QiskryptBellStateTests(TestCase):
         qiskit_state_vector_backend = Aer.get_backend("statevector_simulator")
         """
         Getting the Aer Simulator Backend for the State Vector Representation
-        (i.e., the quantum_regime state represented as its state vector).
+        (i.e., the quantum state represented as its state vector).
         """
 
         final_quantum_state_vector_state = \
@@ -2257,7 +2257,7 @@ class QiskryptBellStateTests(TestCase):
                     qiskit_state_vector_backend).result().get_statevector()
         """
         Execute the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit
-        and store the resulted quantum_regime state represented in a final state vector.
+        and store the resulted quantum state represented in a final state vector.
         """
 
         assert_allclose(final_quantum_state_vector_state,
@@ -2267,9 +2267,9 @@ class QiskryptBellStateTests(TestCase):
                                (1. + 0.j)]),
                         rtol=1e-7, atol=1e-7)
         """
-        Perform the Assertion of all close values in the values of the quantum_regime state,
+        Perform the Assertion of all close values in the values of the quantum state,
         represented by its state vector describing the given qubits,
-        after be initialised a quantum_regime state as |11⟩,
+        after be initialised a quantum state as |11⟩,
         then prepared Bell's State with the configuration,
         |ψ^+⟩ = 1/sqrt(2) x (|01⟩ + |10⟩),
         on the Computational Basis and then reverting it,
@@ -2289,7 +2289,7 @@ class QiskryptBellStateTests(TestCase):
           and then, measure in the Bell State Basis.
 
         Description of the Steps for the Unitary Test:
-        1) The Qiskrypt's Quantum Register is prepared on the quantum_regime state, |00⟩;
+        1) The Qiskrypt's Quantum Register is prepared on the quantum state, |00⟩;
         2) The Qiskrypt's Bell State is initialised and configured;
         3) The Qiskrypt's Bell State with the configuration,
            |ψ^-⟩ = 1/sqrt(2) x (|01⟩ - |10⟩),
@@ -2297,7 +2297,7 @@ class QiskryptBellStateTests(TestCase):
         4) The Qiskrypt's Bell State with the configuration,
            |ψ^-⟩ = 1/sqrt(2) x (|01⟩ - |10⟩),
            is prepared, without measuring it, on the Bell State Basis,
-           resulting on the initial quantum_regime state, |00⟩;
+           resulting on the initial quantum state, |00⟩;
 
         Return OK (or FAIL) if, all the Tests performed are OK (or FAIL, otherwise).
         """
@@ -2385,7 +2385,7 @@ class QiskryptBellStateTests(TestCase):
         qiskit_state_vector_backend = Aer.get_backend("statevector_simulator")
         """
         Getting the Aer Simulator Backend for the State Vector Representation
-        (i.e., the quantum_regime state represented as its state vector).
+        (i.e., the quantum state represented as its state vector).
         """
 
         final_quantum_state_vector_state = \
@@ -2393,7 +2393,7 @@ class QiskryptBellStateTests(TestCase):
                     qiskit_state_vector_backend).result().get_statevector()
         """
         Execute the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit
-        and store the resulted quantum_regime state represented in a final state vector.
+        and store the resulted quantum state represented in a final state vector.
         """
 
         assert_allclose(final_quantum_state_vector_state,
@@ -2403,9 +2403,9 @@ class QiskryptBellStateTests(TestCase):
                                (0. + 0.j)]),
                         rtol=1e-7, atol=1e-7)
         """
-        Perform the Assertion of all close values in the values of the quantum_regime state,
+        Perform the Assertion of all close values in the values of the quantum state,
         represented by its state vector describing the given qubits,
-        after be initialised a quantum_regime state as |00⟩,
+        after be initialised a quantum state as |00⟩,
         then prepared Bell's State with the configuration,
         |ψ^-⟩ = 1/sqrt(2) x (|01⟩ - |10⟩),
         on the Computational Basis and then reverting it,
@@ -2425,7 +2425,7 @@ class QiskryptBellStateTests(TestCase):
           and then, measure in the Bell State Basis.
 
         Description of the Steps for the Unitary Test:
-        1) The Qiskrypt's Quantum Register is prepared on the quantum_regime state, |01⟩;
+        1) The Qiskrypt's Quantum Register is prepared on the quantum state, |01⟩;
         2) The Qiskrypt's Bell State is initialised and configured;
         3) The Qiskrypt's Bell State with the configuration,
            |ψ^-⟩ = 1/sqrt(2) x (|01⟩ - |10⟩),
@@ -2433,7 +2433,7 @@ class QiskryptBellStateTests(TestCase):
         4) The Qiskrypt's Bell State with the configuration,
            |ψ^-⟩ = 1/sqrt(2) x (|01⟩ - |10⟩),
            is prepared, without measuring it, on the Bell State Basis,
-           resulting on the initial quantum_regime state, |01⟩;
+           resulting on the initial quantum state, |01⟩;
 
         Return OK (or FAIL) if, all the Tests performed are OK (or FAIL, otherwise).
         """
@@ -2528,7 +2528,7 @@ class QiskryptBellStateTests(TestCase):
         qiskit_state_vector_backend = Aer.get_backend("statevector_simulator")
         """
         Getting the Aer Simulator Backend for the State Vector Representation
-        (i.e., the quantum_regime state represented as its state vector).
+        (i.e., the quantum state represented as its state vector).
         """
 
         final_quantum_state_vector_state = \
@@ -2536,7 +2536,7 @@ class QiskryptBellStateTests(TestCase):
                     qiskit_state_vector_backend).result().get_statevector()
         """
         Execute the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit
-        and store the resulted quantum_regime state represented in a final state vector.
+        and store the resulted quantum state represented in a final state vector.
         """
 
         assert_allclose(final_quantum_state_vector_state,
@@ -2546,9 +2546,9 @@ class QiskryptBellStateTests(TestCase):
                                (0. + 0.j)]),
                         rtol=1e-7, atol=1e-7)
         """
-        Perform the Assertion of all close values in the values of the quantum_regime state,
+        Perform the Assertion of all close values in the values of the quantum state,
         represented by its state vector describing the given qubits,
-        after be initialised a quantum_regime state as |01⟩,
+        after be initialised a quantum state as |01⟩,
         then prepared Bell's State with the configuration,
         |ψ^-⟩ = 1/sqrt(2) x (|01⟩ - |10⟩),
         on the Computational Basis and then reverting it,
@@ -2568,7 +2568,7 @@ class QiskryptBellStateTests(TestCase):
           and then, measure in the Bell State Basis.
 
         Description of the Steps for the Unitary Test:
-        1) The Qiskrypt's Quantum Register is prepared on the quantum_regime state, |10⟩;
+        1) The Qiskrypt's Quantum Register is prepared on the quantum state, |10⟩;
         2) The Qiskrypt's Bell State is initialised and configured;
         3) The Qiskrypt's Bell State with the configuration,
            |ψ^-⟩ = 1/sqrt(2) x (|01⟩ - |10⟩),
@@ -2576,7 +2576,7 @@ class QiskryptBellStateTests(TestCase):
         4) The Qiskrypt's Bell State with the configuration,
            |ψ^-⟩ = 1/sqrt(2) x (|01⟩ - |10⟩),
            is prepared, without measuring it, on the Bell State Basis,
-           resulting on the initial quantum_regime state, |10⟩;
+           resulting on the initial quantum state, |10⟩;
 
         Return OK (or FAIL) if, all the Tests performed are OK (or FAIL, otherwise).
         """
@@ -2671,7 +2671,7 @@ class QiskryptBellStateTests(TestCase):
         qiskit_state_vector_backend = Aer.get_backend("statevector_simulator")
         """
         Getting the Aer Simulator Backend for the State Vector Representation
-        (i.e., the quantum_regime state represented as its state vector).
+        (i.e., the quantum state represented as its state vector).
         """
 
         final_quantum_state_vector_state = \
@@ -2679,7 +2679,7 @@ class QiskryptBellStateTests(TestCase):
                     qiskit_state_vector_backend).result().get_statevector()
         """
         Execute the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit
-        and store the resulted quantum_regime state represented in a final state vector.
+        and store the resulted quantum state represented in a final state vector.
         """
 
         assert_allclose(final_quantum_state_vector_state,
@@ -2689,9 +2689,9 @@ class QiskryptBellStateTests(TestCase):
                                (0. + 0.j)]),
                         rtol=1e-7, atol=1e-7)
         """
-        Perform the Assertion of all close values in the values of the quantum_regime state,
+        Perform the Assertion of all close values in the values of the quantum state,
         represented by its state vector describing the given qubits,
-        after be initialised a quantum_regime state as |10⟩,
+        after be initialised a quantum state as |10⟩,
         then prepared Bell's State with the configuration,
         |ψ^-⟩ = 1/sqrt(2) x (|01⟩ - |10⟩),
         on the Computational Basis and then reverting it,
@@ -2711,7 +2711,7 @@ class QiskryptBellStateTests(TestCase):
           and then, measure in the Bell State Basis.
 
         Description of the Steps for the Unitary Test:
-        1) The Qiskrypt's Quantum Register is prepared on the quantum_regime state, |11⟩;
+        1) The Qiskrypt's Quantum Register is prepared on the quantum state, |11⟩;
         2) The Qiskrypt's Bell State is initialised and configured;
         3) The Qiskrypt's Bell State with the configuration,
            |ψ^-⟩ = 1/sqrt(2) x (|01⟩ - |10⟩),
@@ -2719,7 +2719,7 @@ class QiskryptBellStateTests(TestCase):
         4) The Qiskrypt's Bell State with the configuration,
            |ψ^-⟩ = 1/sqrt(2) x (|01⟩ - |10⟩),
            is prepared, without measuring it, on the Bell State Basis,
-           resulting on the initial quantum_regime state, |11⟩;
+           resulting on the initial quantum state, |11⟩;
 
         Return OK (or FAIL) if, all the Tests performed are OK (or FAIL, otherwise).
         """
@@ -2821,7 +2821,7 @@ class QiskryptBellStateTests(TestCase):
         qiskit_state_vector_backend = Aer.get_backend("statevector_simulator")
         """
         Getting the Aer Simulator Backend for the State Vector Representation
-        (i.e., the quantum_regime state represented as its state vector).
+        (i.e., the quantum state represented as its state vector).
         """
 
         final_quantum_state_vector_state = \
@@ -2829,7 +2829,7 @@ class QiskryptBellStateTests(TestCase):
                     qiskit_state_vector_backend).result().get_statevector()
         """
         Execute the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit
-        and store the resulted quantum_regime state represented in a final state vector.
+        and store the resulted quantum state represented in a final state vector.
         """
 
         assert_allclose(final_quantum_state_vector_state,
@@ -2839,9 +2839,9 @@ class QiskryptBellStateTests(TestCase):
                                (1. + 0.j)]),
                         rtol=1e-7, atol=1e-7)
         """
-        Perform the Assertion of all close values in the values of the quantum_regime state,
+        Perform the Assertion of all close values in the values of the quantum state,
         represented by its state vector describing the given qubits,
-        after be initialised a quantum_regime state as |11⟩,
+        after be initialised a quantum state as |11⟩,
         then prepared Bell's State with the configuration,
         |ψ^-⟩ = 1/sqrt(2) x (|01⟩ - |10⟩),
         on the Computational Basis and then reverting it,

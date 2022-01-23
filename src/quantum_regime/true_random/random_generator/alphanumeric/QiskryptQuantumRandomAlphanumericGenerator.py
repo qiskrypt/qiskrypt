@@ -11,7 +11,7 @@ Powered by:\n
 
 Description:\n
 - The Qiskrypt is a software suite of protocols of
-  quantum_regime cryptography, quantum_regime communication and
+  quantum cryptography, quantum communication and
   other protocols/algorithms, built using the IBM's Qiskit.
 
 College(s):\n
@@ -418,7 +418,7 @@ class QiskryptQuantumRandomAlphanumericGenerator(QiskryptQuantumRandomGenerator)
                                 qiskit_qasm_backend, shots=1).result().get_counts()
                     """
                     Execute the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit
-                    and store the resulted measurement of its final quantum_regime state.
+                    and store the resulted measurement of its final quantum state.
                     """
 
                     binary_string += final_results_frequency_counting.most_frequent()

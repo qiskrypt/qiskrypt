@@ -11,7 +11,7 @@ Powered by:\n
 
 Description:\n
 - The Qiskrypt is a software suite of protocols of
-  quantum_regime cryptography, quantum_regime communication and
+  quantum cryptography, quantum communication and
   other protocols/algorithms, built using the IBM's Qiskit.
 
 College(s):\n
@@ -8321,7 +8321,7 @@ class PrepareAndMeasureQubitInQiskryptQuantumCircuitTests(TestCase):
         qiskit_state_vector_backend = Aer.get_backend("statevector_simulator")
         """
         Getting the Aer Simulator Backend for the State Vector Representation
-        (i.e., the quantum_regime state represented as its state vector).
+        (i.e., the quantum state represented as its state vector).
         """
 
         final_quantum_state_vector_state = \
@@ -8329,14 +8329,14 @@ class PrepareAndMeasureQubitInQiskryptQuantumCircuitTests(TestCase):
                     qiskit_state_vector_backend).result().get_statevector()
         """
         Execute the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit
-        and store the resulted quantum_regime state represented in a final state vector.
+        and store the resulted quantum state represented in a final state vector.
         """
 
         assert_allclose(final_quantum_state_vector_state,
                         array([((1. / sqrt(2.)) + 0.j), ((1. / sqrt(2.)) + 0.j)]),
                         rtol=1e-7, atol=1e-7)
         """
-        Perform the Assertion of all close values in the values of the quantum_regime state,
+        Perform the Assertion of all close values in the values of the quantum state,
         represented by its state vector describing the given qubit,
         after being prepared (not measured) in the X-Basis (Diagonal Basis), such that, |0⟩ ↦ |+⟩.
         """
@@ -8413,7 +8413,7 @@ class PrepareAndMeasureQubitInQiskryptQuantumCircuitTests(TestCase):
         qiskit_state_vector_backend = Aer.get_backend("statevector_simulator")
         """
         Getting the Aer Simulator Backend for the State Vector Representation
-        (i.e., the quantum_regime state represented as its state vector).
+        (i.e., the quantum state represented as its state vector).
         """
 
         final_quantum_state_vector_state = \
@@ -8421,14 +8421,14 @@ class PrepareAndMeasureQubitInQiskryptQuantumCircuitTests(TestCase):
                     qiskit_state_vector_backend).result().get_statevector()
         """
         Execute the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit
-        and store the resulted quantum_regime state represented in a final state vector.
+        and store the resulted quantum state represented in a final state vector.
         """
 
         assert_allclose(final_quantum_state_vector_state,
                         array([((1. / sqrt(2.)) + 0.j), (-(1. / sqrt(2.)) + 0.j)]),
                         rtol=1e-7, atol=1e-7)
         """
-        Perform the Assertion of all close values in the values of the quantum_regime state,
+        Perform the Assertion of all close values in the values of the quantum state,
         represented by its state vector describing the given qubit,
         after being prepared (not measured) in the X-Basis (Diagonal Basis), such that, |1⟩ ↦ |-⟩.
         """
@@ -8505,7 +8505,7 @@ class PrepareAndMeasureQubitInQiskryptQuantumCircuitTests(TestCase):
         qiskit_state_vector_backend = Aer.get_backend("statevector_simulator")
         """
         Getting the Aer Simulator Backend for the State Vector Representation
-        (i.e., the quantum_regime state represented as its state vector).
+        (i.e., the quantum state represented as its state vector).
         """
 
         final_quantum_state_vector_state = \
@@ -8513,14 +8513,14 @@ class PrepareAndMeasureQubitInQiskryptQuantumCircuitTests(TestCase):
                     qiskit_state_vector_backend).result().get_statevector()
         """
         Execute the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit
-        and store the resulted quantum_regime state represented in a final state vector.
+        and store the resulted quantum state represented in a final state vector.
         """
 
         assert_allclose(final_quantum_state_vector_state,
                         array([(1. + 0.j), (0. + 0.j)]),
                         rtol=1e-7, atol=1e-7)
         """
-        Perform the Assertion of all close values in the values of the quantum_regime state,
+        Perform the Assertion of all close values in the values of the quantum state,
         represented by its state vector describing the given qubit,
         after being prepared (not measured) in the X-Basis (Diagonal Basis), such that, |+⟩ ↦ |0⟩.
         """
@@ -8605,7 +8605,7 @@ class PrepareAndMeasureQubitInQiskryptQuantumCircuitTests(TestCase):
         qiskit_state_vector_backend = Aer.get_backend("statevector_simulator")
         """
         Getting the Aer Simulator Backend for the State Vector Representation
-        (i.e., the quantum_regime state represented as its state vector).
+        (i.e., the quantum state represented as its state vector).
         """
 
         final_quantum_state_vector_state = \
@@ -8613,14 +8613,14 @@ class PrepareAndMeasureQubitInQiskryptQuantumCircuitTests(TestCase):
                     qiskit_state_vector_backend).result().get_statevector()
         """
         Execute the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit
-        and store the resulted quantum_regime state represented in a final state vector.
+        and store the resulted quantum state represented in a final state vector.
         """
 
         assert_allclose(final_quantum_state_vector_state,
                         array([(0. + 0.j), (1. + 0.j)]),
                         rtol=1e-7, atol=1e-7)
         """
-        Perform the Assertion of all close values in the values of the quantum_regime state,
+        Perform the Assertion of all close values in the values of the quantum state,
         represented by its state vector describing the given qubit,
         after being prepared (not measured) in the X-Basis (Diagonal Basis), such that, |-⟩ ↦ |1⟩.
         """
@@ -8689,7 +8689,7 @@ class PrepareAndMeasureQubitInQiskryptQuantumCircuitTests(TestCase):
         qiskit_state_vector_backend = Aer.get_backend("statevector_simulator")
         """
         Getting the Aer Simulator Backend for the State Vector Representation
-        (i.e., the quantum_regime state represented as its state vector).
+        (i.e., the quantum state represented as its state vector).
         """
 
         final_quantum_state_vector_state = \
@@ -8697,14 +8697,14 @@ class PrepareAndMeasureQubitInQiskryptQuantumCircuitTests(TestCase):
                     qiskit_state_vector_backend).result().get_statevector()
         """
         Execute the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit
-        and store the resulted quantum_regime state represented in a final state vector.
+        and store the resulted quantum state represented in a final state vector.
         """
 
         assert_allclose(final_quantum_state_vector_state,
                         array([((1. / sqrt(2.)) + 0.j), (1. / sqrt(2.)) * (0. + 1.j)]),
                         rtol=1e-7, atol=1e-7)
         """
-        Perform the Assertion of all close values in the values of the quantum_regime state,
+        Perform the Assertion of all close values in the values of the quantum state,
         represented by its state vector describing the given qubit,
         after being prepared (not measured) in the Y-Basis (Diagonal Basis), such that, |0⟩ ↦ |+i⟩.
         """
@@ -8781,7 +8781,7 @@ class PrepareAndMeasureQubitInQiskryptQuantumCircuitTests(TestCase):
         qiskit_state_vector_backend = Aer.get_backend("statevector_simulator")
         """
         Getting the Aer Simulator Backend for the State Vector Representation
-        (i.e., the quantum_regime state represented as its state vector).
+        (i.e., the quantum state represented as its state vector).
         """
 
         final_quantum_state_vector_state = \
@@ -8789,14 +8789,14 @@ class PrepareAndMeasureQubitInQiskryptQuantumCircuitTests(TestCase):
                     qiskit_state_vector_backend).result().get_statevector()
         """
         Execute the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit
-        and store the resulted quantum_regime state represented in a final state vector.
+        and store the resulted quantum state represented in a final state vector.
         """
 
         assert_allclose(final_quantum_state_vector_state,
                         array([((1. / sqrt(2.)) + 0.j), -(1. / sqrt(2.)) * (0. + 1.j)]),
                         rtol=1e-7, atol=1e-7)
         """
-        Perform the Assertion of all close values in the values of the quantum_regime state,
+        Perform the Assertion of all close values in the values of the quantum state,
         represented by its state vector describing the given qubit,
         after being prepared (not measured) in the Y-Basis (Diagonal Basis), such that, |1⟩ ↦ |-i⟩.
         """
@@ -8873,7 +8873,7 @@ class PrepareAndMeasureQubitInQiskryptQuantumCircuitTests(TestCase):
         qiskit_state_vector_backend = Aer.get_backend("statevector_simulator")
         """
         Getting the Aer Simulator Backend for the State Vector Representation
-        (i.e., the quantum_regime state represented as its state vector).
+        (i.e., the quantum state represented as its state vector).
         """
 
         final_quantum_state_vector_state = \
@@ -8881,14 +8881,14 @@ class PrepareAndMeasureQubitInQiskryptQuantumCircuitTests(TestCase):
                     qiskit_state_vector_backend).result().get_statevector()
         """
         Execute the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit
-        and store the resulted quantum_regime state represented in a final state vector.
+        and store the resulted quantum state represented in a final state vector.
         """
 
         assert_allclose(final_quantum_state_vector_state,
                         array([(1. + 0.j), (0. + 0.j)]),
                         rtol=1e-7, atol=1e-7)
         """
-        Perform the Assertion of all close values in the values of the quantum_regime state,
+        Perform the Assertion of all close values in the values of the quantum state,
         represented by its state vector describing the given qubit,
         after being prepared (not measured) in the Y-Basis (Diagonal Basis), such that, |+⟩ ↦ |0⟩.
         """
@@ -8973,7 +8973,7 @@ class PrepareAndMeasureQubitInQiskryptQuantumCircuitTests(TestCase):
         qiskit_state_vector_backend = Aer.get_backend("statevector_simulator")
         """
         Getting the Aer Simulator Backend for the State Vector Representation
-        (i.e., the quantum_regime state represented as its state vector).
+        (i.e., the quantum state represented as its state vector).
         """
 
         final_quantum_state_vector_state = \
@@ -8981,14 +8981,14 @@ class PrepareAndMeasureQubitInQiskryptQuantumCircuitTests(TestCase):
                     qiskit_state_vector_backend).result().get_statevector()
         """
         Execute the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit
-        and store the resulted quantum_regime state represented in a final state vector.
+        and store the resulted quantum state represented in a final state vector.
         """
 
         assert_allclose(final_quantum_state_vector_state,
                         array([(0. + 0.j), (0. + 1.j)]),
                         rtol=1e-7, atol=1e-7)
         """
-        Perform the Assertion of all close values in the values of the quantum_regime state,
+        Perform the Assertion of all close values in the values of the quantum state,
         represented by its state vector describing the given qubit,
         after being prepared (not measured) in the Y-Basis (Diagonal Basis), such that, |-⟩ ↦ i|1⟩.
         """
@@ -9057,7 +9057,7 @@ class PrepareAndMeasureQubitInQiskryptQuantumCircuitTests(TestCase):
         qiskit_state_vector_backend = Aer.get_backend("statevector_simulator")
         """
         Getting the Aer Simulator Backend for the State Vector Representation
-        (i.e., the quantum_regime state represented as its state vector).
+        (i.e., the quantum state represented as its state vector).
         """
 
         final_quantum_state_vector_state = \
@@ -9065,14 +9065,14 @@ class PrepareAndMeasureQubitInQiskryptQuantumCircuitTests(TestCase):
                     qiskit_state_vector_backend).result().get_statevector()
         """
         Execute the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit
-        and store the resulted quantum_regime state represented in a final state vector.
+        and store the resulted quantum state represented in a final state vector.
         """
 
         assert_allclose(final_quantum_state_vector_state,
                         array([(1. + 0.j), (0. + 0.j)]),
                         rtol=1e-7, atol=1e-7)
         """
-        Perform the Assertion of all close values in the values of the quantum_regime state,
+        Perform the Assertion of all close values in the values of the quantum state,
         represented by its state vector describing the given qubit,
         after being prepared (not measured) in the Z-Basis (Computational Basis), such that, |0⟩ ↦ |0⟩.
         """
@@ -9149,7 +9149,7 @@ class PrepareAndMeasureQubitInQiskryptQuantumCircuitTests(TestCase):
         qiskit_state_vector_backend = Aer.get_backend("statevector_simulator")
         """
         Getting the Aer Simulator Backend for the State Vector Representation
-        (i.e., the quantum_regime state represented as its state vector).
+        (i.e., the quantum state represented as its state vector).
         """
 
         final_quantum_state_vector_state = \
@@ -9157,14 +9157,14 @@ class PrepareAndMeasureQubitInQiskryptQuantumCircuitTests(TestCase):
                     qiskit_state_vector_backend).result().get_statevector()
         """
         Execute the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit
-        and store the resulted quantum_regime state represented in a final state vector.
+        and store the resulted quantum state represented in a final state vector.
         """
 
         assert_allclose(final_quantum_state_vector_state,
                         array([(0. + 0.j), (1. + 0.j)]),
                         rtol=1e-7, atol=1e-7)
         """
-        Perform the Assertion of all close values in the values of the quantum_regime state,
+        Perform the Assertion of all close values in the values of the quantum state,
         represented by its state vector describing the given qubit,
         after being prepared (not measured) in the Z-Basis (Computational Basis), such that, |1⟩ ↦ |1⟩.
         """
@@ -9241,7 +9241,7 @@ class PrepareAndMeasureQubitInQiskryptQuantumCircuitTests(TestCase):
         qiskit_state_vector_backend = Aer.get_backend("statevector_simulator")
         """
         Getting the Aer Simulator Backend for the State Vector Representation
-        (i.e., the quantum_regime state represented as its state vector).
+        (i.e., the quantum state represented as its state vector).
         """
 
         final_quantum_state_vector_state = \
@@ -9249,14 +9249,14 @@ class PrepareAndMeasureQubitInQiskryptQuantumCircuitTests(TestCase):
                     qiskit_state_vector_backend).result().get_statevector()
         """
         Execute the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit
-        and store the resulted quantum_regime state represented in a final state vector.
+        and store the resulted quantum state represented in a final state vector.
         """
 
         assert_allclose(final_quantum_state_vector_state,
                         array([((1. / sqrt(2.)) + 0.j), ((1. / sqrt(2.)) + 0.j)]),
                         rtol=1e-7, atol=1e-7)
         """
-        Perform the Assertion of all close values in the values of the quantum_regime state,
+        Perform the Assertion of all close values in the values of the quantum state,
         represented by its state vector describing the given qubit,
         after being prepared (not measured) in the Z-Basis (Computational Basis), such that, |+⟩ ↦ |+⟩.
         """
@@ -9341,7 +9341,7 @@ class PrepareAndMeasureQubitInQiskryptQuantumCircuitTests(TestCase):
         qiskit_state_vector_backend = Aer.get_backend("statevector_simulator")
         """
         Getting the Aer Simulator Backend for the State Vector Representation
-        (i.e., the quantum_regime state represented as its state vector).
+        (i.e., the quantum state represented as its state vector).
         """
 
         final_quantum_state_vector_state = \
@@ -9349,14 +9349,14 @@ class PrepareAndMeasureQubitInQiskryptQuantumCircuitTests(TestCase):
                     qiskit_state_vector_backend).result().get_statevector()
         """
         Execute the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit
-        and store the resulted quantum_regime state represented in a final state vector.
+        and store the resulted quantum state represented in a final state vector.
         """
 
         assert_allclose(final_quantum_state_vector_state,
                         array([((1. / sqrt(2.)) + 0.j), -((1. / sqrt(2.)) + 0.j)]),
                         rtol=1e-7, atol=1e-7)
         """
-        Perform the Assertion of all close values in the values of the quantum_regime state,
+        Perform the Assertion of all close values in the values of the quantum state,
         represented by its state vector describing the given qubit,
         after being prepared (not measured) in the Z-Basis (Computational Basis), such that, |-⟩ ↦ |-⟩.
         """
@@ -9429,7 +9429,7 @@ class SingleQubitGatesOperations(TestCase):
         qiskit_state_vector_backend = Aer.get_backend("statevector_simulator")
         """
         Getting the Aer Simulator Backend for the State Vector Representation
-        (i.e., the quantum_regime state represented as its state vector).
+        (i.e., the quantum state represented as its state vector).
         """
 
         final_quantum_state_vector_state = \
@@ -9437,14 +9437,14 @@ class SingleQubitGatesOperations(TestCase):
                     qiskit_state_vector_backend).result().get_statevector()
         """
         Execute the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit
-        and store the resulted quantum_regime state represented in a final state vector.
+        and store the resulted quantum state represented in a final state vector.
         """
 
         assert_allclose(final_quantum_state_vector_state,
                         array([(1. + 0.j), (0. + 0.j)]),
                         rtol=1e-7, atol=1e-7)
         """
-        Perform the Assertion of all close values in the values of the quantum_regime state,
+        Perform the Assertion of all close values in the values of the quantum state,
         represented by its state vector describing the given qubit,
         after being applied the Pauli-I (Idle) Quantum Gate/Operation.
         """
@@ -9519,7 +9519,7 @@ class SingleQubitGatesOperations(TestCase):
         qiskit_state_vector_backend = Aer.get_backend("statevector_simulator")
         """
         Getting the Aer Simulator Backend for the State Vector Representation
-        (i.e., the quantum_regime state represented as its state vector).
+        (i.e., the quantum state represented as its state vector).
         """
 
         final_quantum_state_vector_state = \
@@ -9527,14 +9527,14 @@ class SingleQubitGatesOperations(TestCase):
                     qiskit_state_vector_backend).result().get_statevector()
         """
         Execute the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit
-        and store the resulted quantum_regime state represented in a final state vector.
+        and store the resulted quantum state represented in a final state vector.
         """
 
         assert_allclose(final_quantum_state_vector_state,
                         array([(0. + 0.j), (1. + 0.j)]),
                         rtol=1e-7, atol=1e-7)
         """
-        Perform the Assertion of all close values in the values of the quantum_regime state,
+        Perform the Assertion of all close values in the values of the quantum state,
         represented by its state vector describing the given qubit,
         after being applied the Pauli-I (Idle) Quantum Gate/Operation.
         """
@@ -9609,7 +9609,7 @@ class SingleQubitGatesOperations(TestCase):
         qiskit_state_vector_backend = Aer.get_backend("statevector_simulator")
         """
         Getting the Aer Simulator Backend for the State Vector Representation
-        (i.e., the quantum_regime state represented as its state vector).
+        (i.e., the quantum state represented as its state vector).
         """
 
         final_quantum_state_vector_state = \
@@ -9617,14 +9617,14 @@ class SingleQubitGatesOperations(TestCase):
                     qiskit_state_vector_backend).result().get_statevector()
         """
         Execute the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit
-        and store the resulted quantum_regime state represented in a final state vector.
+        and store the resulted quantum state represented in a final state vector.
         """
 
         assert_allclose(final_quantum_state_vector_state,
                         array([((1. / sqrt(2.)) + 0.j), ((1. / sqrt(2.)) + 0.j)]),
                         rtol=1e-7, atol=1e-7)
         """
-        Perform the Assertion of all close values in the values of the quantum_regime state,
+        Perform the Assertion of all close values in the values of the quantum state,
         represented by its state vector describing the given qubit,
         after being applied the Pauli-I (Idle) Quantum Gate/Operation.
         """
@@ -9707,7 +9707,7 @@ class SingleQubitGatesOperations(TestCase):
         qiskit_state_vector_backend = Aer.get_backend("statevector_simulator")
         """
         Getting the Aer Simulator Backend for the State Vector Representation
-        (i.e., the quantum_regime state represented as its state vector).
+        (i.e., the quantum state represented as its state vector).
         """
 
         final_quantum_state_vector_state = \
@@ -9715,14 +9715,14 @@ class SingleQubitGatesOperations(TestCase):
                     qiskit_state_vector_backend).result().get_statevector()
         """
         Execute the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit
-        and store the resulted quantum_regime state represented in a final state vector.
+        and store the resulted quantum state represented in a final state vector.
         """
 
         assert_allclose(final_quantum_state_vector_state,
                         array([((1. / sqrt(2.)) + 0.j), -((1. / sqrt(2.)) + 0.j)]),
                         rtol=1e-7, atol=1e-7)
         """
-        Perform the Assertion of all close values in the values of the quantum_regime state,
+        Perform the Assertion of all close values in the values of the quantum state,
         represented by its state vector describing the given qubit,
         after being applied the Pauli-I (Idle) Quantum Gate/Operation.
         """
@@ -9789,7 +9789,7 @@ class SingleQubitGatesOperations(TestCase):
         qiskit_state_vector_backend = Aer.get_backend("statevector_simulator")
         """
         Getting the Aer Simulator Backend for the State Vector Representation
-        (i.e., the quantum_regime state represented as its state vector).
+        (i.e., the quantum state represented as its state vector).
         """
 
         final_quantum_state_vector_state = \
@@ -9797,14 +9797,14 @@ class SingleQubitGatesOperations(TestCase):
                     qiskit_state_vector_backend).result().get_statevector()
         """
         Execute the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit
-        and store the resulted quantum_regime state represented in a final state vector.
+        and store the resulted quantum state represented in a final state vector.
         """
 
         assert_allclose(final_quantum_state_vector_state,
                         array([(0. + 0.j), (1. + 0.j)]),
                         rtol=1e-7, atol=1e-7)
         """
-        Perform the Assertion of all close values in the values of the quantum_regime state,
+        Perform the Assertion of all close values in the values of the quantum state,
         represented by its state vector describing the given qubit,
         after being applied the Pauli-X (Bit Flip/NOT) Quantum Gate/Operation.
         """
@@ -9879,7 +9879,7 @@ class SingleQubitGatesOperations(TestCase):
         qiskit_state_vector_backend = Aer.get_backend("statevector_simulator")
         """
         Getting the Aer Simulator Backend for the State Vector Representation
-        (i.e., the quantum_regime state represented as its state vector).
+        (i.e., the quantum state represented as its state vector).
         """
 
         final_quantum_state_vector_state = \
@@ -9887,14 +9887,14 @@ class SingleQubitGatesOperations(TestCase):
                     qiskit_state_vector_backend).result().get_statevector()
         """
         Execute the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit
-        and store the resulted quantum_regime state represented in a final state vector.
+        and store the resulted quantum state represented in a final state vector.
         """
 
         assert_allclose(final_quantum_state_vector_state,
                         array([(1. + 0.j), (0. + 0.j)]),
                         rtol=1e-7, atol=1e-7)
         """
-        Perform the Assertion of all close values in the values of the quantum_regime state,
+        Perform the Assertion of all close values in the values of the quantum state,
         represented by its state vector describing the given qubit,
         after being applied the Pauli-X (Bit Flip/NOT) Quantum Gate/Operation.
         """
@@ -9969,7 +9969,7 @@ class SingleQubitGatesOperations(TestCase):
         qiskit_state_vector_backend = Aer.get_backend("statevector_simulator")
         """
         Getting the Aer Simulator Backend for the State Vector Representation
-        (i.e., the quantum_regime state represented as its state vector).
+        (i.e., the quantum state represented as its state vector).
         """
 
         final_quantum_state_vector_state = \
@@ -9977,14 +9977,14 @@ class SingleQubitGatesOperations(TestCase):
                     qiskit_state_vector_backend).result().get_statevector()
         """
         Execute the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit
-        and store the resulted quantum_regime state represented in a final state vector.
+        and store the resulted quantum state represented in a final state vector.
         """
 
         assert_allclose(final_quantum_state_vector_state,
                         array([((1. / sqrt(2.)) + 0.j), ((1. / sqrt(2.)) + 0.j)]),
                         rtol=1e-7, atol=1e-7)
         """
-        Perform the Assertion of all close values in the values of the quantum_regime state,
+        Perform the Assertion of all close values in the values of the quantum state,
         represented by its state vector describing the given qubit,
         after being applied the Pauli-X (Bit Flip/NOT) Quantum Gate/Operation.
         """
@@ -10068,7 +10068,7 @@ class SingleQubitGatesOperations(TestCase):
         qiskit_state_vector_backend = Aer.get_backend("statevector_simulator")
         """
         Getting the Aer Simulator Backend for the State Vector Representation
-        (i.e., the quantum_regime state represented as its state vector).
+        (i.e., the quantum state represented as its state vector).
         """
 
         final_quantum_state_vector_state = \
@@ -10076,14 +10076,14 @@ class SingleQubitGatesOperations(TestCase):
                     qiskit_state_vector_backend).result().get_statevector()
         """
         Execute the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit
-        and store the resulted quantum_regime state represented in a final state vector.
+        and store the resulted quantum state represented in a final state vector.
         """
 
         assert_allclose(final_quantum_state_vector_state,
                         array([-((1. / sqrt(2.)) + 0.j), ((1. / sqrt(2.)) + 0.j)]),
                         rtol=1e-7, atol=1e-7)
         """
-        Perform the Assertion of all close values in the values of the quantum_regime state,
+        Perform the Assertion of all close values in the values of the quantum state,
         represented by its state vector describing the given qubit,
         after being applied the Pauli-X (Bit Flip/NOT) Quantum Gate/Operation.
         """
@@ -10150,7 +10150,7 @@ class SingleQubitGatesOperations(TestCase):
         qiskit_state_vector_backend = Aer.get_backend("statevector_simulator")
         """
         Getting the Aer Simulator Backend for the State Vector Representation
-        (i.e., the quantum_regime state represented as its state vector).
+        (i.e., the quantum state represented as its state vector).
         """
 
         final_quantum_state_vector_state = \
@@ -10158,14 +10158,14 @@ class SingleQubitGatesOperations(TestCase):
                     qiskit_state_vector_backend).result().get_statevector()
         """
         Execute the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit
-        and store the resulted quantum_regime state represented in a final state vector.
+        and store the resulted quantum state represented in a final state vector.
         """
 
         assert_allclose(final_quantum_state_vector_state,
                         array([(0. + 0.j), (0. + 1.j)]),
                         rtol=1e-7, atol=1e-7)
         """
-        Perform the Assertion of all close values in the values of the quantum_regime state,
+        Perform the Assertion of all close values in the values of the quantum state,
         represented by its state vector describing the given qubit,
         after being applied the Pauli-Y Quantum Gate/Operation.
         """
@@ -10240,7 +10240,7 @@ class SingleQubitGatesOperations(TestCase):
         qiskit_state_vector_backend = Aer.get_backend("statevector_simulator")
         """
         Getting the Aer Simulator Backend for the State Vector Representation
-        (i.e., the quantum_regime state represented as its state vector).
+        (i.e., the quantum state represented as its state vector).
         """
 
         final_quantum_state_vector_state = \
@@ -10248,14 +10248,14 @@ class SingleQubitGatesOperations(TestCase):
                     qiskit_state_vector_backend).result().get_statevector()
         """
         Execute the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit
-        and store the resulted quantum_regime state represented in a final state vector.
+        and store the resulted quantum state represented in a final state vector.
         """
 
         assert_allclose(final_quantum_state_vector_state,
                         array([(0. - 1.j), (0. + 0.j)]),
                         rtol=1e-7, atol=1e-7)
         """
-        Perform the Assertion of all close values in the values of the quantum_regime state,
+        Perform the Assertion of all close values in the values of the quantum state,
         represented by its state vector describing the given qubit,
         after being applied the Pauli-Y Quantum Gate/Operation.
         """
@@ -10332,7 +10332,7 @@ class SingleQubitGatesOperations(TestCase):
         qiskit_state_vector_backend = Aer.get_backend("statevector_simulator")
         """
         Getting the Aer Simulator Backend for the State Vector Representation
-        (i.e., the quantum_regime state represented as its state vector).
+        (i.e., the quantum state represented as its state vector).
         """
 
         final_quantum_state_vector_state = \
@@ -10340,14 +10340,14 @@ class SingleQubitGatesOperations(TestCase):
                     qiskit_state_vector_backend).result().get_statevector()
         """
         Execute the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit
-        and store the resulted quantum_regime state represented in a final state vector.
+        and store the resulted quantum state represented in a final state vector.
         """
 
         assert_allclose(final_quantum_state_vector_state,
                         array([(0. - ((1. / sqrt(2.)) * 1.j)), (0. + ((1. / sqrt(2.)) * 1.j))]),
                         rtol=1e-7, atol=1e-7)
         """
-        Perform the Assertion of all close values in the values of the quantum_regime state,
+        Perform the Assertion of all close values in the values of the quantum state,
         represented by its state vector describing the given qubit,
         after being applied the Pauli-Y Quantum Gate/Operation.
         """
@@ -10432,7 +10432,7 @@ class SingleQubitGatesOperations(TestCase):
         qiskit_state_vector_backend = Aer.get_backend("statevector_simulator")
         """
         Getting the Aer Simulator Backend for the State Vector Representation
-        (i.e., the quantum_regime state represented as its state vector).
+        (i.e., the quantum state represented as its state vector).
         """
 
         final_quantum_state_vector_state = \
@@ -10440,14 +10440,14 @@ class SingleQubitGatesOperations(TestCase):
                     qiskit_state_vector_backend).result().get_statevector()
         """
         Execute the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit
-        and store the resulted quantum_regime state represented in a final state vector.
+        and store the resulted quantum state represented in a final state vector.
         """
 
         assert_allclose(final_quantum_state_vector_state,
                         array([(0. + ((1. / sqrt(2.)) * 1.j)), (0. + ((1. / sqrt(2.)) * 1.j))]),
                         rtol=1e-7, atol=1e-7)
         """
-        Perform the Assertion of all close values in the values of the quantum_regime state,
+        Perform the Assertion of all close values in the values of the quantum state,
         represented by its state vector describing the given qubit,
         after being applied the Pauli-Y Quantum Gate/Operation.
         """
@@ -10514,7 +10514,7 @@ class SingleQubitGatesOperations(TestCase):
         qiskit_state_vector_backend = Aer.get_backend("statevector_simulator")
         """
         Getting the Aer Simulator Backend for the State Vector Representation
-        (i.e., the quantum_regime state represented as its state vector).
+        (i.e., the quantum state represented as its state vector).
         """
 
         final_quantum_state_vector_state = \
@@ -10522,14 +10522,14 @@ class SingleQubitGatesOperations(TestCase):
                     qiskit_state_vector_backend).result().get_statevector()
         """
         Execute the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit
-        and store the resulted quantum_regime state represented in a final state vector.
+        and store the resulted quantum state represented in a final state vector.
         """
 
         assert_allclose(final_quantum_state_vector_state,
                         array([(1. + 0.j), (0. + 0.j)]),
                         rtol=1e-7, atol=1e-7)
         """
-        Perform the Assertion of all close values in the values of the quantum_regime state,
+        Perform the Assertion of all close values in the values of the quantum state,
         represented by its state vector describing the given qubit,
         after being applied the Pauli-Z (Phase Flip/Shift) Quantum Gate/Operation.
         """
@@ -10604,7 +10604,7 @@ class SingleQubitGatesOperations(TestCase):
         qiskit_state_vector_backend = Aer.get_backend("statevector_simulator")
         """
         Getting the Aer Simulator Backend for the State Vector Representation
-        (i.e., the quantum_regime state represented as its state vector).
+        (i.e., the quantum state represented as its state vector).
         """
 
         final_quantum_state_vector_state = \
@@ -10612,14 +10612,14 @@ class SingleQubitGatesOperations(TestCase):
                     qiskit_state_vector_backend).result().get_statevector()
         """
         Execute the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit
-        and store the resulted quantum_regime state represented in a final state vector.
+        and store the resulted quantum state represented in a final state vector.
         """
 
         assert_allclose(final_quantum_state_vector_state,
                         array([(0. + 0.j), -(1. + 0.j)]),
                         rtol=1e-7, atol=1e-7)
         """
-        Perform the Assertion of all close values in the values of the quantum_regime state,
+        Perform the Assertion of all close values in the values of the quantum state,
         represented by its state vector describing the given qubit,
         after being applied the Pauli-Z (Phase Flip/Shift) Quantum Gate/Operation.
         """
@@ -10694,7 +10694,7 @@ class SingleQubitGatesOperations(TestCase):
         qiskit_state_vector_backend = Aer.get_backend("statevector_simulator")
         """
         Getting the Aer Simulator Backend for the State Vector Representation
-        (i.e., the quantum_regime state represented as its state vector).
+        (i.e., the quantum state represented as its state vector).
         """
 
         final_quantum_state_vector_state = \
@@ -10702,14 +10702,14 @@ class SingleQubitGatesOperations(TestCase):
                     qiskit_state_vector_backend).result().get_statevector()
         """
         Execute the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit
-        and store the resulted quantum_regime state represented in a final state vector.
+        and store the resulted quantum state represented in a final state vector.
         """
 
         assert_allclose(final_quantum_state_vector_state,
                         array([((1. / sqrt(2.)) + 0.j), -((1. / sqrt(2.)) + 0.j)]),
                         rtol=1e-7, atol=1e-7)
         """
-        Perform the Assertion of all close values in the values of the quantum_regime state,
+        Perform the Assertion of all close values in the values of the quantum state,
         represented by its state vector describing the given qubit,
         after being applied the Pauli-Z (Phase Flip/Shift) Quantum Gate/Operation.
         """
@@ -10792,7 +10792,7 @@ class SingleQubitGatesOperations(TestCase):
         qiskit_state_vector_backend = Aer.get_backend("statevector_simulator")
         """
         Getting the Aer Simulator Backend for the State Vector Representation
-        (i.e., the quantum_regime state represented as its state vector).
+        (i.e., the quantum state represented as its state vector).
         """
 
         final_quantum_state_vector_state = \
@@ -10800,14 +10800,14 @@ class SingleQubitGatesOperations(TestCase):
                     qiskit_state_vector_backend).result().get_statevector()
         """
         Execute the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit
-        and store the resulted quantum_regime state represented in a final state vector.
+        and store the resulted quantum state represented in a final state vector.
         """
 
         assert_allclose(final_quantum_state_vector_state,
                         array([((1. / sqrt(2.)) + 0.j), ((1. / sqrt(2.)) + 0.j)]),
                         rtol=1e-7, atol=1e-7)
         """
-        Perform the Assertion of all close values in the values of the quantum_regime state,
+        Perform the Assertion of all close values in the values of the quantum state,
         represented by its state vector describing the given qubit,
         after being applied the Pauli-Z (Phase Flip/Shift) Quantum Gate/Operation.
         """
@@ -10875,7 +10875,7 @@ class SingleQubitGatesOperations(TestCase):
         qiskit_state_vector_backend = Aer.get_backend("statevector_simulator")
         """
         Getting the Aer Simulator Backend for the State Vector Representation
-        (i.e., the quantum_regime state represented as its state vector).
+        (i.e., the quantum state represented as its state vector).
         """
 
         final_quantum_state_vector_state = \
@@ -10883,14 +10883,14 @@ class SingleQubitGatesOperations(TestCase):
                     qiskit_state_vector_backend).result().get_statevector()
         """
         Execute the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit
-        and store the resulted quantum_regime state represented in a final state vector.
+        and store the resulted quantum state represented in a final state vector.
         """
 
         assert_allclose(final_quantum_state_vector_state,
                         array([((1. / sqrt(2.)) + 0.j), ((1. / sqrt(2.)) + 0.j)]),
                         rtol=1e-7, atol=1e-7)
         """
-        Perform the Assertion of all close values in the values of the quantum_regime state,
+        Perform the Assertion of all close values in the values of the quantum state,
         represented by its state vector describing the given qubit,
         after being applied the Hadamard Quantum Gate/Operation.
         """
@@ -10965,7 +10965,7 @@ class SingleQubitGatesOperations(TestCase):
         qiskit_state_vector_backend = Aer.get_backend("statevector_simulator")
         """
         Getting the Aer Simulator Backend for the State Vector Representation
-        (i.e., the quantum_regime state represented as its state vector).
+        (i.e., the quantum state represented as its state vector).
         """
 
         final_quantum_state_vector_state = \
@@ -10973,14 +10973,14 @@ class SingleQubitGatesOperations(TestCase):
                     qiskit_state_vector_backend).result().get_statevector()
         """
         Execute the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit
-        and store the resulted quantum_regime state represented in a final state vector.
+        and store the resulted quantum state represented in a final state vector.
         """
 
         assert_allclose(final_quantum_state_vector_state,
                         array([((1. / sqrt(2.)) + 0.j), -((1. / sqrt(2.)) + 0.j)]),
                         rtol=1e-7, atol=1e-7)
         """
-        Perform the Assertion of all close values in the values of the quantum_regime state,
+        Perform the Assertion of all close values in the values of the quantum state,
         represented by its state vector describing the given qubit,
         after being applied the Hadamard Quantum Gate/Operation.
         """
@@ -11055,7 +11055,7 @@ class SingleQubitGatesOperations(TestCase):
         qiskit_state_vector_backend = Aer.get_backend("statevector_simulator")
         """
         Getting the Aer Simulator Backend for the State Vector Representation
-        (i.e., the quantum_regime state represented as its state vector).
+        (i.e., the quantum state represented as its state vector).
         """
 
         final_quantum_state_vector_state = \
@@ -11063,14 +11063,14 @@ class SingleQubitGatesOperations(TestCase):
                     qiskit_state_vector_backend).result().get_statevector()
         """
         Execute the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit
-        and store the resulted quantum_regime state represented in a final state vector.
+        and store the resulted quantum state represented in a final state vector.
         """
 
         assert_allclose(final_quantum_state_vector_state,
                         array([(1. + 0.j), (0. + 0.j)]),
                         rtol=1e-7, atol=1e-7)
         """
-        Perform the Assertion of all close values in the values of the quantum_regime state,
+        Perform the Assertion of all close values in the values of the quantum state,
         represented by its state vector describing the given qubit,
         after being applied the Hadamard Quantum Gate/Operation.
         """
@@ -11153,7 +11153,7 @@ class SingleQubitGatesOperations(TestCase):
         qiskit_state_vector_backend = Aer.get_backend("statevector_simulator")
         """
         Getting the Aer Simulator Backend for the State Vector Representation
-        (i.e., the quantum_regime state represented as its state vector).
+        (i.e., the quantum state represented as its state vector).
         """
 
         final_quantum_state_vector_state = \
@@ -11161,14 +11161,14 @@ class SingleQubitGatesOperations(TestCase):
                     qiskit_state_vector_backend).result().get_statevector()
         """
         Execute the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit
-        and store the resulted quantum_regime state represented in a final state vector.
+        and store the resulted quantum state represented in a final state vector.
         """
 
         assert_allclose(final_quantum_state_vector_state,
                         array([(0. + 0.j), (1. + 0.j)]),
                         rtol=1e-7, atol=1e-7)
         """
-        Perform the Assertion of all close values in the values of the quantum_regime state,
+        Perform the Assertion of all close values in the values of the quantum state,
         represented by its state vector describing the given qubit,
         after being applied the Hadamard Quantum Gate/Operation.
         """

@@ -11,7 +11,7 @@ Powered by:\n
 
 Description:\n
 - The Qiskrypt is a software suite of protocols of
-  quantum_regime cryptography, quantum_regime communication and
+  quantum cryptography, quantum communication and
   other protocols/algorithms, built using the IBM's Qiskit.
 
 College(s):\n
@@ -179,7 +179,7 @@ class QiskryptWStateTests(TestCase):
         qiskit_state_vector_backend = Aer.get_backend("statevector_simulator")
         """
         Getting the Aer Simulator Backend for the State Vector Representation
-        (i.e., the quantum_regime state represented as its state vector).
+        (i.e., the quantum state represented as its state vector).
         """
 
         final_quantum_state_vector_state = \
@@ -187,7 +187,7 @@ class QiskryptWStateTests(TestCase):
                     qiskit_state_vector_backend).result().get_statevector()
         """
         Execute the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit
-        and store the resulted quantum_regime state represented in a final state vector.
+        and store the resulted quantum state represented in a final state vector.
         """
 
         num_possible_outcomes = (2 ** quantum_register_num_qubits)
@@ -226,7 +226,7 @@ class QiskryptWStateTests(TestCase):
                         w_state_3_qubits_array_expected_amplitudes,
                         rtol=1e-7, atol=1e-7)
         """
-        Perform the Assertion of all close values in the values of the quantum_regime state,
+        Perform the Assertion of all close values in the values of the quantum state,
         represented by its state vector describing the given qubits,
         after be prepared a W State with the configuration,
         |W_3⟩ = (1. / sqrt(3)) x (|001⟩ + |010⟩ + |100⟩).
@@ -323,7 +323,7 @@ class QiskryptWStateTests(TestCase):
         qiskit_state_vector_backend = Aer.get_backend("statevector_simulator")
         """
         Getting the Aer Simulator Backend for the State Vector Representation
-        (i.e., the quantum_regime state represented as its state vector).
+        (i.e., the quantum state represented as its state vector).
         """
 
         final_quantum_state_vector_state = \
@@ -331,7 +331,7 @@ class QiskryptWStateTests(TestCase):
                     qiskit_state_vector_backend).result().get_statevector()
         """
         Execute the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit
-        and store the resulted quantum_regime state represented in a final state vector.
+        and store the resulted quantum state represented in a final state vector.
         """
 
         num_possible_outcomes = (2 ** quantum_register_num_qubits)
@@ -370,7 +370,7 @@ class QiskryptWStateTests(TestCase):
                         w_state_4_qubits_array_expected_amplitudes,
                         rtol=1e-7, atol=1e-7)
         """
-        Perform the Assertion of all close values in the values of the quantum_regime state,
+        Perform the Assertion of all close values in the values of the quantum state,
         represented by its state vector describing the given qubits,
         after be prepared a W State with the configuration,
         |W_4⟩ = (1. / sqrt(4)) x (|0001⟩ + |0010⟩ + |0100⟩ + |1000⟩).
@@ -467,7 +467,7 @@ class QiskryptWStateTests(TestCase):
         qiskit_state_vector_backend = Aer.get_backend("statevector_simulator")
         """
         Getting the Aer Simulator Backend for the State Vector Representation
-        (i.e., the quantum_regime state represented as its state vector).
+        (i.e., the quantum state represented as its state vector).
         """
 
         final_quantum_state_vector_state = \
@@ -475,7 +475,7 @@ class QiskryptWStateTests(TestCase):
                     qiskit_state_vector_backend).result().get_statevector()
         """
         Execute the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit
-        and store the resulted quantum_regime state represented in a final state vector.
+        and store the resulted quantum state represented in a final state vector.
         """
 
         num_possible_outcomes = (2 ** quantum_register_num_qubits)
@@ -514,7 +514,7 @@ class QiskryptWStateTests(TestCase):
                         w_state_5_qubits_array_expected_amplitudes,
                         rtol=1e-7, atol=1e-7)
         """
-        Perform the Assertion of all close values in the values of the quantum_regime state,
+        Perform the Assertion of all close values in the values of the quantum state,
         represented by its state vector describing the given qubits,
         after be prepared a W State with the configuration,
         |W_5⟩ = (1. / sqrt(5)) x (|00001⟩ + |00010⟩ + |00100⟩ + |01000⟩ + |10000⟩).
@@ -611,7 +611,7 @@ class QiskryptWStateTests(TestCase):
         qiskit_state_vector_backend = Aer.get_backend("statevector_simulator")
         """
         Getting the Aer Simulator Backend for the State Vector Representation
-        (i.e., the quantum_regime state represented as its state vector).
+        (i.e., the quantum state represented as its state vector).
         """
 
         final_quantum_state_vector_state = \
@@ -619,7 +619,7 @@ class QiskryptWStateTests(TestCase):
                     qiskit_state_vector_backend).result().get_statevector()
         """
         Execute the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit
-        and store the resulted quantum_regime state represented in a final state vector.
+        and store the resulted quantum state represented in a final state vector.
         """
 
         num_possible_outcomes = (2 ** quantum_register_num_qubits)
@@ -658,7 +658,7 @@ class QiskryptWStateTests(TestCase):
                         w_state_6_qubits_array_expected_amplitudes,
                         rtol=1e-7, atol=1e-7)
         """
-        Perform the Assertion of all close values in the values of the quantum_regime state,
+        Perform the Assertion of all close values in the values of the quantum state,
         represented by its state vector describing the given qubits,
         after be prepared a W State with the configuration,
         |W_6⟩ = (1. / sqrt(6)) x (|000001⟩ + |000010⟩ + |000100⟩ + |001000⟩ + |010000⟩ + |100000⟩).
@@ -768,7 +768,7 @@ class QiskryptWStateTests(TestCase):
         qiskit_state_vector_backend = Aer.get_backend("statevector_simulator")
         """
         Getting the Aer Simulator Backend for the State Vector Representation
-        (i.e., the quantum_regime state represented as its state vector).
+        (i.e., the quantum state represented as its state vector).
         """
 
         final_quantum_state_vector_state = \
@@ -776,7 +776,7 @@ class QiskryptWStateTests(TestCase):
                     qiskit_state_vector_backend).result().get_statevector()
         """
         Execute the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit
-        and store the resulted quantum_regime state represented in a final state vector.
+        and store the resulted quantum state represented in a final state vector.
         """
 
         num_possible_outcomes = (2 ** quantum_register_num_qubits)
@@ -801,7 +801,7 @@ class QiskryptWStateTests(TestCase):
                         w_state_3_qubits_array_expected_amplitudes,
                         rtol=1e-7, atol=1e-7)
         """
-        Perform the Assertion of all close values in the values of the quantum_regime state,
+        Perform the Assertion of all close values in the values of the quantum state,
         represented by its state vector describing the given qubits,
         after be prepared a W State with the configuration,
         |W_3⟩ = |000⟩, in W State Basis.
@@ -930,7 +930,7 @@ class QiskryptWStateTests(TestCase):
         qiskit_state_vector_backend = Aer.get_backend("statevector_simulator")
         """
         Getting the Aer Simulator Backend for the State Vector Representation
-        (i.e., the quantum_regime state represented as its state vector).
+        (i.e., the quantum state represented as its state vector).
         """
 
         final_quantum_state_vector_state = \
@@ -938,7 +938,7 @@ class QiskryptWStateTests(TestCase):
                     qiskit_state_vector_backend).result().get_statevector()
         """
         Execute the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit
-        and store the resulted quantum_regime state represented in a final state vector.
+        and store the resulted quantum state represented in a final state vector.
         """
 
         num_possible_outcomes = (2 ** quantum_register_num_qubits)
@@ -963,7 +963,7 @@ class QiskryptWStateTests(TestCase):
                         w_state_3_qubits_array_expected_amplitudes,
                         rtol=1e-7, atol=1e-7)
         """
-        Perform the Assertion of all close values in the values of the quantum_regime state,
+        Perform the Assertion of all close values in the values of the quantum state,
         represented by its state vector describing the given qubits,
         after be prepared a W State with the configuration,
         |W_3⟩ = |111⟩, in W State Basis.
@@ -1073,7 +1073,7 @@ class QiskryptWStateTests(TestCase):
         qiskit_state_vector_backend = Aer.get_backend("statevector_simulator")
         """
         Getting the Aer Simulator Backend for the State Vector Representation
-        (i.e., the quantum_regime state represented as its state vector).
+        (i.e., the quantum state represented as its state vector).
         """
 
         final_quantum_state_vector_state = \
@@ -1081,7 +1081,7 @@ class QiskryptWStateTests(TestCase):
                     qiskit_state_vector_backend).result().get_statevector()
         """
         Execute the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit
-        and store the resulted quantum_regime state represented in a final state vector.
+        and store the resulted quantum state represented in a final state vector.
         """
 
         num_possible_outcomes = (2 ** quantum_register_num_qubits)
@@ -1106,7 +1106,7 @@ class QiskryptWStateTests(TestCase):
                         w_state_4_qubits_array_expected_amplitudes,
                         rtol=1e-7, atol=1e-7)
         """
-        Perform the Assertion of all close values in the values of the quantum_regime state,
+        Perform the Assertion of all close values in the values of the quantum state,
         represented by its state vector describing the given qubits,
         after be prepared a W State with the configuration,
         |W_4⟩ = |0000⟩, in W State Basis.
@@ -1235,7 +1235,7 @@ class QiskryptWStateTests(TestCase):
         qiskit_state_vector_backend = Aer.get_backend("statevector_simulator")
         """
         Getting the Aer Simulator Backend for the State Vector Representation
-        (i.e., the quantum_regime state represented as its state vector).
+        (i.e., the quantum state represented as its state vector).
         """
 
         final_quantum_state_vector_state = \
@@ -1243,7 +1243,7 @@ class QiskryptWStateTests(TestCase):
                     qiskit_state_vector_backend).result().get_statevector()
         """
         Execute the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit
-        and store the resulted quantum_regime state represented in a final state vector.
+        and store the resulted quantum state represented in a final state vector.
         """
 
         num_possible_outcomes = (2 ** quantum_register_num_qubits)
@@ -1268,7 +1268,7 @@ class QiskryptWStateTests(TestCase):
                         w_state_4_qubits_array_expected_amplitudes,
                         rtol=1e-7, atol=1e-7)
         """
-        Perform the Assertion of all close values in the values of the quantum_regime state,
+        Perform the Assertion of all close values in the values of the quantum state,
         represented by its state vector describing the given qubits,
         after be prepared a W State with the configuration,
         |W_4⟩ = |1111⟩, in W State Basis.
@@ -1378,7 +1378,7 @@ class QiskryptWStateTests(TestCase):
         qiskit_state_vector_backend = Aer.get_backend("statevector_simulator")
         """
         Getting the Aer Simulator Backend for the State Vector Representation
-        (i.e., the quantum_regime state represented as its state vector).
+        (i.e., the quantum state represented as its state vector).
         """
 
         final_quantum_state_vector_state = \
@@ -1386,7 +1386,7 @@ class QiskryptWStateTests(TestCase):
                     qiskit_state_vector_backend).result().get_statevector()
         """
         Execute the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit
-        and store the resulted quantum_regime state represented in a final state vector.
+        and store the resulted quantum state represented in a final state vector.
         """
 
         num_possible_outcomes = (2 ** quantum_register_num_qubits)
@@ -1411,7 +1411,7 @@ class QiskryptWStateTests(TestCase):
                         w_state_5_qubits_array_expected_amplitudes,
                         rtol=1e-7, atol=1e-7)
         """
-        Perform the Assertion of all close values in the values of the quantum_regime state,
+        Perform the Assertion of all close values in the values of the quantum state,
         represented by its state vector describing the given qubits,
         after be prepared a W State with the configuration,
         |W_5⟩ = |00000⟩, in W State Basis.
@@ -1540,7 +1540,7 @@ class QiskryptWStateTests(TestCase):
         qiskit_state_vector_backend = Aer.get_backend("statevector_simulator")
         """
         Getting the Aer Simulator Backend for the State Vector Representation
-        (i.e., the quantum_regime state represented as its state vector).
+        (i.e., the quantum state represented as its state vector).
         """
 
         final_quantum_state_vector_state = \
@@ -1548,7 +1548,7 @@ class QiskryptWStateTests(TestCase):
                     qiskit_state_vector_backend).result().get_statevector()
         """
         Execute the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit
-        and store the resulted quantum_regime state represented in a final state vector.
+        and store the resulted quantum state represented in a final state vector.
         """
 
         num_possible_outcomes = (2 ** quantum_register_num_qubits)
@@ -1573,7 +1573,7 @@ class QiskryptWStateTests(TestCase):
                         w_state_5_qubits_array_expected_amplitudes,
                         rtol=1e-7, atol=1e-7)
         """
-        Perform the Assertion of all close values in the values of the quantum_regime state,
+        Perform the Assertion of all close values in the values of the quantum state,
         represented by its state vector describing the given qubits,
         after be prepared a W State with the configuration,
         |W_5⟩ = |11111⟩, in W State Basis.
@@ -1681,7 +1681,7 @@ class QiskryptWStateTests(TestCase):
         qiskit_state_vector_backend = Aer.get_backend("statevector_simulator")
         """
         Getting the Aer Simulator Backend for the State Vector Representation
-        (i.e., the quantum_regime state represented as its state vector).
+        (i.e., the quantum state represented as its state vector).
         """
 
         final_quantum_state_vector_state = \
@@ -1689,7 +1689,7 @@ class QiskryptWStateTests(TestCase):
                     qiskit_state_vector_backend).result().get_statevector()
         """
         Execute the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit
-        and store the resulted quantum_regime state represented in a final state vector.
+        and store the resulted quantum state represented in a final state vector.
         """
 
         num_possible_outcomes = (2 ** quantum_register_num_qubits)
@@ -1714,7 +1714,7 @@ class QiskryptWStateTests(TestCase):
                         w_state_6_qubits_array_expected_amplitudes,
                         rtol=1e-7, atol=1e-7)
         """
-        Perform the Assertion of all close values in the values of the quantum_regime state,
+        Perform the Assertion of all close values in the values of the quantum state,
         represented by its state vector describing the given qubits,
         after be prepared a W State with the configuration,
         |W_6⟩ = |000000⟩, in W State Basis.
@@ -1843,7 +1843,7 @@ class QiskryptWStateTests(TestCase):
         qiskit_state_vector_backend = Aer.get_backend("statevector_simulator")
         """
         Getting the Aer Simulator Backend for the State Vector Representation
-        (i.e., the quantum_regime state represented as its state vector).
+        (i.e., the quantum state represented as its state vector).
         """
 
         final_quantum_state_vector_state = \
@@ -1851,7 +1851,7 @@ class QiskryptWStateTests(TestCase):
                     qiskit_state_vector_backend).result().get_statevector()
         """
         Execute the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit
-        and store the resulted quantum_regime state represented in a final state vector.
+        and store the resulted quantum state represented in a final state vector.
         """
 
         num_possible_outcomes = (2 ** quantum_register_num_qubits)
@@ -1876,7 +1876,7 @@ class QiskryptWStateTests(TestCase):
                         w_state_6_qubits_array_expected_amplitudes,
                         rtol=1e-7, atol=1e-7)
         """
-        Perform the Assertion of all close values in the values of the quantum_regime state,
+        Perform the Assertion of all close values in the values of the quantum state,
         represented by its state vector describing the given qubits,
         after be prepared a W State with the configuration,
         |W_6⟩ = |111111⟩, in W State Basis.
