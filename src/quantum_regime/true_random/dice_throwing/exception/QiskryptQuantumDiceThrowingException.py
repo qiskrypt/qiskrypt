@@ -100,7 +100,7 @@ class QiskryptQuantumDiceThrowingDiceTypeNotValidError(Exception):
 
         super().__init__(self.message)
         """
-        Calls the constructor of the super-class Exception.
+        Call of the constructor of the super-class Exception.
         """
 
 
@@ -126,7 +126,7 @@ class QiskryptQuantumDiceThrowingDiceNotConfiguredYetError(Exception):
 
         super().__init__(self.message)
         """
-        Calls the constructor of the super-class Exception.
+        Call of the constructor of the super-class Exception.
         """
 
 
@@ -151,7 +151,7 @@ class QiskryptQuantumDiceThrowingDiceAlreadyConfiguredError(Exception):
 
         super().__init__(self.message)
         """
-        Calls the constructor of the super-class Exception.
+        Call of the constructor of the super-class Exception.
         """
 
 
@@ -174,7 +174,7 @@ class QiskryptQuantumDiceThrowingDiceNotThrownYetError(Exception):
 
         super().__init__(self.message)
         """
-        Calls the constructor of the super-class Exception.
+        Call of the constructor of the super-class Exception.
         """
 
 
@@ -197,5 +197,5 @@ class QiskryptQuantumDiceThrowingDiceAlreadyThrownError(Exception):
 
         super().__init__(self.message)
         """
-        Calls the constructor of the super-class Exception.
+        Call of the constructor of the super-class Exception.
         """

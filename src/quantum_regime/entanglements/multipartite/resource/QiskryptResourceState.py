@@ -110,7 +110,7 @@ class QiskryptResourceState(QiskryptQuantumEntanglement):
                                  POSSIBLE_QUANTUM_ENTANGLEMENT_TYPES[5],
                                  qiskrypt_quantum_circuit)
                 """
-                Calls the constructor of the super-class Qiskrypt's Quantum Entanglement.
+                Call of the constructor of the super-class Qiskrypt's Quantum Entanglement.
                 """
 
                 self.resource_type = resource_type

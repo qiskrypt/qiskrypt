@@ -161,7 +161,7 @@ class QiskryptQuantumCircuitUnsupportedTypeRegistersError(Exception):
 
         super().__init__(self.message)
         """
-        Calls the constructor of the super-class Exception.
+        Call of the constructor of the super-class Exception.
         """
 
 
@@ -188,7 +188,7 @@ class QiskryptQuantumCircuitInvalidQiskitQuantumRegisterIndexGivenError(Exceptio
 
         super().__init__(self.message)
         """
-        Calls the constructor of the super-class Exception.
+        Call of the constructor of the super-class Exception.
         """
 
 
@@ -215,7 +215,7 @@ class QiskryptQuantumCircuitInvalidQubitIndexGivenError(Exception):
 
         super().__init__(self.message)
         """
-        Calls the constructor of the super-class Exception.
+        Call of the constructor of the super-class Exception.
         """
 
 
@@ -242,7 +242,7 @@ class QiskryptQuantumCircuitInvalidQiskitClassicalRegisterIndexGivenError(Except
 
         super().__init__(self.message)
         """
-        Calls the constructor of the super-class Exception.
+        Call of the constructor of the super-class Exception.
         """
 
 
@@ -269,7 +269,7 @@ class QiskryptQuantumCircuitInvalidBitIndexGivenError(Exception):
 
         super().__init__(self.message)
         """
-        Calls the constructor of the super-class Exception.
+        Call of the constructor of the super-class Exception.
         """
 
 
@@ -296,7 +296,7 @@ class QiskryptQuantumCircuitRegisterNotFoundError(Exception):
 
         super().__init__(self.message)
         """
-        Calls the constructor of the super-class Exception.
+        Call of the constructor of the super-class Exception.
         """
 
 
@@ -323,7 +323,7 @@ class QiskryptQuantumCircuitNumQuantumRegistersAndNumClassicalRegistersAreNotEqu
 
         super().__init__(self.message)
         """
-        Calls the constructor of the super-class Exception.
+        Call of the constructor of the super-class Exception.
         """
 
 
@@ -350,7 +350,7 @@ class QiskryptQuantumCircuitNumQubitsAndNumBitsAreNotEqualForOperationOrMeasurem
 
         super().__init__(self.message)
         """
-        Calls the constructor of the super-class Exception.
+        Call of the constructor of the super-class Exception.
         """
 
 
@@ -377,7 +377,7 @@ class QiskryptQuantumCircuitListDoNotRepresentASquareUnitaryMatrixOperatorError(
 
         super().__init__(self.message)
         """
-        Calls the constructor of the super-class Exception.
+        Call of the constructor of the super-class Exception.
         """
 
 
@@ -420,7 +420,7 @@ class QiskryptQuantumCircuitInvalidOrNoneGivenError(Exception):
 
         super().__init__(self.message)
         """
-        Calls the constructor of the super-class Exception.
+        Call of the constructor of the super-class Exception.
         """
 
 
@@ -463,7 +463,7 @@ class QiskryptQuantumCircuitNotAnInstanceOfError(Exception):
 
         super().__init__(self.message)
         """
-        Calls the constructor of the super-class Exception.
+        Call of the constructor of the super-class Exception.
         """
 
 
@@ -506,7 +506,7 @@ class QiskryptQuantumCircuitNotInitialisedYetError(Exception):
 
         super().__init__(self.message)
         """
-        Calls the constructor of the super-class Exception.
+        Call of the constructor of the super-class Exception.
         """
 
 
@@ -549,5 +549,5 @@ class QiskryptQuantumCircuitAlreadyInitialisedError(Exception):
 
         super().__init__(self.message)
         """
-        Calls the constructor of the super-class Exception.
+        Call of the constructor of the super-class Exception.
         """

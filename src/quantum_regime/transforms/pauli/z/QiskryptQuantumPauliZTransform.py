@@ -75,7 +75,7 @@ class QiskryptQuantumPauliZTransform(QiskryptQuantumPauliTransform):
 
         super().__init__(name, qiskrypt_quantum_circuit, qiskit_quantum_registers_indexes, qubits_indexes)
         """
-        Calls the constructor of the super-class Qiskrypt's Quantum Pauli Transform.
+        Call of the constructor of the super-class Qiskrypt's Quantum Pauli Transform.
         """
 
     def get_name(self) -> str:

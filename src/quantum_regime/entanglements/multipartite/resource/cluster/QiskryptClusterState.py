@@ -94,7 +94,7 @@ class QiskryptClusterState(QiskryptResourceState):
 
             super().__init__(name, qiskrypt_quantum_circuit, POSSIBLE_CONFIGURATIONS_RESOURCE_STATES[1])
             """
-            Calls the constructor of the super-class Qiskrypt's Resource State.
+            Call of the constructor of the super-class Qiskrypt's Resource State.
             """
 
             self.qiskit_quantum_registers_indexes = None

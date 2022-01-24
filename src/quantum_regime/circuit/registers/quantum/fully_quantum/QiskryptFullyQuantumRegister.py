@@ -83,7 +83,7 @@ class QiskryptFullyQuantumRegister(QiskryptQuantumRegister):
 
         super().__init__(name=name, num_qubits=num_qubits, qiskit_quantum_register=qiskit_quantum_register)
         """
-        Calls the constructor of the super-class Qiskrypt's Fully-Quantum Register.
+        Call of the constructor of the super-class Qiskrypt's Fully-Quantum Register.
         """
 
     def get_name(self) -> str:

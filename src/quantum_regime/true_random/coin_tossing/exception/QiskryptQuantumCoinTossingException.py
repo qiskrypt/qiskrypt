@@ -76,7 +76,7 @@ class QiskryptQuantumCoinTossingCoinNotTossedYetError(Exception):
 
         super().__init__(self.message)
         """
-        Calls the constructor of the super-class Exception.
+        Call of the constructor of the super-class Exception.
         """
 
 
@@ -99,5 +99,5 @@ class QiskryptQuantumCoinTossingCoinAlreadyTossedError(Exception):
 
         super().__init__(self.message)
         """
-        Calls the constructor of the super-class Exception.
+        Call of the constructor of the super-class Exception.
         """

@@ -83,7 +83,7 @@ class QiskryptAncillaFullyQuantumRegister(QiskryptAncillaQuantumRegister):
 
         super().__init__(name=name, num_ancilla_qubits=num_ancilla_qubits, qiskit_ancilla_quantum_register=qiskit_ancilla_quantum_register)
         """
-        Calls the constructor of the super-class Qiskrypt's Ancilla Quantum Register.
+        Call of the constructor of the super-class Qiskrypt's Ancilla Quantum Register.
         """
 
     def get_name(self) -> str:

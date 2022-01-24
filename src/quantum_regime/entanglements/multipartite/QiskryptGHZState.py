@@ -92,7 +92,7 @@ class QiskryptGHZState(QiskryptQuantumEntanglement):
                              POSSIBLE_QUANTUM_ENTANGLEMENT_TYPES[1],
                              qiskrypt_quantum_circuit)
             """
-            Calls the constructor of the super-class Qiskrypt's Quantum Entanglement.
+            Call of the constructor of the super-class Qiskrypt's Quantum Entanglement.
             """
 
             self.qiskit_quantum_register_control_index = None

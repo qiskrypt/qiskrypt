@@ -79,7 +79,7 @@ class QiskryptNotClassicalRegisterError(Exception):
 
         super().__init__(self.message)
         """
-        Calls the constructor of the super-class Exception.
+        Call of the constructor of the super-class Exception.
         """
 
 
@@ -106,5 +106,5 @@ class QiskryptNotValidClassicalRegisterIndexError(Exception):
 
         super().__init__(self.message)
         """
-        Calls the constructor of the super-class Exception.
+        Call of the constructor of the super-class Exception.
         """

@@ -97,7 +97,7 @@ class QiskryptWState(QiskryptQuantumEntanglement):
                              POSSIBLE_QUANTUM_ENTANGLEMENT_TYPES[2],
                              qiskrypt_quantum_circuit)
             """
-            Calls the constructor of the super-class Qiskrypt's Quantum Entanglement.
+            Call of the constructor of the super-class Qiskrypt's Quantum Entanglement.
             """
 
             self.qiskit_quantum_registers_indexes = None

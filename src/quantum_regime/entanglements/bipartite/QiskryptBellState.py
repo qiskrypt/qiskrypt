@@ -105,7 +105,7 @@ class QiskryptBellState(QiskryptQuantumEntanglement):
                                  POSSIBLE_QUANTUM_ENTANGLEMENT_TYPES[0],
                                  qiskrypt_quantum_circuit, bell_state_sub_type)
                 """
-                Calls the constructor of the super-class Qiskrypt's Quantum Entanglement.
+                Call of the constructor of the super-class Qiskrypt's Quantum Entanglement.
                 """
 
                 self.qiskit_quantum_register_control_index = None

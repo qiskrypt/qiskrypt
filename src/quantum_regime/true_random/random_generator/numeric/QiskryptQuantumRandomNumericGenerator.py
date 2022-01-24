@@ -162,7 +162,7 @@ class QiskryptQuantumRandomNumericGenerator(QiskryptQuantumRandomGenerator):
 
         super().__init__(name)
         """
-        Calls the constructor of the super-class Qiskrypt's Quantum Random Generator.
+        Call of the constructor of the super-class Qiskrypt's Quantum Random Generator.
         """
 
         if data_type in DATA_TYPES:
