@@ -167,7 +167,7 @@ class QiskryptQuantumCryptographicPrimitive:
 
             # TODO Throw - Exception
 
-    def get_name(self):
+    def get_name(self) -> str:
         """
         Return the name of the Qiskrypt's Quantum Cryptographic Primitive.
 
@@ -179,7 +179,7 @@ class QiskryptQuantumCryptographicPrimitive:
         """
         return self.name
 
-    def get_quantum_cryptographic_primitive_cardinality(self):
+    def get_quantum_cryptographic_primitive_cardinality(self) -> str:
         """
         Return the cardinality of the Qiskrypt's Quantum Cryptographic Primitive.
 
@@ -192,7 +192,7 @@ class QiskryptQuantumCryptographicPrimitive:
         """
         return self.quantum_cryptographic_primitive_cardinality
 
-    def get_quantum_cryptographic_primitive_signal_variable(self):
+    def get_quantum_cryptographic_primitive_signal_variable(self) -> str:
         """
         Return the signal variable of the Qiskrypt's Quantum Cryptographic Primitive.
 
@@ -205,7 +205,7 @@ class QiskryptQuantumCryptographicPrimitive:
         """
         return self.quantum_cryptographic_primitive_signal_variable
 
-    def get_quantum_cryptographic_primitive_scenario(self):
+    def get_quantum_cryptographic_primitive_scenario(self) -> str:
         """
         Return the scenario of the Qiskrypt's Quantum Cryptographic Primitive.
 
@@ -218,7 +218,7 @@ class QiskryptQuantumCryptographicPrimitive:
         """
         return self.quantum_cryptographic_primitive_scenario
 
-    def get_quantum_cryptographic_primitive_type(self):
+    def get_quantum_cryptographic_primitive_type(self) -> str:
         """
         Return the type of the Qiskrypt's Quantum Cryptographic Primitive.
 
