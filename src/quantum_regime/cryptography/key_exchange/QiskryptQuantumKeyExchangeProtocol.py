@@ -158,7 +158,7 @@ class QiskryptQuantumKeyExchangeProtocol(QiskryptQuantumCryptographicPrimitive):
         """
         Return the signal variable type of the Qiskrypt's Quantum Cryptographic Primitive.
 
-        :return super().get_quantum_cryptographic_primitive_signal_variable_type(): the signal variable of the Qiskrypt's
+        :return super().get_quantum_cryptographic_primitive_signal_variable_type(): the signal variable type of the Qiskrypt's
                                                                                     Quantum Cryptographic Primitive.
         """
 
