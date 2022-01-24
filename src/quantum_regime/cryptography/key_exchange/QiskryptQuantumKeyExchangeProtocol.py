@@ -77,7 +77,9 @@ class QiskryptQuantumKeyExchangeProtocol(QiskryptQuantumCryptographicPrimitive):
 
     def __init__(self, name: str,
                  quantum_cryptographic_primitive_cardinality: str,
-                 quantum_cryptographic_primitive_signal_variable: str,
+                 quantum_cryptographic_primitive_signal_variable_type: str,
+                 quantum_cryptographic_primitive_context: str,
+                 quantum_cryptographic_primitive_properties: list,
                  quantum_cryptographic_primitive_scenario: str,
                  quantum_key_exchange_protocol_type: str):
         """
@@ -86,8 +88,12 @@ class QiskryptQuantumKeyExchangeProtocol(QiskryptQuantumCryptographicPrimitive):
         :param name: the name of the Qiskrypt's Quantum Cryptographic Primitive.
         :param quantum_cryptographic_primitive_cardinality: the cardinality of the Qiskrypt's
                                                             Quantum Cryptographic Primitive.
-        :param quantum_cryptographic_primitive_signal_variable: the signal variable of the Qiskrypt's
-                                                                Quantum Cryptographic Primitive.
+        :param quantum_cryptographic_primitive_signal_variable_type: the signal variable type of the Qiskrypt's
+                                                                     Quantum Cryptographic Primitive.
+        :param quantum_cryptographic_primitive_context: the context of the Qiskrypt's
+                                                        Quantum Cryptographic Primitive.
+        :param quantum_cryptographic_primitive_properties: the list of properties of the Qiskrypt's
+                                                           Quantum Cryptographic Primitive.
         :param quantum_cryptographic_primitive_scenario: the scenario of the Qiskrypt's
                                                          Quantum Cryptographic Primitive.
         :param quantum_key_exchange_protocol_type: the type of the Qiskrypt's
@@ -101,7 +107,9 @@ class QiskryptQuantumKeyExchangeProtocol(QiskryptQuantumCryptographicPrimitive):
             """
 
             super().__init__(name, quantum_cryptographic_primitive_cardinality,
-                             quantum_cryptographic_primitive_signal_variable,
+                             quantum_cryptographic_primitive_signal_variable_type,
+                             quantum_cryptographic_primitive_context,
+                             quantum_cryptographic_primitive_properties,
                              quantum_cryptographic_primitive_scenario,
                              POSSIBLE_QUANTUM_CRYPTOGRAPHIC_PRIMITIVE_TYPES[1])
             """
@@ -146,18 +154,44 @@ class QiskryptQuantumKeyExchangeProtocol(QiskryptQuantumCryptographicPrimitive):
         """
         return super().get_quantum_cryptographic_primitive_cardinality()
 
-    def get_quantum_cryptographic_primitive_signal_variable(self) -> str:
+    def get_quantum_cryptographic_primitive_signal_variable_type(self) -> str:
         """
-        Return the signal variable of the Qiskrypt's Quantum Cryptographic Primitive.
+        Return the signal variable type of the Qiskrypt's Quantum Cryptographic Primitive.
 
-        :return super().get_quantum_cryptographic_primitive_signal_variable(): the signal variable of the Qiskrypt's
-                                                                               Quantum Cryptographic Primitive.
+        :return super().get_quantum_cryptographic_primitive_signal_variable_type(): the signal variable of the Qiskrypt's
+                                                                                    Quantum Cryptographic Primitive.
         """
 
         """
-        Return the signal variable of the Qiskrypt's Quantum Cryptographic Primitive.
+        Return the signal variable type of the Qiskrypt's Quantum Cryptographic Primitive.
         """
-        return super().get_quantum_cryptographic_primitive_signal_variable()
+        return super().get_quantum_cryptographic_primitive_signal_variable_type()
+
+    def get_quantum_cryptographic_primitive_context(self) -> str:
+        """
+        Return the context of the Qiskrypt's Quantum Cryptographic Primitive.
+
+        :return super().get_quantum_cryptographic_primitive_context(): the context of the Qiskrypt's
+                                                                       Quantum Cryptographic Primitive.
+        """
+
+        """
+        Return the context of the Qiskrypt's Quantum Cryptographic Primitive.
+        """
+        return super().get_quantum_cryptographic_primitive_context()
+
+    def get_quantum_cryptographic_primitive_properties(self) -> list:
+        """
+        Return the list of properties of the Qiskrypt's Quantum Cryptographic Primitive.
+
+        :return super().get_quantum_cryptographic_primitive_properties(): the list of properties of the Qiskrypt's
+                                                                          Quantum Cryptographic Primitive.
+        """
+
+        """
+        Return the list of properties of the Qiskrypt's Quantum Cryptographic Primitive.
+        """
+        return super().get_quantum_cryptographic_primitive_properties()
 
     def get_quantum_cryptographic_primitive_scenario(self) -> str:
         """
