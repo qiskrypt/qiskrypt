@@ -115,3 +115,219 @@ class QiskryptQuantumKeyDistribution(QiskryptQuantumKeyExchangeProtocol):
             """
 
             # TODO Throw - Exception
+
+    def get_name(self) -> str:
+        """
+        Return the name of the Qiskrypt's Quantum Cryptographic Primitive.
+
+        :return super().get_name(): the name of the Qiskrypt's
+                                    Quantum Cryptographic Primitive.
+        """
+
+        """
+        Return the name of the Qiskrypt's Quantum Cryptographic Primitive.
+        """
+        return super().get_name()
+
+    def get_quantum_cryptographic_primitive_cardinality(self) -> str:
+        """
+        Return the cardinality of the Qiskrypt's Quantum Cryptographic Primitive.
+
+        :return super().get_quantum_cryptographic_primitive_cardinality(): the cardinality of the Qiskrypt's
+                                                                           Quantum Cryptographic Primitive.
+        """
+
+        """
+        Return the cardinality of the Qiskrypt's Quantum Cryptographic Primitive.
+        """
+        return super().get_quantum_cryptographic_primitive_cardinality()
+
+    def get_quantum_cryptographic_primitive_signal_variable(self) -> str:
+        """
+        Return the signal variable of the Qiskrypt's Quantum Cryptographic Primitive.
+
+        :return super().get_quantum_cryptographic_primitive_signal_variable(): the signal variable of the Qiskrypt's
+                                                                               Quantum Cryptographic Primitive.
+        """
+
+        """
+        Return the signal variable of the Qiskrypt's Quantum Cryptographic Primitive.
+        """
+        return super().get_quantum_cryptographic_primitive_signal_variable()
+
+    def get_quantum_cryptographic_primitive_scenario(self) -> str:
+        """
+        Return the scenario of the Qiskrypt's Quantum Cryptographic Primitive.
+
+        :return super().get_quantum_cryptographic_primitive_scenario(): the scenario of the Qiskrypt's
+                                                                        Quantum Cryptographic Primitive.
+        """
+
+        """
+        Return the scenario of the Qiskrypt's Quantum Cryptographic Primitive.
+        """
+        return super().get_quantum_cryptographic_primitive_scenario()
+
+    def get_quantum_cryptographic_primitive_type(self) -> str:
+        """
+        Return the type of the Qiskrypt's Quantum Cryptographic Primitive.
+
+        :return super().get_quantum_cryptographic_primitive_type(): the type of the Qiskrypt's
+                                                                    Quantum Cryptographic Primitive.
+        """
+
+        """
+        Return the type of the Qiskrypt's Quantum Cryptographic Primitive.
+        """
+        return super().get_quantum_cryptographic_primitive_type()
+
+    def get_quantum_key_exchange_protocol_type(self) -> str:
+        """
+        Return the type of the Qiskrypt's Quantum Key Exchange Protocol.
+
+        :return self.quantum_key_exchange_protocol_type: the type of the Qiskrypt's
+                                                         Quantum Key Exchange Protocol.
+        """
+
+        """
+        Return the type of the Qiskrypt's Quantum Key Exchange Protocol.
+        """
+        return self.quantum_key_exchange_protocol_type
+
+    def start_quantum_transmission_phase(self):
+        """
+        Start the Quantum Transmission Phase of the
+        Qiskrypt's Quantum Key Exchange Protocol.
+        """
+
+        self.prepare_quantum_states()
+        """
+        Prepare the Quantum States for the Quantum Transmission Phase of
+        the Quantum Key Distribution (QKD).
+        """
+
+        self.transmit_quantum_states()
+        """
+        Transmit the Quantum States for the Quantum Transmission Phase of
+        the Quantum Key Distribution (QKD).
+        """
+
+        self.measure_quantum_states()
+        """
+        Measure the Quantum States for the Quantum Transmission Phase of
+        the Quantum Key Distribution (QKD).
+        """
+
+    def start_classical_post_processing_phase(self):
+        """
+        Start the Classical Post-Processing Phase of the
+        Qiskrypt's Quantum Key Exchange Protocol.
+        """
+
+        self.sift_raw_key()
+        """
+        Sift the Raw Key for the Classical Post-Processing Phase of
+        the Quantum Key Distribution (QKD).
+        """
+
+        self.estimate_parameters()
+        """
+        Estimate the Parameters for the Classical Post-Processing Phase of
+        the Quantum Key Distribution (QKD).
+        """
+
+        self.reconcile_information()
+        """
+        Reconcile the Information for the Classical Post-Processing Phase of
+        the Quantum Key Distribution (QKD).
+        """
+
+        self.amplify_privacy()
+        """
+        Amplify the Privacy for the Classical Post-Processing Phase of
+        the Quantum Key Distribution (QKD).
+        """
+
+    def prepare_quantum_states(self):
+        """
+        Prepare the Quantum States for the
+        Qiskrypt's Quantum Key Distribution (QKD).
+        """
+
+        """
+        Raise a Not Implemented Error since this abstract method
+        should be implemented in its sub-classes.
+        """
+        # TODO Throw - Exception
+
+    def transmit_quantum_states(self):
+        """
+        Transmit the Quantum States for the
+        Qiskrypt's Quantum Key Distribution (QKD).
+        """
+
+        """
+        Raise a Not Implemented Error since this abstract method
+        should be implemented in its sub-classes.
+        """
+        # TODO Throw - Exception
+
+    def measure_quantum_states(self):
+        """
+        Measure the Quantum States for the
+        Qiskrypt's Quantum Key Distribution (QKD).
+        """
+
+        """
+        Raise a Not Implemented Error since this abstract method
+        should be implemented in its sub-classes.
+        """
+        # TODO Throw - Exception
+
+    def sift_raw_key(self):
+        """
+        Sift the Secret Key for the
+        Qiskrypt's Quantum Key Distribution (QKD).
+        """
+
+        """
+        Raise a Not Implemented Error since this abstract method
+        should be implemented in its sub-classes.
+        """
+        # TODO Throw - Exception
+
+    def estimate_parameters(self):
+        """
+        Estimate the Parameters for the
+        Qiskrypt's Quantum Key Distribution (QKD).
+        """
+
+        """
+        Raise a Not Implemented Error since this abstract method
+        should be implemented in its sub-classes.
+        """
+        # TODO Throw - Exception
+
+    def reconcile_information(self):
+        """
+        Reconcile the Information for the
+        Qiskrypt's Quantum Key Distribution (QKD).
+        """
+
+        """
+        Raise a Not Implemented Error since this abstract method
+        should be implemented in its sub-classes.
+        """
+        # TODO Throw - Exception
+
+    def amplify_privacy(self):
+        """
+        Amplify the Privacy for the
+        Qiskrypt's Quantum Key Distribution (QKD).
+        """
+
+        """
+        Raise a Not Implemented Error since this abstract method
+        should be implemented in its sub-classes.
+        """
+        # TODO Throw - Exception
