@@ -228,14 +228,14 @@ class QiskryptQuantumKeyDistribution(QiskryptQuantumKeyExchangeProtocol):
         """
         Return the type of the Qiskrypt's Quantum Key Exchange Protocol.
 
-        :return self.quantum_key_exchange_protocol_type: the type of the Qiskrypt's
-                                                         Quantum Key Exchange Protocol.
+        :return super().get_quantum_key_exchange_protocol_type(): the type of the Qiskrypt's
+                                                                  Quantum Key Exchange Protocol.
         """
 
         """
         Return the type of the Qiskrypt's Quantum Key Exchange Protocol.
         """
-        return self.quantum_key_exchange_protocol_type
+        return super().get_quantum_key_exchange_protocol_type()
 
     def get_quantum_key_distribution_type(self) -> str:
         """
