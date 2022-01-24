@@ -48,9 +48,9 @@ The available Quantum Cryptographic Primitive cardinalities for
 the Qiskrypt's Quantum Cryptographic Primitive.
 """
 
-POSSIBLE_QUANTUM_CRYPTOGRAPHIC_PRIMITIVE_SIGNAL_VARIABLES = ["DISCRETE", "CONTINUOUS"]
+POSSIBLE_QUANTUM_CRYPTOGRAPHIC_PRIMITIVE_SIGNAL_VARIABLE_TYPES = ["DISCRETE", "CONTINUOUS"]
 """
-The available Quantum Cryptographic Primitive signal variables for
+The available Quantum Cryptographic Primitive signal variable types for
 the Qiskrypt's Quantum Cryptographic Primitive.
 """
 
@@ -86,7 +86,7 @@ class QiskryptQuantumCryptographicPrimitive:
 
     def __init__(self, name: str,
                  quantum_cryptographic_primitive_cardinality: str,
-                 quantum_cryptographic_primitive_signal_variable: str,
+                 quantum_cryptographic_primitive_signal_variable_type: str,
                  quantum_cryptographic_primitive_context: str,
                  quantum_cryptographic_primitive_properties: list,
                  quantum_cryptographic_primitive_scenario: str,
@@ -97,8 +97,8 @@ class QiskryptQuantumCryptographicPrimitive:
         :param name: the name of the Qiskrypt's Quantum Cryptographic Primitive.
         :param quantum_cryptographic_primitive_cardinality: the cardinality of the Qiskrypt's
                                                             Quantum Cryptographic Primitive.
-        :param quantum_cryptographic_primitive_signal_variable: the signal variable of the Qiskrypt's
-                                                                Quantum Cryptographic Primitive.
+        :param quantum_cryptographic_primitive_signal_variable_type: the signal variable type of the Qiskrypt's
+                                                                     Quantum Cryptographic Primitive.
         :param quantum_cryptographic_primitive_context: the context of the Qiskrypt's
                                                         Quantum Cryptographic Primitive.
         :param quantum_cryptographic_primitive_properties: the list of properties of the Qiskrypt's
@@ -115,10 +115,10 @@ class QiskryptQuantumCryptographicPrimitive:
             If the given cardinality of the Qiskrypt's Quantum Cryptographic Primitive is valid.
             """
 
-            if quantum_cryptographic_primitive_signal_variable in \
-                    POSSIBLE_QUANTUM_CRYPTOGRAPHIC_PRIMITIVE_SIGNAL_VARIABLES:
+            if quantum_cryptographic_primitive_signal_variable_type in \
+                    POSSIBLE_QUANTUM_CRYPTOGRAPHIC_PRIMITIVE_SIGNAL_VARIABLE_TYPES:
                 """
-                If the given signal variable of the Qiskrypt's Quantum Cryptographic Primitive is valid.
+                If the given signal variable type of the Qiskrypt's Quantum Cryptographic Primitive is valid.
                 """
 
                 if quantum_cryptographic_primitive_context in \
@@ -165,10 +165,10 @@ class QiskryptQuantumCryptographicPrimitive:
                                 Set the cardinality of the Qiskrypt's Quantum Cryptographic Primitive.
                                 """
 
-                                self.quantum_cryptographic_primitive_signal_variable = \
-                                    quantum_cryptographic_primitive_signal_variable
+                                self.quantum_cryptographic_primitive_signal_variable_type = \
+                                    quantum_cryptographic_primitive_signal_variable_type
                                 """
-                                Set the signal variable of the Qiskrypt's Quantum Cryptographic Primitive.
+                                Set the signal variable type of the Qiskrypt's Quantum Cryptographic Primitive.
                                 """
 
                                 self.quantum_cryptographic_primitive_properties = \
@@ -249,18 +249,18 @@ class QiskryptQuantumCryptographicPrimitive:
         """
         return self.quantum_cryptographic_primitive_cardinality
 
-    def get_quantum_cryptographic_primitive_signal_variable(self) -> str:
+    def get_quantum_cryptographic_primitive_signal_variable_type(self) -> str:
         """
-        Return the signal variable of the Qiskrypt's Quantum Cryptographic Primitive.
+        Return the signal variable type of the Qiskrypt's Quantum Cryptographic Primitive.
 
-        :return self.quantum_cryptographic_primitive_signal_variable: the signal variable of the Qiskrypt's
-                                                                      Quantum Cryptographic Primitive.
+        :return self.quantum_cryptographic_primitive_signal_variable_type: the signal variable type of the Qiskrypt's
+                                                                           Quantum Cryptographic Primitive.
         """
 
         """
-        Return the signal variable of the Qiskrypt's Quantum Cryptographic Primitive.
+        Return the signal variable type of the Qiskrypt's Quantum Cryptographic Primitive.
         """
-        return self.quantum_cryptographic_primitive_signal_variable
+        return self.quantum_cryptographic_primitive_signal_variable_type
 
     def get_quantum_cryptographic_primitive_properties(self) -> list:
         """
