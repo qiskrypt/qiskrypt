@@ -171,6 +171,12 @@ class QiskryptQuantumCryptographicPrimitive:
                                 Set the signal variable type of the Qiskrypt's Quantum Cryptographic Primitive.
                                 """
 
+                                self.quantum_cryptographic_primitive_context = \
+                                    quantum_cryptographic_primitive_context
+                                """
+                                Set the context of the Qiskrypt's Quantum Cryptographic Primitive.
+                                """
+
                                 self.quantum_cryptographic_primitive_properties = \
                                     quantum_cryptographic_primitive_properties
                                 """
@@ -261,6 +267,19 @@ class QiskryptQuantumCryptographicPrimitive:
         Return the signal variable type of the Qiskrypt's Quantum Cryptographic Primitive.
         """
         return self.quantum_cryptographic_primitive_signal_variable_type
+
+    def get_quantum_cryptographic_primitive_context(self) -> str:
+        """
+        Return the context of the Qiskrypt's Quantum Cryptographic Primitive.
+
+        :return self.quantum_cryptographic_primitive_context: the context of the Qiskrypt's
+                                                              Quantum Cryptographic Primitive.
+        """
+
+        """
+        Return the context of the Qiskrypt's Quantum Cryptographic Primitive.
+        """
+        return self.quantum_cryptographic_primitive_context
 
     def get_quantum_cryptographic_primitive_properties(self) -> list:
         """
