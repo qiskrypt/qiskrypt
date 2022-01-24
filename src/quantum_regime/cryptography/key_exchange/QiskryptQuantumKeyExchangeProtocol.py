@@ -51,7 +51,7 @@ Import the Qiskrypt's Quantum Cryptographic Primitive.
 from src.quantum_regime.cryptography.QiskryptQuantumCryptographicPrimitive \
     import POSSIBLE_QUANTUM_CRYPTOGRAPHIC_PRIMITIVE_TYPES
 """
-Import the available Quantum Cryptographic Primitives types for
+Import the available Quantum Cryptographic Primitive types for
 the Qiskrypt's Quantum Cryptographic Primitives.
 """
 
@@ -87,7 +87,7 @@ class QiskryptQuantumKeyExchangeProtocol(QiskryptQuantumCryptographicPrimitive):
         :param quantum_cryptographic_primitive_cardinality: the cardinality of the Qiskrypt's
                                                             Quantum Cryptographic Primitive.
         :param quantum_cryptographic_primitive_signal_variable: the signal variable of the Qiskrypt's
-                                                                 Quantum Cryptographic Primitive.
+                                                                Quantum Cryptographic Primitive.
         :param quantum_cryptographic_primitive_scenario: the scenario of the Qiskrypt's
                                                          Quantum Cryptographic Primitive.
         :param quantum_key_exchange_protocol_type: the type of the Qiskrypt's
@@ -208,7 +208,7 @@ class QiskryptQuantumKeyExchangeProtocol(QiskryptQuantumCryptographicPrimitive):
         Raise a Not Implemented Error since this abstract method
         should be implemented in its sub-classes.
         """
-        # TODO - Throw a Not Implemented Error
+        # TODO Throw - Exception
 
     def start_classical_post_processing_phase(self):
         """
@@ -220,4 +220,4 @@ class QiskryptQuantumKeyExchangeProtocol(QiskryptQuantumCryptographicPrimitive):
         Raise a Not Implemented Error since this abstract method
         should be implemented in its sub-classes.
         """
-        # TODO - Throw a Not Implemented Error
+        # TODO Throw - Exception
