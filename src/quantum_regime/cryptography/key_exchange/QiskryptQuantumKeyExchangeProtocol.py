@@ -51,7 +51,8 @@ Import the Qiskrypt's Quantum Cryptographic Primitive.
 from src.quantum_regime.cryptography.QiskryptQuantumCryptographicPrimitive \
     import POSSIBLE_QUANTUM_CRYPTOGRAPHIC_PRIMITIVE_TYPES
 """
-Import the Qiskrypt's Quantum Cryptographic Primitive.
+Import the available Quantum Cryptographic Primitives types for
+the Qiskrypt's Quantum Cryptographic Primitives.
 """
 
 
@@ -107,12 +108,95 @@ class QiskryptQuantumKeyExchangeProtocol(QiskryptQuantumCryptographicPrimitive):
             Call of the constructor of the super-class Qiskrypt's Quantum Entanglement.
             """
 
+            self.quantum_key_exchange_protocol_type = quantum_key_exchange_protocol_type
+            """
+            Set the scenario of the Qiskrypt's Quantum Key Exchange Protocol.
+            """
+
         else:
             """
             If the given type of the Qiskrypt's Quantum Key Exchange Protocol is not valid.
             """
 
             # TODO Throw - Exception
+
+    def get_name(self) -> str:
+        """
+        Return the name of the Qiskrypt's Quantum Cryptographic Primitive.
+
+        :return super().get_name(): the name of the Qiskrypt's
+                                    Quantum Cryptographic Primitive.
+        """
+
+        """
+        Return the name of the Qiskrypt's Quantum Cryptographic Primitive.
+        """
+        return super().get_name()
+
+    def get_quantum_cryptographic_primitive_cardinality(self) -> str:
+        """
+        Return the cardinality of the Qiskrypt's Quantum Cryptographic Primitive.
+
+        :return super().get_quantum_cryptographic_primitive_cardinality(): the cardinality of the Qiskrypt's
+                                                                           Quantum Cryptographic Primitive.
+        """
+
+        """
+        Return the cardinality of the Qiskrypt's Quantum Cryptographic Primitive.
+        """
+        return super().get_quantum_cryptographic_primitive_cardinality()
+
+    def get_quantum_cryptographic_primitive_signal_variable(self) -> str:
+        """
+        Return the signal variable of the Qiskrypt's Quantum Cryptographic Primitive.
+
+        :return super().get_quantum_cryptographic_primitive_signal_variable(): the signal variable of the Qiskrypt's
+                                                                               Quantum Cryptographic Primitive.
+        """
+
+        """
+        Return the signal variable of the Qiskrypt's Quantum Cryptographic Primitive.
+        """
+        return super().get_quantum_cryptographic_primitive_signal_variable()
+
+    def get_quantum_cryptographic_primitive_scenario(self) -> str:
+        """
+        Return the scenario of the Qiskrypt's Quantum Cryptographic Primitive.
+
+        :return super().get_quantum_cryptographic_primitive_scenario(): the scenario of the Qiskrypt's
+                                                                        Quantum Cryptographic Primitive.
+        """
+
+        """
+        Return the scenario of the Qiskrypt's Quantum Cryptographic Primitive.
+        """
+        return super().get_quantum_cryptographic_primitive_scenario()
+
+    def get_quantum_cryptographic_primitive_type(self) -> str:
+        """
+        Return the type of the Qiskrypt's Quantum Cryptographic Primitive.
+
+        :return super().get_quantum_cryptographic_primitive_type(): the type of the Qiskrypt's
+                                                                    Quantum Cryptographic Primitive.
+        """
+
+        """
+        Return the type of the Qiskrypt's Quantum Cryptographic Primitive.
+        """
+        return super().get_quantum_cryptographic_primitive_type()
+
+    def get_quantum_key_exchange_protocol_type(self) -> str:
+        """
+        Return the type of the Qiskrypt's Quantum Key Exchange Protocol.
+
+        :return self.quantum_key_exchange_protocol_type: the type of the Qiskrypt's
+                                                         Quantum Key Exchange Protocol.
+        """
+
+        """
+        Return the type of the Qiskrypt's Quantum Key Exchange Protocol.
+        """
+        return self.quantum_key_exchange_protocol_type
 
     def start_quantum_transmission_phase(self):
         """
