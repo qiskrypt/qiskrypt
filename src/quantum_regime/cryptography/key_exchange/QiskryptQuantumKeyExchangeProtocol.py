@@ -113,7 +113,7 @@ class QiskryptQuantumKeyExchangeProtocol(QiskryptQuantumCryptographicPrimitive):
                              quantum_cryptographic_primitive_scenario,
                              POSSIBLE_QUANTUM_CRYPTOGRAPHIC_PRIMITIVE_TYPES[1])
             """
-            Call of the constructor of the super-class Qiskrypt's Quantum Entanglement.
+            Call of the constructor of the super-class Qiskrypt's Quantum Cryptographic Primitive.
             """
 
             self.quantum_key_exchange_protocol_type = quantum_key_exchange_protocol_type
