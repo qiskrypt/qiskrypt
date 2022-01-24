@@ -109,6 +109,11 @@ class QiskryptQuantumKeyDistribution(QiskryptQuantumKeyExchangeProtocol):
             Call of the constructor of the super-class Qiskrypt's Quantum Key Exchange Protocol.
             """
 
+            self.quantum_key_distribution_type = quantum_key_distribution_type
+            """
+            Set the type of the Qiskrypt's Quantum Key Distribution (QKD).
+            """
+
         else:
             """
             If the given type of the Qiskrypt's Quantum Key Distribution (QKD) is not valid.
@@ -193,6 +198,19 @@ class QiskryptQuantumKeyDistribution(QiskryptQuantumKeyExchangeProtocol):
         Return the type of the Qiskrypt's Quantum Key Exchange Protocol.
         """
         return self.quantum_key_exchange_protocol_type
+
+    def get_quantum_key_distribution_type(self) -> str:
+        """
+        Return the type of the Qiskrypt's Quantum Key Distribution (QKD).
+
+        :return self.quantum_key_distribution_type: the type of the Qiskrypt's
+                                                    Quantum Key Distribution (QKD).
+        """
+
+        """
+        Return the type of the Qiskrypt's Quantum Key Distribution (QKD).
+        """
+        return self.quantum_key_distribution_type
 
     def start_quantum_transmission_phase(self):
         """
