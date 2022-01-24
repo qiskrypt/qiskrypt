@@ -72,7 +72,8 @@ class QiskryptQuantumCryptographicPrimitive:
     Object class for the Qiskrypt's Quantum Cryptographic Primitive.
     """
 
-    def __init__(self, name: str, quantum_cryptographic_primitive_cardinality: str,
+    def __init__(self, name: str,
+                 quantum_cryptographic_primitive_cardinality: str,
                  quantum_cryptographic_primitive_signal_variable: str,
                  quantum_cryptographic_primitive_scenario: str,
                  quantum_cryptographic_primitive_type: str):
