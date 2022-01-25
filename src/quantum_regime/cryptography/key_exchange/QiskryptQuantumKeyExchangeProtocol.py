@@ -121,6 +121,12 @@ class QiskryptQuantumKeyExchangeProtocol(QiskryptQuantumCryptographicPrimitive):
             Set the scenario of the Qiskrypt's Quantum Key Exchange Protocol.
             """
 
+            self.configured = False
+            """
+            Set the boolean flag to determine if the Qiskrypt's Key Exchange Protocol
+            is configured, initially as False.
+            """
+
         else:
             """
             If the given type of the Qiskrypt's Quantum Key Exchange Protocol is not valid.
@@ -231,6 +237,47 @@ class QiskryptQuantumKeyExchangeProtocol(QiskryptQuantumCryptographicPrimitive):
         Return the type of the Qiskrypt's Quantum Key Exchange Protocol.
         """
         return self.quantum_key_exchange_protocol_type
+
+    def is_configured(self):
+        """
+        Return the boolean flag to determine if the Qiskrypt's Key Exchange Protocol
+        is configured.
+
+        :return self.configured: the boolean flag to determine if the Qiskrypt's Key Exchange Protocol
+                                 is configured.
+        """
+
+        """
+        Return the boolean flag to determine if the Qiskrypt's Key Exchange Protocol
+        is configured.
+        """
+        return self.configured
+
+    def set_as_configured(self):
+        """
+        Set the boolean flag to determine if the Qiskrypt's Key Exchange Protocol
+        is configured, as True, if it is not yet defined as True.
+        """
+
+        if not self.configured:
+            """
+            If the boolean flag to determine if the Qiskrypt's Key Exchange Protocol
+            is configured, as False.
+            """
+
+            self.configured = True
+            """
+            Set the boolean flag to determine if the Qiskrypt's Key Exchange Protocol
+            is configured, as True.
+            """
+
+        else:
+            """
+            If the boolean flag to determine if the Qiskrypt's Key Exchange Protocol
+            is configured, as True.
+            """
+
+            # TODO Throw - Exception
 
     def start_quantum_transmission_phase(self):
         """
