@@ -113,12 +113,6 @@ class QiskryptDVBB84ProtocolWithDiscreteVariablesForNoiselessScenarios(QiskryptQ
         Call of the constructor of the super-class Qiskrypt's Quantum Key Distribution (QKD).
         """
 
-        self.configured = False
-        """
-        Set the boolean flag to determine if the Qiskrypt's BB84 Protocol
-        with Discrete Variables (DVs) for Noiseless Scenarios, initially as False.
-        """
-
     def get_name(self) -> str:
         """
         Return the name of the Qiskrypt's Quantum Cryptographic Primitive.
