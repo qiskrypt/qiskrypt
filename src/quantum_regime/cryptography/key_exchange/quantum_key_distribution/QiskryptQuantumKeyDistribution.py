@@ -77,8 +77,14 @@ Definition of Constants and Enumerations.
 POSSIBLE_QUANTUM_KEY_DISTRIBUTION_TYPES = ["PREPARE-AND-MEASURE (PM)",
                                            "ENTANGLEMENT-BASED (EB)"]
 """
-The available Quantum Key Exchange Protocol types for
-the Qiskrypt's Quantum Key Exchange Protocol.
+The available Quantum Key Distribution (QKD) types for
+the Qiskrypt's Quantum Key Distribution (QKD).
+"""
+
+QUANTUM_KEY_DISTRIBUTION_NUM_PARTIES = 2
+"""
+The number of parties for
+the Qiskrypt's Quantum Key Distribution (QKD).
 """
 
 
@@ -124,6 +130,11 @@ class QiskryptQuantumKeyDistribution(QiskryptQuantumKeyExchangeProtocol):
             self.quantum_key_distribution_type = quantum_key_distribution_type
             """
             Set the type of the Qiskrypt's Quantum Key Distribution (QKD).
+            """
+
+            self.quantum_key_distribution_num_parties = QUANTUM_KEY_DISTRIBUTION_NUM_PARTIES
+            """
+            Set the number of parties of the Qiskrypt's Quantum Key Distribution (QKD).
             """
 
         else:
@@ -249,6 +260,19 @@ class QiskryptQuantumKeyDistribution(QiskryptQuantumKeyExchangeProtocol):
         Return the type of the Qiskrypt's Quantum Key Distribution (QKD).
         """
         return self.quantum_key_distribution_type
+
+    def get_quantum_key_distribution_num_parties(self) -> int:
+        """
+        Return the number of the parties of the Qiskrypt's Quantum Key Distribution (QKD).
+
+        :return self.quantum_key_distribution_type: the number of the parties of the Qiskrypt's
+                                                    Quantum Key Distribution (QKD).
+        """
+
+        """
+        Return the number of the parties of the Qiskrypt's Quantum Key Distribution (QKD).
+        """
+        return self.quantum_key_distribution_num_parties
 
     def start_quantum_transmission_phase(self):
         """
