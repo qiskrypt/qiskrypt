@@ -237,5 +237,5 @@ class QiskryptUserClient:
 
         self.registers = []
         """
-        Set the Qiskrypt's Register
+        Set the Qiskrypt's Registers for the Qiskrypt's User Client, as an initially empty list.
         """
