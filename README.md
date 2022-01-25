@@ -228,7 +228,7 @@ The specifications of [**Qis|krypt⟩**](https://qiskrypt.github.io/) are availa
 
 ## Copyright and License
 
-© Copyright 2021 by <a property="dct:title" rel="cc:attributionURL" href="https://github.com/qiskrypt/" target="_blank"><b>Qis|krypt⟩</b></a> and its contributors.
+© Copyright 2022 by <a property="dct:title" rel="cc:attributionURL" href="https://github.com/qiskrypt/" target="_blank"><b>Qis|krypt⟩</b></a> and its contributors.
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">
  <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" />
