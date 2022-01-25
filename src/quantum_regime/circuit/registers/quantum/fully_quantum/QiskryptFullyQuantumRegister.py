@@ -114,21 +114,24 @@ class QiskryptFullyQuantumRegister(QiskryptQuantumRegister):
 
     def get_qiskit_fully_quantum_register(self) -> QuantumRegister:
         """
-        Return the IBM Qiskit's Quantum Register of the Qiskrypt's Fully-Quantum Register.
+        Return the IBM Qiskit's Quantum Register of
+        the Qiskrypt's Fully-Quantum Register.
 
         :return super().get_qiskit_quantum_register(): the IBM Qiskit's Quantum Register of
                                                        the Qiskrypt's Fully-Quantum Register.
         """
 
         """
-        Return the IBM Qiskit's Quantum Register of the Qiskrypt's Fully-Quantum Register.
+        Return the IBM Qiskit's Quantum Register of
+        the Qiskrypt's Fully-Quantum Register.
         """
         return super().get_qiskit_quantum_register()
 
     @staticmethod
     def raise_not_fully_quantum_register_error() -> None:
         """
-        Return/Raise a Not a Fully-Quantum Register Error for the Qiskrypt's Fully-Quantum Register.
+        Return/Raise a Not a Fully-Quantum Register Error for
+        the Qiskrypt's Fully-Quantum Register.
 
         :raise not_fully_quantum_register_error: a Not a Fully-Quantum Register Error for
                                                  the Qiskrypt's Fully-Quantum Register.
@@ -136,11 +139,13 @@ class QiskryptFullyQuantumRegister(QiskryptQuantumRegister):
 
         not_fully_quantum_register_error = QiskryptNotFullyQuantumRegisterError()
         """
-        Retrieve the Not a Fully-Quantum Register Error for the Qiskrypt's Fully-Quantum Register.
+        Retrieve the Not a Fully-Quantum Register Error for
+        the Qiskrypt's Fully-Quantum Register.
         """
 
         """
-        Raise the Not a Fully-Quantum Register Error for the Qiskrypt's Fully-Quantum Register.
+        Raise the Not a Fully-Quantum Register Error for
+        the Qiskrypt's Fully-Quantum Register.
         """
         raise not_fully_quantum_register_error
 
@@ -150,8 +155,9 @@ class QiskryptFullyQuantumRegister(QiskryptQuantumRegister):
         Return/Raise a Not a Valid Qiskrypt's Fully-Quantum Register Index Error for
         the Qiskrypt's Fully-Quantum Register.
 
-        :raise not_valid_qiskrypt_fully_quantum_register_index_error: a Not a Valid Fully-Quantum Register Index Error for
-                                                                      the Qiskrypt's Fully-Quantum Register.
+        :raise not_valid_qiskrypt_fully_quantum_register_index_error: a Not a Valid Fully-Quantum Register
+                                                                      Index Error for the Qiskrypt's
+                                                                      Fully-Quantum Register.
         """
 
         not_valid_qiskrypt_fully_quantum_register_index_error = QiskryptNotValidFullyQuantumRegisterIndexError()
