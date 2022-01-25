@@ -38,6 +38,15 @@ Acknowledgement(s):\n
 
 """
 
+"""
+Definition of Constants and Enumerations.
+"""
+
+POSSIBLE_AGENT_CONTEXTS = ["QUANTUM", "FULLY-QUANTUM", "SEMI-QUANTUM", "CLASSICAL"]
+"""
+The available Agent contexts for the Qiskrypt's Agent.
+"""
+
 
 class QiskryptAgent:
     """
