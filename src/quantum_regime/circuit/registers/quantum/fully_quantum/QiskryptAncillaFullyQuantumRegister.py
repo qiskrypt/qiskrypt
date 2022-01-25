@@ -101,7 +101,8 @@ class QiskryptAncillaFullyQuantumRegister(QiskryptAncillaQuantumRegister):
 
     def get_num_ancilla_qubits(self) -> int:
         """
-        Return the number of ancilla qubits of the Qiskrypt's Ancilla Fully-Quantum Register.
+        Return the number of ancilla qubits of
+        the Qiskrypt's Ancilla Fully-Quantum Register.
 
         :return super().get_num_ancilla_qubits(): the number of ancilla qubits of
                                                   the Qiskrypt's Ancilla Fully-Quantum Register.
@@ -114,14 +115,16 @@ class QiskryptAncillaFullyQuantumRegister(QiskryptAncillaQuantumRegister):
 
     def get_qiskit_ancilla_fully_quantum_register(self) -> AncillaRegister:
         """
-        Return the IBM Qiskit's Ancilla Quantum Register of the Qiskrypt's Ancilla Fully-Quantum Register.
+        Return the IBM Qiskit's Ancilla Quantum Register of
+        the Qiskrypt's Ancilla Fully-Quantum Register.
 
         :return super().get_qiskit_ancilla_quantum_register(): the IBM Qiskit's Ancilla Quantum Register of
                                                                the Qiskrypt's Ancilla Fully-Quantum Register.
         """
 
         """
-        Return the IBM Qiskit's Ancilla Quantum Register of the Qiskrypt's Ancilla Fully-Quantum Register.
+        Return the IBM Qiskit's Ancilla Quantum Register of the
+        Qiskrypt's Ancilla Fully-Quantum Register.
         """
         return super().get_qiskit_ancilla_quantum_register()
 
@@ -137,11 +140,13 @@ class QiskryptAncillaFullyQuantumRegister(QiskryptAncillaQuantumRegister):
 
         not_ancilla_fully_quantum_register_error = QiskryptNotAncillaFullyQuantumRegisterError()
         """
-        Retrieve the Not an Ancilla Fully-Quantum Register Error for the Qiskrypt's Ancilla Fully-Quantum Register.
+        Retrieve the Not an Ancilla Fully-Quantum Register Error
+        for the Qiskrypt's Ancilla Fully-Quantum Register.
         """
 
         """
-        Raise the Not a Fully-Quantum Register Error for the Qiskrypt's Fully-Quantum Register.
+        Raise the Not a Fully-Quantum Register Error
+        for the Qiskrypt's Fully-Quantum Register.
         """
         raise not_ancilla_fully_quantum_register_error
 
@@ -151,7 +156,8 @@ class QiskryptAncillaFullyQuantumRegister(QiskryptAncillaQuantumRegister):
         Return/Raise a Not a Valid Qiskrypt's Ancilla Fully-Quantum Register Index Error for
         the Qiskrypt's Ancilla Fully-Quantum Register.
 
-        :raise not_valid_qiskrypt_ancilla_fully_quantum_register_index_error: a Not a Valid Qiskrypt's Ancilla Fully-Quantum Register Index Error for
+        :raise not_valid_qiskrypt_ancilla_fully_quantum_register_index_error: a Not a Valid Qiskrypt's Ancilla
+                                                                              Fully-Quantum Register Index Error for
                                                                               the Qiskrypt's Ancilla Fully-Quantum Register.
         """
 
