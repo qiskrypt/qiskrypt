@@ -81,7 +81,8 @@ class QiskryptFullyQuantumRegister(QiskryptQuantumRegister):
         :param qiskit_quantum_register: an IBM Qiskit's Quantum Register.
         """
 
-        super().__init__(name=name, num_qubits=num_qubits, qiskit_quantum_register=qiskit_quantum_register)
+        super().__init__(name=name, num_qubits=num_qubits,
+                         qiskit_quantum_register=qiskit_quantum_register)
         """
         Call of the constructor of the super-class Qiskrypt's Fully-Quantum Register.
         """

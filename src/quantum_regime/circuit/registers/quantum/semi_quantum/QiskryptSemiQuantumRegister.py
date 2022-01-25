@@ -86,7 +86,8 @@ class QiskryptSemiQuantumRegister(QiskryptQuantumRegister):
         :param num_qubits: The number of qubits of the Qiskrypt's Semi-Quantum Register.
         :param qiskit_quantum_register: an IBM's Qiskit Quantum Register.
         """
-        super().__init__(name=name, num_qubits=num_qubits, qiskit_quantum_register=qiskit_quantum_register)
+        super().__init__(name=name, num_qubits=num_qubits,
+                         qiskit_quantum_register=qiskit_quantum_register)
         """
         Call of the constructor of the super-class Qiskrypt's Quantum Register.
         """

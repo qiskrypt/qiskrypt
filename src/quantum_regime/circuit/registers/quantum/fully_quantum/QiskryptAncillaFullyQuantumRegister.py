@@ -81,7 +81,8 @@ class QiskryptAncillaFullyQuantumRegister(QiskryptAncillaQuantumRegister):
         :param qiskit_ancilla_quantum_register: an IBM Qiskit's Ancilla Quantum Register.
         """
 
-        super().__init__(name=name, num_ancilla_qubits=num_ancilla_qubits, qiskit_ancilla_quantum_register=qiskit_ancilla_quantum_register)
+        super().__init__(name=name, num_ancilla_qubits=num_ancilla_qubits,
+                         qiskit_ancilla_quantum_register=qiskit_ancilla_quantum_register)
         """
         Call of the constructor of the super-class Qiskrypt's Ancilla Quantum Register.
         """
