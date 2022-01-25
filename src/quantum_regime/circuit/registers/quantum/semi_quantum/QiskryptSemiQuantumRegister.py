@@ -153,7 +153,8 @@ class QiskryptSemiQuantumRegister(QiskryptQuantumRegister):
     def raise_not_semi_quantum_register_error() -> None:
         """
         Return/Raise a Not a Semi-Quantum Register Error for the Qiskrypt's Semi-Quantum Register.
-        :raise not_semi_quantum_register_error: a Not a Semi-Quantum Register Error for the Qiskrypt's Semi-Quantum Register.
+        :raise not_semi_quantum_register_error: a Not a Semi-Quantum Register Error for
+               the Qiskrypt's Semi-Quantum Register.
         """
 
         not_semi_quantum_register_error = QiskryptNotSemiQuantumRegisterError()
