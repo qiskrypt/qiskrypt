@@ -73,6 +73,35 @@ from src.quantum_regime.utils.parties_and_agents.QiskryptParty \
 Import the Qiskrypt's Party.
 """
 
+from src.quantum_regime.true_random.random_generator.binary.QiskryptQuantumRandomBinaryGenerator \
+    import QiskryptQuantumRandomBinaryGenerator
+"""
+Import the Qiskrypt's Quantum Random Binary Generator.
+"""
+
+from src.classical_regime.common.QiskryptClassicalUtilities \
+    import QiskryptClassicalUtilities
+"""
+Import the Qiskrypt's Classical Utilities.
+"""
+
+from src.classical_regime.common.QiskryptClassicalUtilities \
+    import SIZE_BYTE_IN_NUM_BITS
+"""
+Import the size of a byte in number of bits.
+"""
+
+
+"""
+Definition of Constants and Enumerations.
+"""
+
+NUM_BYTES_FOR_UUID = 16
+"""
+The number of bytes to be used in an UUID (Universally Unique IDentifier)
+for the Qiskrypt's User Client.
+"""
+
 
 class QiskryptUserClient:
     """
@@ -85,13 +114,19 @@ class QiskryptUserClient:
         """
         Constructor of the Qiskrypt's User Client.
 
-        :param party:
-        :param uuid_version:
-        :param uuid_bytes:
-        :param uuid_node:
-        :param uuid_clock_sequence:
-        :param uuid_name:
-        :param uuid_namespace:
+        :param party: the Qiskrypt's Party for the Qiskrypt's User Client.
+        :param uuid_version: the version of the UUID (Universally Unique IDentifier)
+                             for the Qiskrypt's User Client.
+        :param uuid_bytes: the bytes to build the UUID (Universally Unique IDentifier)
+                           for the Qiskrypt's User Client.
+        :param uuid_node: the node to build the UUID (Universally Unique IDentifier)
+                          for the Qiskrypt's User Client.
+        :param uuid_clock_sequence: the clock sequence to build the UUID (Universally Unique IDentifier)
+                          for the Qiskrypt's User Client.
+        :param uuid_name: the name to build the UUID (Universally Unique IDentifier)
+                          for the Qiskrypt's User Client.
+        :param uuid_namespace: the namespace to build the UUID (Universally Unique IDentifier)
+                               for the Qiskrypt's User Client.
         """
 
         if uuid_version == 0:
@@ -100,12 +135,36 @@ class QiskryptUserClient:
             general UUID (Universally Unique IDentifier).
             """
 
-            if uuid_bytes is not None:
+            if uuid_bytes is None:
                 """
                 If was given specific bytes for the UUID (Universally Unique IDentifier).
                 """
 
-                self.uuid = UUID(bytes=uuid_bytes)
+                quantum_random_binary_generator = \
+                    QiskryptQuantumRandomBinaryGenerator("qu_rng_binary")
+                """
+                Create a Qiskrypt's Quantum Random Binary Generator.
+                """
+
+                quantum_random_binary_generator.initiate((NUM_BYTES_FOR_UUID * SIZE_BYTE_IN_NUM_BITS))
+                """
+                Initiate the Qiskrypt's Quantum Random Binary Generator, for 128 bits (16 bytes).
+                """
+
+                random_binary_string_bits = \
+                    quantum_random_binary_generator.generate_binary_string()
+                """
+                Generate a random binary string in bits, with 128 bits (16 bytes).
+                """
+
+                random_binary_string_bytes = \
+                    QiskryptClassicalUtilities.convert_binary_string_to_bytes(random_binary_string_bits)
+                """
+                Convert the random binary string in bits to a random binary string in bytes,
+                with 128 bits (16 bytes).
+                """
+
+                self.uuid = UUID(bytes=random_binary_string_bytes)
                 """
                 Set the UUID (Universally Unique IDentifier) for the Qiskrypt's User Client.
                 """
@@ -114,8 +173,6 @@ class QiskryptUserClient:
                 """
                 If was not given specific bytes for the UUID (Universally Unique IDentifier).
                 """
-
-                # TODO - Generate a binary string
 
                 self.uuid = UUID(bytes=uuid_bytes)
                 """
