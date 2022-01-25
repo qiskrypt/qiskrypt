@@ -215,7 +215,48 @@ class QiskryptDVBB84ProtocolWithDiscreteVariablesForNoiselessScenarios(QiskryptQ
         """
         Return the type of the Qiskrypt's Quantum Key Exchange Protocol.
         """
-        return self.quantum_key_exchange_protocol_type
+        return super().get_quantum_key_exchange_protocol_type()
+
+    def is_configured(self) -> bool:
+        """
+        Return the boolean flag to determine if the Qiskrypt's Key Exchange Protocol
+        is configured.
+
+        :return self.configured: the boolean flag to determine if the Qiskrypt's Key Exchange Protocol
+                                 is configured.
+        """
+
+        """
+        Return the boolean flag to determine if the Qiskrypt's Key Exchange Protocol
+        is configured.
+        """
+        return super().is_configured()
+
+    def set_as_configured(self):
+        """
+        Set the boolean flag to determine if the Qiskrypt's Key Exchange Protocol
+        is configured, as True, if it is not yet defined as True.
+        """
+
+        if not super().is_configured():
+            """
+            If the boolean flag to determine if the Qiskrypt's Key Exchange Protocol
+            is configured, as False.
+            """
+
+            super().set_as_configured()
+            """
+            Set the boolean flag to determine if the Qiskrypt's Key Exchange Protocol
+            is configured, as True.
+            """
+
+        else:
+            """
+            If the boolean flag to determine if the Qiskrypt's Key Exchange Protocol
+            is configured, as True.
+            """
+
+            # TODO Throw - Exception
 
     def get_quantum_key_distribution_type(self) -> str:
         """
@@ -229,21 +270,6 @@ class QiskryptDVBB84ProtocolWithDiscreteVariablesForNoiselessScenarios(QiskryptQ
         Return the type of the Qiskrypt's Quantum Key Distribution (QKD).
         """
         return self.quantum_key_distribution_type
-
-    def is_configured(self) -> bool:
-        """
-        Return the boolean flag to determine if the Qiskrypt's BB84 Protocol
-        with Discrete Variables (DVs) for Noiseless Scenarios.
-
-        :return self.configured: the boolean flag to determine if the Qiskrypt's BB84 Protocol
-                                 with Discrete Variables (DVs) for Noiseless Scenarios.
-        """
-
-        """
-        Return the boolean flag to determine if the Qiskrypt's BB84 Protocol
-        with Discrete Variables (DVs) for Noiseless Scenarios.
-        """
-        return self.configured
 
     def prepare_quantum_states(self):
         """
