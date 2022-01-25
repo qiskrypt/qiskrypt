@@ -38,6 +38,15 @@ Acknowledgement(s):\n
 
 """
 
+"""
+Definition of Constants and Enumerations.
+"""
+
+POSSIBLE_PARTY_CONTEXTS = ["QUANTUM", "FULLY-QUANTUM", "SEMI-QUANTUM", "CLASSICAL"]
+"""
+The available Party contexts for the Qiskrypt's Party.
+"""
+
 
 class QiskryptParty:
     """
