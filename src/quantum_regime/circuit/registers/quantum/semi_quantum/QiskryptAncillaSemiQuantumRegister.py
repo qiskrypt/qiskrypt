@@ -42,7 +42,8 @@ Acknowledgement(s):\n
 Import required Libraries and Packages.
 """
 
-from src.quantum_regime.circuit.registers.quantum.QiskryptAncillaQuantumRegister import QiskryptAncillaQuantumRegister
+from src.quantum_regime.circuit.registers.quantum.QiskryptAncillaQuantumRegister \
+    import QiskryptAncillaQuantumRegister
 """
 Import the Qiskrypt's Ancilla Quantum Register.
 """
