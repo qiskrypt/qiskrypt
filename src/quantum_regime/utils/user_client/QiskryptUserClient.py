@@ -67,16 +67,76 @@ from uuid import uuid5
 Import the general UUID (Universally Unique IDentifier) version 5.
 """
 
+from src.quantum_regime.circuit.registers.quantum.QiskryptQuantumRegister \
+    import QiskryptQuantumRegister
+"""
+Import the Qiskrypt's Quantum Register.
+"""
+
+from src.quantum_regime.circuit.registers.quantum.QiskryptAncillaQuantumRegister \
+    import QiskryptAncillaQuantumRegister
+"""
+Import the Qiskrypt's Ancilla Quantum Register.
+"""
+
+from src.quantum_regime.circuit.registers.quantum.fully_quantum.QiskryptFullyQuantumRegister \
+    import QiskryptFullyQuantumRegister
+"""
+Import the Qiskrypt's Fully-Quantum Register.
+"""
+
+from src.quantum_regime.circuit.registers.quantum.fully_quantum.QiskryptAncillaFullyQuantumRegister \
+    import QiskryptAncillaFullyQuantumRegister
+"""
+Import the Qiskrypt's Ancilla Fully-Quantum Register.
+"""
+
+from src.quantum_regime.circuit.registers.quantum.semi_quantum.QiskryptSemiQuantumRegister \
+    import QiskryptSemiQuantumRegister
+"""
+Import the Qiskrypt's Semi-Quantum Register.
+"""
+
+from src.quantum_regime.circuit.registers.quantum.semi_quantum.QiskryptAncillaSemiQuantumRegister \
+    import QiskryptAncillaSemiQuantumRegister
+"""
+Import the Qiskrypt's Ancilla Semi-Quantum Register.
+"""
+
 from src.quantum_regime.utils.parties_and_agents.QiskryptParty \
     import QiskryptParty
 """
 Import the Qiskrypt's Party.
 """
 
+from src.quantum_regime.utils.parties_and_agents.quantum.QiskryptQuantumParty \
+    import QiskryptQuantumParty
+"""
+Import the Qiskrypt's Quantum Party.
+"""
+
+from src.quantum_regime.utils.parties_and_agents.quantum.fully_quantum.QiskryptFullyQuantumParty \
+    import QiskryptFullyQuantumParty
+"""
+Import the Qiskrypt's Fully-Quantum Party.
+"""
+
+from src.quantum_regime.utils.parties_and_agents.quantum.semi_quantum.QiskryptSemiQuantumParty \
+    import QiskryptSemiQuantumParty
+"""
+Import the Qiskrypt's Semi-Quantum Party.
+"""
+
 from src.quantum_regime.true_random.random_generator.binary.QiskryptQuantumRandomBinaryGenerator \
     import QiskryptQuantumRandomBinaryGenerator
 """
 Import the Qiskrypt's Quantum Random Binary Generator.
+"""
+
+from src.quantum_regime.utils.parties_and_agents.QiskryptParty \
+    import POSSIBLE_PARTY_CONTEXTS
+"""
+Import the available Party contexts for the Qiskrypt's Parties.
 """
 
 from src.classical_regime.common.QiskryptClassicalUtilities \
@@ -239,3 +299,246 @@ class QiskryptUserClient:
         """
         Set the Qiskrypt's Registers for the Qiskrypt's User Client, as an initially empty list.
         """
+
+    def get_uuid(self) -> UUID:
+        """
+        Return the UUID (Universally Unique IDentifier) of
+        the Qiskrypt's User Client.
+
+        :return self.uuid: the UUID (Universally Unique IDentifier) of
+                           the Qiskrypt's User Client.
+        """
+
+        """
+        Return the UUID (Universally Unique IDentifier) of
+        the Qiskrypt's User Client.
+        """
+        return self.uuid
+
+    def get_party(self) -> QiskryptParty:
+        """
+        Return the Qiskrypt's Party of
+        the Qiskrypt's User Client.
+
+        :return self.party: the Qiskrypt's Party of
+                            the Qiskrypt's User Client.
+        """
+
+        """
+        Return the Qiskrypt's Party of
+        the Qiskrypt's User Client.
+        """
+        return self.party
+
+    def get_registers(self) -> list:
+        """
+        Return the Qiskrypt's Registers of
+        the Qiskrypt's User Client.
+
+        :return self.registers: the Qiskrypt's Registers of
+                                the Qiskrypt's User Client.
+        """
+
+        """
+        Return the Qiskrypt's Registers of
+        the Qiskrypt's User Client.
+        """
+        return self.registers
+
+    def add_quantum_register(self, quantum_register: QiskryptQuantumRegister):
+        """
+        Adds a given Qiskrypt's Quantum Register to
+        the list of Qiskrypt's Registers of the Qiskrypt's User Client.
+
+        :param quantum_register: the Qiskrypt's Quantum Register to be added
+                                 to the list of Qiskrypt's Registers of
+                                 the Qiskrypt's User Client.
+        """
+
+        if (self.party.get_context() == POSSIBLE_PARTY_CONTEXTS[0]) and \
+            (isinstance(self.get_party(), QiskryptQuantumParty)):
+            """
+            If the Qiskrypt's Party of the Qiskrypt's User Client
+            is a Qiskrypt's Quantum Party and belongs
+            to a Quantum Context.
+            """
+
+            self.registers.append(quantum_register)
+            """
+            Add the given Qiskrypt's Quantum Register to
+            the list of Qiskrypt's Registers of the Qiskrypt's User Client.
+            """
+
+        else:
+            """
+            If the Qiskrypt's Party of the Qiskrypt's User Client
+            is not a Qiskrypt's Quantum Party and does not
+            belongs to a Quantum Context.
+            """
+
+            # TODO Throw - Exception
+
+    def add_ancilla_quantum_register(self, ancilla_quantum_register: QiskryptAncillaQuantumRegister):
+        """
+        Adds a given Qiskrypt's Ancilla Quantum Register to
+        the list of Qiskrypt's Registers of the Qiskrypt's User Client.
+
+        :param ancilla_quantum_register: the Qiskrypt's Ancilla Quantum Register to be added
+                                         to the list of Qiskrypt's Registers of
+                                         the Qiskrypt's User Client.
+        """
+
+        if (self.party.get_context() == POSSIBLE_PARTY_CONTEXTS[0]) and \
+            (isinstance(self.get_party(), QiskryptQuantumParty)):
+            """
+            If the Qiskrypt's Party of the Qiskrypt's User Client
+            is a Qiskrypt's Quantum Party and belongs
+            to a Quantum Context.
+            """
+
+            self.registers.append(ancilla_quantum_register)
+            """
+            Add the given Qiskrypt's Ancilla Quantum Register to
+            the list of Qiskrypt's Registers of the Qiskrypt's User Client.
+            """
+
+        else:
+            """
+            If the Qiskrypt's Party of the Qiskrypt's User Client
+            is not a Qiskrypt's Quantum Party and does not belongs
+            to a Quantum Context.
+            """
+
+            # TODO Throw - Exception
+
+    def add_fully_quantum_register(self, fully_quantum_register: QiskryptFullyQuantumRegister):
+        """
+        Adds a given Qiskrypt's Fully-Quantum Register to
+        the list of Qiskrypt's Registers of the Qiskrypt's User Client.
+
+        :param fully_quantum_register: the Qiskrypt's Fully-Quantum Register to be added
+                                       to the list of Qiskrypt's Registers of
+                                       the Qiskrypt's User Client.
+        """
+
+        if (self.party.get_context() == POSSIBLE_PARTY_CONTEXTS[1]) and \
+            (isinstance(self.get_party(), QiskryptFullyQuantumParty)):
+            """
+            If the Qiskrypt's Party of the Qiskrypt's User Client
+            is a Qiskrypt's Fully-Quantum Party and belongs
+            to a Fully-Quantum Context.
+            """
+
+            self.registers.append(fully_quantum_register)
+            """
+            Add the given Qiskrypt's Fully-Quantum Register to
+            the list of Qiskrypt's Registers of the Qiskrypt's User Client.
+            """
+
+        else:
+            """
+            If the Qiskrypt's Party of the Qiskrypt's User Client
+            is not a Qiskrypt's Fully-Quantum Party and does not belongs
+            to a Fully-Quantum Context.
+            """
+
+            # TODO Throw - Exception
+
+    def add_ancilla_fully_quantum_register(self, ancilla_fully_quantum_register: QiskryptAncillaFullyQuantumRegister):
+        """
+        Adds a given Qiskrypt's Ancilla Fully-Quantum Register to
+        the list of Qiskrypt's Registers of the Qiskrypt's User Client.
+
+        :param ancilla_fully_quantum_register: the Qiskrypt's Ancilla Fully-Quantum Register to be added
+                                               to the list of Qiskrypt's Registers of
+                                               the Qiskrypt's User Client.
+        """
+
+        if (self.party.get_context() == POSSIBLE_PARTY_CONTEXTS[1]) and \
+            (isinstance(self.get_party(), QiskryptFullyQuantumParty)):
+            """
+            If the Qiskrypt's Party of the Qiskrypt's User Client
+            is a Qiskrypt's Fully-Quantum Party and belongs
+            to a Fully-Quantum Context.
+            """
+
+            self.registers.append(ancilla_fully_quantum_register)
+            """
+            Add the given Qiskrypt's Ancilla Fully-Quantum Register to
+            the list of Qiskrypt's Registers of the Qiskrypt's User Client.
+            """
+
+        else:
+            """
+            If the Qiskrypt's Party of the Qiskrypt's User Client
+            is not a Qiskrypt's Quantum Party and does not belongs
+            to a Fully-Quantum Context.
+            """
+
+            # TODO Throw - Exception
+
+    def add_semi_quantum_register(self, semi_quantum_register: QiskryptSemiQuantumRegister):
+        """
+        Adds a given Qiskrypt's Semi-Quantum Register to
+        the list of Qiskrypt's Registers of the Qiskrypt's User Client.
+
+        :param semi_quantum_register: the Qiskrypt's Semi-Quantum Register to be added
+                                      to the list of Qiskrypt's Registers of
+                                      the Qiskrypt's User Client.
+        """
+
+        if (self.party.get_context() == POSSIBLE_PARTY_CONTEXTS[2]) and \
+            (isinstance(self.get_party(), QiskryptSemiQuantumParty)):
+            """
+            If the Qiskrypt's Party of the Qiskrypt's User Client
+            is a Qiskrypt's Semi-Quantum Party and belongs
+            to a Semi-Quantum Context.
+            """
+
+            self.registers.append(semi_quantum_register)
+            """
+            Add the given Qiskrypt's Semi-Quantum Register to
+            the list of Qiskrypt's Registers of the Qiskrypt's User Client.
+            """
+
+        else:
+            """
+            If the Qiskrypt's Party of the Qiskrypt's User Client
+            is not a Qiskrypt's Semi-Quantum Party and does not belongs
+            to a Semi-Quantum Context.
+            """
+
+            # TODO Throw - Exception
+
+    def add_ancilla_semi_quantum_register(self, ancilla_semi_quantum_register: QiskryptAncillaSemiQuantumRegister):
+        """
+        Adds a given Qiskrypt's Ancilla Semi-Quantum Register to
+        the list of Qiskrypt's Registers of the Qiskrypt's User Client.
+
+        :param ancilla_semi_quantum_register: the Qiskrypt's Ancilla Semi-Quantum Register to be added
+                                              to the list of Qiskrypt's Registers of
+                                              the Qiskrypt's User Client.
+        """
+
+        if (self.party.get_context() == POSSIBLE_PARTY_CONTEXTS[2]) and \
+            (isinstance(self.get_party(), QiskryptSemiQuantumParty)):
+            """
+            If the Qiskrypt's Party of the Qiskrypt's User Client
+            is a Qiskrypt's Semi-Quantum Party and belongs
+            to a Semi-Quantum Context.
+            """
+
+            self.registers.append(ancilla_semi_quantum_register)
+            """
+            Add the given Qiskrypt's Ancilla Semi-Quantum Register to
+            the list of Qiskrypt's Registers of the Qiskrypt's User Client.
+            """
+
+        else:
+            """
+            If the Qiskrypt's Party of the Qiskrypt's User Client
+            is not a Qiskrypt's Semi-Quantum Party and does not belongs
+            to a Semi-Quantum Context.
+            """
+
+            # TODO Throw - Exception
