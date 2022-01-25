@@ -238,7 +238,7 @@ class QiskryptQuantumKeyExchangeProtocol(QiskryptQuantumCryptographicPrimitive):
         """
         return self.quantum_key_exchange_protocol_type
 
-    def is_configured(self):
+    def is_configured(self) -> bool:
         """
         Return the boolean flag to determine if the Qiskrypt's Key Exchange Protocol
         is configured.
