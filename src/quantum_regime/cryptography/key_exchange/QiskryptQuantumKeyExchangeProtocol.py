@@ -138,14 +138,14 @@ class QiskryptQuantumKeyExchangeProtocol(QiskryptQuantumCryptographicPrimitive):
         """
         Return the name of the Qiskrypt's Quantum Cryptographic Primitive.
 
-        :return super().get_name(): the name of the Qiskrypt's
-                                    Quantum Cryptographic Primitive.
+        :return super().get_quantum_cryptographic_primitive_name(): the name of the Qiskrypt's
+                                                                    Quantum Cryptographic Primitive.
         """
 
         """
         Return the name of the Qiskrypt's Quantum Cryptographic Primitive.
         """
-        return super().get_name()
+        return super().get_quantum_cryptographic_primitive_name()
 
     def get_quantum_cryptographic_primitive_cardinality(self) -> str:
         """
@@ -164,8 +164,9 @@ class QiskryptQuantumKeyExchangeProtocol(QiskryptQuantumCryptographicPrimitive):
         """
         Return the signal variable type of the Qiskrypt's Quantum Cryptographic Primitive.
 
-        :return super().get_quantum_cryptographic_primitive_signal_variable_type(): the signal variable type of the Qiskrypt's
-                                                                                    Quantum Cryptographic Primitive.
+        :return super().get_quantum_cryptographic_primitive_signal_variable_type(): the signal variable type of the
+                                                                                    Qiskrypt's Quantum Cryptographic
+                                                                                    Primitive.
         """
 
         """

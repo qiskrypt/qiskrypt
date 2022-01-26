@@ -84,7 +84,7 @@ class QiskryptQuantumCryptographicPrimitive:
     Object class for the Qiskrypt's Quantum Cryptographic Primitive.
     """
 
-    def __init__(self, name: str,
+    def __init__(self, quantum_cryptographic_primitive_name: str,
                  quantum_cryptographic_primitive_cardinality: str,
                  quantum_cryptographic_primitive_signal_variable_type: str,
                  quantum_cryptographic_primitive_context: str,
@@ -94,7 +94,7 @@ class QiskryptQuantumCryptographicPrimitive:
         """
         Constructor of the Qiskrypt's Quantum Cryptographic Primitive.
 
-        :param name: the name of the Qiskrypt's Quantum Cryptographic Primitive.
+        :param quantum_cryptographic_primitive_name: the name of the Qiskrypt's Quantum Cryptographic Primitive.
         :param quantum_cryptographic_primitive_cardinality: the cardinality of the Qiskrypt's
                                                             Quantum Cryptographic Primitive.
         :param quantum_cryptographic_primitive_signal_variable_type: the signal variable type of the Qiskrypt's
@@ -134,7 +134,7 @@ class QiskryptQuantumCryptographicPrimitive:
                         """
 
                         if quantum_cryptographic_primitive_property not in \
-                            POSSIBLE_QUANTUM_CRYPTOGRAPHIC_PRIMITIVE_PROPERTIES:
+                           POSSIBLE_QUANTUM_CRYPTOGRAPHIC_PRIMITIVE_PROPERTIES:
                             """
                             If the current given property of the
                             Qiskrypt's Quantum Cryptographic Primitive is not valid.
@@ -154,7 +154,8 @@ class QiskryptQuantumCryptographicPrimitive:
                                 If the given type of the Qiskrypt's Quantum Cryptographic Primitive is valid.
                                 """
 
-                                self.name = name
+                                self.quantum_cryptographic_primitive_name = \
+                                    quantum_cryptographic_primitive_name
                                 """
                                 Se the name of the name of the Qiskrypt's Quantum Cryptographic Primitive.
                                 """
@@ -230,17 +231,18 @@ class QiskryptQuantumCryptographicPrimitive:
 
             # TODO Throw - Exception
 
-    def get_name(self) -> str:
+    def get_quantum_cryptographic_primitive_name(self) -> str:
         """
         Return the name of the Qiskrypt's Quantum Cryptographic Primitive.
 
-        :return self.name: the name of the Qiskrypt's Quantum Cryptographic Primitive.
+        :return self.quantum_cryptographic_primitive_name: the name of the Qiskrypt's
+                                                           Quantum Cryptographic Primitive.
         """
 
         """
         Return the name of the Qiskrypt's Quantum Cryptographic Primitive.
         """
-        return self.name
+        return self.quantum_cryptographic_primitive_name
 
     def get_quantum_cryptographic_primitive_cardinality(self) -> str:
         """
