@@ -103,6 +103,12 @@ from src.quantum_regime.circuit.registers.quantum.semi_quantum.QiskryptAncillaSe
 Import the Qiskrypt's Ancilla Semi-Quantum Register.
 """
 
+from src.quantum_regime.circuit.registers.classical.QiskryptClassicalRegister \
+    import QiskryptClassicalRegister
+"""
+Import the Qiskrypt's Classical Register.
+"""
+
 from src.quantum_regime.utils.parties_and_agents.QiskryptParty \
     import QiskryptParty
 """
@@ -125,6 +131,12 @@ from src.quantum_regime.utils.parties_and_agents.quantum.semi_quantum.QiskryptSe
     import QiskryptSemiQuantumParty
 """
 Import the Qiskrypt's Semi-Quantum Party.
+"""
+
+from src.quantum_regime.utils.parties_and_agents.classical.QiskryptClassicalParty \
+    import QiskryptClassicalParty
+"""
+Import the Qiskrypt's Classical Party.
 """
 
 from src.quantum_regime.true_random.random_generator.binary.QiskryptQuantumRandomBinaryGenerator \
@@ -539,6 +551,39 @@ class QiskryptUserClient:
             If the Qiskrypt's Party of the Qiskrypt's User Client
             is not a Qiskrypt's Semi-Quantum Party and does not belongs
             to a Semi-Quantum Context.
+            """
+
+            # TODO Throw - Exception
+
+    def add_classical_register(self, classical_register: QiskryptClassicalRegister):
+        """
+        Adds a given Qiskrypt's Classical Register to
+        the list of Qiskrypt's Registers of the Qiskrypt's User Client.
+
+        :param classical_register: the Qiskrypt's Classical Register to be added
+                                   to the list of Qiskrypt's Registers of
+                                   the Qiskrypt's User Client.
+        """
+
+        if (self.party.get_context() == POSSIBLE_PARTY_CONTEXTS[3]) and \
+            (isinstance(self.get_party(), QiskryptClassicalParty)):
+            """
+            If the Qiskrypt's Party of the Qiskrypt's User Client
+            is a Qiskrypt's Classical Party and belongs
+            to a Classical Context.
+            """
+
+            self.registers.append(classical_register)
+            """
+            Add the given Qiskrypt's Classical Register to
+            the list of Qiskrypt's Registers of the Qiskrypt's User Client.
+            """
+
+        else:
+            """
+            If the Qiskrypt's Party of the Qiskrypt's User Client
+            is not a Qiskrypt's Classical Party and does not belongs
+            to a Classical Context.
             """
 
             # TODO Throw - Exception
