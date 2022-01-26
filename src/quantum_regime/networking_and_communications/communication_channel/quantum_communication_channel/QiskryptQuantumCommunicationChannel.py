@@ -56,6 +56,17 @@ the Qiskrypt's Communication Channels.
 """
 
 
+"""
+Definition of Constants and Enumerations.
+"""
+
+POSSIBLE_COMMUNICATION_CHANNEL_SIGNAL_VARIABLE_TYPES = ["DISCRETE", "CONTINUOUS"]
+"""
+The available Quantum Communication Channel signal variable types for
+the Qiskrypt's Quantum Communication Channel.
+"""
+
+
 class QiskryptQuantumCommunicationChannel(QiskryptCommunicationChannel):
     """
     Object class for the Qiskrypt's Quantum Communication Channel.
