@@ -114,6 +114,18 @@ class QiskryptCommunicationChannel:
         Set the distance of the Qiskrypt's Communication Channel, in KMs (Kilometers).
         """
 
+        self.operational = True
+        """
+        Set the boolean flag to keep information about if
+        the Qiskrypt's Communication Channel is operational, initially, as True.
+        """
+
+        self.installed = False
+        """
+        Set the boolean flag to keep information about if
+        the Qiskrypt's Communication Channel is installed, initially, as False.
+        """
+
     def get_communication_channel_num(self) -> int:
         """
         Return the number of the Qiskrypt's Communication Channel.
@@ -186,3 +198,123 @@ class QiskryptCommunicationChannel:
         Return the distance of the Qiskrypt's Communication Channel, in KMs (Kilometers).
         """
         return self.communication_channel_distance_in_kms
+
+    def is_operational(self) -> bool:
+        """
+        Return the boolean flag to keep information about if
+        the Qiskrypt's Communication Channel is operational.
+
+        :return self.operational: the boolean flag to keep information about if
+                                  the Qiskrypt's Communication Channel is operational.
+        """
+
+        """
+        Return the boolean flag to keep information about if
+        the Qiskrypt's Communication Channel is operational.
+        """
+        return self.operational
+
+    def set_operational(self, operational: bool):
+        """
+        Set the boolean flag to keep information about if
+        the Qiskrypt's Communication Channel is operational, with a given Boolean value.
+        """
+
+        if self.operational != operational:
+            """
+            If the boolean flag to keep information about if
+            the Qiskrypt's Communication Channel is operational
+            is not equal to the given Boolean value.
+            """
+
+            self.operational = operational
+            """
+            Set the boolean flag to keep information about if
+            the Qiskrypt's Communication Channel is operational,
+            with the given Boolean value.
+            """
+
+        else:
+            """
+            If the boolean flag to keep information about if
+            the Qiskrypt's Communication Channel is operational
+            is already equal to the given Boolean value.
+            """
+
+            if operational:
+                """
+                If the boolean flag to keep information about if
+                the Qiskrypt's Communication Channel is operational,
+                is already set as True.
+                """
+
+                # TODO Throw - The Qiskrypt's Communication Channel is already operational
+
+            else:
+                """
+                If the boolean flag to keep information about if
+                the Qiskrypt's Communication Channel is operational,
+                is already set as False.
+                """
+
+                # TODO Throw - The Qiskrypt's Communication Channel is already not operational
+
+    def is_installed(self) -> bool:
+        """
+        Return the boolean flag to keep information about if
+        the Qiskrypt's Communication Channel is installed.
+
+        :return self.installed: the boolean flag to keep information about if
+                                the Qiskrypt's Communication Channel is installed.
+        """
+
+        """
+        Return the boolean flag to keep information about if
+        the Qiskrypt's Communication Channel is installed.
+        """
+        return self.installed
+
+    def set_installed(self, installed: bool):
+        """
+        Set the boolean flag to keep information about if
+        the Qiskrypt's Communication Channel is installed, with a given Boolean value.
+        """
+
+        if self.installed != installed:
+            """
+            If the boolean flag to keep information about if
+            the Qiskrypt's Communication Channel is installed
+            is not equal to the given Boolean value.
+            """
+
+            self.installed = installed
+            """
+            Set the boolean flag to keep information about if
+            the Qiskrypt's Communication Channel is installed,
+            with the given Boolean value.
+            """
+
+        else:
+            """
+            If the boolean flag to keep information about if
+            the Qiskrypt's Communication Channel is installed
+            is already equal to the given Boolean value.
+            """
+
+            if installed:
+                """
+                If the boolean flag to keep information about if
+                the Qiskrypt's Communication Channel is installed,
+                is already set as True.
+                """
+
+                # TODO Throw - The Qiskrypt's Communication Channel is already installed
+
+            else:
+                """
+                If the boolean flag to keep information about if
+                the Qiskrypt's Communication Channel is installed,
+                is already set as False.
+                """
+
+                # TODO Throw - The Qiskrypt's Communication Channel is already not installed
