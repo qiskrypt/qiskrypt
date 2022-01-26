@@ -43,17 +43,17 @@ Acknowledgement(s):\n
 Definition of Constants and Enumerations.
 """
 
-POSSIBLE_COMMUNICATION_CHANNELS_CONTEXTS = ["QUANTUM", "CLASSICAL"]
+POSSIBLE_COMMUNICATION_CHANNEL_CONTEXTS = ["QUANTUM", "CLASSICAL"]
 """
 The available Communication Channel contexts for the Qiskrypt's Communication Channel.
 """
 
-POSSIBLE_COMMUNICATION_CHANNELS_SCENARIOS = ["NOISELESS", "NOISY"]
+POSSIBLE_COMMUNICATION_CHANNEL_SCENARIOS = ["NOISELESS", "NOISY"]
 """
 The available Communication Channel scenarios for the Qiskrypt's Communication Channel.
 """
 
-POSSIBLE_COMMUNICATION_CHANNELS_MEDIUMS = ["FIBER-OPTIC", "SATELLITE"]
+POSSIBLE_COMMUNICATION_CHANNEL_MEDIUMS = ["FIBER-OPTIC", "SATELLITE"]
 """
 The available Communication Channel scenarios for the Qiskrypt's Communication Channel.
 """
