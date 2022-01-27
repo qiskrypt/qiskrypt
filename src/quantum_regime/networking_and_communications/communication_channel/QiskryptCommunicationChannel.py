@@ -59,7 +59,9 @@ POSSIBLE_COMMUNICATION_CHANNEL_TYPES = ["POINT-TO-POINT (P2P)", "BROADCAST",
 The available Communication Channel types for the Qiskrypt's Communication Channel.
 """
 
-POSSIBLE_COMMUNICATION_CHANNEL_DIRECTIONS = ["UPLINK", "DOWNLINK", "FORWARD LINK", "REVERSE LINK",
+POSSIBLE_COMMUNICATION_CHANNEL_DIRECTIONS = ["GROUND-TO-GROUND (G2G)", "GROUND-TO-SATELLITE (G2S)",
+                                             "SATELLITE-TO-GROUND (S2G)", "SATELLITE-TO-SATELLITE (S2S)",
+                                             "UPLINK", "DOWNLINK", "FORWARD LINK", "REVERSE LINK",
                                              "FORWARD LINK (UPLINK)", "FORWARD LINK (DOWNLINK)",
                                              "REVERSE LINK (UPLINK)", "REVERSE LINK (DOWNLINK)"]
 """
@@ -125,22 +127,37 @@ class QiskryptCommunicationChannel:
         Set the type of the Qiskrypt's Communication Channel.
         """
 
-        if communication_channel_direction in POSSIBLE_COMMUNICATION_CHANNEL_DIRECTIONS:
+        if communication_channel_direction is not None:
             """
-            If the direction of the Qiskrypt's Communication Channel is valid.
+            If some direction is given to the Qiskrypt's Communication Channel.
             """
 
-            self.communication_channel_direction = communication_channel_direction
-            """
-            Set the direction of the Qiskrypt's Communication Channel.
-            """
+            if communication_channel_direction in POSSIBLE_COMMUNICATION_CHANNEL_DIRECTIONS:
+                """
+                If the direction of the Qiskrypt's Communication Channel is valid.
+                """
+
+                self.communication_channel_direction = communication_channel_direction
+                """
+                Set the direction of the Qiskrypt's Communication Channel.
+                """
+
+            else:
+                """
+                If the direction of the Qiskrypt's Communication Channel is not valid.
+                """
+
+                # TODO Throw - Exception
 
         else:
             """
-            If the direction of the Qiskrypt's Communication Channel is not valid.
+            If no direction is given to the Qiskrypt's Communication Channel.
             """
 
-            # TODO Throw - Exception
+            self.communication_channel_direction = None
+            """
+            Set the direction of the Qiskrypt's Communication Channel as None.
+            """
 
         self.communication_channel_medium = communication_channel_medium
         """
