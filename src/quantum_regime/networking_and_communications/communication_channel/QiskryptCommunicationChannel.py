@@ -126,6 +126,12 @@ class QiskryptCommunicationChannel:
         the Qiskrypt's Communication Channel is installed, initially, as False.
         """
 
+        self.started = False
+        """
+        Set the boolean flag to keep information about if
+        the Qiskrypt's Communication Channel is started, initially, as False.
+        """
+
     def get_communication_channel_num(self) -> int:
         """
         Return the number of the Qiskrypt's Communication Channel.
@@ -318,3 +324,64 @@ class QiskryptCommunicationChannel:
                 """
 
                 # TODO Throw - The Qiskrypt's Communication Channel is already not installed
+
+    def is_started(self) -> bool:
+        """
+        Return the boolean flag to keep information about if
+        the Qiskrypt's Communication Channel is started.
+
+        :return self.started: the boolean flag to keep information about if
+                              the Qiskrypt's Communication Channel is started.
+        """
+
+        """
+        Return the boolean flag to keep information about if
+        the Qiskrypt's Communication Channel is started.
+        """
+        return self.started
+
+    def set_started(self, started: bool):
+        """
+        Set the boolean flag to keep information about if
+        the Qiskrypt's Communication Channel is started,
+        with a given Boolean value.
+        """
+
+        if self.started != started:
+            """
+            If the boolean flag to keep information about if
+            the Qiskrypt's Communication Channel is started
+            is not equal to the given Boolean value.
+            """
+
+            self.started = started
+            """
+            Set the boolean flag to keep information about if
+            the Qiskrypt's Communication Channel is started,
+            with the given Boolean value.
+            """
+
+        else:
+            """
+            If the boolean flag to keep information about if
+            the Qiskrypt's Communication Channel is started
+            is already equal to the given Boolean value.
+            """
+
+            if started:
+                """
+                If the boolean flag to keep information about if
+                the Qiskrypt's Communication Channel is started,
+                is already set as True.
+                """
+
+                # TODO Throw - The Qiskrypt's Communication Channel is already started
+
+            else:
+                """
+                If the boolean flag to keep information about if
+                the Qiskrypt's Communication Channel is started,
+                is already set as False.
+                """
+
+                # TODO Throw - The Qiskrypt's Communication Channel is already not started
