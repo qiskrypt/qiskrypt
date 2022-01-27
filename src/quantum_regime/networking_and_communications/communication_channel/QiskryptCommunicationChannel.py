@@ -53,6 +53,19 @@ POSSIBLE_COMMUNICATION_CHANNEL_SCENARIOS = ["NOISELESS", "NOISY"]
 The available Communication Channel scenarios for the Qiskrypt's Communication Channel.
 """
 
+POSSIBLE_COMMUNICATION_CHANNEL_TYPES = ["POINT-TO-POINT (P2P)", "BROADCAST",
+                                        "MULTIPOINT (MP)", "POINT-TO-MULTIPOINT (P2MP)"]
+"""
+The available Communication Channel types for the Qiskrypt's Communication Channel.
+"""
+
+POSSIBLE_COMMUNICATION_CHANNEL_DIRECTIONS = ["UPLINK", "DOWNLINK", "FORWARD LINK", "REVERSE LINK",
+                                             "FORWARD LINK (UPLINK)", "FORWARD LINK (DOWNLINK)",
+                                             "REVERSE LINK (UPLINK)", "REVERSE LINK (DOWNLINK)"]
+"""
+The available Communication Channel directions for the Qiskrypt's Communication Channel.
+"""
+
 POSSIBLE_COMMUNICATION_CHANNEL_MEDIUMS = ["FIBER-OPTIC", "SATELLITE"]
 """
 The available Communication Channel scenarios for the Qiskrypt's Communication Channel.
@@ -71,6 +84,7 @@ class QiskryptCommunicationChannel:
 
     def __init__(self, communication_channel_num: int, communication_channel_name: str,
                  communication_channel_context: str, communication_channel_scenario: str,
+                 communication_channel_type: str, communication_channel_direction: str,
                  communication_channel_medium: str, communication_channel_distance_in_kms: float):
         """
         Constructor of the Qiskrypt's Communication Channel.
@@ -79,6 +93,8 @@ class QiskryptCommunicationChannel:
         :param communication_channel_name: the name of the Qiskrypt's Communication Channel.
         :param communication_channel_context: the context of the Qiskrypt's Communication Channel.
         :param communication_channel_scenario: the scenario of the Qiskrypt's Communication Channel.
+        :param communication_channel_type: the type of the Qiskrypt's Communication Channel.
+        :param communication_channel_direction: the direction of the Qiskrypt's Communication Channel.
         :param communication_channel_medium: the medium of the Qiskrypt's Communication Channel.
         :param communication_channel_distance_in_kms: the distance of the Qiskrypt's Communication Channel,
                                                       in KMs (Kilometers).
@@ -103,6 +119,28 @@ class QiskryptCommunicationChannel:
         """
         Set the scenario of the Qiskrypt's Communication Channel.
         """
+
+        self.communication_channel_type = communication_channel_type
+        """
+        Set the type of the Qiskrypt's Communication Channel.
+        """
+
+        if communication_channel_direction in POSSIBLE_COMMUNICATION_CHANNEL_DIRECTIONS:
+            """
+            If the direction of the Qiskrypt's Communication Channel is valid.
+            """
+
+            self.communication_channel_direction = communication_channel_direction
+            """
+            Set the direction of the Qiskrypt's Communication Channel.
+            """
+
+        else:
+            """
+            If the direction of the Qiskrypt's Communication Channel is not valid.
+            """
+
+            # TODO Throw - Exception
 
         self.communication_channel_medium = communication_channel_medium
         """
@@ -179,6 +217,30 @@ class QiskryptCommunicationChannel:
         Return the scenario of the Qiskrypt's Communication Channel.
         """
         return self.communication_channel_scenario
+
+    def get_communication_channel_type(self) -> str:
+        """
+        Return the type of the Qiskrypt's Communication Channel.
+
+        :return self.communication_channel_type: the type of the Qiskrypt's Communication Channel.
+        """
+
+        """
+        Return the type of the Qiskrypt's Communication Channel.
+        """
+        return self.communication_channel_type
+
+    def get_communication_channel_direction(self) -> str:
+        """
+        Return the direction of the Qiskrypt's Communication Channel.
+
+        :return self.communication_channel_direction: the direction of the Qiskrypt's Communication Channel.
+        """
+
+        """
+        Return the direction of the Qiskrypt's Communication Channel.
+        """
+        return self.communication_channel_direction
 
     def get_communication_channel_medium(self) -> str:
         """
