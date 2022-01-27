@@ -23,6 +23,8 @@ dependencies:
   - flask
   - boto3
   - protobuf
+  # Geocoding Web Services
+  - geopy
   # Python's Data Science and Analytics Libraries
   - numpy
   - scipy
