@@ -48,6 +48,12 @@ from src.quantum_regime.networking_and_communications.communication_channel.Qisk
 Import Qiskrypt's Communication Channel.
 """
 
+from src.quantum_regime.circuit.registers.quantum.QiskryptQuantumRegister \
+    import QiskryptQuantumRegister
+"""
+Import Qiskrypt's Quantum Register.
+"""
+
 from src.quantum_regime.networking_and_communications.communication_channel.QiskryptCommunicationChannel \
     import POSSIBLE_COMMUNICATION_CHANNEL_CONTEXTS
 """
@@ -99,6 +105,12 @@ class QiskryptQuantumCommunicationChannel(QiskryptCommunicationChannel):
             quantum_communication_channel_signal_variable_type
         """
         Set the signal variable type of the Qiskrypt's Quantum Communication Channel.
+        """
+
+        self.quantum_register = None
+        """
+        Set the Qiskrypt's Quantum Register of the Qiskrypt's
+        Quantum Communication Channel, initially, as None.
         """
 
     def get_communication_channel_num(self) -> int:
@@ -245,3 +257,136 @@ class QiskryptQuantumCommunicationChannel(QiskryptCommunicationChannel):
         the Qiskrypt's Communication Channel is installed, with a given Boolean value.
         """
         super().set_installed(installed)
+
+    def is_started(self) -> bool:
+        """
+        Return the boolean flag to keep information about if
+        the Qiskrypt's Communication Channel is started.
+
+        :return super().is_handling_communication(): the boolean flag to keep information about if
+                                                     the Qiskrypt's Communication Channel is started.
+        """
+
+        """
+        Return the boolean flag to keep information about if
+        the Qiskrypt's Communication Channel is started.
+        """
+        return super().is_started()
+
+    def set_started(self, started: bool):
+        """
+        Set the boolean flag to keep information about if
+        the Qiskrypt's Communication Channel is started,
+        with a given Boolean value.
+        """
+
+        super().set_started(started)
+        """
+        Set the boolean flag to keep information about if
+        the Qiskrypt's Communication Channel is started,
+        with the given Boolean value.
+        """
+
+    def start(self):
+        """
+        Starts the Qiskrypt's Quantum Communication Channel.
+        """
+
+        if not self.is_started():
+            """
+            If the Qiskrypt's Quantum Communication Channel is not started yet.
+            """
+
+            self.quantum_register = \
+                QiskryptQuantumRegister(name=self.get_communication_channel_name())
+            """
+            Initialise the Qiskrypt's Quantum Register of the Qiskrypt's
+            Quantum Communication Channel.
+            """
+
+            """
+            Set the boolean flag to keep information about if
+            the Qiskrypt's Communication Channel is started, as True.
+            """
+            self.set_started(True)
+
+        else:
+            """
+            If the Qiskrypt's Quantum Communication Channel is already started.
+            """
+
+            # TODO Throw - Exception
+
+    def reset(self):
+        """
+        Resets the Qiskrypt's Quantum Communication Channel.
+        """
+
+        if self.is_started():
+            """
+            If the Qiskrypt's Quantum Communication Channel is already started.
+            """
+
+            quantum_register_name = "{}-{}".format(self.get_communication_channel_name(),
+                                                   self.get_communication_channel_num())
+            """
+            Set the name for the Qiskrypt's Quantum Register.
+            """
+
+            self.quantum_register = \
+                QiskryptQuantumRegister(name=quantum_register_name)
+            """
+            Initialise the Qiskrypt's Quantum Register of the Qiskrypt's
+            Quantum Communication Channel.
+            """
+
+        else:
+            """
+            If the Qiskrypt's Quantum Communication Channel is not started yet.
+            """
+
+            # TODO Throw - Exception
+
+    def stop(self):
+        """
+        Stops the Qiskrypt's Quantum Communication Channel.
+        """
+
+        if self.is_started():
+            """
+            If the Qiskrypt's Quantum Communication Channel is already started.
+            """
+
+            self.quantum_register = None
+            """
+            Set the Qiskrypt's Quantum Register of the Qiskrypt's
+            Quantum Communication Channel, as None.
+            """
+
+            """
+            Set the boolean flag to keep information about if
+            the Qiskrypt's Communication Channel is started, as False.
+            """
+            self.set_started(False)
+
+        else:
+            """
+            If the Qiskrypt's Quantum Communication Channel is not started yet.
+            """
+
+            # TODO Throw - Exception
+
+    def get_quantum_register(self):
+        """
+        Return the Qiskrypt's Quantum Register of the Qiskrypt's
+        Quantum Communication Channel.
+
+        :return self.quantum_register: the Qiskrypt's Quantum Register of the Qiskrypt's
+                                       Quantum Communication Channel.
+        """
+
+        """
+        Return the Qiskrypt's Quantum Register of the Qiskrypt's
+        Quantum Communication Channel.
+        """
+        return self.quantum_register
