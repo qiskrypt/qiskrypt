@@ -79,15 +79,17 @@ class QiskryptQuantumCommunicationChannel(QiskryptCommunicationChannel):
     """
 
     def __init__(self, communication_channel_num: int, communication_channel_name: str,
-                 communication_channel_scenario: str, communication_channel_medium: str,
-                 communication_channel_distance_in_kms: float,
-                 quantum_communication_channel_signal_variable_type: str):
+                 communication_channel_scenario: str, communication_channel_type: str,
+                 communication_channel_direction: str, communication_channel_medium: str,
+                 communication_channel_distance_in_kms: float, quantum_communication_channel_signal_variable_type: str):
         """
         Constructor of the Qiskrypt's Quantum Communication Channel.
 
         :param communication_channel_num: the number of the Qiskrypt's Communication Channel.
         :param communication_channel_name: the name of the Qiskrypt's Communication Channel.
         :param communication_channel_scenario: the scenario of the Qiskrypt's Communication Channel.
+        :param communication_channel_type: the type of the Qiskrypt's Communication Channel.
+        :param communication_channel_direction: the direction of the Qiskrypt's Communication Channel.
         :param communication_channel_medium: the medium of the Qiskrypt's Communication Channel.
         :param communication_channel_distance_in_kms: the distance of the Qiskrypt's Communication Channel,
                                                       in KMs (Kilometers).
@@ -96,6 +98,7 @@ class QiskryptQuantumCommunicationChannel(QiskryptCommunicationChannel):
         """
         super().__init__(communication_channel_num, communication_channel_name,
                          POSSIBLE_COMMUNICATION_CHANNEL_CONTEXTS[0], communication_channel_scenario,
+                         communication_channel_type, communication_channel_direction,
                          communication_channel_medium, communication_channel_distance_in_kms)
         """
         Call of the constructor of the super-class Qiskrypt's Communication Channel.
