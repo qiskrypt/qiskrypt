@@ -43,7 +43,7 @@ Import required Libraries and Packages.
 """
 
 from src.quantum_regime.networking_and_communications.communication_channel\
-    .quantum_communication_channel.QiskryptQuantumCommunicationChannel \
+    .quantum.QiskryptQuantumCommunicationChannel \
     import QiskryptQuantumCommunicationChannel
 """
 Import the Qiskrypt's Quantum Communication Channel.
@@ -63,8 +63,9 @@ Import the available Communication Channel mediums for
 the Qiskrypt's Communication Channels.
 """
 
-from src.quantum_regime.networking_and_communications.communication_channel.quantum_communication_channel \
-    .QiskryptQuantumCommunicationChannel import POSSIBLE_COMMUNICATION_CHANNEL_SIGNAL_VARIABLE_TYPES
+from src.quantum_regime.networking_and_communications\
+    .communication_channel.quantum.QiskryptQuantumCommunicationChannel \
+    import POSSIBLE_COMMUNICATION_CHANNEL_SIGNAL_VARIABLE_TYPES
 """
 Import the available Quantum Communication Channel signal variable types for
 the Qiskrypt's Quantum Communication Channels.
@@ -79,7 +80,7 @@ Definition of Constants and Enumerations.
 class QiskryptQuantumCommunicationChannelInFiberOpticWithDiscreteVariablesForNoiselessScenarios\
             (QiskryptQuantumCommunicationChannel):
     """
-    Object class for the Qiskrypt's Quantum Communication Channel,
+    Object class for the Qiskrypt's Quantum Communication Channel in Fiber Optic,
     with Discrete Variables (DVs) for Noiseless Scenarios.
     """
 
