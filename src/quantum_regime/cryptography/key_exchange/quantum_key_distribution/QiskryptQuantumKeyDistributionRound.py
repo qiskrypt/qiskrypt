@@ -57,7 +57,7 @@ Import the Qiskrypt's Quantum Circuit.
 
 class QiskryptQuantumKeyDistributionRound(QiskryptQuantumKeyExchangeProtocolRound):
     """
-    Object class for the Qiskrypt's Quantum Key Distribution Round.
+    Object class for the Qiskrypt's Quantum Key Distribution (QKD) Round.
     """
 
     def __init__(self, quantum_key_exchange_protocol_round_number: int,
