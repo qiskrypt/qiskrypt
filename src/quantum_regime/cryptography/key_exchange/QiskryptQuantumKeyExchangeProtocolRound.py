@@ -56,7 +56,7 @@ class QiskryptQuantumKeyExchangeProtocolRound:
 
     def __init__(self, quantum_key_exchange_protocol_round_number: int,
                  quantum_key_exchange_protocol_round_type: str,
-                 quantum_key_exchange_protocol_round_qiskrypt_quantum_circuit: QiskryptQuantumCircuit):
+                 quantum_key_exchange_protocol_round_quantum_circuit: QiskryptQuantumCircuit):
         """
         Constructor of the Qiskrypt's Quantum Key Exchange Protocol Round.
 
@@ -64,9 +64,9 @@ class QiskryptQuantumKeyExchangeProtocolRound:
                                                            Quantum Key Exchange Protocol Round.
         :param quantum_key_exchange_protocol_round_type: the type of the Qiskrypt's
                                                          Quantum Key Exchange Protocol Round.
-        :param: quantum_key_exchange_protocol_round_qiskrypt_quantum_circuit: the Qiskrypt's Quantum Circuit
-                                                                              for the Qiskrypt's
-                                                                              Quantum Key Exchange Protocol Round.
+        :param: quantum_key_exchange_protocol_round_quantum_circuit: the Qiskrypt's Quantum Circuit for
+                                                                     the Qiskrypt's Quantum Key Exchange
+                                                                     Protocol Round.
         """
 
         if quantum_key_exchange_protocol_round_number > 0:
@@ -79,7 +79,7 @@ class QiskryptQuantumKeyExchangeProtocolRound:
                 If the given type of the Qiskrypt's Quantum Key Exchange Protocol Round is valid.
                 """
 
-                if quantum_key_exchange_protocol_round_qiskrypt_quantum_circuit is not None:
+                if quantum_key_exchange_protocol_round_quantum_circuit is not None:
                     """
                     If the Qiskrypt's Quantum Circuit for
                     the Qiskrypt's Quantum Key Exchange Protocol Round is valid.
@@ -97,8 +97,8 @@ class QiskryptQuantumKeyExchangeProtocolRound:
                     Set the type of the Qiskrypt's Quantum Key Exchange Protocol Round.
                     """
 
-                    self.quantum_key_exchange_protocol_round_qiskrypt_quantum_circuit = \
-                        quantum_key_exchange_protocol_round_qiskrypt_quantum_circuit
+                    self.quantum_key_exchange_protocol_round_quantum_circuit = \
+                        quantum_key_exchange_protocol_round_quantum_circuit
                     """
                     Set the Qiskrypt's Quantum Circuit for the Qiskrypt's
                     Quantum Key Exchange Protocol Round.
@@ -152,16 +152,16 @@ class QiskryptQuantumKeyExchangeProtocolRound:
         """
         return self.quantum_key_exchange_protocol_round_type
 
-    def get_quantum_key_exchange_protocol_round_qiskrypt_quantum_circuit(self) -> QiskryptQuantumCircuit:
+    def get_quantum_key_exchange_protocol_round_quantum_circuit(self) -> QiskryptQuantumCircuit:
         """
         Return the Qiskrypt's Quantum Circuit of the Qiskrypt's Quantum Key Exchange Protocol Round.
 
-        :return self.quantum_key_exchange_protocol_round_qiskrypt_quantum_circuit: the Qiskrypt's Quantum Circuit
-                                                                                   of the Qiskrypt's
-                                                                                   Quantum Key Exchange Protocol Round.
+        :return self.quantum_key_exchange_protocol_round_quantum_circuit: the Qiskrypt's Quantum Circuit of
+                                                                          the Qiskrypt's Quantum Key Exchange
+                                                                          Protocol Round.
         """
 
         """
         Return the Qiskrypt's Quantum Circuit of the Qiskrypt's Quantum Key Exchange Protocol Round.
         """
-        return self.quantum_key_exchange_protocol_round_qiskrypt_quantum_circuit
+        return self.quantum_key_exchange_protocol_round_quantum_circuit
