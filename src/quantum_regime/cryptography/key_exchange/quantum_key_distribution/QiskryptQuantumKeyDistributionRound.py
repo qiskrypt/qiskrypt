@@ -62,7 +62,7 @@ class QiskryptQuantumKeyDistributionRound(QiskryptQuantumKeyExchangeProtocolRoun
 
     def __init__(self, quantum_key_exchange_protocol_round_number: int,
                  quantum_key_exchange_protocol_round_type: str,
-                 quantum_key_exchange_protocol_round_qiskrypt_quantum_circuit: QiskryptQuantumCircuit):
+                 quantum_key_exchange_protocol_round_quantum_circuit: QiskryptQuantumCircuit):
         """
         Constructor of the Qiskrypt's Quantum Key Distribution Round.
 
@@ -70,14 +70,14 @@ class QiskryptQuantumKeyDistributionRound(QiskryptQuantumKeyExchangeProtocolRoun
                                                            Quantum Key Exchange Protocol Round.
         :param quantum_key_exchange_protocol_round_type: the type of the Qiskrypt's
                                                          Quantum Key Exchange Protocol Round.
-        :param: quantum_key_exchange_protocol_round_qiskrypt_quantum_circuit: the Qiskrypt's Quantum Circuit
-                                                                              for the Qiskrypt's
-                                                                              Quantum Key Exchange Protocol Round.
+        :param: quantum_key_exchange_protocol_round_quantum_circuit: the Qiskrypt's Quantum Circuit for
+                                                                     the Qiskrypt's Quantum Key Exchange Protocol
+                                                                     Round.
         """
 
         super().__init__(quantum_key_exchange_protocol_round_number,
                          quantum_key_exchange_protocol_round_type,
-                         quantum_key_exchange_protocol_round_qiskrypt_quantum_circuit)
+                         quantum_key_exchange_protocol_round_quantum_circuit)
         """
         Call of the constructor of the super-class Qiskrypt's Quantum Key Exchange Protocol Round.
         """
@@ -108,16 +108,16 @@ class QiskryptQuantumKeyDistributionRound(QiskryptQuantumKeyExchangeProtocolRoun
         """
         return super().get_quantum_key_exchange_protocol_round_type()
 
-    def get_quantum_key_exchange_protocol_round_qiskrypt_quantum_circuit(self) -> QiskryptQuantumCircuit:
+    def get_quantum_key_exchange_protocol_round_quantum_circuit(self) -> QiskryptQuantumCircuit:
         """
         Return the Qiskrypt's Quantum Circuit of the Qiskrypt's Quantum Key Exchange Protocol Round.
 
-        :return self.quantum_key_exchange_protocol_round_qiskrypt_quantum_circuit: the Qiskrypt's Quantum Circuit
-                                                                                   of the Qiskrypt's
-                                                                                   Quantum Key Exchange Protocol Round.
+        :return super().get_quantum_key_exchange_protocol_round_quantum_circuit(): the Qiskrypt's Quantum Circuit of
+                                                                                   the Qiskrypt's Quantum Key Exchange
+                                                                                   Protocol Round.
         """
 
         """
         Return the Qiskrypt's Quantum Circuit of the Qiskrypt's Quantum Key Exchange Protocol Round.
         """
-        return super().get_quantum_key_exchange_protocol_round_qiskrypt_quantum_circuit()
+        return super().get_quantum_key_exchange_protocol_round_quantum_circuit()
