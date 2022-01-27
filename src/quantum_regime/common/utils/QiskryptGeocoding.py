@@ -313,13 +313,30 @@ class QiskryptGeocoding:
         Set the Geocoder Service for the Qiskrypt's Geocoding in use, initially, as None.
         """
 
-    def initialise(self):
+    def initialise_with_default_geocoder_service(self):
         """
         Initialise the Geocoder Service for the Qiskrypt's Geocoding in use,
         with the default Geocoder Service defined.
         """
 
         geocoder_service = get_geocoder_service_by_name(DEFAULT_GEOCODER_SERVICE_NAME)
+        """
+        Retrieve the default Geocoder Service for the Qiskrypt's Geocoding.
+        """
+
+        self.geocoder_service_in_use = geocoder_service(**DEFAULT_GEOCODER_SERVICE_PARAMETERS)
+        """
+        Set the Geocoder Service for the Qiskrypt's Geocoding in use,
+        with the default Geocoder Service defined and respective default parameters/arguments.
+        """
+
+    def initialise_with_geocoder_service_name(self, geocoder_service_name: str):
+        """
+        Initialise the Geocoder Service for the Qiskrypt's Geocoding in use,
+        with a given name for the Geocoder Service.
+        """
+
+        geocoder_service = get_geocoder_service_by_name(geocoder_service_name)
         """
         Retrieve the default Geocoder Service for the Qiskrypt's Geocoding.
         """
