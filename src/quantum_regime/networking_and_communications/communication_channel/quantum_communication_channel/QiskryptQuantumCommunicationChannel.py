@@ -66,7 +66,7 @@ the Qiskrypt's Communication Channels.
 Definition of Constants and Enumerations.
 """
 
-POSSIBLE_COMMUNICATION_CHANNEL_SIGNAL_VARIABLE_TYPES = ["DISCRETE", "CONTINUOUS"]
+POSSIBLE_COMMUNICATION_CHANNEL_SIGNAL_VARIABLE_TYPES = ["DISCRETE (DV)", "CONTINUOUS (CV)"]
 """
 The available Quantum Communication Channel signal variable types for
 the Qiskrypt's Quantum Communication Channel.
