@@ -81,6 +81,18 @@ The available Quantum Key Distribution (QKD) types for
 the Qiskrypt's Quantum Key Distribution (QKD).
 """
 
+QUANTUM_KEY_DISTRIBUTION_DEFAULT_PARTIES_NAMES = ["ALICE", "BOB"]
+"""
+The default parties' names for
+the Qiskrypt's Quantum Key Distribution (QKD).
+"""
+
+QUANTUM_KEY_DISTRIBUTION_DEFAULT_EAVESDROPPER_NAME = ["EVE"]
+"""
+The default eavesdropper's names for
+the Qiskrypt's Quantum Key Distribution (QKD).
+"""
+
 QUANTUM_KEY_DISTRIBUTION_NUM_PARTIES = 2
 """
 The number of parties for
@@ -174,8 +186,9 @@ class QiskryptQuantumKeyDistribution(QiskryptQuantumKeyExchangeProtocol):
         """
         Return the signal variable type of the Qiskrypt's Quantum Cryptographic Primitive.
 
-        :return super().get_quantum_cryptographic_primitive_signal_variable_type(): the signal variable type of the Qiskrypt's
-                                                                                    Quantum Cryptographic Primitive.
+        :return super().get_quantum_cryptographic_primitive_signal_variable_type(): the signal variable type of
+                                                                                    the Qiskrypt's Quantum
+                                                                                    Cryptographic Primitive.
         """
 
         """
