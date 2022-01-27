@@ -84,6 +84,7 @@ class QiskryptQuantumCommunicationChannelInFiberOpticWithDiscreteVariablesForNoi
     """
 
     def __init__(self, communication_channel_num: int, communication_channel_name: str,
+                 communication_channel_type: str, communication_channel_direction: str,
                  communication_channel_distance_in_kms: float):
         """
         Constructor of the Qiskrypt's Quantum Communication Channel,
@@ -91,12 +92,16 @@ class QiskryptQuantumCommunicationChannelInFiberOpticWithDiscreteVariablesForNoi
 
         :param communication_channel_num: the number of the Qiskrypt's Communication Channel.
         :param communication_channel_name: the name of the Qiskrypt's Communication Channel.
+        :param communication_channel_type: the type of the Qiskrypt's Communication Channel.
+        :param communication_channel_direction: the direction of the Qiskrypt's Communication Channel.
         :param communication_channel_distance_in_kms: the distance of the Qiskrypt's Communication Channel,
                                                       in KMs (Kilometers).
         """
 
         super().__init__(communication_channel_num, communication_channel_name,
                          POSSIBLE_COMMUNICATION_CHANNEL_SCENARIOS[0],
+                         communication_channel_type,
+                         communication_channel_direction,
                          POSSIBLE_COMMUNICATION_CHANNEL_MEDIUMS[0],
                          communication_channel_distance_in_kms,
                          POSSIBLE_COMMUNICATION_CHANNEL_SIGNAL_VARIABLE_TYPES[0])
@@ -155,6 +160,32 @@ class QiskryptQuantumCommunicationChannelInFiberOpticWithDiscreteVariablesForNoi
         Return the scenario of the Qiskrypt's Communication Channel.
         """
         return super().get_communication_channel_scenario()
+
+    def get_communication_channel_type(self) -> str:
+        """
+        Return the type of the Qiskrypt's Communication Channel.
+
+        :return super().get_communication_channel_type(): the type of the Qiskrypt's
+                                                          Communication Channel.
+        """
+
+        """
+        Return the type of the Qiskrypt's Communication Channel.
+        """
+        return super().get_communication_channel_type()
+
+    def get_communication_channel_direction(self) -> str:
+        """
+        Return the direction of the Qiskrypt's Communication Channel.
+
+        :return super().get_communication_channel_direction(): the direction of the Qiskrypt's
+                                                               Communication Channel.
+        """
+
+        """
+        Return the direction of the Qiskrypt's Communication Channel.
+        """
+        return super().get_communication_channel_direction()
 
     def get_communication_channel_medium(self) -> str:
         """
