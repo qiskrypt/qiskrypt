@@ -300,8 +300,14 @@ class QiskryptQuantumCommunicationChannel(QiskryptCommunicationChannel):
             If the Qiskrypt's Quantum Communication Channel is not started yet.
             """
 
+            quantum_register_name = \
+                "qu_reg_{}_{}".format(self.get_communication_channel_name(), self.get_communication_channel_num())
+            """
+            Set the name for the Qiskrypt's Quantum Register for the Qiskrypt's Quantum Communication Channel.
+            """
+
             self.quantum_register = \
-                QiskryptQuantumRegister(name=self.get_communication_channel_name())
+                QiskryptQuantumRegister(name=quantum_register_name)
             """
             Initialise the Qiskrypt's Quantum Register of the Qiskrypt's
             Quantum Communication Channel.
@@ -330,10 +336,10 @@ class QiskryptQuantumCommunicationChannel(QiskryptCommunicationChannel):
             If the Qiskrypt's Quantum Communication Channel is already started.
             """
 
-            quantum_register_name = "{}-{}".format(self.get_communication_channel_name(),
-                                                   self.get_communication_channel_num())
+            quantum_register_name = \
+                "qu_reg_{}_{}".format(self.get_communication_channel_name(), self.get_communication_channel_num())
             """
-            Set the name for the Qiskrypt's Quantum Register.
+            Set the name for the Qiskrypt's Quantum Register for the Qiskrypt's Quantum Communication Channel.
             """
 
             self.quantum_register = \
