@@ -113,6 +113,8 @@ class QiskryptDVBB84ProtocolWithDiscreteVariablesForNoiselessScenarios(QiskryptQ
         Call of the constructor of the super-class Qiskrypt's Quantum Key Distribution (QKD).
         """
 
+
+
     def get_name(self) -> str:
         """
         Return the name of the Qiskrypt's Quantum Cryptographic Primitive.
@@ -143,8 +145,9 @@ class QiskryptDVBB84ProtocolWithDiscreteVariablesForNoiselessScenarios(QiskryptQ
         """
         Return the signal variable type of the Qiskrypt's Quantum Cryptographic Primitive.
 
-        :return super().get_quantum_cryptographic_primitive_signal_variable_type(): the signal variable type of the Qiskrypt's
-                                                                                    Quantum Cryptographic Primitive.
+        :return super().get_quantum_cryptographic_primitive_signal_variable_type(): the signal variable type of the
+                                                                                    Qiskrypt's Quantum Cryptographic
+                                                                                    Primitive.
         """
 
         """
