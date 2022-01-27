@@ -44,7 +44,6 @@ Import required Libraries and Packages.
 
 from src.quantum_regime.cryptography.key_exchange.quantum_key_distribution.QiskryptQuantumKeyDistributionRound \
     import QiskryptQuantumKeyDistributionRound
-
 """
 Import the Qiskrypt's Quantum Key Distribution (QKD) Round.
 """
