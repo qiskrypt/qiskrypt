@@ -82,12 +82,12 @@ class QiskryptQuantumKeyDistributionRound(QiskryptQuantumKeyExchangeProtocolRoun
         Call of the constructor of the super-class Qiskrypt's Quantum Key Exchange Protocol Round.
         """
 
-    def get_quantum_key_distribution_round_number(self) -> int:
+    def get_quantum_key_exchange_protocol_round_number(self) -> int:
         """
-        Return the number of the Qiskrypt's Quantum Key Distribution Round.
+        Return the number of the Qiskrypt's Quantum Key Distribution (QKD) Round.
 
-        :return self.quantum_key_distribution_round_number: the number of the Qiskrypt's
-                                                            Quantum Key Distribution Round.
+        :return super().get_quantum_key_exchange_protocol_round_number(): the number of the Qiskrypt's
+                                                                          Quantum Key Distribution Round.
         """
 
         """
@@ -99,8 +99,8 @@ class QiskryptQuantumKeyDistributionRound(QiskryptQuantumKeyExchangeProtocolRoun
         """
         Return the type of the Qiskrypt's Quantum Key Exchange Protocol Round.
 
-        :return self.quantum_key_exchange_protocol_round_type: the type of the Qiskrypt's
-                                                               Quantum Key Exchange Protocol Round.
+        :return super().get_quantum_key_exchange_protocol_round_type(): the type of the Qiskrypt's
+                                                                        Quantum Key Exchange Protocol Round.
         """
 
         """
