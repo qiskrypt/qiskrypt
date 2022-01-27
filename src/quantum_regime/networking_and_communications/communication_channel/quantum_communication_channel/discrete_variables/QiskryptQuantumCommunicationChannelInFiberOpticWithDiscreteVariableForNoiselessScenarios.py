@@ -249,3 +249,77 @@ class QiskryptQuantumCommunicationChannelInFiberOpticWithDiscreteVariablesForNoi
         the Qiskrypt's Communication Channel is installed, with a given Boolean value.
         """
         super().set_installed(installed)
+
+    def is_started(self) -> bool:
+        """
+        Return the boolean flag to keep information about if
+        the Qiskrypt's Communication Channel is started.
+
+        :return super().is_started(): the boolean flag to keep information about if
+                                      the Qiskrypt's Communication Channel is started.
+        """
+
+        """
+        Return the boolean flag to keep information about if
+        the Qiskrypt's Communication Channel is started.
+        """
+        return super().is_started()
+
+    def set_started(self, started: bool):
+        """
+        Set the boolean flag to keep information about if
+        the Qiskrypt's Communication Channel is started,
+        with a given Boolean value.
+        """
+
+        super().set_started(started)
+        """
+        Set the boolean flag to keep information about if
+        the Qiskrypt's Communication Channel is started,
+        with the given Boolean value.
+        """
+
+    def start(self):
+        """
+        Starts the Qiskrypt's Quantum Communication Channel.
+        """
+
+        """
+        Starts the Qiskrypt's Quantum Communication Channel.
+        """
+        super().start()
+
+    def reset(self):
+        """
+        Resets the Qiskrypt's Quantum Communication Channel.
+        """
+
+        """
+        Resets the Qiskrypt's Quantum Communication Channel.
+        """
+        super().reset()
+
+    def stop(self):
+        """
+        Stops the Qiskrypt's Quantum Communication Channel.
+        """
+
+        """
+        Stops the Qiskrypt's Quantum Communication Channel.
+        """
+        super().stop()
+
+    def get_quantum_register(self):
+        """
+        Return the Qiskrypt's Quantum Register of the Qiskrypt's
+        Quantum Communication Channel.
+
+        :return self.quantum_register: the Qiskrypt's Quantum Register of the Qiskrypt's
+                                       Quantum Communication Channel.
+        """
+
+        """
+        Return the Qiskrypt's Quantum Register of the Qiskrypt's
+        Quantum Communication Channel.
+        """
+        return super().get_quantum_register()
