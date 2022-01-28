@@ -150,6 +150,30 @@ class QiskryptEndpoint:
         """
         return self.context
 
+    def get_longitude(self) -> str:
+        """
+        Return the longitude of the Qiskrypt's Endpoint.
+
+        :return self.longitude: the longitude of the Qiskrypt's Endpoint.
+        """
+
+        """
+        Return the longitude of the Qiskrypt's Endpoint.
+        """
+        return self.longitude
+
+    def get_latitude(self) -> str:
+        """
+        Return the latitude of the Qiskrypt's Endpoint.
+
+        :return self.latitude: the latitude of the Qiskrypt's Endpoint.
+        """
+
+        """
+        Return the latitude of the Qiskrypt's Endpoint.
+        """
+        return self.latitude
+
     def __str__(self) -> str:
         """
         Return the string representation for the Qiskrypt's Endpoint.
