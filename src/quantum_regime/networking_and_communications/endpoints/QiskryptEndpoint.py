@@ -60,7 +60,7 @@ class QiskryptEndpoint:
     """
 
     def __init__(self, num: int, name: str, station_type: str, context: str,
-                 longitude: str, latitude: str):
+                 longitude: str, latitude: str, altitude: float):
         """
         Constructor of the Qiskrypt's Endpoint.
 
@@ -70,6 +70,7 @@ class QiskryptEndpoint:
         :param context: the context of the Qiskrypt's Endpoint.
         :param longitude: the longitude of the Qiskrypt's Endpoint.
         :param latitude: the latitude of the Qiskrypt's Endpoint.
+        :param altitude: the altitude of the Qiskrypt's Endpoint.
         """
 
         self.num = num
@@ -100,6 +101,11 @@ class QiskryptEndpoint:
         self.latitude = latitude
         """
         Set the latitude of the Qiskrypt's Endpoint.
+        """
+
+        self.altitude = altitude
+        """
+        Set the altitude of the Qiskrypt's Endpoint.
         """
 
     def get_num(self) -> int:
@@ -173,6 +179,18 @@ class QiskryptEndpoint:
         Return the latitude of the Qiskrypt's Endpoint.
         """
         return self.latitude
+
+    def get_altitude(self) -> float:
+        """
+        Return the altitude of the Qiskrypt's Endpoint.
+
+        :return self.altitude: the latitude of the Qiskrypt's Endpoint.
+        """
+
+        """
+        Return the altitude of the Qiskrypt's Endpoint.
+        """
+        return self.altitude
 
     def __str__(self) -> str:
         """
