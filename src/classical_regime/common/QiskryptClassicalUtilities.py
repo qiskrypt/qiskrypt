@@ -39,6 +39,26 @@ Acknowledgement(s):\n
 """
 
 """
+Import required Libraries and Packages.
+"""
+
+from typing import Literal
+"""
+Import the Literal class from the Python's Library.
+"""
+
+from typing import cast
+"""
+Import the cast function from the Python's Library.
+"""
+
+from numpy import trunc as truncate
+"""
+Import the trunc function from the NumPy Library, with 'truncate' alias.
+"""
+
+
+"""
 Definition of Constants and Enumerations.
 """
 
@@ -145,7 +165,7 @@ class QiskryptClassicalUtilities:
         binary_string_bytes = binary_string_integer_format\
             .to_bytes(((binary_string_bits_without_start_offset_length +
                         (SIZE_BYTE_IN_NUM_BITS - 1)) // SIZE_BYTE_IN_NUM_BITS),
-                      byteorder=byte_order_format)
+                      byteorder=cast(Literal, byte_order_format))
         """
         Convert the given binary string in an integer base-2 format to bytes.
         """
@@ -154,3 +174,28 @@ class QiskryptClassicalUtilities:
         Return the bytes of a given binary string in bits.
         """
         return binary_string_bytes
+
+    @staticmethod
+    def truncate_float_number_with_decimal_places(number_to_truncate: float, decimal_places: int) -> float:
+        """
+        Return the truncated Float number with decimal places,
+        from a given initial Float number and a number of decimal places.
+
+        :param number_to_truncate: the initial Float number.
+        :param decimal_places: the number of decimal places.
+
+        :return float_number_truncated: the truncated Float number with decimal places,
+                                        from a given initial Float number and a number of decimal places.
+        """
+
+        float_number_truncated = \
+            (truncate(number_to_truncate * (10 ** decimal_places)) / (10 ** decimal_places))
+        """
+        Truncate the given Float number with the number of decimal places.
+        """
+
+        """
+        Return the truncated Float number with decimal places,
+        from a given initial Float number and a number of decimal places.
+        """
+        return float_number_truncated
