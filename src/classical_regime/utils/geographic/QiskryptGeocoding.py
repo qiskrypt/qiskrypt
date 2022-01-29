@@ -534,15 +534,15 @@ class QiskryptGeocoding:
 
             # TODO Throw - Exception
 
-    def get_location_display_name_from_address(self, location_address: str) -> str:
+    def get_location_address_from_address(self, location_address: str) -> str:
         """
-        Return the display name of the location of the given address from
+        Return the address of the location of the given address from
         the Qiskrypt's Geocoding in use.
 
         :param location_address: the address from which the location will be extracted.
 
-        :return location_display_name: the display name of the location of the given address from
-                                       the Qiskrypt's Geocoding in use.
+        :return location_address: the address of the location of the given address from
+                                  the Qiskrypt's Geocoding in use.
         """
 
         if self.is_geocoder_service_initialised():
@@ -550,17 +550,17 @@ class QiskryptGeocoding:
             If the Geocoder Service of the Qiskrypt's Geocoding is already initialised.
             """
 
-            location_display_name = self.geocoder_service_in_use.geocode(location_address).display_name
+            location_address = self.geocoder_service_in_use.geocode(location_address).address
             """
-            Retrieve the display name of the location of the given address from
+            Retrieve the address of the location of the given address from
             the Qiskrypt's Geocoding in use.
             """
 
             """
-            Return the display name of the location of the given address from
+            Return the address of the location of the given address from
             the Qiskrypt's Geocoding in use.
             """
-            return location_display_name
+            return location_address
 
         else:
             """
