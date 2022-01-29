@@ -66,6 +66,11 @@ POSSIBLE_SATELLITE_ORBITS = ["LOW-EARTH ORBIT (LEO)", "MIDDLE-EARTH ORBIT (MEO)"
 The available Satellite Endpoint orbits for the Qiskrypt's Endpoint.
 """
 
+MAX_DISTANCE_SATELLITE_STATION_IN_KMS = 100000
+"""
+The maximum distance in KMs (Kilometers) for a Qiskrypt's Satellite Station.
+"""
+
 
 class QiskryptSatelliteStationEndpoint(QiskryptEndpoint):
     """
@@ -87,6 +92,9 @@ class QiskryptSatelliteStationEndpoint(QiskryptEndpoint):
 
         super().__init__(num, name, POSSIBLE_ENDPOINT_STATION_TYPES[1],
                          context, longitude, latitude, altitude)
+        """
+        Call of the constructor of the super-class Qiskrypt's Endpoint.
+        """
 
     def get_num(self) -> int:
         """
