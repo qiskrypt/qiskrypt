@@ -62,7 +62,7 @@ class QiskryptQuantumSatelliteStationEndpoint(QiskryptSatelliteStationEndpoint):
     """
 
     def __init__(self, num: int, name: str,
-                 longitude: str, latitude: str, altitude: float):
+                 longitude: str, latitude: str, altitude: str):
         """
         Constructor of the Qiskrypt's Quantum Satellite Station Endpoint.
 
@@ -151,7 +151,7 @@ class QiskryptQuantumSatelliteStationEndpoint(QiskryptSatelliteStationEndpoint):
         """
         return super().get_latitude()
 
-    def get_altitude(self) -> float:
+    def get_altitude(self) -> str:
         """
         Return the altitude of the Qiskrypt's Endpoint.
 
