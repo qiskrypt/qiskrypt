@@ -60,7 +60,7 @@ class QiskryptEndpoint:
     """
 
     def __init__(self, num: int, name: str, station_type: str, context: str,
-                 longitude: str, latitude: str, altitude: str):
+                 longitude: str, latitude: str, altitude_in_kms: str):
         """
         Constructor of the Qiskrypt's Endpoint.
 
@@ -70,7 +70,7 @@ class QiskryptEndpoint:
         :param context: the context of the Qiskrypt's Endpoint.
         :param longitude: the longitude of the Qiskrypt's Endpoint.
         :param latitude: the latitude of the Qiskrypt's Endpoint.
-        :param altitude: the altitude of the Qiskrypt's Endpoint.
+        :param altitude_in_kms: the altitude in KMS (Kilometers) of the Qiskrypt's Endpoint.
         """
 
         self.num = num
@@ -103,9 +103,9 @@ class QiskryptEndpoint:
         Set the latitude of the Qiskrypt's Endpoint.
         """
 
-        self.altitude = altitude
+        self.altitude_in_kms = altitude_in_kms
         """
-        Set the altitude of the Qiskrypt's Endpoint.
+        Set the altitude in KMs (Kilometers) of the Qiskrypt's Endpoint.
         """
 
     def get_num(self) -> int:
@@ -180,17 +180,17 @@ class QiskryptEndpoint:
         """
         return self.latitude
 
-    def get_altitude(self) -> str:
+    def get_altitude_in_kms(self) -> str:
         """
-        Return the altitude of the Qiskrypt's Endpoint.
+        Return the altitude in KMs (Kilometers) of the Qiskrypt's Endpoint.
 
-        :return self.altitude: the latitude of the Qiskrypt's Endpoint.
+        :return self.altitude_in_kms: the altitude in KMs (Kilometers) of the Qiskrypt's Endpoint.
         """
 
         """
-        Return the altitude of the Qiskrypt's Endpoint.
+        Return the altitude in KMs (Kilometers) of the Qiskrypt's Endpoint.
         """
-        return self.altitude
+        return self.altitude_in_kms
 
     def __str__(self) -> str:
         """
@@ -199,8 +199,10 @@ class QiskryptEndpoint:
         :return qiskrypt_endpoint_string_representation: the string representation for the Qiskrypt's Endpoint.
         """
 
-        qiskrypt_endpoint_string_representation = "Endpoint #{}:\n- Name: {}\n- Context: {}"\
-            .format(self.num, self.name, self.context)
+        qiskrypt_endpoint_string_representation = "Endpoint #{}:" \
+            "\n- Name: {}\n- Context: {}\n- Coordinates: ({}, {})\n- Altitude: {} kms"\
+            .format(self.num, self.name, self.context,
+                    self.longitude, self.latitude, self.altitude_in_kms)
         """
         Set the string representation for the Qiskrypt's Endpoint.
         """
