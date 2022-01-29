@@ -54,7 +54,7 @@ Import the cast function from the Python's Library.
 
 from numpy import trunc as truncate
 """
-Import the trunc function from the NumPy Library, with 'truncate' alias.
+Import the trunc function from the NumPy Library.
 """
 
 
