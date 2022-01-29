@@ -66,9 +66,9 @@ POSSIBLE_SATELLITE_ORBITS = ["LOW-EARTH ORBIT (LEO)", "MEDIUM-EARTH ORBIT (MEO)"
 The available Satellite Endpoint orbits for the Qiskrypt's Endpoint.
 """
 
-MAX_DISTANCE_SATELLITE_STATION_IN_KMS = 100000
+MAX_ALTITUDE_SATELLITE_STATION_IN_KMS = 100000
 """
-The maximum distance in KMs (Kilometers) for a Qiskrypt's Satellite Station.
+The maximum altitude in KMs (Kilometers) for a Qiskrypt's Satellite Station.
 """
 
 
@@ -90,9 +90,9 @@ class QiskryptSatelliteStationEndpoint(QiskryptEndpoint):
         :param altitude_in_kms: the altitude in KMs (Kilometers) of the Qiskrypt's Endpoint.
         """
 
-        if float(altitude_in_kms) <= MAX_DISTANCE_SATELLITE_STATION_IN_KMS:
+        if float(altitude_in_kms) <= MAX_ALTITUDE_SATELLITE_STATION_IN_KMS:
             """
-            If the altitude of hte Qiskrypt's Satellite Station Endpoint is valid,
+            If the altitude of the Qiskrypt's Satellite Station Endpoint is valid,
             i.e., lower than or equal to 100,000 KMs (Kilometers).
             """
 
