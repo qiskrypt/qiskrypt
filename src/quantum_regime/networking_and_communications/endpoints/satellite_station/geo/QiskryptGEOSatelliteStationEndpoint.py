@@ -50,15 +50,16 @@ from src.quantum_regime.networking_and_communications.endpoints\
 Import the Qiskrypt's Satellite Station Endpoint.
 """
 
+from src.quantum_regime.networking_and_communications.endpoints\
+    .satellite_station.QiskryptSatelliteStationEndpoint \
+    import POSSIBLE_SATELLITE_STATION_ORBIT_TYPES
+"""
+Import the possible orbit types of the Qiskrypt's Satellite Station Endpoint.
+"""
+
 
 """
 Definition of Constants and Enumerations.
-"""
-
-POSSIBLE_SATELLITE_ORBITS = ["LOW-EARTH ORBIT (LEO)", "MEDIUM-EARTH ORBIT (MEO)",
-                             "HIGH-EARTH ORBIT (HEO)", "GEOSTATIONARY ORBIT (GEO)"]
-"""
-The available Satellite Endpoint orbits for the Qiskrypt's Endpoint.
 """
 
 MIN_ALTITUDE_GEO_SATELLITE_STATION_IN_KMS = 35786
@@ -93,7 +94,8 @@ class QiskryptGEOSatelliteStationEndpoint(QiskryptSatelliteStationEndpoint):
             """
 
             super().__init__(num, name, context,
-                             longitude, latitude, altitude_in_kms)
+                             longitude, latitude, altitude_in_kms,
+                             POSSIBLE_SATELLITE_STATION_ORBIT_TYPES[3])
             """
             Call of the constructor of the super-class Qiskrypt's Satellite Station Endpoint.
             """
@@ -190,14 +192,26 @@ class QiskryptGEOSatelliteStationEndpoint(QiskryptSatelliteStationEndpoint):
         """
         return super().get_altitude_in_kms()
 
+    def get_orbit_type(self) -> str:
+        """
+        Return the orbit type of the Qiskrypt's Satellite Station Endpoint.
+
+        :return super().get_orbit_type(): the orbit type of the Qiskrypt's Satellite Station Endpoint.
+        """
+
+        """
+        Return the orbit type of the Qiskrypt's Satellite Station Endpoint.
+        """
+        return super().get_orbit_type()
+
     def __str__(self) -> str:
         """
-        Return the string representation for the Qiskrypt's Endpoint.
+        Return the string representation for the Qiskrypt's Satellite Station Endpoint.
 
-        :return super().__str__(): the string representation for the Qiskrypt's Endpoint.
+        :return super().__str__(): the string representation for the Qiskrypt's Satellite Station Endpoint.
         """
 
         """
-        Return the string representation for the Qiskrypt's Endpoint.
+        Return the string representation for the Qiskrypt's Satellite Station Endpoint.
         """
         return super().__str__()
