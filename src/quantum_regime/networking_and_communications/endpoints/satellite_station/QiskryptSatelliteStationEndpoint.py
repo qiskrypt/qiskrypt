@@ -60,10 +60,10 @@ Import the possible station types of the Qiskrypt's Endpoint.
 Definition of Constants and Enumerations.
 """
 
-POSSIBLE_SATELLITE_ORBITS = ["LOW-EARTH ORBIT (LEO)", "MEDIUM-EARTH ORBIT (MEO)",
-                             "HIGH-EARTH ORBIT (HEO)", "GEOSTATIONARY ORBIT (GEO)"]
+POSSIBLE_SATELLITE_ORBIT_TYPES = ["LOW-EARTH ORBIT (LEO)", "MEDIUM-EARTH ORBIT (MEO)",
+                                  "HIGH-EARTH ORBIT (HEO)", "GEOSTATIONARY ORBIT (GEO)"]
 """
-The available Satellite Endpoint orbits for the Qiskrypt's Endpoint.
+The available Satellite Endpoint orbit types for the Qiskrypt's Endpoint.
 """
 
 MAX_ALTITUDE_SATELLITE_STATION_IN_KMS = 100000
@@ -78,7 +78,8 @@ class QiskryptSatelliteStationEndpoint(QiskryptEndpoint):
     """
 
     def __init__(self, num: int, name: str, context: str,
-                 longitude: str, latitude: str, altitude_in_kms: str):
+                 longitude: str, latitude: str, altitude_in_kms: str,
+                 orbit_type: str):
         """
         Constructor of the Qiskrypt's Satellite Station Endpoint.
 
@@ -88,6 +89,7 @@ class QiskryptSatelliteStationEndpoint(QiskryptEndpoint):
         :param longitude: the longitude of the Qiskrypt's Endpoint.
         :param latitude: the latitude of the Qiskrypt's Endpoint.
         :param altitude_in_kms: the altitude in KMs (Kilometers) of the Qiskrypt's Endpoint.
+        :param orbit_type: the orbit type of the Qiskrypt's Satellite Station Endpoint.
         """
 
         if float(altitude_in_kms) <= MAX_ALTITUDE_SATELLITE_STATION_IN_KMS:
@@ -96,11 +98,28 @@ class QiskryptSatelliteStationEndpoint(QiskryptEndpoint):
             i.e., lower than or equal to 100,000 KMs (Kilometers).
             """
 
-            super().__init__(num, name, POSSIBLE_ENDPOINT_STATION_TYPES[1],
-                             context, longitude, latitude, altitude_in_kms)
-            """
-            Call of the constructor of the super-class Qiskrypt's Endpoint.
-            """
+            if orbit_type in POSSIBLE_SATELLITE_ORBIT_TYPES:
+                """
+                If the given orbit type of the Qiskrypt's Satellite Station Endpoint is valid.
+                """
+
+                super().__init__(num, name, POSSIBLE_ENDPOINT_STATION_TYPES[1],
+                                 context, longitude, latitude, altitude_in_kms)
+                """
+                Call of the constructor of the super-class Qiskrypt's Endpoint.
+                """
+
+                self.orbit_type = orbit_type
+                """
+                Set the orbit type of the Qiskrypt's Satellite Station Endpoint.
+                """
+
+            else:
+                """
+                If the given orbit type of the Qiskrypt's Satellite Station Endpoint is not valid.
+                """
+
+                # TODO Throw - Exception
 
         else:
             """
@@ -194,6 +213,18 @@ class QiskryptSatelliteStationEndpoint(QiskryptEndpoint):
         """
         return super().get_altitude_in_kms()
 
+    def get_orbit_type(self) -> str:
+        """
+        Return the orbit type of the Qiskrypt's Satellite Station Endpoint.
+
+        :return self.orbit_type: the orbit type of the Qiskrypt's Satellite Station Endpoint.
+        """
+
+        """
+        Return the orbit type of the Qiskrypt's Satellite Station Endpoint.
+        """
+        return self.orbit_type
+
     def __str__(self) -> str:
         """
         Return the string representation for the Qiskrypt's Endpoint.
@@ -204,4 +235,4 @@ class QiskryptSatelliteStationEndpoint(QiskryptEndpoint):
         """
         Return the string representation for the Qiskrypt's Endpoint.
         """
-        return super().__str__()
+        return super().__str__() + "\n- Orbit Type: {}".format(self.orbit_type)
