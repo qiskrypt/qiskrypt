@@ -60,7 +60,7 @@ Import the possible station types of the Qiskrypt's Endpoint.
 Definition of Constants and Enumerations.
 """
 
-POSSIBLE_SATELLITE_ORBITS = ["LOW-EARTH ORBIT (LEO)", "MIDDLE-EARTH ORBIT (MEO)",
+POSSIBLE_SATELLITE_ORBITS = ["LOW-EARTH ORBIT (LEO)", "MEDIUM-EARTH ORBIT (MEO)",
                              "HIGH-EARTH ORBIT (HEO)", "GEOSTATIONARY ORBIT (GEO)"]
 """
 The available Satellite Endpoint orbits for the Qiskrypt's Endpoint.
@@ -78,7 +78,7 @@ class QiskryptSatelliteStationEndpoint(QiskryptEndpoint):
     """
 
     def __init__(self, num: int, name: str, context: str,
-                 longitude: str, latitude: str, altitude: float):
+                 longitude: str, latitude: str, altitude: str):
         """
         Constructor of the Qiskrypt's Satellite Station Endpoint.
 
@@ -90,11 +90,25 @@ class QiskryptSatelliteStationEndpoint(QiskryptEndpoint):
         :param altitude: the altitude of the Qiskrypt's Endpoint.
         """
 
-        super().__init__(num, name, POSSIBLE_ENDPOINT_STATION_TYPES[1],
-                         context, longitude, latitude, altitude)
-        """
-        Call of the constructor of the super-class Qiskrypt's Endpoint.
-        """
+        if float(altitude) <= MAX_DISTANCE_SATELLITE_STATION_IN_KMS:
+            """
+            If the altitude of hte Qiskrypt's Satellite Station Endpoint is valid,
+            i.e., lower than or equal to 100,000 KMs (Kilometers).
+            """
+
+            super().__init__(num, name, POSSIBLE_ENDPOINT_STATION_TYPES[1],
+                             context, longitude, latitude, altitude)
+            """
+            Call of the constructor of the super-class Qiskrypt's Endpoint.
+            """
+
+        else:
+            """
+            If the altitude of hte Qiskrypt's Satellite Station Endpoint is not valid,
+            i.e., higher than 100,000 KMs (Kilometers).
+            """
+
+            # TODO Throw - Exception
 
     def get_num(self) -> int:
         """
@@ -168,7 +182,7 @@ class QiskryptSatelliteStationEndpoint(QiskryptEndpoint):
         """
         return super().get_latitude()
 
-    def get_altitude(self) -> float:
+    def get_altitude(self) -> str:
         """
         Return the altitude of the Qiskrypt's Endpoint.
 
