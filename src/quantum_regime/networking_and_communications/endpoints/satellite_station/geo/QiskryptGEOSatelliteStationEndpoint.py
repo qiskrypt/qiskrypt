@@ -43,41 +43,68 @@ Acknowledgement(s):\n
 Import required Libraries and Packages.
 """
 
-from src.quantum_regime.networking_and_communications.endpoints.satellite_station.QiskryptSatelliteStationEndpoint \
+from src.quantum_regime.networking_and_communications.endpoints\
+    .satellite_station.QiskryptSatelliteStationEndpoint \
     import QiskryptSatelliteStationEndpoint
 """
 Import the Qiskrypt's Satellite Station Endpoint.
 """
 
-from src.quantum_regime.networking_and_communications.endpoints.QiskryptEndpoint \
-    import POSSIBLE_ENDPOINT_CONTEXTS
+
 """
-Import the contexts of the Qiskrypt's Endpoint.
+Definition of Constants and Enumerations.
+"""
+
+POSSIBLE_SATELLITE_ORBITS = ["LOW-EARTH ORBIT (LEO)", "MEDIUM-EARTH ORBIT (MEO)",
+                             "HIGH-EARTH ORBIT (HEO)", "GEOSTATIONARY ORBIT (GEO)"]
+"""
+The available Satellite Endpoint orbits for the Qiskrypt's Endpoint.
+"""
+
+MIN_ALTITUDE_GEO_SATELLITE_STATION_IN_KMS = 35786
+"""
+The minimum altitude in KMs (Kilometers) for a
+Qiskrypt's GEO (GEostationary Orbit) Satellite Station.
 """
 
 
-class QiskryptSemiQuantumSatelliteStationEndpoint(QiskryptSatelliteStationEndpoint):
+class QiskryptGEOSatelliteStationEndpoint(QiskryptSatelliteStationEndpoint):
     """
-    Object class for the Qiskrypt's Semi-Quantum Satellite Station Endpoint.
+    Object class for the Qiskrypt's GEO (GEostationary Orbit) Satellite Station Endpoint.
     """
 
-    def __init__(self, num: int, name: str,
-                 longitude: str, latitude: str, altitude: str):
+    def __init__(self, num: int, name: str, context: str,
+                 longitude: str, latitude: str, altitude_in_kms: str):
         """
-        Constructor of the Qiskrypt's Semi-Quantum Satellite Station Endpoint.
+        Constructor of the Qiskrypt's GEO (GEostationary Orbit) Satellite Station Endpoint.
 
         :param num: the number of the Qiskrypt's Endpoint.
         :param name: the name of the Qiskrypt's Endpoint.
+        :param context: the context of the Qiskrypt's Endpoint.
         :param longitude: the longitude of the Qiskrypt's Endpoint.
         :param latitude: the latitude of the Qiskrypt's Endpoint.
-        :param altitude: the altitude of the Qiskrypt's Endpoint.
+        :param altitude_in_kms: the altitude in KMs (Kilometers) of the Qiskrypt's Endpoint.
         """
 
-        super().__init__(num, name, POSSIBLE_ENDPOINT_CONTEXTS[2],
-                         longitude, latitude, altitude)
-        """
-        Call of the constructor of the super-class Qiskrypt's Satellite Station Endpoint.
-        """
+        if float(altitude_in_kms) < MIN_ALTITUDE_GEO_SATELLITE_STATION_IN_KMS:
+            """
+            If the altitude of the Qiskrypt's GEO (GEostationary Orbit) Satellite Station Endpoint is valid,
+            i.e., lower than or equal to 35,786 KMs (Kilometers).
+            """
+
+            super().__init__(num, name, context,
+                             longitude, latitude, altitude_in_kms)
+            """
+            Call of the constructor of the super-class Qiskrypt's Satellite Station Endpoint.
+            """
+
+        else:
+            """
+            If the altitude of hte Qiskrypt's Satellite Station Endpoint is not valid,
+            i.e., higher than 100,000 KMs (Kilometers).
+            """
+
+            # TODO Throw - Exception
 
     def get_num(self) -> int:
         """
