@@ -74,9 +74,19 @@ from requests import get as http_get
 Import the HTTP Get method for requests based on Web Services.
 """
 
+from http import HTTPStatus as http_status
+"""
+Import the HTTP Status class from the HTTP module of Python's Library.
+"""
+
 from json import loads as json_loads
 """
 Import the Loading method for JSON objects.
+"""
+
+from warnings import warn as show_warning
+"""
+Import the Warn method from the Warnings' module of Python's Library.
 """
 
 from src.classical_regime.common.QiskryptClassicalUtilities \
@@ -89,6 +99,16 @@ Import the Qiskrypt's Classical Utilities.
 Definition of Constants and Enumerations.
 """
 
+HTTP_REQUESTS_NUM_ATTEMPTS = 3
+"""
+The number of attempts for the HTTP Requests.
+"""
+
+HTTP_REQUESTS_TIMEOUT_SECONDS = 60
+"""
+The timeout for the HTTP Requests, in Secs. (Seconds).
+"""
+
 OSMR_ROUTER_V1_LINK = "http://router.project-osrm.org/route/v1/"
 """
 The link for the OSMR (Open Source Routing Machine) Router v1.
@@ -99,14 +119,24 @@ OSMR_ROUTER_V1_PROFILES = ["CAR"]
 The profiles for the OSMR (Open Source Routing Machine) Router v1.
 """
 
+OPEN_ELEVATION_API_V1_LINK = "https://api.open-elevation.com/api/v1/lookup"
+"""
+The link for the Open-Elevation API v1.
+"""
+
+OPEN_ELEVATION_API_V1_PARAMETERS = ["locations"]
+"""
+The parameters for the Open-Elevation API v1.
+"""
+
 KILOMETER_IN_METERS = 1000
 """
-The ration of a KM (Kilometer) in Ms (Meters).
+The ratio of a KM (Kilometer) in Ms (Meters).
 """
 
 METER_IN_KILOMETERS = 0.001
 """
-The ration of a M (Meter) in KMs (Kilometers).
+The ratio of a M (Meter) in KMs (Kilometers).
 """
 
 
@@ -715,15 +745,15 @@ class QiskryptGeocoding:
 
             # TODO Throw - Exception
 
-    def get_location_altitude_from_address(self, location_address: str) -> str:
+    def get_location_altitude_in_ms_from_address_using_geopy(self, location_address: str) -> float:
         """
         Return the altitude of the location of the given address from
-        the Qiskrypt's Geocoding in use.
+        the Qiskrypt's Geocoding in use, given in Ms (Meters), using GeoPy.
 
         :param location_address: the address from which the location will be extracted.
 
-        :return location_altitude: the altitude of the location of the given address from
-                                   the Qiskrypt's Geocoding in use.
+        :return location_altitude_in_ms: the altitude of the location of the given address from
+                                         the Qiskrypt's Geocoding in use, given in Ms (Meters), using GeoPy.
         """
 
         if self.is_geocoder_service_initialised():
@@ -731,17 +761,260 @@ class QiskryptGeocoding:
             If the Geocoder Service of the Qiskrypt's Geocoding is already initialised.
             """
 
-            location_altitude = self.geocoder_service_in_use.geocode(location_address).altitude
+            location_altitude_in_ms = self.geocoder_service_in_use.geocode(location_address).altitude
             """
             Retrieve the altitude of the location of the given address from
-            the Qiskrypt's Geocoding in use.
+            the Qiskrypt's Geocoding in use, given in Ms (Meters), using GeoPy.
+            """
+
+            location_altitude_in_ms = \
+                QiskryptClassicalUtilities\
+                .truncate_float_number_with_decimal_places(float(location_altitude_in_ms),
+                                                           NUM_DECIMAL_PLACES_FOR_FLOAT_NUMBERS)
+            """
+            Truncate the altitude of the location of the given address from
+            the Qiskrypt's Geocoding in use, given in Ms (Meters), using GeoPy.
             """
 
             """
             Return the altitude of the location of the given address from
-            the Qiskrypt's Geocoding in use.
+            the Qiskrypt's Geocoding in use, given in Ms (Meters), using GeoPy.
             """
-            return location_altitude
+            return location_altitude_in_ms
+
+        else:
+            """
+            If the Geocoder Service of the Qiskrypt's Geocoding is not initialised yet.
+            """
+
+            # TODO Throw - Exception
+
+    def get_location_altitude_in_kms_from_address_using_geopy(self, location_address: str) -> float:
+        """
+        Return the altitude of the location of the given address from
+        the Qiskrypt's Geocoding in use, given in KMs (Kilometers), using GeoPy.
+
+        :param location_address: the address from which the location will be extracted.
+
+        :return location_altitude_in_kms: the altitude of the location of the given address from
+                                          the Qiskrypt's Geocoding in use, given in KMs (Kilometers), using GeoPy.
+        """
+
+        if self.is_geocoder_service_initialised():
+            """
+            If the Geocoder Service of the Qiskrypt's Geocoding is already initialised.
+            """
+
+            location_altitude_in_ms = \
+                self.get_location_altitude_in_ms_from_address_using_geopy(location_address)
+            """
+            Retrieve the altitude of the location of the given address from
+            the Qiskrypt's Geocoding in use, given in Ms (Meters), using GeoPy.
+            """
+
+            location_altitude_in_kms = QiskryptClassicalUtilities.\
+                truncate_float_number_with_decimal_places((location_altitude_in_ms / KILOMETER_IN_METERS),
+                                                          NUM_DECIMAL_PLACES_FOR_FLOAT_NUMBERS)
+            """
+            Convert the altitude of the location of the given address from
+            the Qiskrypt's Geocoding in use, from Ms (Meters) to KMs (Kilometers), using GeoPy.
+            """
+
+            """
+            Return the altitude of the location of the given address from
+            the Qiskrypt's Geocoding in use, given in KMs (Kilometers), using GeoPy.
+            """
+            return location_altitude_in_kms
+
+        else:
+            """
+            If the Geocoder Service of the Qiskrypt's Geocoding is not initialised yet.
+            """
+
+            # TODO Throw - Exception
+
+    def get_location_altitude_in_ms_from_address_using_open_elevation(self, location_address: str) -> float:
+        """
+        Return the altitude of the location of the given address from
+        the Qiskrypt's Geocoding in use, given in Ms (Meters), using Open-Elevation API.
+
+        :param location_address: the address from which the location will be extracted.
+
+        :return altitude_in_ms_using_open_elevation_api: the altitude of the location of the given address from
+                                                         the Qiskrypt's Geocoding in use, given in Ms (Meters),
+                                                         using Open-Elevation API.
+        """
+
+        if self.is_geocoder_service_initialised():
+            """
+            If the Geocoder Service of the Qiskrypt's Geocoding is already initialised.
+            """
+
+            location_latitude = self.get_location_latitude_from_address(location_address)
+            """
+            Retrieve the latitude of the location of the given address from
+            the Qiskrypt's Geocoding in use, using GeoPy.
+            """
+
+            location_longitude = self.get_location_longitude_from_address(location_address)
+            """
+            Retrieve the longitude of the location of the given address from
+            the Qiskrypt's Geocoding in use, using GeoPy.
+            """
+
+            if (location_latitude is not None) and (location_longitude is not None):
+                """
+                If both the latitude and longitude of the location of the given address from
+                the Qiskrypt's Geocoding in use, using GeoPy, are valid.
+                """
+
+                open_elevation_api_http_get_request_string = OPEN_ELEVATION_API_V1_LINK + "?" + \
+                    OPEN_ELEVATION_API_V1_PARAMETERS[0] + "={},{}".format(location_latitude,
+                                                                          location_longitude)
+                """
+                Set the string for the HTTP Get Request for the Open-Elevation API from
+                the Qiskrypt's Geocoding in use.
+                """
+
+                http_request_current_num_attempt = 0
+                """
+                Initialise the number of the current attempt for the HTTP Request, initially, as 0.
+                """
+
+                show_warning("The calls to the Open-Elevation API can be slow and unstable... Be patient!!!")
+                """
+                Show a Warning, regarding the slowness and instability of the Open-Elevation API.
+                """
+
+                while http_request_current_num_attempt < HTTP_REQUESTS_NUM_ATTEMPTS:
+                    """
+                    While the number of the current attempt for the HTTP Request is valid.
+                    """
+
+                    open_elevation_api_http_get_response = http_get(open_elevation_api_http_get_request_string,
+                                                                    timeout=HTTP_REQUESTS_TIMEOUT_SECONDS)
+                    """
+                    Perform the HTTP Get Request for the Open-Elevation API from
+                    the Qiskrypt's Geocoding in use, to obtain the altitude (elevation), with a default timeout,
+                    retrieving the respective HTTP Get Response.
+                    """
+
+                    if (open_elevation_api_http_get_response.status_code == http_status.OK) or \
+                       (open_elevation_api_http_get_response.status_code == http_status.CREATED) or \
+                       (open_elevation_api_http_get_response.status_code == http_status.ACCEPTED):
+                        """
+                        If the status code of the previous HTTP Get Response is valid,
+                        resulting in one of the status codes: 'OK' (200), 'Created' (201) or 'Accepted' (202).
+                        """
+
+                        open_elevation_api_http_get_response_json_content = \
+                            json_loads(open_elevation_api_http_get_response.content)
+                        """
+                        Load the JSON content from the HTTP Get Response for the Open-Elevation API from
+                        the Qiskrypt's Geocoding in use, for which was obtained the altitude (elevation),
+                        given in Ms (Meters).
+                        """
+
+                        open_elevation_api_result_altitude_dictionary = \
+                            open_elevation_api_http_get_response_json_content.get("results")[0]
+                        """
+                        Retrieve the dictionary of altitude in the JSON content from the HTTP Get Response
+                        for the Open-Elevation API from the Qiskrypt's Geocoding in use,
+                        for which was obtained the altitude (elevation),
+                        given in Ms (Meters).
+                        """
+
+                        open_elevation_api_altitude = open_elevation_api_result_altitude_dictionary['elevation']
+                        """
+                        Extract the altitude (elevation) in the dictionary of results
+                        in the JSON content from the HTTP Get Response
+                        for the Open-Elevation API from the Qiskrypt's Geocoding in use,
+                        for which was obtained the altitude (elevation),
+                        given in Ms (Meters).
+                        """
+
+                        altitude_in_ms_using_open_elevation_api = QiskryptClassicalUtilities \
+                            .truncate_float_number_with_decimal_places(open_elevation_api_altitude,
+                                                                       NUM_DECIMAL_PLACES_FOR_FLOAT_NUMBERS)
+                        """
+                        Truncate the altitude (elevation) obtained
+                        by the Open-Elevation API from the Qiskrypt's Geocoding in use,
+                        for which was obtained the altitude (elevation),
+                        given in Ms (Meters).
+                        """
+
+                        """
+                        Return the altitude (elevation) of the location of the given address from
+                        the Qiskrypt's Geocoding in use, given in Ms (Meters), using Open-Elevation API.
+                        """
+                        return altitude_in_ms_using_open_elevation_api
+
+                    else:
+                        """
+                        If the status code of the previous HTTP Get Response is not valid,
+                        not resulting in one of the status codes: 'OK' (200), 'Created' (201) or 'Accepted' (202).
+                        """
+
+                        """
+                        Increase the number of the current attempt for the HTTP Request.
+                        """
+                        http_request_current_num_attempt += 1
+
+                # TODO Throw - Exception
+
+            else:
+                """
+                If the latitude or longitude of the location of the given address from
+                the Qiskrypt's Geocoding in use, using GeoPy, are not valid.
+                """
+
+                # TODO Throw - Exception
+
+        else:
+            """
+            If the Geocoder Service of the Qiskrypt's Geocoding is not initialised yet.
+            """
+
+            # TODO Throw - Exception
+
+    def get_location_altitude_in_kms_from_address_using_open_elevation(self, location_address: str) -> float:
+        """
+        Return the altitude of the location of the given address from
+        the Qiskrypt's Geocoding in use, given in KMs (Kilometers), using Open-Elevation API.
+
+        :param location_address: the address from which the location will be extracted.
+
+        :return altitude_in_kms_using_open_elevation_api: the altitude of the location of the given address from
+                                                          the Qiskrypt's Geocoding in use, given in KMs (Kilometers),
+                                                          using Open-Elevation API.
+        """
+
+        if self.is_geocoder_service_initialised():
+            """
+            If the Geocoder Service of the Qiskrypt's Geocoding is already initialised.
+            """
+
+            altitude_in_ms_using_open_elevation_api = \
+                self.get_location_altitude_in_ms_from_address_using_open_elevation(location_address)
+            """
+            Compute the altitude (elevation) of the location of the given address from
+            the Qiskrypt's Geocoding in use, given in Ms (Meters), using Open-Elevation API.
+            """
+
+            altitude_in_kms_using_open_elevation_api = \
+                QiskryptClassicalUtilities.truncate_float_number_with_decimal_places \
+                ((altitude_in_ms_using_open_elevation_api / KILOMETER_IN_METERS),
+                 NUM_DECIMAL_PLACES_FOR_FLOAT_NUMBERS)
+            """
+            Compute the altitude (elevation) of the location of the given address from
+            the Qiskrypt's Geocoding in use, given in KMs (Kilometers), using Open-Elevation API.
+            """
+
+            """
+            Return the altitude (elevation) of the location of the given address from
+            the Qiskrypt's Geocoding in use, given in KMs (Kilometers), using Open-Elevation API.
+            """
+            return altitude_in_kms_using_open_elevation_api
 
         else:
             """
@@ -981,50 +1254,84 @@ class QiskryptGeocoding:
         the Qiskrypt's Geocoding in use.
         """
 
-        osmr_http_get_request = http_get(osmr_http_get_request_string)
+        http_request_current_num_attempt = 0
         """
-        Perform the HTTP Get Request for the OSMR (Open Source Routing Machine) from
-        the Qiskrypt's Geocoding in use, to obtain the route.
-        """
-
-        osmr_http_get_response_json_content = \
-            json_loads(osmr_http_get_request.content)
-        """
-        Load the JSON content from the HTTP Get Response for the OSMR (Open Source Routing Machine) from
-        the Qiskrypt's Geocoding in use, for which was obtained the routes.
+        Initialise the number of the current attempt for the HTTP Request, initially, as 0.
         """
 
-        osmr_result_routes_dictionary = osmr_http_get_response_json_content.get("routes")
-        """
-        Retrieve the dictionary of routes in the JSON content from the HTTP Get Response
-        for the OSMR (Open Source Routing Machine) from the Qiskrypt's Geocoding in use,
-        for which was obtained the routes.
-        """
+        while http_request_current_num_attempt < HTTP_REQUESTS_NUM_ATTEMPTS:
+            """
+            While the number of the current attempt for the HTTP Request is valid.
+            """
 
-        osmr_route_1 = osmr_result_routes_dictionary[0]
-        """
-        Extract the 1st route in the dictionary of routes in the JSON content from the HTTP Get Response
-        for the OSMR (Open Source Routing Machine) from the Qiskrypt's Geocoding in use,
-        for which was obtained the routes.
-        """
+            osmr_http_get_response = http_get(osmr_http_get_request_string,
+                                              timeout=HTTP_REQUESTS_TIMEOUT_SECONDS)
+            """
+            Perform the HTTP Get Request for the OSMR (Open Source Routing Machine) from
+            the Qiskrypt's Geocoding in use, to obtain the route, with a default timeout,
+            retrieving the respective HTTP Get Response.
+            """
 
-        osmr_route_distance_meters_1 = \
-            QiskryptClassicalUtilities.truncate_float_number_with_decimal_places(osmr_route_1["distance"],
-                                                                                 NUM_DECIMAL_PLACES_FOR_FLOAT_NUMBERS)
-        """
-        Retrieve the distance in Ms (Meters) from the 1st route extracted in
-        the dictionary of routes in the JSON content from the HTTP Get Response
-        for the OSMR (Open Source Routing Machine) from the Qiskrypt's Geocoding in use,
-        for which was obtained the routes.
-        """
+            if (osmr_http_get_response.status_code == http_status.OK) or \
+                    (osmr_http_get_response.status_code == http_status.CREATED) or \
+                    (osmr_http_get_response.status_code == http_status.ACCEPTED):
+                """
+                If the status code of the previous HTTP Get Response is valid,
+                resulting in one of the status codes: 'OK' (200), 'Created' (201) or 'Accepted' (202).
+                """
 
-        """
-        Return the distance in Ms (Meters) from the 1st route extracted in
-        the dictionary of routes in the JSON content from the HTTP Get Response
-        for the OSMR (Open Source Routing Machine) from the Qiskrypt's Geocoding in use,
-        for which was obtained the routes.
-        """
-        return osmr_route_distance_meters_1
+                osmr_http_get_response_json_content = \
+                    json_loads(osmr_http_get_response.content)
+                """
+                Load the JSON content from the HTTP Get Response for the OSMR (Open Source Routing Machine) from
+                the Qiskrypt's Geocoding in use, for which was obtained the routes.
+                """
+
+                osmr_result_routes_dictionary = osmr_http_get_response_json_content.get("routes")
+                """
+                Retrieve the dictionary of routes in the JSON content from the HTTP Get Response
+                for the OSMR (Open Source Routing Machine) from the Qiskrypt's Geocoding in use,
+                for which was obtained the routes.
+                """
+
+                osmr_route = osmr_result_routes_dictionary[0]
+                """
+                Extract the 1st route in the dictionary of routes in the JSON content from the HTTP Get Response
+                for the OSMR (Open Source Routing Machine) from the Qiskrypt's Geocoding in use,
+                for which was obtained the routes.
+                """
+
+                osmr_route_distance_ms = \
+                    QiskryptClassicalUtilities\
+                    .truncate_float_number_with_decimal_places(osmr_route["distance"],
+                                                               NUM_DECIMAL_PLACES_FOR_FLOAT_NUMBERS)
+                """
+                Retrieve the distance in Ms (Meters) from the 1st route extracted in
+                the dictionary of routes in the JSON content from the HTTP Get Response
+                for the OSMR (Open Source Routing Machine) from the Qiskrypt's Geocoding in use,
+                for which was obtained the routes.
+                """
+
+                """
+                Return the distance in Ms (Meters) from the 1st route extracted in
+                the dictionary of routes in the JSON content from the HTTP Get Response
+                for the OSMR (Open Source Routing Machine) from the Qiskrypt's Geocoding in use,
+                for which was obtained the routes.
+                """
+                return osmr_route_distance_ms
+
+            else:
+                """
+                If the status code of the previous HTTP Get Response is not valid,
+                not resulting in one of the status codes: 'OK' (200), 'Created' (201) or 'Accepted' (202).
+                """
+
+                """
+                Increase the number of the current attempt for the HTTP Request.
+                """
+                http_request_current_num_attempt += 1
+
+        # TODO Throw - Exception
 
     def compute_distance_between_locations_from_addresses_in_kms_using_osmr(self, location_address_1: str,
                                                                             location_address_2: str) -> float:
@@ -1057,4 +1364,8 @@ class QiskryptGeocoding:
         the Qiskrypt's Geocoding in use, given in KMs (Kilometers), using OSMR (Open Source Routing Machine).
         """
 
+        """
+        Return the distance between two locations of given addresses from
+        the Qiskrypt's Geocoding in use, given in KMs (Kilometers), using OSMR (Open Source Routing Machine).
+        """
         return distance_between_locations_from_addresses_in_kms_using_osmr
