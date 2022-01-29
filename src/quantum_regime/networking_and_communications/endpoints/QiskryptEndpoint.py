@@ -45,12 +45,21 @@ Definition of Constants and Enumerations.
 
 POSSIBLE_ENDPOINT_STATION_TYPES = ["GROUND-STATION", "SATELLITE-STATION"]
 """
-The available Endpoint station types for the Qiskrypt's Endpoint.
+The available station types for the Qiskrypt's Endpoint.
 """
 
 POSSIBLE_ENDPOINT_CONTEXTS = ["QUANTUM", "FULLY-QUANTUM", "SEMI-QUANTUM", "CLASSICAL"]
 """
-The available Endpoint contexts for the Qiskrypt's Endpoint.
+The available contexts for the Qiskrypt's Endpoint.
+"""
+
+MIN_ALTITUDE_ENDPOINTS_IN_KMS = -0.5
+"""
+The minimum altitude in KMs (Kilometers) for the Qiskrypt's Endpoint.
+
+NOTE:
+- Based on the lowest place known on Earth.
+- Dead Sea (Jordan/Israel) for reference.
 """
 
 
@@ -70,43 +79,57 @@ class QiskryptEndpoint:
         :param context: the context of the Qiskrypt's Endpoint.
         :param longitude: the longitude of the Qiskrypt's Endpoint.
         :param latitude: the latitude of the Qiskrypt's Endpoint.
-        :param altitude_in_kms: the altitude in KMS (Kilometers) of the Qiskrypt's Endpoint.
+        :param altitude_in_kms: the altitude (elevation) in KMS (Kilometers) of the Qiskrypt's Endpoint.
         """
 
-        self.num = num
-        """
-        Set the number of the Qiskrypt's Endpoint.
-        """
+        if float(altitude_in_kms) >= MIN_ALTITUDE_ENDPOINTS_IN_KMS:
+            """
+            If the altitude (elevation) of the Qiskrypt's Endpoint is valid,
+            i.e., higher than -0.5 KMs (Kilometers).
+            """
 
-        self.name = name
-        """
-        Set the name of the Qiskrypt's Endpoint.
-        """
+            self.num = num
+            """
+            Set the number of the Qiskrypt's Endpoint.
+            """
 
-        self.station_type = station_type
-        """
-        Set the station type of the Qiskrypt'sEndpoint.
-        """
+            self.name = name
+            """
+            Set the name of the Qiskrypt's Endpoint.
+            """
 
-        self.context = context
-        """
-        Set the context of the Qiskrypt's Endpoint.
-        """
+            self.station_type = station_type
+            """
+            Set the station type of the Qiskrypt'sEndpoint.
+            """
 
-        self.longitude = longitude
-        """
-        Set the longitude of the Qiskrypt's Endpoint.
-        """
+            self.context = context
+            """
+            Set the context of the Qiskrypt's Endpoint.
+            """
 
-        self.latitude = latitude
-        """
-        Set the latitude of the Qiskrypt's Endpoint.
-        """
+            self.longitude = longitude
+            """
+            Set the longitude of the Qiskrypt's Endpoint.
+            """
 
-        self.altitude_in_kms = altitude_in_kms
-        """
-        Set the altitude in KMs (Kilometers) of the Qiskrypt's Endpoint.
-        """
+            self.latitude = latitude
+            """
+            Set the latitude of the Qiskrypt's Endpoint.
+            """
+
+            self.altitude_in_kms = altitude_in_kms
+            """
+            Set the altitude in KMs (Kilometers) of the Qiskrypt's Endpoint.
+            """
+
+        else:
+            """
+            If the altitude (elevation) of the Qiskrypt's Endpoint is valid,
+            i.e., lower than or equal to -0.5 KMs (Kilometers).
+            """
+
+            # TODO Throw - Exception
 
     def get_num(self) -> int:
         """
