@@ -151,17 +151,17 @@ class QiskryptFullyQuantumSatelliteStationEndpoint(QiskryptSatelliteStationEndpo
         """
         return super().get_latitude()
 
-    def get_altitude(self) -> str:
+    def get_altitude_in_kms(self) -> str:
         """
-        Return the altitude of the Qiskrypt's Endpoint.
+        Return the altitude in KMs (Kilometers) of the Qiskrypt's Endpoint.
 
-        :return super().get_altitude(): the latitude of the Qiskrypt's Endpoint.
+        :return super().get_altitude(): the altitude in KMs (Kilometers) of the Qiskrypt's Endpoint.
         """
 
         """
-        Return the altitude of the Qiskrypt's Endpoint.
+        Return the altitude in KMs (Kilometers) of the Qiskrypt's Endpoint.
         """
-        return super().get_altitude()
+        return super().get_altitude_in_kms()
 
     def __str__(self) -> str:
         """
