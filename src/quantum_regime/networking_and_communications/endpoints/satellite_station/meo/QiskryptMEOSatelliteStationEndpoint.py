@@ -110,7 +110,7 @@ class QiskryptMEOSatelliteStationEndpoint(QiskryptSatelliteStationEndpoint):
 
         else:
             """
-            If the altitude of hte Qiskrypt's Satellite Station Endpoint is not valid,
+            If the altitude of the Qiskrypt's Satellite Station Endpoint is not valid,
             i.e., lower than 2,000 KMs (Kilometers) or higher than 35,786 KMs (Kilometers).
             """
 

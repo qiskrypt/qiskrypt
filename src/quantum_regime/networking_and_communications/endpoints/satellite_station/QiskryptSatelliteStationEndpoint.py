@@ -123,7 +123,7 @@ class QiskryptSatelliteStationEndpoint(QiskryptEndpoint):
 
         else:
             """
-            If the altitude of hte Qiskrypt's Satellite Station Endpoint is not valid,
+            If the altitude of the Qiskrypt's Satellite Station Endpoint is not valid,
             i.e., higher than 100,000 KMs (Kilometers).
             """
 
