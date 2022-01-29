@@ -90,7 +90,7 @@ class QiskryptGEOSatelliteStationEndpoint(QiskryptSatelliteStationEndpoint):
         if float(altitude_in_kms) < MIN_ALTITUDE_GEO_SATELLITE_STATION_IN_KMS:
             """
             If the altitude of the Qiskrypt's GEO (GEostationary Orbit) Satellite Station Endpoint is valid,
-            i.e., lower than or equal to 35,786 KMs (Kilometers).
+            i.e., higher than to 35,786 KMs (Kilometers).
             """
 
             super().__init__(num, name, context,
@@ -103,7 +103,7 @@ class QiskryptGEOSatelliteStationEndpoint(QiskryptSatelliteStationEndpoint):
         else:
             """
             If the altitude of hte Qiskrypt's Satellite Station Endpoint is not valid,
-            i.e., higher than 100,000 KMs (Kilometers).
+            i.e., lower than or equal to 35,786 KMs (Kilometers).
             """
 
             # TODO Throw - Exception
