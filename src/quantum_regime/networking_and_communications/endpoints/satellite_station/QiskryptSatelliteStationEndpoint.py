@@ -60,10 +60,10 @@ Import the possible station types of the Qiskrypt's Endpoint.
 Definition of Constants and Enumerations.
 """
 
-POSSIBLE_SATELLITE_ORBIT_TYPES = ["LOW-EARTH ORBIT (LEO)", "MEDIUM-EARTH ORBIT (MEO)",
-                                  "HIGH-EARTH ORBIT (HEO)", "GEOSTATIONARY ORBIT (GEO)"]
+POSSIBLE_SATELLITE_STATION_ORBIT_TYPES = ["LOW-EARTH ORBIT (LEO)", "MEDIUM-EARTH ORBIT (MEO)",
+                                          "HIGH-EARTH ORBIT (HEO)", "GEOSTATIONARY ORBIT (GEO)"]
 """
-The available Satellite Endpoint orbit types for the Qiskrypt's Endpoint.
+The available orbit types for the Qiskrypt's Satellite Station Endpoint.
 """
 
 MAX_ALTITUDE_SATELLITE_STATION_IN_KMS = 100000
@@ -98,7 +98,7 @@ class QiskryptSatelliteStationEndpoint(QiskryptEndpoint):
             i.e., lower than or equal to 100,000 KMs (Kilometers).
             """
 
-            if orbit_type in POSSIBLE_SATELLITE_ORBIT_TYPES:
+            if orbit_type in POSSIBLE_SATELLITE_STATION_ORBIT_TYPES:
                 """
                 If the given orbit type of the Qiskrypt's Satellite Station Endpoint is valid.
                 """
@@ -227,12 +227,12 @@ class QiskryptSatelliteStationEndpoint(QiskryptEndpoint):
 
     def __str__(self) -> str:
         """
-        Return the string representation for the Qiskrypt's Endpoint.
+        Return the string representation for the Qiskrypt's Satellite Station Endpoint.
 
-        :return super().__str__(): the string representation for the Qiskrypt's Endpoint.
+        :return super().__str__(): the string representation for the Qiskrypt's Satellite Station Endpoint.
         """
 
         """
-        Return the string representation for the Qiskrypt's Endpoint.
+        Return the string representation for the Qiskrypt's Satellite Station Endpoint.
         """
         return super().__str__() + "\n- Orbit Type: {}".format(self.orbit_type)
