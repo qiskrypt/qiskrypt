@@ -64,7 +64,7 @@ class QiskryptQuantumSatelliteStationEndpoint(QiskryptSatelliteStationEndpoint):
     def __init__(self, num: int, name: str,
                  longitude: str, latitude: str, altitude: float):
         """
-        Constructor of the Qiskrypt's Satellite Station Endpoint.
+        Constructor of the Qiskrypt's Quantum Satellite Station Endpoint.
 
         :param num: the number of the Qiskrypt's Endpoint.
         :param name: the name of the Qiskrypt's Endpoint.
