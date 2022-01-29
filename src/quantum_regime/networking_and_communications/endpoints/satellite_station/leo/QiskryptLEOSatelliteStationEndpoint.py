@@ -62,6 +62,12 @@ Import the possible orbit types of the Qiskrypt's Satellite Station Endpoint.
 Definition of Constants and Enumerations.
 """
 
+MIN_ALTITUDE_LEO_SATELLITE_STATION_IN_KMS = 350
+"""
+The minimum altitude in KMs (Kilometers) for a
+Qiskrypt's LEO (Low-Earth Orbit) Satellite Station.
+"""
+
 MAX_ALTITUDE_LEO_SATELLITE_STATION_IN_KMS = 2000
 """
 The maximum altitude in KMs (Kilometers) for a
@@ -87,10 +93,12 @@ class QiskryptLEOSatelliteStationEndpoint(QiskryptSatelliteStationEndpoint):
         :param altitude_in_kms: the altitude in KMs (Kilometers) of the Qiskrypt's Endpoint.
         """
 
-        if float(altitude_in_kms) < MAX_ALTITUDE_LEO_SATELLITE_STATION_IN_KMS:
+        if MIN_ALTITUDE_LEO_SATELLITE_STATION_IN_KMS < \
+            float(altitude_in_kms) < \
+                MAX_ALTITUDE_LEO_SATELLITE_STATION_IN_KMS:
             """
             If the altitude of the Qiskrypt's LEO (Low-Earth Orbit) Satellite Station Endpoint is valid,
-            i.e., lower than to 2,000 KMs (Kilometers).
+            i.e., between 350 KMs (Kilometers) and 2,000 KMs (Kilometers).
             """
 
             super().__init__(num, name, context,
@@ -103,7 +111,7 @@ class QiskryptLEOSatelliteStationEndpoint(QiskryptSatelliteStationEndpoint):
         else:
             """
             If the altitude of the Qiskrypt's Satellite Station Endpoint is not valid,
-            i.e., higher than or equal to 2,000 KMs (Kilometers).
+            i.e., lower than or equal to 350 KMs (Kilometers) and higher than or equal to 2,000 KMs (Kilometers).
             """
 
             # TODO Throw - Exception
