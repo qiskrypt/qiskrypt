@@ -77,7 +77,7 @@ class QiskryptGEOClassicalSatelliteStationEndpoint(QiskryptGEOSatelliteStationEn
         super().__init__(num, name, POSSIBLE_ENDPOINT_CONTEXTS[3],
                          longitude, latitude, altitude_in_kms)
         """
-        Call of the constructor of the super-class Qiskrypt's GEO (GEostationary) Satellite Station Endpoint.
+        Call of the constructor of the super-class Qiskrypt's GEO (GEostationary Orbit) Satellite Station Endpoint.
         """
 
     def get_num(self) -> int:
