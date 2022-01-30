@@ -38,28 +38,18 @@ Acknowledgement(s):\n
 
 """
 
-"""
-Definition of Constants and Enumerations.
-"""
-
-POSSIBLE_PARTY_CONTEXTS = ["QUANTUM", "FULLY-QUANTUM", "SEMI-QUANTUM", "CLASSICAL"]
-"""
-The available Party contexts for the Qiskrypt's Party.
-"""
-
 
 class QiskryptParty:
     """
     Object class for the Qiskrypt's Party.
     """
 
-    def __init__(self, num: int, name: str, context: str):
+    def __init__(self, num: int, name: str):
         """
         Constructor of the Qiskrypt's Party.
 
         :param num: the number of the Qiskrypt's Party.
         :param name: the name of the Qiskrypt's Party.
-        :param context: the context of the Qiskrypt's Party.
         """
 
         self.num = num
@@ -70,11 +60,6 @@ class QiskryptParty:
         self.name = name
         """
         Set the name of the Qiskrypt's Party.
-        """
-
-        self.context = context
-        """
-        Set the context of the Qiskrypt's Party.
         """
 
     def get_num(self) -> int:
@@ -101,18 +86,6 @@ class QiskryptParty:
         """
         return self.name
 
-    def get_context(self) -> str:
-        """
-        Return the context of the Qiskrypt's Party.
-
-        :return self.context: the context of the Qiskrypt's Party.
-        """
-
-        """
-        Return the context of the Qiskrypt's Party.
-        """
-        return self.context
-
     def __str__(self) -> str:
         """
         Return the string representation for the Qiskrypt's Party.
@@ -120,8 +93,7 @@ class QiskryptParty:
         :return qiskrypt_party_string_representation: the string representation for the Qiskrypt's Party.
         """
 
-        qiskrypt_party_string_representation = "Party #{}:\n- Name: {}\n- Context: {}"\
-            .format(self.num, self.name, self.context)
+        qiskrypt_party_string_representation = "Party #{}:\n- Name: {}".format(self.num, self.name)
         """
         Set the string representation for the Qiskrypt's Party.
         """
