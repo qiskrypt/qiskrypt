@@ -42,25 +42,11 @@ Acknowledgement(s):\n
 Import required Libraries and Packages.
 """
 
-from src.quantum_regime.cryptography.key_exchange.quantum_key_distribution.QiskryptQuantumKeyDistribution \
-    import QUANTUM_KEY_DISTRIBUTION_NUM_PARTIES
-"""
-Import the number of parties for
-the Qiskrypt's Quantum Key Distribution (QKD). 
-"""
-
-from src.quantum_regime.cryptography.key_exchange.quantum_key_distribution.QiskryptQuantumKeyDistribution \
-    import QUANTUM_KEY_DISTRIBUTION_DEFAULT_PARTIES_NAMES
-"""
-Import the default parties' names for
-the Qiskrypt's Quantum Key Distribution (QKD). 
-"""
-
 from src.quantum_regime.cryptography.key_exchange.quantum_key_distribution.discrete_variables \
-    .prepare_and_measure.bb84.common.QiskryptBB84ProtocolRoundWithDiscreteVariables \
-    import QiskryptBB84ProtocolRoundWithDiscreteVariables
+    .prepare_and_measure.bb84.common.QiskryptDVBB84ProtocolRound \
+    import QiskryptDVBB84ProtocolRound
 """
-Import the Qiskrypt's Quantum Key Distribution (QKD) Round.
+Import the Qiskrypt's DV (Discrete Variables) BB84 Protocol Round.
 """
 
 from src.quantum_regime.utils.parties_and_agents.quantum.fully_quantum.QiskryptFullyQuantumParty \
@@ -75,6 +61,15 @@ from src.quantum_regime.utils.user_client.QiskryptUserClient \
 Import the Qiskrypt's User Client.
 """
 
+from src.quantum_regime.networking_and_communications.communication_channel\
+    .quantum.discrete_variables\
+    .QiskryptQuantumCommunicationChannelInFiberOpticWithDiscreteVariableForNoiselessScenarios \
+    import QiskryptQuantumCommunicationChannelInFiberOpticWithDiscreteVariablesForNoiselessScenarios
+"""
+Import the Qiskrypt's Quantum Communication Channel in Fiber Optic
+with Discrete Variables (DVs) for Noiseless Scenarios.
+"""
+
 from src.quantum_regime.circuit.registers.quantum.fully_quantum.QiskryptFullyQuantumRegister \
     import QiskryptFullyQuantumRegister
 """
@@ -87,12 +82,26 @@ from src.quantum_regime.circuit.QiskryptQuantumCircuit \
 Import the Qiskrypt's Quantum Circuit.
 """
 
+from src.quantum_regime.cryptography.key_exchange.quantum_key_distribution.QiskryptQuantumKeyDistribution \
+    import QUANTUM_KEY_DISTRIBUTION_NUM_PARTIES
+"""
+Import the number of parties for
+the Qiskrypt's Quantum Key Distribution (QKD). 
+"""
 
-class QiskryptBB84ProtocolRoundWithDiscreteVariablesForNoiselessScenariosAndNoEavesdropping \
-            (QiskryptBB84ProtocolRoundWithDiscreteVariables):
+from src.quantum_regime.cryptography.key_exchange.quantum_key_distribution.QiskryptQuantumKeyDistribution \
+    import QUANTUM_KEY_DISTRIBUTION_DEFAULT_PARTIES_NAMES
+"""
+Import the default parties' names for
+the Qiskrypt's Quantum Key Distribution (QKD). 
+"""
+
+
+class QiskryptNoiselessDVBB84ProtocolWithNoEavesdroppingRound \
+            (QiskryptDVBB84ProtocolRound):
     """
-    Object class for the Qiskrypt's BB84 Protocol Round
-    with Discrete Variables (DVs) for Noiseless Scenarios and no Eavesdropping.
+    Object class for the Qiskrypt's Noiseless DV (Discrete Variables)
+    BB84 Protocol with No Eavesdropping Round.
     """
 
     def __init__(self, quantum_key_exchange_protocol_round_number,
@@ -154,7 +163,8 @@ class QiskryptBB84ProtocolRoundWithDiscreteVariablesForNoiselessScenariosAndNoEa
         return super().get_quantum_key_exchange_protocol_round_quantum_circuit()
 
     @staticmethod
-    def create_quantum_circuit_for_bb84_protocol_with_discrete_variables_for_noiseless_scenarios_and_no_eavesdropping():
+    def create_quantum_circuit_for_bb84_protocol_with_discrete_variables_for_noiseless_scenarios_and_no_eavesdropping\
+        (communication_channel_type: str):
 
         user_clients_list = []
         """
@@ -207,4 +217,3 @@ class QiskryptBB84ProtocolRoundWithDiscreteVariablesForNoiselessScenariosAndNoEa
             the Qiskrypt's BB84 Protocol Round with Discrete Variables (DVs) for Noiseless Scenarios
             and no Eavesdropping.
             """
-
