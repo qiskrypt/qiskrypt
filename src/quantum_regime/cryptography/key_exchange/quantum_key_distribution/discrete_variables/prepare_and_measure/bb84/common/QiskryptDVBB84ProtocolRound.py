@@ -62,14 +62,13 @@ Definition of Constants and Enumerations.
 BB84_PROTOCOL_ROUND_TYPES = ["X-BASIS ROUND", "Z-BASIS ROUND"]
 """
 The available BB84 Protocol Round types for
-the Qiskrypt's BB84 Protocol with Discrete Variables (DVs).
+the Qiskrypt's DV (Discrete Variables) BB84 Protocol.
 """
 
 
-class QiskryptBB84ProtocolRoundWithDiscreteVariables(QiskryptQuantumKeyDistributionRound):
+class QiskryptDVBB84ProtocolRound(QiskryptQuantumKeyDistributionRound):
     """
-    Object class for the Qiskrypt's BB84 Protocol Round
-    with Discrete Variables (DVs).
+    Object class for the Qiskrypt's DV (Discrete Variables) BB84 Protocol Round.
     """
 
     def __init__(self, quantum_key_exchange_protocol_round_number,
