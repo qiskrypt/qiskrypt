@@ -73,16 +73,15 @@ the Qiskrypt's Quantum Key Distribution (QKD).
 Definition of Constants and Enumerations.
 """
 
-BB84_PROTOCOL_NAME = "BB84 PROTOCOL"
+DV_BB84_PROTOCOL_NAME = "DV (Discrete Variables) BB84 PROTOCOL"
 """
-The name of the BB84 Protocol.
+The name of the DV (Discrete Variables) BB84 Protocol.
 """
 
 
-class QiskryptDVBB84ProtocolWithDiscreteVariables(QiskryptQuantumKeyDistribution):
+class QiskryptDVBB84Protocol(QiskryptQuantumKeyDistribution):
     """
-    Object class for the Qiskrypt's BB84 Protocol
-    with Discrete Variables (DVs).
+    Object class for the Qiskrypt's DV (Discrete Variables) BB84 Protocol.
 
     Reference(s):
     1) Quantum cryptography: Public key distribution and coin tossing:
@@ -93,8 +92,7 @@ class QiskryptDVBB84ProtocolWithDiscreteVariables(QiskryptQuantumKeyDistribution
 
     def __init__(self):
         """
-        Constructor of the Qiskrypt's BB84 Protocol
-        with Discrete Variables (DVs) for Noiseless Scenarios.
+        Constructor of the Qiskrypt's DV (Discrete Variables) BB84 Protocol.
         """
 
         quantum_cryptographic_primitive_properties = list()
@@ -103,7 +101,7 @@ class QiskryptDVBB84ProtocolWithDiscreteVariables(QiskryptQuantumKeyDistribution
         Quantum Cryptographic Primitive.
         """
 
-        super().__init__(BB84_PROTOCOL_NAME,
+        super().__init__(DV_BB84_PROTOCOL_NAME,
                          POSSIBLE_QUANTUM_CRYPTOGRAPHIC_PRIMITIVE_SIGNAL_VARIABLE_TYPES[0],
                          quantum_cryptographic_primitive_properties,
                          POSSIBLE_QUANTUM_CRYPTOGRAPHIC_PRIMITIVE_SCENARIOS[0],
