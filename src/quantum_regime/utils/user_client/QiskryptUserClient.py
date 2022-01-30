@@ -38,151 +38,326 @@ Acknowledgement(s):\n
 
 """
 
+
 """
 Import required Libraries and Packages.
 """
 
 from uuid import UUID
-
 """
 Import the general UUID (Universally Unique IDentifier).
 """
 
 from uuid import uuid1
-
 """
 Import the general UUID (Universally Unique IDentifier) version 1.
 """
 
 from uuid import uuid3
-
 """
 Import the general UUID (Universally Unique IDentifier) version 3.
 """
 
 from uuid import uuid4
-
 """
 Import the general UUID (Universally Unique IDentifier) version 4.
 """
 
 from uuid import uuid5
-
 """
 Import the general UUID (Universally Unique IDentifier) version 5.
 """
 
-from src.quantum_regime.circuit.registers.quantum.QiskryptQuantumRegister \
-    import QiskryptQuantumRegister
-
-"""
-Import the Qiskrypt's Quantum Register.
-"""
-
-from src.quantum_regime.circuit.registers.quantum.QiskryptAncillaQuantumRegister \
-    import QiskryptAncillaQuantumRegister
-
-"""
-Import the Qiskrypt's Ancilla Quantum Register.
-"""
-
-from src.quantum_regime.circuit.registers.quantum.fully_quantum.QiskryptFullyQuantumRegister \
-    import QiskryptFullyQuantumRegister
-
-"""
-Import the Qiskrypt's Fully-Quantum Register.
-"""
-
-from src.quantum_regime.circuit.registers.quantum.fully_quantum.QiskryptAncillaFullyQuantumRegister \
-    import QiskryptAncillaFullyQuantumRegister
-
-"""
-Import the Qiskrypt's Ancilla Fully-Quantum Register.
-"""
-
-from src.quantum_regime.circuit.registers.quantum.semi_quantum.QiskryptSemiQuantumRegister \
-    import QiskryptSemiQuantumRegister
-
-"""
-Import the Qiskrypt's Semi-Quantum Register.
-"""
-
-from src.quantum_regime.circuit.registers.quantum.semi_quantum.QiskryptAncillaSemiQuantumRegister \
-    import QiskryptAncillaSemiQuantumRegister
-
-"""
-Import the Qiskrypt's Ancilla Semi-Quantum Register.
-"""
-
-from src.quantum_regime.circuit.registers.classical.QiskryptClassicalRegister \
-    import QiskryptClassicalRegister
-
-"""
-Import the Qiskrypt's Classical Register.
-"""
-
 from src.quantum_regime.utils.parties_and_agents.QiskryptParty \
     import QiskryptParty
-
 """
 Import the Qiskrypt's Party.
 """
 
 from src.quantum_regime.utils.parties_and_agents.quantum.QiskryptQuantumParty \
     import QiskryptQuantumParty
-
 """
 Import the Qiskrypt's Quantum Party.
 """
 
 from src.quantum_regime.utils.parties_and_agents.quantum.fully_quantum.QiskryptFullyQuantumParty \
     import QiskryptFullyQuantumParty
-
 """
 Import the Qiskrypt's Fully-Quantum Party.
 """
 
 from src.quantum_regime.utils.parties_and_agents.quantum.semi_quantum.QiskryptSemiQuantumParty \
     import QiskryptSemiQuantumParty
-
 """
 Import the Qiskrypt's Semi-Quantum Party.
 """
 
 from src.quantum_regime.utils.parties_and_agents.classical.QiskryptClassicalParty \
     import QiskryptClassicalParty
-
 """
 Import the Qiskrypt's Classical Party.
 """
 
-from src.quantum_regime.true_random.random_generator.binary.QiskryptQuantumRandomBinaryGenerator \
-    import QiskryptQuantumRandomBinaryGenerator
-
-"""
-Import the Qiskrypt's Quantum Random Binary Generator.
-"""
-
 from src.quantum_regime.utils.parties_and_agents.QiskryptParty \
     import POSSIBLE_PARTY_CONTEXTS
-
 """
 Import the available Party contexts for the Qiskrypt's Parties.
 """
 
+from src.quantum_regime.networking_and_communications.endpoints \
+    import QiskryptEndpoint
+"""
+Import the Qiskrypt's Endpoint.
+"""
+
+from src.quantum_regime.networking_and_communications.endpoints\
+    .ground_station.QiskryptGroundStationEndpoint \
+    import QiskryptGroundStationEndpoint
+"""
+Import the Qiskrypt's Ground Station Endpoint.
+"""
+
+from src.quantum_regime.networking_and_communications.endpoints\
+    .ground_station.quantum.QiskryptQuantumGroundStationEndpoint \
+    import QiskryptQuantumGroundStationEndpoint
+"""
+Import the Qiskrypt's Quantum Ground Station Endpoint.
+"""
+
+from src.quantum_regime.networking_and_communications.endpoints\
+    .ground_station.quantum.fully_quantum.QiskryptFullyQuantumGroundStationEndpoint \
+    import QiskryptFullyQuantumGroundStationEndpoint
+"""
+Import the Qiskrypt's Fully-Quantum Ground Station Endpoint.
+"""
+
+from src.quantum_regime.networking_and_communications.endpoints\
+    .ground_station.quantum.semi_quantum.QiskryptSemiQuantumGroundStationEndpoint \
+    import QiskryptSemiQuantumGroundStationEndpoint
+"""
+Import the Qiskrypt's Semi-Quantum Ground Station Endpoint.
+"""
+
+from src.quantum_regime.networking_and_communications.endpoints\
+    .ground_station.classical.QiskryptClassicalGroundStationEndpoint \
+    import QiskryptClassicalGroundStationEndpoint
+"""
+Import the Qiskrypt's Classical Ground Station Endpoint.
+"""
+
+from src.quantum_regime.networking_and_communications.endpoints\
+    .satellite_station.QiskryptSatelliteStationEndpoint \
+    import QiskryptSatelliteStationEndpoint
+"""
+Import the Qiskrypt's Satellite Station Endpoint.
+"""
+
+from src.quantum_regime.networking_and_communications.endpoints\
+    .satellite_station.geo.QiskryptGEOSatelliteStationEndpoint \
+    import QiskryptGEOSatelliteStationEndpoint
+"""
+Import the Qiskrypt's GEO (GEostationary Orbit) Satellite Station Endpoint.
+"""
+
+from src.quantum_regime.networking_and_communications.endpoints\
+    .satellite_station.geo.quantum.QiskryptGEOQuantumSatelliteStationEndpoint \
+    import QiskryptGEOQuantumSatelliteStationEndpoint
+"""
+Import the Qiskrypt's GEO (GEostationary Orbit) Quantum Satellite Station Endpoint.
+"""
+
+from src.quantum_regime.networking_and_communications.endpoints\
+    .satellite_station.geo.quantum.fully_quantum.QiskryptGEOFullyQuantumSatelliteStationEndpoint \
+    import QiskryptGEOFullyQuantumSatelliteStationEndpoint
+"""
+Import the Qiskrypt's GEO (GEostationary Orbit) Fully-Quantum Satellite Station Endpoint.
+"""
+
+from src.quantum_regime.networking_and_communications.endpoints\
+    .satellite_station.geo.quantum.semi_quantum.QiskryptGEOSemiQuantumSatelliteStationEndpoint \
+    import QiskryptGEOSemiQuantumSatelliteStationEndpoint
+"""
+Import the Qiskrypt's GEO (GEostationary Orbit) Semi-Quantum Satellite Station Endpoint.
+"""
+
+from src.quantum_regime.networking_and_communications.endpoints\
+    .satellite_station.geo.classical.QiskryptGEOClassicalSatelliteStationEndpoint \
+    import QiskryptGEOClassicalSatelliteStationEndpoint
+"""
+Import the Qiskrypt's GEO (GEostationary Orbit) Classical Satellite Station Endpoint.
+"""
+
+from src.quantum_regime.networking_and_communications.endpoints\
+    .satellite_station.heo.QiskryptHEOSatelliteStationEndpoint \
+    import QiskryptHEOSatelliteStationEndpoint
+"""
+Import the Qiskrypt's HEO (High-Earth Orbit) Satellite Station Endpoint.
+"""
+
+from src.quantum_regime.networking_and_communications.endpoints\
+    .satellite_station.heo.quantum.QiskryptHEOQuantumSatelliteStationEndpoint \
+    import QiskryptHEOQuantumSatelliteStationEndpoint
+"""
+Import the Qiskrypt's HEO (High-Earth Orbit) Quantum Satellite Station Endpoint.
+"""
+
+from src.quantum_regime.networking_and_communications.endpoints\
+    .satellite_station.heo.quantum.fully_quantum.QiskryptHEOFullyQuantumSatelliteStationEndpoint \
+    import QiskryptHEOFullyQuantumSatelliteStationEndpoint
+"""
+Import the Qiskrypt's HEO (High-Earth Orbit) Fully-Quantum Satellite Station Endpoint.
+"""
+
+from src.quantum_regime.networking_and_communications.endpoints\
+    .satellite_station.heo.quantum.semi_quantum.QiskryptHEOSemiQuantumSatelliteStationEndpoint \
+    import QiskryptHEOSemiQuantumSatelliteStationEndpoint
+"""
+Import the Qiskrypt's HEO (High-Earth Orbit) Semi-Quantum Satellite Station Endpoint.
+"""
+
+from src.quantum_regime.networking_and_communications.endpoints\
+    .satellite_station.heo.classical.QiskryptHEOClassicalSatelliteStationEndpoint \
+    import QiskryptHEOClassicalSatelliteStationEndpoint
+"""
+Import the Qiskrypt's HEO (High-Earth Orbit) Classical Satellite Station Endpoint.
+"""
+
+from src.quantum_regime.networking_and_communications.endpoints\
+    .satellite_station.meo.QiskryptMEOSatelliteStationEndpoint \
+    import QiskryptMEOSatelliteStationEndpoint
+"""
+Import the Qiskrypt's MEO (Medium-Earth Orbit) Satellite Station Endpoint.
+"""
+
+from src.quantum_regime.networking_and_communications.endpoints\
+    .satellite_station.meo.quantum.QiskryptMEOQuantumSatelliteStationEndpoint \
+    import QiskryptMEOQuantumSatelliteStationEndpoint
+"""
+Import the Qiskrypt's MEO (Medium-Earth Orbit) Quantum Satellite Station Endpoint.
+"""
+
+from src.quantum_regime.networking_and_communications.endpoints\
+    .satellite_station.meo.quantum.fully_quantum.QiskryptMEOFullyQuantumSatelliteStationEndpoint \
+    import QiskryptMEOFullyQuantumSatelliteStationEndpoint
+"""
+Import the Qiskrypt's MEO (Medium-Earth Orbit) Fully-Quantum Satellite Station Endpoint.
+"""
+
+from src.quantum_regime.networking_and_communications.endpoints\
+    .satellite_station.meo.quantum.semi_quantum.QiskryptMEOSemiQuantumSatelliteStationEndpoint \
+    import QiskryptMEOSemiQuantumSatelliteStationEndpoint
+"""
+Import the Qiskrypt's MEO (Medium-Earth Orbit) Semi-Quantum Satellite Station Endpoint.
+"""
+
+from src.quantum_regime.networking_and_communications.endpoints\
+    .satellite_station.meo.classical.QiskryptMEOClassicalSatelliteStationEndpoint \
+    import QiskryptMEOClassicalSatelliteStationEndpoint
+"""
+Import the Qiskrypt's MEO (Medium-Earth Orbit) Classical Satellite Station Endpoint.
+"""
+
+from src.quantum_regime.networking_and_communications.endpoints\
+    .satellite_station.leo.QiskryptLEOSatelliteStationEndpoint \
+    import QiskryptLEOSatelliteStationEndpoint
+"""
+Import the Qiskrypt's LEO (Low-Earth Orbit) Satellite Station Endpoint.
+"""
+
+from src.quantum_regime.networking_and_communications.endpoints\
+    .satellite_station.leo.quantum.QiskryptLEOQuantumSatelliteStationEndpoint \
+    import QiskryptLEOQuantumSatelliteStationEndpoint
+"""
+Import the Qiskrypt's LEO (Low-Earth Orbit) Quantum Satellite Station Endpoint.
+"""
+
+from src.quantum_regime.networking_and_communications.endpoints\
+    .satellite_station.leo.quantum.fully_quantum.QiskryptLEOFullyQuantumSatelliteStationEndpoint \
+    import QiskryptLEOFullyQuantumSatelliteStationEndpoint
+"""
+Import the Qiskrypt's LEO (Low-Earth Orbit) Fully-Quantum Satellite Station Endpoint.
+"""
+
+from src.quantum_regime.networking_and_communications.endpoints\
+    .satellite_station.leo.quantum.semi_quantum.QiskryptLEOSemiQuantumSatelliteStationEndpoint \
+    import QiskryptLEOSemiQuantumSatelliteStationEndpoint
+"""
+Import the Qiskrypt's LEO (Low-Earth Orbit) Semi-Quantum Satellite Station Endpoint.
+"""
+
+from src.quantum_regime.networking_and_communications.endpoints\
+    .satellite_station.leo.classical.QiskryptLEOClassicalSatelliteStationEndpoint \
+    import QiskryptLEOClassicalSatelliteStationEndpoint
+"""
+Import the Qiskrypt's LEO (Low-Earth Orbit) Classical Satellite Station Endpoint.
+"""
+
+from src.quantum_regime.networking_and_communications.endpoints.QiskryptEndpoint \
+    import POSSIBLE_ENDPOINT_CONTEXTS
+"""
+Import the available Endpoint contexts for the Qiskrypt's Endpoints.
+"""
+
+from src.quantum_regime.circuit.registers.quantum.QiskryptQuantumRegister \
+    import QiskryptQuantumRegister
+"""
+Import the Qiskrypt's Quantum Register.
+"""
+
+from src.quantum_regime.circuit.registers.quantum.QiskryptAncillaQuantumRegister \
+    import QiskryptAncillaQuantumRegister
+"""
+Import the Qiskrypt's Ancilla Quantum Register.
+"""
+
+from src.quantum_regime.circuit.registers.quantum.fully_quantum.QiskryptFullyQuantumRegister \
+    import QiskryptFullyQuantumRegister
+"""
+Import the Qiskrypt's Fully-Quantum Register.
+"""
+
+from src.quantum_regime.circuit.registers.quantum.fully_quantum.QiskryptAncillaFullyQuantumRegister \
+    import QiskryptAncillaFullyQuantumRegister
+"""
+Import the Qiskrypt's Ancilla Fully-Quantum Register.
+"""
+
+from src.quantum_regime.circuit.registers.quantum.semi_quantum.QiskryptSemiQuantumRegister \
+    import QiskryptSemiQuantumRegister
+"""
+Import the Qiskrypt's Semi-Quantum Register.
+"""
+
+from src.quantum_regime.circuit.registers.quantum.semi_quantum.QiskryptAncillaSemiQuantumRegister \
+    import QiskryptAncillaSemiQuantumRegister
+"""
+Import the Qiskrypt's Ancilla Semi-Quantum Register.
+"""
+
+from src.quantum_regime.circuit.registers.classical.QiskryptClassicalRegister \
+    import QiskryptClassicalRegister
+"""
+Import the Qiskrypt's Classical Register.
+"""
+
+from src.quantum_regime.true_random.random_generator.binary.QiskryptQuantumRandomBinaryGenerator \
+    import QiskryptQuantumRandomBinaryGenerator
+"""
+Import the Qiskrypt's Quantum Random Binary Generator.
+"""
+
 from src.classical_regime.common.QiskryptClassicalUtilities \
     import QiskryptClassicalUtilities
-
 """
 Import the Qiskrypt's Classical Utilities.
 """
 
 from src.classical_regime.common.QiskryptClassicalUtilities \
     import SIZE_BYTE_IN_NUM_BITS
-
 """
 Import the size of a byte in number of bits.
 """
+
 
 """
 Definition of Constants and Enumerations.
@@ -200,13 +375,11 @@ class QiskryptUserClient:
     Object class for the Qiskrypt's User Client.
     """
 
-    def __init__(self, party: QiskryptParty,
-                 uuid_version=0, uuid_bytes=None, uuid_node=None,
+    def __init__(self, uuid_version=0, uuid_bytes=None, uuid_node=None,
                  uuid_clock_sequence=None, uuid_name=None, uuid_namespace=None):
         """
         Constructor of the Qiskrypt's User Client.
 
-        :param party: the Qiskrypt's Party for the Qiskrypt's User Client.
         :param uuid_version: the version of the UUID (Universally Unique IDentifier)
                              for the Qiskrypt's User Client.
         :param uuid_bytes: the bytes to build the UUID (Universally Unique IDentifier)
@@ -322,9 +495,20 @@ class QiskryptUserClient:
 
             # TODO Throw - Exception
 
-        self.party = party
+        self.party = None
         """
-        Set the Qiskrypt's Party for the Qiskrypt's User Client.
+        Set the Qiskrypt's Party for the Qiskrypt's User Client, initially, as None.
+        """
+
+        self.endpoint = None
+        """
+        Set the Qiskrypt's Endpoint for the Qiskrypt's User Client, initially, as None.
+        """
+
+        self.connected = False
+        """
+        Set the boolean flag to keep the information about if
+        the Qiskrypt's User Client is connected or not.
         """
 
         self.registers = []
@@ -354,10 +538,140 @@ class QiskryptUserClient:
         :return self.party: the Qiskrypt's Party of the Qiskrypt's User Client.
         """
 
+        if self.is_connected():
+            """
+            If the Qiskrypt's User Client is already connected.
+            """
+
+            """
+            Return the Qiskrypt's Party of the Qiskrypt's User Client.
+            """
+            return self.party
+
+        else:
+            """
+            If the Qiskrypt's User Client is not connected yet.
+            """
+
+            # TODO Throw - Exception
+
+    def get_endpoint(self) -> QiskryptEndpoint:
         """
-        Return the Qiskrypt's Party of the Qiskrypt's User Client.
+        Return the Qiskrypt's Endpoint of the Qiskrypt's User Client.
+
+        :return self.endpoint: the Qiskrypt's Endpoint of the Qiskrypt's User Client.
         """
-        return self.party
+
+        if self.is_connected():
+            """
+            If the Qiskrypt's User Client is already connected.
+            """
+
+            """
+            Return the Qiskrypt's Endpoint of the Qiskrypt's User Client.
+            """
+            return self.endpoint
+
+        else:
+            """
+            If the Qiskrypt's User Client is not connected yet.
+            """
+
+            # TODO Throw - Exception
+
+    def is_connected(self) -> bool:
+        """
+        Return the boolean flag to keep the information about if
+        the Qiskrypt's User Client is connected or not.
+
+        :return self.connected: the boolean flag to keep the information about if
+                                the Qiskrypt's User Client is connected or not.
+        """
+
+        """
+        Return the boolean flag to keep the information about if
+        the Qiskrypt's User Client is connected or not.
+        """
+        return self.connected
+
+    def set_connected(self, connected: bool):
+        """
+        Set the boolean flag to keep the information about if
+        the Qiskrypt's User Client is connected or not, with a new boolean value.
+
+        :param connected: the new boolean flag to keep the information about if
+                          the Qiskrypt's User Client is connected or not.
+        """
+
+        if connected != self.is_connected():
+            """
+            If the boolean new boolean flag to keep the information about if
+            the Qiskrypt's User Client is connected or not is equal to the current one.
+            """
+
+            """
+            Set the boolean flag to keep the information about if
+            the Qiskrypt's User Client is connected or not, with a new boolean value.
+            """
+            self.connected = connected
+
+        else:
+            """
+            If the boolean new boolean flag to keep the information about if
+            the Qiskrypt's User Client is connected or not is equal to the current one.
+            """
+
+            if self.connected:
+                """
+                If the Qiskrypt's User Client is already connected.
+                """
+
+                # TODO Throw - Exception
+
+            else:
+                """
+                If the Qiskrypt's User Client is not connected yet.
+                """
+
+                # TODO Throw - Exception
+
+    def connect(self, party: QiskryptParty, endpoint: QiskryptEndpoint):
+        """
+        Connect a Qiskrypt's Party and a Qiskrypt's Endpoint, to the Qiskrypt's User Client.
+
+        :param party: the Qiskrypt's Party to be connected to the Qiskrypt's User Client.
+        :param endpoint: the Qiskrypt's Endpoint to be connected to the Qiskrypt's User Client.
+        """
+
+        if not self.is_connected():
+            """
+            If the Qiskrypt's User Client is not connected yet
+            to a Qiskrypt's Party and to a Qiskrypt's Endpoint.
+            """
+
+            self.party = party
+            """
+            Set the Qiskrypt's Party for the Qiskrypt's User Client.
+            """
+
+            self.endpoint = endpoint
+            """
+            Set the Qiskrypt's Endpoint for the Qiskrypt's User Client.
+            """
+
+            """
+            Set the boolean flag to keep the information about if
+            the Qiskrypt's User Client is connected or not, as True.
+            """
+            self.set_connected(True)
+
+        else:
+            """
+            If the Qiskrypt's User Client is already connected
+            to a Qiskrypt's Party and to a Qiskrypt's Endpoint.
+            """
+
+            # TODO Throw - Exception
 
     def get_registers(self) -> list:
         """
@@ -397,12 +711,14 @@ class QiskryptUserClient:
                                  the Qiskrypt's User Client.
         """
 
-        if (self.party.get_context() == POSSIBLE_PARTY_CONTEXTS[0]) and \
-                (isinstance(self.get_party(), QiskryptQuantumParty)):
+        if (self.get_party().get_context() == POSSIBLE_PARTY_CONTEXTS[0]) and \
+                (isinstance(self.get_party(), QiskryptQuantumParty)) and \
+                (self.get_endpoint().get_context() == POSSIBLE_ENDPOINT_CONTEXTS[0]) and \
+                (isinstance(self.get_endpoint(), QiskryptQuantumGroundStationEndpoint)):
             """
-            If the Qiskrypt's Party of the Qiskrypt's User Client
-            is a Qiskrypt's Quantum Party and belongs
-            to a Quantum Context.
+            If the Qiskrypt's Party and Qiskrypt's Endpoint of the Qiskrypt's User Client 
+            are a Qiskrypt's Quantum Party and Qiskrypt's Quantum Ground Station, respectively,
+            and belonging both to a Quantum Context.
             """
 
             self.registers.append(quantum_register)
@@ -413,9 +729,9 @@ class QiskryptUserClient:
 
         else:
             """
-            If the Qiskrypt's Party of the Qiskrypt's User Client
-            is not a Qiskrypt's Quantum Party or does not
-            belongs to a Quantum Context.
+            If the Qiskrypt's Party or/and Qiskrypt's Endpoint of the Qiskrypt's User Client 
+            are not a Qiskrypt's Quantum Party and Qiskrypt's Quantum Ground Station, respectively,
+            and do not belong both to a Quantum Context.
             """
 
             # TODO Throw - Exception
@@ -431,12 +747,14 @@ class QiskryptUserClient:
                                       the Qiskrypt's User Client.
         """
 
-        if (self.party.get_context() == POSSIBLE_PARTY_CONTEXTS[0]) and \
-                (isinstance(self.get_party(), QiskryptQuantumParty)):
+        if (self.get_party().get_context() == POSSIBLE_PARTY_CONTEXTS[0]) and \
+                (isinstance(self.get_party(), QiskryptQuantumParty)) and \
+                (self.get_endpoint().get_context() == POSSIBLE_ENDPOINT_CONTEXTS[0]) and \
+                (isinstance(self.get_endpoint(), QiskryptQuantumGroundStationEndpoint)):
             """
-            If the Qiskrypt's Party of the Qiskrypt's User Client
-            is a Qiskrypt's Quantum Party and belongs
-            to a Quantum Context.
+            If the Qiskrypt's Party and Qiskrypt's Endpoint of the Qiskrypt's User Client 
+            are a Qiskrypt's Quantum Party and Qiskrypt's Quantum Ground Station, respectively,
+            and belonging both to a Quantum Context.
             """
 
             for current_register_index in range(len(self.registers)):
@@ -482,9 +800,9 @@ class QiskryptUserClient:
 
         else:
             """
-            If the Qiskrypt's Party of the Qiskrypt's User Client
-            is not a Qiskrypt's Quantum Party or does not
-            belongs to a Quantum Context.
+            If the Qiskrypt's Party or/and Qiskrypt's Endpoint of the Qiskrypt's User Client 
+            are not a Qiskrypt's Quantum Party and Qiskrypt's Quantum Ground Station, respectively,
+            and do not belong both to a Quantum Context.
             """
 
             # TODO Throw - Exception
@@ -500,12 +818,14 @@ class QiskryptUserClient:
                                        the Qiskrypt's User Client.
         """
 
-        if (self.party.get_context() == POSSIBLE_PARTY_CONTEXTS[0]) and \
-                (isinstance(self.get_party(), QiskryptQuantumParty)):
+        if (self.get_party().get_context() == POSSIBLE_PARTY_CONTEXTS[0]) and \
+                (isinstance(self.get_party(), QiskryptQuantumParty)) and \
+                (self.get_endpoint().get_context() == POSSIBLE_ENDPOINT_CONTEXTS[0]) and \
+                (isinstance(self.get_endpoint(), QiskryptQuantumGroundStationEndpoint)):
             """
-            If the Qiskrypt's Party of the Qiskrypt's User Client
-            is a Qiskrypt's Quantum Party and belongs
-            to a Quantum Context.
+            If the Qiskrypt's Party and Qiskrypt's Endpoint of the Qiskrypt's User Client 
+            are a Qiskrypt's Quantum Party and Qiskrypt's Quantum Ground Station, respectively,
+            and belonging both to a Quantum Context.
             """
 
             if quantum_register_index < self.get_num_registers():
@@ -552,9 +872,9 @@ class QiskryptUserClient:
 
         else:
             """
-            If the Qiskrypt's Party of the Qiskrypt's User Client
-            is not a Qiskrypt's Quantum Party or does not
-            belongs to a Quantum Context.
+            If the Qiskrypt's Party or/and Qiskrypt's Endpoint of the Qiskrypt's User Client 
+            are not a Qiskrypt's Quantum Party and Qiskrypt's Quantum Ground Station, respectively,
+            and do not belong both to a Quantum Context.
             """
 
             # TODO Throw - Exception
@@ -569,12 +889,14 @@ class QiskryptUserClient:
                                          the Qiskrypt's User Client.
         """
 
-        if (self.party.get_context() == POSSIBLE_PARTY_CONTEXTS[0]) and \
-                (isinstance(self.get_party(), QiskryptQuantumParty)):
+        if (self.get_party().get_context() == POSSIBLE_PARTY_CONTEXTS[0]) and \
+                (isinstance(self.get_party(), QiskryptQuantumParty)) and \
+                (self.get_endpoint().get_context() == POSSIBLE_ENDPOINT_CONTEXTS[0]) and \
+                (isinstance(self.get_endpoint(), QiskryptQuantumGroundStationEndpoint)):
             """
-            If the Qiskrypt's Party of the Qiskrypt's User Client
-            is a Qiskrypt's Quantum Party and belongs
-            to a Quantum Context.
+            If the Qiskrypt's Party and Qiskrypt's Endpoint of the Qiskrypt's User Client 
+            are a Qiskrypt's Quantum Party and Qiskrypt's Quantum Ground Station, respectively,
+            and belonging both to a Quantum Context.
             """
 
             self.registers.append(ancilla_quantum_register)
@@ -585,9 +907,9 @@ class QiskryptUserClient:
 
         else:
             """
-            If the Qiskrypt's Party of the Qiskrypt's User Client
-            is not a Qiskrypt's Quantum Party or does not belongs
-            to a Quantum Context.
+            If the Qiskrypt's Party or/and Qiskrypt's Endpoint of the Qiskrypt's User Client 
+            are not a Qiskrypt's Quantum Party and Qiskrypt's Quantum Ground Station, respectively,
+            and do not belong both to a Quantum Context.
             """
 
             # TODO Throw - Exception
@@ -603,12 +925,14 @@ class QiskryptUserClient:
                                               the Qiskrypt's User Client.
         """
 
-        if (self.party.get_context() == POSSIBLE_PARTY_CONTEXTS[0]) and \
-                (isinstance(self.get_party(), QiskryptQuantumParty)):
+        if (self.get_party().get_context() == POSSIBLE_PARTY_CONTEXTS[0]) and \
+                (isinstance(self.get_party(), QiskryptQuantumParty)) and \
+                (self.get_endpoint().get_context() == POSSIBLE_ENDPOINT_CONTEXTS[0]) and \
+                (isinstance(self.get_endpoint(), QiskryptQuantumGroundStationEndpoint)):
             """
-            If the Qiskrypt's Party of the Qiskrypt's User Client
-            is a Qiskrypt's Quantum Party and belongs
-            to a Quantum Context.
+            If the Qiskrypt's Party and Qiskrypt's Endpoint of the Qiskrypt's User Client 
+            are a Qiskrypt's Quantum Party and Qiskrypt's Quantum Ground Station, respectively,
+            and belonging both to a Quantum Context.
             """
 
             for current_register_index in range(len(self.registers)):
@@ -654,9 +978,9 @@ class QiskryptUserClient:
 
         else:
             """
-            If the Qiskrypt's Party of the Qiskrypt's User Client
-            is not a Qiskrypt's Quantum Party or does not
-            belongs to a Quantum Context.
+            If the Qiskrypt's Party or/and Qiskrypt's Endpoint of the Qiskrypt's User Client 
+            are not a Qiskrypt's Quantum Party and Qiskrypt's Quantum Ground Station, respectively,
+            and do not belong both to a Quantum Context.
             """
 
             # TODO Throw - Exception
@@ -672,12 +996,14 @@ class QiskryptUserClient:
                                                the Qiskrypt's User Client.
         """
 
-        if (self.party.get_context() == POSSIBLE_PARTY_CONTEXTS[0]) and \
-                (isinstance(self.get_party(), QiskryptQuantumParty)):
+        if (self.get_party().get_context() == POSSIBLE_PARTY_CONTEXTS[0]) and \
+                (isinstance(self.get_party(), QiskryptQuantumParty)) and \
+                (self.get_endpoint().get_context() == POSSIBLE_ENDPOINT_CONTEXTS[0]) and \
+                (isinstance(self.get_endpoint(), QiskryptQuantumGroundStationEndpoint)):
             """
-            If the Qiskrypt's Party of the Qiskrypt's User Client
-            is a Qiskrypt's Quantum Party and belongs
-            to a Quantum Context.
+            If the Qiskrypt's Party and Qiskrypt's Endpoint of the Qiskrypt's User Client 
+            are a Qiskrypt's Quantum Party and Qiskrypt's Quantum Ground Station, respectively,
+            and belonging both to a Quantum Context.
             """
 
             if ancilla_quantum_register_index < self.get_num_registers():
@@ -724,9 +1050,9 @@ class QiskryptUserClient:
 
         else:
             """
-            If the Qiskrypt's Party of the Qiskrypt's User Client
-            is not a Qiskrypt's Quantum Party or does not
-            belongs to a Quantum Context.
+            If the Qiskrypt's Party or/and Qiskrypt's Endpoint of the Qiskrypt's User Client 
+            are not a Qiskrypt's Quantum Party and Qiskrypt's Quantum Ground Station, respectively,
+            and do not belong both to a Quantum Context.
             """
 
             # TODO Throw - Exception
@@ -741,12 +1067,14 @@ class QiskryptUserClient:
                                        the Qiskrypt's User Client.
         """
 
-        if (self.party.get_context() == POSSIBLE_PARTY_CONTEXTS[1]) and \
-                (isinstance(self.get_party(), QiskryptFullyQuantumParty)):
+        if (self.get_party().get_context() == POSSIBLE_PARTY_CONTEXTS[1]) and \
+                (isinstance(self.get_party(), QiskryptFullyQuantumParty)) and \
+                (self.get_endpoint().get_context() == POSSIBLE_ENDPOINT_CONTEXTS[1]) and \
+                (isinstance(self.get_endpoint(), QiskryptFullyQuantumGroundStationEndpoint)):
             """
-            If the Qiskrypt's Party of the Qiskrypt's User Client
-            is a Qiskrypt's Fully-Quantum Party and belongs
-            to a Fully-Quantum Context.
+            If the Qiskrypt's Party and Qiskrypt's Endpoint of the Qiskrypt's User Client 
+            are a Qiskrypt's Fully-Quantum Party and Qiskrypt's Fully-Quantum Ground Station, respectively,
+            and belonging both to a Fully-Quantum Context.
             """
 
             self.registers.append(fully_quantum_register)
@@ -757,9 +1085,9 @@ class QiskryptUserClient:
 
         else:
             """
-            If the Qiskrypt's Party of the Qiskrypt's User Client
-            is not a Qiskrypt's Fully-Quantum Party or does not belongs
-            to a Fully-Quantum Context.
+            If the Qiskrypt's Party or/and Qiskrypt's Endpoint of the Qiskrypt's User Client 
+            are not a Qiskrypt's Fully-Quantum Party and Qiskrypt's Fully-Quantum Ground Station, respectively,
+            and do not belong both to a Fully-Quantum Context.
             """
 
             # TODO Throw - Exception
@@ -775,12 +1103,14 @@ class QiskryptUserClient:
                                             the Qiskrypt's User Client.
         """
 
-        if (self.party.get_context() == POSSIBLE_PARTY_CONTEXTS[1]) and \
-                (isinstance(self.get_party(), QiskryptFullyQuantumParty)):
+        if (self.get_party().get_context() == POSSIBLE_PARTY_CONTEXTS[1]) and \
+                (isinstance(self.get_party(), QiskryptFullyQuantumParty)) and \
+                (self.get_endpoint().get_context() == POSSIBLE_ENDPOINT_CONTEXTS[1]) and \
+                (isinstance(self.get_endpoint(), QiskryptFullyQuantumGroundStationEndpoint)):
             """
-            If the Qiskrypt's Party of the Qiskrypt's User Client
-            is a Qiskrypt's Fully-Quantum Party and belongs
-            to a Fully-Quantum Context.
+            If the Qiskrypt's Party and Qiskrypt's Endpoint of the Qiskrypt's User Client 
+            are a Qiskrypt's Fully-Quantum Party and Qiskrypt's Fully-Quantum Ground Station, respectively,
+            and belonging both to a Fully-Quantum Context.
             """
 
             for current_register_index in range(len(self.registers)):
@@ -826,9 +1156,9 @@ class QiskryptUserClient:
 
         else:
             """
-            If the Qiskrypt's Party of the Qiskrypt's User Client
-            is not a Qiskrypt's Fully-Quantum Party or does not
-            belongs to a Fully-Quantum Context.
+            If the Qiskrypt's Party or/and Qiskrypt's Endpoint of the Qiskrypt's User Client 
+            are not a Qiskrypt's Fully-Quantum Party and Qiskrypt's Fully-Quantum Ground Station, respectively,
+            and do not belong both to a Fully-Quantum Context.
             """
 
             # TODO Throw - Exception
@@ -844,12 +1174,14 @@ class QiskryptUserClient:
                                              the Qiskrypt's User Client.
         """
 
-        if (self.party.get_context() == POSSIBLE_PARTY_CONTEXTS[1]) and \
-                (isinstance(self.get_party(), QiskryptFullyQuantumParty)):
+        if (self.get_party().get_context() == POSSIBLE_PARTY_CONTEXTS[1]) and \
+                (isinstance(self.get_party(), QiskryptFullyQuantumParty)) and \
+                (self.get_endpoint().get_context() == POSSIBLE_ENDPOINT_CONTEXTS[1]) and \
+                (isinstance(self.get_endpoint(), QiskryptFullyQuantumGroundStationEndpoint)):
             """
-            If the Qiskrypt's Party of the Qiskrypt's User Client
-            is a Qiskrypt's Fully-Quantum Party and belongs
-            to a Fully-Quantum Context.
+            If the Qiskrypt's Party and Qiskrypt's Endpoint of the Qiskrypt's User Client 
+            are a Qiskrypt's Fully-Quantum Party and Qiskrypt's Fully-Quantum Ground Station, respectively,
+            and belonging both to a Fully-Quantum Context.
             """
 
             if fully_quantum_register_index < self.get_num_registers():
@@ -896,9 +1228,9 @@ class QiskryptUserClient:
 
         else:
             """
-            If the Qiskrypt's Party of the Qiskrypt's User Client
-            is not a Qiskrypt's Fully-Quantum Party or does not
-            belongs to a Fully-Quantum Context.
+            If the Qiskrypt's Party or/and Qiskrypt's Endpoint of the Qiskrypt's User Client 
+            are not a Qiskrypt's Fully-Quantum Party and Qiskrypt's Fully-Quantum Ground Station, respectively,
+            and do not belong both to a Fully-Quantum Context.
             """
 
             # TODO Throw - Exception
@@ -913,12 +1245,14 @@ class QiskryptUserClient:
                                                the Qiskrypt's User Client.
         """
 
-        if (self.party.get_context() == POSSIBLE_PARTY_CONTEXTS[1]) and \
-                (isinstance(self.get_party(), QiskryptFullyQuantumParty)):
+        if (self.get_party().get_context() == POSSIBLE_PARTY_CONTEXTS[1]) and \
+                (isinstance(self.get_party(), QiskryptFullyQuantumParty)) and \
+                (self.get_endpoint().get_context() == POSSIBLE_ENDPOINT_CONTEXTS[1]) and \
+                (isinstance(self.get_endpoint(), QiskryptFullyQuantumGroundStationEndpoint)):
             """
-            If the Qiskrypt's Party of the Qiskrypt's User Client
-            is a Qiskrypt's Fully-Quantum Party and belongs
-            to a Fully-Quantum Context.
+            If the Qiskrypt's Party and Qiskrypt's Endpoint of the Qiskrypt's User Client 
+            are a Qiskrypt's Fully-Quantum Party and Qiskrypt's Fully-Quantum Ground Station, respectively,
+            and belonging both to a Fully-Quantum Context.
             """
 
             self.registers.append(ancilla_fully_quantum_register)
@@ -929,9 +1263,9 @@ class QiskryptUserClient:
 
         else:
             """
-            If the Qiskrypt's Party of the Qiskrypt's User Client
-            is not a Qiskrypt's Quantum Party or does not belongs
-            to a Fully-Quantum Context.
+            If the Qiskrypt's Party or/and Qiskrypt's Endpoint of the Qiskrypt's User Client 
+            are not a Qiskrypt's Fully-Quantum Party and Qiskrypt's Fully-Quantum Ground Station, respectively,
+            and do not belong both to a Fully-Quantum Context.
             """
 
             # TODO Throw - Exception
@@ -947,12 +1281,14 @@ class QiskryptUserClient:
                                                     the Qiskrypt's User Client.
         """
 
-        if (self.party.get_context() == POSSIBLE_PARTY_CONTEXTS[1]) and \
-                (isinstance(self.get_party(), QiskryptFullyQuantumParty)):
+        if (self.get_party().get_context() == POSSIBLE_PARTY_CONTEXTS[1]) and \
+                (isinstance(self.get_party(), QiskryptFullyQuantumParty)) and \
+                (self.get_endpoint().get_context() == POSSIBLE_ENDPOINT_CONTEXTS[1]) and \
+                (isinstance(self.get_endpoint(), QiskryptFullyQuantumGroundStationEndpoint)):
             """
-            If the Qiskrypt's Party of the Qiskrypt's User Client
-            is a Qiskrypt's Fully-Quantum Party and belongs
-            to a Fully-Quantum Context.
+            If the Qiskrypt's Party and Qiskrypt's Endpoint of the Qiskrypt's User Client 
+            are a Qiskrypt's Fully-Quantum Party and Qiskrypt's Fully-Quantum Ground Station, respectively,
+            and belonging both to a Fully-Quantum Context.
             """
 
             for current_register_index in range(len(self.registers)):
@@ -998,9 +1334,9 @@ class QiskryptUserClient:
 
         else:
             """
-            If the Qiskrypt's Party of the Qiskrypt's User Client
-            is not a Qiskrypt's Fully-Quantum Party or does not
-            belongs to a Fully-Quantum Context.
+            If the Qiskrypt's Party or/and Qiskrypt's Endpoint of the Qiskrypt's User Client 
+            are not a Qiskrypt's Fully-Quantum Party and Qiskrypt's Fully-Quantum Ground Station, respectively,
+            and do not belong both to a Fully-Quantum Context.
             """
 
             # TODO Throw - Exception
@@ -1016,12 +1352,14 @@ class QiskryptUserClient:
                                                      the Qiskrypt's User Client.
         """
 
-        if (self.party.get_context() == POSSIBLE_PARTY_CONTEXTS[1]) and \
-                (isinstance(self.get_party(), QiskryptFullyQuantumParty)):
+        if (self.get_party().get_context() == POSSIBLE_PARTY_CONTEXTS[1]) and \
+                (isinstance(self.get_party(), QiskryptFullyQuantumParty)) and \
+                (self.get_endpoint().get_context() == POSSIBLE_ENDPOINT_CONTEXTS[1]) and \
+                (isinstance(self.get_endpoint(), QiskryptFullyQuantumGroundStationEndpoint)):
             """
-            If the Qiskrypt's Party of the Qiskrypt's User Client
-            is a Qiskrypt's Fully-Quantum Party and belongs
-            to a Fully-Quantum Context.
+            If the Qiskrypt's Party and Qiskrypt's Endpoint of the Qiskrypt's User Client 
+            are a Qiskrypt's Fully-Quantum Party and Qiskrypt's Fully-Quantum Ground Station, respectively,
+            and belonging both to a Fully-Quantum Context.
             """
 
             if ancilla_fully_quantum_register_index < self.get_num_registers():
@@ -1068,9 +1406,9 @@ class QiskryptUserClient:
 
         else:
             """
-            If the Qiskrypt's Party of the Qiskrypt's User Client
-            is not a Qiskrypt's Fully-Quantum Party or does not
-            belongs to a Fully-Quantum Context.
+            If the Qiskrypt's Party or/and Qiskrypt's Endpoint of the Qiskrypt's User Client 
+            are not a Qiskrypt's Fully-Quantum Party and Qiskrypt's Fully-Quantum Ground Station, respectively,
+            and do not belong both to a Fully-Quantum Context.
             """
 
             # TODO Throw - Exception
@@ -1085,12 +1423,14 @@ class QiskryptUserClient:
                                       the Qiskrypt's User Client.
         """
 
-        if (self.party.get_context() == POSSIBLE_PARTY_CONTEXTS[2]) and \
-                (isinstance(self.get_party(), QiskryptSemiQuantumParty)):
+        if (self.get_party().get_context() == POSSIBLE_PARTY_CONTEXTS[2]) and \
+                (isinstance(self.get_party(), QiskryptSemiQuantumParty)) and \
+                (self.get_endpoint().get_context() == POSSIBLE_ENDPOINT_CONTEXTS[2]) and \
+                (isinstance(self.get_endpoint(), QiskryptSemiQuantumGroundStationEndpoint)):
             """
-            If the Qiskrypt's Party of the Qiskrypt's User Client
-            is a Qiskrypt's Semi-Quantum Party and belongs
-            to a Semi-Quantum Context.
+            If the Qiskrypt's Party and Qiskrypt's Endpoint of the Qiskrypt's User Client 
+            are a Qiskrypt's Semi-Quantum Party and Qiskrypt's Semi-Quantum Ground Station, respectively,
+            and belonging both to a Fully-Quantum Context.
             """
 
             self.registers.append(semi_quantum_register)
@@ -1101,9 +1441,9 @@ class QiskryptUserClient:
 
         else:
             """
-            If the Qiskrypt's Party of the Qiskrypt's User Client
-            is not a Qiskrypt's Semi-Quantum Party or does not belongs
-            to a Semi-Quantum Context.
+            If the Qiskrypt's Party or/and Qiskrypt's Endpoint of the Qiskrypt's User Client 
+            are not a Qiskrypt's Semi-Quantum Party and Qiskrypt's Semi-Quantum Ground Station, respectively,
+            and do not belong both to a Semi-Quantum Context.
             """
 
             # TODO Throw - Exception
@@ -1119,12 +1459,14 @@ class QiskryptUserClient:
                                            the Qiskrypt's User Client.
         """
 
-        if (self.party.get_context() == POSSIBLE_PARTY_CONTEXTS[2]) and \
-                (isinstance(self.get_party(), QiskryptSemiQuantumParty)):
+        if (self.get_party().get_context() == POSSIBLE_PARTY_CONTEXTS[2]) and \
+                (isinstance(self.get_party(), QiskryptSemiQuantumParty)) and \
+                (self.get_endpoint().get_context() == POSSIBLE_ENDPOINT_CONTEXTS[2]) and \
+                (isinstance(self.get_endpoint(), QiskryptSemiQuantumGroundStationEndpoint)):
             """
-            If the Qiskrypt's Party of the Qiskrypt's User Client
-            is a Qiskrypt's Semi-Quantum Party and belongs
-            to a Semi-Quantum Context.
+            If the Qiskrypt's Party and Qiskrypt's Endpoint of the Qiskrypt's User Client 
+            are a Qiskrypt's Semi-Quantum Party and Qiskrypt's Semi-Quantum Ground Station, respectively,
+            and belonging both to a Semi-Quantum Context.
             """
 
             for current_register_index in range(len(self.registers)):
@@ -1170,9 +1512,9 @@ class QiskryptUserClient:
 
         else:
             """
-            If the Qiskrypt's Party of the Qiskrypt's User Client
-            is not a Qiskrypt's Semi-Quantum Party or does not
-            belongs to a Semi-Quantum Context.
+            If the Qiskrypt's Party or/and Qiskrypt's Endpoint of the Qiskrypt's User Client 
+            are not a Qiskrypt's Semi-Quantum Party and Qiskrypt's Semi-Quantum Ground Station, respectively,
+            and do not belong both to a Semi-Quantum Context.
             """
 
             # TODO Throw - Exception
@@ -1188,12 +1530,14 @@ class QiskryptUserClient:
                                             the Qiskrypt's User Client.
         """
 
-        if (self.party.get_context() == POSSIBLE_PARTY_CONTEXTS[2]) and \
-                (isinstance(self.get_party(), QiskryptSemiQuantumParty)):
+        if (self.get_party().get_context() == POSSIBLE_PARTY_CONTEXTS[2]) and \
+                (isinstance(self.get_party(), QiskryptSemiQuantumParty)) and \
+                (self.get_endpoint().get_context() == POSSIBLE_ENDPOINT_CONTEXTS[2]) and \
+                (isinstance(self.get_endpoint(), QiskryptSemiQuantumGroundStationEndpoint)):
             """
-            If the Qiskrypt's Party of the Qiskrypt's User Client
-            is a Qiskrypt's Semi-Quantum Party and belongs
-            to a Semi-Quantum Context.
+            If the Qiskrypt's Party and Qiskrypt's Endpoint of the Qiskrypt's User Client 
+            are a Qiskrypt's Semi-Quantum Party and Qiskrypt's Semi-Quantum Ground Station, respectively,
+            and belonging both to a Semi-Quantum Context.
             """
 
             if semi_quantum_register_index < self.get_num_registers():
@@ -1240,9 +1584,9 @@ class QiskryptUserClient:
 
         else:
             """
-            If the Qiskrypt's Party of the Qiskrypt's User Client
-            is not a Qiskrypt's Semi-Quantum Party or does not
-            belongs to a Semi-Quantum Context.
+            If the Qiskrypt's Party or/and Qiskrypt's Endpoint of the Qiskrypt's User Client 
+            are not a Qiskrypt's Semi-Quantum Party and Qiskrypt's Semi-Quantum Ground Station, respectively,
+            and do not belong both to a Semi-Quantum Context.
             """
 
             # TODO Throw - Exception
@@ -1257,12 +1601,14 @@ class QiskryptUserClient:
                                               the Qiskrypt's User Client.
         """
 
-        if (self.party.get_context() == POSSIBLE_PARTY_CONTEXTS[2]) and \
-                (isinstance(self.get_party(), QiskryptSemiQuantumParty)):
+        if (self.get_party().get_context() == POSSIBLE_PARTY_CONTEXTS[2]) and \
+                (isinstance(self.get_party(), QiskryptSemiQuantumParty)) and \
+                (self.get_endpoint().get_context() == POSSIBLE_ENDPOINT_CONTEXTS[2]) and \
+                (isinstance(self.get_endpoint(), QiskryptSemiQuantumGroundStationEndpoint)):
             """
-            If the Qiskrypt's Party of the Qiskrypt's User Client
-            is a Qiskrypt's Semi-Quantum Party and belongs
-            to a Semi-Quantum Context.
+            If the Qiskrypt's Party and Qiskrypt's Endpoint of the Qiskrypt's User Client 
+            are a Qiskrypt's Semi-Quantum Party and Qiskrypt's Semi-Quantum Ground Station, respectively,
+            and belonging both to a Semi-Quantum Context.
             """
 
             self.registers.append(ancilla_semi_quantum_register)
@@ -1273,9 +1619,9 @@ class QiskryptUserClient:
 
         else:
             """
-            If the Qiskrypt's Party of the Qiskrypt's User Client
-            is not a Qiskrypt's Semi-Quantum Party or does not belongs
-            to a Semi-Quantum Context.
+            If the Qiskrypt's Party or/and Qiskrypt's Endpoint of the Qiskrypt's User Client 
+            are not a Qiskrypt's Semi-Quantum Party and Qiskrypt's Semi-Quantum Ground Station, respectively,
+            and do not belong both to a Semi-Quantum Context.
             """
 
             # TODO Throw - Exception
@@ -1291,12 +1637,14 @@ class QiskryptUserClient:
                                                    the Qiskrypt's User Client.
         """
 
-        if (self.party.get_context() == POSSIBLE_PARTY_CONTEXTS[2]) and \
-                (isinstance(self.get_party(), QiskryptSemiQuantumParty)):
+        if (self.get_party().get_context() == POSSIBLE_PARTY_CONTEXTS[2]) and \
+                (isinstance(self.get_party(), QiskryptSemiQuantumParty)) and \
+                (self.get_endpoint().get_context() == POSSIBLE_ENDPOINT_CONTEXTS[2]) and \
+                (isinstance(self.get_endpoint(), QiskryptSemiQuantumGroundStationEndpoint)):
             """
-            If the Qiskrypt's Party of the Qiskrypt's User Client
-            is a Qiskrypt's Semi-Quantum Party and belongs
-            to a Semi-Quantum Context.
+            If the Qiskrypt's Party and Qiskrypt's Endpoint of the Qiskrypt's User Client 
+            are a Qiskrypt's Semi-Quantum Party and Qiskrypt's Semi-Quantum Ground Station, respectively,
+            and belonging both to a Semi-Quantum Context.
             """
 
             for current_register_index in range(len(self.registers)):
@@ -1342,9 +1690,9 @@ class QiskryptUserClient:
 
         else:
             """
-            If the Qiskrypt's Party of the Qiskrypt's User Client
-            is not a Qiskrypt's Semi-Quantum Party or does not
-            belongs to a Semi-Quantum Context.
+            If the Qiskrypt's Party or/and Qiskrypt's Endpoint of the Qiskrypt's User Client 
+            are not a Qiskrypt's Semi-Quantum Party and Qiskrypt's Semi-Quantum Ground Station, respectively,
+            and do not belong both to a Semi-Quantum Context.
             """
 
             # TODO Throw - Exception
@@ -1360,12 +1708,14 @@ class QiskryptUserClient:
                                                     the Qiskrypt's User Client.
         """
 
-        if (self.party.get_context() == POSSIBLE_PARTY_CONTEXTS[2]) and \
-                (isinstance(self.get_party(), QiskryptSemiQuantumParty)):
+        if (self.get_party().get_context() == POSSIBLE_PARTY_CONTEXTS[2]) and \
+                (isinstance(self.get_party(), QiskryptSemiQuantumParty)) and \
+                (self.get_endpoint().get_context() == POSSIBLE_ENDPOINT_CONTEXTS[2]) and \
+                (isinstance(self.get_endpoint(), QiskryptSemiQuantumGroundStationEndpoint)):
             """
-            If the Qiskrypt's Party of the Qiskrypt's User Client
-            is a Qiskrypt's Semi-Quantum Party and belongs
-            to a Semi-Quantum Context.
+            If the Qiskrypt's Party and Qiskrypt's Endpoint of the Qiskrypt's User Client 
+            are a Qiskrypt's Semi-Quantum Party and Qiskrypt's Semi-Quantum Ground Station, respectively,
+            and belonging both to a Semi-Quantum Context.
             """
 
             if ancilla_semi_quantum_register_index < self.get_num_registers():
@@ -1412,9 +1762,9 @@ class QiskryptUserClient:
 
         else:
             """
-            If the Qiskrypt's Party of the Qiskrypt's User Client
-            is not a Qiskrypt's Semi-Quantum Party or does not
-            belongs to a Semi-Quantum Context.
+            If the Qiskrypt's Party or/and Qiskrypt's Endpoint of the Qiskrypt's User Client 
+            are not a Qiskrypt's Semi-Quantum Party and Qiskrypt's Semi-Quantum Ground Station, respectively,
+            and do not belong both to a Semi-Quantum Context.
             """
 
             # TODO Throw - Exception
@@ -1429,12 +1779,14 @@ class QiskryptUserClient:
                                    the Qiskrypt's User Client.
         """
 
-        if (self.party.get_context() == POSSIBLE_PARTY_CONTEXTS[3]) and \
-                (isinstance(self.get_party(), QiskryptClassicalParty)):
+        if (self.get_party().get_context() == POSSIBLE_PARTY_CONTEXTS[3]) and \
+                (isinstance(self.get_party(), QiskryptClassicalParty)) and \
+                (self.get_endpoint().get_context() == POSSIBLE_ENDPOINT_CONTEXTS[3]) and \
+                (isinstance(self.get_endpoint(), QiskryptClassicalGroundStationEndpoint)):
             """
-            If the Qiskrypt's Party of the Qiskrypt's User Client
-            is a Qiskrypt's Classical Party and belongs
-            to a Classical Context.
+            If the Qiskrypt's Party and Qiskrypt's Endpoint of the Qiskrypt's User Client 
+            are a Qiskrypt's Classical Party and Qiskrypt's Classical Ground Station, respectively,
+            and belonging both to a Classical Context.
             """
 
             self.registers.append(classical_register)
@@ -1445,9 +1797,9 @@ class QiskryptUserClient:
 
         else:
             """
-            If the Qiskrypt's Party of the Qiskrypt's User Client
-            is not a Qiskrypt's Classical Party or does not belongs
-            to a Classical Context.
+            If the Qiskrypt's Party or/and Qiskrypt's Endpoint of the Qiskrypt's User Client 
+            are not a Qiskrypt's Classical Party and Qiskrypt's Classical Ground Station, respectively,
+            and do not belong both to a Classical Context.
             """
 
             # TODO Throw - Exception
@@ -1463,12 +1815,14 @@ class QiskryptUserClient:
                                         the Qiskrypt's User Client.
         """
 
-        if (self.party.get_context() == POSSIBLE_PARTY_CONTEXTS[3]) and \
-                (isinstance(self.get_party(), QiskryptClassicalParty)):
+        if (self.get_party().get_context() == POSSIBLE_PARTY_CONTEXTS[3]) and \
+                (isinstance(self.get_party(), QiskryptClassicalParty)) and \
+                (self.get_endpoint().get_context() == POSSIBLE_ENDPOINT_CONTEXTS[3]) and \
+                (isinstance(self.get_endpoint(), QiskryptClassicalGroundStationEndpoint)):
             """
-            If the Qiskrypt's Party of the Qiskrypt's User Client
-            is a Qiskrypt's Classical Party and belongs
-            to a Classical Context.
+            If the Qiskrypt's Party and Qiskrypt's Endpoint of the Qiskrypt's User Client 
+            are a Qiskrypt's Classical Party and Qiskrypt's Classical Ground Station, respectively,
+            and belonging both to a Classical Context.
             """
 
             for current_register_index in range(len(self.registers)):
@@ -1514,9 +1868,9 @@ class QiskryptUserClient:
 
         else:
             """
-            If the Qiskrypt's Party of the Qiskrypt's User Client
-            is not a Qiskrypt's Classical Party or does not
-            belongs to a Classical Context.
+            If the Qiskrypt's Party or/and Qiskrypt's Endpoint of the Qiskrypt's User Client 
+            are not a Qiskrypt's Classical Party and Qiskrypt's Classical Ground Station, respectively,
+            and do not belong both to a Classical Context.
             """
 
             # TODO Throw - Exception
@@ -1532,12 +1886,14 @@ class QiskryptUserClient:
                                          the Qiskrypt's User Client.
         """
 
-        if (self.party.get_context() == POSSIBLE_PARTY_CONTEXTS[3]) and \
-                (isinstance(self.get_party(), QiskryptClassicalParty)):
+        if (self.get_party().get_context() == POSSIBLE_PARTY_CONTEXTS[3]) and \
+                (isinstance(self.get_party(), QiskryptClassicalParty)) and \
+                (self.get_endpoint().get_context() == POSSIBLE_ENDPOINT_CONTEXTS[3]) and \
+                (isinstance(self.get_endpoint(), QiskryptClassicalGroundStationEndpoint)):
             """
-            If the Qiskrypt's Party of the Qiskrypt's User Client
-            is a Qiskrypt's Classical Party and belongs
-            to a Classical Context.
+            If the Qiskrypt's Party and Qiskrypt's Endpoint of the Qiskrypt's User Client 
+            are a Qiskrypt's Classical Party and Qiskrypt's Classical Ground Station, respectively,
+            and belonging both to a Classical Context.
             """
 
             if classical_register_index < self.get_num_registers():
@@ -1584,9 +1940,9 @@ class QiskryptUserClient:
 
         else:
             """
-            If the Qiskrypt's Party of the Qiskrypt's User Client
-            is not a Qiskrypt's Classical Party or does not
-            belongs to a Classical Context.
+            If the Qiskrypt's Party or/and Qiskrypt's Endpoint of the Qiskrypt's User Client 
+            are not a Qiskrypt's Classical Party and Qiskrypt's Classical Ground Station, respectively,
+            and do not belong both to a Classical Context.
             """
 
             # TODO Throw - Exception
