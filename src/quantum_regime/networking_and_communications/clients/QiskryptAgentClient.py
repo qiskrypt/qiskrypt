@@ -68,10 +68,10 @@ from uuid import uuid5
 Import the general UUID (Universally Unique IDentifier) version 5.
 """
 
-from src.quantum_regime.networking_and_communications.essentials.QiskryptParty \
-    import QiskryptParty
+from src.quantum_regime.networking_and_communications.essentials.QiskryptAgent \
+    import QiskryptAgent
 """
-Import the Qiskrypt's Party.
+Import the Qiskrypt's Agent.
 """
 
 from src.quantum_regime.networking_and_communications.endpoints \
@@ -399,9 +399,9 @@ class QiskryptAgentClient:
 
             # TODO Throw - Exception
 
-        self.party = None
+        self.agent = None
         """
-        Set the Qiskrypt's Party for the Qiskrypt's Agent Client, initially, as None.
+        Set the Qiskrypt's Agent for the Qiskrypt's Agent Client, initially, as None.
         """
 
         self.endpoint = None
@@ -435,11 +435,11 @@ class QiskryptAgentClient:
         """
         return self.uuid
 
-    def get_party(self) -> QiskryptParty:
+    def get_agent(self) -> QiskryptAgent:
         """
-        Return the Qiskrypt's Party of the Qiskrypt's Agent Client.
+        Return the Qiskrypt's Agent of the Qiskrypt's Agent Client.
 
-        :return self.party: the Qiskrypt's Party of the Qiskrypt's Agent Client.
+        :return self.agent: the Qiskrypt's Agent of the Qiskrypt's Agent Client.
         """
 
         if self.is_connected():
@@ -448,9 +448,9 @@ class QiskryptAgentClient:
             """
 
             """
-            Return the Qiskrypt's Party of the Qiskrypt's Agent Client.
+            Return the Qiskrypt's Agent of the Qiskrypt's Agent Client.
             """
-            return self.party
+            return self.agent
 
         else:
             """
@@ -539,23 +539,23 @@ class QiskryptAgentClient:
 
                 # TODO Throw - Exception
 
-    def connect(self, party: QiskryptParty, endpoint: QiskryptEndpoint):
+    def connect(self, agent: QiskryptAgent, endpoint: QiskryptEndpoint):
         """
-        Connect a Qiskrypt's Party and a Qiskrypt's Endpoint, to the Qiskrypt's Agent Client.
+        Connect a Qiskrypt's Agent and a Qiskrypt's Endpoint, to the Qiskrypt's Agent Client.
 
-        :param party: the Qiskrypt's Party to be connected to the Qiskrypt's Agent Client.
+        :param agent: the Qiskrypt's Agent to be connected to the Qiskrypt's Agent Client.
         :param endpoint: the Qiskrypt's Endpoint to be connected to the Qiskrypt's Agent Client.
         """
 
         if not self.is_connected():
             """
             If the Qiskrypt's Agent Client is not connected yet
-            to a Qiskrypt's Party and to a Qiskrypt's Endpoint.
+            to a Qiskrypt's Agent and to a Qiskrypt's Endpoint.
             """
 
-            self.party = party
+            self.agent = agent
             """
-            Set the Qiskrypt's Party for the Qiskrypt's Agent Client.
+            Set the Qiskrypt's Agent for the Qiskrypt's Agent Client.
             """
 
             self.endpoint = endpoint
@@ -572,7 +572,7 @@ class QiskryptAgentClient:
         else:
             """
             If the Qiskrypt's Agent Client is already connected
-            to a Qiskrypt's Party and to a Qiskrypt's Endpoint.
+            to a Qiskrypt's Agent and to a Qiskrypt's Endpoint.
             """
 
             # TODO Throw - Exception
