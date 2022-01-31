@@ -224,3 +224,16 @@ class QiskryptQuantumCommunicationChannel(QiskryptCommunicationChannel):
         the Qiskrypt's Communication Channel is installed,
         with the given Boolean value.
         """
+
+    def get_signal_variable_type(self):
+        """
+        Return the signal variable type of the Qiskrypt's Quantum Communication Channel.
+
+        :return self.signal_variable_type: the signal variable type of the
+                                           Qiskrypt's Quantum Communication Channel.
+        """
+
+        """
+        Return the signal variable type of the Qiskrypt's Quantum Communication Channel.
+        """
+        return self.signal_variable_type
