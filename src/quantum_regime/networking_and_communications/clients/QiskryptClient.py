@@ -172,7 +172,7 @@ class QiskryptClient:
                 Set the UUID (Universally Unique IDentifier) for the Qiskrypt's Client.
                 """
 
-        if uuid_version == 1:
+        elif uuid_version == 1:
             """
             If the Qiskrypt's Client is configured with
             UUID (Universally Unique IDentifier) version 1.
