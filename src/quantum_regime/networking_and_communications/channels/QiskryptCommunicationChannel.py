@@ -68,16 +68,6 @@ POSSIBLE_COMMUNICATION_CHANNEL_DIRECTIONS = ["GROUND-TO-GROUND (G2G)", "GROUND-T
 The available Communication Channel directions for the Qiskrypt's Communication Channel.
 """
 
-POSSIBLE_COMMUNICATION_CHANNEL_MEDIUMS = ["FIBER-OPTIC", "SATELLITE"]
-"""
-The available Communication Channel scenarios for the Qiskrypt's Communication Channel.
-"""
-
-FIBER_OPTICS_MAX_DISTANCE_KMS_COHERENT_COMMUNICATIONS = 100.0
-"""
-The maximum distance in KMs (Kilometers) in Fiber Optics, for coherent Communications.
-"""
-
 
 class QiskryptCommunicationChannel:
     """
@@ -86,8 +76,7 @@ class QiskryptCommunicationChannel:
 
     def __init__(self, communication_channel_num: int, communication_channel_name: str,
                  communication_channel_context: str, communication_channel_scenario: str,
-                 communication_channel_type: str, communication_channel_direction: str,
-                 communication_channel_medium: str, communication_channel_distance_in_kms: float):
+                 communication_channel_type: str, communication_channel_directions: list):
         """
         Constructor of the Qiskrypt's Communication Channel.
 
@@ -96,10 +85,7 @@ class QiskryptCommunicationChannel:
         :param communication_channel_context: the context of the Qiskrypt's Communication Channel.
         :param communication_channel_scenario: the scenario of the Qiskrypt's Communication Channel.
         :param communication_channel_type: the type of the Qiskrypt's Communication Channel.
-        :param communication_channel_direction: the direction of the Qiskrypt's Communication Channel.
-        :param communication_channel_medium: the medium of the Qiskrypt's Communication Channel.
-        :param communication_channel_distance_in_kms: the distance of the Qiskrypt's Communication Channel,
-                                                      in KMs (Kilometers).
+        :param communication_channel_directions: the list of directions of the Qiskrypt's Communication Channel.
         """
 
         self.communication_channel_num = communication_channel_num
@@ -127,47 +113,56 @@ class QiskryptCommunicationChannel:
         Set the type of the Qiskrypt's Communication Channel.
         """
 
-        if communication_channel_direction is not None:
+        if communication_channel_directions is not None:
             """
             If some direction is given to the Qiskrypt's Communication Channel.
             """
 
-            if communication_channel_direction in POSSIBLE_COMMUNICATION_CHANNEL_DIRECTIONS:
+            self.communication_channel_directions = list()
+            """
+            Initialise the list of directions of the Qiskrypt's Communication,
+            initially, as an empty list.
+            """
+
+            for current_communication_channel_direction_index in range(len(communication_channel_directions)):
                 """
-                If the direction of the Qiskrypt's Communication Channel is valid.
+                For each index of the possibly given directions for
+                the Qiskrypt's Communication Channel.
                 """
 
-                self.communication_channel_direction = communication_channel_direction
+                communication_channel_direction = \
+                    communication_channel_directions[current_communication_channel_direction_index]
                 """
-                Set the direction of the Qiskrypt's Communication Channel.
-                """
-
-            else:
-                """
-                If the direction of the Qiskrypt's Communication Channel is not valid.
+                Retrieve the current possible direction for the Qiskrypt's Communication Channel.
                 """
 
-                # TODO Throw - Exception
+                if communication_channel_direction in POSSIBLE_COMMUNICATION_CHANNEL_DIRECTIONS:
+                    """
+                    If the current direction of the Qiskrypt's Communication Channel is valid.
+                    """
+
+                    self.communication_channel_directions.append(communication_channel_direction)
+                    """
+                    Append the current direction to the list of directions of
+                    the Qiskrypt's Communication Channel.
+                    """
+
+                else:
+                    """
+                    If the current direction of the Qiskrypt's Communication Channel is not valid.
+                    """
+
+                    # TODO Throw - Exception
 
         else:
             """
             If no direction is given to the Qiskrypt's Communication Channel.
             """
 
-            self.communication_channel_direction = None
+            self.communication_channel_directions = list()
             """
-            Set the direction of the Qiskrypt's Communication Channel as None.
+            Set the list of directions of the Qiskrypt's Communication Channel, as an empty list.
             """
-
-        self.communication_channel_medium = communication_channel_medium
-        """
-        Set the medium of the Qiskrypt's Communication Channel.
-        """
-
-        self.communication_channel_distance_in_kms = communication_channel_distance_in_kms
-        """
-        Set the distance of the Qiskrypt's Communication Channel, in KMs (Kilometers).
-        """
 
         self.operational = True
         """
@@ -179,12 +174,6 @@ class QiskryptCommunicationChannel:
         """
         Set the boolean flag to keep information about if
         the Qiskrypt's Communication Channel is installed, initially, as False.
-        """
-
-        self.started = False
-        """
-        Set the boolean flag to keep information about if
-        the Qiskrypt's Communication Channel is started, initially, as False.
         """
 
     def get_communication_channel_num(self) -> int:
@@ -247,42 +236,18 @@ class QiskryptCommunicationChannel:
         """
         return self.communication_channel_type
 
-    def get_communication_channel_direction(self) -> str:
+    def get_communication_channel_directions(self) -> list:
         """
-        Return the direction of the Qiskrypt's Communication Channel.
+        Return the list of directions of the Qiskrypt's Communication Channel.
 
-        :return self.communication_channel_direction: the direction of the Qiskrypt's Communication Channel.
-        """
-
-        """
-        Return the direction of the Qiskrypt's Communication Channel.
-        """
-        return self.communication_channel_direction
-
-    def get_communication_channel_medium(self) -> str:
-        """
-        Return the medium of the Qiskrypt's Communication Channel.
-
-        :return self.communication_channel_medium: the medium of the Qiskrypt's Communication Channel.
+        :return self.communication_channel_directions: the list of directions of
+                                                       the Qiskrypt's Communication Channel.
         """
 
         """
-        Return the medium of the Qiskrypt's Communication Channel.
+        Return the list of directions of the Qiskrypt's Communication Channel.
         """
-        return self.communication_channel_medium
-
-    def get_communication_channel_distance_in_kms(self) -> float:
-        """
-        Return the distance of the Qiskrypt's Communication Channel, in KMs (Kilometers).
-
-        :return self.communication_channel_distance_in_kms: the distance of the Qiskrypt's Communication Channel,
-                                                            in KMs (Kilometers).
-        """
-
-        """
-        Return the distance of the Qiskrypt's Communication Channel, in KMs (Kilometers).
-        """
-        return self.communication_channel_distance_in_kms
+        return self.communication_channel_directions
 
     def is_operational(self) -> bool:
         """
@@ -403,64 +368,3 @@ class QiskryptCommunicationChannel:
                 """
 
                 # TODO Throw - The Qiskrypt's Communication Channel is already not installed
-
-    def is_started(self) -> bool:
-        """
-        Return the boolean flag to keep information about if
-        the Qiskrypt's Communication Channel is started.
-
-        :return self.started: the boolean flag to keep information about if
-                              the Qiskrypt's Communication Channel is started.
-        """
-
-        """
-        Return the boolean flag to keep information about if
-        the Qiskrypt's Communication Channel is started.
-        """
-        return self.started
-
-    def set_started(self, started: bool):
-        """
-        Set the boolean flag to keep information about if
-        the Qiskrypt's Communication Channel is started,
-        with a given Boolean value.
-        """
-
-        if self.started != started:
-            """
-            If the boolean flag to keep information about if
-            the Qiskrypt's Communication Channel is started
-            is not equal to the given Boolean value.
-            """
-
-            self.started = started
-            """
-            Set the boolean flag to keep information about if
-            the Qiskrypt's Communication Channel is started,
-            with the given Boolean value.
-            """
-
-        else:
-            """
-            If the boolean flag to keep information about if
-            the Qiskrypt's Communication Channel is started
-            is already equal to the given Boolean value.
-            """
-
-            if started:
-                """
-                If the boolean flag to keep information about if
-                the Qiskrypt's Communication Channel is started,
-                is already set as True.
-                """
-
-                # TODO Throw - The Qiskrypt's Communication Channel is already started
-
-            else:
-                """
-                If the boolean flag to keep information about if
-                the Qiskrypt's Communication Channel is started,
-                is already set as False.
-                """
-
-                # TODO Throw - The Qiskrypt's Communication Channel is already not started
