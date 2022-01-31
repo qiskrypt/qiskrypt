@@ -59,13 +59,15 @@ the Qiskrypt's Quantum Communication Channel.
 
 class QiskryptDVQuantumCommunicationChannel(QiskryptQuantumCommunicationChannel):
     """
-    Object class for the Qiskrypt's DV (Discrete Variables) Quantum Communication Channel.
+    Object class for the Qiskrypt's DV (Discrete Variables)
+    Quantum Communication Channel.
     """
 
     def __init__(self, num: int, name: str, scenario: str,
                  channel_type: str, directions: list):
         """
-        Constructor of the Qiskrypt's Quantum Communication Channel.
+        Constructor of the Qiskrypt's DV (Discrete Variables)
+        Quantum Communication Channel.
 
         :param num: the number of the Qiskrypt's Communication Channel.
         :param name: the name of the Qiskrypt's Communication Channel.
