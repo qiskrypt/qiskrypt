@@ -74,74 +74,72 @@ class QiskryptCommunicationChannel:
     Object class for the Qiskrypt's Communication Channel.
     """
 
-    def __init__(self, communication_channel_num: int, communication_channel_name: str,
-                 communication_channel_context: str, communication_channel_scenario: str,
-                 communication_channel_type: str, communication_channel_directions: list):
+    def __init__(self, num: int, name: str, context: str, scenario: str,
+                 channel_type: str, directions: list):
         """
         Constructor of the Qiskrypt's Communication Channel.
 
-        :param communication_channel_num: the number of the Qiskrypt's Communication Channel.
-        :param communication_channel_name: the name of the Qiskrypt's Communication Channel.
-        :param communication_channel_context: the context of the Qiskrypt's Communication Channel.
-        :param communication_channel_scenario: the scenario of the Qiskrypt's Communication Channel.
-        :param communication_channel_type: the type of the Qiskrypt's Communication Channel.
-        :param communication_channel_directions: the list of directions of the Qiskrypt's Communication Channel.
+        :param num: the number of the Qiskrypt's Communication Channel.
+        :param name: the name of the Qiskrypt's Communication Channel.
+        :param context: the context of the Qiskrypt's Communication Channel.
+        :param scenario: the scenario of the Qiskrypt's Communication Channel.
+        :param channel_type: the type of the Qiskrypt's Communication Channel.
+        :param directions: the list of directions of the Qiskrypt's Communication Channel.
         """
 
-        self.communication_channel_num = communication_channel_num
+        self.num = num
         """
         Set the number of the Qiskrypt's Communication Channel.
         """
 
-        self.communication_channel_name = communication_channel_name
+        self.name = name
         """
         Set the name of the Qiskrypt's Communication Channel.
         """
 
-        self.communication_channel_context = communication_channel_context
+        self.context = context
         """
         Set the context of the Qiskrypt's Communication Channel.
         """
 
-        self.communication_channel_scenario = communication_channel_scenario
+        self.scenario = scenario
         """
         Set the scenario of the Qiskrypt's Communication Channel.
         """
 
-        self.communication_channel_type = communication_channel_type
+        self.channel_type = channel_type
         """
         Set the type of the Qiskrypt's Communication Channel.
         """
 
-        if communication_channel_directions is not None:
+        if directions is not None:
             """
             If some direction is given to the Qiskrypt's Communication Channel.
             """
 
-            self.communication_channel_directions = list()
+            self.directions = list()
             """
             Initialise the list of directions of the Qiskrypt's Communication,
             initially, as an empty list.
             """
 
-            for current_communication_channel_direction_index in range(len(communication_channel_directions)):
+            for current_direction_index in range(len(directions)):
                 """
                 For each index of the possibly given directions for
                 the Qiskrypt's Communication Channel.
                 """
 
-                communication_channel_direction = \
-                    communication_channel_directions[current_communication_channel_direction_index]
+                current_direction = directions[current_direction_index]
                 """
                 Retrieve the current possible direction for the Qiskrypt's Communication Channel.
                 """
 
-                if communication_channel_direction in POSSIBLE_COMMUNICATION_CHANNEL_DIRECTIONS:
+                if current_direction in POSSIBLE_COMMUNICATION_CHANNEL_DIRECTIONS:
                     """
                     If the current direction of the Qiskrypt's Communication Channel is valid.
                     """
 
-                    self.communication_channel_directions.append(communication_channel_direction)
+                    self.directions.append(current_direction)
                     """
                     Append the current direction to the list of directions of
                     the Qiskrypt's Communication Channel.
@@ -159,7 +157,7 @@ class QiskryptCommunicationChannel:
             If no direction is given to the Qiskrypt's Communication Channel.
             """
 
-            self.communication_channel_directions = list()
+            self.directions = list()
             """
             Set the list of directions of the Qiskrypt's Communication Channel, as an empty list.
             """
@@ -176,78 +174,77 @@ class QiskryptCommunicationChannel:
         the Qiskrypt's Communication Channel is installed, initially, as False.
         """
 
-    def get_communication_channel_num(self) -> int:
+    def get_num(self) -> int:
         """
         Return the number of the Qiskrypt's Communication Channel.
 
-        :return self.communication_channel_num: the number of the Qiskrypt's Communication Channel.
+        :return self.num: the number of the Qiskrypt's Communication Channel.
         """
 
         """
         Return the number of the Qiskrypt's Communication Channel.
         """
-        return self.communication_channel_num
+        return self.num
 
-    def get_communication_channel_name(self) -> str:
+    def get_name(self) -> str:
         """
         Return the name of the Qiskrypt's Communication Channel.
 
-        :return self.communication_channel_name: the name of the Qiskrypt's Communication Channel.
+        :return self.name: the name of the Qiskrypt's Communication Channel.
         """
 
         """
         Return the name of the Qiskrypt's Communication Channel.
         """
-        return self.communication_channel_name
+        return self.name
 
-    def get_communication_channel_context(self) -> str:
+    def get_context(self) -> str:
         """
         Return the context of the Qiskrypt's Communication Channel.
 
-        :return self.communication_channel_context: the context of the Qiskrypt's Communication Channel.
+        :return self.context: the context of the Qiskrypt's Communication Channel.
         """
 
         """
         Return the context of the Qiskrypt's Communication Channel.
         """
-        return self.communication_channel_context
+        return self.context
 
-    def get_communication_channel_scenario(self) -> str:
+    def get_scenario(self) -> str:
         """
         Return the scenario of the Qiskrypt's Communication Channel.
 
-        :return self.communication_channel_scenario: the scenario of the Qiskrypt's Communication Channel.
+        :return self.scenario: the scenario of the Qiskrypt's Communication Channel.
         """
 
         """
         Return the scenario of the Qiskrypt's Communication Channel.
         """
-        return self.communication_channel_scenario
+        return self.scenario
 
-    def get_communication_channel_type(self) -> str:
+    def get_channel_type(self) -> str:
         """
         Return the type of the Qiskrypt's Communication Channel.
 
-        :return self.communication_channel_type: the type of the Qiskrypt's Communication Channel.
+        :return self.channel_type: the type of the Qiskrypt's Communication Channel.
         """
 
         """
         Return the type of the Qiskrypt's Communication Channel.
         """
-        return self.communication_channel_type
+        return self.channel_type
 
-    def get_communication_channel_directions(self) -> list:
+    def get_directions(self) -> list:
         """
         Return the list of directions of the Qiskrypt's Communication Channel.
 
-        :return self.communication_channel_directions: the list of directions of
-                                                       the Qiskrypt's Communication Channel.
+        :return self.directions: the list of directions of the Qiskrypt's Communication Channel.
         """
 
         """
         Return the list of directions of the Qiskrypt's Communication Channel.
         """
-        return self.communication_channel_directions
+        return self.directions
 
     def is_operational(self) -> bool:
         """
@@ -270,7 +267,7 @@ class QiskryptCommunicationChannel:
         the Qiskrypt's Communication Channel is operational, with a given Boolean value.
         """
 
-        if self.operational != operational:
+        if self.is_operational() != operational:
             """
             If the boolean flag to keep information about if
             the Qiskrypt's Communication Channel is operational
@@ -330,7 +327,7 @@ class QiskryptCommunicationChannel:
         the Qiskrypt's Communication Channel is installed, with a given Boolean value.
         """
 
-        if self.installed != installed:
+        if self.is_installed() != installed:
             """
             If the boolean flag to keep information about if
             the Qiskrypt's Communication Channel is installed
