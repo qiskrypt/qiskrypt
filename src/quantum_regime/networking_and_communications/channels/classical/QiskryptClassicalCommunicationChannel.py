@@ -64,7 +64,7 @@ class QiskryptClassicalCommunicationChannel(QiskryptCommunicationChannel):
     def __init__(self, num: int, name: str, scenario: str,
                  channel_type: str, directions: list):
         """
-        Constructor of the Qiskrypt's Communication Channel.
+        Constructor of the Qiskrypt's Classical Communication Channel.
 
         :param num: the number of the Qiskrypt's Communication Channel.
         :param name: the name of the Qiskrypt's Communication Channel.
