@@ -73,7 +73,7 @@ class QiskryptMPNoiselessClassicalCommunicationChannel(QiskryptNoiselessClassica
         :param directions: the list of directions of the Qiskrypt's Communication Channel.
         """
 
-        super().__init__(num, name, POSSIBLE_COMMUNICATION_CHANNEL_TYPES[1], directions)
+        super().__init__(num, name, POSSIBLE_COMMUNICATION_CHANNEL_TYPES[2], directions)
         """
         Call of the constructor of the super-class Qiskrypt's Noiseless
         Classical Communication Channel.
