@@ -55,14 +55,14 @@ class QiskryptMedium:
     """
 
     def __init__(self, num: int, name: str,
-                 medium_type: str, medium_length_in_kms: float):
+                 medium_type: str, length_in_kms: float):
         """
         Constructor of the Qiskrypt's Medium.
 
         :param num: the number of the Qiskrypt's Medium.
         :param name: the name of the Qiskrypt's Medium.
         :param medium_type: the type of the Qiskrypt's Medium.
-        :param medium_length_in_kms: the length in KMs (Kilometers) of the Qiskrypt's Medium.
+        :param length_in_kms: the length in KMs (Kilometers) of the Qiskrypt's Medium.
         """
 
         self.num = num
@@ -80,7 +80,7 @@ class QiskryptMedium:
         Set the type of the Qiskrypt's Medium.
         """
 
-        self.medium_length_in_kms = medium_length_in_kms
+        self.length_in_kms = length_in_kms
         """
         Set the length in KMs (Kilometers) of the Qiskrypt's Medium.
         """
@@ -121,7 +121,7 @@ class QiskryptMedium:
         """
         return self.medium_type
 
-    def get_medium_length_in_kms(self) -> float:
+    def get_length_in_kms(self) -> float:
         """
         Return the length in KMs (Kilometers) of the Qiskrypt's Medium.
 
@@ -131,7 +131,7 @@ class QiskryptMedium:
         """
         Return the length in KMs (Kilometers) of the Qiskrypt's Medium.
         """
-        return self.medium_length_in_kms
+        return self.length_in_kms
 
     def __str__(self) -> str:
         """
@@ -141,7 +141,7 @@ class QiskryptMedium:
         """
 
         qiskrypt_medium_string_representation = "Medium #{}:\n- Name: {}\n- Type: {}\n- Length (in KMs): {}"\
-            .format(self.num, self.name, self.medium_type, self.medium_length_in_kms)
+            .format(self.num, self.name, self.medium_type, self.length_in_kms)
         """
         Set the string representation for the Qiskrypt's Medium.
         """
