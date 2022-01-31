@@ -112,7 +112,7 @@ class QiskryptFreeSpaceOpticMedium(QiskryptMedium):
         """
         return super().get_medium_type()
 
-    def get_medium_length_in_kms(self) -> float:
+    def get_length_in_kms(self) -> float:
         """
         Return the length in KMs (Kilometers) of the Qiskrypt's Medium.
 
@@ -122,7 +122,7 @@ class QiskryptFreeSpaceOpticMedium(QiskryptMedium):
         """
         Return the length in KMs (Kilometers) of the Qiskrypt's Medium.
         """
-        return super().get_medium_length_in_kms()
+        return super().get_length_in_kms()
 
     def __str__(self) -> str:
         """
