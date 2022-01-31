@@ -57,7 +57,7 @@ Import the scenarios for the Qiskrypt's Communication Channel.
 """
 
 
-class QiskryptMPNoisyDVQuantumCommunicationChannel(QiskryptNoisyDVQuantumCommunicationChannel):
+class QiskryptP2MPNoisyDVQuantumCommunicationChannel(QiskryptNoisyDVQuantumCommunicationChannel):
     """
     Object class for the Qiskrypt's P2MP (Point-to-Multipoint) Noisy
     DV (Discrete Variables) Quantum Communication Channel.
