@@ -74,6 +74,18 @@ from src.quantum_regime.networking_and_communications.mediums.QiskryptMedium \
 Import the Qiskrypt's Medium.
 """
 
+from src.quantum_regime.circuit.registers.quantum.QiskryptQuantumRegister \
+    import QiskryptQuantumRegister
+"""
+Import the Qiskrypt's Quantum Register.
+"""
+
+from src.quantum_regime.circuit.registers.classical.QiskryptClassicalRegister \
+    import QiskryptClassicalRegister
+"""
+Import the Qiskrypt's Classical Register.
+"""
+
 from src.quantum_regime.networking_and_communications.channels.QiskryptCommunicationChannel \
     import QiskryptCommunicationChannel
 """
@@ -424,3 +436,41 @@ class QiskryptLink:
         Return the Qiskrypt's Register of the Qiskrypt's Link.
         """
         return self.register
+
+    def set_quantum_register(self, quantum_register: QiskryptQuantumRegister):
+        """
+        Set a given Qiskrypt's Quantum Register to be
+        the Qiskrypt's Register of the Qiskrypt's Link, if it is possible.
+
+        :param quantum_register: the Qiskrypt's Quantum Register to be set as
+                                 the Qiskrypt's Register of the Qiskrypt's Link.
+        """
+
+    def set_classical_register(self, classical_register: QiskryptClassicalRegister):
+        """
+        Set a given Qiskrypt's Classical Register to be
+        the Qiskrypt's Register of the Qiskrypt's Link, if it is possible.
+
+        :param classical_register: the Qiskrypt's Classical Register to be set as
+                                   the Qiskrypt's Register of the Qiskrypt's Link.
+        """
+
+        if self.is_established():
+            """
+            If the Qiskrypt's Link is already established
+            from a Qiskrypt's Medium and a Qiskrypt's Communication Channel.
+            """
+
+            self.register = classical_register
+            """
+            Set the given Qiskrypt's Classical Register to be
+            the Qiskrypt's Register of the Qiskrypt's Link
+            """
+
+        else:
+            """
+            If the Qiskrypt's Link is not established yet
+            from a Qiskrypt's Medium and a Qiskrypt's Communication Channel.
+            """
+
+            # TODO Throw - Exception
