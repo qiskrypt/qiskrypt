@@ -48,24 +48,10 @@ from uuid import UUID
 Import the general UUID (Universally Unique IDentifier).
 """
 
-from uuid import uuid1
+from src.quantum_regime.networking_and_communications.clients.QiskryptClient \
+    import QiskryptClient
 """
-Import the general UUID (Universally Unique IDentifier) version 1.
-"""
-
-from uuid import uuid3
-"""
-Import the general UUID (Universally Unique IDentifier) version 3.
-"""
-
-from uuid import uuid4
-"""
-Import the general UUID (Universally Unique IDentifier) version 4.
-"""
-
-from uuid import uuid5
-"""
-Import the general UUID (Universally Unique IDentifier) version 5.
+Import the Qiskrypt's Client.
 """
 
 from src.quantum_regime.networking_and_communications.essentials.QiskryptAgent \
@@ -78,10 +64,6 @@ from src.quantum_regime.networking_and_communications.endpoints \
     import QiskryptEndpoint
 """
 Import the Qiskrypt's Endpoint.
-"""
-
-"""
-Import the Qiskrypt's Ground Station Endpoint.
 """
 
 from src.quantum_regime.networking_and_communications.endpoints\
@@ -244,25 +226,6 @@ from src.quantum_regime.circuit.registers.classical.QiskryptClassicalRegister \
 Import the Qiskrypt's Classical Register.
 """
 
-from src.quantum_regime.true_random.random_generator.binary.QiskryptQuantumRandomBinaryGenerator \
-    import QiskryptQuantumRandomBinaryGenerator
-"""
-Import the Qiskrypt's Quantum Random Binary Generator.
-"""
-
-from src.classical_regime.common.QiskryptClassicalUtilities \
-    import QiskryptClassicalUtilities
-"""
-Import the Qiskrypt's Classical Utilities.
-"""
-
-from src.classical_regime.common.QiskryptClassicalUtilities \
-    import SIZE_BYTE_IN_NUM_BITS
-"""
-Import the size of a byte in number of bits.
-"""
-
-
 """
 Definition of Constants and Enumerations.
 """
@@ -274,7 +237,7 @@ for the Qiskrypt's Agent Client.
 """
 
 
-class QiskryptAgentClient:
+class QiskryptAgentClient(QiskryptClient):
     """
     Object class for the Qiskrypt's Agent Client.
     """
@@ -298,106 +261,11 @@ class QiskryptAgentClient:
                                for the Qiskrypt's Agent Client.
         """
 
-        if uuid_version == 0:
-            """
-            If the Qiskrypt's Agent Client is configured with
-            general UUID (Universally Unique IDentifier).
-            """
-
-            if uuid_bytes is None:
-                """
-                If was given specific bytes for the UUID (Universally Unique IDentifier).
-                """
-
-                quantum_random_binary_generator = \
-                    QiskryptQuantumRandomBinaryGenerator("qu_rng_binary")
-                """
-                Create a Qiskrypt's Quantum Random Binary Generator.
-                """
-
-                quantum_random_binary_generator.initiate((NUM_BYTES_FOR_UUID * SIZE_BYTE_IN_NUM_BITS))
-                """
-                Initiate the Qiskrypt's Quantum Random Binary Generator, for 128 bits (16 bytes).
-                """
-
-                random_binary_string_bits = \
-                    quantum_random_binary_generator.generate_binary_string()
-                """
-                Generate a random binary string in bits, with 128 bits (16 bytes).
-                """
-
-                random_binary_string_bytes = \
-                    QiskryptClassicalUtilities.convert_binary_string_to_bytes(random_binary_string_bits)
-                """
-                Convert the random binary string in bits to a random binary string in bytes,
-                with 128 bits (16 bytes).
-                """
-
-                self.uuid = UUID(bytes=random_binary_string_bytes)
-                """
-                Set the UUID (Universally Unique IDentifier) for the Qiskrypt's Agent Client.
-                """
-
-            else:
-                """
-                If was not given specific bytes for the UUID (Universally Unique IDentifier).
-                """
-
-                self.uuid = UUID(bytes=uuid_bytes)
-                """
-                Set the UUID (Universally Unique IDentifier) for the Qiskrypt's Agent Client.
-                """
-
-        if uuid_version == 1:
-            """
-            If the Qiskrypt's Agent Client is configured with
-            UUID (Universally Unique IDentifier) version 1.
-            """
-
-            self.uuid = uuid1(uuid_node, uuid_clock_sequence)
-            """
-            Set the UUID (Universally Unique IDentifier) for the Qiskrypt's Agent Client.
-            """
-
-        elif uuid_version == 3:
-            """
-            If the Qiskrypt's Agent Client is configured with
-            UUID (Universally Unique IDentifier) version 3.
-            """
-
-            self.uuid = uuid3(uuid_namespace, uuid_name)
-            """
-            Set the UUID (Universally Unique IDentifier) for the Qiskrypt's Agent Client.
-            """
-
-        elif uuid_version == 4:
-            """
-            If the Qiskrypt's Agent Client is configured with
-            UUID (Universally Unique IDentifier) version 4.
-            """
-
-            self.uuid = uuid4()
-            """
-            Set the UUID (Universally Unique IDentifier) for the Qiskrypt's Agent Client.
-            """
-
-        elif uuid_version == 5:
-            """
-            If the Qiskrypt's Agent Client is configured with
-            UUID (Universally Unique IDentifier) version 5.
-            """
-
-            self.uuid = uuid5(uuid_namespace, uuid_name)
-            """
-            Set the UUID (Universally Unique IDentifier) for the Qiskrypt's Agent Client.
-            """
-
-        else:
-            """
-            If the Qiskrypt's Agent Client is configured with an invalid version.
-            """
-
-            # TODO Throw - Exception
+        super().__init__(uuid_version, uuid_bytes, uuid_node,
+                         uuid_clock_sequence, uuid_name, uuid_namespace)
+        """
+        Call of the constructor of the super-class Qiskrypt's Client.
+        """
 
         self.agent = None
         """
@@ -409,31 +277,78 @@ class QiskryptAgentClient:
         Set the Qiskrypt's Endpoint for the Qiskrypt's Agent Client, initially, as None.
         """
 
-        self.connected = False
-        """
-        Set the boolean flag to keep the information about if
-        the Qiskrypt's Agent Client is connected or not.
-        """
-
-        self.registers = []
-        """
-        Set the Qiskrypt's Registers for the Qiskrypt's Agent Client, as an initially empty list.
-        """
-
     def get_uuid(self) -> UUID:
         """
         Return the UUID (Universally Unique IDentifier) of
-        the Qiskrypt's Agent Client.
+        the Qiskrypt's Client.
 
-        :return self.uuid: the UUID (Universally Unique IDentifier) of
-                           the Qiskrypt's Agent Client.
+        :return super().get_uuid(): the UUID (Universally Unique IDentifier) of
+                                    the Qiskrypt's Client.
         """
 
         """
         Return the UUID (Universally Unique IDentifier) of
-        the Qiskrypt's Agent Client.
+        the Qiskrypt's Client.
         """
-        return self.uuid
+        return super().get_uuid()
+
+    def is_connected(self) -> bool:
+        """
+        Return the boolean flag to keep the information about if
+        the Qiskrypt's Client is connected or not.
+
+        :return super().is_connected(): the boolean flag to keep the information about if
+                                        the Qiskrypt's Client is connected or not.
+        """
+
+        """
+        Return the boolean flag to keep the information about if
+        the Qiskrypt's Client is connected or not.
+        """
+        return super().is_connected()
+
+    def set_connected(self, connected: bool):
+        """
+        Set the boolean flag to keep the information about if
+        the Qiskrypt's Client is connected or not, with a new boolean value.
+
+        :param connected: the new boolean flag to keep the information about if
+                          the Qiskrypt's Client is connected or not.
+        """
+
+        """
+        Set the boolean flag to keep the information about if
+        the Qiskrypt's Client is connected or not, with a new boolean value.
+        """
+        super().set_connected(connected)
+
+    def get_registers(self) -> list:
+        """
+        Return the Qiskrypt's Registers of the Qiskrypt's Client.
+
+        :return super().get_registers(): the Qiskrypt's Registers of the Qiskrypt's Client.
+        """
+
+        """
+        Return the Qiskrypt's Registers of the Qiskrypt's Client.
+        """
+        return super().get_registers()
+
+    def get_num_registers(self) -> int:
+        """
+        Return the number of Qiskrypt's Registers in
+        the list of Qiskrypt's Registers of the Qiskrypt's Client.
+
+        :return super().get_num_registers(): the number of Qiskrypt's Registers in
+                                             the list of Qiskrypt's Registers of
+                                             the Qiskrypt's Client.
+        """
+
+        """
+        Return the number of Qiskrypt's Registers in
+        the list of Qiskrypt's Registers of the Qiskrypt's Client.
+        """
+        return super().get_num_registers()
 
     def get_agent(self) -> QiskryptAgent:
         """
@@ -442,9 +357,9 @@ class QiskryptAgentClient:
         :return self.agent: the Qiskrypt's Agent of the Qiskrypt's Agent Client.
         """
 
-        if self.is_connected():
+        if super().is_connected():
             """
-            If the Qiskrypt's Agent Client is already connected.
+            If the Qiskrypt's Client is already connected.
             """
 
             """
@@ -466,9 +381,9 @@ class QiskryptAgentClient:
         :return self.endpoint: the Qiskrypt's Endpoint of the Qiskrypt's Agent Client.
         """
 
-        if self.is_connected():
+        if super().is_connected():
             """
-            If the Qiskrypt's Agent Client is already connected.
+            If the Qiskrypt's Client is already connected.
             """
 
             """
@@ -483,62 +398,6 @@ class QiskryptAgentClient:
 
             # TODO Throw - Exception
 
-    def is_connected(self) -> bool:
-        """
-        Return the boolean flag to keep the information about if
-        the Qiskrypt's Agent Client is connected or not.
-
-        :return self.connected: the boolean flag to keep the information about if
-                                the Qiskrypt's Agent Client is connected or not.
-        """
-
-        """
-        Return the boolean flag to keep the information about if
-        the Qiskrypt's Agent Client is connected or not.
-        """
-        return self.connected
-
-    def set_connected(self, connected: bool):
-        """
-        Set the boolean flag to keep the information about if
-        the Qiskrypt's Agent Client is connected or not, with a new boolean value.
-
-        :param connected: the new boolean flag to keep the information about if
-                          the Qiskrypt's Agent Client is connected or not.
-        """
-
-        if connected != self.is_connected():
-            """
-            If the boolean new boolean flag to keep the information about if
-            the Qiskrypt's Agent Client is connected or not is equal to the current one.
-            """
-
-            """
-            Set the boolean flag to keep the information about if
-            the Qiskrypt's Agent Client is connected or not, with a new boolean value.
-            """
-            self.connected = connected
-
-        else:
-            """
-            If the boolean new boolean flag to keep the information about if
-            the Qiskrypt's Agent Client is connected or not is equal to the current one.
-            """
-
-            if self.connected:
-                """
-                If the Qiskrypt's Agent Client is already connected.
-                """
-
-                # TODO Throw - Exception
-
-            else:
-                """
-                If the Qiskrypt's Agent Client is not connected yet.
-                """
-
-                # TODO Throw - Exception
-
     def connect(self, agent: QiskryptAgent, endpoint: QiskryptEndpoint):
         """
         Connect a Qiskrypt's Agent and a Qiskrypt's Endpoint, to the Qiskrypt's Agent Client.
@@ -547,7 +406,7 @@ class QiskryptAgentClient:
         :param endpoint: the Qiskrypt's Endpoint to be connected to the Qiskrypt's Agent Client.
         """
 
-        if not self.is_connected():
+        if not super().is_connected():
             """
             If the Qiskrypt's Agent Client is not connected yet
             to a Qiskrypt's Agent and to a Qiskrypt's Endpoint.
@@ -565,9 +424,9 @@ class QiskryptAgentClient:
 
             """
             Set the boolean flag to keep the information about if
-            the Qiskrypt's Agent Client is connected or not, as True.
+            the Qiskrypt's Client is connected or not, as True.
             """
-            self.set_connected(True)
+            super().set_connected(True)
 
         else:
             """
@@ -576,34 +435,6 @@ class QiskryptAgentClient:
             """
 
             # TODO Throw - Exception
-
-    def get_registers(self) -> list:
-        """
-        Return the Qiskrypt's Registers of the Qiskrypt's Agent Client.
-
-        :return self.registers: the Qiskrypt's Registers of the Qiskrypt's Agent Client.
-        """
-
-        """
-        Return the Qiskrypt's Registers of the Qiskrypt's Agent Client.
-        """
-        return self.registers
-
-    def get_num_registers(self) -> int:
-        """
-        Return the number of Qiskrypt's Registers in
-        the list of Qiskrypt's Registers of the Qiskrypt's Agent Client.
-
-        :return len(self.registers): the number of Qiskrypt's Registers in
-                                     the list of Qiskrypt's Registers of
-                                     the Qiskrypt's Agent Client.
-        """
-
-        """
-        Return the number of Qiskrypt's Registers in
-        the list of Qiskrypt's Registers of the Qiskrypt's Agent Client.
-        """
-        return len(self.registers)
 
     def add_quantum_register(self, quantum_register: QiskryptQuantumRegister):
         """
