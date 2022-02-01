@@ -176,17 +176,16 @@ The institutions involved in the development of this framework are:
 <a href="https://www.engr.uconn.edu/" target="_blank">
  <img src="https://raw.githubusercontent.com/qiskrypt/qiskrypt.github.io/main/assets/images/logos/institutions/PNGs/uconn-school-engineering.png" alt="UCONN - School of Engineering - Logo" width="20%">
 </a>
-<br> 
-<a href="https://nova-lincs.di.fct.unl.pt/" target="_blank">
- <img src="https://raw.githubusercontent.com/qiskrypt/qiskrypt.github.io/main/assets/images/logos/institutions/PNGs/nova-lincs.png" alt="NOVA LINCS - Logo" width="20%">
-</a>
-&nbsp;&nbsp;
+<br>
 <a href="https://www.lasige.pt/" target="_blank">
  <img src="https://raw.githubusercontent.com/qiskrypt/qiskrypt.github.io/main/assets/images/logos/institutions/PNGs/lasige.png" alt="Lasige - Logo" width="20%">
 </a>
-<br>
+&nbsp;&nbsp;
 <a href="https://www.it.pt/" target="_blank">
  <img src="https://raw.githubusercontent.com/qiskrypt/qiskrypt.github.io/main/assets/images/logos/institutions/PNGs/instituto-telecomunicacoes.png" alt="Instituto de Telecomunicações - Logo" width="20%">
+</a>
+<a href="https://nova-lincs.di.fct.unl.pt/" target="_blank">
+ <img src="https://raw.githubusercontent.com/qiskrypt/qiskrypt.github.io/main/assets/images/logos/institutions/PNGs/nova-lincs.png" alt="NOVA LINCS - Logo" width="20%">
 </a>
 &nbsp;&nbsp;
 <a href="https://utaustinportugal.org/" target="_blank">
