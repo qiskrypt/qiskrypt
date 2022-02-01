@@ -59,13 +59,13 @@ Import the scenarios for the Qiskrypt's Communication Channel.
 
 class QiskryptBroadcastNoiselessDVQuantumCommunicationChannel(QiskryptNoiselessDVQuantumCommunicationChannel):
     """
-    Object class for the Qiskrypt's Broadcast Noiseless
+    Object class for the Qiskrypt's Broadcast (One-to-All) Noiseless
     DV (Discrete Variables) Quantum Communication Channel.
     """
 
     def __init__(self, num: int, name: str, directions: list):
         """
-        Constructor of the Qiskrypt's Broadcast Noiseless
+        Constructor of the Qiskrypt's Broadcast (One-to-All) Noiseless
         DV (Discrete Variables) Quantum Communication Channel.
 
         :param num: the number of the Qiskrypt's Communication Channel.

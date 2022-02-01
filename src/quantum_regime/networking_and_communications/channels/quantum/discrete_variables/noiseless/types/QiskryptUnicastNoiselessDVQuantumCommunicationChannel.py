@@ -57,15 +57,15 @@ Import the scenarios for the Qiskrypt's Communication Channel.
 """
 
 
-class QiskryptP2MPNoiselessDVQuantumCommunicationChannel(QiskryptNoiselessDVQuantumCommunicationChannel):
+class QiskryptUnicastNoiselessDVQuantumCommunicationChannel(QiskryptNoiselessDVQuantumCommunicationChannel):
     """
-    Object class for the Qiskrypt's P2MP (Point-to-Multipoint) Noiseless
+    Object class for the Qiskrypt's Unicast (One-to-One) Noiseless
     DV (Discrete Variables) Quantum Communication Channel.
     """
 
     def __init__(self, num: int, name: str, directions: list):
         """
-        Constructor of the Qiskrypt's P2MP (Point-to-Multipoint) Noiseless
+        Constructor of the Qiskrypt's Unicast (One-to-One) Noiseless
         DV (Discrete Variables) Quantum Communication Channel.
 
         :param num: the number of the Qiskrypt's Communication Channel.
@@ -73,7 +73,7 @@ class QiskryptP2MPNoiselessDVQuantumCommunicationChannel(QiskryptNoiselessDVQuan
         :param directions: the list of directions of the Qiskrypt's Communication Channel.
         """
 
-        super().__init__(num, name, POSSIBLE_COMMUNICATION_CHANNEL_TYPES[3], directions)
+        super().__init__(num, name, POSSIBLE_COMMUNICATION_CHANNEL_TYPES[0], directions)
         """
         Call of the constructor of the super-class Qiskrypt's Noiseless
         DV (Discrete Variables) Quantum Communication Channel.

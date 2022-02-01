@@ -57,15 +57,15 @@ Import the scenarios for the Qiskrypt's Communication Channel.
 """
 
 
-class QiskryptMPNoisyDVQuantumCommunicationChannel(QiskryptNoisyDVQuantumCommunicationChannel):
+class QiskryptMulticastNoisyDVQuantumCommunicationChannel(QiskryptNoisyDVQuantumCommunicationChannel):
     """
-    Object class for the Qiskrypt's MP (Multipoint) Noisy
+    Object class for the Qiskrypt's Multicast (One-to-Many) Noisy
     DV (Discrete Variables) Quantum Communication Channel.
     """
 
     def __init__(self, num: int, name: str, directions: list):
         """
-        Constructor of the Qiskrypt's MP (Multipoint) Noisy
+        Constructor of the Qiskrypt's Multicast (One-to-Many) Noisy
         DV (Discrete Variables) Quantum Communication Channel.
 
         :param num: the number of the Qiskrypt's Communication Channel.
