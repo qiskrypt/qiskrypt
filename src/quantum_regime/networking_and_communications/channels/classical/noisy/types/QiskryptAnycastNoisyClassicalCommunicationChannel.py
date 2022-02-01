@@ -44,10 +44,10 @@ Import required Libraries and Packages.
 """
 
 from src.quantum_regime.networking_and_communications.channels\
-    .classical.noiseless.QiskryptNoiselessClassicalCommunicationChannel \
-    import QiskryptNoiselessClassicalCommunicationChannel
+    .classical.noisy.QiskryptNoisyClassicalCommunicationChannel \
+    import QiskryptNoisyClassicalCommunicationChannel
 """
-Import the Qiskrypt's Noiseless Classical Communication Channel.
+Import the Qiskrypt's Noisy Classical Communication Channel.
 """
 
 from src.quantum_regime.networking_and_communications.channels.QiskryptCommunicationChannel \
@@ -57,15 +57,15 @@ Import the scenarios for the Qiskrypt's Communication Channel.
 """
 
 
-class QiskryptP2PNoiselessClassicalCommunicationChannel(QiskryptNoiselessClassicalCommunicationChannel):
+class QiskryptP2MPNoisyClassicalCommunicationChannel(QiskryptNoisyClassicalCommunicationChannel):
     """
-    Object class for the Qiskrypt's P2MP (Point-to-Multipoint) Noiseless
+    Object class for the Qiskrypt's Anycast (One-to-Any) Noisy
     Classical Communication Channel.
     """
 
     def __init__(self, num: int, name: str, directions: list):
         """
-        Constructor of the Qiskrypt's P2MP (Point-to-Multipoint) Noiseless
+        Constructor of the Qiskrypt's Anycast (One-to-Any) Noisy
         Classical Communication Channel.
 
         :param num: the number of the Qiskrypt's Communication Channel.
@@ -75,7 +75,7 @@ class QiskryptP2PNoiselessClassicalCommunicationChannel(QiskryptNoiselessClassic
 
         super().__init__(num, name, POSSIBLE_COMMUNICATION_CHANNEL_TYPES[3], directions)
         """
-        Call of the constructor of the super-class Qiskrypt's Noiseless
+        Call of the constructor of the super-class Qiskrypt's Noisy
         Classical Communication Channel.
         """
 

@@ -44,10 +44,10 @@ Import required Libraries and Packages.
 """
 
 from src.quantum_regime.networking_and_communications.channels\
-    .classical.noiseless.QiskryptNoiselessClassicalCommunicationChannel \
-    import QiskryptNoiselessClassicalCommunicationChannel
+    .classical.noisy.QiskryptNoisyClassicalCommunicationChannel \
+    import QiskryptNoisyClassicalCommunicationChannel
 """
-Import the Qiskrypt's Noiseless Classical Communication Channel.
+Import the Qiskrypt's Noisy Classical Communication Channel.
 """
 
 from src.quantum_regime.networking_and_communications.channels.QiskryptCommunicationChannel \
@@ -57,15 +57,15 @@ Import the scenarios for the Qiskrypt's Communication Channel.
 """
 
 
-class QiskryptP2PNoiselessClassicalCommunicationChannel(QiskryptNoiselessClassicalCommunicationChannel):
+class QiskryptMulticastNoisyClassicalCommunicationChannel(QiskryptNoisyClassicalCommunicationChannel):
     """
-    Object class for the Qiskrypt's P2P (Point-to-Point) Noiseless
+    Object class for the Qiskrypt's Multicast (One-to-Many) Noisy
     Classical Communication Channel.
     """
 
     def __init__(self, num: int, name: str, directions: list):
         """
-        Constructor of the Qiskrypt's P2P (Point-to-Point) Noiseless
+        Constructor of the Qiskrypt's Multicast (One-to-Many) Noisy
         Classical Communication Channel.
 
         :param num: the number of the Qiskrypt's Communication Channel.
@@ -73,9 +73,9 @@ class QiskryptP2PNoiselessClassicalCommunicationChannel(QiskryptNoiselessClassic
         :param directions: the list of directions of the Qiskrypt's Communication Channel.
         """
 
-        super().__init__(num, name, POSSIBLE_COMMUNICATION_CHANNEL_TYPES[0], directions)
+        super().__init__(num, name, POSSIBLE_COMMUNICATION_CHANNEL_TYPES[2], directions)
         """
-        Call of the constructor of the super-class Qiskrypt's Noiseless
+        Call of the constructor of the super-class Qiskrypt's Noisy
         Classical Communication Channel.
         """
 

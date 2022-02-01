@@ -55,16 +55,12 @@ from src.quantum_regime.utils.parties_and_agents.quantum.fully_quantum.QiskryptF
 Import the Qiskrypt's Fully-Quantum Party.
 """
 
-from src.quantum_regime.utils.user_client.QiskryptUserClient \
+from src.quantum_regime.networking_and_communications.clients.types.QiskryptPartyClient \
     import QiskryptUserClient
 """
 Import the Qiskrypt's User Client.
 """
 
-from src.quantum_regime.networking_and_communications.communication_channel\
-    .quantum.discrete_variables\
-    .QiskryptQuantumCommunicationChannelInFiberOpticWithDiscreteVariableForNoiselessScenarios \
-    import QiskryptQuantumCommunicationChannelInFiberOpticWithDiscreteVariablesForNoiselessScenarios
 """
 Import the Qiskrypt's Quantum Communication Channel in Fiber Optic
 with Discrete Variables (DVs) for Noiseless Scenarios.

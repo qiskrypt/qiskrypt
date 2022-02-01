@@ -59,13 +59,13 @@ Import the scenarios for the Qiskrypt's Communication Channel.
 
 class QiskryptBroadcastNoisyClassicalCommunicationChannel(QiskryptNoisyClassicalCommunicationChannel):
     """
-    Object class for the Qiskrypt's Broadcast Noisy
+    Object class for the Qiskrypt's Broadcast (One-to-All) Noisy
     Classical Communication Channel.
     """
 
     def __init__(self, num: int, name: str, directions: list):
         """
-        Constructor of the Qiskrypt's Broadcast Noisy
+        Constructor of the Qiskrypt's Broadcast (One-to-All) Noisy
         Classical Communication Channel.
 
         :param num: the number of the Qiskrypt's Communication Channel.

@@ -44,10 +44,10 @@ Import required Libraries and Packages.
 """
 
 from src.quantum_regime.networking_and_communications.channels\
-    .classical.noisy.QiskryptNoisyClassicalCommunicationChannel \
-    import QiskryptNoisyClassicalCommunicationChannel
+    .classical.noiseless.QiskryptNoiselessClassicalCommunicationChannel \
+    import QiskryptNoiselessClassicalCommunicationChannel
 """
-Import the Qiskrypt's Noisy Classical Communication Channel.
+Import the Qiskrypt's Noiseless Classical Communication Channel.
 """
 
 from src.quantum_regime.networking_and_communications.channels.QiskryptCommunicationChannel \
@@ -57,15 +57,15 @@ Import the scenarios for the Qiskrypt's Communication Channel.
 """
 
 
-class QiskryptMPNoisyClassicalCommunicationChannel(QiskryptNoisyClassicalCommunicationChannel):
+class QiskryptAnycastNoiselessClassicalCommunicationChannel(QiskryptNoiselessClassicalCommunicationChannel):
     """
-    Object class for the Qiskrypt's MP (Multipoint) Noisy
+    Object class for the Qiskrypt's Anycast (One-to-Any) Noiseless
     Classical Communication Channel.
     """
 
     def __init__(self, num: int, name: str, directions: list):
         """
-        Constructor of the Qiskrypt's MP (Multipoint) Noisy
+        Constructor of the Qiskrypt's Anycast (One-to-Any) Noiseless
         Classical Communication Channel.
 
         :param num: the number of the Qiskrypt's Communication Channel.
@@ -73,9 +73,9 @@ class QiskryptMPNoisyClassicalCommunicationChannel(QiskryptNoisyClassicalCommuni
         :param directions: the list of directions of the Qiskrypt's Communication Channel.
         """
 
-        super().__init__(num, name, POSSIBLE_COMMUNICATION_CHANNEL_TYPES[2], directions)
+        super().__init__(num, name, POSSIBLE_COMMUNICATION_CHANNEL_TYPES[3], directions)
         """
-        Call of the constructor of the super-class Qiskrypt's Noisy
+        Call of the constructor of the super-class Qiskrypt's Noiseless
         Classical Communication Channel.
         """
 
