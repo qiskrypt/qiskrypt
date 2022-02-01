@@ -667,7 +667,7 @@ class QiskryptLink:
 
                         if (num_registers_to_add == 1) and (num_registers_to_add == self.get_num_possible_listeners()):
                             """
-                            Since the type of the Qiskrypt's Communication Channel is Unicast (One-to-One),
+                            Since the type of the Qiskrypt's Quantum Communication Channel is Unicast (One-to-One),
                             it can only be modeled by exactly one single Qiskrypt's Quantum Register,
                             which also represents the only one possible listener of the Qiskrypt's Link.
                             """
@@ -800,26 +800,218 @@ class QiskryptLink:
         Set a given list of Qiskrypt's Classical Registers to be
         the Qiskrypt's Register of the Qiskrypt's Link, if it is possible.
 
-        :param classical_registers: the list of Qiskrypt's Classical Register to be set as
-                                    the Qiskrypt's Register of the Qiskrypt's Link.
+        :param classical_registers: the list of possible Qiskrypt's Classical Registers to be set as
+                                    the Qiskrypt's Registers of the Qiskrypt's Link.
         """
 
-        if self.is_established():
+        if self.get_num_registers() == 0:
             """
-            If the Qiskrypt's Link is already established
-            from a Qiskrypt's Medium and a Qiskrypt's Communication Channel.
+            If the Qiskrypt's Link does not have any Qiskrypt's Register yet.
             """
 
-            self.registers = classical_registers
+            num_registers_to_add = len(classical_registers)
             """
-            Set the given Qiskrypt's Classical Register to be
-            the Qiskrypt's Register of the Qiskrypt's Link
+            Retrieve the number of possible Qiskrypt's Registers to add to the Qiskrypt's Link.
             """
+
+            if num_registers_to_add > 0:
+                """
+                If the list of possible Qiskrypt's Classical Registers to be set as
+                the Qiskrypt's Registers of the Qiskrypt's Link is not empty.
+                """
+
+                for current_register_index in range(num_registers_to_add):
+                    """
+                    For each object's index in the given list of possible Qiskrypt's Classical Registers.
+                    """
+
+                    current_register = classical_registers[current_register_index]
+                    """
+                    Retrieve the current object for a possible Qiskrypt's Classical Register.
+                    """
+
+                    if not isinstance(current_register, QiskryptClassicalRegister):
+                        """
+                        Check if the current object is not a Qiskrypt's Classical Register.
+                        """
+
+                        # TODO Throw - Exception
+
+                communication_channel = self.get_communication_channel()
+                """
+                Retrieve the Qiskrypt's Communication Channel.
+                """
+
+                communication_channel_context = communication_channel.get_context()
+                """
+                Retrieve the context of the Qiskrypt's Communication Channel.
+                """
+
+                if (communication_channel_context == POSSIBLE_COMMUNICATION_CHANNEL_CONTEXTS[1]) and \
+                        (isinstance(communication_channel, QiskryptClassicalCommunicationChannel)):
+                    """
+                    If the Qiskrypt's Communication Channel is in the Classical Context and
+                    it is a Qiskrypt's Classical Communication Channel, and thus, it is valid.
+                    """
+
+                    for current_classical_register_index in range(num_registers_to_add):
+                        """
+                        For each Qiskrypt's Classical Register in
+                        the given list of Qiskrypt's Classical Registers.
+                        """
+
+                        current_classical_register = classical_registers[current_classical_register_index]
+                        """
+                        Retrieve the current Qiskrypt's Classical Register.
+                        """
+
+                        if isinstance(current_classical_register, QiskryptClassicalRegister) and \
+                                (current_classical_register.get_num_bits() != 1):
+                            """
+                            Check if the current Qiskrypt's Classical Register does not have
+                            exactly one single bit, since it should represent a
+                            Qiskrypt's Classical Communication Channel,
+                            which can only carry one individual qubit.
+                            """
+
+                            # TODO Throw - Exception
+
+                    communication_channel_type = communication_channel.get_channel_type()
+                    """
+                    Retrieve the type of the Qiskrypt's Classical Communication Channel.
+                    """
+
+                    if communication_channel_type == POSSIBLE_COMMUNICATION_CHANNEL_TYPES[1]:
+                        """
+                        If the type of the Qiskrypt's Classical Communication Channel is Unicast (One-to-One).
+                        """
+
+                        if (num_registers_to_add == 1) and (num_registers_to_add == self.get_num_possible_listeners()):
+                            """
+                            Since the type of the Qiskrypt's Classical Communication Channel is Unicast (One-to-One),
+                            it can only be modeled by exactly one single Qiskrypt's Classical Register,
+                            which also represents the only one possible listener of the Qiskrypt's Link.
+                            """
+
+                            self.registers = classical_registers
+                            """
+                            Set the Qiskrypt's Registers for the Qiskrypt's Link,
+                            with the given list of Qiskrypt's Classical Registers. 
+                            """
+
+                        else:
+                            """
+                            Since the type of the Qiskrypt's Classical Communication Channel is Unicast (One-to-One),
+                            it cannot be modeled by more than one single Qiskrypt's Classical Register,
+                            since also represents the only one possible listener of the Qiskrypt's Link.
+                            """
+
+                            # TODO Throw - Exception
+
+                    elif communication_channel_type == POSSIBLE_COMMUNICATION_CHANNEL_TYPES[1]:
+                        """
+                        If the type of the Qiskrypt's Classical Communication Channel is Broadcast (One-to-All).
+                        """
+
+                        if (num_registers_to_add >= 1) and (num_registers_to_add == self.get_num_possible_listeners()):
+                            """
+                            Since the type of the Qiskrypt's Classical Communication Channel is Broadcast (One-to-All),
+                            it can only be modeled by one or more Qiskrypt's Classical Register(s),
+                            but in an exactly equal number of possible listeners of the Qiskrypt's Link.
+                            """
+
+                            self.registers = classical_registers
+                            """
+                            Set the Qiskrypt's Registers for the Qiskrypt's Link,
+                            with the given list of Qiskrypt's Classical Registers. 
+                            """
+
+                        else:
+                            """
+                            Since the type of the Qiskrypt's Classical Communication Channel is Broadcast (One-to-All),
+                            it cannot be modeled by no Qiskrypt's Classical Register, or even,
+                            by a number of Qiskrypt's Register(s) different than
+                            the number of possible listeners of the Qiskrypt's Link.
+                            """
+
+                            # TODO Throw - Exception
+
+                    elif communication_channel_type == POSSIBLE_COMMUNICATION_CHANNEL_TYPES[2]:
+                        """
+                        If the type of the Qiskrypt's Classical Communication Channel is Multicast (One-to-Many).
+                        """
+
+                        if (num_registers_to_add >= 1) and (num_registers_to_add <= self.get_num_possible_listeners()):
+                            """
+                            Since the type of the Qiskrypt's Classical Communication Channel is Multicast (One-to-Many),
+                            it can only be modeled by one or more Qiskrypt's Classical Register(s),
+                            but in a lower number than or equal number to the number of
+                            possible listeners of the Qiskrypt's Link.
+                            """
+
+                            self.registers = classical_registers
+                            """
+                            Set the Qiskrypt's Registers for the Qiskrypt's Link,
+                            with the given list of Qiskrypt's Classical Registers. 
+                            """
+
+                        else:
+                            """
+                            Since the type of the Qiskrypt's Classical Communication Channel is Multicast (One-to-Many),
+                            it cannot be modeled by no Qiskrypt's Classical Register, or even,
+                            by a number of Qiskrypt's Register(s) greater than
+                            the number of possible listeners of the Qiskrypt's Link.
+                            """
+
+                            # TODO Throw - Exception
+
+                    elif communication_channel_type == POSSIBLE_COMMUNICATION_CHANNEL_TYPES[3]:
+                        """
+                        If the type of the Qiskrypt's Classical Communication Channel is Anycast (One-to-Any).
+                        """
+
+                        if (num_registers_to_add == 1) and (num_registers_to_add <= self.get_num_possible_listeners()):
+                            """
+                            Since the type of the Qiskrypt's Classical Communication Channel is Anycast (One-to-Any),
+                            it can only be modeled by exactly one single Qiskrypt's Classical Register,
+                            which also represents one of the one or more possible listener(s) of the Qiskrypt's Link.
+                            """
+
+                            self.registers = classical_registers
+                            """
+                            Set the Qiskrypt's Registers for the Qiskrypt's Link,
+                            with the given list of Qiskrypt's Classical Registers. 
+                            """
+
+                        else:
+                            """
+                            Since the type of the Qiskrypt's Classical Communication Channel is Anycast (One-to-Any),
+                            it cannot be modeled by more than one single Qiskrypt's Classical Register, or even,
+                            by a number of Qiskrypt's Register(s) greater than
+                            the number of possible listeners of the Qiskrypt's Link.
+                            """
+
+                            # TODO Throw - Exception
+
+                else:
+                    """
+                    If the Qiskrypt's Communication Channel is not in the Classical Context neither
+                    it is a Qiskrypt's Classical Communication Channel, and thus, it is not valid.
+                    """
+
+                    # TODO Throw - Exception
+
+            else:
+                """
+                If the list of possible Qiskrypt's Classical Registers to be set as
+                the Qiskrypt's Registers of the Qiskrypt's Link is empty.
+                """
+
+                # TODO Throw - Exception
 
         else:
             """
-            If the Qiskrypt's Link is not established yet
-            from a Qiskrypt's Medium and a Qiskrypt's Communication Channel.
+            If the Qiskrypt's Link does already have some Qiskrypt's Register.
             """
 
             # TODO Throw - Exception
