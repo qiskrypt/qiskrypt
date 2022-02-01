@@ -189,132 +189,146 @@ class QiskryptLink:
                                for the Qiskrypt's Link.
         """
 
-        if uuid_version == 0:
+        if num_possible_listeners >= 1:
             """
-            If the Qiskrypt's Link is configured with
-            general UUID (Universally Unique IDentifier).
+            If there is one or more possible listeners for the Qiskrypt's Link,
+            the Qiskrypt's Link is valid in terms of cardinality.
             """
 
-            if uuid_bytes is None:
+            if uuid_version == 0:
                 """
-                If was given specific bytes for the UUID (Universally Unique IDentifier).
-                """
-
-                quantum_random_binary_generator = \
-                    QiskryptQuantumRandomBinaryGenerator("qu_rng_binary")
-                """
-                Create a Qiskrypt's Quantum Random Binary Generator.
+                If the Qiskrypt's Link is configured with
+                general UUID (Universally Unique IDentifier).
                 """
 
-                quantum_random_binary_generator.initiate((NUM_BYTES_FOR_UUID * SIZE_BYTE_IN_NUM_BITS))
+                if uuid_bytes is None:
+                    """
+                    If was given specific bytes for the UUID (Universally Unique IDentifier).
+                    """
+
+                    quantum_random_binary_generator = \
+                        QiskryptQuantumRandomBinaryGenerator("qu_rng_binary")
+                    """
+                    Create a Qiskrypt's Quantum Random Binary Generator.
+                    """
+
+                    quantum_random_binary_generator.initiate((NUM_BYTES_FOR_UUID * SIZE_BYTE_IN_NUM_BITS))
+                    """
+                    Initiate the Qiskrypt's Quantum Random Binary Generator, for 128 bits (16 bytes).
+                    """
+
+                    random_binary_string_bits = \
+                        quantum_random_binary_generator.generate_binary_string()
+                    """
+                    Generate a random binary string in bits, with 128 bits (16 bytes).
+                    """
+
+                    random_binary_string_bytes = \
+                        QiskryptClassicalUtilities.convert_binary_string_to_bytes(random_binary_string_bits)
+                    """
+                    Convert the random binary string in bits to a random binary string in bytes,
+                    with 128 bits (16 bytes).
+                    """
+
+                    self.uuid = UUID(bytes=random_binary_string_bytes)
+                    """
+                    Set the UUID (Universally Unique IDentifier) for the Qiskrypt's Link.
+                    """
+
+                else:
+                    """
+                    If was not given specific bytes for the UUID (Universally Unique IDentifier).
+                    """
+
+                    self.uuid = UUID(bytes=uuid_bytes)
+                    """
+                    Set the UUID (Universally Unique IDentifier) for the Qiskrypt's Link.
+                    """
+
+            if uuid_version == 1:
                 """
-                Initiate the Qiskrypt's Quantum Random Binary Generator, for 128 bits (16 bytes).
+                If the Qiskrypt's Link is configured with
+                UUID (Universally Unique IDentifier) version 1.
                 """
 
-                random_binary_string_bits = \
-                    quantum_random_binary_generator.generate_binary_string()
+                self.uuid = uuid1(uuid_node, uuid_clock_sequence)
                 """
-                Generate a random binary string in bits, with 128 bits (16 bytes).
-                """
-
-                random_binary_string_bytes = \
-                    QiskryptClassicalUtilities.convert_binary_string_to_bytes(random_binary_string_bits)
-                """
-                Convert the random binary string in bits to a random binary string in bytes,
-                with 128 bits (16 bytes).
+                Set the UUID (Universally Unique IDentifier) for the Qiskrypt's Link.
                 """
 
-                self.uuid = UUID(bytes=random_binary_string_bytes)
+            elif uuid_version == 3:
+                """
+                If the Qiskrypt's Link is configured with
+                UUID (Universally Unique IDentifier) version 3.
+                """
+
+                self.uuid = uuid3(uuid_namespace, uuid_name)
+                """
+                Set the UUID (Universally Unique IDentifier) for the Qiskrypt's Link.
+                """
+
+            elif uuid_version == 4:
+                """
+                If the Qiskrypt's Link is configured with
+                UUID (Universally Unique IDentifier) version 4.
+                """
+
+                self.uuid = uuid4()
+                """
+                Set the UUID (Universally Unique IDentifier) for the Qiskrypt's Link.
+                """
+
+            elif uuid_version == 5:
+                """
+                If the Qiskrypt's Link is configured with
+                UUID (Universally Unique IDentifier) version 5.
+                """
+
+                self.uuid = uuid5(uuid_namespace, uuid_name)
                 """
                 Set the UUID (Universally Unique IDentifier) for the Qiskrypt's Link.
                 """
 
             else:
                 """
-                If was not given specific bytes for the UUID (Universally Unique IDentifier).
+                If the Qiskrypt's Link is configured with an invalid version.
                 """
 
-                self.uuid = UUID(bytes=uuid_bytes)
-                """
-                Set the UUID (Universally Unique IDentifier) for the Qiskrypt's Link.
-                """
+                # TODO Throw - Exception
 
-        if uuid_version == 1:
+            self.num_possible_listeners = num_possible_listeners
             """
-            If the Qiskrypt's Link is configured with
-            UUID (Universally Unique IDentifier) version 1.
+            Set the number of possible listeners for the Qiskrypt's Link.
             """
 
-            self.uuid = uuid1(uuid_node, uuid_clock_sequence)
+            self.mediums = list()
             """
-            Set the UUID (Universally Unique IDentifier) for the Qiskrypt's Link.
-            """
-
-        elif uuid_version == 3:
-            """
-            If the Qiskrypt's Link is configured with
-            UUID (Universally Unique IDentifier) version 3.
+            Set the list of Qiskrypt's Mediums for the Qiskrypt's Link, initially, as an empty list.
             """
 
-            self.uuid = uuid3(uuid_namespace, uuid_name)
+            self.communication_channel = None
             """
-            Set the UUID (Universally Unique IDentifier) for the Qiskrypt's Link.
-            """
-
-        elif uuid_version == 4:
-            """
-            If the Qiskrypt's Link is configured with
-            UUID (Universally Unique IDentifier) version 4.
+            Set the Qiskrypt's Communication Channel for the Qiskrypt's Link, initially, as None.
             """
 
-            self.uuid = uuid4()
+            self.established = False
             """
-            Set the UUID (Universally Unique IDentifier) for the Qiskrypt's Link.
-            """
-
-        elif uuid_version == 5:
-            """
-            If the Qiskrypt's Link is configured with
-            UUID (Universally Unique IDentifier) version 5.
+            Set the boolean flag to keep the information about if
+            the Qiskrypt's Link is established or not.
             """
 
-            self.uuid = uuid5(uuid_namespace, uuid_name)
+            self.registers = list()
             """
-            Set the UUID (Universally Unique IDentifier) for the Qiskrypt's Link.
+            Set the Qiskrypt's Registers for the Qiskrypt's Link, initially, as an empty list.
             """
 
         else:
             """
-            If the Qiskrypt's Link is configured with an invalid version.
+            If there is no possible listeners for the Qiskrypt's Link,
+            the Qiskrypt's Link is not valid in terms of cardinality.
             """
 
             # TODO Throw - Exception
-
-        self.num_possible_listeners = num_possible_listeners
-        """
-        Set the number of possible listeners for the Qiskrypt's Link.
-        """
-
-        self.mediums = list()
-        """
-        Set the list of Qiskrypt's Mediums for the Qiskrypt's Link, initially, as an empty list.
-        """
-
-        self.communication_channel = None
-        """
-        Set the Qiskrypt's Communication Channel for the Qiskrypt's Link, initially, as None.
-        """
-
-        self.established = False
-        """
-        Set the boolean flag to keep the information about if
-        the Qiskrypt's Link is established or not.
-        """
-
-        self.registers = list()
-        """
-        Set the Qiskrypt's Registers for the Qiskrypt's Link, initially, as an empty list.
-        """
 
     def get_uuid(self) -> UUID:
         """
