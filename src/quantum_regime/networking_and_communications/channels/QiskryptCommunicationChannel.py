@@ -53,14 +53,14 @@ POSSIBLE_COMMUNICATION_CHANNEL_SCENARIOS = ["NOISELESS", "NOISY"]
 The available Communication Channel scenarios for the Qiskrypt's Communication Channel.
 """
 
-POSSIBLE_COMMUNICATION_CHANNEL_TYPES = ["POINT-TO-POINT (P2P)", "BROADCAST",
-                                        "MULTIPOINT (MP)", "POINT-TO-MULTIPOINT (P2MP)"]
+POSSIBLE_COMMUNICATION_CHANNEL_TYPES = ["UNICAST (ONE-TO-ONE)", "BROADCAST (ONE-TO-ALL)",
+                                        "MULTICAST (ONE-TO-MANY)", "ANYCAST (ONE-TO-ANY)"]
 """
 The available Communication Channel types for the Qiskrypt's Communication Channel.
 """
 
-POSSIBLE_COMMUNICATION_CHANNEL_DIRECTIONS = ["GROUND-TO-GROUND (G2G)", "GROUND-TO-SATELLITE (G2S)",
-                                             "SATELLITE-TO-GROUND (S2G)", "SATELLITE-TO-SATELLITE (S2S)",
+POSSIBLE_COMMUNICATION_CHANNEL_DIRECTIONS = ["G2G (GROUND-TO-GROUND)", "G2S (GROUND-TO-SATELLITE)",
+                                             "S2G (SATELLITE-TO-GROUND)", "S2S (SATELLITE-TO-SATELLITE)",
                                              "UPLINK", "DOWNLINK", "FORWARD LINK", "REVERSE LINK",
                                              "FORWARD LINK (UPLINK)", "FORWARD LINK (DOWNLINK)",
                                              "REVERSE LINK (UPLINK)", "REVERSE LINK (DOWNLINK)"]
