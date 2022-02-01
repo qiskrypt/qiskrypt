@@ -184,6 +184,7 @@ The institutions involved in the development of this framework are:
 <a href="https://www.it.pt/" target="_blank">
  <img src="https://raw.githubusercontent.com/qiskrypt/qiskrypt.github.io/main/assets/images/logos/institutions/PNGs/instituto-telecomunicacoes.png" alt="Instituto de Telecomunicações - Logo" width="20%">
 </a>
+<br>
 <a href="https://nova-lincs.di.fct.unl.pt/" target="_blank">
  <img src="https://raw.githubusercontent.com/qiskrypt/qiskrypt.github.io/main/assets/images/logos/institutions/PNGs/nova-lincs.png" alt="NOVA LINCS - Logo" width="20%">
 </a>
