@@ -166,8 +166,8 @@ class QiskryptQuantumRegister:
         """
         Return/Raise a Not a Valid Qiskrypt's Quantum Register Index Error for the Qiskrypt's Quantum Register.
 
-        :raise not_valid_qiskrypt_quantum_register_index_error: a Not a Valid Qiskrypt's Quantum Register Index Error for
-                                                                the Qiskrypt's Quantum Register.
+        :raise not_valid_qiskrypt_quantum_register_index_error: a Not a Valid Qiskrypt's Quantum Register Index Error
+                                                                for the Qiskrypt's Quantum Register.
         """
 
         not_valid_qiskrypt_quantum_register_index_error = QiskryptNotValidQuantumRegisterIndexError()
