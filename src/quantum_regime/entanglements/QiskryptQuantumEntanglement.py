@@ -21,6 +21,7 @@ College(s):\n
 - School of Engineering, University of Connecticut, United States of America.
 
 Other Institution(s):\n
+- NOVA LINCS, Portugal.
 - Instituto de Telecomunicacoes, Portugal.
 - SQIG, Portugal.
 - LASIGE, Portugal.
