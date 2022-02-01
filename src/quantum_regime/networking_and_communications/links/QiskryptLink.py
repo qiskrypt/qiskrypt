@@ -92,6 +92,25 @@ from src.quantum_regime.networking_and_communications.channels.QiskryptCommunica
 Import the Qiskrypt's Communication Channel.
 """
 
+from src.quantum_regime.networking_and_communications.channels.quantum.QiskryptQuantumCommunicationChannel \
+    import QiskryptQuantumCommunicationChannel
+"""
+Import the Qiskrypt's Quantum Communication Channel.
+"""
+
+from src.quantum_regime.networking_and_communications.channels\
+    .quantum.discrete_variables.QiskryptDVQuantumCommunicationChannel \
+    import QiskryptDVQuantumCommunicationChannel
+"""
+Import the Qiskrypt's DV (Discrete Variable) Quantum Communication Channel.
+"""
+
+from src.quantum_regime.networking_and_communications.channels.classical.QiskryptClassicalCommunicationChannel \
+    import QiskryptClassicalCommunicationChannel
+"""
+Import the Qiskrypt's Classical Communication Channel.
+"""
+
 from src.quantum_regime.true_random.random_generator.binary.QiskryptQuantumRandomBinaryGenerator \
     import QiskryptQuantumRandomBinaryGenerator
 """
@@ -102,6 +121,26 @@ from src.classical_regime.common.QiskryptClassicalUtilities \
     import QiskryptClassicalUtilities
 """
 Import the Qiskrypt's Classical Utilities.
+"""
+
+from src.quantum_regime.networking_and_communications.channels.QiskryptCommunicationChannel \
+    import POSSIBLE_COMMUNICATION_CHANNEL_CONTEXTS
+"""
+Import the available Communication Channel contexts for the Qiskrypt's Communication Channel.
+"""
+
+from src.quantum_regime.networking_and_communications.channels.QiskryptCommunicationChannel \
+    import POSSIBLE_COMMUNICATION_CHANNEL_TYPES
+"""
+Import the available Communication Channel types for the Qiskrypt's Communication Channel.
+"""
+
+from src.quantum_regime.networking_and_communications.channels\
+    .quantum.QiskryptQuantumCommunicationChannel \
+    import POSSIBLE_QUANTUM_COMMUNICATION_CHANNEL_SIGNAL_VARIABLE_TYPES
+"""
+Import the available Communication Channel signal variable types for
+the Qiskrypt's Quantum Communication Channel.
 """
 
 from src.classical_regime.common.QiskryptClassicalUtilities \
@@ -127,11 +166,14 @@ class QiskryptLink:
     Object class for the Qiskrypt's Link.
     """
 
-    def __init__(self, uuid_version=0, uuid_bytes=None, uuid_node=None,
+    def __init__(self, num_possible_listeners: int,
+                 uuid_version=0, uuid_bytes=None, uuid_node=None,
                  uuid_clock_sequence=None, uuid_name=None, uuid_namespace=None):
         """
         Constructor of the Qiskrypt's Link.
 
+        :param num_possible_listeners: the number of possible listeners
+                                       for the Qiskrypt's Link.
         :param uuid_version: the version of the UUID (Universally Unique IDentifier)
                              for the Qiskrypt's Link.
         :param uuid_bytes: the bytes to build the UUID (Universally Unique IDentifier)
@@ -247,6 +289,11 @@ class QiskryptLink:
 
             # TODO Throw - Exception
 
+        self.num_possible_listeners = num_possible_listeners
+        """
+        Set the number of possible listeners for the Qiskrypt's Link.
+        """
+
         self.medium = None
         """
         Set the Qiskrypt's Medium for the Qiskrypt's Link, initially, as None.
@@ -263,9 +310,9 @@ class QiskryptLink:
         the Qiskrypt's Link is established or not.
         """
 
-        self.register = None
+        self.registers = list()
         """
-        Set the Qiskrypt's Register for the Qiskrypt's Link, initially, as None.
+        Set the Qiskrypt's Registers for the Qiskrypt's Link, initially, as an empty list.
         """
 
     def get_uuid(self) -> UUID:
@@ -282,6 +329,19 @@ class QiskryptLink:
         the Qiskrypt's Link.
         """
         return self.uuid
+
+    def get_num_possible_listeners(self) -> int:
+        """
+        Return the number of possible listeners for the Qiskrypt's Link.
+
+        :return self.num_possible_listeners: the number of possible listeners for
+                                             the Qiskrypt's Link.
+        """
+
+        """
+        Return the number of possible listeners for the Qiskrypt's Link.
+        """
+        return self.num_possible_listeners
 
     def get_medium(self) -> QiskryptMedium:
         """
@@ -425,34 +485,272 @@ class QiskryptLink:
 
             # TODO Throw - Exception
 
-    def get_register(self) -> list:
+    def get_registers(self) -> list:
         """
-        Return the Qiskrypt's Register of the Qiskrypt's Link.
+        Return the Qiskrypt's Registers of the Qiskrypt's Link.
 
-        :return self.register: the Qiskrypt's Register of the Qiskrypt's Link.
+        :return self.registers: the Qiskrypt's Registers of the Qiskrypt's Link.
         """
 
         """
-        Return the Qiskrypt's Register of the Qiskrypt's Link.
+        Return the Qiskrypt's Registers of the Qiskrypt's Link.
         """
-        return self.register
+        return self.registers
 
-    def set_quantum_register(self, quantum_register: QiskryptQuantumRegister):
+    def get_num_registers(self) -> int:
         """
-        Set a given Qiskrypt's Quantum Register to be
+        Return the number of Qiskrypt's Registers of the Qiskrypt's Link.
+
+        :return len(self.registers): the number of Qiskrypt's Registers of the Qiskrypt's Link.
+        """
+
+        """
+        Return the number of Qiskrypt's Registers of the Qiskrypt's Link.
+        """
+        return len(self.registers)
+
+    def set_quantum_registers(self, quantum_registers: list):
+        """
+        Set a given list of Qiskrypt's Quantum Registers to be
         the Qiskrypt's Register of the Qiskrypt's Link, if it is possible.
 
-        :param quantum_register: the Qiskrypt's Quantum Register to be set as
-                                 the Qiskrypt's Register of the Qiskrypt's Link.
+        :param quantum_registers: the list of possible Qiskrypt's Quantum Registers to be set as
+                                  the Qiskrypt's Registers of the Qiskrypt's Link.
         """
 
-    def set_classical_register(self, classical_register: QiskryptClassicalRegister):
+        if self.get_num_registers() == 0:
+            """
+            If the Qiskrypt's Link does not have any Qiskrypt's Register yet.
+            """
+
+            num_registers_to_add = len(quantum_registers)
+            """
+            Retrieve the number of possible Qiskrypt's Registers to add to the Qiskrypt's Link.
+            """
+
+            if num_registers_to_add > 0:
+                """
+                If the list of possible Qiskrypt's Quantum Registers to be set as
+                the Qiskrypt's Registers of the Qiskrypt's Link is not empty.
+                """
+
+                for current_register_index in range(num_registers_to_add):
+                    """
+                    For each object's index in the given list of possible Qiskrypt's Quantum Registers.
+                    """
+
+                    current_register = quantum_registers[current_register_index]
+                    """
+                    Retrieve the current object for a possible Qiskrypt's Quantum Register.
+                    """
+
+                    if not isinstance(current_register, QiskryptQuantumRegister):
+                        """
+                        Check if the current object is not a Qiskrypt's Quantum Register.
+                        """
+
+                        # TODO Throw - Exception
+
+                communication_channel = self.get_communication_channel()
+                """
+                Retrieve the Qiskrypt's Communication Channel.
+                """
+
+                communication_channel_context = communication_channel.get_context()
+                """
+                Retrieve the context of the Qiskrypt's Communication Channel.
+                """
+
+                if (communication_channel_context == POSSIBLE_COMMUNICATION_CHANNEL_CONTEXTS[0]) and \
+                        (isinstance(communication_channel, QiskryptQuantumCommunicationChannel)):
+                    """
+                    If the Qiskrypt's Communication Channel is in the Quantum Context and
+                    it is a Qiskrypt's Quantum Communication Channel, and thus, it is valid.
+                    """
+
+                    quantum_communication_channel_signal_variable_type = \
+                        communication_channel.get_signal_variable_type()
+                    """
+                    Retrieve the signal variable type of the Qiskrypt's Quantum Communication Channel.
+                    """
+
+                    if quantum_communication_channel_signal_variable_type == \
+                       POSSIBLE_QUANTUM_COMMUNICATION_CHANNEL_SIGNAL_VARIABLE_TYPES[0]:
+                        """
+                        If the signal variable type of the Qiskrypt's Quantum Communication Channel
+                        is represented by DVs (Discrete Variables), it can only carry one individual qubit.
+                        """
+
+                        for current_quantum_register_index in range(num_registers_to_add):
+                            """
+                            For each Qiskrypt's Quantum Register in
+                            the given list of Qiskrypt's Quantum Registers.
+                            """
+
+                            current_quantum_register = quantum_registers[current_quantum_register_index]
+                            """
+                            Retrieve the current Qiskrypt's Quantum Register.
+                            """
+
+                            if isinstance(current_quantum_register, QiskryptQuantumRegister) and \
+                                isinstance(communication_channel, QiskryptDVQuantumCommunicationChannel) and \
+                                    (current_quantum_register.get_num_qubits() != 1):
+                                """
+                                Check if the current Qiskrypt's Quantum Register does not have
+                                exactly one single qubit, since it should represent a
+                                Qiskrypt's DV (Discrete Variable) Quantum Communication Channel,
+                                which can only carry one individual qubit.
+                                """
+
+                                # TODO Throw - Exception
+
+                    communication_channel_type = communication_channel.get_channel_type()
+                    """
+                    Retrieve the type of the Qiskrypt's Quantum Communication Channel.
+                    """
+
+                    if communication_channel_type == POSSIBLE_COMMUNICATION_CHANNEL_TYPES[0]:
+                        """
+                        If the type of the Qiskrypt's Quantum Communication Channel is Unicast (One-to-One).
+                        """
+
+                        if (num_registers_to_add == 1) and (num_registers_to_add == self.get_num_possible_listeners()):
+                            """
+                            Since the type of the Qiskrypt's Communication Channel is Unicast (One-to-One),
+                            it can only be modeled by exactly one single Qiskrypt's Quantum Register,
+                            which also represents the only one possible listener of the Qiskrypt's Link.
+                            """
+
+                            self.registers = quantum_registers
+                            """
+                            Set the Qiskrypt's Registers for the Qiskrypt's Link,
+                            with the given list of Qiskrypt's Quantum Registers. 
+                            """
+
+                        else:
+                            """
+                            Since the type of the Qiskrypt's Quantum Communication Channel is Unicast (One-to-One),
+                            it cannot be modeled by more than one single Qiskrypt's Quantum Register,
+                            since also represents the only one possible listener of the Qiskrypt's Link.
+                            """
+
+                            # TODO Throw - Exception
+
+                    elif communication_channel_type == POSSIBLE_COMMUNICATION_CHANNEL_TYPES[1]:
+                        """
+                        If the type of the Qiskrypt's Quantum Communication Channel is Broadcast (One-to-All).
+                        """
+
+                        if (num_registers_to_add >= 1) and (num_registers_to_add == self.get_num_possible_listeners()):
+                            """
+                            Since the type of the Qiskrypt's Quantum Communication Channel is Broadcast (One-to-All),
+                            it can only be modeled by one or more Qiskrypt's Quantum Register(s),
+                            but in an exactly equal number of possible listeners of the Qiskrypt's Link.
+                            """
+
+                            self.registers = quantum_registers
+                            """
+                            Set the Qiskrypt's Registers for the Qiskrypt's Link,
+                            with the given list of Qiskrypt's Quantum Registers. 
+                            """
+
+                        else:
+                            """
+                            Since the type of the Qiskrypt's Quantum Communication Channel is Broadcast (One-to-All),
+                            it cannot be modeled by no Qiskrypt's Quantum Register, or even,
+                            by a number of Qiskrypt's Register(s) different than
+                            the number of possible listeners of the Qiskrypt's Link.
+                            """
+
+                            # TODO Throw - Exception
+
+                    elif communication_channel_type == POSSIBLE_COMMUNICATION_CHANNEL_TYPES[2]:
+                        """
+                        If the type of the Qiskrypt's Quantum Communication Channel is Multicast (One-to-Many).
+                        """
+
+                        if (num_registers_to_add >= 1) and (num_registers_to_add <= self.get_num_possible_listeners()):
+                            """
+                            Since the type of the Qiskrypt's Quantum Communication Channel is Multicast (One-to-Many),
+                            it can only be modeled by one or more Qiskrypt's Quantum Register(s),
+                            but in a lower number than or equal number to the number of
+                            possible listeners of the Qiskrypt's Link.
+                            """
+
+                            self.registers = quantum_registers
+                            """
+                            Set the Qiskrypt's Registers for the Qiskrypt's Link,
+                            with the given list of Qiskrypt's Quantum Registers. 
+                            """
+
+                        else:
+                            """
+                            Since the type of the Qiskrypt's Quantum Communication Channel is Multicast (One-to-Many),
+                            it cannot be modeled by no Qiskrypt's Quantum Register, or even,
+                            by a number of Qiskrypt's Register(s) greater than
+                            the number of possible listeners of the Qiskrypt's Link.
+                            """
+
+                            # TODO Throw - Exception
+
+                    elif communication_channel_type == POSSIBLE_COMMUNICATION_CHANNEL_TYPES[3]:
+                        """
+                        If the type of the Qiskrypt's Quantum Communication Channel is Anycast (One-to-Any).
+                        """
+
+                        if (num_registers_to_add == 1) and (num_registers_to_add <= self.get_num_possible_listeners()):
+                            """
+                            Since the type of the Qiskrypt's Quantum Communication Channel is Anycast (One-to-Any),
+                            it can only be modeled by exactly one single Qiskrypt's Quantum Register,
+                            which also represents one of the one or more possible listener(s) of the Qiskrypt's Link.
+                            """
+
+                            self.registers = quantum_registers
+                            """
+                            Set the Qiskrypt's Registers for the Qiskrypt's Link,
+                            with the given list of Qiskrypt's Quantum Registers. 
+                            """
+
+                        else:
+                            """
+                            Since the type of the Qiskrypt's Quantum Communication Channel is Anycast (One-to-Any),
+                            it cannot be modeled by more than one single Qiskrypt's Quantum Register, or even,
+                            by a number of Qiskrypt's Register(s) greater than
+                            the number of possible listeners of the Qiskrypt's Link.
+                            """
+
+                            # TODO Throw - Exception
+
+                else:
+                    """
+                    If the Qiskrypt's Communication Channel is not in the Quantum Context neither
+                    it is a Qiskrypt's Quantum Communication Channel, and thus, it is not valid.
+                    """
+
+                    # TODO Throw - Exception
+
+            else:
+                """
+                If the list of possible Qiskrypt's Quantum Registers to be set as
+                the Qiskrypt's Registers of the Qiskrypt's Link is empty.
+                """
+
+                # TODO Throw - Exception
+
+        else:
+            """
+            If the Qiskrypt's Link does already have some Qiskrypt's Register.
+            """
+
+            # TODO Throw - Exception
+
+    def set_classical_registers(self, classical_registers: list):
         """
-        Set a given Qiskrypt's Classical Register to be
+        Set a given list of Qiskrypt's Classical Registers to be
         the Qiskrypt's Register of the Qiskrypt's Link, if it is possible.
 
-        :param classical_register: the Qiskrypt's Classical Register to be set as
-                                   the Qiskrypt's Register of the Qiskrypt's Link.
+        :param classical_registers: the list of Qiskrypt's Classical Register to be set as
+                                    the Qiskrypt's Register of the Qiskrypt's Link.
         """
 
         if self.is_established():
@@ -461,7 +759,7 @@ class QiskryptLink:
             from a Qiskrypt's Medium and a Qiskrypt's Communication Channel.
             """
 
-            self.register = classical_register
+            self.registers = classical_registers
             """
             Set the given Qiskrypt's Classical Register to be
             the Qiskrypt's Register of the Qiskrypt's Link
