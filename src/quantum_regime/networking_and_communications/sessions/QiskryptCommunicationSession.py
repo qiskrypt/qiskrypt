@@ -63,9 +63,14 @@ class QiskryptCommunicationSession:
     Object class for the Qiskrypt's Communication Session.
     """
 
-    def __init__(self):
+    def __init__(self, name: str):
         """
         Constructor of the Qiskrypt's Communication Session.
+        """
+
+        self.name = name
+        """
+        Set the name of the Qiskrypt's Communication Session.
         """
 
         self.sender_party_clients = list()
@@ -84,6 +89,30 @@ class QiskryptCommunicationSession:
         Set the list of receiver Qiskrypt's Party Clients, initially,
         as an empty list.
         """
+
+        self.started = False
+        """
+        Set the boolean flag to keep information about if the
+        Qiskrypt's Communication Session is started or not.
+        """
+
+        self.timeout_in_secs = 0
+        """
+        Set the timeout in Secs. (Seconds) for the
+        Qiskrypt's Communication Session to expire.
+        """
+
+    def get_name(self):
+        """
+        Return the name of the Qiskrypt's Communication Session.
+
+        :return self.name: the name of the Qiskrypt's Communication Session.
+        """
+
+        """
+        Return the name of the Qiskrypt's Communication Session.
+        """
+        return self.name
 
     def get_sender_party_clients(self) -> list:
         """
@@ -116,10 +145,56 @@ class QiskryptCommunicationSession:
         Return the list of receiver Qiskrypt's Party Clients.
 
         :return self.receiver_party_clients: the list of receiver
-                                            Qiskrypt's Party Clients.
+                                             Qiskrypt's Party Clients.
         """
 
         """
         Return the list of receiver Qiskrypt's Party Clients.
         """
         return self.receiver_party_clients
+
+    def is_started(self) -> bool:
+        """
+        Return the boolean flag to keep information about if the
+        Qiskrypt's Communication Session is started or not.
+
+        :return self.started: the boolean flag to keep information about if the
+                              Qiskrypt's Communication Session is started or not.
+        """
+
+        """
+        Return the boolean flag to keep information about if the
+        Qiskrypt's Communication Session is started or not.
+        """
+        return self.started
+
+    def get_timeout_in_secs(self) -> int:
+        """
+        Return the timeout in Secs. (Seconds) for the
+        Qiskrypt's Communication Session to expire.
+
+        :return self.timeout_in_secs: the timeout in Secs. (Seconds) for the
+                                      Qiskrypt's Communication Session to expire.
+        """
+
+        """
+        Return the timeout in Secs. (Seconds) for the
+        Qiskrypt's Communication Session to expire.
+        """
+        return self.timeout_in_secs
+
+    def start(self, sender_party_clients: list, link: QiskryptLink,
+              receiver_party_clients: list, timeout_in_secs: int):
+        """
+        Start the Qiskrypt's Communication Session from a list of
+        possible sender Qiskrypt's Party Clients and a list of
+        possible receiver Qiskrypt's Party Clients, through an existing Qiskrypt's Link.
+
+        :param sender_party_clients: the list of possible sender Qiskrypt's Party Clients
+                                     for the Qiskrypt's Communication Session.
+        :param link: the Qiskrypt's Link for the Qiskrypt's Communication Session.
+        :param receiver_party_clients: the list of possible receiver Qiskrypt's Party Clients
+                                       for the Qiskrypt's Communication Session.
+        :param timeout_in_secs: the timeout in Secs. (Seconds) for the
+                                Qiskrypt's Communication Session to expire.
+        """
