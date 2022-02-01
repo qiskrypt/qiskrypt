@@ -294,9 +294,9 @@ class QiskryptLink:
         Set the number of possible listeners for the Qiskrypt's Link.
         """
 
-        self.medium = None
+        self.mediums = list()
         """
-        Set the Qiskrypt's Medium for the Qiskrypt's Link, initially, as None.
+        Set the list of Qiskrypt's Mediums for the Qiskrypt's Link, initially, as an empty list.
         """
 
         self.communication_channel = None
@@ -343,11 +343,11 @@ class QiskryptLink:
         """
         return self.num_possible_listeners
 
-    def get_medium(self) -> QiskryptMedium:
+    def get_mediums(self) -> list:
         """
-        Return the Qiskrypt's Medium of the Qiskrypt's Link.
+        Return the list of Qiskrypt's Mediums of the Qiskrypt's Link.
 
-        :return self.medium: the Qiskrypt's Medium of the Qiskrypt's Link.
+        :return self.mediums: the list of Qiskrypt's Mediums of the Qiskrypt's Link.
         """
 
         if self.is_established():
@@ -356,9 +356,9 @@ class QiskryptLink:
             """
 
             """
-            Return the Qiskrypt's Medium of the Qiskrypt's Link.
+            Return the list of Qiskrypt's Mediums of the Qiskrypt's Link.
             """
-            return self.medium
+            return self.mediums
 
         else:
             """
@@ -447,11 +447,11 @@ class QiskryptLink:
 
                 # TODO Throw - Exception
 
-    def establish(self, medium: QiskryptMedium, communication_channel: QiskryptCommunicationChannel):
+    def establish(self, mediums: list, communication_channel: QiskryptCommunicationChannel):
         """
         Establish a Qiskrypt's Link from a Qiskrypt's Medium and a Qiskrypt's Communication Channel.
 
-        :param medium: the Qiskrypt's Medium to establish the Qiskrypt's Link.
+        :param mediums: the list of Qiskrypt's Mediums to establish the Qiskrypt's Link.
         :param communication_channel: the Qiskrypt's Communication Channel to establish the Qiskrypt's Link.
         """
 
@@ -461,21 +461,57 @@ class QiskryptLink:
             from a Qiskrypt's Medium and a Qiskrypt's Communication Channel.
             """
 
-            self.medium = medium
+            num_mediums_to_add = len(mediums)
             """
-            Set the Qiskrypt's Medium for the Qiskrypt's Link.
-            """
-
-            self.communication_channel = communication_channel
-            """
-            Set the Qiskrypt's Communication Channel for the Qiskrypt's Link.
+            Retrieve the number of possible Qiskrypt's Mediums to add to the Qiskrypt's Link.
             """
 
-            """
-            Set the boolean flag to keep the information about if
-            the Qiskrypt's Link is established or not, as True.
-            """
-            self.set_established(True)
+            if num_mediums_to_add == self.get_num_possible_listeners():
+                """
+                If the number of possible Qiskrypt's Mediums to add to the Qiskrypt's Link
+                corresponds to the number of possible listeners of the same Qiskrypt's Link.
+                """
+
+                for current_medium_index in range(num_mediums_to_add):
+                    """
+                    For each object's index in the given list of possible Qiskrypt's Mediums.
+                    """
+
+                    current_medium = mediums[current_medium_index]
+                    """
+                    Retrieve the current object for a possible Qiskrypt's Medium.
+                    """
+
+                    if not isinstance(current_medium, QiskryptMedium):
+                        """
+                        Check if the current object is not a Qiskrypt's Medium.
+                        """
+
+                        # TODO Throw - Exception
+
+                self.mediums = mediums
+                """        
+                Set the list of Qiskrypt's Mediums for the Qiskrypt's Link, with the given list.
+                """
+
+                self.communication_channel = communication_channel
+                """
+                Set the Qiskrypt's Communication Channel for the Qiskrypt's Link.
+                """
+
+                """
+                Set the boolean flag to keep the information about if
+                the Qiskrypt's Link is established or not, as True.
+                """
+                self.set_established(True)
+
+            else:
+                """
+                If the number of possible Qiskrypt's Mediums to add to the Qiskrypt's Link
+                does not correspond to the number of possible listeners of the same Qiskrypt's Link.
+                """
+
+                # TODO Throw - Exception
 
         else:
             """
