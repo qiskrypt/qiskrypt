@@ -44,6 +44,12 @@ Acknowledgement(s):\n
 Import required Libraries and Packages.
 """
 
+from typing import final
+"""
+Import the 'final' decorator from the Typing module
+from the Python's Library.
+"""
+
 from src.quantum_regime.networking_and_communications\
     .clients.types.QiskryptPartyClient \
     import QiskryptPartyClient
@@ -55,6 +61,12 @@ from src.quantum_regime.networking_and_communications.links.QiskryptLink \
     import QiskryptLink
 """
 Import the Qiskrypt's Link.
+"""
+
+from src.quantum_regime.circuit.QiskryptQuantumCircuit \
+    import QiskryptQuantumCircuit
+"""
+Import the Qiskrypt's Quantum Circuit.
 """
 
 
@@ -322,6 +334,104 @@ class QiskryptCommunicationSession:
             If the Qiskrypt's Communication Session is already started
             between a list of sender Qiskrypt's Party Clients and
             a list of receiver Qiskrypt's Party Clients, through a Qiskrypt's Link.
+            """
+
+            # TODO Throw - Exception
+
+    @final
+    def generate_base_quantum_circuit(self) -> QiskryptQuantumCircuit:
+        """
+        Generate the base Qiskrypt's Quantum Circuit for each round of
+        the Qiskrypt's Communication Session, from the Qiskrypt's Registers
+        retrieved of the sender and receiver Qiskrypt's Party Clients,
+        and respective associated Qiskrypt's Link connecting them.
+
+        :return quantum_circuit:
+        """
+
+        if self.is_started():
+            """
+            If the Qiskrypt's Communication Session is already started.
+            """
+
+            quantum_registers_list = list()
+            """
+            Create an empty list for the Qiskrypt's Quantum Registers
+            to be used for the generation of the base Qiskrypt's Quantum Circuit for
+            each round of the Qiskrypt's Communication Session.
+            """
+
+            fully_quantum_registers_list = list()
+            """
+            Create an empty list for the Qiskrypt's Fully-Quantum Registers
+            to be used for the generation of the base Qiskrypt's Quantum Circuit for
+            each round of the Qiskrypt's Communication Session.
+            """
+
+            semi_quantum_registers_list = list()
+            """
+            Create an empty list for the Qiskrypt's Semi-Quantum Registers
+            to be used for the generation of the base Qiskrypt's Quantum Circuit for
+            each round of the Qiskrypt's Communication Session.
+            """
+
+            classical_registers_list = list()
+            """
+            Create an empty list for the Qiskrypt's Classical Registers
+            to be used for the generation of the base Qiskrypt's Quantum Circuit for
+            each round of the Qiskrypt's Communication Session.
+            """
+
+            sender_party_clients = self.get_sender_party_clients()
+            """
+            Retrieve the list of the sender Qiskrypt's Party Clients.
+            """
+
+            num_sender_party_clients = len(sender_party_clients)
+            """
+            Retrieve the number of the sender Qiskrypt's Party Clients.
+            """
+
+            for current_sender_party_client_index in range(num_sender_party_clients):
+                """
+                For each sender Qiskrypt's Party Client's index in
+                the given list of possible sender Qiskrypt's Party Clients.
+                """
+
+                current_sender_party_client = \
+                    sender_party_clients[current_sender_party_client_index]
+                """
+                Retrieve the current sender Qiskrypt's Party Client in
+                the given list of possible sender Qiskrypt's Party Clients.
+                """
+
+                if isinstance(current_sender_party_client, QiskryptPartyClient):
+                    """
+                    If the current sender Qiskrypt's Party Client is
+                    really a Qiskrypt's Party Client.
+                    """
+
+                    current_sender_party_client.get_registers()
+
+            quantum_circuit = QiskryptQuantumCircuit(name="qu_circ_{}".format(self.get_name()))
+            """
+            Create the base Qiskrypt's Quantum Circuit for each round of
+            the Qiskrypt's Communication Session, from the Qiskrypt's Registers
+            retrieved of the sender and receiver Qiskrypt's Party Clients,
+            and respective associated Qiskrypt's Link connecting them.
+            """
+
+            """
+            Return the base Qiskrypt's Quantum Circuit for each round of
+            the Qiskrypt's Communication Session, from the Qiskrypt's Registers
+            retrieved of the sender and receiver Qiskrypt's Party Clients,
+            and respective associated Qiskrypt's Link connecting them.
+            """
+            return quantum_circuit
+
+        else:
+            """
+            If the Qiskrypt's Communication Session is not started yet.
             """
 
             # TODO Throw - Exception
