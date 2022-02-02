@@ -356,28 +356,49 @@ class QiskryptCommunicationSession:
 
             quantum_registers_list = list()
             """
-            Create an empty list for the Qiskrypt's Quantum Registers
+            Create an empty list of the Qiskrypt's Quantum Registers
             to be used for the generation of the base Qiskrypt's Quantum Circuit for
             each round of the Qiskrypt's Communication Session.
             """
 
             fully_quantum_registers_list = list()
             """
-            Create an empty list for the Qiskrypt's Fully-Quantum Registers
+            Create an empty list of the Qiskrypt's Fully-Quantum Registers
             to be used for the generation of the base Qiskrypt's Quantum Circuit for
             each round of the Qiskrypt's Communication Session.
             """
 
             semi_quantum_registers_list = list()
             """
-            Create an empty list for the Qiskrypt's Semi-Quantum Registers
+            Create an empty list of the Qiskrypt's Semi-Quantum Registers
+            to be used for the generation of the base Qiskrypt's Quantum Circuit for
+            each round of the Qiskrypt's Communication Session.
+            """
+
+            ancilla_quantum_registers_list = list()
+            """
+            Create an empty list of the Qiskrypt's Ancilla Quantum Registers
+            to be used for the generation of the base Qiskrypt's Quantum Circuit for
+            each round of the Qiskrypt's Communication Session.
+            """
+
+            ancilla_fully_quantum_registers_list = list()
+            """
+            Create an empty list of the Qiskrypt's Ancilla Fully-Quantum Registers
+            to be used for the generation of the base Qiskrypt's Quantum Circuit for
+            each round of the Qiskrypt's Communication Session.
+            """
+
+            ancilla_semi_quantum_registers_list = list()
+            """
+            Create an empty list of the Qiskrypt's Ancilla Semi-Quantum Registers
             to be used for the generation of the base Qiskrypt's Quantum Circuit for
             each round of the Qiskrypt's Communication Session.
             """
 
             classical_registers_list = list()
             """
-            Create an empty list for the Qiskrypt's Classical Registers
+            Create an empty list of the Qiskrypt's Classical Registers
             to be used for the generation of the base Qiskrypt's Quantum Circuit for
             each round of the Qiskrypt's Communication Session.
             """
@@ -411,9 +432,249 @@ class QiskryptCommunicationSession:
                     really a Qiskrypt's Party Client.
                     """
 
-                    current_sender_party_client.get_registers()
+                    current_sender_party_client_quantum_registers = \
+                        current_sender_party_client.get_quantum_registers()
+                    """
+                    Retrieve the Qiskrypt's Quantum Registers of
+                    the current sender Qiskrypt's Party Client.
+                    """
 
-            quantum_circuit = QiskryptQuantumCircuit(name="qu_circ_{}".format(self.get_name()))
+                    for current_sender_party_client_quantum_register in \
+                            current_sender_party_client_quantum_registers:
+                        """
+                        For each Qiskrypt's Quantum Register of
+                        the current sender Qiskrypt's Party Client.
+                        """
+
+                        quantum_registers_list.append(current_sender_party_client_quantum_register)
+                        """
+                        Append the current Qiskrypt's Quantum Register of
+                        the current sender Qiskrypt's Party Client to
+                        the list of the Qiskrypt's Quantum Registers
+                        to be used for the generation of the base Qiskrypt's Quantum Circuit for
+                        each round of the Qiskrypt's Communication Session.
+                        """
+
+                    current_sender_party_client_fully_quantum_registers = \
+                        current_sender_party_client.get_fully_quantum_registers()
+                    """
+                    Retrieve the Qiskrypt's Fully-Quantum Registers of
+                    the current sender Qiskrypt's Party Client.
+                    """
+
+                    for current_sender_party_client_fully_quantum_register in \
+                            current_sender_party_client_fully_quantum_registers:
+                        """
+                        For each Qiskrypt's Fully-Quantum Register of
+                        the current sender Qiskrypt's Party Client.
+                        """
+
+                        fully_quantum_registers_list.append(current_sender_party_client_fully_quantum_register)
+                        """
+                        Append the current Qiskrypt's Fully-Quantum Register of
+                        the current sender Qiskrypt's Party Client to
+                        the list of the Qiskrypt's Fully-Quantum Registers
+                        to be used for the generation of the base Qiskrypt's Quantum Circuit for
+                        each round of the Qiskrypt's Communication Session.
+                        """
+
+                    current_sender_party_client_semi_quantum_registers = \
+                        current_sender_party_client.get_semi_quantum_registers()
+                    """
+                    Retrieve the Qiskrypt's Semi-Quantum Registers of
+                    the current sender Qiskrypt's Party Client.
+                    """
+
+                    for current_sender_party_client_semi_quantum_register in \
+                            current_sender_party_client_semi_quantum_registers:
+                        """
+                        For each Qiskrypt's Semi-Quantum Register of
+                        the current sender Qiskrypt's Party Client.
+                        """
+
+                        semi_quantum_registers_list.append(current_sender_party_client_semi_quantum_register)
+                        """
+                        Append the current Qiskrypt's Semi-Quantum Register of
+                        the current sender Qiskrypt's Party Client to
+                        the list of the Qiskrypt's Semi-Quantum Registers
+                        to be used for the generation of the base Qiskrypt's Quantum Circuit for
+                        each round of the Qiskrypt's Communication Session.
+                        """
+
+                    current_sender_party_client_quantum_registers = \
+                        current_sender_party_client.get_quantum_registers()
+                    """
+                    Retrieve the Qiskrypt's Quantum Registers of
+                    the current sender Qiskrypt's Party Client.
+                    """
+
+                    for current_sender_party_client_quantum_register in \
+                            current_sender_party_client_quantum_registers:
+                        """
+                        For each Qiskrypt's Quantum Register of
+                        the current sender Qiskrypt's Party Client.
+                        """
+
+                        quantum_registers_list.append(current_sender_party_client_quantum_register)
+                        """
+                        Append the current Qiskrypt's Quantum Register of
+                        the current sender Qiskrypt's Party Client to
+                        the list of the Qiskrypt's Quantum Registers
+                        to be used for the generation of the base Qiskrypt's Quantum Circuit for
+                        each round of the Qiskrypt's Communication Session.
+                        """
+
+                    current_sender_party_client_fully_quantum_registers = \
+                        current_sender_party_client.get_fully_quantum_registers()
+                    """
+                    Retrieve the Qiskrypt's Fully-Quantum Registers of
+                    the current sender Qiskrypt's Party Client.
+                    """
+
+                    for current_sender_party_client_fully_quantum_register in \
+                            current_sender_party_client_fully_quantum_registers:
+                        """
+                        For each Qiskrypt's Fully-Quantum Register of
+                        the current sender Qiskrypt's Party Client.
+                        """
+
+                        fully_quantum_registers_list.append(current_sender_party_client_fully_quantum_register)
+                        """
+                        Append the current Qiskrypt's Fully-Quantum Register of
+                        the current sender Qiskrypt's Party Client to
+                        the list of the Qiskrypt's Fully-Quantum Registers
+                        to be used for the generation of the base Qiskrypt's Quantum Circuit for
+                        each round of the Qiskrypt's Communication Session.
+                        """
+
+                    current_sender_party_client_semi_quantum_registers = \
+                        current_sender_party_client.get_semi_quantum_registers()
+                    """
+                    Retrieve the Qiskrypt's Semi-Quantum Registers of
+                    the current sender Qiskrypt's Party Client.
+                    """
+
+                    for current_sender_party_client_semi_quantum_register in \
+                            current_sender_party_client_semi_quantum_registers:
+                        """
+                        For each Qiskrypt's Semi-Quantum Register of
+                        the current sender Qiskrypt's Party Client.
+                        """
+
+                        semi_quantum_registers_list.append(current_sender_party_client_semi_quantum_register)
+                        """
+                        Append the current Qiskrypt's Semi-Quantum Register of
+                        the current sender Qiskrypt's Party Client to
+                        the list of the Qiskrypt's Semi-Quantum Registers
+                        to be used for the generation of the base Qiskrypt's Quantum Circuit for
+                        each round of the Qiskrypt's Communication Session.
+                        """
+
+#########################
+
+                    current_sender_party_client_ancilla_quantum_registers = \
+                        current_sender_party_client.get_ancilla_quantum_registers()
+                    """
+                    Retrieve the Qiskrypt's Ancilla Quantum Registers of
+                    the current sender Qiskrypt's Party Client.
+                    """
+
+                    for current_sender_party_client_ancilla_quantum_register in \
+                            current_sender_party_client_ancilla_quantum_registers:
+                        """
+                        For each Qiskrypt's Ancilla Quantum Register of
+                        the current sender Qiskrypt's Party Client.
+                        """
+
+                        ancilla_quantum_registers_list.append(current_sender_party_client_ancilla_quantum_register)
+                        """
+                        Append the current Qiskrypt's Ancilla Quantum Register of
+                        the current sender Qiskrypt's Party Client to
+                        the list of the Qiskrypt's Ancilla Quantum Registers
+                        to be used for the generation of the base Qiskrypt's Quantum Circuit for
+                        each round of the Qiskrypt's Communication Session.
+                        """
+
+                    current_sender_party_client_ancilla_fully_quantum_registers = \
+                        current_sender_party_client.get_ancilla_fully_quantum_registers()
+                    """
+                    Retrieve the Qiskrypt's Ancilla Fully-Quantum Registers of
+                    the current sender Qiskrypt's Party Client.
+                    """
+
+                    for current_sender_party_client_ancilla_fully_quantum_register in \
+                            current_sender_party_client_ancilla_fully_quantum_registers:
+                        """
+                        For each Qiskrypt's Ancilla Fully-Quantum Register of
+                        the current sender Qiskrypt's Party Client.
+                        """
+
+                        ancilla_fully_quantum_registers_list\
+                            .append(current_sender_party_client_ancilla_fully_quantum_register)
+                        """
+                        Append the current Qiskrypt's Ancilla Fully-Quantum Register of
+                        the current sender Qiskrypt's Party Client to
+                        the list of the Qiskrypt's Ancilla Fully-Quantum Registers
+                        to be used for the generation of the base Qiskrypt's Quantum Circuit for
+                        each round of the Qiskrypt's Communication Session.
+                        """
+
+                    current_sender_party_client_ancilla_semi_quantum_registers = \
+                        current_sender_party_client.get_ancilla_semi_quantum_registers()
+                    """
+                    Retrieve the Qiskrypt's Ancilla Semi-Quantum Registers of
+                    the current sender Qiskrypt's Party Client.
+                    """
+
+                    for current_sender_party_client_ancilla_semi_quantum_register in \
+                            current_sender_party_client_ancilla_semi_quantum_registers:
+                        """
+                        For each Qiskrypt's Ancilla Semi-Quantum Register of
+                        the current sender Qiskrypt's Party Client.
+                        """
+
+                        ancilla_semi_quantum_registers_list\
+                            .append(current_sender_party_client_ancilla_semi_quantum_register)
+                        """
+                        Append the current Qiskrypt's Ancilla Semi-Quantum Register of
+                        the current sender Qiskrypt's Party Client to
+                        the list of the Qiskrypt's Ancilla Semi-Quantum Registers
+                        to be used for the generation of the base Qiskrypt's Quantum Circuit for
+                        each round of the Qiskrypt's Communication Session.
+                        """
+
+                    current_sender_party_client_classical_registers = \
+                        current_sender_party_client.get_classical_registers()
+                    """
+                    Retrieve the Qiskrypt's Classical Registers of
+                    the current sender Qiskrypt's Party Client.
+                    """
+
+                    for current_sender_party_client_classical_register in \
+                            current_sender_party_client_classical_registers:
+                        """
+                        For each Qiskrypt's Classical Register of
+                        the current sender Qiskrypt's Party Client.
+                        """
+
+                        classical_registers_list.append(current_sender_party_client_classical_register)
+                        """
+                        Append the current Qiskrypt's Classical Register of
+                        the current sender Qiskrypt's Party Client to
+                        the list of the Qiskrypt's Classical Registers
+                        to be used for the generation of the base Qiskrypt's Quantum Circuit for
+                        each round of the Qiskrypt's Communication Session.
+                        """
+
+            quantum_circuit = \
+                QiskryptQuantumCircuit(name="qu_circ_{}".format(self.get_name()),
+                                       qiskrypt_quantum_registers=quantum_registers_list,
+                                       qiskrypt_fully_quantum_registers=fully_quantum_registers_list,
+                                       qiskrypt_semi_quantum_registers=semi_quantum_registers_list,
+                                       qiskrypt_ancilla_quantum_registers=ancilla_quantum_registers_list,
+                                       qiskrypt_ancilla_fully_quantum_registers=ancilla_fully_quantum_registers_list,
+                                       qiskrypt_ancilla_semi_quantum_registers=ancilla_semi_quantum_registers_list,
+                                       qiskrypt_classical_registers=classical_registers_list)
             """
             Create the base Qiskrypt's Quantum Circuit for each round of
             the Qiskrypt's Communication Session, from the Qiskrypt's Registers
