@@ -90,16 +90,16 @@ class QiskryptCommunicationSession:
         as an empty list.
         """
 
+        self.timeout_in_secs = 0
+        """
+        Set the timeout in Secs. (Seconds) for the
+        Qiskrypt's Communication Session to expire, initially, as zero.
+        """
+
         self.started = False
         """
         Set the boolean flag to keep information about if the
         Qiskrypt's Communication Session is started or not.
-        """
-
-        self.timeout_in_secs = 0
-        """
-        Set the timeout in Secs. (Seconds) for the
-        Qiskrypt's Communication Session to expire.
         """
 
     def get_name(self):
@@ -153,6 +153,21 @@ class QiskryptCommunicationSession:
         """
         return self.receiver_party_clients
 
+    def get_timeout_in_secs(self) -> int:
+        """
+        Return the timeout in Secs. (Seconds) for the
+        Qiskrypt's Communication Session to expire.
+
+        :return self.timeout_in_secs: the timeout in Secs. (Seconds) for the
+                                      Qiskrypt's Communication Session to expire.
+        """
+
+        """
+        Return the timeout in Secs. (Seconds) for the
+        Qiskrypt's Communication Session to expire.
+        """
+        return self.timeout_in_secs
+
     def is_started(self) -> bool:
         """
         Return the boolean flag to keep information about if the
@@ -168,20 +183,46 @@ class QiskryptCommunicationSession:
         """
         return self.started
 
-    def get_timeout_in_secs(self) -> int:
+    def set_started(self, started):
         """
-        Return the timeout in Secs. (Seconds) for the
-        Qiskrypt's Communication Session to expire.
+        Set the boolean flag to keep the information about if
+        the Qiskrypt's Communication Session is started or not, with a new boolean value.
 
-        :return self.timeout_in_secs: the timeout in Secs. (Seconds) for the
-                                      Qiskrypt's Communication Session to expire.
+        :param started: the new boolean flag to keep the information about if
+                        the Qiskrypt's Communication Session is started or not.
         """
 
-        """
-        Return the timeout in Secs. (Seconds) for the
-        Qiskrypt's Communication Session to expire.
-        """
-        return self.timeout_in_secs
+        if started != self.is_started():
+            """
+            If the boolean new boolean flag to keep the information about if
+            the Qiskrypt's Communication Session is started or not is equal to the current one.
+            """
+
+            """
+            Set the boolean flag to keep the information about if
+            the Qiskrypt's Communication Session is started or not, with a new boolean value.
+            """
+            self.started = started
+
+        else:
+            """
+            If the boolean new boolean flag to keep the information about if
+            the Qiskrypt's Communication Session is started or not is equal to the current one.
+            """
+
+            if self.is_started():
+                """
+                If the Qiskrypt's Communication Session is already started.
+                """
+
+                # TODO Throw - Exception
+
+            else:
+                """
+                If the Qiskrypt's Communication Session is not started yet.
+                """
+
+                # TODO Throw - Exception
 
     def start(self, sender_party_clients: list, link: QiskryptLink,
               receiver_party_clients: list, timeout_in_secs: int):
@@ -198,3 +239,89 @@ class QiskryptCommunicationSession:
         :param timeout_in_secs: the timeout in Secs. (Seconds) for the
                                 Qiskrypt's Communication Session to expire.
         """
+
+        if not self.is_started():
+            """
+            If the Qiskrypt's Communication Session is not started yet
+            between a list of sender Qiskrypt's Party Clients and
+            a list of receiver Qiskrypt's Party Clients, through a Qiskrypt's Link.
+            """
+
+            num_sender_party_clients = len(sender_party_clients)
+            """
+            Retrieve the number of sender Qiskrypt's Party Clients.
+            """
+
+            for current_sender_party_client_index in range(num_sender_party_clients):
+                """
+                For each object's index in the given list of possible sender Qiskrypt's Party Clients.
+                """
+
+                current_sender_party_client = \
+                    sender_party_clients[current_sender_party_client_index]
+                """
+                Retrieve the current object for a possible sender Qiskrypt's Party Client.
+                """
+
+                if not isinstance(current_sender_party_client, QiskryptPartyClient):
+                    """
+                    Check if the current object is not a Qiskrypt's Party Client.
+                    """
+
+                    # TODO Throw - Exception
+
+            num_receiver_party_clients = len(receiver_party_clients)
+            """
+            Retrieve the number of receiver Qiskrypt's Party Clients.
+            """
+
+            for current_receiver_party_client_index in range(num_receiver_party_clients):
+                """
+                For each object's index in the given list of possible receiver Qiskrypt's Party Clients.
+                """
+
+                current_receiver_party_client = \
+                    receiver_party_clients[current_receiver_party_client_index]
+                """
+                Retrieve the current object for a possible receiver Qiskrypt's Party Client.
+                """
+
+                if not isinstance(current_receiver_party_client, QiskryptPartyClient):
+                    """
+                    Check if the current object is not a Qiskrypt's Party Client.
+                    """
+
+                    # TODO Throw - Exception
+
+            self.sender_party_clients = sender_party_clients
+            """
+            Set the list of sender Qiskrypt's Party Clients with
+            the given list of sender Qiskrypt's Party Clients.
+            """
+
+            self.link = link
+            """
+            Set the Qiskrypt's Link with the given Qiskrypt's Link.
+            """
+
+            self.receiver_party_clients = receiver_party_clients
+            """
+            Set the list of receiver Qiskrypt's Party Clients with
+            the given list of receiver Qiskrypt's Party Clients.
+            """
+
+            self.timeout_in_secs = timeout_in_secs
+            """
+            Set the timeout in Secs. (Seconds) for the
+            Qiskrypt's Communication Session to expire, with
+            the given timeout in Secs. (Seconds).
+            """
+
+        else:
+            """
+            If the Qiskrypt's Communication Session is already started
+            between a list of sender Qiskrypt's Party Clients and
+            a list of receiver Qiskrypt's Party Clients, through a Qiskrypt's Link.
+            """
+
+            # TODO Throw - Exception
