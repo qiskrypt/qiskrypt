@@ -556,6 +556,210 @@ class QiskryptAgentClient(QiskryptClient):
         """
         return len(self.get_semi_quantum_registers())
 
+    def get_ancilla_quantum_registers(self) -> list:
+        """
+        Return the list of the Qiskrypt's Ancilla Quantum Registers of the Qiskrypt's Client.
+
+        :return ancilla_quantum_registers: the list of the Qiskrypt's Ancilla Quantum Registers of
+                                           the Qiskrypt's Client.
+        """
+
+        registers = super().get_registers()
+        """
+        Retrieve the list of the Qiskrypt's Registers of the Qiskrypt's Client.
+        """
+
+        num_registers = super().get_num_registers()
+        """
+        Retrieve number of the Qiskrypt's Registers of the Qiskrypt's Client.
+        """
+
+        ancilla_quantum_registers = list()
+        """
+        Create the list of the Qiskrypt's Ancilla Quantum Registers of
+        the Qiskrypt's Client, initially, as an empty list.
+        """
+
+        for current_register_index in range(num_registers):
+            """
+            For each Qiskrypt's Register's index of the Qiskrypt's Client.
+            """
+
+            current_register = registers[current_register_index]
+            """
+            Retrieve the current Qiskrypt's Register of the Qiskrypt's Client.
+            """
+
+            if isinstance(current_register, QiskryptAncillaQuantumRegister):
+                """
+                If the current Qiskrypt's Register of the Qiskrypt's Client
+                is really a Qiskrypt's Ancilla Quantum Register.
+                """
+
+                ancilla_quantum_registers.append(current_register)
+                """
+                Append the current Qiskrypt's Register of the Qiskrypt's Client
+                to the list of Qiskrypt's Ancilla Quantum Registers.
+                """
+
+        """
+        Return the list of the Qiskrypt's Ancilla Quantum Registers of
+        the Qiskrypt's Client.
+        """
+        return ancilla_quantum_registers
+
+    def get_num_ancilla_quantum_registers(self) -> int:
+        """
+        Return the number of Qiskrypt's Ancilla Quantum Registers in
+        the list of Qiskrypt's Registers of the Qiskrypt's Client.
+
+        :return len(self.get_ancilla_quantum_registers()): the number of Qiskrypt's Ancilla Quantum Registers in
+                                                           the list of Qiskrypt's Registers of
+                                                           the Qiskrypt's Client.
+        """
+
+        """
+        Return the number of Qiskrypt's Ancilla Quantum Registers in
+        the list of Qiskrypt's Registers of the Qiskrypt's Client.
+        """
+        return len(self.get_quantum_registers())
+
+    def get_ancilla_fully_quantum_registers(self) -> list:
+        """
+        Return the list of the Qiskrypt's Ancilla Fully-Quantum Registers of the Qiskrypt's Client.
+
+        :return ancilla_fully_quantum_registers: the list of the Qiskrypt's Ancilla Fully-Quantum
+                                                 Registers of the Qiskrypt's Client.
+        """
+
+        registers = super().get_registers()
+        """
+        Retrieve the list of the Qiskrypt's Registers of the Qiskrypt's Client.
+        """
+
+        num_registers = super().get_num_registers()
+        """
+        Retrieve number of the Qiskrypt's Registers of the Qiskrypt's Client.
+        """
+
+        ancilla_fully_quantum_registers = list()
+        """
+        Create the list of the Qiskrypt's Ancilla Fully-Quantum Registers of
+        the Qiskrypt's Client, initially, as an empty list.
+        """
+
+        for current_register_index in range(num_registers):
+            """
+            For each Qiskrypt's Register's index of the Qiskrypt's Client.
+            """
+
+            current_register = registers[current_register_index]
+            """
+            Retrieve the current Qiskrypt's Register of the Qiskrypt's Client.
+            """
+
+            if isinstance(current_register, QiskryptAncillaFullyQuantumRegister):
+                """
+                If the current Qiskrypt's Register of the Qiskrypt's Client
+                is really a Qiskrypt's Ancilla Fully-Quantum Register.
+                """
+
+                ancilla_fully_quantum_registers.append(current_register)
+                """
+                Append the current Qiskrypt's Register of the Qiskrypt's Client
+                to the list of Qiskrypt's Ancilla Fully-Quantum Registers.
+                """
+
+        """
+        Return the list of the Qiskrypt's Ancilla Fully-Quantum Registers of
+        the Qiskrypt's Client.
+        """
+        return ancilla_fully_quantum_registers
+
+    def get_num_ancilla_fully_quantum_registers(self) -> int:
+        """
+        Return the number of Qiskrypt's Ancilla Fully-Quantum Registers in
+        the list of Qiskrypt's Registers of the Qiskrypt's Client.
+
+        :return len(self.get_ancilla_fully_quantum_registers()): the number of Qiskrypt's Ancilla Fully-Quantum
+                                                                 Registers in the list of Qiskrypt's Registers of
+                                                                 the Qiskrypt's Client.
+        """
+
+        """
+        Return the number of Qiskrypt's Ancilla Fully-Quantum Registers in
+        the list of Qiskrypt's Registers of the Qiskrypt's Client.
+        """
+        return len(self.get_ancilla_fully_quantum_registers())
+
+    def get_ancilla_semi_quantum_registers(self) -> list:
+        """
+        Return the list of the Qiskrypt's Ancilla Semi-Quantum Registers of the Qiskrypt's Client.
+
+        :return ancilla_semi_quantum_registers: the list of the Qiskrypt's Ancilla Semi-Quantum
+                                                Registers of the Qiskrypt's Client.
+        """
+
+        registers = super().get_registers()
+        """
+        Retrieve the list of the Qiskrypt's Registers of the Qiskrypt's Client.
+        """
+
+        num_registers = super().get_num_registers()
+        """
+        Retrieve number of the Qiskrypt's Registers of the Qiskrypt's Client.
+        """
+
+        ancilla_semi_quantum_registers = list()
+        """
+        Create the list of the Qiskrypt's Ancilla Semi-Quantum Registers of
+        the Qiskrypt's Client, initially, as an empty list.
+        """
+
+        for current_register_index in range(num_registers):
+            """
+            For each Qiskrypt's Register's index of the Qiskrypt's Client.
+            """
+
+            current_register = registers[current_register_index]
+            """
+            Retrieve the current Qiskrypt's Register of the Qiskrypt's Client.
+            """
+
+            if isinstance(current_register, QiskryptAncillaSemiQuantumRegister):
+                """
+                If the current Qiskrypt's Register of the Qiskrypt's Client
+                is really a Qiskrypt's Ancilla Semi-Quantum Register.
+                """
+
+                ancilla_semi_quantum_registers.append(current_register)
+                """
+                Append the current Qiskrypt's Register of the Qiskrypt's Client
+                to the list of Qiskrypt's Ancilla Semi-Quantum Registers.
+                """
+
+        """
+        Return the list of the Qiskrypt's Ancilla Semi-Quantum Registers of
+        the Qiskrypt's Client.
+        """
+        return ancilla_semi_quantum_registers
+
+    def get_num_ancilla_semi_quantum_registers(self) -> int:
+        """
+        Return the number of Qiskrypt's Ancilla Semi-Quantum Registers in
+        the list of Qiskrypt's Registers of the Qiskrypt's Client.
+
+        :return len(self.get_ancilla_semi_quantum_registers()): the number of Qiskrypt's Ancilla Semi-Quantum
+                                                                Registers in the list of Qiskrypt's Registers of
+                                                                the Qiskrypt's Client.
+        """
+
+        """
+        Return the number of Qiskrypt's Ancilla Semi-Quantum Registers in
+        the list of Qiskrypt's Registers of the Qiskrypt's Client.
+        """
+        return len(self.get_ancilla_semi_quantum_registers())
+
     def get_classical_registers(self) -> list:
         """
         Return the list of the Qiskrypt's Classical Registers of the Qiskrypt's Client.
@@ -882,178 +1086,6 @@ class QiskryptAgentClient(QiskryptClient):
 
             # TODO Throw - Exception
 
-    def add_ancilla_quantum_register(self, ancilla_quantum_register: QiskryptAncillaQuantumRegister):
-        """
-        Adds a given Qiskrypt's Ancilla Quantum Register to
-        the list of Qiskrypt's Registers of the Qiskrypt's Agent Client.
-
-        :param ancilla_quantum_register: the Qiskrypt's Ancilla Quantum Register to be added
-                                         to the list of Qiskrypt's Registers of
-                                         the Qiskrypt's Agent Client.
-        """
-
-        if (self.get_endpoint().get_context() == POSSIBLE_ENDPOINT_CONTEXTS[0]) and \
-           (isinstance(self.get_endpoint(), QiskryptQuantumGroundStationEndpoint)):
-            """
-            If the Qiskrypt's Endpoint of the Qiskrypt's Agent Client 
-            is a Qiskrypt's Quantum Ground Station Endpoint
-            and belongs to a Quantum Context.
-            """
-
-            super().registers.append(ancilla_quantum_register)
-            """
-            Adds the given Qiskrypt's Ancilla Quantum Register to
-            the list of Qiskrypt's Registers of the Qiskrypt's Agent Client.
-            """
-
-        else:
-            """
-            If the Qiskrypt's Endpoint of the Qiskrypt's Agent Client 
-            is not a Qiskrypt's Quantum Ground Station Endpoint 
-            and does not belong to a Quantum Context.
-            """
-
-            # TODO Throw - Exception
-
-    def remove_ancilla_quantum_register_by_name(self, ancilla_quantum_register_name: str):
-        """
-        Removes a Qiskrypt's Ancilla Quantum Register from
-        the list of Qiskrypt's Registers of the Qiskrypt's Agent Client,
-        given its name.
-
-        :param ancilla_quantum_register_name: the name of a Qiskrypt's Ancilla Quantum Register to be removed
-                                              from the list of Qiskrypt's Registers of
-                                              the Qiskrypt's Agent Client.
-        """
-
-        if (self.get_endpoint().get_context() == POSSIBLE_ENDPOINT_CONTEXTS[0]) and \
-           (isinstance(self.get_endpoint(), QiskryptQuantumGroundStationEndpoint)):
-            """
-            If the Qiskrypt's Endpoint of the Qiskrypt's Agent Client 
-            is a Qiskrypt's Quantum Ground Station Endpoint
-            and belongs to a Quantum Context.
-            """
-
-            for current_register_index in range(len(super().registers)):
-                """
-                For each Qiskrypt's Register in the list of
-                Qiskrypt's Registers of the Qiskrypt's Agent Client. 
-                """
-
-                current_register = super().registers[current_register_index]
-                """
-                Retrieve the current Qiskrypt's Register in
-                the list of Qiskrypt's Registers of the Qiskrypt's Agent Client.
-                """
-
-                if current_register.get_name() == ancilla_quantum_register_name:
-                    """
-                    If it was found a Qiskrypt's Register in
-                    the list of Qiskrypt's Registers of the Qiskrypt's Agent Client,
-                    with the given name.
-                    """
-
-                    if isinstance(current_register, QiskryptAncillaQuantumRegister):
-                        """
-                        If the current Qiskrypt's Register in
-                        the list of Qiskrypt's Registers of the Qiskrypt's Agent Client
-                        is a Qiskrypt's Ancilla Quantum Register.
-                        """
-
-                        super().registers.remove(current_register)
-                        """
-                        Removes the current Qiskrypt's Register in
-                        the list of Qiskrypt's Registers of the Qiskrypt's Agent Client.
-                        """
-
-                    else:
-                        """
-                        If the current Qiskrypt's Register in
-                        the list of Qiskrypt's Registers of the Qiskrypt's Agent Client
-                        is not a Qiskrypt's Ancilla Quantum Register.
-                        """
-
-                        # TODO Throw - Exception
-
-        else:
-            """
-            If the Qiskrypt's Endpoint of the Qiskrypt's Agent Client 
-            is not a Qiskrypt's Quantum Ground Station Endpoint 
-            and does not belong to a Quantum Context.
-            """
-
-            # TODO Throw - Exception
-
-    def remove_ancilla_quantum_register_by_index(self, ancilla_quantum_register_index: int):
-        """
-        Removes a Qiskrypt's Ancilla Quantum Register from
-        the list of Qiskrypt's Registers of the Qiskrypt's Agent Client,
-        given its index.
-
-        :param ancilla_quantum_register_index: the index of a Qiskrypt's Ancilla Quantum Register to be removed
-                                               from the list of Qiskrypt's Registers of
-                                               the Qiskrypt's Agent Client.
-        """
-
-        if (self.get_endpoint().get_context() == POSSIBLE_ENDPOINT_CONTEXTS[0]) and \
-           (isinstance(self.get_endpoint(), QiskryptQuantumGroundStationEndpoint)):
-            """
-            If the Qiskrypt's Endpoint of the Qiskrypt's Agent Client 
-            is a Qiskrypt's Quantum Ground Station Endpoint
-            and belongs to a Quantum Context.
-            """
-
-            if ancilla_quantum_register_index < self.get_num_registers():
-                """
-                If the given index of a Qiskrypt's Ancilla Quantum Register to be removed
-                from the list of Qiskrypt's Registers of the Qiskrypt's Agent Client is valid.
-                """
-
-                current_register = super().registers[ancilla_quantum_register_index]
-                """
-                Retrieve the respective Qiskrypt's Register in
-                the list of Qiskrypt's Registers of the Qiskrypt's Agent Client.
-                """
-
-                if isinstance(current_register, QiskryptAncillaQuantumRegister):
-                    """
-                    If the current Qiskrypt's Register in
-                    the list of Qiskrypt's Registers of the Qiskrypt's Agent Client
-                    is a Qiskrypt's Ancilla Quantum Register.
-                    """
-
-                    super().registers.remove(current_register)
-                    """
-                    Removes the current Qiskrypt's Register in
-                    the list of Qiskrypt's Registers of the Qiskrypt's Agent Client.
-                    """
-
-                else:
-                    """
-                    If the current Qiskrypt's Register in
-                    the list of Qiskrypt's Registers of the Qiskrypt's Agent Client
-                    is not a Qiskrypt's Ancilla Quantum Register.
-                    """
-
-                    # TODO Throw - Exception
-
-            else:
-                """
-                If the given index of a Qiskrypt's Ancilla Quantum Register to be removed
-                from the list of Qiskrypt's Registers of the Qiskrypt's Agent Client is not valid.
-                """
-
-                # TODO Throw - Exception
-
-        else:
-            """
-            If the Qiskrypt's Endpoint of the Qiskrypt's Agent Client 
-            is not a Qiskrypt's Quantum Ground Station Endpoint 
-            and does not belong to a Quantum Context.
-            """
-
-            # TODO Throw - Exception
-
     def add_fully_quantum_register(self, fully_quantum_register: QiskryptFullyQuantumRegister):
         """
         Adds a given Qiskrypt's Fully-Quantum Register to
@@ -1212,178 +1244,6 @@ class QiskryptAgentClient(QiskryptClient):
             else:
                 """
                 If the given index of a Qiskrypt's Fully-Quantum Register to be removed
-                from the list of Qiskrypt's Registers of the Qiskrypt's Agent Client is not valid.
-                """
-
-                # TODO Throw - Exception
-
-        else:
-            """
-            If the Qiskrypt's Endpoint of the Qiskrypt's Agent Client 
-            is not a Qiskrypt's Fully-Quantum Ground Station Endpoint 
-            and does not belong to a Fully-Quantum Context.
-            """
-
-            # TODO Throw - Exception
-
-    def add_ancilla_fully_quantum_register(self, ancilla_fully_quantum_register: QiskryptAncillaFullyQuantumRegister):
-        """
-        Adds a given Qiskrypt's Ancilla Fully-Quantum Register to
-        the list of Qiskrypt's Registers of the Qiskrypt's Agent Client.
-
-        :param ancilla_fully_quantum_register: the Qiskrypt's Ancilla Fully-Quantum Register to be added
-                                               to the list of Qiskrypt's Registers of
-                                               the Qiskrypt's Agent Client.
-        """
-
-        if (self.get_endpoint().get_context() == POSSIBLE_ENDPOINT_CONTEXTS[1]) and \
-           (isinstance(self.get_endpoint(), QiskryptFullyQuantumGroundStationEndpoint)):
-            """
-            If the Qiskrypt's Endpoint of the Qiskrypt's Agent Client 
-            is a Qiskrypt's Fully-Quantum Ground Station Endpoint
-            and belongs to a Fully-Quantum Context.
-            """
-
-            super().registers.append(ancilla_fully_quantum_register)
-            """
-            Adds the given Qiskrypt's Ancilla Fully-Quantum Register to
-            the list of Qiskrypt's Registers of the Qiskrypt's Agent Client.
-            """
-
-        else:
-            """
-            If the Qiskrypt's Endpoint of the Qiskrypt's Agent Client 
-            is not a Qiskrypt's Fully-Quantum Ground Station Endpoint 
-            and does not belong to a Fully-Quantum Context.
-            """
-
-            # TODO Throw - Exception
-
-    def remove_ancilla_fully_quantum_register_by_name(self, ancilla_fully_quantum_register_name: str):
-        """
-        Removes a Qiskrypt's Ancilla Fully-Quantum Register from
-        the list of Qiskrypt's Registers of the Qiskrypt's Agent Client,
-        given its name.
-
-        :param ancilla_fully_quantum_register_name: the name of a Qiskrypt's Ancilla Fully-Quantum Register
-                                                    to be removed from the list of Qiskrypt's Registers of
-                                                    the Qiskrypt's Agent Client.
-        """
-
-        if (self.get_endpoint().get_context() == POSSIBLE_ENDPOINT_CONTEXTS[1]) and \
-           (isinstance(self.get_endpoint(), QiskryptFullyQuantumGroundStationEndpoint)):
-            """
-            If the Qiskrypt's Endpoint of the Qiskrypt's Agent Client 
-            is a Qiskrypt's Fully-Quantum Ground Station Endpoint
-            and belongs to a Fully-Quantum Context.
-            """
-
-            for current_register_index in range(len(super().registers)):
-                """
-                For each Qiskrypt's Register in the list of
-                Qiskrypt's Registers of the Qiskrypt's Agent Client. 
-                """
-
-                current_register = super().registers[current_register_index]
-                """
-                Retrieve the current Qiskrypt's Register in
-                the list of Qiskrypt's Registers of the Qiskrypt's Agent Client.
-                """
-
-                if current_register.get_name() == ancilla_fully_quantum_register_name:
-                    """
-                    If it was found a Qiskrypt's Register in
-                    the list of Qiskrypt's Registers of the Qiskrypt's Agent Client,
-                    with the given name.
-                    """
-
-                    if isinstance(current_register, QiskryptAncillaFullyQuantumRegister):
-                        """
-                        If the current Qiskrypt's Register in
-                        the list of Qiskrypt's Registers of the Qiskrypt's Agent Client
-                        is a Qiskrypt's Ancilla Fully-Quantum Register.
-                        """
-
-                        super().registers.remove(current_register)
-                        """
-                        Removes the current Qiskrypt's Register in
-                        the list of Qiskrypt's Registers of the Qiskrypt's Agent Client.
-                        """
-
-                    else:
-                        """
-                        If the current Qiskrypt's Register in
-                        the list of Qiskrypt's Registers of the Qiskrypt's Agent Client
-                        is not a Qiskrypt's Ancilla Fully-Quantum Register.
-                        """
-
-                        # TODO Throw - Exception
-
-        else:
-            """
-            If the Qiskrypt's Endpoint of the Qiskrypt's Agent Client 
-            is not a Qiskrypt's Fully-Quantum Ground Station Endpoint 
-            and does not belong to a Fully-Quantum Context.
-            """
-
-            # TODO Throw - Exception
-
-    def remove_ancilla_fully_quantum_register_by_index(self, ancilla_fully_quantum_register_index: int):
-        """
-        Removes a Qiskrypt's Ancilla Fully-Quantum Register from
-        the list of Qiskrypt's Registers of the Qiskrypt's Agent Client,
-        given its index.
-
-        :param ancilla_fully_quantum_register_index: the index of a Qiskrypt's Ancilla Fully-Quantum Register
-                                                     to be removed from the list of Qiskrypt's Registers of
-                                                     the Qiskrypt's Agent Client.
-        """
-
-        if (self.get_endpoint().get_context() == POSSIBLE_ENDPOINT_CONTEXTS[1]) and \
-           (isinstance(self.get_endpoint(), QiskryptFullyQuantumGroundStationEndpoint)):
-            """
-            If the Qiskrypt's Endpoint of the Qiskrypt's Agent Client 
-            is a Qiskrypt's Fully-Quantum Ground Station Endpoint
-            and belongs to a Fully-Quantum Context.
-            """
-
-            if ancilla_fully_quantum_register_index < self.get_num_registers():
-                """
-                If the given index of a Qiskrypt's Ancilla Fully-Quantum Register to be removed
-                from the list of Qiskrypt's Registers of the Qiskrypt's Agent Client is valid.
-                """
-
-                current_register = super().registers[ancilla_fully_quantum_register_index]
-                """
-                Retrieve the respective Qiskrypt's Register in
-                the list of Qiskrypt's Registers of the Qiskrypt's Agent Client.
-                """
-
-                if isinstance(current_register, QiskryptAncillaFullyQuantumRegister):
-                    """
-                    If the current Qiskrypt's Register in
-                    the list of Qiskrypt's Registers of the Qiskrypt's Agent Client
-                    is a Qiskrypt's Ancilla Fully-Quantum Register.
-                    """
-
-                    super().registers.remove(current_register)
-                    """
-                    Removes the current Qiskrypt's Register in
-                    the list of Qiskrypt's Registers of the Qiskrypt's Agent Client.
-                    """
-
-                else:
-                    """
-                    If the current Qiskrypt's Register in
-                    the list of Qiskrypt's Registers of the Qiskrypt's Agent Client
-                    is not a Qiskrypt's Ancilla Fully-Quantum Register.
-                    """
-
-                    # TODO Throw - Exception
-
-            else:
-                """
-                If the given index of a Qiskrypt's Ancilla Fully-Quantum Register to be removed
                 from the list of Qiskrypt's Registers of the Qiskrypt's Agent Client is not valid.
                 """
 
@@ -1566,6 +1426,350 @@ class QiskryptAgentClient(QiskryptClient):
             If the Qiskrypt's Endpoint of the Qiskrypt's Agent Client 
             is not a Qiskrypt's Semi-Quantum Ground Station Endpoint 
             and does not belong to a Semi-Quantum Context.
+            """
+
+            # TODO Throw - Exception
+
+    def add_ancilla_quantum_register(self, ancilla_quantum_register: QiskryptAncillaQuantumRegister):
+        """
+        Adds a given Qiskrypt's Ancilla Quantum Register to
+        the list of Qiskrypt's Registers of the Qiskrypt's Agent Client.
+
+        :param ancilla_quantum_register: the Qiskrypt's Ancilla Quantum Register to be added
+                                         to the list of Qiskrypt's Registers of
+                                         the Qiskrypt's Agent Client.
+        """
+
+        if (self.get_endpoint().get_context() == POSSIBLE_ENDPOINT_CONTEXTS[0]) and \
+           (isinstance(self.get_endpoint(), QiskryptQuantumGroundStationEndpoint)):
+            """
+            If the Qiskrypt's Endpoint of the Qiskrypt's Agent Client 
+            is a Qiskrypt's Quantum Ground Station Endpoint
+            and belongs to a Quantum Context.
+            """
+
+            super().registers.append(ancilla_quantum_register)
+            """
+            Adds the given Qiskrypt's Ancilla Quantum Register to
+            the list of Qiskrypt's Registers of the Qiskrypt's Agent Client.
+            """
+
+        else:
+            """
+            If the Qiskrypt's Endpoint of the Qiskrypt's Agent Client 
+            is not a Qiskrypt's Quantum Ground Station Endpoint 
+            and does not belong to a Quantum Context.
+            """
+
+            # TODO Throw - Exception
+
+    def remove_ancilla_quantum_register_by_name(self, ancilla_quantum_register_name: str):
+        """
+        Removes a Qiskrypt's Ancilla Quantum Register from
+        the list of Qiskrypt's Registers of the Qiskrypt's Agent Client,
+        given its name.
+
+        :param ancilla_quantum_register_name: the name of a Qiskrypt's Ancilla Quantum Register to be removed
+                                              from the list of Qiskrypt's Registers of
+                                              the Qiskrypt's Agent Client.
+        """
+
+        if (self.get_endpoint().get_context() == POSSIBLE_ENDPOINT_CONTEXTS[0]) and \
+           (isinstance(self.get_endpoint(), QiskryptQuantumGroundStationEndpoint)):
+            """
+            If the Qiskrypt's Endpoint of the Qiskrypt's Agent Client 
+            is a Qiskrypt's Quantum Ground Station Endpoint
+            and belongs to a Quantum Context.
+            """
+
+            for current_register_index in range(len(super().registers)):
+                """
+                For each Qiskrypt's Register in the list of
+                Qiskrypt's Registers of the Qiskrypt's Agent Client. 
+                """
+
+                current_register = super().registers[current_register_index]
+                """
+                Retrieve the current Qiskrypt's Register in
+                the list of Qiskrypt's Registers of the Qiskrypt's Agent Client.
+                """
+
+                if current_register.get_name() == ancilla_quantum_register_name:
+                    """
+                    If it was found a Qiskrypt's Register in
+                    the list of Qiskrypt's Registers of the Qiskrypt's Agent Client,
+                    with the given name.
+                    """
+
+                    if isinstance(current_register, QiskryptAncillaQuantumRegister):
+                        """
+                        If the current Qiskrypt's Register in
+                        the list of Qiskrypt's Registers of the Qiskrypt's Agent Client
+                        is a Qiskrypt's Ancilla Quantum Register.
+                        """
+
+                        super().registers.remove(current_register)
+                        """
+                        Removes the current Qiskrypt's Register in
+                        the list of Qiskrypt's Registers of the Qiskrypt's Agent Client.
+                        """
+
+                    else:
+                        """
+                        If the current Qiskrypt's Register in
+                        the list of Qiskrypt's Registers of the Qiskrypt's Agent Client
+                        is not a Qiskrypt's Ancilla Quantum Register.
+                        """
+
+                        # TODO Throw - Exception
+
+        else:
+            """
+            If the Qiskrypt's Endpoint of the Qiskrypt's Agent Client 
+            is not a Qiskrypt's Quantum Ground Station Endpoint 
+            and does not belong to a Quantum Context.
+            """
+
+            # TODO Throw - Exception
+
+    def remove_ancilla_quantum_register_by_index(self, ancilla_quantum_register_index: int):
+        """
+        Removes a Qiskrypt's Ancilla Quantum Register from
+        the list of Qiskrypt's Registers of the Qiskrypt's Agent Client,
+        given its index.
+
+        :param ancilla_quantum_register_index: the index of a Qiskrypt's Ancilla Quantum Register to be removed
+                                               from the list of Qiskrypt's Registers of
+                                               the Qiskrypt's Agent Client.
+        """
+
+        if (self.get_endpoint().get_context() == POSSIBLE_ENDPOINT_CONTEXTS[0]) and \
+           (isinstance(self.get_endpoint(), QiskryptQuantumGroundStationEndpoint)):
+            """
+            If the Qiskrypt's Endpoint of the Qiskrypt's Agent Client 
+            is a Qiskrypt's Quantum Ground Station Endpoint
+            and belongs to a Quantum Context.
+            """
+
+            if ancilla_quantum_register_index < self.get_num_registers():
+                """
+                If the given index of a Qiskrypt's Ancilla Quantum Register to be removed
+                from the list of Qiskrypt's Registers of the Qiskrypt's Agent Client is valid.
+                """
+
+                current_register = super().registers[ancilla_quantum_register_index]
+                """
+                Retrieve the respective Qiskrypt's Register in
+                the list of Qiskrypt's Registers of the Qiskrypt's Agent Client.
+                """
+
+                if isinstance(current_register, QiskryptAncillaQuantumRegister):
+                    """
+                    If the current Qiskrypt's Register in
+                    the list of Qiskrypt's Registers of the Qiskrypt's Agent Client
+                    is a Qiskrypt's Ancilla Quantum Register.
+                    """
+
+                    super().registers.remove(current_register)
+                    """
+                    Removes the current Qiskrypt's Register in
+                    the list of Qiskrypt's Registers of the Qiskrypt's Agent Client.
+                    """
+
+                else:
+                    """
+                    If the current Qiskrypt's Register in
+                    the list of Qiskrypt's Registers of the Qiskrypt's Agent Client
+                    is not a Qiskrypt's Ancilla Quantum Register.
+                    """
+
+                    # TODO Throw - Exception
+
+            else:
+                """
+                If the given index of a Qiskrypt's Ancilla Quantum Register to be removed
+                from the list of Qiskrypt's Registers of the Qiskrypt's Agent Client is not valid.
+                """
+
+                # TODO Throw - Exception
+
+        else:
+            """
+            If the Qiskrypt's Endpoint of the Qiskrypt's Agent Client 
+            is not a Qiskrypt's Quantum Ground Station Endpoint 
+            and does not belong to a Quantum Context.
+            """
+
+            # TODO Throw - Exception
+
+    def add_ancilla_fully_quantum_register(self, ancilla_fully_quantum_register: QiskryptAncillaFullyQuantumRegister):
+        """
+        Adds a given Qiskrypt's Ancilla Fully-Quantum Register to
+        the list of Qiskrypt's Registers of the Qiskrypt's Agent Client.
+
+        :param ancilla_fully_quantum_register: the Qiskrypt's Ancilla Fully-Quantum Register to be added
+                                               to the list of Qiskrypt's Registers of
+                                               the Qiskrypt's Agent Client.
+        """
+
+        if (self.get_endpoint().get_context() == POSSIBLE_ENDPOINT_CONTEXTS[1]) and \
+           (isinstance(self.get_endpoint(), QiskryptFullyQuantumGroundStationEndpoint)):
+            """
+            If the Qiskrypt's Endpoint of the Qiskrypt's Agent Client 
+            is a Qiskrypt's Fully-Quantum Ground Station Endpoint
+            and belongs to a Fully-Quantum Context.
+            """
+
+            super().registers.append(ancilla_fully_quantum_register)
+            """
+            Adds the given Qiskrypt's Ancilla Fully-Quantum Register to
+            the list of Qiskrypt's Registers of the Qiskrypt's Agent Client.
+            """
+
+        else:
+            """
+            If the Qiskrypt's Endpoint of the Qiskrypt's Agent Client 
+            is not a Qiskrypt's Fully-Quantum Ground Station Endpoint 
+            and does not belong to a Fully-Quantum Context.
+            """
+
+            # TODO Throw - Exception
+
+    def remove_ancilla_fully_quantum_register_by_name(self, ancilla_fully_quantum_register_name: str):
+        """
+        Removes a Qiskrypt's Ancilla Fully-Quantum Register from
+        the list of Qiskrypt's Registers of the Qiskrypt's Agent Client,
+        given its name.
+
+        :param ancilla_fully_quantum_register_name: the name of a Qiskrypt's Ancilla Fully-Quantum Register
+                                                    to be removed from the list of Qiskrypt's Registers of
+                                                    the Qiskrypt's Agent Client.
+        """
+
+        if (self.get_endpoint().get_context() == POSSIBLE_ENDPOINT_CONTEXTS[1]) and \
+           (isinstance(self.get_endpoint(), QiskryptFullyQuantumGroundStationEndpoint)):
+            """
+            If the Qiskrypt's Endpoint of the Qiskrypt's Agent Client 
+            is a Qiskrypt's Fully-Quantum Ground Station Endpoint
+            and belongs to a Fully-Quantum Context.
+            """
+
+            for current_register_index in range(len(super().registers)):
+                """
+                For each Qiskrypt's Register in the list of
+                Qiskrypt's Registers of the Qiskrypt's Agent Client. 
+                """
+
+                current_register = super().registers[current_register_index]
+                """
+                Retrieve the current Qiskrypt's Register in
+                the list of Qiskrypt's Registers of the Qiskrypt's Agent Client.
+                """
+
+                if current_register.get_name() == ancilla_fully_quantum_register_name:
+                    """
+                    If it was found a Qiskrypt's Register in
+                    the list of Qiskrypt's Registers of the Qiskrypt's Agent Client,
+                    with the given name.
+                    """
+
+                    if isinstance(current_register, QiskryptAncillaFullyQuantumRegister):
+                        """
+                        If the current Qiskrypt's Register in
+                        the list of Qiskrypt's Registers of the Qiskrypt's Agent Client
+                        is a Qiskrypt's Ancilla Fully-Quantum Register.
+                        """
+
+                        super().registers.remove(current_register)
+                        """
+                        Removes the current Qiskrypt's Register in
+                        the list of Qiskrypt's Registers of the Qiskrypt's Agent Client.
+                        """
+
+                    else:
+                        """
+                        If the current Qiskrypt's Register in
+                        the list of Qiskrypt's Registers of the Qiskrypt's Agent Client
+                        is not a Qiskrypt's Ancilla Fully-Quantum Register.
+                        """
+
+                        # TODO Throw - Exception
+
+        else:
+            """
+            If the Qiskrypt's Endpoint of the Qiskrypt's Agent Client 
+            is not a Qiskrypt's Fully-Quantum Ground Station Endpoint 
+            and does not belong to a Fully-Quantum Context.
+            """
+
+            # TODO Throw - Exception
+
+    def remove_ancilla_fully_quantum_register_by_index(self, ancilla_fully_quantum_register_index: int):
+        """
+        Removes a Qiskrypt's Ancilla Fully-Quantum Register from
+        the list of Qiskrypt's Registers of the Qiskrypt's Agent Client,
+        given its index.
+
+        :param ancilla_fully_quantum_register_index: the index of a Qiskrypt's Ancilla Fully-Quantum Register
+                                                     to be removed from the list of Qiskrypt's Registers of
+                                                     the Qiskrypt's Agent Client.
+        """
+
+        if (self.get_endpoint().get_context() == POSSIBLE_ENDPOINT_CONTEXTS[1]) and \
+           (isinstance(self.get_endpoint(), QiskryptFullyQuantumGroundStationEndpoint)):
+            """
+            If the Qiskrypt's Endpoint of the Qiskrypt's Agent Client 
+            is a Qiskrypt's Fully-Quantum Ground Station Endpoint
+            and belongs to a Fully-Quantum Context.
+            """
+
+            if ancilla_fully_quantum_register_index < self.get_num_registers():
+                """
+                If the given index of a Qiskrypt's Ancilla Fully-Quantum Register to be removed
+                from the list of Qiskrypt's Registers of the Qiskrypt's Agent Client is valid.
+                """
+
+                current_register = super().registers[ancilla_fully_quantum_register_index]
+                """
+                Retrieve the respective Qiskrypt's Register in
+                the list of Qiskrypt's Registers of the Qiskrypt's Agent Client.
+                """
+
+                if isinstance(current_register, QiskryptAncillaFullyQuantumRegister):
+                    """
+                    If the current Qiskrypt's Register in
+                    the list of Qiskrypt's Registers of the Qiskrypt's Agent Client
+                    is a Qiskrypt's Ancilla Fully-Quantum Register.
+                    """
+
+                    super().registers.remove(current_register)
+                    """
+                    Removes the current Qiskrypt's Register in
+                    the list of Qiskrypt's Registers of the Qiskrypt's Agent Client.
+                    """
+
+                else:
+                    """
+                    If the current Qiskrypt's Register in
+                    the list of Qiskrypt's Registers of the Qiskrypt's Agent Client
+                    is not a Qiskrypt's Ancilla Fully-Quantum Register.
+                    """
+
+                    # TODO Throw - Exception
+
+            else:
+                """
+                If the given index of a Qiskrypt's Ancilla Fully-Quantum Register to be removed
+                from the list of Qiskrypt's Registers of the Qiskrypt's Agent Client is not valid.
+                """
+
+                # TODO Throw - Exception
+
+        else:
+            """
+            If the Qiskrypt's Endpoint of the Qiskrypt's Agent Client 
+            is not a Qiskrypt's Fully-Quantum Ground Station Endpoint 
+            and does not belong to a Fully-Quantum Context.
             """
 
             # TODO Throw - Exception
