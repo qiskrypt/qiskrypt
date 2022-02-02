@@ -557,6 +557,210 @@ class QiskryptPartyClient(QiskryptClient):
         """
         return len(self.get_semi_quantum_registers())
 
+    def get_ancilla_quantum_registers(self) -> list:
+        """
+        Return the list of the Qiskrypt's Ancilla Quantum Registers of the Qiskrypt's Client.
+
+        :return ancilla_quantum_registers: the list of the Qiskrypt's Ancilla Quantum Registers of
+                                           the Qiskrypt's Client.
+        """
+
+        registers = super().get_registers()
+        """
+        Retrieve the list of the Qiskrypt's Registers of the Qiskrypt's Client.
+        """
+
+        num_registers = super().get_num_registers()
+        """
+        Retrieve number of the Qiskrypt's Registers of the Qiskrypt's Client.
+        """
+
+        ancilla_quantum_registers = list()
+        """
+        Create the list of the Qiskrypt's Ancilla Quantum Registers of
+        the Qiskrypt's Client, initially, as an empty list.
+        """
+
+        for current_register_index in range(num_registers):
+            """
+            For each Qiskrypt's Register's index of the Qiskrypt's Client.
+            """
+
+            current_register = registers[current_register_index]
+            """
+            Retrieve the current Qiskrypt's Register of the Qiskrypt's Client.
+            """
+
+            if isinstance(current_register, QiskryptAncillaQuantumRegister):
+                """
+                If the current Qiskrypt's Register of the Qiskrypt's Client
+                is really a Qiskrypt's Ancilla Quantum Register.
+                """
+
+                ancilla_quantum_registers.append(current_register)
+                """
+                Append the current Qiskrypt's Register of the Qiskrypt's Client
+                to the list of Qiskrypt's Ancilla Quantum Registers.
+                """
+
+        """
+        Return the list of the Qiskrypt's Ancilla Quantum Registers of
+        the Qiskrypt's Client.
+        """
+        return ancilla_quantum_registers
+
+    def get_num_ancilla_quantum_registers(self) -> int:
+        """
+        Return the number of Qiskrypt's Ancilla Quantum Registers in
+        the list of Qiskrypt's Registers of the Qiskrypt's Client.
+
+        :return len(self.get_ancilla_quantum_registers()): the number of Qiskrypt's Ancilla Quantum Registers in
+                                                           the list of Qiskrypt's Registers of
+                                                           the Qiskrypt's Client.
+        """
+
+        """
+        Return the number of Qiskrypt's Ancilla Quantum Registers in
+        the list of Qiskrypt's Registers of the Qiskrypt's Client.
+        """
+        return len(self.get_quantum_registers())
+
+    def get_ancilla_fully_quantum_registers(self) -> list:
+        """
+        Return the list of the Qiskrypt's Ancilla Fully-Quantum Registers of the Qiskrypt's Client.
+
+        :return ancilla_fully_quantum_registers: the list of the Qiskrypt's Ancilla Fully-Quantum
+                                                 Registers of the Qiskrypt's Client.
+        """
+
+        registers = super().get_registers()
+        """
+        Retrieve the list of the Qiskrypt's Registers of the Qiskrypt's Client.
+        """
+
+        num_registers = super().get_num_registers()
+        """
+        Retrieve number of the Qiskrypt's Registers of the Qiskrypt's Client.
+        """
+
+        ancilla_fully_quantum_registers = list()
+        """
+        Create the list of the Qiskrypt's Ancilla Fully-Quantum Registers of
+        the Qiskrypt's Client, initially, as an empty list.
+        """
+
+        for current_register_index in range(num_registers):
+            """
+            For each Qiskrypt's Register's index of the Qiskrypt's Client.
+            """
+
+            current_register = registers[current_register_index]
+            """
+            Retrieve the current Qiskrypt's Register of the Qiskrypt's Client.
+            """
+
+            if isinstance(current_register, QiskryptAncillaFullyQuantumRegister):
+                """
+                If the current Qiskrypt's Register of the Qiskrypt's Client
+                is really a Qiskrypt's Ancilla Fully-Quantum Register.
+                """
+
+                ancilla_fully_quantum_registers.append(current_register)
+                """
+                Append the current Qiskrypt's Register of the Qiskrypt's Client
+                to the list of Qiskrypt's Ancilla Fully-Quantum Registers.
+                """
+
+        """
+        Return the list of the Qiskrypt's Ancilla Fully-Quantum Registers of
+        the Qiskrypt's Client.
+        """
+        return ancilla_fully_quantum_registers
+
+    def get_num_ancilla_fully_quantum_registers(self) -> int:
+        """
+        Return the number of Qiskrypt's Ancilla Fully-Quantum Registers in
+        the list of Qiskrypt's Registers of the Qiskrypt's Client.
+
+        :return len(self.get_ancilla_fully_quantum_registers()): the number of Qiskrypt's Ancilla Fully-Quantum
+                                                                 Registers in the list of Qiskrypt's Registers of
+                                                                 the Qiskrypt's Client.
+        """
+
+        """
+        Return the number of Qiskrypt's Ancilla Fully-Quantum Registers in
+        the list of Qiskrypt's Registers of the Qiskrypt's Client.
+        """
+        return len(self.get_ancilla_fully_quantum_registers())
+
+    def get_ancilla_semi_quantum_registers(self) -> list:
+        """
+        Return the list of the Qiskrypt's Ancilla Semi-Quantum Registers of the Qiskrypt's Client.
+
+        :return ancilla_semi_quantum_registers: the list of the Qiskrypt's Ancilla Semi-Quantum
+                                                Registers of the Qiskrypt's Client.
+        """
+
+        registers = super().get_registers()
+        """
+        Retrieve the list of the Qiskrypt's Registers of the Qiskrypt's Client.
+        """
+
+        num_registers = super().get_num_registers()
+        """
+        Retrieve number of the Qiskrypt's Registers of the Qiskrypt's Client.
+        """
+
+        ancilla_semi_quantum_registers = list()
+        """
+        Create the list of the Qiskrypt's Ancilla Semi-Quantum Registers of
+        the Qiskrypt's Client, initially, as an empty list.
+        """
+
+        for current_register_index in range(num_registers):
+            """
+            For each Qiskrypt's Register's index of the Qiskrypt's Client.
+            """
+
+            current_register = registers[current_register_index]
+            """
+            Retrieve the current Qiskrypt's Register of the Qiskrypt's Client.
+            """
+
+            if isinstance(current_register, QiskryptAncillaSemiQuantumRegister):
+                """
+                If the current Qiskrypt's Register of the Qiskrypt's Client
+                is really a Qiskrypt's Ancilla Semi-Quantum Register.
+                """
+
+                ancilla_semi_quantum_registers.append(current_register)
+                """
+                Append the current Qiskrypt's Register of the Qiskrypt's Client
+                to the list of Qiskrypt's Ancilla Semi-Quantum Registers.
+                """
+
+        """
+        Return the list of the Qiskrypt's Ancilla Semi-Quantum Registers of
+        the Qiskrypt's Client.
+        """
+        return ancilla_semi_quantum_registers
+
+    def get_num_ancilla_semi_quantum_registers(self) -> int:
+        """
+        Return the number of Qiskrypt's Ancilla Semi-Quantum Registers in
+        the list of Qiskrypt's Registers of the Qiskrypt's Client.
+
+        :return len(self.get_ancilla_semi_quantum_registers()): the number of Qiskrypt's Ancilla Semi-Quantum
+                                                                Registers in the list of Qiskrypt's Registers of
+                                                                the Qiskrypt's Client.
+        """
+
+        """
+        Return the number of Qiskrypt's Ancilla Semi-Quantum Registers in
+        the list of Qiskrypt's Registers of the Qiskrypt's Client.
+        """
+        return len(self.get_ancilla_semi_quantum_registers())
+
     def get_classical_registers(self) -> list:
         """
         Return the list of the Qiskrypt's Classical Registers of the Qiskrypt's Client.
