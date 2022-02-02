@@ -325,13 +325,14 @@ class QiskryptAgentClient(QiskryptClient):
 
     def get_registers(self) -> list:
         """
-        Return the Qiskrypt's Registers of the Qiskrypt's Client.
+        Return the list of the Qiskrypt's Registers of the Qiskrypt's Client.
 
-        :return super().get_registers(): the Qiskrypt's Registers of the Qiskrypt's Client.
+        :return super().get_registers(): the list of the Qiskrypt's Registers of the
+                                         Qiskrypt's Client.
         """
 
         """
-        Return the Qiskrypt's Registers of the Qiskrypt's Client.
+        Return the list of the Qiskrypt's Registers of the Qiskrypt's Client.
         """
         return super().get_registers()
 
@@ -350,6 +351,278 @@ class QiskryptAgentClient(QiskryptClient):
         the list of Qiskrypt's Registers of the Qiskrypt's Client.
         """
         return super().get_num_registers()
+
+    def get_quantum_registers(self) -> list:
+        """
+        Return the list of the Qiskrypt's Quantum Registers of the Qiskrypt's Client.
+
+        :return quantum_registers: the list of the Qiskrypt's Quantum Registers of
+                                   the Qiskrypt's Client.
+        """
+
+        registers = super().get_registers()
+        """
+        Retrieve the list of the Qiskrypt's Registers of the Qiskrypt's Client.
+        """
+
+        num_registers = super().get_num_registers()
+        """
+        Retrieve number of the Qiskrypt's Registers of the Qiskrypt's Client.
+        """
+
+        quantum_registers = list()
+        """
+        Create the list of the Qiskrypt's Quantum Registers of
+        the Qiskrypt's Client, initially, as an empty list.
+        """
+
+        for current_register_index in range(num_registers):
+            """
+            For each Qiskrypt's Register's index of the Qiskrypt's Client.
+            """
+
+            current_register = registers[current_register_index]
+            """
+            Retrieve the current Qiskrypt's Register of the Qiskrypt's Client.
+            """
+
+            if isinstance(current_register, QiskryptQuantumRegister):
+                """
+                If the current Qiskrypt's Register of the Qiskrypt's Client
+                is really a Qiskrypt's Quantum Register.
+                """
+
+                quantum_registers.append(current_register)
+                """
+                Append the current Qiskrypt's Register of the Qiskrypt's Client
+                to the list of Qiskrypt's Quantum Registers.
+                """
+
+        """
+        Return the list of the Qiskrypt's Quantum Registers of
+        the Qiskrypt's Client.
+        """
+        return quantum_registers
+
+    def get_num_quantum_registers(self) -> int:
+        """
+        Return the number of Qiskrypt's Quantum Registers in
+        the list of Qiskrypt's Registers of the Qiskrypt's Client.
+
+        :return len(self.get_quantum_registers()): the number of Qiskrypt's Quantum Registers in
+                                                   the list of Qiskrypt's Registers of
+                                                   the Qiskrypt's Client.
+        """
+
+        """
+        Return the number of Qiskrypt's Quantum Registers in
+        the list of Qiskrypt's Registers of the Qiskrypt's Client.
+        """
+        return len(self.get_quantum_registers())
+
+    def get_fully_quantum_registers(self) -> list:
+        """
+        Return the list of the Qiskrypt's Fully-Quantum Registers of the Qiskrypt's Client.
+
+        :return fully_quantum_registers: the list of the Qiskrypt's Fully-Quantum Registers of
+                                         the Qiskrypt's Client.
+        """
+
+        registers = super().get_registers()
+        """
+        Retrieve the list of the Qiskrypt's Registers of the Qiskrypt's Client.
+        """
+
+        num_registers = super().get_num_registers()
+        """
+        Retrieve number of the Qiskrypt's Registers of the Qiskrypt's Client.
+        """
+
+        fully_quantum_registers = list()
+        """
+        Create the list of the Qiskrypt's Fully-Quantum Registers of
+        the Qiskrypt's Client, initially, as an empty list.
+        """
+
+        for current_register_index in range(num_registers):
+            """
+            For each Qiskrypt's Register's index of the Qiskrypt's Client.
+            """
+
+            current_register = registers[current_register_index]
+            """
+            Retrieve the current Qiskrypt's Register of the Qiskrypt's Client.
+            """
+
+            if isinstance(current_register, QiskryptFullyQuantumRegister):
+                """
+                If the current Qiskrypt's Register of the Qiskrypt's Client
+                is really a Qiskrypt's Fully-Quantum Register.
+                """
+
+                fully_quantum_registers.append(current_register)
+                """
+                Append the current Qiskrypt's Register of the Qiskrypt's Client
+                to the list of Qiskrypt's Fully-Quantum Registers.
+                """
+
+        """
+        Return the list of the Qiskrypt's Fully-Quantum Registers of
+        the Qiskrypt's Client.
+        """
+        return fully_quantum_registers
+
+    def get_num_fully_quantum_registers(self) -> int:
+        """
+        Return the number of Qiskrypt's Fully-Quantum Registers in
+        the list of Qiskrypt's Registers of the Qiskrypt's Client.
+
+        :return len(self.get_fully_quantum_registers()): the number of Qiskrypt's Fully-Quantum Registers in
+                                                         the list of Qiskrypt's Registers of
+                                                         the Qiskrypt's Client.
+        """
+
+        """
+        Return the number of Qiskrypt's Fully-Quantum Registers in
+        the list of Qiskrypt's Registers of the Qiskrypt's Client.
+        """
+        return len(self.get_fully_quantum_registers())
+
+    def get_semi_quantum_registers(self) -> list:
+        """
+        Return the list of the Qiskrypt's Semi-Quantum Registers of the Qiskrypt's Client.
+
+        :return semi_quantum_registers: the list of the Qiskrypt's Semi-Quantum Registers of
+                                        the Qiskrypt's Client.
+        """
+
+        registers = super().get_registers()
+        """
+        Retrieve the list of the Qiskrypt's Registers of the Qiskrypt's Client.
+        """
+
+        num_registers = super().get_num_registers()
+        """
+        Retrieve number of the Qiskrypt's Registers of the Qiskrypt's Client.
+        """
+
+        semi_quantum_registers = list()
+        """
+        Create the list of the Qiskrypt's Semi-Quantum Registers of
+        the Qiskrypt's Client, initially, as an empty list.
+        """
+
+        for current_register_index in range(num_registers):
+            """
+            For each Qiskrypt's Register's index of the Qiskrypt's Client.
+            """
+
+            current_register = registers[current_register_index]
+            """
+            Retrieve the current Qiskrypt's Register of the Qiskrypt's Client.
+            """
+
+            if isinstance(current_register, QiskryptSemiQuantumRegister):
+                """
+                If the current Qiskrypt's Register of the Qiskrypt's Client
+                is really a Qiskrypt's Semi-Quantum Register.
+                """
+
+                semi_quantum_registers.append(current_register)
+                """
+                Append the current Qiskrypt's Register of the Qiskrypt's Client
+                to the list of Qiskrypt's Semi-Quantum Registers.
+                """
+
+        """
+        Return the list of the Qiskrypt's Semi-Quantum Registers of
+        the Qiskrypt's Client.
+        """
+        return semi_quantum_registers
+
+    def get_num_semi_quantum_registers(self) -> int:
+        """
+        Return the number of Qiskrypt's Semi-Quantum Registers in
+        the list of Qiskrypt's Registers of the Qiskrypt's Client.
+
+        :return len(self.get_semi_quantum_registers()): the number of Qiskrypt's Semi-Quantum Registers in
+                                                        the list of Qiskrypt's Registers of
+                                                        the Qiskrypt's Client.
+        """
+
+        """
+        Return the number of Qiskrypt's Semi-Quantum Registers in
+        the list of Qiskrypt's Registers of the Qiskrypt's Client.
+        """
+        return len(self.get_semi_quantum_registers())
+
+    def get_classical_registers(self) -> list:
+        """
+        Return the list of the Qiskrypt's Classical Registers of the Qiskrypt's Client.
+
+        :return classical_registers: the list of the Qiskrypt's Classical Registers of
+                                     the Qiskrypt's Client.
+        """
+
+        registers = super().get_registers()
+        """
+        Retrieve the list of the Qiskrypt's Registers of the Qiskrypt's Client.
+        """
+
+        num_registers = super().get_num_registers()
+        """
+        Retrieve number of the Qiskrypt's Registers of the Qiskrypt's Client.
+        """
+
+        classical_registers = list()
+        """
+        Create the list of the Qiskrypt's Classical Registers of
+        the Qiskrypt's Client, initially, as an empty list.
+        """
+
+        for current_register_index in range(num_registers):
+            """
+            For each Qiskrypt's Register's index of the Qiskrypt's Client.
+            """
+
+            current_register = registers[current_register_index]
+            """
+            Retrieve the current Qiskrypt's Register of the Qiskrypt's Client.
+            """
+
+            if isinstance(current_register, QiskryptClassicalRegister):
+                """
+                If the current Qiskrypt's Register of the Qiskrypt's Client
+                is really a Qiskrypt's Classical Register.
+                """
+
+                classical_registers.append(current_register)
+                """
+                Append the current Qiskrypt's Register of the Qiskrypt's Client
+                to the list of Qiskrypt's Classical Registers.
+                """
+
+        """
+        Return the list of the Qiskrypt's Classical Registers of
+        the Qiskrypt's Client.
+        """
+        return classical_registers
+
+    def get_num_classical_registers(self) -> int:
+        """
+        Return the number of Qiskrypt's Classical Registers in
+        the list of Qiskrypt's Registers of the Qiskrypt's Client.
+
+        :return len(self.get_classical_registers()): the number of Qiskrypt's Classical Registers in
+                                                     the list of Qiskrypt's Registers of
+                                                     the Qiskrypt's Client.
+        """
+
+        """
+        Return the number of Qiskrypt's Classical Registers in
+        the list of Qiskrypt's Registers of the Qiskrypt's Client.
+        """
+        return len(self.get_classical_registers())
 
     def get_agent(self) -> QiskryptAgent:
         """
