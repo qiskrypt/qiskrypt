@@ -455,7 +455,7 @@ class QiskryptAgentClient(QiskryptClient):
             and belongs to a Quantum Context.
             """
 
-            self.registers.append(quantum_register)
+            super().registers.append(quantum_register)
             """
             Adds the given Qiskrypt's Quantum Register to
             the list of Qiskrypt's Registers of the Qiskrypt's Agent Client.
@@ -489,13 +489,13 @@ class QiskryptAgentClient(QiskryptClient):
             and belongs to a Quantum Context.
             """
 
-            for current_register_index in range(len(self.registers)):
+            for current_register_index in range(len(super().registers)):
                 """
                 For each Qiskrypt's Register in the list of
                 Qiskrypt's Registers of the Qiskrypt's Agent Client. 
                 """
 
-                current_register = self.registers[current_register_index]
+                current_register = super().registers[current_register_index]
                 """
                 Retrieve the current Qiskrypt's Register in
                 the list of Qiskrypt's Registers of the Qiskrypt's Agent Client.
@@ -515,7 +515,7 @@ class QiskryptAgentClient(QiskryptClient):
                         is a Qiskrypt's Quantum Register.
                         """
 
-                        self.registers.remove(current_register)
+                        super().registers.remove(current_register)
                         """
                         Removes the current Qiskrypt's Register in
                         the list of Qiskrypt's Registers of the Qiskrypt's Agent Client.
@@ -564,7 +564,7 @@ class QiskryptAgentClient(QiskryptClient):
                 from the list of Qiskrypt's Registers of the Qiskrypt's Agent Client is valid.
                 """
 
-                current_register = self.registers[quantum_register_index]
+                current_register = super().registers[quantum_register_index]
                 """
                 Retrieve the respective Qiskrypt's Register in
                 the list of Qiskrypt's Registers of the Qiskrypt's Agent Client.
@@ -577,7 +577,7 @@ class QiskryptAgentClient(QiskryptClient):
                     is a Qiskrypt's Quantum Register.
                     """
 
-                    self.registers.remove(current_register)
+                    super().registers.remove(current_register)
                     """
                     Removes the current Qiskrypt's Register in
                     the list of Qiskrypt's Registers of the Qiskrypt's Agent Client.
@@ -627,7 +627,7 @@ class QiskryptAgentClient(QiskryptClient):
             and belongs to a Quantum Context.
             """
 
-            self.registers.append(ancilla_quantum_register)
+            super().registers.append(ancilla_quantum_register)
             """
             Adds the given Qiskrypt's Ancilla Quantum Register to
             the list of Qiskrypt's Registers of the Qiskrypt's Agent Client.
@@ -661,13 +661,13 @@ class QiskryptAgentClient(QiskryptClient):
             and belongs to a Quantum Context.
             """
 
-            for current_register_index in range(len(self.registers)):
+            for current_register_index in range(len(super().registers)):
                 """
                 For each Qiskrypt's Register in the list of
                 Qiskrypt's Registers of the Qiskrypt's Agent Client. 
                 """
 
-                current_register = self.registers[current_register_index]
+                current_register = super().registers[current_register_index]
                 """
                 Retrieve the current Qiskrypt's Register in
                 the list of Qiskrypt's Registers of the Qiskrypt's Agent Client.
@@ -687,7 +687,7 @@ class QiskryptAgentClient(QiskryptClient):
                         is a Qiskrypt's Ancilla Quantum Register.
                         """
 
-                        self.registers.remove(current_register)
+                        super().registers.remove(current_register)
                         """
                         Removes the current Qiskrypt's Register in
                         the list of Qiskrypt's Registers of the Qiskrypt's Agent Client.
@@ -736,7 +736,7 @@ class QiskryptAgentClient(QiskryptClient):
                 from the list of Qiskrypt's Registers of the Qiskrypt's Agent Client is valid.
                 """
 
-                current_register = self.registers[ancilla_quantum_register_index]
+                current_register = super().registers[ancilla_quantum_register_index]
                 """
                 Retrieve the respective Qiskrypt's Register in
                 the list of Qiskrypt's Registers of the Qiskrypt's Agent Client.
@@ -749,7 +749,7 @@ class QiskryptAgentClient(QiskryptClient):
                     is a Qiskrypt's Ancilla Quantum Register.
                     """
 
-                    self.registers.remove(current_register)
+                    super().registers.remove(current_register)
                     """
                     Removes the current Qiskrypt's Register in
                     the list of Qiskrypt's Registers of the Qiskrypt's Agent Client.
@@ -799,7 +799,7 @@ class QiskryptAgentClient(QiskryptClient):
             and belongs to a Fully-Quantum Context.
             """
 
-            self.registers.append(fully_quantum_register)
+            super().registers.append(fully_quantum_register)
             """
             Adds the given Qiskrypt's Fully-Quantum Register to
             the list of Qiskrypt's Registers of the Qiskrypt's Agent Client.
@@ -833,13 +833,13 @@ class QiskryptAgentClient(QiskryptClient):
             and belongs to a Fully-Quantum Context.
             """
 
-            for current_register_index in range(len(self.registers)):
+            for current_register_index in range(len(super().registers)):
                 """
                 For each Qiskrypt's Register in the list of
                 Qiskrypt's Registers of the Qiskrypt's Agent Client. 
                 """
 
-                current_register = self.registers[current_register_index]
+                current_register = super().registers[current_register_index]
                 """
                 Retrieve the current Qiskrypt's Register in
                 the list of Qiskrypt's Registers of the Qiskrypt's Agent Client.
@@ -859,7 +859,7 @@ class QiskryptAgentClient(QiskryptClient):
                         is a Qiskrypt's Fully-Quantum Register.
                         """
 
-                        self.registers.remove(current_register)
+                        super().registers.remove(current_register)
                         """
                         Removes the current Qiskrypt's Register in
                         the list of Qiskrypt's Registers of the Qiskrypt's Agent Client.
@@ -908,7 +908,7 @@ class QiskryptAgentClient(QiskryptClient):
                 from the list of Qiskrypt's Registers of the Qiskrypt's Agent Client is valid.
                 """
 
-                current_register = self.registers[fully_quantum_register_index]
+                current_register = super().registers[fully_quantum_register_index]
                 """
                 Retrieve the respective Qiskrypt's Register in
                 the list of Qiskrypt's Registers of the Qiskrypt's Agent Client.
@@ -921,7 +921,7 @@ class QiskryptAgentClient(QiskryptClient):
                     is a Qiskrypt's Fully-Quantum Register.
                     """
 
-                    self.registers.remove(current_register)
+                    super().registers.remove(current_register)
                     """
                     Removes the current Qiskrypt's Register in
                     the list of Qiskrypt's Registers of the Qiskrypt's Agent Client.
@@ -971,7 +971,7 @@ class QiskryptAgentClient(QiskryptClient):
             and belongs to a Fully-Quantum Context.
             """
 
-            self.registers.append(ancilla_fully_quantum_register)
+            super().registers.append(ancilla_fully_quantum_register)
             """
             Adds the given Qiskrypt's Ancilla Fully-Quantum Register to
             the list of Qiskrypt's Registers of the Qiskrypt's Agent Client.
@@ -1005,13 +1005,13 @@ class QiskryptAgentClient(QiskryptClient):
             and belongs to a Fully-Quantum Context.
             """
 
-            for current_register_index in range(len(self.registers)):
+            for current_register_index in range(len(super().registers)):
                 """
                 For each Qiskrypt's Register in the list of
                 Qiskrypt's Registers of the Qiskrypt's Agent Client. 
                 """
 
-                current_register = self.registers[current_register_index]
+                current_register = super().registers[current_register_index]
                 """
                 Retrieve the current Qiskrypt's Register in
                 the list of Qiskrypt's Registers of the Qiskrypt's Agent Client.
@@ -1031,7 +1031,7 @@ class QiskryptAgentClient(QiskryptClient):
                         is a Qiskrypt's Ancilla Fully-Quantum Register.
                         """
 
-                        self.registers.remove(current_register)
+                        super().registers.remove(current_register)
                         """
                         Removes the current Qiskrypt's Register in
                         the list of Qiskrypt's Registers of the Qiskrypt's Agent Client.
@@ -1080,7 +1080,7 @@ class QiskryptAgentClient(QiskryptClient):
                 from the list of Qiskrypt's Registers of the Qiskrypt's Agent Client is valid.
                 """
 
-                current_register = self.registers[ancilla_fully_quantum_register_index]
+                current_register = super().registers[ancilla_fully_quantum_register_index]
                 """
                 Retrieve the respective Qiskrypt's Register in
                 the list of Qiskrypt's Registers of the Qiskrypt's Agent Client.
@@ -1093,7 +1093,7 @@ class QiskryptAgentClient(QiskryptClient):
                     is a Qiskrypt's Ancilla Fully-Quantum Register.
                     """
 
-                    self.registers.remove(current_register)
+                    super().registers.remove(current_register)
                     """
                     Removes the current Qiskrypt's Register in
                     the list of Qiskrypt's Registers of the Qiskrypt's Agent Client.
@@ -1143,7 +1143,7 @@ class QiskryptAgentClient(QiskryptClient):
             and belongs to a Semi-Quantum Context.
             """
 
-            self.registers.append(semi_quantum_register)
+            super().registers.append(semi_quantum_register)
             """
             Adds the given Qiskrypt's Semi-Quantum Register to
             the list of Qiskrypt's Registers of the Qiskrypt's Agent Client.
@@ -1177,13 +1177,13 @@ class QiskryptAgentClient(QiskryptClient):
             and belongs to a Semi-Quantum Context.
             """
 
-            for current_register_index in range(len(self.registers)):
+            for current_register_index in range(len(super().registers)):
                 """
                 For each Qiskrypt's Register in the list of
                 Qiskrypt's Registers of the Qiskrypt's Agent Client. 
                 """
 
-                current_register = self.registers[current_register_index]
+                current_register = super().registers[current_register_index]
                 """
                 Retrieve the current Qiskrypt's Register in
                 the list of Qiskrypt's Registers of the Qiskrypt's Agent Client.
@@ -1203,7 +1203,7 @@ class QiskryptAgentClient(QiskryptClient):
                         is a Qiskrypt's Semi-Quantum Register.
                         """
 
-                        self.registers.remove(current_register)
+                        super().registers.remove(current_register)
                         """
                         Removes the current Qiskrypt's Register in
                         the list of Qiskrypt's Registers of the Qiskrypt's Agent Client.
@@ -1252,7 +1252,7 @@ class QiskryptAgentClient(QiskryptClient):
                 from the list of Qiskrypt's Registers of the Qiskrypt's Agent Client is valid.
                 """
 
-                current_register = self.registers[semi_quantum_register_index]
+                current_register = super().registers[semi_quantum_register_index]
                 """
                 Retrieve the respective Qiskrypt's Register in
                 the list of Qiskrypt's Registers of the Qiskrypt's Agent Client.
@@ -1265,7 +1265,7 @@ class QiskryptAgentClient(QiskryptClient):
                     is a Qiskrypt's Semi-Quantum Register.
                     """
 
-                    self.registers.remove(current_register)
+                    super().registers.remove(current_register)
                     """
                     Removes the current Qiskrypt's Register in
                     the list of Qiskrypt's Registers of the Qiskrypt's Agent Client.
@@ -1315,7 +1315,7 @@ class QiskryptAgentClient(QiskryptClient):
             and belongs to a Semi-Quantum Context.
             """
 
-            self.registers.append(ancilla_semi_quantum_register)
+            super().registers.append(ancilla_semi_quantum_register)
             """
             Adds the given Qiskrypt's Ancilla Semi-Quantum Register to
             the list of Qiskrypt's Registers of the Qiskrypt's Agent Client.
@@ -1349,13 +1349,13 @@ class QiskryptAgentClient(QiskryptClient):
             and belongs to a Semi-Quantum Context.
             """
 
-            for current_register_index in range(len(self.registers)):
+            for current_register_index in range(len(super().registers)):
                 """
                 For each Qiskrypt's Register in the list of
                 Qiskrypt's Registers of the Qiskrypt's Agent Client. 
                 """
 
-                current_register = self.registers[current_register_index]
+                current_register = super().registers[current_register_index]
                 """
                 Retrieve the current Qiskrypt's Register in
                 the list of Qiskrypt's Registers of the Qiskrypt's Agent Client.
@@ -1375,7 +1375,7 @@ class QiskryptAgentClient(QiskryptClient):
                         is a Qiskrypt's Ancilla Semi-Quantum Register.
                         """
 
-                        self.registers.remove(current_register)
+                        super().registers.remove(current_register)
                         """
                         Removes the current Qiskrypt's Register in
                         the list of Qiskrypt's Registers of the Qiskrypt's Agent Client.
@@ -1424,7 +1424,7 @@ class QiskryptAgentClient(QiskryptClient):
                 from the list of Qiskrypt's Registers of the Qiskrypt's Agent Client is valid.
                 """
 
-                current_register = self.registers[ancilla_semi_quantum_register_index]
+                current_register = super().registers[ancilla_semi_quantum_register_index]
                 """
                 Retrieve the respective Qiskrypt's Register in
                 the list of Qiskrypt's Registers of the Qiskrypt's Agent Client.
@@ -1437,7 +1437,7 @@ class QiskryptAgentClient(QiskryptClient):
                     is a Qiskrypt's Ancilla Semi-Quantum Register.
                     """
 
-                    self.registers.remove(current_register)
+                    super().registers.remove(current_register)
                     """
                     Removes the current Qiskrypt's Register in
                     the list of Qiskrypt's Registers of the Qiskrypt's Agent Client.
@@ -1487,7 +1487,7 @@ class QiskryptAgentClient(QiskryptClient):
             and belongs to a Classical Context.
             """
 
-            self.registers.append(classical_register)
+            super().registers.append(classical_register)
             """
             Adds the given Qiskrypt's Classical Register to
             the list of Qiskrypt's Registers of the Qiskrypt's Agent Client.
@@ -1521,13 +1521,13 @@ class QiskryptAgentClient(QiskryptClient):
             and belongs to a Classical Context.
             """
 
-            for current_register_index in range(len(self.registers)):
+            for current_register_index in range(len(super().registers)):
                 """
                 For each Qiskrypt's Register in the list of
                 Qiskrypt's Registers of the Qiskrypt's Agent Client. 
                 """
 
-                current_register = self.registers[current_register_index]
+                current_register = super().registers[current_register_index]
                 """
                 Retrieve the current Qiskrypt's Register in
                 the list of Qiskrypt's Registers of the Qiskrypt's Agent Client.
@@ -1547,7 +1547,7 @@ class QiskryptAgentClient(QiskryptClient):
                         is a Qiskrypt's Classical Register.
                         """
 
-                        self.registers.remove(current_register)
+                        super().registers.remove(current_register)
                         """
                         Removes the current Qiskrypt's Register in
                         the list of Qiskrypt's Registers of the Qiskrypt's Agent Client.
@@ -1596,7 +1596,7 @@ class QiskryptAgentClient(QiskryptClient):
                 from the list of Qiskrypt's Registers of the Qiskrypt's Agent Client is valid.
                 """
 
-                current_register = self.registers[classical_register_index]
+                current_register = super().registers[classical_register_index]
                 """
                 Retrieve the respective Qiskrypt's Register in
                 the list of Qiskrypt's Registers of the Qiskrypt's Agent Client.
@@ -1609,7 +1609,7 @@ class QiskryptAgentClient(QiskryptClient):
                     is a Qiskrypt's Classical Register.
                     """
 
-                    self.registers.remove(current_register)
+                    super().registers.remove(current_register)
                     """
                     Removes the current Qiskrypt's Register in
                     the list of Qiskrypt's Registers of the Qiskrypt's Agent Client.
