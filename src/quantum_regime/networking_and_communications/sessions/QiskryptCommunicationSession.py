@@ -570,8 +570,6 @@ class QiskryptCommunicationSession:
                         each round of the Qiskrypt's Communication Session.
                         """
 
-#########################
-
                     current_sender_party_client_ancilla_quantum_registers = \
                         current_sender_party_client.get_ancilla_quantum_registers()
                     """
