@@ -5644,12 +5644,13 @@ class QiskryptQuantumCircuit:
         :return:
         """
 
-        # TODO Finish this method
+        # TODO - Finish this method
 
-    def check_if_is_possible_to_apply_operation(self, qiskit_quantum_register_index: int, qubit_index: int,
-                                                is_operation_only_supported_for_fully_quantum_registers: bool) -> bool:
+    def check_if_is_possible_to_apply_quantum_operation(
+            self, qiskit_quantum_register_index: int, qubit_index: int,
+            is_operation_only_supported_for_fully_quantum_registers: bool) -> bool:
         """
-        Check if it is possible to apply a specific Operation,
+        Check if it is possible to apply a specific Quantum Operation,
         regarding a given IBM Qiskit's Quantum Register index and a qubit index.
 
         :param qiskit_quantum_register_index: the index of an IBM Qiskit's Quantum Register.
@@ -5768,6 +5769,79 @@ class QiskryptQuantumCircuit:
             Raise an Invalid IBM Qiskit's Quantum Register Index Given Error for the Qiskrypt's Quantum Circuit.
             """
 
+    def check_if_is_possible_to_apply_classical_operation(
+            self, qiskit_classical_register_index: int, bit_index: int) -> bool:
+        """
+        Check if it is possible to apply a specific Classical Operation,
+        regarding a given IBM Qiskit's Classical Register index and a bit index.
+
+        :param qiskit_classical_register_index: the index of an IBM Qiskit's Classical Register.
+        :param bit_index: the index of a bit inside that IBM Qiskit's Classical Register.
+        """
+
+        if qiskit_classical_register_index < len(self.qiskit_quantum_circuit.cregs):
+            """
+            If the given index of the IBM Qiskit's Classical Register is valid.
+            """
+
+            if bit_index < self.qiskit_quantum_circuit.cregs[qiskit_classical_register_index].size:
+                """
+                If the given index of the qubit in the given IBM Qiskit's Classical Register is also valid.
+                """
+
+                has_qiskrypt_register, qiskrypt_register = \
+                    self.find_qiskrypt_register_by_name(
+                        self.qiskit_quantum_circuit.cregs[qiskit_classical_register_index].name
+                    )
+                """
+                Find and retrieve the Qiskrypt's Register in
+                the Qiskrypt's Quantum Circuit, given its name.
+                """
+
+                if has_qiskrypt_register:
+                    """
+                    If it was found some Qiskrypt's Register in
+                    the Qiskrypt's Quantum Circuit, with the given name.
+                    """
+
+                    """
+                    It is everything ok and it is possible to apply the pretended Quantum Operation/Gate.
+                    """
+                    return True
+
+                else:
+                    """
+                    If it was not found no Qiskrypt's Register in
+                    the Qiskrypt's Quantum Circuit, with the given name.
+                    """
+
+                    """
+                    Raise a Register Not Found Error for the Qiskrypt's Quantum Circuit.
+                    """
+                    self.raise_register_not_found_error()
+
+            else:
+                """
+                If the given index of the qubit in the given IBM Qiskit's Quantum Register is not valid.
+                """
+
+                self.raise_invalid_bit_index_given_error()
+                """
+                Raise an Invalid Bit Index Given Error for
+                the Qiskrypt's Quantum Circuit.
+                """
+
+        else:
+            """
+            If the given index of the IBM Qiskit's Quantum Register is not valid.
+            """
+
+            self.raise_invalid_qiskit_classical_register_index_given_error()
+            """
+            Raise an Invalid IBM Qiskit's Classical Register Index Given Error for
+            the Qiskrypt's Quantum Circuit.
+            """
+
     def check_if_is_possible_measure_single_qubit_into_single_bit(self, qiskit_quantum_register_index: int,
                                                                   qiskit_classical_register_index: int,
                                                                   qubit_index: int, bit_index: int) -> bool:
@@ -5882,7 +5956,7 @@ class QiskryptQuantumCircuit:
         """
 
         is_possible_to_apply_operation = \
-            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_index, qubit_index, False)
+            self.check_if_is_possible_to_apply_quantum_operation(qiskit_quantum_register_index, qubit_index, False)
         """
         Check if it is possible to apply the pretended operation.
         """
@@ -6113,7 +6187,7 @@ class QiskryptQuantumCircuit:
         """
 
         is_possible_to_apply_operation = \
-            self.check_if_is_possible_to_apply_operation(quantum_register_index, qubit_index, False)
+            self.check_if_is_possible_to_apply_quantum_operation(quantum_register_index, qubit_index, False)
         """
         Check if it is possible to apply the pretended operation.
         """
@@ -6815,7 +6889,7 @@ class QiskryptQuantumCircuit:
         """
 
         is_possible_to_apply_operation = \
-            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_index, qubit_index, True)
+            self.check_if_is_possible_to_apply_quantum_operation(qiskit_quantum_register_index, qubit_index, True)
         """
         Check if it is possible to apply the pretended operation.
         """
@@ -6879,7 +6953,7 @@ class QiskryptQuantumCircuit:
         """
 
         is_possible_to_apply_operation = \
-            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_index, qubit_index, True)
+            self.check_if_is_possible_to_apply_quantum_operation(qiskit_quantum_register_index, qubit_index, True)
         """
         Check if it is possible to apply the pretended operation.
         """
@@ -6948,7 +7022,7 @@ class QiskryptQuantumCircuit:
         """
 
         is_possible_to_apply_operation = \
-            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_index, qubit_index, True)
+            self.check_if_is_possible_to_apply_quantum_operation(qiskit_quantum_register_index, qubit_index, True)
         """
         Check if it is possible to apply the pretended operation.
         """
@@ -8318,7 +8392,7 @@ class QiskryptQuantumCircuit:
         """
 
         is_possible_to_apply_operation = \
-            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_index, qubit_index, True)
+            self.check_if_is_possible_to_apply_quantum_operation(qiskit_quantum_register_index, qubit_index, True)
         """
         Check if it is possible to apply the pretended operation.
         """
@@ -8346,7 +8420,7 @@ class QiskryptQuantumCircuit:
         """
 
         is_possible_to_apply_operation = \
-            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_index, qubit_index, False)
+            self.check_if_is_possible_to_apply_quantum_operation(qiskit_quantum_register_index, qubit_index, False)
         """
         Check if it is possible to apply the pretended operation.
         """
@@ -8374,7 +8448,7 @@ class QiskryptQuantumCircuit:
         """
 
         is_possible_to_apply_operation = \
-            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_index, qubit_index, True)
+            self.check_if_is_possible_to_apply_quantum_operation(qiskit_quantum_register_index, qubit_index, True)
         """
         Check if it is possible to apply the pretended operation.
         """
@@ -8401,7 +8475,7 @@ class QiskryptQuantumCircuit:
         """
 
         is_possible_to_apply_operation = \
-            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_index, qubit_index, True)
+            self.check_if_is_possible_to_apply_quantum_operation(qiskit_quantum_register_index, qubit_index, True)
         """
         Check if it is possible to apply the pretended operation.
         """
@@ -8429,7 +8503,7 @@ class QiskryptQuantumCircuit:
         """
 
         is_possible_to_apply_operation = \
-            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_index, qubit_index, True)
+            self.check_if_is_possible_to_apply_quantum_operation(qiskit_quantum_register_index, qubit_index, True)
         """
         Check if it is possible to apply the pretended operation.
         """
@@ -8457,7 +8531,7 @@ class QiskryptQuantumCircuit:
         """
 
         is_possible_to_apply_operation = \
-            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_index, qubit_index, True)
+            self.check_if_is_possible_to_apply_quantum_operation(qiskit_quantum_register_index, qubit_index, True)
         """
         Check if it is possible to apply the pretended operation.
         """
@@ -8485,7 +8559,7 @@ class QiskryptQuantumCircuit:
         """
 
         is_possible_to_apply_operation = \
-            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_index, qubit_index, True)
+            self.check_if_is_possible_to_apply_quantum_operation(qiskit_quantum_register_index, qubit_index, True)
         """
         Check if it is possible to apply the pretended operation.
         """
@@ -8516,7 +8590,7 @@ class QiskryptQuantumCircuit:
         """
 
         is_possible_to_apply_operation = \
-            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_index, qubit_index, True)
+            self.check_if_is_possible_to_apply_quantum_operation(qiskit_quantum_register_index, qubit_index, True)
         """
         Check if it is possible to apply the pretended operation.
         """
@@ -8636,7 +8710,7 @@ class QiskryptQuantumCircuit:
         """
 
         is_possible_to_apply_operation = \
-            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_index, qubit_index, True)
+            self.check_if_is_possible_to_apply_quantum_operation(qiskit_quantum_register_index, qubit_index, True)
         """
         Check if it is possible to apply the pretended operation.
         """
@@ -8664,7 +8738,7 @@ class QiskryptQuantumCircuit:
         """
 
         is_possible_to_apply_operation = \
-            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_index, qubit_index, True)
+            self.check_if_is_possible_to_apply_quantum_operation(qiskit_quantum_register_index, qubit_index, True)
         """
         Check if it is possible to apply the pretended operation.
         """
@@ -8692,7 +8766,7 @@ class QiskryptQuantumCircuit:
         """
 
         is_possible_to_apply_operation = \
-            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_index, qubit_index, True)
+            self.check_if_is_possible_to_apply_quantum_operation(qiskit_quantum_register_index, qubit_index, True)
         """
         Check if it is possible to apply the pretended operation.
         """
@@ -8720,7 +8794,7 @@ class QiskryptQuantumCircuit:
         """
 
         is_possible_to_apply_operation = \
-            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_index, qubit_index, True)
+            self.check_if_is_possible_to_apply_quantum_operation(qiskit_quantum_register_index, qubit_index, True)
         """
         Check if it is possible to apply the pretended operation.
         """
@@ -8757,7 +8831,7 @@ class QiskryptQuantumCircuit:
         """
 
         is_possible_to_apply_operation = \
-            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_index, qubit_index, True)
+            self.check_if_is_possible_to_apply_quantum_operation(qiskit_quantum_register_index, qubit_index, True)
         """
         Check if it is possible to apply the pretended operation.
         """
@@ -8794,7 +8868,7 @@ class QiskryptQuantumCircuit:
         """
 
         is_possible_to_apply_operation = \
-            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_index, qubit_index, True)
+            self.check_if_is_possible_to_apply_quantum_operation(qiskit_quantum_register_index, qubit_index, True)
         """
         Check if it is possible to apply the pretended operation.
         """
@@ -8831,7 +8905,7 @@ class QiskryptQuantumCircuit:
         """
 
         is_possible_to_apply_operation = \
-            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_index, qubit_index, True)
+            self.check_if_is_possible_to_apply_quantum_operation(qiskit_quantum_register_index, qubit_index, True)
         """
         Check if it is possible to apply the pretended operation.
         """
@@ -8868,7 +8942,7 @@ class QiskryptQuantumCircuit:
         """
 
         is_possible_to_apply_operation = \
-            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_index, qubit_index, True)
+            self.check_if_is_possible_to_apply_quantum_operation(qiskit_quantum_register_index, qubit_index, True)
         """
         Check if it is possible to apply the pretended operation.
         """
@@ -8913,8 +8987,8 @@ class QiskryptQuantumCircuit:
             """
 
             is_possible_to_apply_operation = \
-                self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_index,
-                                                             qubit_index, False)
+                self.check_if_is_possible_to_apply_quantum_operation(qiskit_quantum_register_index,
+                                                                     qubit_index, False)
             """
             Check if it is possible to apply the pretended operation.
             """
@@ -8928,8 +9002,8 @@ class QiskryptQuantumCircuit:
             """
 
             is_possible_to_apply_operation = \
-                self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_index,
-                                                             qubit_index, True)
+                self.check_if_is_possible_to_apply_quantum_operation(qiskit_quantum_register_index,
+                                                                     qubit_index, True)
             """
             Check if it is possible to apply the pretended operation.
             """
@@ -8980,8 +9054,8 @@ class QiskryptQuantumCircuit:
         """
 
         is_possible_to_apply_operation = \
-            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_index,
-                                                         qubit_index, True)
+            self.check_if_is_possible_to_apply_quantum_operation(qiskit_quantum_register_index,
+                                                                 qubit_index, True)
         """
         Check if it is possible to apply the pretended operation.
         """
@@ -9033,8 +9107,8 @@ class QiskryptQuantumCircuit:
         """
 
         is_possible_to_apply_operation = \
-            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_index,
-                                                         qubit_index, True)
+            self.check_if_is_possible_to_apply_quantum_operation(qiskit_quantum_register_index,
+                                                                 qubit_index, True)
         """
         Check if it is possible to apply the pretended operation.
         """
@@ -9087,8 +9161,8 @@ class QiskryptQuantumCircuit:
         """
 
         is_possible_to_apply_operation = \
-            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_index,
-                                                         qubit_index, True)
+            self.check_if_is_possible_to_apply_quantum_operation(qiskit_quantum_register_index,
+                                                                 qubit_index, True)
         """
         Check if it is possible to apply the pretended operation.
         """
@@ -9142,8 +9216,8 @@ class QiskryptQuantumCircuit:
         """
 
         is_possible_to_apply_operation = \
-            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_index,
-                                                         qubit_index, True)
+            self.check_if_is_possible_to_apply_quantum_operation(qiskit_quantum_register_index,
+                                                                 qubit_index, True)
         """
         Check if it is possible to apply the pretended operation.
         """
@@ -9207,8 +9281,8 @@ class QiskryptQuantumCircuit:
         """
 
         is_possible_to_apply_operation = \
-            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_index,
-                                                         qubit_index, True)
+            self.check_if_is_possible_to_apply_quantum_operation(qiskit_quantum_register_index,
+                                                                 qubit_index, True)
         """
         Check if it is possible to apply the pretended operation.
         """
@@ -9284,16 +9358,16 @@ class QiskryptQuantumCircuit:
         """
 
         is_possible_to_apply_operation_1 = \
-            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_index_1,
-                                                         qubit_index_1, False)
+            self.check_if_is_possible_to_apply_quantum_operation(qiskit_quantum_register_index_1,
+                                                                 qubit_index_1, False)
         """
         Check if it is possible to apply the pretended operation for
         the 1st IBM Qiskit's Quantum Register and the respective target qubit.
         """
 
         is_possible_to_apply_operation_2 = \
-            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_index_2,
-                                                         qubit_index_2, False)
+            self.check_if_is_possible_to_apply_quantum_operation(qiskit_quantum_register_index_2,
+                                                                 qubit_index_2, False)
         """
         Check if it is possible to apply the pretended operation for
         the 2nd IBM Qiskit's Quantum Register and the respective target qubit.
@@ -9328,16 +9402,16 @@ class QiskryptQuantumCircuit:
         """
 
         is_possible_to_apply_operation_1 = \
-            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_index_1,
-                                                         qubit_index_1, True)
+            self.check_if_is_possible_to_apply_quantum_operation(qiskit_quantum_register_index_1,
+                                                                 qubit_index_1, True)
         """
         Check if it is possible to apply the pretended operation for
         the 1st IBM Qiskit's Quantum Register and the respective target qubit.
         """
 
         is_possible_to_apply_operation_2 = \
-            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_index_2,
-                                                         qubit_index_2, True)
+            self.check_if_is_possible_to_apply_quantum_operation(qiskit_quantum_register_index_2,
+                                                                 qubit_index_2, True)
         """
         Check if it is possible to apply the pretended operation for
         the 2nd IBM Qiskit's Quantum Register and the respective target qubit.
@@ -9374,16 +9448,16 @@ class QiskryptQuantumCircuit:
         """
 
         is_possible_to_apply_operation_control = \
-            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_control_index,
-                                                         control_qubit_index, True)
+            self.check_if_is_possible_to_apply_quantum_operation(qiskit_quantum_register_control_index,
+                                                                 control_qubit_index, True)
         """
         Check if it is possible to apply the pretended operation for
         the control IBM Qiskit's Quantum Register and the respective control qubit.
         """
 
         is_possible_to_apply_operation_target = \
-            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_target_index,
-                                                         target_qubit_index, True)
+            self.check_if_is_possible_to_apply_quantum_operation(qiskit_quantum_register_target_index,
+                                                                 target_qubit_index, True)
         """
         Check if it is possible to apply the pretended operation for
         the target IBM Qiskit's Quantum Register and the respective target qubit.
@@ -9420,16 +9494,16 @@ class QiskryptQuantumCircuit:
         """
 
         is_possible_to_apply_operation_control = \
-            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_control_index,
-                                                         control_qubit_index, True)
+            self.check_if_is_possible_to_apply_quantum_operation(qiskit_quantum_register_control_index,
+                                                                 control_qubit_index, True)
         """
         Check if it is possible to apply the pretended operation for
         the control IBM Qiskit's Quantum Register and the respective control qubit.
         """
 
         is_possible_to_apply_operation_target = \
-            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_target_index,
-                                                         target_qubit_index, True)
+            self.check_if_is_possible_to_apply_quantum_operation(qiskit_quantum_register_target_index,
+                                                                 target_qubit_index, True)
         """
         Check if it is possible to apply the pretended operation for
         the target IBM Qiskit's Quantum Register and the respective target qubit.
@@ -9466,16 +9540,16 @@ class QiskryptQuantumCircuit:
         """
 
         is_possible_to_apply_operation_control = \
-            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_control_index,
-                                                         control_qubit_index, True)
+            self.check_if_is_possible_to_apply_quantum_operation(qiskit_quantum_register_control_index,
+                                                                 control_qubit_index, True)
         """
         Check if it is possible to apply the pretended operation for
         the control IBM Qiskit's Quantum Register and the respective control qubit.
         """
 
         is_possible_to_apply_operation_target = \
-            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_target_index,
-                                                         target_qubit_index, True)
+            self.check_if_is_possible_to_apply_quantum_operation(qiskit_quantum_register_target_index,
+                                                                 target_qubit_index, True)
         """
         Check if it is possible to apply the pretended operation for
         the target IBM Qiskit's Quantum Register and the respective target qubit.
@@ -9513,16 +9587,16 @@ class QiskryptQuantumCircuit:
         """
 
         is_possible_to_apply_operation_control = \
-            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_control_index,
-                                                         control_qubit_index, True)
+            self.check_if_is_possible_to_apply_quantum_operation(qiskit_quantum_register_control_index,
+                                                                 control_qubit_index, True)
         """
         Check if it is possible to apply the pretended operation for
         the control IBM Qiskit's Quantum Register and the respective control qubit.
         """
 
         is_possible_to_apply_operation_target = \
-            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_target_index,
-                                                         target_qubit_index, True)
+            self.check_if_is_possible_to_apply_quantum_operation(qiskit_quantum_register_target_index,
+                                                                 target_qubit_index, True)
         """
         Check if it is possible to apply the pretended operation for
         the target IBM Qiskit's Quantum Register and the respective target qubit.
@@ -9560,16 +9634,16 @@ class QiskryptQuantumCircuit:
         """
 
         is_possible_to_apply_operation_control = \
-            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_control_index,
-                                                         control_qubit_index, True)
+            self.check_if_is_possible_to_apply_quantum_operation(qiskit_quantum_register_control_index,
+                                                                 control_qubit_index, True)
         """
         Check if it is possible to apply the pretended operation for
         the control IBM Qiskit's Quantum Register and the respective control qubit.
         """
 
         is_possible_to_apply_operation_target = \
-            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_target_index,
-                                                         target_qubit_index, True)
+            self.check_if_is_possible_to_apply_quantum_operation(qiskit_quantum_register_target_index,
+                                                                 target_qubit_index, True)
         """
         Check if it is possible to apply the pretended operation for
         the target IBM Qiskit's Quantum Register and the respective target qubit.
@@ -9620,16 +9694,16 @@ class QiskryptQuantumCircuit:
         """
 
         is_possible_to_apply_operation_control = \
-            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_control_index,
-                                                         control_qubit_index, True)
+            self.check_if_is_possible_to_apply_quantum_operation(qiskit_quantum_register_control_index,
+                                                                 control_qubit_index, True)
         """
         Check if it is possible to apply the pretended operation for
         the control IBM Qiskit's Quantum Register and the respective control qubit.
         """
 
         is_possible_to_apply_operation_target = \
-            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_target_index,
-                                                         target_qubit_index, True)
+            self.check_if_is_possible_to_apply_quantum_operation(qiskit_quantum_register_target_index,
+                                                                 target_qubit_index, True)
         """
         Check if it is possible to apply the pretended operation for
         the target IBM Qiskit's Quantum Register and the respective target qubit.
@@ -9680,16 +9754,16 @@ class QiskryptQuantumCircuit:
         """
 
         is_possible_to_apply_operation_control = \
-            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_control_index,
-                                                         control_qubit_index, True)
+            self.check_if_is_possible_to_apply_quantum_operation(qiskit_quantum_register_control_index,
+                                                                 control_qubit_index, True)
         """
         Check if it is possible to apply the pretended operation for
         the control IBM Qiskit's Quantum Register and the respective control qubit.
         """
 
         is_possible_to_apply_operation_target = \
-            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_target_index,
-                                                         target_qubit_index, True)
+            self.check_if_is_possible_to_apply_quantum_operation(qiskit_quantum_register_target_index,
+                                                                 target_qubit_index, True)
         """
         Check if it is possible to apply the pretended operation for
         the target IBM Qiskit's Quantum Register and the respective target qubit.
@@ -9740,16 +9814,16 @@ class QiskryptQuantumCircuit:
         """
 
         is_possible_to_apply_operation_control = \
-            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_control_index,
-                                                         control_qubit_index, True)
+            self.check_if_is_possible_to_apply_quantum_operation(qiskit_quantum_register_control_index,
+                                                                 control_qubit_index, True)
         """
         Check if it is possible to apply the pretended operation for
         the control IBM Qiskit's Quantum Register and the respective control qubit.
         """
 
         is_possible_to_apply_operation_target = \
-            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_target_index,
-                                                         target_qubit_index, True)
+            self.check_if_is_possible_to_apply_quantum_operation(qiskit_quantum_register_target_index,
+                                                                 target_qubit_index, True)
         """
         Check if it is possible to apply the pretended operation for
         the target IBM Qiskit's Quantum Register and the respective target qubit.
@@ -9802,24 +9876,24 @@ class QiskryptQuantumCircuit:
         """
 
         is_possible_to_apply_operation_control = \
-            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_control_index,
-                                                         control_qubit_index, True)
+            self.check_if_is_possible_to_apply_quantum_operation(qiskit_quantum_register_control_index,
+                                                                 control_qubit_index, True)
         """
         Check if it is possible to apply the pretended operation for
         the control IBM Qiskit's Quantum Register and the respective control qubit.
         """
 
         is_possible_to_apply_operation_target_1 = \
-            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_target_index_1,
-                                                         target_qubit_index_1, True)
+            self.check_if_is_possible_to_apply_quantum_operation(qiskit_quantum_register_target_index_1,
+                                                                 target_qubit_index_1, True)
         """
         Check if it is possible to apply the pretended operation for
         the 1st target IBM Qiskit's Quantum Register and the respective target qubit.
         """
 
         is_possible_to_apply_operation_target_2 = \
-            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_target_index_2,
-                                                         target_qubit_index_2, True)
+            self.check_if_is_possible_to_apply_quantum_operation(qiskit_quantum_register_target_index_2,
+                                                                 target_qubit_index_2, True)
         """
         Check if it is possible to apply the pretended operation for
         the 2nd target IBM Qiskit's Quantum Register and the respective target qubit.
@@ -9885,16 +9959,16 @@ class QiskryptQuantumCircuit:
         """
 
         is_possible_to_apply_operation_1 = \
-            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_index_1,
-                                                         qubit_index_1, True)
+            self.check_if_is_possible_to_apply_quantum_operation(qiskit_quantum_register_index_1,
+                                                                 qubit_index_1, True)
         """
         Check if it is possible to apply the pretended operation for
         the control IBM Qiskit's 1st Quantum Register and the respective qubit.
         """
 
         is_possible_to_apply_operation_2 = \
-            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_index_2,
-                                                         qubit_index_2, True)
+            self.check_if_is_possible_to_apply_quantum_operation(qiskit_quantum_register_index_2,
+                                                                 qubit_index_2, True)
         """
         Check if it is possible to apply the pretended operation for
         the target IBM Qiskit's 2nd Quantum Register and the respective qubit.
@@ -9935,24 +10009,24 @@ class QiskryptQuantumCircuit:
         """
 
         is_possible_to_apply_operation_control_1 = \
-            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_control_index_1,
-                                                         control_qubit_index_1, True)
+            self.check_if_is_possible_to_apply_quantum_operation(qiskit_quantum_register_control_index_1,
+                                                                 control_qubit_index_1, True)
         """
         Check if it is possible to apply the pretended operation for
         the 1st control IBM Qiskit's Quantum Register and the respective control qubit.
         """
 
         is_possible_to_apply_operation_control_2 = \
-            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_control_index_2,
-                                                         control_qubit_index_2, True)
+            self.check_if_is_possible_to_apply_quantum_operation(qiskit_quantum_register_control_index_2,
+                                                                 control_qubit_index_2, True)
         """
         Check if it is possible to apply the pretended operation for
         the 2nd control IBM Qiskit's Quantum Register and the respective control qubit.
         """
 
         is_possible_to_apply_operation_target = \
-            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_target_index,
-                                                         target_qubit_index, True)
+            self.check_if_is_possible_to_apply_quantum_operation(qiskit_quantum_register_target_index,
+                                                                 target_qubit_index, True)
         """
         Check if it is possible to apply the pretended operation for
         the target IBM Qiskit's Quantum Register and the respective target qubit.
@@ -9997,24 +10071,24 @@ class QiskryptQuantumCircuit:
         """
 
         is_possible_to_apply_operation_control_1 = \
-            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_control_index_1,
-                                                         control_qubit_index_1, True)
+            self.check_if_is_possible_to_apply_quantum_operation(qiskit_quantum_register_control_index_1,
+                                                                 control_qubit_index_1, True)
         """
         Check if it is possible to apply the pretended operation for
         the 1st control IBM Qiskit's Quantum Register and the respective control qubit.
         """
 
         is_possible_to_apply_operation_control_2 = \
-            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_control_index_2,
-                                                         control_qubit_index_2, True)
+            self.check_if_is_possible_to_apply_quantum_operation(qiskit_quantum_register_control_index_2,
+                                                                 control_qubit_index_2, True)
         """
         Check if it is possible to apply the pretended operation for
         the 2nd control IBM Qiskit's Quantum Register and the respective control qubit.
         """
 
         is_possible_to_apply_operation_target = \
-            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_target_index,
-                                                         target_qubit_index, True)
+            self.check_if_is_possible_to_apply_quantum_operation(qiskit_quantum_register_target_index,
+                                                                 target_qubit_index, True)
         """
         Check if it is possible to apply the pretended operation for
         the target IBM Qiskit's Quantum Register and the respective target qubit.
@@ -10076,24 +10150,24 @@ class QiskryptQuantumCircuit:
         """
 
         is_possible_to_apply_operation_control_1 = \
-            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_control_index_1,
-                                                         control_qubit_index_1, True)
+            self.check_if_is_possible_to_apply_quantum_operation(qiskit_quantum_register_control_index_1,
+                                                                 control_qubit_index_1, True)
         """
         Check if it is possible to apply the pretended operation for
         the 1st control IBM Qiskit's Quantum Register and the respective control qubit.
         """
 
         is_possible_to_apply_operation_control_2 = \
-            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_control_index_2,
-                                                         control_qubit_index_2, True)
+            self.check_if_is_possible_to_apply_quantum_operation(qiskit_quantum_register_control_index_2,
+                                                                 control_qubit_index_2, True)
         """
         Check if it is possible to apply the pretended operation for
         the 2nd control IBM Qiskit's Quantum Register and the respective control qubit.
         """
 
         is_possible_to_apply_operation_target = \
-            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_target_index,
-                                                         target_qubit_index, True)
+            self.check_if_is_possible_to_apply_quantum_operation(qiskit_quantum_register_target_index,
+                                                                 target_qubit_index, True)
         """
         Check if it is possible to apply the pretended operation for
         the target IBM Qiskit's Quantum Register and the respective target qubit.
@@ -10183,24 +10257,24 @@ class QiskryptQuantumCircuit:
         """
 
         is_possible_to_apply_operation_control = \
-            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_control_index,
-                                                         control_qubit_index, True)
+            self.check_if_is_possible_to_apply_quantum_operation(qiskit_quantum_register_control_index,
+                                                                 control_qubit_index, True)
         """
         Check if it is possible to apply the pretended operation for
         the control IBM Qiskit's Quantum Register and the respective control qubit.
         """
 
         is_possible_to_apply_operation_target_1 = \
-            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_target_index_1,
-                                                         target_qubit_index_1, True)
+            self.check_if_is_possible_to_apply_quantum_operation(qiskit_quantum_register_target_index_1,
+                                                                 target_qubit_index_1, True)
         """
         Check if it is possible to apply the pretended operation for
         the 1st target IBM Qiskit's Quantum Register and the respective target qubit.
         """
 
         is_possible_to_apply_operation_target_2 = \
-            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_target_index_2,
-                                                         target_qubit_index_2, True)
+            self.check_if_is_possible_to_apply_quantum_operation(qiskit_quantum_register_target_index_2,
+                                                                 target_qubit_index_2, True)
         """
         Check if it is possible to apply the pretended operation for
         the 2nd target IBM Qiskit's Quantum Register and the respective target qubit.
@@ -10261,24 +10335,24 @@ class QiskryptQuantumCircuit:
         """
 
         is_possible_to_apply_operation_control = \
-            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_control_index,
-                                                         control_qubit_index, True)
+            self.check_if_is_possible_to_apply_quantum_operation(qiskit_quantum_register_control_index,
+                                                                 control_qubit_index, True)
         """
         Check if it is possible to apply the pretended operation for
         the control IBM Qiskit's Quantum Register and the respective control qubit.
         """
 
         is_possible_to_apply_operation_target_1 = \
-            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_target_index_1,
-                                                         target_qubit_index_1, True)
+            self.check_if_is_possible_to_apply_quantum_operation(qiskit_quantum_register_target_index_1,
+                                                                 target_qubit_index_1, True)
         """
         Check if it is possible to apply the pretended operation for
         the 1st target IBM Qiskit's Quantum Register and the respective target qubit.
         """
 
         is_possible_to_apply_operation_target_2 = \
-            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_target_index_2,
-                                                         target_qubit_index_2, True)
+            self.check_if_is_possible_to_apply_quantum_operation(qiskit_quantum_register_target_index_2,
+                                                                 target_qubit_index_2, True)
         """
         Check if it is possible to apply the pretended operation for
         the 2nd target IBM Qiskit's Quantum Register and the respective target qubit.
@@ -10339,24 +10413,24 @@ class QiskryptQuantumCircuit:
         """
 
         is_possible_to_apply_operation_control = \
-            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_control_index,
-                                                         control_qubit_index, True)
+            self.check_if_is_possible_to_apply_quantum_operation(qiskit_quantum_register_control_index,
+                                                                 control_qubit_index, True)
         """
         Check if it is possible to apply the pretended operation for
         the control IBM Qiskit's Quantum Register and the respective control qubit.
         """
 
         is_possible_to_apply_operation_target_1 = \
-            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_target_index_1,
-                                                         target_qubit_index_1, True)
+            self.check_if_is_possible_to_apply_quantum_operation(qiskit_quantum_register_target_index_1,
+                                                                 target_qubit_index_1, True)
         """
         Check if it is possible to apply the pretended operation for
         the 1st target IBM Qiskit's Quantum Register and the respective target qubit.
         """
 
         is_possible_to_apply_operation_target_2 = \
-            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_target_index_2,
-                                                         target_qubit_index_2, True)
+            self.check_if_is_possible_to_apply_quantum_operation(qiskit_quantum_register_target_index_2,
+                                                                 target_qubit_index_2, True)
         """
         Check if it is possible to apply the pretended operation for
         the 2nd target IBM Qiskit's Quantum Register and the respective target qubit.
@@ -10415,16 +10489,16 @@ class QiskryptQuantumCircuit:
         """
 
         is_possible_to_apply_operation_1 = \
-            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_index_1,
-                                                         qubit_index_1, True)
+            self.check_if_is_possible_to_apply_quantum_operation(qiskit_quantum_register_index_1,
+                                                                 qubit_index_1, True)
         """
         Check if it is possible to apply the pretended operation for
         the 1st IBM Qiskit's Quantum Register and the respective qubit.
         """
 
         is_possible_to_apply_operation_2 = \
-            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_index_2,
-                                                         qubit_index_2, True)
+            self.check_if_is_possible_to_apply_quantum_operation(qiskit_quantum_register_index_2,
+                                                                 qubit_index_2, True)
         """
         Check if it is possible to apply the pretended operation for
         the 2nd IBM Qiskit's Quantum Register and the respective qubit.
@@ -10495,16 +10569,16 @@ class QiskryptQuantumCircuit:
         """
 
         is_possible_to_apply_operation_1 = \
-            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_index_1,
-                                                         qubit_index_1, True)
+            self.check_if_is_possible_to_apply_quantum_operation(qiskit_quantum_register_index_1,
+                                                                 qubit_index_1, True)
         """
         Check if it is possible to apply the pretended operation for
         the 1st IBM Qiskit's Quantum Register and the respective qubit.
         """
 
         is_possible_to_apply_operation_2 = \
-            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_index_2,
-                                                         qubit_index_2, True)
+            self.check_if_is_possible_to_apply_quantum_operation(qiskit_quantum_register_index_2,
+                                                                 qubit_index_2, True)
         """
         Check if it is possible to apply the pretended operation for
         the 2nd IBM Qiskit's Quantum Register and the respective qubit.
@@ -10575,16 +10649,16 @@ class QiskryptQuantumCircuit:
         """
 
         is_possible_to_apply_operation_1 = \
-            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_index_1,
-                                                         qubit_index_1, True)
+            self.check_if_is_possible_to_apply_quantum_operation(qiskit_quantum_register_index_1,
+                                                                 qubit_index_1, True)
         """
         Check if it is possible to apply the pretended operation for
         the 1st IBM Qiskit's Quantum Register and the respective qubit.
         """
 
         is_possible_to_apply_operation_2 = \
-            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_index_2,
-                                                         qubit_index_2, True)
+            self.check_if_is_possible_to_apply_quantum_operation(qiskit_quantum_register_index_2,
+                                                                 qubit_index_2, True)
         """
         Check if it is possible to apply the pretended operation for
         the 2nd IBM Qiskit's Quantum Register and the respective qubit.
@@ -10655,16 +10729,16 @@ class QiskryptQuantumCircuit:
         """
 
         is_possible_to_apply_operation_1 = \
-            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_index_1,
-                                                         qubit_index_1, True)
+            self.check_if_is_possible_to_apply_quantum_operation(qiskit_quantum_register_index_1,
+                                                                 qubit_index_1, True)
         """
         Check if it is possible to apply the pretended operation for
         the 1st IBM Qiskit's Quantum Register and the respective qubit.
         """
 
         is_possible_to_apply_operation_2 = \
-            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_index_2,
-                                                         qubit_index_2, True)
+            self.check_if_is_possible_to_apply_quantum_operation(qiskit_quantum_register_index_2,
+                                                                 qubit_index_2, True)
         """
         Check if it is possible to apply the pretended operation for
         the 2nd IBM Qiskit's Quantum Register and the respective qubit.
@@ -10732,16 +10806,16 @@ class QiskryptQuantumCircuit:
         """
 
         is_possible_to_apply_operation_1 = \
-            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_index_1,
-                                                         qubit_index_1, True)
+            self.check_if_is_possible_to_apply_quantum_operation(qiskit_quantum_register_index_1,
+                                                                 qubit_index_1, True)
         """
         Check if it is possible to apply the pretended operation for
         the 1st IBM Qiskit's Quantum Register and the respective qubit.
         """
 
         is_possible_to_apply_operation_2 = \
-            self.check_if_is_possible_to_apply_operation(qiskit_quantum_register_index_2,
-                                                         qubit_index_2, True)
+            self.check_if_is_possible_to_apply_quantum_operation(qiskit_quantum_register_index_2,
+                                                                 qubit_index_2, True)
         """
         Check if it is possible to apply the pretended operation for
         the 2nd IBM Qiskit's Quantum Register and the respective qubit.
@@ -10761,6 +10835,884 @@ class QiskryptQuantumCircuit:
             Apply the ECR (Echoed R_(zx)(pi/2)) Gate/Operation to
             the given indexes of IBM Qiskit's Quantum Registers and their respective qubits.
             """
+
+    """
+    5) Single Bit Gates/Operations Methods:
+    """
+
+    def apply_classical_buffer(self, qiskit_classical_register_index: int, bit_index: int,
+                               is_to_update_bit: bool) -> int:
+        """
+        Apply the Classical Buffer Gate/Operation to given indexes of
+        a Qiskrypt's Classical Register and a target bit.
+
+        :param qiskit_classical_register_index: the index of an IBM Qiskit's Classical Register (just for coherence).
+        :param bit_index: the index of a bit inside that IBM Qiskit's Classical Register.
+        :param is_to_update_bit: the boolean flag to keep information about if is pretended to
+                                 update the respective bit.
+        """
+
+        is_possible_to_apply_operation = \
+            self.check_if_is_possible_to_apply_classical_operation(qiskit_classical_register_index, bit_index)
+        """
+        Check if it is possible to apply the pretended operation.
+        """
+
+        if is_possible_to_apply_operation:
+            """
+            It is possible to apply the pretended operation.
+            """
+
+            bit_value = self.get_qiskrypt_classical_register(qiskit_classical_register_index).get_bit(bit_index)
+            """
+            Retrieve the current value of the given bit of
+            the given Qiskrypt's Classical Register.
+            """
+
+            if is_to_update_bit:
+                """
+                If the boolean flag to keep information about if is pretended to
+                update the respective bit is set as True.
+                """
+
+                self.get_qiskrypt_classical_register(qiskit_classical_register_index).buffer_bit(bit_index)
+                """
+                Apply the Classical Buffer Gate/Operation to the given bit of
+                the given Qiskrypt's Classical Register.
+                """
+
+            """
+            Return the value of the given bit of
+            the given Qiskrypt's Classical Register,
+            according to the Classical Buffer Gate/Operation.
+            """
+            return bit_value
+
+    def apply_classical_inverter(self, qiskit_classical_register_index: int, bit_index: int,
+                                 is_to_update_bit: bool) -> int:
+        """
+        Apply the Classical Inverter Gate/Operation to given indexes of
+        a Qiskrypt's Classical Register and a target bit.
+
+        :param qiskit_classical_register_index: the index of an IBM Qiskit's Classical Register (just for coherence).
+        :param bit_index: the index of a bit inside that IBM Qiskit's Classical Register.
+        :param is_to_update_bit: the boolean flag to keep information about if is pretended to
+                                 update the respective bit.
+        """
+
+        is_possible_to_apply_operation = \
+            self.check_if_is_possible_to_apply_classical_operation(qiskit_classical_register_index, bit_index)
+        """
+        Check if it is possible to apply the pretended operation.
+        """
+
+        if is_possible_to_apply_operation:
+            """
+            It is possible to apply the pretended operation.
+            """
+
+            bit_value = self.get_qiskrypt_classical_register(qiskit_classical_register_index).get_bit(bit_index)
+            """
+            Retrieve the current value of the given bit of
+            the given Qiskrypt's Classical Register.
+            """
+
+            bit_value = int(not bit_value)
+            """
+            Flip the value of the given bit of
+            the given Qiskrypt's Classical Register.
+            """
+
+            if is_to_update_bit:
+                """
+                If the boolean flag to keep information about if is pretended to
+                update the respective bit is set as True.
+                """
+
+                self.get_qiskrypt_classical_register(qiskit_classical_register_index).invert_bit(bit_index)
+                """
+                Apply the Classical Inverter Gate/Operation to the given bit of
+                the given Qiskrypt's Classical Register.
+                """
+
+            """
+            Return the value of the given bit of
+            the given Qiskrypt's Classical Register,
+            according to the Classical Inverter Gate/Operation.
+            """
+            return bit_value
+
+    """
+    6) Multiple Bit Gates/Operations Methods:
+    """
+
+    def apply_classical_and(self, qiskit_classical_register_index_1: int,
+                            qiskit_classical_register_index_2: int,
+                            bit_index_1: int, bit_index_2: int,
+                            is_to_update_bit: bool,
+                            qiskit_classical_register_index_to_update=None) -> int:
+        """
+        Apply the Classical AND Gate/Operation to given indexes of
+        Qiskrypt's Classical Registers and the respective bits on them.
+
+        :param qiskit_classical_register_index_1: the index of the 1st given IBM Qiskit's Classical Register
+                                                  (just for coherence).
+        :param qiskit_classical_register_index_2: the index of the 2nd given IBM Qiskit's Classical Register
+                                                  (just for coherence).
+        :param bit_index_1: the index of a bit inside the 1st IBM Qiskit's Classical Register.
+        :param bit_index_2: the index of a bit inside the 2nd IBM Qiskit's Classical Register.
+        :param is_to_update_bit: the boolean flag to keep information about if is pretended to
+                                 update the respective bit.
+        :param qiskit_classical_register_index_to_update: the index of the given IBM Qiskit's Classical Register to
+                                                          indicate which one of the Qiskrypt's Classical Registers
+                                                          needs to be updated in the respective given associated bit.
+        """
+
+        is_possible_to_apply_operation_1 = \
+            self.check_if_is_possible_to_apply_classical_operation(qiskit_classical_register_index_1,
+                                                                   bit_index_1)
+        """
+        Check if it is possible to apply the pretended operation for
+        the 1st IBM Qiskit's Classical Register and the respective bit.
+        """
+
+        is_possible_to_apply_operation_2 = \
+            self.check_if_is_possible_to_apply_classical_operation(qiskit_classical_register_index_2,
+                                                                   bit_index_2)
+        """
+        Check if it is possible to apply the pretended operation for
+        the 2nd IBM Qiskit's Classical Register and the respective bit.
+        """
+
+        if is_possible_to_apply_operation_1 and is_possible_to_apply_operation_2:
+            """
+            It is possible to apply the pretended operation for both
+            the IBM Qiskit's Classical Registers and their respective target bits.
+            """
+
+            bit_value_1 = self.get_qiskrypt_classical_register(qiskit_classical_register_index_1)\
+                              .get_bit(bit_index_1)
+            """
+            Retrieve the current value of the 1st given bit of
+            the given Qiskrypt's Classical Register.
+            """
+
+            bit_value_2 = self.get_qiskrypt_classical_register(qiskit_classical_register_index_2)\
+                              .get_bit(bit_index_2)
+            """
+            Retrieve the current value of the 1st given bit of
+            the given Qiskrypt's Classical Register.
+            """
+
+            and_bit_value = int(bit_value_1 and bit_value_2)
+            """
+            Perform the AND operation between the values of the given bits of
+            the given Qiskrypt's Classical Registers.
+            """
+
+            if is_to_update_bit:
+                """
+                If the boolean flag to keep information about if is pretended to
+                update the respective bit is set as True.
+                """
+
+                if (qiskit_classical_register_index_to_update == qiskit_classical_register_index_1) or \
+                        (qiskit_classical_register_index_to_update == qiskit_classical_register_index_2):
+                    """
+                    If the index of the given IBM Qiskit's Classical Register to
+                    indicate which one of the Qiskrypt's Classical Registers
+                    needs to be updated in the respective given associated bit is valid.
+                    """
+
+                    if qiskit_classical_register_index_to_update == qiskit_classical_register_index_1:
+                        """
+                        If the index of the given IBM Qiskit's Classical Register to
+                        indicate which one of the Qiskrypt's Classical Registers
+                        needs to be updated in the respective given associated bit is the 1st one.
+                        """
+
+                        self.get_qiskrypt_classical_register(qiskit_classical_register_index_to_update)\
+                            .update_bit(bit_index_1, and_bit_value)
+                        """
+                        Update the respective bit according to
+                        the Classical AND Gate/Operation between the given bits of
+                        the given Qiskrypt's Classical Registers.
+                        """
+
+                    elif qiskit_classical_register_index_to_update == qiskit_classical_register_index_2:
+                        """
+                        If the index of the given IBM Qiskit's Classical Register to
+                        indicate which one of the Qiskrypt's Classical Registers
+                        needs to be updated in the respective given associated bit is the 2nd one.
+                        """
+
+                        self.get_qiskrypt_classical_register(qiskit_classical_register_index_to_update)\
+                            .update_bit(bit_index_2, and_bit_value)
+                        """
+                        Update the respective bit according to
+                        the Classical AND Gate/Operation between the given bits of
+                        the given Qiskrypt's Classical Registers.
+                        """
+
+                else:
+                    """
+                    If the index of the given IBM Qiskit's Classical Register to
+                    indicate which one of the Qiskrypt's Classical Registers
+                    needs to be updated in the respective given associated bit is not valid.
+                    """
+
+                    self.raise_invalid_qiskit_classical_register_index_given_error()
+                    """
+                    Raise an Invalid IBM Qiskit's Classical Register Index Given Error for
+                    the Qiskrypt's Quantum Circuit.
+                    """
+
+            """
+            Return the value of the AND operation between the values of the given bits of
+            the given Qiskrypt's Classical Registers.
+            """
+            return and_bit_value
+
+    def apply_classical_or(self, qiskit_classical_register_index_1: int,
+                           qiskit_classical_register_index_2: int,
+                           bit_index_1: int, bit_index_2: int,
+                           is_to_update_bit: bool,
+                           qiskit_classical_register_index_to_update=None) -> int:
+        """
+        Apply the Classical OR Gate/Operation to given indexes of
+        Qiskrypt's Classical Registers and the respective bits on them.
+
+        :param qiskit_classical_register_index_1: the index of the 1st given IBM Qiskit's Classical Register
+                                                  (just for coherence).
+        :param qiskit_classical_register_index_2: the index of the 2nd given IBM Qiskit's Classical Register
+                                                  (just for coherence).
+        :param bit_index_1: the index of a bit inside the 1st IBM Qiskit's Classical Register.
+        :param bit_index_2: the index of a bit inside the 2nd IBM Qiskit's Classical Register.
+        :param is_to_update_bit: the boolean flag to keep information about if is pretended to
+                                 update the respective bit.
+        :param qiskit_classical_register_index_to_update: the index of the given IBM Qiskit's Classical Register to
+                                                          indicate which one of the Qiskrypt's Classical Registers
+                                                          needs to be updated in the respective given associated bit.
+        """
+
+        is_possible_to_apply_operation_1 = \
+            self.check_if_is_possible_to_apply_classical_operation(qiskit_classical_register_index_1,
+                                                                   bit_index_1)
+        """
+        Check if it is possible to apply the pretended operation for
+        the 1st IBM Qiskit's Classical Register and the respective bit.
+        """
+
+        is_possible_to_apply_operation_2 = \
+            self.check_if_is_possible_to_apply_classical_operation(qiskit_classical_register_index_2,
+                                                                   bit_index_2)
+        """
+        Check if it is possible to apply the pretended operation for
+        the 2nd IBM Qiskit's Classical Register and the respective bit.
+        """
+
+        if is_possible_to_apply_operation_1 and is_possible_to_apply_operation_2:
+            """
+            It is possible to apply the pretended operation for both
+            the IBM Qiskit's Classical Registers and their respective target bits.
+            """
+
+            bit_value_1 = self.get_qiskrypt_classical_register(qiskit_classical_register_index_1) \
+                .get_bit(bit_index_1)
+            """
+            Retrieve the current value of the 1st given bit of
+            the given Qiskrypt's Classical Register.
+            """
+
+            bit_value_2 = self.get_qiskrypt_classical_register(qiskit_classical_register_index_2) \
+                .get_bit(bit_index_2)
+            """
+            Retrieve the current value of the 1st given bit of
+            the given Qiskrypt's Classical Register.
+            """
+
+            or_bit_value = int(bit_value_1 or bit_value_2)
+            """
+            Perform the OR operation between the values of the given bits of
+            the given Qiskrypt's Classical Registers.
+            """
+
+            if is_to_update_bit:
+                """
+                If the boolean flag to keep information about if is pretended to
+                update the respective bit is set as True.
+                """
+
+                if (qiskit_classical_register_index_to_update == qiskit_classical_register_index_1) or \
+                        (qiskit_classical_register_index_to_update == qiskit_classical_register_index_2):
+                    """
+                    If the index of the given IBM Qiskit's Classical Register to
+                    indicate which one of the Qiskrypt's Classical Registers
+                    needs to be updated in the respective given associated bit is valid.
+                    """
+
+                    if qiskit_classical_register_index_to_update == qiskit_classical_register_index_1:
+                        """
+                        If the index of the given IBM Qiskit's Classical Register to
+                        indicate which one of the Qiskrypt's Classical Registers
+                        needs to be updated in the respective given associated bit is the 1st one.
+                        """
+
+                        self.get_qiskrypt_classical_register(qiskit_classical_register_index_to_update) \
+                            .update_bit(bit_index_1, or_bit_value)
+                        """
+                        Update the respective bit according to
+                        the Classical OR Gate/Operation between the given bits of
+                        the given Qiskrypt's Classical Registers.
+                        """
+
+                    elif qiskit_classical_register_index_to_update == qiskit_classical_register_index_2:
+                        """
+                        If the index of the given IBM Qiskit's Classical Register to
+                        indicate which one of the Qiskrypt's Classical Registers
+                        needs to be updated in the respective given associated bit is the 2nd one.
+                        """
+
+                        self.get_qiskrypt_classical_register(qiskit_classical_register_index_to_update) \
+                            .update_bit(bit_index_2, or_bit_value)
+                        """
+                        Update the respective bit according to
+                        the Classical OR Gate/Operation between the given bits of
+                        the given Qiskrypt's Classical Registers.
+                        """
+
+                else:
+                    """
+                    If the index of the given IBM Qiskit's Classical Register to
+                    indicate which one of the Qiskrypt's Classical Registers
+                    needs to be updated in the respective given associated bit is not valid.
+                    """
+
+                    self.raise_invalid_qiskit_classical_register_index_given_error()
+                    """
+                    Raise an Invalid IBM Qiskit's Classical Register Index Given Error for
+                    the Qiskrypt's Quantum Circuit.
+                    """
+
+            """
+            Return the value of the OR operation between the values of the given bits of
+            the given Qiskrypt's Classical Registers.
+            """
+            return or_bit_value
+
+    def apply_classical_nand(self, qiskit_classical_register_index_1: int,
+                             qiskit_classical_register_index_2: int,
+                             bit_index_1: int, bit_index_2: int,
+                             is_to_update_bit: bool,
+                             qiskit_classical_register_index_to_update=None) -> int:
+        """
+        Apply the Classical NAND (NOT AND) Gate/Operation to given indexes of
+        Qiskrypt's Classical Registers and the respective bits on them.
+
+        :param qiskit_classical_register_index_1: the index of the 1st given IBM Qiskit's Classical Register
+                                                  (just for coherence).
+        :param qiskit_classical_register_index_2: the index of the 2nd given IBM Qiskit's Classical Register
+                                                  (just for coherence).
+        :param bit_index_1: the index of a bit inside the 1st IBM Qiskit's Classical Register.
+        :param bit_index_2: the index of a bit inside the 2nd IBM Qiskit's Classical Register.
+        :param is_to_update_bit: the boolean flag to keep information about if is pretended to
+                                 update the respective bit.
+        :param qiskit_classical_register_index_to_update: the index of the given IBM Qiskit's Classical Register to
+                                                          indicate which one of the Qiskrypt's Classical Registers
+                                                          needs to be updated in the respective given associated bit.
+        """
+
+        is_possible_to_apply_operation_1 = \
+            self.check_if_is_possible_to_apply_classical_operation(qiskit_classical_register_index_1,
+                                                                   bit_index_1)
+        """
+        Check if it is possible to apply the pretended operation for
+        the 1st IBM Qiskit's Classical Register and the respective bit.
+        """
+
+        is_possible_to_apply_operation_2 = \
+            self.check_if_is_possible_to_apply_classical_operation(qiskit_classical_register_index_2,
+                                                                   bit_index_2)
+        """
+        Check if it is possible to apply the pretended operation for
+        the 2nd IBM Qiskit's Classical Register and the respective bit.
+        """
+
+        if is_possible_to_apply_operation_1 and is_possible_to_apply_operation_2:
+            """
+            It is possible to apply the pretended operation for both
+            the IBM Qiskit's Classical Registers and their respective target bits.
+            """
+
+            bit_value_1 = self.get_qiskrypt_classical_register(qiskit_classical_register_index_1) \
+                .get_bit(bit_index_1)
+            """
+            Retrieve the current value of the 1st given bit of
+            the given Qiskrypt's Classical Register.
+            """
+
+            bit_value_2 = self.get_qiskrypt_classical_register(qiskit_classical_register_index_2) \
+                .get_bit(bit_index_2)
+            """
+            Retrieve the current value of the 1st given bit of
+            the given Qiskrypt's Classical Register.
+            """
+
+            nand_bit_value = int(not (bit_value_1 and bit_value_2))
+            """
+            Perform the NAND (NOT AND) operation between the values of the given bits of
+            the given Qiskrypt's Classical Registers.
+            """
+
+            if is_to_update_bit:
+                """
+                If the boolean flag to keep information about if is pretended to
+                update the respective bit is set as True.
+                """
+
+                if (qiskit_classical_register_index_to_update == qiskit_classical_register_index_1) or \
+                        (qiskit_classical_register_index_to_update == qiskit_classical_register_index_2):
+                    """
+                    If the index of the given IBM Qiskit's Classical Register to
+                    indicate which one of the Qiskrypt's Classical Registers
+                    needs to be updated in the respective given associated bit is valid.
+                    """
+
+                    if qiskit_classical_register_index_to_update == qiskit_classical_register_index_1:
+                        """
+                        If the index of the given IBM Qiskit's Classical Register to
+                        indicate which one of the Qiskrypt's Classical Registers
+                        needs to be updated in the respective given associated bit is the 1st one.
+                        """
+
+                        self.get_qiskrypt_classical_register(qiskit_classical_register_index_to_update) \
+                            .update_bit(bit_index_1, nand_bit_value)
+                        """
+                        Update the respective bit according to
+                        the Classical NAND (NOT AND) Gate/Operation between the given bits of
+                        the given Qiskrypt's Classical Registers.
+                        """
+
+                    elif qiskit_classical_register_index_to_update == qiskit_classical_register_index_2:
+                        """
+                        If the index of the given IBM Qiskit's Classical Register to
+                        indicate which one of the Qiskrypt's Classical Registers
+                        needs to be updated in the respective given associated bit is the 2nd one.
+                        """
+
+                        self.get_qiskrypt_classical_register(qiskit_classical_register_index_to_update) \
+                            .update_bit(bit_index_2, nand_bit_value)
+                        """
+                        Update the respective bit according to
+                        the Classical NAND (NOT AND) Gate/Operation between the given bits of
+                        the given Qiskrypt's Classical Registers.
+                        """
+
+                else:
+                    """
+                    If the index of the given IBM Qiskit's Classical Register to
+                    indicate which one of the Qiskrypt's Classical Registers
+                    needs to be updated in the respective given associated bit is not valid.
+                    """
+
+                    self.raise_invalid_qiskit_classical_register_index_given_error()
+                    """
+                    Raise an Invalid IBM Qiskit's Classical Register Index Given Error for
+                    the Qiskrypt's Quantum Circuit.
+                    """
+
+            """
+            Return the value of the NAND (NOT AND) operation between the values of the given bits of
+            the given Qiskrypt's Classical Registers.
+            """
+            return nand_bit_value
+
+    def apply_classical_nor(self, qiskit_classical_register_index_1: int,
+                            qiskit_classical_register_index_2: int,
+                            bit_index_1: int, bit_index_2: int,
+                            is_to_update_bit: bool,
+                            qiskit_classical_register_index_to_update=None) -> int:
+        """
+        Apply the Classical NOR (NOT OR) Gate/Operation to given indexes of
+        Qiskrypt's Classical Registers and the respective bits on them.
+
+        :param qiskit_classical_register_index_1: the index of the 1st given IBM Qiskit's Classical Register
+                                                  (just for coherence).
+        :param qiskit_classical_register_index_2: the index of the 2nd given IBM Qiskit's Classical Register
+                                                  (just for coherence).
+        :param bit_index_1: the index of a bit inside the 1st IBM Qiskit's Classical Register.
+        :param bit_index_2: the index of a bit inside the 2nd IBM Qiskit's Classical Register.
+        :param is_to_update_bit: the boolean flag to keep information about if is pretended to
+                                 update the respective bit.
+        :param qiskit_classical_register_index_to_update: the index of the given IBM Qiskit's Classical Register to
+                                                          indicate which one of the Qiskrypt's Classical Registers
+                                                          needs to be updated in the respective given associated bit.
+        """
+
+        is_possible_to_apply_operation_1 = \
+            self.check_if_is_possible_to_apply_classical_operation(qiskit_classical_register_index_1,
+                                                                   bit_index_1)
+        """
+        Check if it is possible to apply the pretended operation for
+        the 1st IBM Qiskit's Classical Register and the respective bit.
+        """
+
+        is_possible_to_apply_operation_2 = \
+            self.check_if_is_possible_to_apply_classical_operation(qiskit_classical_register_index_2,
+                                                                   bit_index_2)
+        """
+        Check if it is possible to apply the pretended operation for
+        the 2nd IBM Qiskit's Classical Register and the respective bit.
+        """
+
+        if is_possible_to_apply_operation_1 and is_possible_to_apply_operation_2:
+            """
+            It is possible to apply the pretended operation for both
+            the IBM Qiskit's Classical Registers and their respective target bits.
+            """
+
+            bit_value_1 = self.get_qiskrypt_classical_register(qiskit_classical_register_index_1) \
+                .get_bit(bit_index_1)
+            """
+            Retrieve the current value of the 1st given bit of
+            the given Qiskrypt's Classical Register.
+            """
+
+            bit_value_2 = self.get_qiskrypt_classical_register(qiskit_classical_register_index_2) \
+                .get_bit(bit_index_2)
+            """
+            Retrieve the current value of the 1st given bit of
+            the given Qiskrypt's Classical Register.
+            """
+
+            nor_bit_value = int(not (bit_value_1 or bit_value_2))
+            """
+            Perform the NOR (NOT OR) operation between the values of the given bits of
+            the given Qiskrypt's Classical Registers.
+            """
+
+            if is_to_update_bit:
+                """
+                If the boolean flag to keep information about if is pretended to
+                update the respective bit is set as True.
+                """
+
+                if (qiskit_classical_register_index_to_update == qiskit_classical_register_index_1) or \
+                        (qiskit_classical_register_index_to_update == qiskit_classical_register_index_2):
+                    """
+                    If the index of the given IBM Qiskit's Classical Register to
+                    indicate which one of the Qiskrypt's Classical Registers
+                    needs to be updated in the respective given associated bit is valid.
+                    """
+
+                    if qiskit_classical_register_index_to_update == qiskit_classical_register_index_1:
+                        """
+                        If the index of the given IBM Qiskit's Classical Register to
+                        indicate which one of the Qiskrypt's Classical Registers
+                        needs to be updated in the respective given associated bit is the 1st one.
+                        """
+
+                        self.get_qiskrypt_classical_register(qiskit_classical_register_index_to_update) \
+                            .update_bit(bit_index_1, nor_bit_value)
+                        """
+                        Update the respective bit according to
+                        the Classical NOR (NOT OR) Gate/Operation between the given bits of
+                        the given Qiskrypt's Classical Registers.
+                        """
+
+                    elif qiskit_classical_register_index_to_update == qiskit_classical_register_index_2:
+                        """
+                        If the index of the given IBM Qiskit's Classical Register to
+                        indicate which one of the Qiskrypt's Classical Registers
+                        needs to be updated in the respective given associated bit is the 2nd one.
+                        """
+
+                        self.get_qiskrypt_classical_register(qiskit_classical_register_index_to_update) \
+                            .update_bit(bit_index_2, nor_bit_value)
+                        """
+                        Update the respective bit according to
+                        the Classical NOR (NOT OR) Gate/Operation between the given bits of
+                        the given Qiskrypt's Classical Registers.
+                        """
+
+                else:
+                    """
+                    If the index of the given IBM Qiskit's Classical Register to
+                    indicate which one of the Qiskrypt's Classical Registers
+                    needs to be updated in the respective given associated bit is not valid.
+                    """
+
+                    self.raise_invalid_qiskit_classical_register_index_given_error()
+                    """
+                    Raise an Invalid IBM Qiskit's Classical Register Index Given Error for
+                    the Qiskrypt's Quantum Circuit.
+                    """
+
+            """
+            Return the value of the NOR (NOT OR) operation between the values of the given bits of
+            the given Qiskrypt's Classical Registers.
+            """
+            return nor_bit_value
+
+    def apply_classical_xor(self, qiskit_classical_register_index_1: int,
+                            qiskit_classical_register_index_2: int,
+                            bit_index_1: int, bit_index_2: int,
+                            is_to_update_bit: bool,
+                            qiskit_classical_register_index_to_update=None) -> int:
+        """
+        Apply the Classical XOR (eXclusive OR) Gate/Operation to given indexes of
+        Qiskrypt's Classical Registers and the respective bits on them.
+
+        :param qiskit_classical_register_index_1: the index of the 1st given IBM Qiskit's Classical Register
+                                                  (just for coherence).
+        :param qiskit_classical_register_index_2: the index of the 2nd given IBM Qiskit's Classical Register
+                                                  (just for coherence).
+        :param bit_index_1: the index of a bit inside the 1st IBM Qiskit's Classical Register.
+        :param bit_index_2: the index of a bit inside the 2nd IBM Qiskit's Classical Register.
+        :param is_to_update_bit: the boolean flag to keep information about if is pretended to
+                                 update the respective bit.
+        :param qiskit_classical_register_index_to_update: the index of the given IBM Qiskit's Classical Register to
+                                                          indicate which one of the Qiskrypt's Classical Registers
+                                                          needs to be updated in the respective given associated bit.
+        """
+
+        is_possible_to_apply_operation_1 = \
+            self.check_if_is_possible_to_apply_classical_operation(qiskit_classical_register_index_1,
+                                                                   bit_index_1)
+        """
+        Check if it is possible to apply the pretended operation for
+        the 1st IBM Qiskit's Classical Register and the respective bit.
+        """
+
+        is_possible_to_apply_operation_2 = \
+            self.check_if_is_possible_to_apply_classical_operation(qiskit_classical_register_index_2,
+                                                                   bit_index_2)
+        """
+        Check if it is possible to apply the pretended operation for
+        the 2nd IBM Qiskit's Classical Register and the respective bit.
+        """
+
+        if is_possible_to_apply_operation_1 and is_possible_to_apply_operation_2:
+            """
+            It is possible to apply the pretended operation for both
+            the IBM Qiskit's Classical Registers and their respective target bits.
+            """
+
+            bit_value_1 = self.get_qiskrypt_classical_register(qiskit_classical_register_index_1) \
+                .get_bit(bit_index_1)
+            """
+            Retrieve the current value of the 1st given bit of
+            the given Qiskrypt's Classical Register.
+            """
+
+            bit_value_2 = self.get_qiskrypt_classical_register(qiskit_classical_register_index_2) \
+                .get_bit(bit_index_2)
+            """
+            Retrieve the current value of the 1st given bit of
+            the given Qiskrypt's Classical Register.
+            """
+
+            xor_bit_value = int(bit_value_1 ^ bit_value_2)
+            """
+            Perform the XOR (eXclusive OR) operation between the values of the given bits of
+            the given Qiskrypt's Classical Registers.
+            """
+
+            if is_to_update_bit:
+                """
+                If the boolean flag to keep information about if is pretended to
+                update the respective bit is set as True.
+                """
+
+                if (qiskit_classical_register_index_to_update == qiskit_classical_register_index_1) or \
+                        (qiskit_classical_register_index_to_update == qiskit_classical_register_index_2):
+                    """
+                    If the index of the given IBM Qiskit's Classical Register to
+                    indicate which one of the Qiskrypt's Classical Registers
+                    needs to be updated in the respective given associated bit is valid.
+                    """
+
+                    if qiskit_classical_register_index_to_update == qiskit_classical_register_index_1:
+                        """
+                        If the index of the given IBM Qiskit's Classical Register to
+                        indicate which one of the Qiskrypt's Classical Registers
+                        needs to be updated in the respective given associated bit is the 1st one.
+                        """
+
+                        self.get_qiskrypt_classical_register(qiskit_classical_register_index_to_update) \
+                            .update_bit(bit_index_1, xor_bit_value)
+                        """
+                        Update the respective bit according to
+                        the Classical XOR (eXclusive OR) Gate/Operation between the given bits of
+                        the given Qiskrypt's Classical Registers.
+                        """
+
+                    elif qiskit_classical_register_index_to_update == qiskit_classical_register_index_2:
+                        """
+                        If the index of the given IBM Qiskit's Classical Register to
+                        indicate which one of the Qiskrypt's Classical Registers
+                        needs to be updated in the respective given associated bit is the 2nd one.
+                        """
+
+                        self.get_qiskrypt_classical_register(qiskit_classical_register_index_to_update) \
+                            .update_bit(bit_index_2, xor_bit_value)
+                        """
+                        Update the respective bit according to
+                        the Classical XOR (eXclusive OR) Gate/Operation between the given bits of
+                        the given Qiskrypt's Classical Registers.
+                        """
+
+                else:
+                    """
+                    If the index of the given IBM Qiskit's Classical Register to
+                    indicate which one of the Qiskrypt's Classical Registers
+                    needs to be updated in the respective given associated bit is not valid.
+                    """
+
+                    self.raise_invalid_qiskit_classical_register_index_given_error()
+                    """
+                    Raise an Invalid IBM Qiskit's Classical Register Index Given Error for
+                    the Qiskrypt's Quantum Circuit.
+                    """
+
+            """
+            Return the value of the XOR (eXclusive OR) operation between the values of the given bits of
+            the given Qiskrypt's Classical Registers.
+            """
+            return xor_bit_value
+
+    def apply_classical_xnor(self, qiskit_classical_register_index_1: int,
+                             qiskit_classical_register_index_2: int,
+                             bit_index_1: int, bit_index_2: int,
+                             is_to_update_bit: bool,
+                             qiskit_classical_register_index_to_update=None) -> int:
+        """
+        Apply the Classical XNOR (eXclusive NOT OR) Gate/Operation to given indexes of
+        Qiskrypt's Classical Registers and the respective bits on them.
+
+        :param qiskit_classical_register_index_1: the index of the 1st given IBM Qiskit's Classical Register
+                                                  (just for coherence).
+        :param qiskit_classical_register_index_2: the index of the 2nd given IBM Qiskit's Classical Register
+                                                  (just for coherence).
+        :param bit_index_1: the index of a bit inside the 1st IBM Qiskit's Classical Register.
+        :param bit_index_2: the index of a bit inside the 2nd IBM Qiskit's Classical Register.
+        :param is_to_update_bit: the boolean flag to keep information about if is pretended to
+                                 update the respective bit.
+        :param qiskit_classical_register_index_to_update: the index of the given IBM Qiskit's Classical Register to
+                                                          indicate which one of the Qiskrypt's Classical Registers
+                                                          needs to be updated in the respective given associated bit.
+        """
+
+        is_possible_to_apply_operation_1 = \
+            self.check_if_is_possible_to_apply_classical_operation(qiskit_classical_register_index_1,
+                                                                   bit_index_1)
+        """
+        Check if it is possible to apply the pretended operation for
+        the 1st IBM Qiskit's Classical Register and the respective bit.
+        """
+
+        is_possible_to_apply_operation_2 = \
+            self.check_if_is_possible_to_apply_classical_operation(qiskit_classical_register_index_2,
+                                                                   bit_index_2)
+        """
+        Check if it is possible to apply the pretended operation for
+        the 2nd IBM Qiskit's Classical Register and the respective bit.
+        """
+
+        if is_possible_to_apply_operation_1 and is_possible_to_apply_operation_2:
+            """
+            It is possible to apply the pretended operation for both
+            the IBM Qiskit's Classical Registers and their respective target bits.
+            """
+
+            bit_value_1 = self.get_qiskrypt_classical_register(qiskit_classical_register_index_1) \
+                .get_bit(bit_index_1)
+            """
+            Retrieve the current value of the 1st given bit of
+            the given Qiskrypt's Classical Register.
+            """
+
+            bit_value_2 = self.get_qiskrypt_classical_register(qiskit_classical_register_index_2) \
+                .get_bit(bit_index_2)
+            """
+            Retrieve the current value of the 1st given bit of
+            the given Qiskrypt's Classical Register.
+            """
+
+            xnor_bit_value = int(not (bit_value_1 ^ bit_value_2))
+            """
+            Perform the XNOR (eXclusive NOT OR) operation between the values of the given bits of
+            the given Qiskrypt's Classical Registers.
+            """
+
+            if is_to_update_bit:
+                """
+                If the boolean flag to keep information about if is pretended to
+                update the respective bit is set as True.
+                """
+
+                if (qiskit_classical_register_index_to_update == qiskit_classical_register_index_1) or \
+                        (qiskit_classical_register_index_to_update == qiskit_classical_register_index_2):
+                    """
+                    If the index of the given IBM Qiskit's Classical Register to
+                    indicate which one of the Qiskrypt's Classical Registers
+                    needs to be updated in the respective given associated bit is valid.
+                    """
+
+                    if qiskit_classical_register_index_to_update == qiskit_classical_register_index_1:
+                        """
+                        If the index of the given IBM Qiskit's Classical Register to
+                        indicate which one of the Qiskrypt's Classical Registers
+                        needs to be updated in the respective given associated bit is the 1st one.
+                        """
+
+                        self.get_qiskrypt_classical_register(qiskit_classical_register_index_to_update) \
+                            .update_bit(bit_index_1, xnor_bit_value)
+                        """
+                        Update the respective bit according to
+                        the Classical XNOR (eXclusive NOT OR) Gate/Operation between the given bits of
+                        the given Qiskrypt's Classical Registers.
+                        """
+
+                    elif qiskit_classical_register_index_to_update == qiskit_classical_register_index_2:
+                        """
+                        If the index of the given IBM Qiskit's Classical Register to
+                        indicate which one of the Qiskrypt's Classical Registers
+                        needs to be updated in the respective given associated bit is the 2nd one.
+                        """
+
+                        self.get_qiskrypt_classical_register(qiskit_classical_register_index_to_update) \
+                            .update_bit(bit_index_2, xnor_bit_value)
+                        """
+                        Update the respective bit according to
+                        the Classical XNOR (eXclusive NOT OR) Gate/Operation between the given bits of
+                        the given Qiskrypt's Classical Registers.
+                        """
+
+                else:
+                    """
+                    If the index of the given IBM Qiskit's Classical Register to
+                    indicate which one of the Qiskrypt's Classical Registers
+                    needs to be updated in the respective given associated bit is not valid.
+                    """
+
+                    self.raise_invalid_qiskit_classical_register_index_given_error()
+                    """
+                    Raise an Invalid IBM Qiskit's Classical Register Index Given Error for
+                    the Qiskrypt's Quantum Circuit.
+                    """
+
+            """
+            Return the value of the XNOR (eXclusive NOT OR) operation between the values of the given bits of
+            the given Qiskrypt's Classical Registers.
+            """
+            return xnor_bit_value
+
+    # TODO
+
+    """
+    7) Static Methods:
+    """
 
     @staticmethod
     def create_global_molmer_sorensen_radians_qiskrypt_quantum_circuit(num_qubits: int,
