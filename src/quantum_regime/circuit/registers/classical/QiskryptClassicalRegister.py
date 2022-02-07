@@ -206,13 +206,15 @@ class QiskryptClassicalRegister:
             """
             self.raise_invalid_bit_index_given_error()
 
-    def buffer_bit(self, bit_index: int):
+    def update_bit(self, bit_index: int, new_bit_value: int) -> None:
         """
-        Buffer the bit in the Qiskrypt's Classical Register,
+        Update the bit in the Qiskrypt's Classical Register,
         for a given index.
 
         :param bit_index: the given index of the bit in
                           the Qiskrypt's Classical Register.
+        :param new_bit_value: the new value for the bit in
+                              the Qiskrypt's Classical Register.
         """
 
         if bit_index < self.get_num_bits():
@@ -222,10 +224,10 @@ class QiskryptClassicalRegister:
             """
 
             """
-            Buffer the pretended bit in
-            the Qiskrypt's Classical Register.
+            Update the pretended bit in
+            the Qiskrypt's Classical Register with the new value.
             """
-            self.bits[bit_index] = self.bits[bit_index]
+            self.bits[bit_index] = new_bit_value
 
         else:
             """
@@ -237,6 +239,21 @@ class QiskryptClassicalRegister:
             Return/Raise an Invalid Bit Index Given Error.
             """
             self.raise_invalid_bit_index_given_error()
+
+    def buffer_bit(self, bit_index: int) -> None:
+        """
+        Buffer the bit in the Qiskrypt's Classical Register,
+        for a given index.
+
+        :param bit_index: the given index of the bit in
+                          the Qiskrypt's Classical Register.
+        """
+
+        """
+        Buffer the pretended bit in
+        the Qiskrypt's Classical Register.
+        """
+        self.update_bit(bit_index, self.bits[bit_index])
 
     def invert_bit(self, bit_index: int):
         """
@@ -247,28 +264,11 @@ class QiskryptClassicalRegister:
                           the Qiskrypt's Classical Register.
         """
 
-        if bit_index < self.get_num_bits():
-            """
-            If the given index of the bit is valid for
-            the Qiskrypt's Classical Register.
-            """
-
-            """
-            Invert the pretended bit in
-            the Qiskrypt's Classical Register.
-            """
-            self.bits[bit_index] = int(not self.bits[bit_index])
-
-        else:
-            """
-            If the given index of the bit is not valid for
-            the Qiskrypt's Classical Register.
-            """
-
-            """
-            Return/Raise an Invalid Bit Index Given Error.
-            """
-            self.raise_invalid_bit_index_given_error()
+        """
+        Invert the pretended bit in
+        the Qiskrypt's Classical Register.
+        """
+        self.update_bit(bit_index, int(not self.bits[bit_index]))
 
     def get_qiskit_classical_register(self) -> ClassicalRegister:
         """
