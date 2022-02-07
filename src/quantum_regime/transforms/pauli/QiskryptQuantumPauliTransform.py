@@ -139,13 +139,14 @@ class QiskryptQuantumPauliTransform:
                         """
 
                         for qiskit_quantum_register_index, qubit_index \
-                            in zip(qiskit_quantum_registers_indexes, qubits_indexes):
+                                in zip(qiskit_quantum_registers_indexes, qubits_indexes):
                             """
                             For each pair of indexes of IBM Qiskit's Quantum Registers and qubits. 
                             """
 
-                            qiskrypt_quantum_circuit.check_if_is_possible_to_apply_operation(qiskit_quantum_register_index, qubit_index,
-                                                                                             is_operation_only_supported_for_fully_quantum_registers=True)
+                            qiskrypt_quantum_circuit.check_if_is_possible_to_apply_quantum_operation(
+                                qiskit_quantum_register_index, qubit_index,
+                                is_operation_only_supported_for_fully_quantum_registers=True)
                             """
                             Check if it is possible to apply a specific Operation,
                             regarding the current IBM Qiskit's Quantum Register index and the current qubit index.
