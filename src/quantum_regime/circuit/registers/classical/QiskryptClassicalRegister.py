@@ -60,6 +60,12 @@ from src.quantum_regime.circuit.registers.classical.exception.QiskryptClassicalR
 Import the Not a Valid Classical Register Index Error for the Qiskrypt's Classical Register.
 """
 
+from src.quantum_regime.circuit.registers.classical.exception.QiskryptClassicalRegisterException \
+    import QiskryptClassicalRegisterInvalidBitIndexGivenError
+"""
+Import the Invalid Bit Index Given Error for the Qiskrypt's Classical Register.
+"""
+
 
 class QiskryptClassicalRegister:
     """
@@ -165,6 +171,105 @@ class QiskryptClassicalRegister:
         """
         return self.bits
 
+    def get_bit(self, bit_index: int) -> int:
+        """
+        Return the bit in the Qiskrypt's Classical Register,
+        for a given index.
+
+        :param bit_index: the given index of the bit in
+                          the Qiskrypt's Classical Register.
+
+        :return self.bits[bit_index]: the bit in the Qiskrypt's Classical Register,
+                                      for a given index.
+        """
+
+        if bit_index < self.get_num_bits():
+            """
+            If the given index of the bit is valid for
+            the Qiskrypt's Classical Register.
+            """
+
+            """
+            Return the pretended bit in
+            the Qiskrypt's Classical Register.
+            """
+            return self.bits[bit_index]
+
+        else:
+            """
+            If the given index of the bit is not valid for
+            the Qiskrypt's Classical Register.
+            """
+
+            """
+            Return/Raise an Invalid Bit Index Given Error.
+            """
+            self.raise_invalid_bit_index_given_error()
+
+    def buffer_bit(self, bit_index: int):
+        """
+        Buffer the bit in the Qiskrypt's Classical Register,
+        for a given index.
+
+        :param bit_index: the given index of the bit in
+                          the Qiskrypt's Classical Register.
+        """
+
+        if bit_index < self.get_num_bits():
+            """
+            If the given index of the bit is valid for
+            the Qiskrypt's Classical Register.
+            """
+
+            """
+            Buffer the pretended bit in
+            the Qiskrypt's Classical Register.
+            """
+            self.bits[bit_index] = self.bits[bit_index]
+
+        else:
+            """
+            If the given index of the bit is not valid for
+            the Qiskrypt's Classical Register.
+            """
+
+            """
+            Return/Raise an Invalid Bit Index Given Error.
+            """
+            self.raise_invalid_bit_index_given_error()
+
+    def invert_bit(self, bit_index: int):
+        """
+        Invert the bit in the Qiskrypt's Classical Register,
+        for a given index.
+
+        :param bit_index: the given index of the bit in
+                          the Qiskrypt's Classical Register.
+        """
+
+        if bit_index < self.get_num_bits():
+            """
+            If the given index of the bit is valid for
+            the Qiskrypt's Classical Register.
+            """
+
+            """
+            Invert the pretended bit in
+            the Qiskrypt's Classical Register.
+            """
+            self.bits[bit_index] = int(not self.bits[bit_index])
+
+        else:
+            """
+            If the given index of the bit is not valid for
+            the Qiskrypt's Classical Register.
+            """
+
+            """
+            Return/Raise an Invalid Bit Index Given Error.
+            """
+            self.raise_invalid_bit_index_given_error()
+
     def get_qiskit_classical_register(self) -> ClassicalRegister:
         """
         Return the IBM Qiskit's Classical Register of the Qiskrypt's Classical Register.
@@ -215,3 +320,21 @@ class QiskryptClassicalRegister:
         Raise the Not a Valid Qiskrypt's Classical Register Index Error for the Qiskrypt's Classical Register.
         """
         raise not_valid_classical_register_index_error
+
+    @staticmethod
+    def raise_invalid_bit_index_given_error() -> None:
+        """
+        Return/Raise an Invalid Bit Index Given Error.
+
+        :raise invalid_bit_index_given_error: an Invalid Bit Index Given Error.
+        """
+
+        invalid_bit_index_given_error = QiskryptClassicalRegisterInvalidBitIndexGivenError()
+        """
+        Retrieve the Invalid Bit Index Given Error for the Qiskrypt's Classical Register.
+        """
+
+        """
+        Raise the Invalid Bit Index Given Error for the Qiskrypt's Classical Register.
+        """
+        raise invalid_bit_index_given_error
