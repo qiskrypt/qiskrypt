@@ -58,6 +58,13 @@ The custom defined message for the Not a Valid Classical Register Index Error fo
 the Qiskrypt's Classical Register in the Qiskrypt's Quantum Circuit.
 """
 
+MESSAGE_INVALID_BIT_INDEX_GIVEN_EXCEPTION = "Invalid Bit Index Given Error: " \
+                                            "The given index for a bit in an Qiskrypt's Classical Register is invalid!!!\n"
+"""
+The custom defined message for the Invalid Qubit Index Given Error for
+the Qiskrypt's Classical Register in the Qiskrypt's Quantum Circuit.
+"""
+
 
 class QiskryptNotClassicalRegisterError(Exception):
     """
@@ -103,6 +110,33 @@ class QiskryptNotValidClassicalRegisterIndexError(Exception):
         """
         Set the custom message for the Not a Valid Classical Register Index Error for
         the Qiskrypt's Classical Register in the Qiskrypt's Quantum Circuit.
+        """
+
+        super().__init__(self.message)
+        """
+        Call of the constructor of the super-class Exception.
+        """
+
+
+class QiskryptClassicalRegisterInvalidBitIndexGivenError(Exception):
+    """
+    Object Class of the Invalid Bit Index Given Error for
+    the Qiskrypt's Classical Register.
+    """
+
+    def __init__(self, message=MESSAGE_INVALID_BIT_INDEX_GIVEN_EXCEPTION):
+        """
+        Constructor for the Invalid Bit Index Given Error for
+        the Qiskrypt's Classical Register.
+
+        :param message: the custom message for the Invalid Bit Index Given Error for
+                        the Qiskrypt's Classical Register.
+        """
+
+        self.message = message
+        """
+        Set the custom message for the Invalid Bit Index Given Error for
+        the Qiskrypt's Classical Register.
         """
 
         super().__init__(self.message)
