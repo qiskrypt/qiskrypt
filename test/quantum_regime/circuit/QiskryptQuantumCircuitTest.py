@@ -9637,7 +9637,7 @@ class SingleQubitGatesOperations(TestCase):
 
     def test_no_4_apply_pauli_i(self):
         """
-        Test Case 4#:
+        Test Case #4:
 
         - Apply the Pauli-I (Idle) Gate/Operation to a qubit of an IBM Qiskit's Quantum Register of
           the Qiskrypt's Quantum Register of a Qiskrypt's Quantum Circuit.
@@ -9997,7 +9997,7 @@ class SingleQubitGatesOperations(TestCase):
 
     def test_no_8_apply_pauli_x(self):
         """
-        Test Case 8#:
+        Test Case #8:
 
         - Apply the Pauli-X (Bit Flip/NOT) Gate/Operation to a qubit of an IBM Qiskit's Quantum Register of
           the Qiskrypt's Quantum Register of a Qiskrypt's Quantum Circuit.
@@ -10360,7 +10360,7 @@ class SingleQubitGatesOperations(TestCase):
 
     def test_no_12_apply_pauli_y(self):
         """
-        Test Case 12#:
+        Test Case #12:
 
         - Apply the Pauli-Y Gate/Operation to a qubit of an IBM Qiskit's Quantum Register of
           the Qiskrypt's Quantum Register of a Qiskrypt's Quantum Circuit.
@@ -10722,7 +10722,7 @@ class SingleQubitGatesOperations(TestCase):
 
     def test_no_16_apply_pauli_z(self):
         """
-        Test Case 16#:
+        Test Case #16:
 
         - Apply the Pauli-Z (Phase Flip/Shift) Gate/Operation to a qubit of an IBM Qiskit's Quantum Register of
           the Qiskrypt's Quantum Register of a Qiskrypt's Quantum Circuit.
@@ -10817,7 +10817,6 @@ class SingleQubitGatesOperations(TestCase):
         Dummy Assert Equal for the Unittest.
         """
         self.assertEqual(True, True)
-####
 
     def test_no_17_apply_hadamard(self):
         """
@@ -11083,7 +11082,7 @@ class SingleQubitGatesOperations(TestCase):
 
     def test_no_20_apply_hadamard(self):
         """
-        Test Case 20#:
+        Test Case #20:
 
         - Apply the Hadamard Gate/Operation to a qubit of an IBM Qiskit's Quantum Register of
           the Qiskrypt's Quantum Register of a Qiskrypt's Quantum Circuit.
@@ -11172,6 +11171,507 @@ class SingleQubitGatesOperations(TestCase):
         Perform the Assertion of all close values in the values of the quantum state,
         represented by its state vector describing the given qubit,
         after being applied the Hadamard Quantum Gate/Operation.
+        """
+
+        """
+        Dummy Assert Equal for the Unittest.
+        """
+        self.assertEqual(True, True)
+
+    def test_no_21_apply_classical_buffer(self):
+        """
+        Test Case #21:
+
+        - Apply the Classical Buffer Gate/Operation to a bit of
+          the Qiskrypt's Classical Register of a Qiskrypt's Quantum Circuit.
+
+        Description of the Steps for the Unitary Test:
+        1) The Qiskrypt's Quantum Circuit is created with a Qiskrypt's Classical Register,
+           with 1 bit initialized in the state 0;
+        2) It is applied the Classical Buffer Gate/Operation to the single bit, such that, 0 ↦ 0;
+
+        Return OK (or FAIL) if, all the Tests performed are OK (or FAIL, otherwise).
+        """
+
+        num_qubits = num_bits = 1
+        """
+        Set the number of qubits and bits, for Quantum and Classical Registers, respectively.
+        """
+
+        qiskrypt_quantum_register_classical_buffer_gate_1_bit = \
+            QiskryptQuantumRegister("qu_reg_21", num_qubits)
+        """
+        Create a Qiskrypt's Quantum Register with 1 qubit.
+        """
+
+        qiskrypt_classical_register_classical_buffer_gate_1_bit = \
+            QiskryptClassicalRegister("cl_reg_21", num_bits)
+        """
+        Create a Qiskrypt's Classical Register with 1 bit.
+        """
+
+        qiskrypt_quantum_circuit_classical_buffer_gate_1_bit = \
+            QiskryptQuantumCircuit("qu_circ_21",
+                                   qiskrypt_quantum_registers=[qiskrypt_quantum_register_classical_buffer_gate_1_bit],
+                                   qiskrypt_fully_quantum_registers=None,
+                                   qiskrypt_semi_quantum_registers=None,
+                                   qiskrypt_ancilla_quantum_registers=None,
+                                   qiskrypt_ancilla_fully_quantum_registers=None,
+                                   qiskrypt_ancilla_semi_quantum_registers=None,
+                                   qiskrypt_classical_registers=[
+                                       qiskrypt_classical_register_classical_buffer_gate_1_bit],
+                                   global_phase=0, qiskit_quantum_circuit=None)
+        """
+        Create a Qiskrypt's Quantum Circuit with
+        the previously created Qiskrypt's Quantum and Classical Registers.
+        """
+
+        qiskrypt_quantum_circuit_classical_buffer_gate_1_bit \
+            .apply_classical_buffer(0, 0, True)
+        """
+        Apply the Buffer Classical Gate/Operation to the given index for
+        the single bit of the given Qiskrypt's Classical Register (0 ↦ 0).
+        """
+
+        final_classical_state_vector_state = \
+            qiskrypt_quantum_circuit_classical_buffer_gate_1_bit.get_qiskrypt_classical_register(0).get_bits()
+        """
+        Retrieve the list of bits of the given Qiskrypt's Classical Register to
+        be the final Vector State of the respective Classical State.
+        """
+
+        assert_allclose(final_classical_state_vector_state,
+                        ([0] * num_bits),
+                        rtol=1e-7, atol=1e-7)
+        """
+        Perform the Assertion of all close values in the values of the classical state,
+        represented by its state vector describing the given bit,
+        after being applied the Classical Buffer Gate/Operation.
+        """
+
+        """
+        Dummy Assert Equal for the Unittest.
+        """
+        self.assertEqual(True, True)
+
+    def test_no_22_apply_classical_buffer(self):
+        """
+        Test Case #22:
+
+        - Apply the Classical Buffer Gate/Operation to a bit of
+          the Qiskrypt's Classical Register of a Qiskrypt's Quantum Circuit.
+
+        Description of the Steps for the Unitary Test:
+        1) The Qiskrypt's Quantum Circuit is created with a Qiskrypt's Classical Register,
+           with 1 bit initialized in the state 0;
+        2) It is applied the Classical Buffer Gate/Operation to the single bit, such that, 0 ↦ 0;
+        3) It is applied the Classical Buffer Gate/Operation to the single bit, such that, 0 ↦ 0;
+
+        Return OK (or FAIL) if, all the Tests performed are OK (or FAIL, otherwise).
+        """
+
+        num_qubits = num_bits = 1
+        """
+        Set the number of qubits and bits, for Quantum and Classical Registers, respectively.
+        """
+
+        qiskrypt_quantum_register_classical_buffer_gate_1_bit = \
+            QiskryptQuantumRegister("qu_reg_22", num_qubits)
+        """
+        Create a Qiskrypt's Quantum Register with 1 qubit.
+        """
+
+        qiskrypt_classical_register_classical_buffer_gate_1_bit = \
+            QiskryptClassicalRegister("cl_reg_22", num_bits)
+        """
+        Create a Qiskrypt's Classical Register with 1 bit.
+        """
+
+        qiskrypt_quantum_circuit_classical_buffer_gate_1_bit = \
+            QiskryptQuantumCircuit("qu_circ_22",
+                                   qiskrypt_quantum_registers=[qiskrypt_quantum_register_classical_buffer_gate_1_bit],
+                                   qiskrypt_fully_quantum_registers=None,
+                                   qiskrypt_semi_quantum_registers=None,
+                                   qiskrypt_ancilla_quantum_registers=None,
+                                   qiskrypt_ancilla_fully_quantum_registers=None,
+                                   qiskrypt_ancilla_semi_quantum_registers=None,
+                                   qiskrypt_classical_registers=[
+                                       qiskrypt_classical_register_classical_buffer_gate_1_bit],
+                                   global_phase=0, qiskit_quantum_circuit=None)
+        """
+        Create a Qiskrypt's Quantum Circuit with
+        the previously created Qiskrypt's Quantum and Classical Registers.
+        """
+
+        qiskrypt_quantum_circuit_classical_buffer_gate_1_bit \
+            .apply_classical_buffer(0, 0, True)
+        """
+        Apply the Buffer Classical Gate/Operation to the given index for
+        the single bit of the given Qiskrypt's Classical Register (0 ↦ 0).
+        """
+
+        qiskrypt_quantum_circuit_classical_buffer_gate_1_bit \
+            .apply_classical_buffer(0, 0, True)
+        """
+        Apply the Buffer Classical Gate/Operation to the given index for
+        the single bit of the given Qiskrypt's Classical Register (0 ↦ 0).
+        """
+
+        final_classical_state_vector_state = \
+            qiskrypt_quantum_circuit_classical_buffer_gate_1_bit.get_qiskrypt_classical_register(0).get_bits()
+        """
+        Retrieve the list of bits of the given Qiskrypt's Classical Register to
+        be the final Vector State of the respective Classical State.
+        """
+
+        assert_allclose(final_classical_state_vector_state,
+                        ([0] * num_bits),
+                        rtol=1e-7, atol=1e-7)
+        """
+        Perform the Assertion of all close values in the values of the classical state,
+        represented by its state vector describing the given bit,
+        after being applied the Classical Buffer Gate/Operation.
+        """
+
+        """
+        Dummy Assert Equal for the Unittest.
+        """
+        self.assertEqual(True, True)
+
+    def test_no_23_apply_classical_buffer(self):
+        """
+        Test Case #23:
+
+        - Apply the Classical Buffer Gate/Operation to a bit of
+          the Qiskrypt's Classical Register of a Qiskrypt's Quantum Circuit.
+
+        Description of the Steps for the Unitary Test:
+        1) The Qiskrypt's Quantum Circuit is created with a Qiskrypt's Classical Register,
+           with 1 bit initialized in the state 0;
+        2) It is applied the Classical Buffer Gate/Operation to the single bit, such that, 0 ↦ 0;
+        3) It is applied the Classical Buffer Gate/Operation to the single bit, such that, 0 ↦ 0;
+        4) It is applied the Classical Buffer Gate/Operation to the single bit, such that, 0 ↦ 0;
+
+        Return OK (or FAIL) if, all the Tests performed are OK (or FAIL, otherwise).
+        """
+
+        num_qubits = num_bits = 1
+        """
+        Set the number of qubits and bits, for Quantum and Classical Registers, respectively.
+        """
+
+        qiskrypt_quantum_register_classical_buffer_gate_1_bit = \
+            QiskryptQuantumRegister("qu_reg_23", num_qubits)
+        """
+        Create a Qiskrypt's Quantum Register with 1 qubit.
+        """
+
+        qiskrypt_classical_register_classical_buffer_gate_1_bit = \
+            QiskryptClassicalRegister("cl_reg_23", num_bits)
+        """
+        Create a Qiskrypt's Classical Register with 1 bit.
+        """
+
+        qiskrypt_quantum_circuit_classical_buffer_gate_1_bit = \
+            QiskryptQuantumCircuit("qu_circ_23",
+                                   qiskrypt_quantum_registers=[qiskrypt_quantum_register_classical_buffer_gate_1_bit],
+                                   qiskrypt_fully_quantum_registers=None,
+                                   qiskrypt_semi_quantum_registers=None,
+                                   qiskrypt_ancilla_quantum_registers=None,
+                                   qiskrypt_ancilla_fully_quantum_registers=None,
+                                   qiskrypt_ancilla_semi_quantum_registers=None,
+                                   qiskrypt_classical_registers=[
+                                       qiskrypt_classical_register_classical_buffer_gate_1_bit],
+                                   global_phase=0, qiskit_quantum_circuit=None)
+        """
+        Create a Qiskrypt's Quantum Circuit with
+        the previously created Qiskrypt's Quantum and Classical Registers.
+        """
+
+        qiskrypt_quantum_circuit_classical_buffer_gate_1_bit \
+            .apply_classical_buffer(0, 0, True)
+        """
+        Apply the Buffer Classical Gate/Operation to the given index for
+        the single bit of the given Qiskrypt's Classical Register (0 ↦ 0).
+        """
+
+        qiskrypt_quantum_circuit_classical_buffer_gate_1_bit \
+            .apply_classical_buffer(0, 0, True)
+        """
+        Apply the Buffer Classical Gate/Operation to the given index for
+        the single bit of the given Qiskrypt's Classical Register (0 ↦ 0).
+        """
+
+        qiskrypt_quantum_circuit_classical_buffer_gate_1_bit \
+            .apply_classical_buffer(0, 0, True)
+        """
+        Apply the Buffer Classical Gate/Operation to the given index for
+        the single bit of the given Qiskrypt's Classical Register (0 ↦ 0).
+        """
+
+        final_classical_state_vector_state = \
+            qiskrypt_quantum_circuit_classical_buffer_gate_1_bit.get_qiskrypt_classical_register(0).get_bits()
+        """
+        Retrieve the list of bits of the given Qiskrypt's Classical Register to
+        be the final Vector State of the respective Classical State.
+        """
+
+        assert_allclose(final_classical_state_vector_state,
+                        ([0] * num_bits),
+                        rtol=1e-7, atol=1e-7)
+        """
+        Perform the Assertion of all close values in the values of the classical state,
+        represented by its state vector describing the given bit,
+        after being applied the Classical Buffer Gate/Operation.
+        """
+
+        """
+        Dummy Assert Equal for the Unittest.
+        """
+        self.assertEqual(True, True)
+
+    def test_no_24_apply_classical_inverter(self):
+        """
+        Test Case #24:
+
+        - Apply the Classical Inverter Gate/Operation to a bit of
+          the Qiskrypt's Classical Register of a Qiskrypt's Quantum Circuit.
+
+        Description of the Steps for the Unitary Test:
+        1) The Qiskrypt's Quantum Circuit is created with a Qiskrypt's Classical Register,
+           with 1 bit initialized in the state 0;
+        2) It is applied the Classical Inverter Gate/Operation to the single bit, such that, 0 ↦ 1;
+
+        Return OK (or FAIL) if, all the Tests performed are OK (or FAIL, otherwise).
+        """
+
+        num_qubits = num_bits = 1
+        """
+        Set the number of qubits and bits, for Quantum and Classical Registers, respectively.
+        """
+
+        qiskrypt_quantum_register_classical_inverter_gate_1_bit = \
+            QiskryptQuantumRegister("qu_reg_24", num_qubits)
+        """
+        Create a Qiskrypt's Quantum Register with 1 qubit.
+        """
+
+        qiskrypt_classical_register_classical_inverter_gate_1_bit = \
+            QiskryptClassicalRegister("cl_reg_24", num_bits)
+        """
+        Create a Qiskrypt's Classical Register with 1 bit.
+        """
+
+        qiskrypt_quantum_circuit_classical_inverter_gate_1_bit = \
+            QiskryptQuantumCircuit("qu_circ_24",
+                                   qiskrypt_quantum_registers=[qiskrypt_quantum_register_classical_inverter_gate_1_bit],
+                                   qiskrypt_fully_quantum_registers=None,
+                                   qiskrypt_semi_quantum_registers=None,
+                                   qiskrypt_ancilla_quantum_registers=None,
+                                   qiskrypt_ancilla_fully_quantum_registers=None,
+                                   qiskrypt_ancilla_semi_quantum_registers=None,
+                                   qiskrypt_classical_registers=[qiskrypt_classical_register_classical_inverter_gate_1_bit],
+                                   global_phase=0, qiskit_quantum_circuit=None)
+        """
+        Create a Qiskrypt's Quantum Circuit with
+        the previously created Qiskrypt's Quantum and Classical Registers.
+        """
+
+        qiskrypt_quantum_circuit_classical_inverter_gate_1_bit \
+            .apply_classical_inverter(0, 0, True)
+        """
+        Apply the Inverter Classical Gate/Operation to the given index for
+        the single bit of the given Qiskrypt's Classical Register (0 ↦ 1).
+        """
+
+        final_classical_state_vector_state = \
+            qiskrypt_quantum_circuit_classical_inverter_gate_1_bit.get_qiskrypt_classical_register(0).get_bits()
+        """
+        Retrieve the list of bits of the given Qiskrypt's Classical Register to
+        be the final Vector State of the respective Classical State.
+        """
+
+        assert_allclose(final_classical_state_vector_state,
+                        ([1] * num_bits),
+                        rtol=1e-7, atol=1e-7)
+        """
+        Perform the Assertion of all close values in the values of the classical state,
+        represented by its state vector describing the given bit,
+        after being applied the Classical Inverter Gate/Operation.
+        """
+
+        """
+        Dummy Assert Equal for the Unittest.
+        """
+        self.assertEqual(True, True)
+
+    def test_no_25_apply_classical_inverter(self):
+        """
+        Test Case #25:
+
+        - Apply the Classical Inverter Gate/Operation to two bits of
+          the Qiskrypt's Classical Register of a Qiskrypt's Quantum Circuit.
+
+        Description of the Steps for the Unitary Test:
+        1) The Qiskrypt's Quantum Circuit is created with a Qiskrypt's Classical Register,
+           with 1 bit initialized in the state 0;
+        2) It is applied the Classical Inverter Gate/Operation to the single bit, such that, 0 ↦ 1;
+        3) It is applied the Classical Inverter Gate/Operation to the single bit, such that, 1 ↦ 0;
+
+        Return OK (or FAIL) if, all the Tests performed are OK (or FAIL, otherwise).
+        """
+
+        num_qubits = num_bits = 1
+        """
+        Set the number of qubits and bits, for Quantum and Classical Registers, respectively.
+        """
+
+        qiskrypt_quantum_register_classical_inverter_gate_1_bit = \
+            QiskryptQuantumRegister("qu_reg_25", num_qubits)
+        """
+        Create a Qiskrypt's Quantum Register with 1 qubit.
+        """
+
+        qiskrypt_classical_register_classical_inverter_gate_1_bit = \
+            QiskryptClassicalRegister("cl_reg_25", num_bits)
+        """
+        Create a Qiskrypt's Classical Register with 1 bit.
+        """
+
+        qiskrypt_quantum_circuit_classical_inverter_gate_1_bit = \
+            QiskryptQuantumCircuit("qu_circ_25",
+                                   qiskrypt_quantum_registers=[qiskrypt_quantum_register_classical_inverter_gate_1_bit],
+                                   qiskrypt_fully_quantum_registers=None,
+                                   qiskrypt_semi_quantum_registers=None,
+                                   qiskrypt_ancilla_quantum_registers=None,
+                                   qiskrypt_ancilla_fully_quantum_registers=None,
+                                   qiskrypt_ancilla_semi_quantum_registers=None,
+                                   qiskrypt_classical_registers=[qiskrypt_classical_register_classical_inverter_gate_1_bit],
+                                   global_phase=0, qiskit_quantum_circuit=None)
+        """
+        Create a Qiskrypt's Quantum Circuit with
+        the previously created Qiskrypt's Quantum and Classical Registers.
+        """
+
+        qiskrypt_quantum_circuit_classical_inverter_gate_1_bit \
+            .apply_classical_inverter(0, 0, True)
+        """
+        Apply the Inverter Classical Gate/Operation to the given index for
+        the single bit of the given Qiskrypt's Classical Register (0 ↦ 1).
+        """
+
+        qiskrypt_quantum_circuit_classical_inverter_gate_1_bit \
+            .apply_classical_inverter(0, 0, True)
+        """
+        Apply the Inverter Classical Gate/Operation to the given index for
+        the single bit of the given Qiskrypt's Classical Register (1 ↦ 0).
+        """
+
+        final_classical_state_vector_state = \
+            qiskrypt_quantum_circuit_classical_inverter_gate_1_bit.get_qiskrypt_classical_register(0).get_bits()
+        """
+        Retrieve the list of bits of the given Qiskrypt's Classical Register to
+        be the final Vector State of the respective Classical State.
+        """
+
+        assert_allclose(final_classical_state_vector_state,
+                        ([0] * num_bits),
+                        rtol=1e-7, atol=1e-7)
+        """
+        Perform the Assertion of all close values in the values of the classical state,
+        represented by its state vector describing the given bit,
+        after being applied the Classical Inverter Gate/Operation.
+        """
+
+        """
+        Dummy Assert Equal for the Unittest.
+        """
+        self.assertEqual(True, True)
+
+    def test_no_26_apply_classical_inverter(self):
+        """
+        Test Case #26:
+
+        - Apply the Classical Inverter Gate/Operation to two bits of
+          the Qiskrypt's Classical Register of a Qiskrypt's Quantum Circuit.
+
+        Description of the Steps for the Unitary Test:
+        1) The Qiskrypt's Quantum Circuit is created with a Qiskrypt's Classical Register,
+           with 1 bit initialized in the state 0;
+        2) It is applied the Classical Inverter Gate/Operation to the single bit, such that, 0 ↦ 1;
+        3) It is applied the Classical Inverter Gate/Operation to the single bit, such that, 1 ↦ 0;
+        4) It is applied the Classical Inverter Gate/Operation to the single bit, such that, 0 ↦ 1;
+
+        Return OK (or FAIL) if, all the Tests performed are OK (or FAIL, otherwise).
+        """
+
+        num_qubits = num_bits = 1
+        """
+        Set the number of qubits and bits, for Quantum and Classical Registers, respectively.
+        """
+
+        qiskrypt_quantum_register_classical_inverter_gate_1_bit = \
+            QiskryptQuantumRegister("qu_reg_26", num_qubits)
+        """
+        Create a Qiskrypt's Quantum Register with 1 qubit.
+        """
+
+        qiskrypt_classical_register_classical_inverter_gate_1_bit = \
+            QiskryptClassicalRegister("cl_reg_26", num_bits)
+        """
+        Create a Qiskrypt's Classical Register with 1 bit.
+        """
+
+        qiskrypt_quantum_circuit_classical_inverter_gate_1_bit = \
+            QiskryptQuantumCircuit("qu_circ_26",
+                                   qiskrypt_quantum_registers=[qiskrypt_quantum_register_classical_inverter_gate_1_bit],
+                                   qiskrypt_fully_quantum_registers=None,
+                                   qiskrypt_semi_quantum_registers=None,
+                                   qiskrypt_ancilla_quantum_registers=None,
+                                   qiskrypt_ancilla_fully_quantum_registers=None,
+                                   qiskrypt_ancilla_semi_quantum_registers=None,
+                                   qiskrypt_classical_registers=[qiskrypt_classical_register_classical_inverter_gate_1_bit],
+                                   global_phase=0, qiskit_quantum_circuit=None)
+        """
+        Create a Qiskrypt's Quantum Circuit with
+        the previously created Qiskrypt's Quantum and Classical Registers.
+        """
+
+        qiskrypt_quantum_circuit_classical_inverter_gate_1_bit \
+            .apply_classical_inverter(0, 0, True)
+        """
+        Apply the Inverter Classical Gate/Operation to the given index for
+        the single bit of the given Qiskrypt's Classical Register (0 ↦ 1).
+        """
+
+        qiskrypt_quantum_circuit_classical_inverter_gate_1_bit \
+            .apply_classical_inverter(0, 0, True)
+        """
+        Apply the Inverter Classical Gate/Operation to the given index for
+        the single bit of the given Qiskrypt's Classical Register (1 ↦ 0).
+        """
+
+        qiskrypt_quantum_circuit_classical_inverter_gate_1_bit \
+            .apply_classical_inverter(0, 0, True)
+        """
+        Apply the Inverter Classical Gate/Operation to the given index for
+        the single bit of the given Qiskrypt's Classical Register (0 ↦ 1).
+        """
+
+        final_classical_state_vector_state = \
+            qiskrypt_quantum_circuit_classical_inverter_gate_1_bit.get_qiskrypt_classical_register(0).get_bits()
+        """
+        Retrieve the list of bits of the given Qiskrypt's Classical Register to
+        be the final Vector State of the respective Classical State.
+        """
+
+        assert_allclose(final_classical_state_vector_state,
+                        ([1] * num_bits),
+                        rtol=1e-7, atol=1e-7)
+        """
+        Perform the Assertion of all close values in the values of the classical state,
+        represented by its state vector describing the given bit,
+        after being applied the Classical Inverter Gate/Operation.
         """
 
         """
