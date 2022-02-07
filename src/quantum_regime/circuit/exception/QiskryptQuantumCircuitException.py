@@ -74,7 +74,7 @@ the Qiskrypt's Quantum Circuit.
 MESSAGE_INVALID_BIT_INDEX_GIVEN_EXCEPTION = "Invalid Bit Index Given Error: " \
                                             "The given index for a bit in an IBM Qiskit's Classical Register is invalid!!!\n"
 """
-The custom defined message for the Invalid Qubit Index Given Error for
+The custom defined message for the Invalid Bit Index Given Error for
 the IBM Qiskit's Classical Register.
 """
 
