@@ -85,6 +85,11 @@ class QiskryptClassicalRegister:
         Set the number of the bits of the Qiskrypt's Classical Register.
         """
 
+        self.bits = [0] * num_bits
+        """
+        Set the bits of the Qiskrypt's Classical Register.
+        """
+
         if qiskit_classical_register is None:
             """
             If the IBM Qiskit's Classical Register is None.
@@ -100,10 +105,29 @@ class QiskryptClassicalRegister:
             If the IBM Qiskit's Classical Register is not None.
             """
 
-            self.qiskit_classical_register = qiskit_classical_register
-            """
-            Set the IBM Qiskit's Classical Register of the Qiskrypt's Classical Register.
-            """
+            if isinstance(qiskit_classical_register, ClassicalRegister):
+                """
+                If the IBM Qiskit's Classical Register is really an IBM Qiskit's Classical Register.
+                """
+
+                if qiskit_classical_register.size == num_bits:
+                    """
+                    If the number of bits of the Qiskrypt's Classical Register
+                    is equal to the given number of bits.
+                    """
+
+                    self.qiskit_classical_register = qiskit_classical_register
+                    """
+                    Set the IBM Qiskit's Classical Register of the Qiskrypt's Classical Register.
+                    """
+
+                else:
+                    """
+                    If the number of bits of the Qiskrypt's Classical Register
+                    is not equal to the given number of bits.
+                    """
+
+                    # TODO Throw - Exception
 
     def get_name(self) -> str:
         """
@@ -128,6 +152,18 @@ class QiskryptClassicalRegister:
         Return the number of bits of the Qiskrypt's Classical Register.
         """
         return self.num_bits
+
+    def get_bits(self) -> list:
+        """
+        Return the bits of the Qiskrypt's Classical Register.
+
+        :return self.bits: the bits of the Qiskrypt's Classical Register.
+        """
+
+        """
+        Return the bits of the Qiskrypt's Classical Register.
+        """
+        return self.bits
 
     def get_qiskit_classical_register(self) -> ClassicalRegister:
         """
