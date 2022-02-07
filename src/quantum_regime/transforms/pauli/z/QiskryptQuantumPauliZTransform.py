@@ -145,14 +145,14 @@ class QiskryptQuantumPauliZTransform(QiskryptQuantumPauliTransform):
         """
 
         for qiskit_quantum_register_index, qubit_index \
-            in zip(self.qiskit_quantum_registers_indexes, self.qubits_indexes):
+                in zip(self.qiskit_quantum_registers_indexes, self.qubits_indexes):
             """
             For each pair of indexes of IBM Qiskit's Quantum Registers and qubits.
             """
 
             is_possible_to_apply_operation = self.qiskrypt_quantum_circuit\
-                .check_if_is_possible_to_apply_operation(qiskit_quantum_register_index,
-                                                         qubit_index, True)
+                .check_if_is_possible_to_apply_quantum_operation(qiskit_quantum_register_index,
+                                                                 qubit_index, True)
             """
             Check if it is possible to apply a specific Operation,
             regarding the current IBM Qiskit's Quantum Register index and the current qubit index.
