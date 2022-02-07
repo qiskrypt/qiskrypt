@@ -61,7 +61,7 @@ from src.quantum_regime.networking_and_communications.essentials.QiskryptParty \
 Import the Qiskrypt's Party.
 """
 
-from src.quantum_regime.networking_and_communications.endpoints \
+from src.quantum_regime.networking_and_communications.endpoints.QiskryptEndpoint \
     import QiskryptEndpoint
 """
 Import the Qiskrypt's Endpoint.
@@ -274,9 +274,9 @@ class QiskryptPartyClient(QiskryptClient):
         Set the Qiskrypt's Party for the Qiskrypt's Party Client, initially, as None.
         """
 
-        self.endpoint = None
+        self.endpoints = list()
         """
-        Set the Qiskrypt's Endpoint for the Qiskrypt's Party Client, initially, as None.
+        Set the list Qiskrypt's Endpoint for the Qiskrypt's Party Client, initially, as an empty list.
         """
 
     def get_uuid(self) -> UUID:
@@ -853,11 +853,11 @@ class QiskryptPartyClient(QiskryptClient):
 
             # TODO Throw - Exception
 
-    def get_endpoint(self) -> QiskryptEndpoint:
+    def get_endpoints(self) -> list:
         """
-        Return the Qiskrypt's Endpoint of the Qiskrypt's Party Client.
+        Return the list of Qiskrypt's Endpoints of the Qiskrypt's Party Client.
 
-        :return self.endpoint: the Qiskrypt's Endpoint of the Qiskrypt's Party Client.
+        :return self.endpoints: the list of the Qiskrypt's Endpoints of the Qiskrypt's Party Client.
         """
 
         if super().is_connected():
@@ -866,9 +866,9 @@ class QiskryptPartyClient(QiskryptClient):
             """
 
             """
-            Return the Qiskrypt's Endpoint of the Qiskrypt's Party Client.
+            Return the list of the Qiskrypt's Endpoints of the Qiskrypt's Party Client.
             """
-            return self.endpoint
+            return self.endpoints
 
         else:
             """
@@ -877,12 +877,121 @@ class QiskryptPartyClient(QiskryptClient):
 
             # TODO Throw - Exception
 
-    def connect(self, party: QiskryptParty, endpoint: QiskryptEndpoint):
+    def get_num_endpoints(self):
         """
-        Connect a Qiskrypt's Party and a Qiskrypt's Endpoint, to the Qiskrypt's Party Client.
+        Return the number of Qiskrypt's Endpoints of the Qiskrypt's Party Client.
+
+        :return len(self.get_endpoints()): the number of Qiskrypt's Endpoints of
+                                           the Qiskrypt's Party Client.
+        """
+
+        """
+        Return the number of Qiskrypt's Endpoints of the Qiskrypt's Party Client.
+        """
+        return len(self.get_endpoints())
+
+    def get_endpoint_by_index(self, endpoint_index: int) -> QiskryptEndpoint:
+        """
+        Return a certain Qiskrypt's Endpoint from the list of Qiskrypt's Endpoints of
+        the Qiskrypt's Party Client, given the corresponding index.
+
+        :param endpoint_index: the index of a certain Qiskrypt's Endpoint of
+                               the Qiskrypt's Party Client.
+
+        :return endpoint: the Qiskrypt's Endpoint from the list of Qiskrypt's Endpoints,
+                          given the corresponding index.
+        """
+
+        if endpoint_index < self.get_num_endpoints():
+            """
+            If the given Qiskrypt's Endpoint's index is valid.
+            """
+
+            endpoints = self.get_endpoints()
+            """
+            Retrieve the list of Qiskrypt's Endpoints of the Qiskrypt's Party Client.
+            """
+
+            """
+            Retrieve the Qiskrypt's Endpoint from the list of Qiskrypt's Endpoints,
+            given the corresponding index.
+            """
+            endpoint = endpoints[endpoint_index]
+
+            """
+            Return the Qiskrypt's Endpoint from the list of Qiskrypt's Endpoints,
+            given the corresponding index.
+            """
+            return endpoint
+
+        else:
+            """
+            If the given Qiskrypt's Endpoint's index is not valid.
+            """
+
+            # TODO Throw - Exception
+
+    def get_endpoint_by_name(self, endpoint_name: str):
+        """
+        Return a certain Qiskrypt's Endpoint from the list of Qiskrypt's Endpoints of
+        the Qiskrypt's Party Client, given the corresponding name.
+
+        :param endpoint_name: the name of a certain Qiskrypt's Endpoint of
+                              the Qiskrypt's Party Client.
+
+        :return endpoint: the Qiskrypt's Endpoint from the list of Qiskrypt's Endpoints,
+                          given the corresponding name.
+        """
+
+        endpoints = self.get_endpoints()
+        """
+        Retrieve the list of Qiskrypt's Endpoints of the Qiskrypt's Party Client.
+        """
+
+        num_endpoints = self.get_num_endpoints()
+        """
+        Retrieve the number of Qiskrypt's Endpoints of the Qiskrypt's Party Client.
+        """
+
+        for current_endpoint_index in range(num_endpoints):
+            """
+            For each Qiskrypt's Endpoint's index.
+            """
+
+            current_endpoint = endpoints[current_endpoint_index]
+            """
+            Retrieve the current Qiskrypt's Endpoint.
+            """
+
+            if isinstance(current_endpoint, QiskryptEndpoint):
+                """
+                If the current Qiskrypt's Endpoint is really a Qiskrypt's Endpoint.
+                """
+
+                if current_endpoint.get_name() == endpoint_name:
+                    """
+                    If the current Qiskrypt's Endpoint has the given name,
+                    the pretended Qiskrypt's Endpoint was found.
+                    """
+
+                    """
+                    Return the Qiskrypt's Endpoint from the list of Qiskrypt's Endpoints,
+                    given the corresponding name.
+                    """
+                    return current_endpoint
+
+        """
+        If no Qiskrypt's Endpoint with the given corresponding name was found in
+        the list of Qiskrypt's Endpoints, return None.
+        """
+        return None
+
+    def connect(self, party: QiskryptParty, endpoints: list):
+        """
+        Connect a Qiskrypt's Party and a list of Qiskrypt's Endpoints, to the Qiskrypt's Party Client.
 
         :param party: the Qiskrypt's Party to be connected to the Qiskrypt's Party Client.
-        :param endpoint: the Qiskrypt's Endpoint to be connected to the Qiskrypt's Party Client.
+        :param endpoints: the list of Qiskrypt's Endpoints to be connected to the Qiskrypt's Party Client.
         """
 
         if not super().is_connected():
@@ -896,7 +1005,146 @@ class QiskryptPartyClient(QiskryptClient):
             Set the Qiskrypt's Party for the Qiskrypt's Party Client.
             """
 
-            self.endpoint = endpoint
+            num_endpoints = len(endpoints)
+            """
+            Retrieve the number of Qiskrypt's Endpoints to be connected
+            for the Qiskrypt's Party Client.
+            """
+
+            endpoints_station_type = None
+            """
+            Initialise a local variable to keep the station type of
+            the Qiskrypt's Endpoints, initially, as None.
+            """
+
+            endpoints_longitude = None
+            """
+            Initialise a local variable to keep the longitude of
+            the Qiskrypt's Endpoints, initially, as None.
+            """
+
+            endpoints_latitude = None
+            """
+            Initialise a local variable to keep the latitude of
+            the Qiskrypt's Endpoints, initially, as None.
+            """
+
+            endpoints_altitude_in_kms = None
+            """
+            Initialise a local variable to keep the altitude in KMs (Kilometers) of
+            the Qiskrypt's Endpoints, initially, as None.
+            """
+
+            for current_endpoint_index in range(num_endpoints):
+                """
+                For each possibly Qiskrypt's Endpoint's index.
+                """
+
+                current_endpoint = endpoints[current_endpoint_index]
+                """
+                Retrieve the current Qiskrypt's Endpoint.
+                """
+
+                if isinstance(current_endpoint, QiskryptEndpoint):
+                    """
+                    If the current Qiskrypt's Endpoint is really a Qiskrypt's Endpoint.
+                    """
+
+                    if current_endpoint_index == 0:
+                        """
+                        If the current Qiskrypt's Endpoint is the first one to be treated.
+                        """
+
+                        endpoints_station_type = current_endpoint.get_station_type()
+                        """
+                        Keep the station type of the first Qiskrypt's Endpoint
+                        to compare with the remaining ones to be added, in order to ensure
+                        that all the information is completely coherent.
+                        """
+
+                        endpoints_longitude = current_endpoint.get_longitude()
+                        """
+                        Keep the longitude of the first Qiskrypt's Endpoint
+                        to compare with the remaining ones to be added, in order to ensure
+                        that all the information is completely coherent.
+                        """
+
+                        endpoints_latitude = current_endpoint.get_latitude()
+                        """
+                        Keep the latitude of the first Qiskrypt's Endpoint
+                        to compare with the remaining ones to be added, in order to ensure
+                        that all the information is completely coherent.
+                        """
+
+                        endpoints_altitude_in_kms = current_endpoint.get_altitude_in_kms()
+                        """
+                        Keep the altitude in KMs (Kilometers) of the first Qiskrypt's Endpoint
+                        to compare with the remaining ones to be added, in order to ensure
+                        that all the information is completely coherent.
+                        """
+
+                    else:
+                        """
+                        If the current Qiskrypt's Endpoint is not the first one to be treated.
+                        """
+
+                        boolean_validation_station_type = \
+                            (endpoints_station_type == current_endpoint.get_station_type())
+                        """
+                        Retrieve the boolean validation to keep information about
+                        if the station type of the current Qiskrypt's Endpoint is correct. 
+                        """
+
+                        boolean_validation_longitude = \
+                            (endpoints_longitude == current_endpoint.get_longitude())
+                        """
+                        Retrieve the boolean validation to keep information about
+                        if the longitude of the current Qiskrypt's Endpoint is correct.
+                        """
+
+                        boolean_validation_latitude = \
+                            (endpoints_latitude == current_endpoint.get_latitude())
+                        """
+                        Retrieve the boolean validation to keep information about
+                        if the latitude of the current Qiskrypt's Endpoint is correct.
+                        """
+
+                        boolean_validation_altitude_in_kms = \
+                            (endpoints_altitude_in_kms == current_endpoint.get_altitude_in_kms())
+                        """
+                        Retrieve the boolean validation to keep information about
+                        if the altitude in KMs (Kilometers) of the current Qiskrypt's Endpoint is correct.
+                        """
+
+                        if (boolean_validation_station_type and boolean_validation_longitude
+                                and boolean_validation_latitude and boolean_validation_altitude_in_kms):
+                            """
+                            If all the boolean validations to keep information about
+                            the correctness of the current Qiskrypt's Endpoint hold.
+                            """
+
+                            self.endpoints.append(current_endpoint)
+                            """
+                            Append the current Qiskrypt's Endpoint to the list of
+                            Qiskrypt's Endpoints of the Qiskrypt's Party Client.
+                            """
+
+                        else:
+                            """
+                            If some of the boolean validations to keep information about
+                            the correctness of the current Qiskrypt's Endpoint hold.
+                            """
+
+                            # TODO Throw - Exception
+
+                else:
+                    """
+                    If the current Qiskrypt's Endpoint is not a Qiskrypt's Endpoint.
+                    """
+
+                    # TODO Throw - Exception
+
+            self.endpoints = endpoints
             """
             Set the Qiskrypt's Endpoint for the Qiskrypt's Party Client.
             """
@@ -915,75 +1163,317 @@ class QiskryptPartyClient(QiskryptClient):
 
             # TODO Throw - Exception
 
-    def add_quantum_register(self, quantum_register: QiskryptQuantumRegister):
+    def add_quantum_register_to_endpoint(self, quantum_register: QiskryptQuantumRegister,
+                                         endpoint_index=None, endpoint_name=None):
         """
         Adds a given Qiskrypt's Quantum Register to
-        the list of Qiskrypt's Registers of the Qiskrypt's Party Client.
+        the list of Qiskrypt's Registers of the Qiskrypt's Party Client,
+        regarding the given index or name of a Qiskrypt's Endpoint.
 
         :param quantum_register: the Qiskrypt's Quantum Register to be added
                                  to the list of Qiskrypt's Registers of
                                  the Qiskrypt's Party Client.
+        :param endpoint_index: the index of the Qiskrypt's Endpoint related to
+                               the Qiskrypt's Quantum Register to be added
+                               to the list of Qiskrypt's Registers of
+                               the Qiskrypt's Party Client.
+        :param endpoint_name: the name of the Qiskrypt's Endpoint related to
+                              the Qiskrypt's Quantum Register to be added
+                              to the list of Qiskrypt's Registers of
+                              the Qiskrypt's Party Client.
         """
 
-        if (self.get_endpoint().get_context() == POSSIBLE_ENDPOINT_CONTEXTS[0]) and \
-                (isinstance(self.get_endpoint(), QiskryptQuantumGroundStationEndpoint)):
+        if (endpoint_index is not None) or (endpoint_name is not None):
             """
-            If the Qiskrypt's Endpoint of the Qiskrypt's Party Client 
-            is a Qiskrypt's Quantum Ground Station Endpoint
-            and belongs to a Quantum Context.
+            If the given index or name of the Qiskrypt's Endpoint related to
+            the Qiskrypt's Quantum Register to be added to the list of
+            Qiskrypt's Registers of the Qiskrypt's Party Client is not None.
             """
 
-            super().registers.append(quantum_register)
+            endpoint = None
             """
-            Adds the given Qiskrypt's Quantum Register to
-            the list of Qiskrypt's Registers of the Qiskrypt's Party Client.
+            Initialise the local variable to keep the Qiskrypt's Endpoint related to
+            the Qiskrypt's Quantum Register to be added to the list of
+            Qiskrypt's Registers of the Qiskrypt's Party Client, initially, as None.
             """
+
+            if endpoint_index is not None:
+                """
+                If the given index of the Qiskrypt's Endpoint related to
+                the Qiskrypt's Quantum Register to be added to the list of
+                Qiskrypt's Registers of the Qiskrypt's Party Client is not None.
+                """
+
+                """
+                Retrieve the Qiskrypt's Endpoint from the list of Qiskrypt's Endpoints of
+                the Qiskrypt's Party Client, given the corresponding index.
+                """
+                endpoint = self.get_endpoint_by_index(endpoint_index)
+
+            elif endpoint_name is not None:
+                """
+                If the given name of the Qiskrypt's Endpoint related to
+                the Qiskrypt's Quantum Register to be added to the list of
+                Qiskrypt's Registers of the Qiskrypt's Party Client is not None.
+                """
+
+                """
+                Retrieve the Qiskrypt's Endpoint from the list of Qiskrypt's Endpoints of
+                the Qiskrypt's Party Client, given the corresponding name.
+                """
+                endpoint = self.get_endpoint_by_name(endpoint_name)
+
+            if endpoint is not None:
+                """
+                If the retrieved Qiskrypt's Endpoint from the list of Qiskrypt's Endpoints of
+                the Qiskrypt's Party Client, given the corresponding index or name, is valid.
+                """
+
+                if (endpoint.get_context() == POSSIBLE_ENDPOINT_CONTEXTS[0]) and \
+                        (isinstance(endpoint, QiskryptQuantumGroundStationEndpoint)):
+                    """
+                    If the retrieved Qiskrypt's Endpoint of the Qiskrypt's Party Client 
+                    is a Qiskrypt's Quantum Ground Station Endpoint
+                    and belongs to a Quantum Context.
+                    """
+
+                    super().registers.append(quantum_register)
+                    """
+                    Adds the given Qiskrypt's Quantum Register to
+                    the list of Qiskrypt's Registers of the Qiskrypt's Party Client.
+                    """
+
+                else:
+                    """
+                    If the Qiskrypt's Endpoint of the Qiskrypt's Party Client 
+                    is not a Qiskrypt's Quantum Ground Station Endpoint 
+                    and does not belong to a Quantum Context.
+                    """
+
+                    # TODO Throw - Exception
+
+            else:
+                """
+                If the retrieved Qiskrypt's Endpoint from the list of Qiskrypt's Endpoints of
+                the Qiskrypt's Party Client, given the corresponding index or name, is not valid.
+                """
+
+                # TODO Throw - Exception
 
         else:
             """
-            If the Qiskrypt's Endpoint of the Qiskrypt's Party Client 
-            is not a Qiskrypt's Quantum Ground Station Endpoint 
-            and does not belong to a Quantum Context.
+            If the given index and name of the Qiskrypt's Endpoint related to
+            the Qiskrypt's Quantum Register to be added to the list of
+            Qiskrypt's Registers of the Qiskrypt's Party Client are both None.
             """
 
             # TODO Throw - Exception
 
-    def remove_quantum_register_by_name(self, quantum_register_name: str):
+    def remove_quantum_register_by_name_from_endpoint(self, quantum_register_name: str,
+                                                      endpoint_index=None, endpoint_name=None):
         """
         Removes a Qiskrypt's Quantum Register from
         the list of Qiskrypt's Registers of the Qiskrypt's Party Client,
-        given its name.
+        given its name, regarding the given index or name of a Qiskrypt's Endpoint.
 
         :param quantum_register_name: the name of a Qiskrypt's Quantum Register to be removed
                                       from the list of Qiskrypt's Registers of
                                       the Qiskrypt's Party Client.
+        :param endpoint_index: the index of the Qiskrypt's Endpoint related to
+                               the Qiskrypt's Quantum Register to be removed
+                               from the list of Qiskrypt's Registers of
+                               the Qiskrypt's Party Client.
+        :param endpoint_name: the name of the Qiskrypt's Endpoint related to
+                              the Qiskrypt's Quantum Register to be removed
+                              from the list of Qiskrypt's Registers of
+                              the Qiskrypt's Party Client.
         """
 
-        if (self.get_endpoint().get_context() == POSSIBLE_ENDPOINT_CONTEXTS[0]) and \
-           (isinstance(self.get_endpoint(), QiskryptQuantumGroundStationEndpoint)):
+        if (endpoint_index is not None) or (endpoint_name is not None):
             """
-            If the Qiskrypt's Endpoint of the Qiskrypt's Party Client 
-            is a Qiskrypt's Quantum Ground Station Endpoint
-            and belongs to a Quantum Context.
+            If the given index or name of the Qiskrypt's Endpoint related to
+            the Qiskrypt's Quantum Register to be removed from the list of
+            Qiskrypt's Registers of the Qiskrypt's Party Client is not None.
             """
 
-            for current_register_index in range(len(super().registers)):
+            endpoint = None
+            """
+            Initialise the local variable to keep the Qiskrypt's Endpoint related to
+            the Qiskrypt's Quantum Register to be removed from the list of
+            Qiskrypt's Registers of the Qiskrypt's Party Client, initially, as None.
+            """
+
+            if endpoint_index is not None:
                 """
-                For each Qiskrypt's Register in the list of
-                Qiskrypt's Registers of the Qiskrypt's Party Client. 
+                If the given index of the Qiskrypt's Endpoint related to
+                the Qiskrypt's Quantum Register to be removed from the list of
+                Qiskrypt's Registers of the Qiskrypt's Party Client is not None.
                 """
 
-                current_register = super().registers[current_register_index]
                 """
-                Retrieve the current Qiskrypt's Register in
-                the list of Qiskrypt's Registers of the Qiskrypt's Party Client.
+                Retrieve the Qiskrypt's Endpoint from the list of Qiskrypt's Endpoints of
+                the Qiskrypt's Party Client, given the corresponding index.
+                """
+                endpoint = self.get_endpoint_by_index(endpoint_index)
+
+            elif endpoint_name is not None:
+                """
+                If the given name of the Qiskrypt's Endpoint related to
+                the Qiskrypt's Quantum Register to be removed from the list of
+                Qiskrypt's Registers of the Qiskrypt's Party Client is not None.
                 """
 
-                if current_register.get_name() == quantum_register_name:
+                """
+                Retrieve the Qiskrypt's Endpoint from the list of Qiskrypt's Endpoints of
+                the Qiskrypt's Party Client, given the corresponding name.
+                """
+                endpoint = self.get_endpoint_by_name(endpoint_name)
+
+            if (endpoint.get_context() == POSSIBLE_ENDPOINT_CONTEXTS[0]) and \
+               (isinstance(endpoint, QiskryptQuantumGroundStationEndpoint)):
+                """
+                If the Qiskrypt's Endpoint of the Qiskrypt's Party Client 
+                is a Qiskrypt's Quantum Ground Station Endpoint
+                and belongs to a Quantum Context.
+                """
+
+                for current_register_index in range(len(super().registers)):
                     """
-                    If it was found a Qiskrypt's Register in
-                    the list of Qiskrypt's Registers of the Qiskrypt's Party Client,
-                    with the given name.
+                    For each Qiskrypt's Register in the list of
+                    Qiskrypt's Registers of the Qiskrypt's Party Client. 
+                    """
+
+                    current_register = super().registers[current_register_index]
+                    """
+                    Retrieve the current Qiskrypt's Register in
+                    the list of Qiskrypt's Registers of the Qiskrypt's Party Client.
+                    """
+
+                    if current_register.get_name() == quantum_register_name:
+                        """
+                        If it was found a Qiskrypt's Register in
+                        the list of Qiskrypt's Registers of the Qiskrypt's Party Client,
+                        with the given name.
+                        """
+
+                        if isinstance(current_register, QiskryptQuantumRegister):
+                            """
+                            If the current Qiskrypt's Register in
+                            the list of Qiskrypt's Registers of the Qiskrypt's Party Client
+                            is a Qiskrypt's Quantum Register.
+                            """
+
+                            super().registers.remove(current_register)
+                            """
+                            Removes the current Qiskrypt's Register in
+                            the list of Qiskrypt's Registers of the Qiskrypt's Party Client.
+                            """
+
+                        else:
+                            """
+                            If the current Qiskrypt's Register in
+                            the list of Qiskrypt's Registers of the Qiskrypt's Party Client
+                            is not a Qiskrypt's Quantum Register.
+                            """
+
+                            # TODO Throw - Exception
+
+            else:
+                """
+                If the Qiskrypt's Endpoint of the Qiskrypt's Party Client 
+                is not a Qiskrypt's Quantum Ground Station Endpoint 
+                and does not belong to a Quantum Context.
+                """
+
+                # TODO Throw - Exception
+
+        else:
+            """
+            If the given index and name of the Qiskrypt's Endpoint related to
+            the Qiskrypt's Quantum Register to be removed from the list of
+            Qiskrypt's Registers of the Qiskrypt's Party Client are both None.
+            """
+
+            # TODO Throw - Exception
+
+    def remove_quantum_register_by_index(self, quantum_register_index: int,
+                                         endpoint_index=None, endpoint_name=None):
+        """
+        Removes a Qiskrypt's Quantum Register from
+        the list of Qiskrypt's Registers of the Qiskrypt's Party Client,
+        given its index, regarding the given index or name of a Qiskrypt's Endpoint.
+
+        :param quantum_register_index: the index of a Qiskrypt's Quantum Register to be removed
+                                       from the list of Qiskrypt's Registers of
+                                       the Qiskrypt's Party Client.
+        :param endpoint_index: the index of the Qiskrypt's Endpoint related to
+                               the Qiskrypt's Quantum Register to be removed
+                               from the list of Qiskrypt's Registers of
+                               the Qiskrypt's Party Client.
+        :param endpoint_name: the name of the Qiskrypt's Endpoint related to
+                              the Qiskrypt's Quantum Register to be removed
+                              from the list of Qiskrypt's Registers of
+                              the Qiskrypt's Party Client.
+        """
+
+        if (endpoint_index is not None) or (endpoint_name is not None):
+            """
+            If the given index or name of the Qiskrypt's Endpoint related to
+            the Qiskrypt's Quantum Register to be removed from the list of
+            Qiskrypt's Registers of the Qiskrypt's Party Client is not None.
+            """
+
+            endpoint = None
+            """
+            Initialise the local variable to keep the Qiskrypt's Endpoint related to
+            the Qiskrypt's Quantum Register to be removed from the list of
+            Qiskrypt's Registers of the Qiskrypt's Party Client, initially, as None.
+            """
+
+            if endpoint_index is not None:
+                """
+                If the given index of the Qiskrypt's Endpoint related to
+                the Qiskrypt's Quantum Register to be removed from the list of
+                Qiskrypt's Registers of the Qiskrypt's Party Client is not None.
+                """
+
+                """
+                Retrieve the Qiskrypt's Endpoint from the list of Qiskrypt's Endpoints of
+                the Qiskrypt's Party Client, given the corresponding index.
+                """
+                endpoint = self.get_endpoint_by_index(endpoint_index)
+
+            elif endpoint_name is not None:
+                """
+                If the given name of the Qiskrypt's Endpoint related to
+                the Qiskrypt's Quantum Register to be removed from the list of
+                Qiskrypt's Registers of the Qiskrypt's Party Client is not None.
+                """
+
+                """
+                Retrieve the Qiskrypt's Endpoint from the list of Qiskrypt's Endpoints of
+                the Qiskrypt's Party Client, given the corresponding name.
+                """
+                endpoint = self.get_endpoint_by_name(endpoint_name)
+
+            if (endpoint.get_context() == POSSIBLE_ENDPOINT_CONTEXTS[0]) and \
+               (isinstance(endpoint, QiskryptQuantumGroundStationEndpoint)):
+                """
+                If the Qiskrypt's Endpoint of the Qiskrypt's Party Client 
+                is a Qiskrypt's Quantum Ground Station Endpoint
+                and belongs to a Quantum Context.
+                """
+
+                if quantum_register_index < self.get_num_registers():
+                    """
+                    If the given index of a Qiskrypt's Quantum Register to be removed
+                    from the list of Qiskrypt's Registers of the Qiskrypt's Party Client is valid.
+                    """
+
+                    current_register = super().registers[quantum_register_index]
+                    """
+                    Retrieve the respective Qiskrypt's Register in
+                    the list of Qiskrypt's Registers of the Qiskrypt's Party Client.
                     """
 
                     if isinstance(current_register, QiskryptQuantumRegister):
@@ -1008,154 +1498,329 @@ class QiskryptPartyClient(QiskryptClient):
 
                         # TODO Throw - Exception
 
-        else:
-            """
-            If the Qiskrypt's Endpoint of the Qiskrypt's Party Client 
-            is not a Qiskrypt's Quantum Ground Station Endpoint 
-            and does not belong to a Quantum Context.
-            """
-
-            # TODO Throw - Exception
-
-    def remove_quantum_register_by_index(self, quantum_register_index: int):
-        """
-        Removes a Qiskrypt's Quantum Register from
-        the list of Qiskrypt's Registers of the Qiskrypt's Party Client,
-        given its index.
-
-        :param quantum_register_index: the index of a Qiskrypt's Quantum Register to be removed
-                                       from the list of Qiskrypt's Registers of
-                                       the Qiskrypt's Party Client.
-        """
-
-        if (self.get_endpoint().get_context() == POSSIBLE_ENDPOINT_CONTEXTS[0]) and \
-           (isinstance(self.get_endpoint(), QiskryptQuantumGroundStationEndpoint)):
-            """
-            If the Qiskrypt's Endpoint of the Qiskrypt's Party Client 
-            is a Qiskrypt's Quantum Ground Station Endpoint
-            and belongs to a Quantum Context.
-            """
-
-            if quantum_register_index < self.get_num_registers():
-                """
-                If the given index of a Qiskrypt's Quantum Register to be removed
-                from the list of Qiskrypt's Registers of the Qiskrypt's Party Client is valid.
-                """
-
-                current_register = super().registers[quantum_register_index]
-                """
-                Retrieve the respective Qiskrypt's Register in
-                the list of Qiskrypt's Registers of the Qiskrypt's Party Client.
-                """
-
-                if isinstance(current_register, QiskryptQuantumRegister):
-                    """
-                    If the current Qiskrypt's Register in
-                    the list of Qiskrypt's Registers of the Qiskrypt's Party Client
-                    is a Qiskrypt's Quantum Register.
-                    """
-
-                    super().registers.remove(current_register)
-                    """
-                    Removes the current Qiskrypt's Register in
-                    the list of Qiskrypt's Registers of the Qiskrypt's Party Client.
-                    """
-
                 else:
                     """
-                    If the current Qiskrypt's Register in
-                    the list of Qiskrypt's Registers of the Qiskrypt's Party Client
-                    is not a Qiskrypt's Quantum Register.
+                    If the given index of a Qiskrypt's Quantum Register to be removed
+                    from the list of Qiskrypt's Registers of the Qiskrypt's Party Client is not valid.
                     """
 
                     # TODO Throw - Exception
 
             else:
                 """
-                If the given index of a Qiskrypt's Quantum Register to be removed
-                from the list of Qiskrypt's Registers of the Qiskrypt's Party Client is not valid.
+                If the Qiskrypt's Endpoint of the Qiskrypt's Party Client 
+                is not a Qiskrypt's Quantum Ground Station Endpoint 
+                and does not belong to a Quantum Context.
                 """
 
                 # TODO Throw - Exception
 
         else:
             """
-            If the Qiskrypt's Endpoint of the Qiskrypt's Party Client 
-            is not a Qiskrypt's Quantum Ground Station Endpoint 
-            and does not belong to a Quantum Context.
+            If the given index and name of the Qiskrypt's Endpoint related to
+            the Qiskrypt's Quantum Register to be removed from the list of
+            Qiskrypt's Registers of the Qiskrypt's Party Client are both None.
             """
 
             # TODO Throw - Exception
 
-    def add_ancilla_quantum_register(self, ancilla_quantum_register: QiskryptAncillaQuantumRegister):
+    def add_ancilla_quantum_register(self, ancilla_quantum_register: QiskryptAncillaQuantumRegister,
+                                     endpoint_index=None, endpoint_name=None):
         """
         Adds a given Qiskrypt's Ancilla Quantum Register to
-        the list of Qiskrypt's Registers of the Qiskrypt's Party Client.
+        the list of Qiskrypt's Registers of the Qiskrypt's Party Client,
+        regarding the given index or name of a Qiskrypt's Endpoint.
 
         :param ancilla_quantum_register: the Qiskrypt's Ancilla Quantum Register to be added
                                          to the list of Qiskrypt's Registers of
                                          the Qiskrypt's Party Client.
+        :param endpoint_index: the index of the Qiskrypt's Endpoint related to
+                               the Qiskrypt's Ancilla Quantum Register to be added
+                               to the list of Qiskrypt's Registers of
+                               the Qiskrypt's Party Client.
+        :param endpoint_name: the name of the Qiskrypt's Endpoint related to
+                              the Qiskrypt's Ancilla Quantum Register to be added
+                              to the list of Qiskrypt's Registers of
+                              the Qiskrypt's Party Client.
         """
 
-        if (self.get_endpoint().get_context() == POSSIBLE_ENDPOINT_CONTEXTS[0]) and \
-           (isinstance(self.get_endpoint(), QiskryptQuantumGroundStationEndpoint)):
+        if (endpoint_index is not None) or (endpoint_name is not None):
             """
-            If the Qiskrypt's Endpoint of the Qiskrypt's Party Client 
-            is a Qiskrypt's Quantum Ground Station Endpoint
-            and belongs to a Quantum Context.
+            If the given index or name of the Qiskrypt's Endpoint related to
+            the Qiskrypt's Ancilla Quantum Register to be added to the list of
+            Qiskrypt's Registers of the Qiskrypt's Party Client is not None.
             """
 
-            super().registers.append(ancilla_quantum_register)
+            endpoint = None
             """
-            Adds the given Qiskrypt's Ancilla Quantum Register to
-            the list of Qiskrypt's Registers of the Qiskrypt's Party Client.
+            Initialise the local variable to keep the Qiskrypt's Endpoint related to
+            the Qiskrypt's Ancilla Quantum Register to be added to the list of
+            Qiskrypt's Registers of the Qiskrypt's Party Client, initially, as None.
             """
+
+            if endpoint_index is not None:
+                """
+                If the given index of the Qiskrypt's Endpoint related to
+                the Qiskrypt's Ancilla Quantum Register to be added to the list of
+                Qiskrypt's Registers of the Qiskrypt's Party Client is not None.
+                """
+
+                """
+                Retrieve the Qiskrypt's Endpoint from the list of Qiskrypt's Endpoints of
+                the Qiskrypt's Party Client, given the corresponding index.
+                """
+                endpoint = self.get_endpoint_by_index(endpoint_index)
+
+            elif endpoint_name is not None:
+                """
+                If the given name of the Qiskrypt's Endpoint related to
+                the Qiskrypt's Ancilla Quantum Register to be added to the list of
+                Qiskrypt's Registers of the Qiskrypt's Party Client is not None.
+                """
+
+                """
+                Retrieve the Qiskrypt's Endpoint from the list of Qiskrypt's Endpoints of
+                the Qiskrypt's Party Client, given the corresponding name.
+                """
+                endpoint = self.get_endpoint_by_name(endpoint_name)
+
+            if (endpoint.get_context() == POSSIBLE_ENDPOINT_CONTEXTS[0]) and \
+               (isinstance(endpoint, QiskryptQuantumGroundStationEndpoint)):
+                """
+                If the Qiskrypt's Endpoint of the Qiskrypt's Party Client 
+                is a Qiskrypt's Quantum Ground Station Endpoint
+                and belongs to a Quantum Context.
+                """
+
+                super().registers.append(ancilla_quantum_register)
+                """
+                Adds the given Qiskrypt's Ancilla Quantum Register to
+                the list of Qiskrypt's Registers of the Qiskrypt's Party Client.
+                """
+
+            else:
+                """
+                If the Qiskrypt's Endpoint of the Qiskrypt's Party Client 
+                is not a Qiskrypt's Quantum Ground Station Endpoint 
+                and does not belong to a Quantum Context.
+                """
+
+                # TODO Throw - Exception
 
         else:
             """
-            If the Qiskrypt's Endpoint of the Qiskrypt's Party Client 
-            is not a Qiskrypt's Quantum Ground Station Endpoint 
-            and does not belong to a Quantum Context.
+            If the given index and name of the Qiskrypt's Endpoint related to
+            the Qiskrypt's Ancilla Quantum Register to be added to the list of
+            Qiskrypt's Registers of the Qiskrypt's Party Client are both None.
             """
 
             # TODO Throw - Exception
 
-    def remove_ancilla_quantum_register_by_name(self, ancilla_quantum_register_name: str):
+    def remove_ancilla_quantum_register_by_name(self, ancilla_quantum_register_name: str,
+                                                endpoint_index=None, endpoint_name=None):
         """
         Removes a Qiskrypt's Ancilla Quantum Register from
         the list of Qiskrypt's Registers of the Qiskrypt's Party Client,
-        given its name.
+        given its name, regarding the given index or name of a Qiskrypt's Endpoint.
 
         :param ancilla_quantum_register_name: the name of a Qiskrypt's Ancilla Quantum Register to be removed
                                               from the list of Qiskrypt's Registers of
                                               the Qiskrypt's Party Client.
+        :param endpoint_index: the index of the Qiskrypt's Endpoint related to
+                               the Qiskrypt's Ancilla Quantum Register to be removed
+                               from the list of Qiskrypt's Registers of
+                               the Qiskrypt's Party Client.
+        :param endpoint_name: the name of the Qiskrypt's Endpoint related to
+                              the Qiskrypt's Ancilla Quantum Register to be removed
+                              from the list of Qiskrypt's Registers of
+                              the Qiskrypt's Party Client.
         """
 
-        if (self.get_endpoint().get_context() == POSSIBLE_ENDPOINT_CONTEXTS[0]) and \
-           (isinstance(self.get_endpoint(), QiskryptQuantumGroundStationEndpoint)):
+        if (endpoint_index is not None) or (endpoint_name is not None):
             """
-            If the Qiskrypt's Endpoint of the Qiskrypt's Party Client 
-            is a Qiskrypt's Quantum Ground Station Endpoint
-            and belongs to a Quantum Context.
+            If the given index or name of the Qiskrypt's Endpoint related to
+            the Qiskrypt's Ancilla Quantum Register to be removed from the list of
+            Qiskrypt's Registers of the Qiskrypt's Party Client is not None.
             """
 
-            for current_register_index in range(len(super().registers)):
+            endpoint = None
+            """
+            Initialise the local variable to keep the Qiskrypt's Endpoint related to
+            the Qiskrypt's Ancilla Quantum Register to be removed from the list of
+            Qiskrypt's Registers of the Qiskrypt's Party Client, initially, as None.
+            """
+
+            if endpoint_index is not None:
                 """
-                For each Qiskrypt's Register in the list of
-                Qiskrypt's Registers of the Qiskrypt's Party Client. 
+                If the given index of the Qiskrypt's Endpoint related to
+                the Qiskrypt's Ancilla Quantum Register to be removed from the list of
+                Qiskrypt's Registers of the Qiskrypt's Party Client is not None.
                 """
 
-                current_register = super().registers[current_register_index]
                 """
-                Retrieve the current Qiskrypt's Register in
-                the list of Qiskrypt's Registers of the Qiskrypt's Party Client.
+                Retrieve the Qiskrypt's Endpoint from the list of Qiskrypt's Endpoints of
+                the Qiskrypt's Party Client, given the corresponding index.
+                """
+                endpoint = self.get_endpoint_by_index(endpoint_index)
+
+            elif endpoint_name is not None:
+                """
+                If the given name of the Qiskrypt's Endpoint related to
+                the Qiskrypt's Ancilla Quantum Register to be removed from the list of
+                Qiskrypt's Registers of the Qiskrypt's Party Client is not None.
                 """
 
-                if current_register.get_name() == ancilla_quantum_register_name:
+                """
+                Retrieve the Qiskrypt's Endpoint from the list of Qiskrypt's Endpoints of
+                the Qiskrypt's Party Client, given the corresponding name.
+                """
+                endpoint = self.get_endpoint_by_name(endpoint_name)
+
+            if (endpoint.get_context() == POSSIBLE_ENDPOINT_CONTEXTS[0]) and \
+               (isinstance(endpoint, QiskryptQuantumGroundStationEndpoint)):
+                """
+                If the Qiskrypt's Endpoint of the Qiskrypt's Party Client 
+                is a Qiskrypt's Quantum Ground Station Endpoint
+                and belongs to a Quantum Context.
+                """
+
+                for current_register_index in range(len(super().registers)):
                     """
-                    If it was found a Qiskrypt's Register in
-                    the list of Qiskrypt's Registers of the Qiskrypt's Party Client,
-                    with the given name.
+                    For each Qiskrypt's Register in the list of
+                    Qiskrypt's Registers of the Qiskrypt's Party Client. 
+                    """
+
+                    current_register = super().registers[current_register_index]
+                    """
+                    Retrieve the current Qiskrypt's Register in
+                    the list of Qiskrypt's Registers of the Qiskrypt's Party Client.
+                    """
+
+                    if current_register.get_name() == ancilla_quantum_register_name:
+                        """
+                        If it was found a Qiskrypt's Register in
+                        the list of Qiskrypt's Registers of the Qiskrypt's Party Client,
+                        with the given name.
+                        """
+
+                        if isinstance(current_register, QiskryptAncillaQuantumRegister):
+                            """
+                            If the current Qiskrypt's Register in
+                            the list of Qiskrypt's Registers of the Qiskrypt's Party Client
+                            is a Qiskrypt's Ancilla Quantum Register.
+                            """
+
+                            super().registers.remove(current_register)
+                            """
+                            Removes the current Qiskrypt's Register in
+                            the list of Qiskrypt's Registers of the Qiskrypt's Party Client.
+                            """
+
+                        else:
+                            """
+                            If the current Qiskrypt's Register in
+                            the list of Qiskrypt's Registers of the Qiskrypt's Party Client
+                            is not a Qiskrypt's Ancilla Quantum Register.
+                            """
+
+                            # TODO Throw - Exception
+
+            else:
+                """
+                If the Qiskrypt's Endpoint of the Qiskrypt's Party Client 
+                is not a Qiskrypt's Quantum Ground Station Endpoint 
+                and does not belong to a Quantum Context.
+                """
+
+                # TODO Throw - Exception
+
+        else:
+            """
+            If the given index and name of the Qiskrypt's Endpoint related to
+            the Qiskrypt's Ancilla Quantum Register to be removed from the list of
+            Qiskrypt's Registers of the Qiskrypt's Party Client are both None.
+            """
+
+            # TODO Throw - Exception
+
+    def remove_ancilla_quantum_register_by_index(self, ancilla_quantum_register_index: int,
+                                                 endpoint_index=None, endpoint_name=None):
+        """
+        Removes a Qiskrypt's Ancilla Quantum Register from
+        the list of Qiskrypt's Registers of the Qiskrypt's Party Client,
+        given its index, regarding the given index or name of a Qiskrypt's Endpoint.
+
+        :param ancilla_quantum_register_index: the index of a Qiskrypt's Ancilla Quantum Register to be removed
+                                               from the list of Qiskrypt's Registers of
+                                               the Qiskrypt's Party Client.
+        :param endpoint_index: the index of the Qiskrypt's Endpoint related to
+                               the Qiskrypt's Quantum Register to be removed
+                               from the list of Qiskrypt's Registers of
+                               the Qiskrypt's Party Client.
+        :param endpoint_name: the name of the Qiskrypt's Endpoint related to
+                              the Qiskrypt's Quantum Register to be removed
+                              from the list of Qiskrypt's Registers of
+                              the Qiskrypt's Party Client.
+        """
+
+        if (endpoint_index is not None) or (endpoint_name is not None):
+            """
+            If the given index or name of the Qiskrypt's Endpoint related to
+            the Qiskrypt's Ancilla Quantum Register to be removed from the list of
+            Qiskrypt's Registers of the Qiskrypt's Party Client is not None.
+            """
+
+            endpoint = None
+            """
+            Initialise the local variable to keep the Qiskrypt's Endpoint related to
+            the Qiskrypt's Ancilla Quantum Register to be removed from the list of
+            Qiskrypt's Registers of the Qiskrypt's Party Client, initially, as None.
+            """
+
+            if endpoint_index is not None:
+                """
+                If the given index of the Qiskrypt's Endpoint related to
+                the Qiskrypt's Ancilla Quantum Register to be removed from the list of
+                Qiskrypt's Registers of the Qiskrypt's Party Client is not None.
+                """
+
+                """
+                Retrieve the Qiskrypt's Endpoint from the list of Qiskrypt's Endpoints of
+                the Qiskrypt's Party Client, given the corresponding index.
+                """
+                endpoint = self.get_endpoint_by_index(endpoint_index)
+
+            elif endpoint_name is not None:
+                """
+                If the given name of the Qiskrypt's Endpoint related to
+                the Qiskrypt's Ancilla Quantum Register to be removed from the list of
+                Qiskrypt's Registers of the Qiskrypt's Party Client is not None.
+                """
+
+                """
+                Retrieve the Qiskrypt's Endpoint from the list of Qiskrypt's Endpoints of
+                the Qiskrypt's Party Client, given the corresponding name.
+                """
+                endpoint = self.get_endpoint_by_name(endpoint_name)
+
+            if (endpoint.get_context() == POSSIBLE_ENDPOINT_CONTEXTS[0]) and \
+               (isinstance(endpoint, QiskryptQuantumGroundStationEndpoint)):
+                """
+                If the Qiskrypt's Endpoint of the Qiskrypt's Party Client 
+                is a Qiskrypt's Quantum Ground Station Endpoint
+                and belongs to a Quantum Context.
+                """
+
+                if ancilla_quantum_register_index < self.get_num_registers():
+                    """
+                    If the given index of a Qiskrypt's Ancilla Quantum Register to be removed
+                    from the list of Qiskrypt's Registers of the Qiskrypt's Party Client is valid.
+                    """
+
+                    current_register = super().registers[ancilla_quantum_register_index]
+                    """
+                    Retrieve the respective Qiskrypt's Register in
+                    the list of Qiskrypt's Registers of the Qiskrypt's Party Client.
                     """
 
                     if isinstance(current_register, QiskryptAncillaQuantumRegister):
@@ -1180,154 +1845,329 @@ class QiskryptPartyClient(QiskryptClient):
 
                         # TODO Throw - Exception
 
-        else:
-            """
-            If the Qiskrypt's Endpoint of the Qiskrypt's Party Client 
-            is not a Qiskrypt's Quantum Ground Station Endpoint 
-            and does not belong to a Quantum Context.
-            """
-
-            # TODO Throw - Exception
-
-    def remove_ancilla_quantum_register_by_index(self, ancilla_quantum_register_index: int):
-        """
-        Removes a Qiskrypt's Ancilla Quantum Register from
-        the list of Qiskrypt's Registers of the Qiskrypt's Party Client,
-        given its index.
-
-        :param ancilla_quantum_register_index: the index of a Qiskrypt's Ancilla Quantum Register to be removed
-                                               from the list of Qiskrypt's Registers of
-                                               the Qiskrypt's Party Client.
-        """
-
-        if (self.get_endpoint().get_context() == POSSIBLE_ENDPOINT_CONTEXTS[0]) and \
-           (isinstance(self.get_endpoint(), QiskryptQuantumGroundStationEndpoint)):
-            """
-            If the Qiskrypt's Endpoint of the Qiskrypt's Party Client 
-            is a Qiskrypt's Quantum Ground Station Endpoint
-            and belongs to a Quantum Context.
-            """
-
-            if ancilla_quantum_register_index < self.get_num_registers():
-                """
-                If the given index of a Qiskrypt's Ancilla Quantum Register to be removed
-                from the list of Qiskrypt's Registers of the Qiskrypt's Party Client is valid.
-                """
-
-                current_register = super().registers[ancilla_quantum_register_index]
-                """
-                Retrieve the respective Qiskrypt's Register in
-                the list of Qiskrypt's Registers of the Qiskrypt's Party Client.
-                """
-
-                if isinstance(current_register, QiskryptAncillaQuantumRegister):
-                    """
-                    If the current Qiskrypt's Register in
-                    the list of Qiskrypt's Registers of the Qiskrypt's Party Client
-                    is a Qiskrypt's Ancilla Quantum Register.
-                    """
-
-                    super().registers.remove(current_register)
-                    """
-                    Removes the current Qiskrypt's Register in
-                    the list of Qiskrypt's Registers of the Qiskrypt's Party Client.
-                    """
-
                 else:
                     """
-                    If the current Qiskrypt's Register in
-                    the list of Qiskrypt's Registers of the Qiskrypt's Party Client
-                    is not a Qiskrypt's Ancilla Quantum Register.
+                    If the given index of a Qiskrypt's Ancilla Quantum Register to be removed
+                    from the list of Qiskrypt's Registers of the Qiskrypt's Party Client is not valid.
                     """
 
                     # TODO Throw - Exception
 
             else:
                 """
-                If the given index of a Qiskrypt's Ancilla Quantum Register to be removed
-                from the list of Qiskrypt's Registers of the Qiskrypt's Party Client is not valid.
+                If the Qiskrypt's Endpoint of the Qiskrypt's Party Client 
+                is not a Qiskrypt's Quantum Ground Station Endpoint 
+                and does not belong to a Quantum Context.
                 """
 
                 # TODO Throw - Exception
 
         else:
             """
-            If the Qiskrypt's Endpoint of the Qiskrypt's Party Client 
-            is not a Qiskrypt's Quantum Ground Station Endpoint 
-            and does not belong to a Quantum Context.
+            If the given index and name of the Qiskrypt's Endpoint related to
+            the Qiskrypt's Ancilla Quantum Register to be removed from the list of
+            Qiskrypt's Registers of the Qiskrypt's Party Client are both None.
             """
 
             # TODO Throw - Exception
 
-    def add_fully_quantum_register(self, fully_quantum_register: QiskryptFullyQuantumRegister):
+    def add_fully_quantum_register(self, fully_quantum_register: QiskryptFullyQuantumRegister,
+                                   endpoint_index=None, endpoint_name=None):
         """
         Adds a given Qiskrypt's Fully-Quantum Register to
-        the list of Qiskrypt's Registers of the Qiskrypt's Party Client.
+        the list of Qiskrypt's Registers of the Qiskrypt's Party Client,
+        given its index, regarding the given index or name of a Qiskrypt's Endpoint.
 
         :param fully_quantum_register: the Qiskrypt's Fully-Quantum Register to be added
                                        to the list of Qiskrypt's Registers of
                                        the Qiskrypt's Party Client.
+        :param endpoint_index: the index of the Qiskrypt's Endpoint related to
+                               the Qiskrypt's Fully-Quantum Register to be added
+                               to the list of Qiskrypt's Registers of
+                               the Qiskrypt's Party Client.
+        :param endpoint_name: the name of the Qiskrypt's Endpoint related to
+                              the Qiskrypt's Fully-Quantum Register to be added
+                              to the list of Qiskrypt's Registers of
+                              the Qiskrypt's Party Client.
         """
 
-        if (self.get_endpoint().get_context() == POSSIBLE_ENDPOINT_CONTEXTS[1]) and \
-           (isinstance(self.get_endpoint(), QiskryptFullyQuantumGroundStationEndpoint)):
+        if (endpoint_index is not None) or (endpoint_name is not None):
             """
-            If the Qiskrypt's Endpoint of the Qiskrypt's Party Client 
-            is a Qiskrypt's Fully-Quantum Ground Station Endpoint
-            and belongs to a Fully-Quantum Context.
+            If the given index or name of the Qiskrypt's Endpoint related to
+            the Qiskrypt's Fully-Quantum Register to be added to the list of
+            Qiskrypt's Registers of the Qiskrypt's Party Client is not None.
             """
 
-            super().registers.append(fully_quantum_register)
+            endpoint = None
             """
-            Adds the given Qiskrypt's Fully-Quantum Register to
-            the list of Qiskrypt's Registers of the Qiskrypt's Party Client.
+            Initialise the local variable to keep the Qiskrypt's Endpoint related to
+            the Qiskrypt's Fully-Quantum Register to be added to the list of
+            Qiskrypt's Registers of the Qiskrypt's Party Client, initially, as None.
             """
+
+            if endpoint_index is not None:
+                """
+                If the given index of the Qiskrypt's Endpoint related to
+                the Qiskrypt's Fully-Quantum Register to be added to the list of
+                Qiskrypt's Registers of the Qiskrypt's Party Client is not None.
+                """
+
+                """
+                Retrieve the Qiskrypt's Endpoint from the list of Qiskrypt's Endpoints of
+                the Qiskrypt's Party Client, given the corresponding index.
+                """
+                endpoint = self.get_endpoint_by_index(endpoint_index)
+
+            elif endpoint_name is not None:
+                """
+                If the given name of the Qiskrypt's Endpoint related to
+                the Qiskrypt's Fully-Quantum Register to be added to the list of
+                Qiskrypt's Registers of the Qiskrypt's Party Client is not None.
+                """
+
+                """
+                Retrieve the Qiskrypt's Endpoint from the list of Qiskrypt's Endpoints of
+                the Qiskrypt's Party Client, given the corresponding name.
+                """
+                endpoint = self.get_endpoint_by_name(endpoint_name)
+
+            if (endpoint.get_context() == POSSIBLE_ENDPOINT_CONTEXTS[1]) and \
+               (isinstance(endpoint, QiskryptFullyQuantumGroundStationEndpoint)):
+                """
+                If the Qiskrypt's Endpoint of the Qiskrypt's Party Client 
+                is a Qiskrypt's Fully-Quantum Ground Station Endpoint
+                and belongs to a Fully-Quantum Context.
+                """
+
+                super().registers.append(fully_quantum_register)
+                """
+                Adds the given Qiskrypt's Fully-Quantum Register to
+                the list of Qiskrypt's Registers of the Qiskrypt's Party Client.
+                """
+
+            else:
+                """
+                If the Qiskrypt's Endpoint of the Qiskrypt's Party Client 
+                is not a Qiskrypt's Fully-Quantum Ground Station Endpoint 
+                and does not belong to a Fully-Quantum Context.
+                """
+
+                # TODO Throw - Exception
 
         else:
             """
-            If the Qiskrypt's Endpoint of the Qiskrypt's Party Client 
-            is not a Qiskrypt's Fully-Quantum Ground Station Endpoint 
-            and does not belong to a Fully-Quantum Context.
+            If the given index and name of the Qiskrypt's Endpoint related to
+            the Qiskrypt's Fully-Quantum Register to be added to the list of
+            Qiskrypt's Registers of the Qiskrypt's Party Client are both None.
             """
 
             # TODO Throw - Exception
 
-    def remove_fully_quantum_register_by_name(self, fully_quantum_register_name: str):
+    def remove_fully_quantum_register_by_name(self, fully_quantum_register_name: str,
+                                              endpoint_index=None, endpoint_name=None):
         """
         Removes a Qiskrypt's Fully-Quantum Register from
         the list of Qiskrypt's Registers of the Qiskrypt's Party Client,
-        given its name.
+        given its name, regarding the given index or name of a Qiskrypt's Endpoint.
 
         :param fully_quantum_register_name: the name of a Qiskrypt's Fully-Quantum Register to be removed
                                             from the list of Qiskrypt's Registers of
                                             the Qiskrypt's Party Client.
+        :param endpoint_index: the index of the Qiskrypt's Endpoint related to
+                               the Qiskrypt's Fully-Quantum Register to be removed
+                               from the list of Qiskrypt's Registers of
+                               the Qiskrypt's Party Client.
+        :param endpoint_name: the name of the Qiskrypt's Endpoint related to
+                              the Qiskrypt's Fully-Quantum Register to be removed
+                              from the list of Qiskrypt's Registers of
+                              the Qiskrypt's Party Client.
         """
 
-        if (self.get_endpoint().get_context() == POSSIBLE_ENDPOINT_CONTEXTS[1]) and \
-           (isinstance(self.get_endpoint(), QiskryptFullyQuantumGroundStationEndpoint)):
+        if (endpoint_index is not None) or (endpoint_name is not None):
             """
-            If the Qiskrypt's Endpoint of the Qiskrypt's Party Client 
-            is a Qiskrypt's Fully-Quantum Ground Station Endpoint
-            and belongs to a Fully-Quantum Context.
+            If the given index or name of the Qiskrypt's Endpoint related to
+            the Qiskrypt's Fully-Quantum Register to be removed from the list of
+            Qiskrypt's Registers of the Qiskrypt's Party Client is not None.
             """
 
-            for current_register_index in range(len(super().registers)):
+            endpoint = None
+            """
+            Initialise the local variable to keep the Qiskrypt's Endpoint related to
+            the Qiskrypt's Fully-Quantum Register to be removed from the list of
+            Qiskrypt's Registers of the Qiskrypt's Party Client, initially, as None.
+            """
+
+            if endpoint_index is not None:
                 """
-                For each Qiskrypt's Register in the list of
-                Qiskrypt's Registers of the Qiskrypt's Party Client. 
+                If the given index of the Qiskrypt's Endpoint related to
+                the Qiskrypt's Fully-Quantum Register to be removed from the list of
+                Qiskrypt's Registers of the Qiskrypt's Party Client is not None.
                 """
 
-                current_register = super().registers[current_register_index]
                 """
-                Retrieve the current Qiskrypt's Register in
-                the list of Qiskrypt's Registers of the Qiskrypt's Party Client.
+                Retrieve the Qiskrypt's Endpoint from the list of Qiskrypt's Endpoints of
+                the Qiskrypt's Party Client, given the corresponding index.
+                """
+                endpoint = self.get_endpoint_by_index(endpoint_index)
+
+            elif endpoint_name is not None:
+                """
+                If the given name of the Qiskrypt's Endpoint related to
+                the Qiskrypt's Fully-Quantum Register to be removed from the list of
+                Qiskrypt's Registers of the Qiskrypt's Party Client is not None.
                 """
 
-                if current_register.get_name() == fully_quantum_register_name:
+                """
+                Retrieve the Qiskrypt's Endpoint from the list of Qiskrypt's Endpoints of
+                the Qiskrypt's Party Client, given the corresponding name.
+                """
+                endpoint = self.get_endpoint_by_name(endpoint_name)
+
+            if (endpoint.get_context() == POSSIBLE_ENDPOINT_CONTEXTS[1]) and \
+               (isinstance(endpoint, QiskryptFullyQuantumGroundStationEndpoint)):
+                """
+                If the Qiskrypt's Endpoint of the Qiskrypt's Party Client 
+                is a Qiskrypt's Fully-Quantum Ground Station Endpoint
+                and belongs to a Fully-Quantum Context.
+                """
+
+                for current_register_index in range(len(super().registers)):
                     """
-                    If it was found a Qiskrypt's Register in
-                    the list of Qiskrypt's Registers of the Qiskrypt's Party Client,
-                    with the given name.
+                    For each Qiskrypt's Register in the list of
+                    Qiskrypt's Registers of the Qiskrypt's Party Client. 
+                    """
+
+                    current_register = super().registers[current_register_index]
+                    """
+                    Retrieve the current Qiskrypt's Register in
+                    the list of Qiskrypt's Registers of the Qiskrypt's Party Client.
+                    """
+
+                    if current_register.get_name() == fully_quantum_register_name:
+                        """
+                        If it was found a Qiskrypt's Register in
+                        the list of Qiskrypt's Registers of the Qiskrypt's Party Client,
+                        with the given name.
+                        """
+
+                        if isinstance(current_register, QiskryptFullyQuantumRegister):
+                            """
+                            If the current Qiskrypt's Register in
+                            the list of Qiskrypt's Registers of the Qiskrypt's Party Client
+                            is a Qiskrypt's Fully-Quantum Register.
+                            """
+
+                            super().registers.remove(current_register)
+                            """
+                            Removes the current Qiskrypt's Register in
+                            the list of Qiskrypt's Registers of the Qiskrypt's Party Client.
+                            """
+
+                        else:
+                            """
+                            If the current Qiskrypt's Register in
+                            the list of Qiskrypt's Registers of the Qiskrypt's Party Client
+                            is not a Qiskrypt's Fully-Quantum Register.
+                            """
+
+                            # TODO Throw - Exception
+
+            else:
+                """
+                If the Qiskrypt's Endpoint of the Qiskrypt's Party Client 
+                is not a Qiskrypt's Fully-Quantum Ground Station Endpoint 
+                and does not belong to a Fully-Quantum Context.
+                """
+
+                # TODO Throw - Exception
+
+        else:
+            """
+            If the given index and name of the Qiskrypt's Endpoint related to
+            the Qiskrypt's Fully-Quantum Register to be removed from the list of
+            Qiskrypt's Registers of the Qiskrypt's Party Client are both None.
+            """
+
+            # TODO Throw - Exception
+
+    def remove_fully_quantum_register_by_index(self, fully_quantum_register_index: int,
+                                               endpoint_index=None, endpoint_name=None):
+        """
+        Removes a Qiskrypt's Fully-Quantum Register from
+        the list of Qiskrypt's Registers of the Qiskrypt's Party Client,
+        given its index, regarding the given index or name of a Qiskrypt's Endpoint.
+
+        :param fully_quantum_register_index: the index of a Qiskrypt's Fully-Quantum Register to be removed
+                                             from the list of Qiskrypt's Registers of
+                                             the Qiskrypt's Party Client.
+        :param endpoint_index: the index of the Qiskrypt's Endpoint related to
+                               the Qiskrypt's Fully-Quantum Register to be removed
+                               from the list of Qiskrypt's Registers of
+                               the Qiskrypt's Party Client.
+        :param endpoint_name: the name of the Qiskrypt's Endpoint related to
+                              the Qiskrypt's Fully-Quantum Register to be removed
+                              from the list of Qiskrypt's Registers of
+                              the Qiskrypt's Party Client.
+        """
+
+        if (endpoint_index is not None) or (endpoint_name is not None):
+            """
+            If the given index or name of the Qiskrypt's Endpoint related to
+            the Qiskrypt's Fully-Quantum Register to be removed from the list of
+            Qiskrypt's Registers of the Qiskrypt's Party Client is not None.
+            """
+
+            endpoint = None
+            """
+            Initialise the local variable to keep the Qiskrypt's Endpoint related to
+            the Qiskrypt's Fully-Quantum Register to be removed from the list of
+            Qiskrypt's Registers of the Qiskrypt's Party Client, initially, as None.
+            """
+
+            if endpoint_index is not None:
+                """
+                If the given index of the Qiskrypt's Endpoint related to
+                the Qiskrypt's Fully-Quantum Register to be removed from the list of
+                Qiskrypt's Registers of the Qiskrypt's Party Client is not None.
+                """
+
+                """
+                Retrieve the Qiskrypt's Endpoint from the list of Qiskrypt's Endpoints of
+                the Qiskrypt's Party Client, given the corresponding index.
+                """
+                endpoint = self.get_endpoint_by_index(endpoint_index)
+
+            elif endpoint_name is not None:
+                """
+                If the given name of the Qiskrypt's Endpoint related to
+                the Qiskrypt's Fully-Quantum Register to be removed from the list of
+                Qiskrypt's Registers of the Qiskrypt's Party Client is not None.
+                """
+
+                """
+                Retrieve the Qiskrypt's Endpoint from the list of Qiskrypt's Endpoints of
+                the Qiskrypt's Party Client, given the corresponding name.
+                """
+                endpoint = self.get_endpoint_by_name(endpoint_name)
+
+            if (endpoint.get_context() == POSSIBLE_ENDPOINT_CONTEXTS[1]) and \
+               (isinstance(endpoint, QiskryptFullyQuantumGroundStationEndpoint)):
+                """
+                If the Qiskrypt's Endpoint of the Qiskrypt's Party Client 
+                is a Qiskrypt's Fully-Quantum Ground Station Endpoint
+                and belongs to a Fully-Quantum Context.
+                """
+
+                if fully_quantum_register_index < self.get_num_registers():
+                    """
+                    If the given index of a Qiskrypt's Fully-Quantum Register to be removed
+                    from the list of Qiskrypt's Registers of the Qiskrypt's Party Client is valid.
+                    """
+
+                    current_register = super().registers[fully_quantum_register_index]
+                    """
+                    Retrieve the respective Qiskrypt's Register in
+                    the list of Qiskrypt's Registers of the Qiskrypt's Party Client.
                     """
 
                     if isinstance(current_register, QiskryptFullyQuantumRegister):
@@ -1352,154 +2192,329 @@ class QiskryptPartyClient(QiskryptClient):
 
                         # TODO Throw - Exception
 
-        else:
-            """
-            If the Qiskrypt's Endpoint of the Qiskrypt's Party Client 
-            is not a Qiskrypt's Fully-Quantum Ground Station Endpoint 
-            and does not belong to a Fully-Quantum Context.
-            """
-
-            # TODO Throw - Exception
-
-    def remove_fully_quantum_register_by_index(self, fully_quantum_register_index: int):
-        """
-        Removes a Qiskrypt's Fully-Quantum Register from
-        the list of Qiskrypt's Registers of the Qiskrypt's Party Client,
-        given its index.
-
-        :param fully_quantum_register_index: the index of a Qiskrypt's Fully-Quantum Register to be removed
-                                             from the list of Qiskrypt's Registers of
-                                             the Qiskrypt's Party Client.
-        """
-
-        if (self.get_endpoint().get_context() == POSSIBLE_ENDPOINT_CONTEXTS[1]) and \
-           (isinstance(self.get_endpoint(), QiskryptFullyQuantumGroundStationEndpoint)):
-            """
-            If the Qiskrypt's Endpoint of the Qiskrypt's Party Client 
-            is a Qiskrypt's Fully-Quantum Ground Station Endpoint
-            and belongs to a Fully-Quantum Context.
-            """
-
-            if fully_quantum_register_index < self.get_num_registers():
-                """
-                If the given index of a Qiskrypt's Fully-Quantum Register to be removed
-                from the list of Qiskrypt's Registers of the Qiskrypt's Party Client is valid.
-                """
-
-                current_register = super().registers[fully_quantum_register_index]
-                """
-                Retrieve the respective Qiskrypt's Register in
-                the list of Qiskrypt's Registers of the Qiskrypt's Party Client.
-                """
-
-                if isinstance(current_register, QiskryptFullyQuantumRegister):
-                    """
-                    If the current Qiskrypt's Register in
-                    the list of Qiskrypt's Registers of the Qiskrypt's Party Client
-                    is a Qiskrypt's Fully-Quantum Register.
-                    """
-
-                    super().registers.remove(current_register)
-                    """
-                    Removes the current Qiskrypt's Register in
-                    the list of Qiskrypt's Registers of the Qiskrypt's Party Client.
-                    """
-
                 else:
                     """
-                    If the current Qiskrypt's Register in
-                    the list of Qiskrypt's Registers of the Qiskrypt's Party Client
-                    is not a Qiskrypt's Fully-Quantum Register.
+                    If the given index of a Qiskrypt's Fully-Quantum Register to be removed
+                    from the list of Qiskrypt's Registers of the Qiskrypt's Party Client is not valid.
                     """
 
                     # TODO Throw - Exception
 
             else:
                 """
-                If the given index of a Qiskrypt's Fully-Quantum Register to be removed
-                from the list of Qiskrypt's Registers of the Qiskrypt's Party Client is not valid.
+                If the Qiskrypt's Endpoint of the Qiskrypt's Party Client 
+                is not a Qiskrypt's Fully-Quantum Ground Station Endpoint 
+                and does not belong to a Fully-Quantum Context.
                 """
 
                 # TODO Throw - Exception
 
         else:
             """
-            If the Qiskrypt's Endpoint of the Qiskrypt's Party Client 
-            is not a Qiskrypt's Fully-Quantum Ground Station Endpoint 
-            and does not belong to a Fully-Quantum Context.
+            If the given index and name of the Qiskrypt's Endpoint related to
+            the Qiskrypt's Fully-Quantum Register to be removed from the list of
+            Qiskrypt's Registers of the Qiskrypt's Party Client are both None.
             """
 
             # TODO Throw - Exception
 
-    def add_ancilla_fully_quantum_register(self, ancilla_fully_quantum_register: QiskryptAncillaFullyQuantumRegister):
+    def add_ancilla_fully_quantum_register(self, ancilla_fully_quantum_register: QiskryptAncillaFullyQuantumRegister,
+                                           endpoint_index=None, endpoint_name=None):
         """
         Adds a given Qiskrypt's Ancilla Fully-Quantum Register to
-        the list of Qiskrypt's Registers of the Qiskrypt's Party Client.
+        the list of Qiskrypt's Registers of the Qiskrypt's Party Client,
+        regarding the given index or name of a Qiskrypt's Endpoint.
 
         :param ancilla_fully_quantum_register: the Qiskrypt's Ancilla Fully-Quantum Register to be added
                                                to the list of Qiskrypt's Registers of
                                                the Qiskrypt's Party Client.
+        :param endpoint_index: the index of the Qiskrypt's Endpoint related to
+                               the Qiskrypt's Ancilla Fully-Quantum Register to be added
+                               to the list of Qiskrypt's Registers of
+                               the Qiskrypt's Party Client.
+        :param endpoint_name: the name of the Qiskrypt's Endpoint related to
+                              the Qiskrypt's Ancilla Fully-Quantum Register to be added
+                              to the list of Qiskrypt's Registers of
+                              the Qiskrypt's Party Client.
         """
 
-        if (self.get_endpoint().get_context() == POSSIBLE_ENDPOINT_CONTEXTS[1]) and \
-           (isinstance(self.get_endpoint(), QiskryptFullyQuantumGroundStationEndpoint)):
+        if (endpoint_index is not None) or (endpoint_name is not None):
             """
-            If the Qiskrypt's Endpoint of the Qiskrypt's Party Client 
-            is a Qiskrypt's Fully-Quantum Ground Station Endpoint
-            and belongs to a Fully-Quantum Context.
+            If the given index or name of the Qiskrypt's Endpoint related to
+            the Qiskrypt's Ancilla Fully-Quantum Register to be added to the list of
+            Qiskrypt's Registers of the Qiskrypt's Party Client is not None.
             """
 
-            super().registers.append(ancilla_fully_quantum_register)
+            endpoint = None
             """
-            Adds the given Qiskrypt's Ancilla Fully-Quantum Register to
-            the list of Qiskrypt's Registers of the Qiskrypt's Party Client.
+            Initialise the local variable to keep the Qiskrypt's Endpoint related to
+            the Qiskrypt's Ancilla Fully-Quantum Register to be added to the list of
+            Qiskrypt's Registers of the Qiskrypt's Party Client, initially, as None.
             """
+
+            if endpoint_index is not None:
+                """
+                If the given index of the Qiskrypt's Endpoint related to
+                the Qiskrypt's Ancilla Fully-Quantum Register to be added to the list of
+                Qiskrypt's Registers of the Qiskrypt's Party Client is not None.
+                """
+
+                """
+                Retrieve the Qiskrypt's Endpoint from the list of Qiskrypt's Endpoints of
+                the Qiskrypt's Party Client, given the corresponding index.
+                """
+                endpoint = self.get_endpoint_by_index(endpoint_index)
+
+            elif endpoint_name is not None:
+                """
+                If the given name of the Qiskrypt's Endpoint related to
+                the Qiskrypt's Ancilla Fully-Quantum Register to be added to the list of
+                Qiskrypt's Registers of the Qiskrypt's Party Client is not None.
+                """
+
+                """
+                Retrieve the Qiskrypt's Endpoint from the list of Qiskrypt's Endpoints of
+                the Qiskrypt's Party Client, given the corresponding name.
+                """
+                endpoint = self.get_endpoint_by_name(endpoint_name)
+
+            if (endpoint.get_context() == POSSIBLE_ENDPOINT_CONTEXTS[1]) and \
+               (isinstance(endpoint, QiskryptFullyQuantumGroundStationEndpoint)):
+                """
+                If the Qiskrypt's Endpoint of the Qiskrypt's Party Client 
+                is a Qiskrypt's Fully-Quantum Ground Station Endpoint
+                and belongs to a Fully-Quantum Context.
+                """
+
+                super().registers.append(ancilla_fully_quantum_register)
+                """
+                Adds the given Qiskrypt's Ancilla Fully-Quantum Register to
+                the list of Qiskrypt's Registers of the Qiskrypt's Party Client.
+                """
+
+            else:
+                """
+                If the Qiskrypt's Endpoint of the Qiskrypt's Party Client 
+                is not a Qiskrypt's Fully-Quantum Ground Station Endpoint 
+                and does not belong to a Fully-Quantum Context.
+                """
+
+                # TODO Throw - Exception
 
         else:
             """
-            If the Qiskrypt's Endpoint of the Qiskrypt's Party Client 
-            is not a Qiskrypt's Fully-Quantum Ground Station Endpoint 
-            and does not belong to a Fully-Quantum Context.
+            If the given index and name of the Qiskrypt's Endpoint related to
+            the Qiskrypt's Ancilla Fully-Quantum Register to be added to the list of
+            Qiskrypt's Registers of the Qiskrypt's Party Client are both None.
             """
 
             # TODO Throw - Exception
 
-    def remove_ancilla_fully_quantum_register_by_name(self, ancilla_fully_quantum_register_name: str):
+    def remove_ancilla_fully_quantum_register_by_name(self, ancilla_fully_quantum_register_name: str,
+                                                      endpoint_index=None, endpoint_name=None):
         """
         Removes a Qiskrypt's Ancilla Fully-Quantum Register from
         the list of Qiskrypt's Registers of the Qiskrypt's Party Client,
-        given its name.
+        given its name, regarding the given index or name of a Qiskrypt's Endpoint.
 
         :param ancilla_fully_quantum_register_name: the name of a Qiskrypt's Ancilla Fully-Quantum Register
                                                     to be removed from the list of Qiskrypt's Registers of
                                                     the Qiskrypt's Party Client.
+        :param endpoint_index: the index of the Qiskrypt's Endpoint related to
+                               the Qiskrypt's Ancilla Fully-Quantum Register to be removed
+                               from the list of Qiskrypt's Registers of
+                               the Qiskrypt's Party Client.
+        :param endpoint_name: the name of the Qiskrypt's Endpoint related to
+                              the Qiskrypt's Ancilla Fully-Quantum Register to be removed
+                              from the list of Qiskrypt's Registers of
+                              the Qiskrypt's Party Client.
         """
 
-        if (self.get_endpoint().get_context() == POSSIBLE_ENDPOINT_CONTEXTS[1]) and \
-           (isinstance(self.get_endpoint(), QiskryptFullyQuantumGroundStationEndpoint)):
+        if (endpoint_index is not None) or (endpoint_name is not None):
             """
-            If the Qiskrypt's Endpoint of the Qiskrypt's Party Client 
-            is a Qiskrypt's Fully-Quantum Ground Station Endpoint
-            and belongs to a Fully-Quantum Context.
+            If the given index or name of the Qiskrypt's Endpoint related to
+            the Qiskrypt's Ancilla Fully-Quantum Register to be removed from the list of
+            Qiskrypt's Registers of the Qiskrypt's Party Client is not None.
             """
 
-            for current_register_index in range(len(super().registers)):
+            endpoint = None
+            """
+            Initialise the local variable to keep the Qiskrypt's Endpoint related to
+            the Qiskrypt's Ancilla Fully-Quantum Register to be removed from the list of
+            Qiskrypt's Registers of the Qiskrypt's Party Client, initially, as None.
+            """
+
+            if endpoint_index is not None:
                 """
-                For each Qiskrypt's Register in the list of
-                Qiskrypt's Registers of the Qiskrypt's Party Client. 
+                If the given index of the Qiskrypt's Endpoint related to
+                the Qiskrypt's Ancilla Fully-Quantum Register to be removed from the list of
+                Qiskrypt's Registers of the Qiskrypt's Party Client is not None.
                 """
 
-                current_register = super().registers[current_register_index]
                 """
-                Retrieve the current Qiskrypt's Register in
-                the list of Qiskrypt's Registers of the Qiskrypt's Party Client.
+                Retrieve the Qiskrypt's Endpoint from the list of Qiskrypt's Endpoints of
+                the Qiskrypt's Party Client, given the corresponding index.
+                """
+                endpoint = self.get_endpoint_by_index(endpoint_index)
+
+            elif endpoint_name is not None:
+                """
+                If the given name of the Qiskrypt's Endpoint related to
+                the Qiskrypt's Ancilla Fully-Quantum Register to be removed from the list of
+                Qiskrypt's Registers of the Qiskrypt's Party Client is not None.
                 """
 
-                if current_register.get_name() == ancilla_fully_quantum_register_name:
+                """
+                Retrieve the Qiskrypt's Endpoint from the list of Qiskrypt's Endpoints of
+                the Qiskrypt's Party Client, given the corresponding name.
+                """
+                endpoint = self.get_endpoint_by_name(endpoint_name)
+
+            if (endpoint.get_context() == POSSIBLE_ENDPOINT_CONTEXTS[1]) and \
+               (isinstance(endpoint, QiskryptFullyQuantumGroundStationEndpoint)):
+                """
+                If the Qiskrypt's Endpoint of the Qiskrypt's Party Client 
+                is a Qiskrypt's Fully-Quantum Ground Station Endpoint
+                and belongs to a Fully-Quantum Context.
+                """
+
+                for current_register_index in range(len(super().registers)):
                     """
-                    If it was found a Qiskrypt's Register in
-                    the list of Qiskrypt's Registers of the Qiskrypt's Party Client,
-                    with the given name.
+                    For each Qiskrypt's Register in the list of
+                    Qiskrypt's Registers of the Qiskrypt's Party Client. 
+                    """
+
+                    current_register = super().registers[current_register_index]
+                    """
+                    Retrieve the current Qiskrypt's Register in
+                    the list of Qiskrypt's Registers of the Qiskrypt's Party Client.
+                    """
+
+                    if current_register.get_name() == ancilla_fully_quantum_register_name:
+                        """
+                        If it was found a Qiskrypt's Register in
+                        the list of Qiskrypt's Registers of the Qiskrypt's Party Client,
+                        with the given name.
+                        """
+
+                        if isinstance(current_register, QiskryptAncillaFullyQuantumRegister):
+                            """
+                            If the current Qiskrypt's Register in
+                            the list of Qiskrypt's Registers of the Qiskrypt's Party Client
+                            is a Qiskrypt's Ancilla Fully-Quantum Register.
+                            """
+
+                            super().registers.remove(current_register)
+                            """
+                            Removes the current Qiskrypt's Register in
+                            the list of Qiskrypt's Registers of the Qiskrypt's Party Client.
+                            """
+
+                        else:
+                            """
+                            If the current Qiskrypt's Register in
+                            the list of Qiskrypt's Registers of the Qiskrypt's Party Client
+                            is not a Qiskrypt's Ancilla Fully-Quantum Register.
+                            """
+
+                            # TODO Throw - Exception
+
+            else:
+                """
+                If the Qiskrypt's Endpoint of the Qiskrypt's Party Client 
+                is not a Qiskrypt's Fully-Quantum Ground Station Endpoint 
+                and does not belong to a Fully-Quantum Context.
+                """
+
+                # TODO Throw - Exception
+
+        else:
+            """
+            If the given index and name of the Qiskrypt's Endpoint related to
+            the Qiskrypt's Ancilla Fully-Quantum Register to be removed from the list of
+            Qiskrypt's Registers of the Qiskrypt's Party Client are both None.
+            """
+
+            # TODO Throw - Exception
+
+    def remove_ancilla_fully_quantum_register_by_index(self, ancilla_fully_quantum_register_index: int,
+                                                       endpoint_index=None, endpoint_name=None):
+        """
+        Removes a Qiskrypt's Ancilla Fully-Quantum Register from
+        the list of Qiskrypt's Registers of the Qiskrypt's Party Client,
+        given its index, regarding the given index or name of a Qiskrypt's Endpoint.
+
+        :param ancilla_fully_quantum_register_index: the index of a Qiskrypt's Ancilla Fully-Quantum Register
+                                                     to be removed from the list of Qiskrypt's Registers of
+                                                     the Qiskrypt's Party Client.
+        :param endpoint_index: the index of the Qiskrypt's Endpoint related to
+                               the Qiskrypt's Ancilla Fully-Quantum Register to be removed
+                               from the list of Qiskrypt's Registers of
+                               the Qiskrypt's Party Client.
+        :param endpoint_name: the name of the Qiskrypt's Endpoint related to
+                              the Qiskrypt's Ancilla Fully-Quantum Register to be removed
+                              from the list of Qiskrypt's Registers of
+                              the Qiskrypt's Party Client.
+        """
+
+        if (endpoint_index is not None) or (endpoint_name is not None):
+            """
+            If the given index or name of the Qiskrypt's Endpoint related to
+            the Qiskrypt's Ancilla Fully-Quantum Register to be removed from the list of
+            Qiskrypt's Registers of the Qiskrypt's Party Client is not None.
+            """
+
+            endpoint = None
+            """
+            Initialise the local variable to keep the Qiskrypt's Endpoint related to
+            the Qiskrypt's Ancilla Fully-Quantum Register to be removed from the list of
+            Qiskrypt's Registers of the Qiskrypt's Party Client, initially, as None.
+            """
+
+            if endpoint_index is not None:
+                """
+                If the given index of the Qiskrypt's Endpoint related to
+                the Qiskrypt's Ancilla Fully-Quantum Register to be removed from the list of
+                Qiskrypt's Registers of the Qiskrypt's Party Client is not None.
+                """
+
+                """
+                Retrieve the Qiskrypt's Endpoint from the list of Qiskrypt's Endpoints of
+                the Qiskrypt's Party Client, given the corresponding index.
+                """
+                endpoint = self.get_endpoint_by_index(endpoint_index)
+
+            elif endpoint_name is not None:
+                """
+                If the given name of the Qiskrypt's Endpoint related to
+                the Qiskrypt's Ancilla Fully-Quantum Register to be removed from the list of
+                Qiskrypt's Registers of the Qiskrypt's Party Client is not None.
+                """
+
+                """
+                Retrieve the Qiskrypt's Endpoint from the list of Qiskrypt's Endpoints of
+                the Qiskrypt's Party Client, given the corresponding name.
+                """
+                endpoint = self.get_endpoint_by_name(endpoint_name)
+
+            if (endpoint.get_context() == POSSIBLE_ENDPOINT_CONTEXTS[1]) and \
+               (isinstance(endpoint, QiskryptFullyQuantumGroundStationEndpoint)):
+                """
+                If the Qiskrypt's Endpoint of the Qiskrypt's Party Client 
+                is a Qiskrypt's Fully-Quantum Ground Station Endpoint
+                and belongs to a Fully-Quantum Context.
+                """
+
+                if ancilla_fully_quantum_register_index < self.get_num_registers():
+                    """
+                    If the given index of a Qiskrypt's Ancilla Fully-Quantum Register to be removed
+                    from the list of Qiskrypt's Registers of the Qiskrypt's Party Client is valid.
+                    """
+
+                    current_register = super().registers[ancilla_fully_quantum_register_index]
+                    """
+                    Retrieve the respective Qiskrypt's Register in
+                    the list of Qiskrypt's Registers of the Qiskrypt's Party Client.
                     """
 
                     if isinstance(current_register, QiskryptAncillaFullyQuantumRegister):
@@ -1524,154 +2539,329 @@ class QiskryptPartyClient(QiskryptClient):
 
                         # TODO Throw - Exception
 
-        else:
-            """
-            If the Qiskrypt's Endpoint of the Qiskrypt's Party Client 
-            is not a Qiskrypt's Fully-Quantum Ground Station Endpoint 
-            and does not belong to a Fully-Quantum Context.
-            """
-
-            # TODO Throw - Exception
-
-    def remove_ancilla_fully_quantum_register_by_index(self, ancilla_fully_quantum_register_index: int):
-        """
-        Removes a Qiskrypt's Ancilla Fully-Quantum Register from
-        the list of Qiskrypt's Registers of the Qiskrypt's Party Client,
-        given its index.
-
-        :param ancilla_fully_quantum_register_index: the index of a Qiskrypt's Ancilla Fully-Quantum Register
-                                                     to be removed from the list of Qiskrypt's Registers of
-                                                     the Qiskrypt's Party Client.
-        """
-
-        if (self.get_endpoint().get_context() == POSSIBLE_ENDPOINT_CONTEXTS[1]) and \
-           (isinstance(self.get_endpoint(), QiskryptFullyQuantumGroundStationEndpoint)):
-            """
-            If the Qiskrypt's Endpoint of the Qiskrypt's Party Client 
-            is a Qiskrypt's Fully-Quantum Ground Station Endpoint
-            and belongs to a Fully-Quantum Context.
-            """
-
-            if ancilla_fully_quantum_register_index < self.get_num_registers():
-                """
-                If the given index of a Qiskrypt's Ancilla Fully-Quantum Register to be removed
-                from the list of Qiskrypt's Registers of the Qiskrypt's Party Client is valid.
-                """
-
-                current_register = super().registers[ancilla_fully_quantum_register_index]
-                """
-                Retrieve the respective Qiskrypt's Register in
-                the list of Qiskrypt's Registers of the Qiskrypt's Party Client.
-                """
-
-                if isinstance(current_register, QiskryptAncillaFullyQuantumRegister):
-                    """
-                    If the current Qiskrypt's Register in
-                    the list of Qiskrypt's Registers of the Qiskrypt's Party Client
-                    is a Qiskrypt's Ancilla Fully-Quantum Register.
-                    """
-
-                    super().registers.remove(current_register)
-                    """
-                    Removes the current Qiskrypt's Register in
-                    the list of Qiskrypt's Registers of the Qiskrypt's Party Client.
-                    """
-
                 else:
                     """
-                    If the current Qiskrypt's Register in
-                    the list of Qiskrypt's Registers of the Qiskrypt's Party Client
-                    is not a Qiskrypt's Ancilla Fully-Quantum Register.
+                    If the given index of a Qiskrypt's Ancilla Fully-Quantum Register to be removed
+                    from the list of Qiskrypt's Registers of the Qiskrypt's Party Client is not valid.
                     """
 
                     # TODO Throw - Exception
 
             else:
                 """
-                If the given index of a Qiskrypt's Ancilla Fully-Quantum Register to be removed
-                from the list of Qiskrypt's Registers of the Qiskrypt's Party Client is not valid.
+                If the Qiskrypt's Endpoint of the Qiskrypt's Party Client 
+                is not a Qiskrypt's Fully-Quantum Ground Station Endpoint 
+                and does not belong to a Fully-Quantum Context.
                 """
 
                 # TODO Throw - Exception
 
         else:
             """
-            If the Qiskrypt's Endpoint of the Qiskrypt's Party Client 
-            is not a Qiskrypt's Fully-Quantum Ground Station Endpoint 
-            and does not belong to a Fully-Quantum Context.
+            If the given index and name of the Qiskrypt's Endpoint related to
+            the Qiskrypt's Ancilla Fully-Quantum Register to be removed from the list of
+            Qiskrypt's Registers of the Qiskrypt's Party Client are both None.
             """
 
             # TODO Throw - Exception
 
-    def add_semi_quantum_register(self, semi_quantum_register: QiskryptSemiQuantumRegister):
+    def add_semi_quantum_register(self, semi_quantum_register: QiskryptSemiQuantumRegister,
+                                  endpoint_index=None, endpoint_name=None):
         """
         Adds a given Qiskrypt's Semi-Quantum Register to
-        the list of Qiskrypt's Registers of the Qiskrypt's Party Client.
+        the list of Qiskrypt's Registers of the Qiskrypt's Party Client,
+        given its index, regarding the given index or name of a Qiskrypt's Endpoint.
 
         :param semi_quantum_register: the Qiskrypt's Semi-Quantum Register to be added
                                       to the list of Qiskrypt's Registers of
                                       the Qiskrypt's Party Client.
+        :param endpoint_index: the index of the Qiskrypt's Endpoint related to
+                               the Qiskrypt's Semi-Quantum Register to be added
+                               to the list of Qiskrypt's Registers of
+                               the Qiskrypt's Party Client.
+        :param endpoint_name: the name of the Qiskrypt's Endpoint related to
+                              the Qiskrypt's Semi-Quantum Register to be added
+                              to the list of Qiskrypt's Registers of
+                              the Qiskrypt's Party Client.
         """
 
-        if (self.get_endpoint().get_context() == POSSIBLE_ENDPOINT_CONTEXTS[2]) and \
-           (isinstance(self.get_endpoint(), QiskryptSemiQuantumGroundStationEndpoint)):
+        if (endpoint_index is not None) or (endpoint_name is not None):
             """
-            If the Qiskrypt's Endpoint of the Qiskrypt's Party Client 
-            is a Qiskrypt's Semi-Quantum Ground Station Endpoint
-            and belongs to a Semi-Quantum Context.
+            If the given index or name of the Qiskrypt's Endpoint related to
+            the Qiskrypt's Semi-Quantum Register to be added to the list of
+            Qiskrypt's Registers of the Qiskrypt's Party Client is not None.
             """
 
-            super().registers.append(semi_quantum_register)
+            endpoint = None
             """
-            Adds the given Qiskrypt's Semi-Quantum Register to
-            the list of Qiskrypt's Registers of the Qiskrypt's Party Client.
+            Initialise the local variable to keep the Qiskrypt's Endpoint related to
+            the Qiskrypt's Semi-Quantum Register to be added to the list of
+            Qiskrypt's Registers of the Qiskrypt's Party Client, initially, as None.
             """
+
+            if endpoint_index is not None:
+                """
+                If the given index of the Qiskrypt's Endpoint related to
+                the Qiskrypt's Semi-Quantum Register to be added to the list of
+                Qiskrypt's Registers of the Qiskrypt's Party Client is not None.
+                """
+
+                """
+                Retrieve the Qiskrypt's Endpoint from the list of Qiskrypt's Endpoints of
+                the Qiskrypt's Party Client, given the corresponding index.
+                """
+                endpoint = self.get_endpoint_by_index(endpoint_index)
+
+            elif endpoint_name is not None:
+                """
+                If the given name of the Qiskrypt's Endpoint related to
+                the Qiskrypt's Semi-Quantum Register to be added to the list of
+                Qiskrypt's Registers of the Qiskrypt's Party Client is not None.
+                """
+
+                """
+                Retrieve the Qiskrypt's Endpoint from the list of Qiskrypt's Endpoints of
+                the Qiskrypt's Party Client, given the corresponding name.
+                """
+                endpoint = self.get_endpoint_by_name(endpoint_name)
+
+            if (endpoint.get_context() == POSSIBLE_ENDPOINT_CONTEXTS[2]) and \
+               (isinstance(endpoint, QiskryptSemiQuantumGroundStationEndpoint)):
+                """
+                If the Qiskrypt's Endpoint of the Qiskrypt's Party Client 
+                is a Qiskrypt's Semi-Quantum Ground Station Endpoint
+                and belongs to a Semi-Quantum Context.
+                """
+
+                super().registers.append(semi_quantum_register)
+                """
+                Adds the given Qiskrypt's Semi-Quantum Register to
+                the list of Qiskrypt's Registers of the Qiskrypt's Party Client.
+                """
+
+            else:
+                """
+                If the Qiskrypt's Endpoint of the Qiskrypt's Party Client 
+                is not a Qiskrypt's Semi-Quantum Ground Station Endpoint 
+                and does not belong to a Semi-Quantum Context.
+                """
+
+                # TODO Throw - Exception
 
         else:
             """
-            If the Qiskrypt's Endpoint of the Qiskrypt's Party Client 
-            is not a Qiskrypt's Semi-Quantum Ground Station Endpoint 
-            and does not belong to a Semi-Quantum Context.
+            If the given index and name of the Qiskrypt's Endpoint related to
+            the Qiskrypt's Semi-Quantum Register to be added to the list of
+            Qiskrypt's Registers of the Qiskrypt's Party Client are both None.
             """
 
             # TODO Throw - Exception
 
-    def remove_semi_quantum_register_by_name(self, semi_quantum_register_name: str):
+    def remove_semi_quantum_register_by_name(self, semi_quantum_register_name: str,
+                                             endpoint_index=None, endpoint_name=None):
         """
         Removes a Qiskrypt's Semi-Quantum Register from
         the list of Qiskrypt's Registers of the Qiskrypt's Party Client,
-        given its name.
+        given its name, regarding the given index or name of a Qiskrypt's Endpoint.
 
         :param semi_quantum_register_name: the name of a Qiskrypt's Semi-Quantum Register
                                            to be removed from the list of Qiskrypt's Registers of
                                            the Qiskrypt's Party Client.
+        :param endpoint_index: the index of the Qiskrypt's Endpoint related to
+                               the Qiskrypt's Semi-Quantum Register to be removed
+                               from the list of Qiskrypt's Registers of
+                               the Qiskrypt's Party Client.
+        :param endpoint_name: the name of the Qiskrypt's Endpoint related to
+                              the Qiskrypt's Semi-Quantum Register to be removed
+                              from the list of Qiskrypt's Registers of
+                              the Qiskrypt's Party Client.
         """
 
-        if (self.get_endpoint().get_context() == POSSIBLE_ENDPOINT_CONTEXTS[2]) and \
-           (isinstance(self.get_endpoint(), QiskryptSemiQuantumGroundStationEndpoint)):
+        if (endpoint_index is not None) or (endpoint_name is not None):
             """
-            If the Qiskrypt's Endpoint of the Qiskrypt's Party Client 
-            is a Qiskrypt's Semi-Quantum Ground Station Endpoint
-            and belongs to a Semi-Quantum Context.
+            If the given index or name of the Qiskrypt's Endpoint related to
+            the Qiskrypt's Semi-Quantum Register to be removed from the list of
+            Qiskrypt's Registers of the Qiskrypt's Party Client is not None.
             """
 
-            for current_register_index in range(len(super().registers)):
+            endpoint = None
+            """
+            Initialise the local variable to keep the Qiskrypt's Endpoint related to
+            the Qiskrypt's Semi-Quantum Register to be removed from the list of
+            Qiskrypt's Registers of the Qiskrypt's Party Client, initially, as None.
+            """
+
+            if endpoint_index is not None:
                 """
-                For each Qiskrypt's Register in the list of
-                Qiskrypt's Registers of the Qiskrypt's Party Client. 
+                If the given index of the Qiskrypt's Endpoint related to
+                the Qiskrypt's Semi-Quantum Register to be removed from the list of
+                Qiskrypt's Registers of the Qiskrypt's Party Client is not None.
                 """
 
-                current_register = super().registers[current_register_index]
                 """
-                Retrieve the current Qiskrypt's Register in
-                the list of Qiskrypt's Registers of the Qiskrypt's Party Client.
+                Retrieve the Qiskrypt's Endpoint from the list of Qiskrypt's Endpoints of
+                the Qiskrypt's Party Client, given the corresponding index.
+                """
+                endpoint = self.get_endpoint_by_index(endpoint_index)
+
+            elif endpoint_name is not None:
+                """
+                If the given name of the Qiskrypt's Endpoint related to
+                the Qiskrypt's Semi-Quantum Register to be removed from the list of
+                Qiskrypt's Registers of the Qiskrypt's Party Client is not None.
                 """
 
-                if current_register.get_name() == semi_quantum_register_name:
+                """
+                Retrieve the Qiskrypt's Endpoint from the list of Qiskrypt's Endpoints of
+                the Qiskrypt's Party Client, given the corresponding name.
+                """
+                endpoint = self.get_endpoint_by_name(endpoint_name)
+
+            if (endpoint.get_context() == POSSIBLE_ENDPOINT_CONTEXTS[2]) and \
+               (isinstance(endpoint, QiskryptSemiQuantumGroundStationEndpoint)):
+                """
+                If the Qiskrypt's Endpoint of the Qiskrypt's Party Client 
+                is a Qiskrypt's Semi-Quantum Ground Station Endpoint
+                and belongs to a Semi-Quantum Context.
+                """
+
+                for current_register_index in range(len(super().registers)):
                     """
-                    If it was found a Qiskrypt's Register in
-                    the list of Qiskrypt's Registers of the Qiskrypt's Party Client,
-                    with the given name.
+                    For each Qiskrypt's Register in the list of
+                    Qiskrypt's Registers of the Qiskrypt's Party Client. 
+                    """
+
+                    current_register = super().registers[current_register_index]
+                    """
+                    Retrieve the current Qiskrypt's Register in
+                    the list of Qiskrypt's Registers of the Qiskrypt's Party Client.
+                    """
+
+                    if current_register.get_name() == semi_quantum_register_name:
+                        """
+                        If it was found a Qiskrypt's Register in
+                        the list of Qiskrypt's Registers of the Qiskrypt's Party Client,
+                        with the given name.
+                        """
+
+                        if isinstance(current_register, QiskryptSemiQuantumRegister):
+                            """
+                            If the current Qiskrypt's Register in
+                            the list of Qiskrypt's Registers of the Qiskrypt's Party Client
+                            is a Qiskrypt's Semi-Quantum Register.
+                            """
+
+                            super().registers.remove(current_register)
+                            """
+                            Removes the current Qiskrypt's Register in
+                            the list of Qiskrypt's Registers of the Qiskrypt's Party Client.
+                            """
+
+                        else:
+                            """
+                            If the current Qiskrypt's Register in
+                            the list of Qiskrypt's Registers of the Qiskrypt's Party Client
+                            is not a Qiskrypt's Semi-Quantum Register.
+                            """
+
+                            # TODO Throw - Exception
+
+            else:
+                """
+                If the Qiskrypt's Endpoint of the Qiskrypt's Party Client 
+                is not a Qiskrypt's Semi-Quantum Ground Station Endpoint 
+                and does not belong to a Semi-Quantum Context.
+                """
+
+                # TODO Throw - Exception
+
+        else:
+            """
+            If the given index and name of the Qiskrypt's Endpoint related to
+            the Qiskrypt's Semi-Quantum Register to be removed from the list of
+            Qiskrypt's Registers of the Qiskrypt's Party Client are both None.
+            """
+
+            # TODO Throw - Exception
+
+    def remove_semi_quantum_register_by_index(self, semi_quantum_register_index: int,
+                                              endpoint_index=None, endpoint_name=None):
+        """
+        Removes a Qiskrypt's Semi-Quantum Register from
+        the list of Qiskrypt's Registers of the Qiskrypt's Party Client,
+        given its index, regarding the given index or name of a Qiskrypt's Endpoint.
+
+        :param semi_quantum_register_index: the index of a Qiskrypt's Semi-Quantum Register
+                                            to be removed from the list of Qiskrypt's Registers of
+                                            the Qiskrypt's Party Client.
+        :param endpoint_index: the index of the Qiskrypt's Endpoint related to
+                               the Qiskrypt's Semi-Quantum Register to be removed
+                               from the list of Qiskrypt's Registers of
+                               the Qiskrypt's Party Client.
+        :param endpoint_name: the name of the Qiskrypt's Endpoint related to
+                              the Qiskrypt's Semi-Quantum Register to be removed
+                              from the list of Qiskrypt's Registers of
+                              the Qiskrypt's Party Client.
+        """
+
+        if (endpoint_index is not None) or (endpoint_name is not None):
+            """
+            If the given index or name of the Qiskrypt's Endpoint related to
+            the Qiskrypt's Quantum Register to be removed from the list of
+            Qiskrypt's Registers of the Qiskrypt's Party Client is not None.
+            """
+
+            endpoint = None
+            """
+            Initialise the local variable to keep the Qiskrypt's Endpoint related to
+            the Qiskrypt's Quantum Register to be removed from the list of
+            Qiskrypt's Registers of the Qiskrypt's Party Client, initially, as None.
+            """
+
+            if endpoint_index is not None:
+                """
+                If the given index of the Qiskrypt's Endpoint related to
+                the Qiskrypt's Quantum Register to be removed from the list of
+                Qiskrypt's Registers of the Qiskrypt's Party Client is not None.
+                """
+
+                """
+                Retrieve the Qiskrypt's Endpoint from the list of Qiskrypt's Endpoints of
+                the Qiskrypt's Party Client, given the corresponding index.
+                """
+                endpoint = self.get_endpoint_by_index(endpoint_index)
+
+            elif endpoint_name is not None:
+                """
+                If the given name of the Qiskrypt's Endpoint related to
+                the Qiskrypt's Quantum Register to be removed from the list of
+                Qiskrypt's Registers of the Qiskrypt's Party Client is not None.
+                """
+
+                """
+                Retrieve the Qiskrypt's Endpoint from the list of Qiskrypt's Endpoints of
+                the Qiskrypt's Party Client, given the corresponding name.
+                """
+                endpoint = self.get_endpoint_by_name(endpoint_name)
+
+            if (endpoint.get_context() == POSSIBLE_ENDPOINT_CONTEXTS[2]) and \
+               (isinstance(endpoint, QiskryptSemiQuantumGroundStationEndpoint)):
+                """
+                If the Qiskrypt's Endpoint of the Qiskrypt's Party Client 
+                is a Qiskrypt's Semi-Quantum Ground Station Endpoint
+                and belongs to a Semi-Quantum Context.
+                """
+
+                if semi_quantum_register_index < self.get_num_registers():
+                    """
+                    If the given index of a Qiskrypt's Semi-Quantum Register to be removed
+                    from the list of Qiskrypt's Registers of the Qiskrypt's Party Client is valid.
+                    """
+
+                    current_register = super().registers[semi_quantum_register_index]
+                    """
+                    Retrieve the respective Qiskrypt's Register in
+                    the list of Qiskrypt's Registers of the Qiskrypt's Party Client.
                     """
 
                     if isinstance(current_register, QiskryptSemiQuantumRegister):
@@ -1696,154 +2886,329 @@ class QiskryptPartyClient(QiskryptClient):
 
                         # TODO Throw - Exception
 
-        else:
-            """
-            If the Qiskrypt's Endpoint of the Qiskrypt's Party Client 
-            is not a Qiskrypt's Semi-Quantum Ground Station Endpoint 
-            and does not belong to a Semi-Quantum Context.
-            """
-
-            # TODO Throw - Exception
-
-    def remove_semi_quantum_register_by_index(self, semi_quantum_register_index: int):
-        """
-        Removes a Qiskrypt's Semi-Quantum Register from
-        the list of Qiskrypt's Registers of the Qiskrypt's Party Client,
-        given its index.
-
-        :param semi_quantum_register_index: the index of a Qiskrypt's Semi-Quantum Register
-                                            to be removed from the list of Qiskrypt's Registers of
-                                            the Qiskrypt's Party Client.
-        """
-
-        if (self.get_endpoint().get_context() == POSSIBLE_ENDPOINT_CONTEXTS[2]) and \
-           (isinstance(self.get_endpoint(), QiskryptSemiQuantumGroundStationEndpoint)):
-            """
-            If the Qiskrypt's Endpoint of the Qiskrypt's Party Client 
-            is a Qiskrypt's Semi-Quantum Ground Station Endpoint
-            and belongs to a Semi-Quantum Context.
-            """
-
-            if semi_quantum_register_index < self.get_num_registers():
-                """
-                If the given index of a Qiskrypt's Semi-Quantum Register to be removed
-                from the list of Qiskrypt's Registers of the Qiskrypt's Party Client is valid.
-                """
-
-                current_register = super().registers[semi_quantum_register_index]
-                """
-                Retrieve the respective Qiskrypt's Register in
-                the list of Qiskrypt's Registers of the Qiskrypt's Party Client.
-                """
-
-                if isinstance(current_register, QiskryptSemiQuantumRegister):
-                    """
-                    If the current Qiskrypt's Register in
-                    the list of Qiskrypt's Registers of the Qiskrypt's Party Client
-                    is a Qiskrypt's Semi-Quantum Register.
-                    """
-
-                    super().registers.remove(current_register)
-                    """
-                    Removes the current Qiskrypt's Register in
-                    the list of Qiskrypt's Registers of the Qiskrypt's Party Client.
-                    """
-
                 else:
                     """
-                    If the current Qiskrypt's Register in
-                    the list of Qiskrypt's Registers of the Qiskrypt's Party Client
-                    is not a Qiskrypt's Semi-Quantum Register.
+                    If the given index of a Qiskrypt's Semi-Quantum Register to be removed
+                    from the list of Qiskrypt's Registers of the Qiskrypt's Party Client is not valid.
                     """
 
                     # TODO Throw - Exception
 
             else:
                 """
-                If the given index of a Qiskrypt's Semi-Quantum Register to be removed
-                from the list of Qiskrypt's Registers of the Qiskrypt's Party Client is not valid.
+                If the Qiskrypt's Endpoint of the Qiskrypt's Party Client 
+                is not a Qiskrypt's Semi-Quantum Ground Station Endpoint 
+                and does not belong to a Semi-Quantum Context.
                 """
 
                 # TODO Throw - Exception
 
         else:
             """
-            If the Qiskrypt's Endpoint of the Qiskrypt's Party Client 
-            is not a Qiskrypt's Semi-Quantum Ground Station Endpoint 
-            and does not belong to a Semi-Quantum Context.
+            If the given index and name of the Qiskrypt's Endpoint related to
+            the Qiskrypt's Semi-Quantum Register to be removed from the list of
+            Qiskrypt's Registers of the Qiskrypt's Party Client are both None.
             """
 
             # TODO Throw - Exception
 
-    def add_ancilla_semi_quantum_register(self, ancilla_semi_quantum_register: QiskryptAncillaSemiQuantumRegister):
+    def add_ancilla_semi_quantum_register(self, ancilla_semi_quantum_register: QiskryptAncillaSemiQuantumRegister,
+                                          endpoint_index=None, endpoint_name=None):
         """
         Adds a given Qiskrypt's Ancilla Semi-Quantum Register to
-        the list of Qiskrypt's Registers of the Qiskrypt's Party Client.
+        the list of Qiskrypt's Registers of the Qiskrypt's Party Client,
+        regarding the given index or name of a Qiskrypt's Endpoint.
 
         :param ancilla_semi_quantum_register: the Qiskrypt's Ancilla Semi-Quantum Register to be added
                                               to the list of Qiskrypt's Registers of
                                               the Qiskrypt's Party Client.
+        :param endpoint_index: the index of the Qiskrypt's Endpoint related to
+                               the Qiskrypt's Ancilla Semi-Quantum Register to be added
+                               to the list of Qiskrypt's Registers of
+                               the Qiskrypt's Party Client.
+        :param endpoint_name: the name of the Qiskrypt's Endpoint related to
+                              the Qiskrypt's Ancilla Semi-Quantum Register to be added
+                              to the list of Qiskrypt's Registers of
+                              the Qiskrypt's Party Client.
         """
 
-        if (self.get_endpoint().get_context() == POSSIBLE_ENDPOINT_CONTEXTS[2]) and \
-           (isinstance(self.get_endpoint(), QiskryptSemiQuantumGroundStationEndpoint)):
+        if (endpoint_index is not None) or (endpoint_name is not None):
             """
-            If the Qiskrypt's Endpoint of the Qiskrypt's Party Client 
-            is a Qiskrypt's Semi-Quantum Ground Station Endpoint
-            and belongs to a Semi-Quantum Context.
+            If the given index or name of the Qiskrypt's Endpoint related to
+            the Qiskrypt's Ancilla Semi-Quantum Register to be added to the list of
+            Qiskrypt's Registers of the Qiskrypt's Party Client is not None.
             """
 
-            super().registers.append(ancilla_semi_quantum_register)
+            endpoint = None
             """
-            Adds the given Qiskrypt's Ancilla Semi-Quantum Register to
-            the list of Qiskrypt's Registers of the Qiskrypt's Party Client.
+            Initialise the local variable to keep the Qiskrypt's Endpoint related to
+            the Qiskrypt's Ancilla Semi-Quantum Register to be added to the list of
+            Qiskrypt's Registers of the Qiskrypt's Party Client, initially, as None.
             """
+
+            if endpoint_index is not None:
+                """
+                If the given index of the Qiskrypt's Endpoint related to
+                the Qiskrypt's Ancilla Semi-Quantum Register to be added to the list of
+                Qiskrypt's Registers of the Qiskrypt's Party Client is not None.
+                """
+
+                """
+                Retrieve the Qiskrypt's Endpoint from the list of Qiskrypt's Endpoints of
+                the Qiskrypt's Party Client, given the corresponding index.
+                """
+                endpoint = self.get_endpoint_by_index(endpoint_index)
+
+            elif endpoint_name is not None:
+                """
+                If the given name of the Qiskrypt's Endpoint related to
+                the Qiskrypt's Ancilla Semi-Quantum Register to be added to the list of
+                Qiskrypt's Registers of the Qiskrypt's Party Client is not None.
+                """
+
+                """
+                Retrieve the Qiskrypt's Endpoint from the list of Qiskrypt's Endpoints of
+                the Qiskrypt's Party Client, given the corresponding name.
+                """
+                endpoint = self.get_endpoint_by_name(endpoint_name)
+
+            if (endpoint.get_context() == POSSIBLE_ENDPOINT_CONTEXTS[2]) and \
+               (isinstance(endpoint, QiskryptSemiQuantumGroundStationEndpoint)):
+                """
+                If the Qiskrypt's Endpoint of the Qiskrypt's Party Client 
+                is a Qiskrypt's Semi-Quantum Ground Station Endpoint
+                and belongs to a Semi-Quantum Context.
+                """
+
+                super().registers.append(ancilla_semi_quantum_register)
+                """
+                Adds the given Qiskrypt's Ancilla Semi-Quantum Register to
+                the list of Qiskrypt's Registers of the Qiskrypt's Party Client.
+                """
+
+            else:
+                """
+                If the Qiskrypt's Endpoint of the Qiskrypt's Party Client 
+                is not a Qiskrypt's Semi-Quantum Ground Station Endpoint 
+                and does not belong to a Semi-Quantum Context.
+                """
+
+                # TODO Throw - Exception
 
         else:
             """
-            If the Qiskrypt's Endpoint of the Qiskrypt's Party Client 
-            is not a Qiskrypt's Semi-Quantum Ground Station Endpoint 
-            and does not belong to a Semi-Quantum Context.
+            If the given index and name of the Qiskrypt's Endpoint related to
+            the Qiskrypt's Ancilla Semi-Quantum Register to be added to the list of
+            Qiskrypt's Registers of the Qiskrypt's Party Client are both None.
             """
 
             # TODO Throw - Exception
 
-    def remove_ancilla_semi_quantum_register_by_name(self, ancilla_semi_quantum_register_name: str):
+    def remove_ancilla_semi_quantum_register_by_name(self, ancilla_semi_quantum_register_name: str,
+                                                     endpoint_index=None, endpoint_name=None):
         """
         Removes a Qiskrypt's Ancilla Semi-Quantum Register from
         the list of Qiskrypt's Registers of the Qiskrypt's Party Client,
-        given its name.
+        given its name, regarding the given index or name of a Qiskrypt's Endpoint.
 
         :param ancilla_semi_quantum_register_name: the name of a Qiskrypt's Ancilla Semi-Quantum Register
                                                    to be removed from the list of Qiskrypt's Registers of
                                                    the Qiskrypt's Party Client.
+        :param endpoint_index: the index of the Qiskrypt's Endpoint related to
+                               the Qiskrypt's Ancilla Semi-Quantum Register to be removed
+                               from the list of Qiskrypt's Registers of
+                               the Qiskrypt's Party Client.
+        :param endpoint_name: the name of the Qiskrypt's Endpoint related to
+                              the Qiskrypt's Ancilla Semi-Quantum Register to be removed
+                              from the list of Qiskrypt's Registers of
+                              the Qiskrypt's Party Client.
         """
 
-        if (self.get_endpoint().get_context() == POSSIBLE_ENDPOINT_CONTEXTS[2]) and \
-           (isinstance(self.get_endpoint(), QiskryptSemiQuantumGroundStationEndpoint)):
+        if (endpoint_index is not None) or (endpoint_name is not None):
             """
-            If the Qiskrypt's Endpoint of the Qiskrypt's Party Client 
-            is a Qiskrypt's Semi-Quantum Ground Station Endpoint
-            and belongs to a Semi-Quantum Context.
+            If the given index or name of the Qiskrypt's Endpoint related to
+            the Qiskrypt's Ancilla Semi-Quantum Register to be removed from the list of
+            Qiskrypt's Registers of the Qiskrypt's Party Client is not None.
             """
 
-            for current_register_index in range(len(super().registers)):
+            endpoint = None
+            """
+            Initialise the local variable to keep the Qiskrypt's Endpoint related to
+            the Qiskrypt's Ancilla Semi-Quantum Register to be removed from the list of
+            Qiskrypt's Registers of the Qiskrypt's Party Client, initially, as None.
+            """
+
+            if endpoint_index is not None:
                 """
-                For each Qiskrypt's Register in the list of
-                Qiskrypt's Registers of the Qiskrypt's Party Client. 
+                If the given index of the Qiskrypt's Endpoint related to
+                the Qiskrypt's Ancilla Semi-Quantum Register to be removed from the list of
+                Qiskrypt's Registers of the Qiskrypt's Party Client is not None.
                 """
 
-                current_register = super().registers[current_register_index]
                 """
-                Retrieve the current Qiskrypt's Register in
-                the list of Qiskrypt's Registers of the Qiskrypt's Party Client.
+                Retrieve the Qiskrypt's Endpoint from the list of Qiskrypt's Endpoints of
+                the Qiskrypt's Party Client, given the corresponding index.
+                """
+                endpoint = self.get_endpoint_by_index(endpoint_index)
+
+            elif endpoint_name is not None:
+                """
+                If the given name of the Qiskrypt's Endpoint related to
+                the Qiskrypt's Ancilla Semi-Quantum Register to be removed from the list of
+                Qiskrypt's Registers of the Qiskrypt's Party Client is not None.
                 """
 
-                if current_register.get_name() == ancilla_semi_quantum_register_name:
+                """
+                Retrieve the Qiskrypt's Endpoint from the list of Qiskrypt's Endpoints of
+                the Qiskrypt's Party Client, given the corresponding name.
+                """
+                endpoint = self.get_endpoint_by_name(endpoint_name)
+
+            if (endpoint.get_context() == POSSIBLE_ENDPOINT_CONTEXTS[2]) and \
+               (isinstance(endpoint, QiskryptSemiQuantumGroundStationEndpoint)):
+                """
+                If the Qiskrypt's Endpoint of the Qiskrypt's Party Client 
+                is a Qiskrypt's Semi-Quantum Ground Station Endpoint
+                and belongs to a Semi-Quantum Context.
+                """
+
+                for current_register_index in range(len(super().registers)):
                     """
-                    If it was found a Qiskrypt's Register in
-                    the list of Qiskrypt's Registers of the Qiskrypt's Party Client,
-                    with the given name.
+                    For each Qiskrypt's Register in the list of
+                    Qiskrypt's Registers of the Qiskrypt's Party Client. 
+                    """
+
+                    current_register = super().registers[current_register_index]
+                    """
+                    Retrieve the current Qiskrypt's Register in
+                    the list of Qiskrypt's Registers of the Qiskrypt's Party Client.
+                    """
+
+                    if current_register.get_name() == ancilla_semi_quantum_register_name:
+                        """
+                        If it was found a Qiskrypt's Register in
+                        the list of Qiskrypt's Registers of the Qiskrypt's Party Client,
+                        with the given name.
+                        """
+
+                        if isinstance(current_register, QiskryptAncillaSemiQuantumRegister):
+                            """
+                            If the current Qiskrypt's Register in
+                            the list of Qiskrypt's Registers of the Qiskrypt's Party Client
+                            is a Qiskrypt's Ancilla Semi-Quantum Register.
+                            """
+
+                            super().registers.remove(current_register)
+                            """
+                            Removes the current Qiskrypt's Register in
+                            the list of Qiskrypt's Registers of the Qiskrypt's Party Client.
+                            """
+
+                        else:
+                            """
+                            If the current Qiskrypt's Register in
+                            the list of Qiskrypt's Registers of the Qiskrypt's Party Client
+                            is not a Qiskrypt's Ancilla Semi-Quantum Register.
+                            """
+
+                            # TODO Throw - Exception
+
+            else:
+                """
+                If the Qiskrypt's Endpoint of the Qiskrypt's Party Client 
+                is not a Qiskrypt's Semi-Quantum Ground Station Endpoint 
+                and does not belong to a Semi-Quantum Context.
+                """
+
+                # TODO Throw - Exception
+
+        else:
+            """
+            If the given index and name of the Qiskrypt's Endpoint related to
+            the Qiskrypt's Ancilla Semi-Quantum Register to be removed from the list of
+            Qiskrypt's Registers of the Qiskrypt's Party Client are both None.
+            """
+
+            # TODO Throw - Exception
+
+    def remove_ancilla_semi_quantum_register_by_index(self, ancilla_semi_quantum_register_index: int,
+                                                      endpoint_index=None, endpoint_name=None):
+        """
+        Removes a Qiskrypt's Ancilla Semi-Quantum Register from
+        the list of Qiskrypt's Registers of the Qiskrypt's Party Client,
+        given its index, regarding the given index or name of a Qiskrypt's Endpoint.
+
+        :param ancilla_semi_quantum_register_index: the index of a Qiskrypt's Ancilla Semi-Quantum Register
+                                                    to be removed from the list of Qiskrypt's Registers of
+                                                    the Qiskrypt's Party Client.
+        :param endpoint_index: the index of the Qiskrypt's Endpoint related to
+                               the Qiskrypt's Ancilla Semi-Quantum Register to be removed
+                               from the list of Qiskrypt's Registers of
+                               the Qiskrypt's Party Client.
+        :param endpoint_name: the name of the Qiskrypt's Endpoint related to
+                              the Qiskrypt's Ancilla Semi-Quantum Register to be removed
+                              from the list of Qiskrypt's Registers of
+                              the Qiskrypt's Party Client.
+        """
+
+        if (endpoint_index is not None) or (endpoint_name is not None):
+            """
+            If the given index or name of the Qiskrypt's Endpoint related to
+            the Qiskrypt's Ancilla Semi-Quantum Register to be removed from the list of
+            Qiskrypt's Registers of the Qiskrypt's Party Client is not None.
+            """
+
+            endpoint = None
+            """
+            Initialise the local variable to keep the Qiskrypt's Endpoint related to
+            the Qiskrypt's Ancilla Semi-Quantum Register to be removed from the list of
+            Qiskrypt's Registers of the Qiskrypt's Party Client, initially, as None.
+            """
+
+            if endpoint_index is not None:
+                """
+                If the given index of the Qiskrypt's Endpoint related to
+                the Qiskrypt's Ancilla Semi-Quantum Register to be removed from the list of
+                Qiskrypt's Registers of the Qiskrypt's Party Client is not None.
+                """
+
+                """
+                Retrieve the Qiskrypt's Endpoint from the list of Qiskrypt's Endpoints of
+                the Qiskrypt's Party Client, given the corresponding index.
+                """
+                endpoint = self.get_endpoint_by_index(endpoint_index)
+
+            elif endpoint_name is not None:
+                """
+                If the given name of the Qiskrypt's Endpoint related to
+                the Qiskrypt's Ancilla Semi-Quantum Register to be removed from the list of
+                Qiskrypt's Registers of the Qiskrypt's Party Client is not None.
+                """
+
+                """
+                Retrieve the Qiskrypt's Endpoint from the list of Qiskrypt's Endpoints of
+                the Qiskrypt's Party Client, given the corresponding name.
+                """
+                endpoint = self.get_endpoint_by_name(endpoint_name)
+
+            if (endpoint.get_context() == POSSIBLE_ENDPOINT_CONTEXTS[2]) and \
+               (isinstance(endpoint, QiskryptSemiQuantumGroundStationEndpoint)):
+                """
+                If the Qiskrypt's Endpoint of the Qiskrypt's Party Client 
+                is a Qiskrypt's Semi-Quantum Ground Station Endpoint
+                and belongs to a Semi-Quantum Context.
+                """
+
+                if ancilla_semi_quantum_register_index < self.get_num_registers():
+                    """
+                    If the given index of a Qiskrypt's Ancilla Semi-Quantum Register to be removed
+                    from the list of Qiskrypt's Registers of the Qiskrypt's Party Client is valid.
+                    """
+
+                    current_register = super().registers[ancilla_semi_quantum_register_index]
+                    """
+                    Retrieve the respective Qiskrypt's Register in
+                    the list of Qiskrypt's Registers of the Qiskrypt's Party Client.
                     """
 
                     if isinstance(current_register, QiskryptAncillaSemiQuantumRegister):
@@ -1868,154 +3233,329 @@ class QiskryptPartyClient(QiskryptClient):
 
                         # TODO Throw - Exception
 
-        else:
-            """
-            If the Qiskrypt's Endpoint of the Qiskrypt's Party Client 
-            is not a Qiskrypt's Semi-Quantum Ground Station Endpoint 
-            and does not belong to a Semi-Quantum Context.
-            """
-
-            # TODO Throw - Exception
-
-    def remove_ancilla_semi_quantum_register_by_index(self, ancilla_semi_quantum_register_index: int):
-        """
-        Removes a Qiskrypt's Ancilla Semi-Quantum Register from
-        the list of Qiskrypt's Registers of the Qiskrypt's Party Client,
-        given its index.
-
-        :param ancilla_semi_quantum_register_index: the index of a Qiskrypt's Ancilla Semi-Quantum Register
-                                                    to be removed from the list of Qiskrypt's Registers of
-                                                    the Qiskrypt's Party Client.
-        """
-
-        if (self.get_endpoint().get_context() == POSSIBLE_ENDPOINT_CONTEXTS[2]) and \
-           (isinstance(self.get_endpoint(), QiskryptSemiQuantumGroundStationEndpoint)):
-            """
-            If the Qiskrypt's Endpoint of the Qiskrypt's Party Client 
-            is a Qiskrypt's Semi-Quantum Ground Station Endpoint
-            and belongs to a Semi-Quantum Context.
-            """
-
-            if ancilla_semi_quantum_register_index < self.get_num_registers():
-                """
-                If the given index of a Qiskrypt's Ancilla Semi-Quantum Register to be removed
-                from the list of Qiskrypt's Registers of the Qiskrypt's Party Client is valid.
-                """
-
-                current_register = super().registers[ancilla_semi_quantum_register_index]
-                """
-                Retrieve the respective Qiskrypt's Register in
-                the list of Qiskrypt's Registers of the Qiskrypt's Party Client.
-                """
-
-                if isinstance(current_register, QiskryptAncillaSemiQuantumRegister):
-                    """
-                    If the current Qiskrypt's Register in
-                    the list of Qiskrypt's Registers of the Qiskrypt's Party Client
-                    is a Qiskrypt's Ancilla Semi-Quantum Register.
-                    """
-
-                    super().registers.remove(current_register)
-                    """
-                    Removes the current Qiskrypt's Register in
-                    the list of Qiskrypt's Registers of the Qiskrypt's Party Client.
-                    """
-
                 else:
                     """
-                    If the current Qiskrypt's Register in
-                    the list of Qiskrypt's Registers of the Qiskrypt's Party Client
-                    is not a Qiskrypt's Ancilla Semi-Quantum Register.
+                    If the given index of a Qiskrypt's Ancilla Semi-Quantum Register to be removed
+                    from the list of Qiskrypt's Registers of the Qiskrypt's Party Client is not valid.
                     """
 
                     # TODO Throw - Exception
 
             else:
                 """
-                If the given index of a Qiskrypt's Ancilla Semi-Quantum Register to be removed
-                from the list of Qiskrypt's Registers of the Qiskrypt's Party Client is not valid.
+                If the Qiskrypt's Endpoint of the Qiskrypt's Party Client 
+                is not a Qiskrypt's Semi-Quantum Ground Station Endpoint 
+                and does not belong to a Semi-Quantum Context.
                 """
 
                 # TODO Throw - Exception
 
         else:
             """
-            If the Qiskrypt's Endpoint of the Qiskrypt's Party Client 
-            is not a Qiskrypt's Semi-Quantum Ground Station Endpoint 
-            and does not belong to a Semi-Quantum Context.
+            If the given index and name of the Qiskrypt's Endpoint related to
+            the Qiskrypt's Ancilla Semi-Quantum Register to be removed from the list of
+            Qiskrypt's Registers of the Qiskrypt's Party Client are both None.
             """
 
             # TODO Throw - Exception
 
-    def add_classical_register(self, classical_register: QiskryptClassicalRegister):
+    def add_classical_register(self, classical_register: QiskryptClassicalRegister,
+                               endpoint_index=None, endpoint_name=None):
         """
         Adds a given Qiskrypt's Classical Register to
-        the list of Qiskrypt's Registers of the Qiskrypt's Party Client.
+        the list of Qiskrypt's Registers of the Qiskrypt's Party Client,
+        regarding the given index or name of a Qiskrypt's Endpoint.
 
         :param classical_register: the Qiskrypt's Classical Register to be added
                                    to the list of Qiskrypt's Registers of
                                    the Qiskrypt's Party Client.
+        :param endpoint_index: the index of the Qiskrypt's Endpoint related to
+                               the Qiskrypt's Classical Register to be added
+                               to the list of Qiskrypt's Registers of
+                               the Qiskrypt's Party Client.
+        :param endpoint_name: the name of the Qiskrypt's Endpoint related to
+                              the Qiskrypt's Classical Register to be added
+                              to the list of Qiskrypt's Registers of
+                              the Qiskrypt's Party Client.
         """
 
-        if (self.get_endpoint().get_context() == POSSIBLE_ENDPOINT_CONTEXTS[3]) and \
-           (isinstance(self.get_endpoint(), QiskryptClassicalGroundStationEndpoint)):
+        if (endpoint_index is not None) or (endpoint_name is not None):
             """
-            If the Qiskrypt's Endpoint of the Qiskrypt's Party Client 
-            is a Qiskrypt's Classical Ground Station Endpoint
-            and belongs to a Classical Context.
+            If the given index or name of the Qiskrypt's Endpoint related to
+            the Qiskrypt's Classical Register to be added to the list of
+            Qiskrypt's Registers of the Qiskrypt's Party Client is not None.
             """
 
-            super().registers.append(classical_register)
+            endpoint = None
             """
-            Adds the given Qiskrypt's Classical Register to
-            the list of Qiskrypt's Registers of the Qiskrypt's Party Client.
+            Initialise the local variable to keep the Qiskrypt's Endpoint related to
+            the Qiskrypt's Classical Register to be added to the list of
+            Qiskrypt's Registers of the Qiskrypt's Party Client, initially, as None.
             """
+
+            if endpoint_index is not None:
+                """
+                If the given index of the Qiskrypt's Endpoint related to
+                the Qiskrypt's Classical Register to be added to the list of
+                Qiskrypt's Registers of the Qiskrypt's Party Client is not None.
+                """
+
+                """
+                Retrieve the Qiskrypt's Endpoint from the list of Qiskrypt's Endpoints of
+                the Qiskrypt's Party Client, given the corresponding index.
+                """
+                endpoint = self.get_endpoint_by_index(endpoint_index)
+
+            elif endpoint_name is not None:
+                """
+                If the given name of the Qiskrypt's Endpoint related to
+                the Qiskrypt's Classical Register to be added to the list of
+                Qiskrypt's Registers of the Qiskrypt's Party Client is not None.
+                """
+
+                """
+                Retrieve the Qiskrypt's Endpoint from the list of Qiskrypt's Endpoints of
+                the Qiskrypt's Party Client, given the corresponding name.
+                """
+                endpoint = self.get_endpoint_by_name(endpoint_name)
+
+            if (endpoint.get_context() == POSSIBLE_ENDPOINT_CONTEXTS[3]) and \
+               (isinstance(endpoint, QiskryptClassicalGroundStationEndpoint)):
+                """
+                If the Qiskrypt's Endpoint of the Qiskrypt's Party Client 
+                is a Qiskrypt's Classical Ground Station Endpoint
+                and belongs to a Classical Context.
+                """
+
+                super().registers.append(classical_register)
+                """
+                Adds the given Qiskrypt's Classical Register to
+                the list of Qiskrypt's Registers of the Qiskrypt's Party Client.
+                """
+
+            else:
+                """
+                If the Qiskrypt's Endpoint of the Qiskrypt's Party Client 
+                is not a Qiskrypt's Classical Ground Station Endpoint 
+                and does not belong to a Classical Context.
+                """
+
+                # TODO Throw - Exception
 
         else:
             """
-            If the Qiskrypt's Endpoint of the Qiskrypt's Party Client 
-            is not a Qiskrypt's Classical Ground Station Endpoint 
-            and does not belong to a Classical Context.
+            If the given index and name of the Qiskrypt's Endpoint related to
+            the Qiskrypt's Classical Register to be added to the list of
+            Qiskrypt's Registers of the Qiskrypt's Party Client are both None.
             """
 
             # TODO Throw - Exception
 
-    def remove_classical_register_by_name(self, classical_register_name: str):
+    def remove_classical_register_by_name(self, classical_register_name: str,
+                                          endpoint_index=None, endpoint_name=None):
         """
         Removes a Qiskrypt's Classical Register from
         the list of Qiskrypt's Registers of the Qiskrypt's Party Client,
-        given its name.
+        given its name, regarding the given index or name of a Qiskrypt's Endpoint.
 
         :param classical_register_name: the name of a Qiskrypt's Classical Register
                                         to be removed from the list of Qiskrypt's Registers of
                                         the Qiskrypt's Party Client.
+        :param endpoint_index: the index of the Qiskrypt's Endpoint related to
+                               the Qiskrypt's Classical Register to be added
+                               to the list of Qiskrypt's Registers of
+                               the Qiskrypt's Party Client.
+        :param endpoint_name: the name of the Qiskrypt's Endpoint related to
+                              the Qiskrypt's Classical Register to be added
+                              to the list of Qiskrypt's Registers of
+                              the Qiskrypt's Party Client.
         """
 
-        if (self.get_endpoint().get_context() == POSSIBLE_ENDPOINT_CONTEXTS[3]) and \
-           (isinstance(self.get_endpoint(), QiskryptClassicalGroundStationEndpoint)):
+        if (endpoint_index is not None) or (endpoint_name is not None):
             """
-            If the Qiskrypt's Endpoint of the Qiskrypt's Party Client 
-            is a Qiskrypt's Classical Ground Station Endpoint
-            and belongs to a Classical Context.
+            If the given index or name of the Qiskrypt's Endpoint related to
+            the Qiskrypt's Classical Register to be added to the list of
+            Qiskrypt's Registers of the Qiskrypt's Party Client is not None.
             """
 
-            for current_register_index in range(len(super().registers)):
+            endpoint = None
+            """
+            Initialise the local variable to keep the Qiskrypt's Endpoint related to
+            the Qiskrypt's Classical Register to be added to the list of
+            Qiskrypt's Registers of the Qiskrypt's Party Client, initially, as None.
+            """
+
+            if endpoint_index is not None:
                 """
-                For each Qiskrypt's Register in the list of
-                Qiskrypt's Registers of the Qiskrypt's Party Client. 
+                If the given index of the Qiskrypt's Endpoint related to
+                the Qiskrypt's Classical Register to be added to the list of
+                Qiskrypt's Registers of the Qiskrypt's Party Client is not None.
                 """
 
-                current_register = super().registers[current_register_index]
                 """
-                Retrieve the current Qiskrypt's Register in
-                the list of Qiskrypt's Registers of the Qiskrypt's Party Client.
+                Retrieve the Qiskrypt's Endpoint from the list of Qiskrypt's Endpoints of
+                the Qiskrypt's Party Client, given the corresponding index.
+                """
+                endpoint = self.get_endpoint_by_index(endpoint_index)
+
+            elif endpoint_name is not None:
+                """
+                If the given name of the Qiskrypt's Endpoint related to
+                the Qiskrypt's Classical Register to be added to the list of
+                Qiskrypt's Registers of the Qiskrypt's Party Client is not None.
                 """
 
-                if current_register.get_name() == classical_register_name:
+                """
+                Retrieve the Qiskrypt's Endpoint from the list of Qiskrypt's Endpoints of
+                the Qiskrypt's Party Client, given the corresponding name.
+                """
+                endpoint = self.get_endpoint_by_name(endpoint_name)
+
+            if (endpoint.get_context() == POSSIBLE_ENDPOINT_CONTEXTS[3]) and \
+               (isinstance(endpoint, QiskryptClassicalGroundStationEndpoint)):
+                """
+                If the Qiskrypt's Endpoint of the Qiskrypt's Party Client 
+                is a Qiskrypt's Classical Ground Station Endpoint
+                and belongs to a Classical Context.
+                """
+
+                for current_register_index in range(len(super().registers)):
                     """
-                    If it was found a Qiskrypt's Register in
-                    the list of Qiskrypt's Registers of the Qiskrypt's Party Client,
-                    with the given name.
+                    For each Qiskrypt's Register in the list of
+                    Qiskrypt's Registers of the Qiskrypt's Party Client. 
+                    """
+
+                    current_register = super().registers[current_register_index]
+                    """
+                    Retrieve the current Qiskrypt's Register in
+                    the list of Qiskrypt's Registers of the Qiskrypt's Party Client.
+                    """
+
+                    if current_register.get_name() == classical_register_name:
+                        """
+                        If it was found a Qiskrypt's Register in
+                        the list of Qiskrypt's Registers of the Qiskrypt's Party Client,
+                        with the given name.
+                        """
+
+                        if isinstance(current_register, QiskryptClassicalRegister):
+                            """
+                            If the current Qiskrypt's Register in
+                            the list of Qiskrypt's Registers of the Qiskrypt's Party Client
+                            is a Qiskrypt's Classical Register.
+                            """
+
+                            super().registers.remove(current_register)
+                            """
+                            Removes the current Qiskrypt's Register in
+                            the list of Qiskrypt's Registers of the Qiskrypt's Party Client.
+                            """
+
+                        else:
+                            """
+                            If the current Qiskrypt's Register in
+                            the list of Qiskrypt's Registers of the Qiskrypt's Party Client
+                            is not a Qiskrypt's Classical Register.
+                            """
+
+                            # TODO Throw - Exception
+
+            else:
+                """
+                If the Qiskrypt's Endpoint of the Qiskrypt's Party Client 
+                is not a Qiskrypt's Classical Ground Station Endpoint 
+                and does not belong to a Classical Context.
+                """
+
+                # TODO Throw - Exception
+
+        else:
+            """
+            If the given index and name of the Qiskrypt's Endpoint related to
+            the Qiskrypt's Classical Register to be added to the list of
+            Qiskrypt's Registers of the Qiskrypt's Party Client are both None.
+            """
+
+            # TODO Throw - Exception
+
+    def remove_classical_register_by_index(self, classical_register_index: int,
+                                           endpoint_index=None, endpoint_name=None):
+        """
+        Removes a Qiskrypt's Classical Register from
+        the list of Qiskrypt's Registers of the Qiskrypt's Party Client,
+        given its index, regarding the given index or name of a Qiskrypt's Endpoint.
+
+        :param classical_register_index: the index of a Qiskrypt's Ancilla Semi-Quantum Register
+                                         to be removed from the list of Qiskrypt's Registers of
+                                         the Qiskrypt's Party Client.
+        :param endpoint_index: the index of the Qiskrypt's Endpoint related to
+                               the Qiskrypt's Classical Register to be removed
+                               from the list of Qiskrypt's Registers of
+                               the Qiskrypt's Party Client.
+        :param endpoint_name: the name of the Qiskrypt's Endpoint related to
+                              the Qiskrypt's Classical Register to be removed
+                              from the list of Qiskrypt's Registers of
+                              the Qiskrypt's Party Client.
+        """
+
+        if (endpoint_index is not None) or (endpoint_name is not None):
+            """
+            If the given index or name of the Qiskrypt's Endpoint related to
+            the Qiskrypt's Classical Register to be removed from the list of
+            Qiskrypt's Registers of the Qiskrypt's Party Client is not None.
+            """
+
+            endpoint = None
+            """
+            Initialise the local variable to keep the Qiskrypt's Endpoint related to
+            the Qiskrypt's Classical Register to be removed from the list of
+            Qiskrypt's Registers of the Qiskrypt's Party Client, initially, as None.
+            """
+
+            if endpoint_index is not None:
+                """
+                If the given index of the Qiskrypt's Endpoint related to
+                the Qiskrypt's Classical Register to be removed from the list of
+                Qiskrypt's Registers of the Qiskrypt's Party Client is not None.
+                """
+
+                """
+                Retrieve the Qiskrypt's Endpoint from the list of Qiskrypt's Endpoints of
+                the Qiskrypt's Party Client, given the corresponding index.
+                """
+                endpoint = self.get_endpoint_by_index(endpoint_index)
+
+            elif endpoint_name is not None:
+                """
+                If the given name of the Qiskrypt's Endpoint related to
+                the Qiskrypt's Classical Register to be removed from the list of
+                Qiskrypt's Registers of the Qiskrypt's Party Client is not None.
+                """
+
+                """
+                Retrieve the Qiskrypt's Endpoint from the list of Qiskrypt's Endpoints of
+                the Qiskrypt's Party Client, given the corresponding name.
+                """
+                endpoint = self.get_endpoint_by_name(endpoint_name)
+
+            if (endpoint.get_context() == POSSIBLE_ENDPOINT_CONTEXTS[3]) and \
+               (isinstance(endpoint, QiskryptClassicalGroundStationEndpoint)):
+                """
+                If the Qiskrypt's Endpoint of the Qiskrypt's Party Client 
+                is a Qiskrypt's Classical Ground Station Endpoint
+                and belongs to a Classical Context.
+                """
+
+                if classical_register_index < self.get_num_registers():
+                    """
+                    If the given index of a Qiskrypt's Classical Register to be removed
+                    from the list of Qiskrypt's Registers of the Qiskrypt's Party Client is valid.
+                    """
+
+                    current_register = super().registers[classical_register_index]
+                    """
+                    Retrieve the respective Qiskrypt's Register in
+                    the list of Qiskrypt's Registers of the Qiskrypt's Party Client.
                     """
 
                     if isinstance(current_register, QiskryptClassicalRegister):
@@ -2040,81 +3580,28 @@ class QiskryptPartyClient(QiskryptClient):
 
                         # TODO Throw - Exception
 
-        else:
-            """
-            If the Qiskrypt's Endpoint of the Qiskrypt's Party Client 
-            is not a Qiskrypt's Classical Ground Station Endpoint 
-            and does not belong to a Classical Context.
-            """
-
-            # TODO Throw - Exception
-
-    def remove_classical_register_by_index(self, classical_register_index: int):
-        """
-        Removes a Qiskrypt's Classical Register from
-        the list of Qiskrypt's Registers of the Qiskrypt's Party Client,
-        given its index.
-
-        :param classical_register_index: the index of a Qiskrypt's Ancilla Semi-Quantum Register
-                                         to be removed from the list of Qiskrypt's Registers of
-                                         the Qiskrypt's Party Client.
-        """
-
-        if (self.get_endpoint().get_context() == POSSIBLE_ENDPOINT_CONTEXTS[3]) and \
-           (isinstance(self.get_endpoint(), QiskryptClassicalGroundStationEndpoint)):
-            """
-            If the Qiskrypt's Endpoint of the Qiskrypt's Party Client 
-            is a Qiskrypt's Classical Ground Station Endpoint
-            and belongs to a Classical Context.
-            """
-
-            if classical_register_index < self.get_num_registers():
-                """
-                If the given index of a Qiskrypt's Classical Register to be removed
-                from the list of Qiskrypt's Registers of the Qiskrypt's Party Client is valid.
-                """
-
-                current_register = super().registers[classical_register_index]
-                """
-                Retrieve the respective Qiskrypt's Register in
-                the list of Qiskrypt's Registers of the Qiskrypt's Party Client.
-                """
-
-                if isinstance(current_register, QiskryptClassicalRegister):
-                    """
-                    If the current Qiskrypt's Register in
-                    the list of Qiskrypt's Registers of the Qiskrypt's Party Client
-                    is a Qiskrypt's Classical Register.
-                    """
-
-                    super().registers.remove(current_register)
-                    """
-                    Removes the current Qiskrypt's Register in
-                    the list of Qiskrypt's Registers of the Qiskrypt's Party Client.
-                    """
-
                 else:
                     """
-                    If the current Qiskrypt's Register in
-                    the list of Qiskrypt's Registers of the Qiskrypt's Party Client
-                    is not a Qiskrypt's Classical Register.
+                    If the given index of a Qiskrypt's Classical Register to be removed
+                    from the list of Qiskrypt's Registers of the Qiskrypt's Party Client is not valid.
                     """
 
                     # TODO Throw - Exception
 
             else:
                 """
-                If the given index of a Qiskrypt's Classical Register to be removed
-                from the list of Qiskrypt's Registers of the Qiskrypt's Party Client is not valid.
+                If the Qiskrypt's Endpoint of the Qiskrypt's Party Client 
+                is not a Qiskrypt's Classical Ground Station Endpoint 
+                and does not belong to a Classical Context.
                 """
 
                 # TODO Throw - Exception
 
         else:
             """
-            If the Qiskrypt's Endpoint of the Qiskrypt's Party Client 
-            is not a Qiskrypt's Classical Ground Station Endpoint 
-            and does not belong to a Classical Context.
+            If the given index and name of the Qiskrypt's Endpoint related to
+            the Qiskrypt's Classical Register to be removed from the list of
+            Qiskrypt's Registers of the Qiskrypt's Party Client are both None.
             """
 
             # TODO Throw - Exception
