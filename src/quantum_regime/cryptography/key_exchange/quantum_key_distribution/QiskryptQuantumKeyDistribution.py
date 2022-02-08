@@ -110,6 +110,7 @@ class QiskryptQuantumKeyDistribution(QiskryptQuantumKeyExchangeProtocol):
                  quantum_cryptographic_primitive_signal_variable_type: str,
                  quantum_cryptographic_primitive_properties: list,
                  quantum_cryptographic_primitive_scenario: str,
+                 quantum_key_exchange_protocol_num_rounds_for_quantum_transmission: int,
                  quantum_key_distribution_type: str):
         """
         Constructor of the Qiskrypt's Quantum Key Distribution (QKD).
@@ -122,6 +123,10 @@ class QiskryptQuantumKeyDistribution(QiskryptQuantumKeyExchangeProtocol):
         :param quantum_cryptographic_primitive_scenario: the scenario of the Qiskrypt's
                                                          Quantum Cryptographic Primitive.
         :param quantum_key_distribution_type: the type of the Qiskrypt's Quantum Key Distribution (QKD).
+        :param quantum_key_exchange_protocol_num_rounds_for_quantum_transmission: the number of rounds for
+                                                                                  the Quantum Transmission in
+                                                                                  the Qiskrypt's Quantum Key
+                                                                                  Exchange Protocol.
         """
 
         if quantum_key_distribution_type in \
@@ -135,7 +140,8 @@ class QiskryptQuantumKeyDistribution(QiskryptQuantumKeyExchangeProtocol):
                              POSSIBLE_QUANTUM_CRYPTOGRAPHIC_PRIMITIVE_CONTEXTS[0],
                              quantum_cryptographic_primitive_properties,
                              quantum_cryptographic_primitive_scenario,
-                             POSSIBLE_QUANTUM_KEY_EXCHANGE_PROTOCOL_TYPES[0])
+                             POSSIBLE_QUANTUM_KEY_EXCHANGE_PROTOCOL_TYPES[0],
+                             quantum_key_exchange_protocol_num_rounds_for_quantum_transmission)
             """
             Call of the constructor of the super-class Qiskrypt's Quantum Key Exchange Protocol.
             """
@@ -261,6 +267,22 @@ class QiskryptQuantumKeyDistribution(QiskryptQuantumKeyExchangeProtocol):
         Return the type of the Qiskrypt's Quantum Key Exchange Protocol.
         """
         return super().get_quantum_key_exchange_protocol_type()
+
+    def get_quantum_key_exchange_protocol_num_rounds_for_quantum_transmission(self) -> int:
+        """
+        Return the number of rounds for the Quantum Transmission in
+        the Qiskrypt's Quantum Key Exchange Protocol.
+
+        :return super().get_quantum_key_exchange_protocol_num_rounds_for_quantum_transmission():
+                the number of rounds for the Quantum Transmission in
+                the Qiskrypt's Quantum Key Exchange Protocol.
+        """
+
+        """
+        Return the number of rounds for the Quantum Transmission in
+        the Qiskrypt's Quantum Key Exchange Protocol.
+        """
+        return super().get_quantum_key_exchange_protocol_num_rounds_for_quantum_transmission()
 
     def get_quantum_key_distribution_type(self) -> str:
         """
