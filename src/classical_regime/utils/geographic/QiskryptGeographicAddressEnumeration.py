@@ -50,13 +50,13 @@ Import the Enum Class from the enum module of the Python's Library.
 """
 
 
-class QiskryptGeographicLocationEnumeration(Enumeration):
+class QiskryptGeographicAddressEnumeration(Enumeration):
     """
-    Object class for the Qiskrypt's Geographic Location Enumeration.
+    Object class for the Qiskrypt's Geographic Address Enumeration.
     """
 
     """
-    A. Locations in Portugal
+    A. Addresses in Portugal
     """
 
     """
@@ -66,31 +66,31 @@ class QiskryptGeographicLocationEnumeration(Enumeration):
     NOVA_SCHOOL_OF_SCIENCE_AND_TECHNOLOGY_PORTUGAL = \
         "NOVA School of Science and Technology, Portugal"
     """
-    The short location address of NOVA School of Science and Technology, Portugal.
+    The short address of 'NOVA School of Science and Technology, Portugal'.
     """
 
     INSTITUTO_SUPERIOR_TECNICO_PORTUGAL = \
         "Instituto Superior Tecnico, Portugal"
     """
-    The short location address of Instituto Superior Tecnico, Portugal.
+    The short address of 'Instituto Superior Tecnico, Portugal'.
     """
 
     FACULTY_SCIENCES_OF_UNIVERSITY_OF_LISBON_PORTUGAL = \
         "Faculdade de Ciencias da Universidade de Lisboa, Portugal"
     """
-    The short location address of Faculdade de Ciencias da Universidade de Lisboa, Portugal.
+    The short address of 'Faculdade de Ciencias da Universidade de Lisboa, Portugal'.
     """
 
     ISEL_INSTITUTO_SUPERIOR_DE_ENGENHARIA_DE_LISBOA_PORTUGAL = \
         "Instituto Superior de Engenharia de Lisboa, Portugal"
     """
-    The short location address of Instituto Superior de Engenharia de Lisboa, Portugal.
+    The short address of 'Instituto Superior de Engenharia de Lisboa, Portugal'.
     """
 
     ISCTE_INSTITUTO_UNIVERSITARIO_DE_LISBOA_PORTUGAL = \
         "Instituto Universitario de Lisboa, Portugal"
     """
-    The short location address of ISCTE - Instituto Universitario de Lisboa, Portugal.
+    The short address of 'ISCTE - Instituto Universitario de Lisboa, Portugal'.
     """
 
     """
@@ -100,17 +100,17 @@ class QiskryptGeographicLocationEnumeration(Enumeration):
     FACULTY_ENGINEERING_OF_UNIVERSITY_OF_PORTO_PORTUGAL = \
         "Faculdade de Engenharia da Universidade do Porto, Portugal"
     """
-    The short location address of Faculdade de Engenharia da Universidade do Porto, Portugal.
+    The short address of 'Faculdade de Engenharia da Universidade do Porto, Portugal'.
     """
 
     FACULTY_SCIENCES_OF_UNIVERSITY_OF_PORTO_PORTUGAL = \
         "Faculdade de Ciencias da Universidade do Porto, Portugal"
     """
-    The short location address of Faculdade de Ciencias da Universidade do Porto, Portugal.
+    The short address of 'Faculdade de Ciencias da Universidade do Porto, Portugal'.
     """
 
     ISEP_INSTITUTO_SUPERIOR_DE_ENGENHARIA_DO_PORTO_PORTUGAL = \
         "Instituto Superior de Engenharia do Porto, Portugal"
     """
-    The short location address of ISEP - Instituto Superior de Engenharia do Porto, Portugal.
+    The short address of 'ISEP - Instituto Superior de Engenharia do Porto, Portugal'.
     """
