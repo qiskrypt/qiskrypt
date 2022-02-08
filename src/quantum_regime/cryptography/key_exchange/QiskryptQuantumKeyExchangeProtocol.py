@@ -82,7 +82,8 @@ class QiskryptQuantumKeyExchangeProtocol(QiskryptQuantumCryptographicPrimitive):
                  quantum_cryptographic_primitive_context: str,
                  quantum_cryptographic_primitive_properties: list,
                  quantum_cryptographic_primitive_scenario: str,
-                 quantum_key_exchange_protocol_type: str):
+                 quantum_key_exchange_protocol_type: str,
+                 quantum_key_exchange_protocol_num_rounds_for_quantum_transmission: int):
         """
         Constructor of the Qiskrypt's Quantum Cryptographic Primitive.
 
@@ -99,6 +100,10 @@ class QiskryptQuantumKeyExchangeProtocol(QiskryptQuantumCryptographicPrimitive):
                                                          Quantum Cryptographic Primitive.
         :param quantum_key_exchange_protocol_type: the type of the Qiskrypt's
                                                    Quantum Key Exchange Protocol.
+        :param quantum_key_exchange_protocol_num_rounds_for_quantum_transmission: the number of rounds for
+                                                                                  the Quantum Transmission in
+                                                                                  the Qiskrypt's Quantum Key
+                                                                                  Exchange Protocol.
         """
 
         if quantum_key_exchange_protocol_type in \
@@ -117,9 +122,17 @@ class QiskryptQuantumKeyExchangeProtocol(QiskryptQuantumCryptographicPrimitive):
             Call of the constructor of the super-class Qiskrypt's Quantum Cryptographic Primitive.
             """
 
-            self.quantum_key_exchange_protocol_type = quantum_key_exchange_protocol_type
+            self.quantum_key_exchange_protocol_type = \
+                quantum_key_exchange_protocol_type
             """
             Set the scenario of the Qiskrypt's Quantum Key Exchange Protocol.
+            """
+
+            self.quantum_key_exchange_protocol_num_rounds_for_quantum_transmission = \
+                quantum_key_exchange_protocol_num_rounds_for_quantum_transmission
+            """
+            Set the number of rounds for the Quantum Transmission in
+            the Qiskrypt's Quantum Key Exchange Protocol.
             """
 
             self.configured = False
@@ -239,6 +252,22 @@ class QiskryptQuantumKeyExchangeProtocol(QiskryptQuantumCryptographicPrimitive):
         Return the type of the Qiskrypt's Quantum Key Exchange Protocol.
         """
         return self.quantum_key_exchange_protocol_type
+
+    def get_quantum_key_exchange_protocol_num_rounds_for_quantum_transmission(self) -> int:
+        """
+        Return the number of rounds for the Quantum Transmission in
+        the Qiskrypt's Quantum Key Exchange Protocol.
+
+        :return self.quantum_key_exchange_protocol_num_rounds_quantum_transmission:
+                the number of rounds for the Quantum Transmission in
+                the Qiskrypt's Quantum Key Exchange Protocol.
+        """
+
+        """
+        Return the number of rounds for the Quantum Transmission in
+        the Qiskrypt's Quantum Key Exchange Protocol.
+        """
+        return self.quantum_key_exchange_protocol_num_rounds_for_quantum_transmission
 
     def is_configured(self) -> bool:
         """
