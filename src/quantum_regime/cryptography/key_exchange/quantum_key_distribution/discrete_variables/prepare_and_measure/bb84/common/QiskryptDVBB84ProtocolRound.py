@@ -60,9 +60,10 @@ Import the Qiskrypt's Quantum Circuit.
 Definition of Constants and Enumerations.
 """
 
-BB84_PROTOCOL_ROUND_TYPES = ["X-BASIS ROUND", "Z-BASIS ROUND"]
+POSSIBLE_DV_BB84_PROTOCOL_ROUND_TYPES = ["Z-BASIS ROUND", "X-BASIS ROUND",
+                                         "CLASSICAL POST-PROCESSING ROUND"]
 """
-The available BB84 Protocol Round types for
+The available DV (Discrete Variables) BB84 Protocol Round types for
 the Qiskrypt's DV (Discrete Variables) BB84 Protocol.
 """
 
@@ -87,7 +88,7 @@ class QiskryptDVBB84ProtocolRound(QiskryptQuantumKeyDistributionRound):
                                                                      Protocol Round.
         """
 
-        if quantum_key_exchange_protocol_round_type in BB84_PROTOCOL_ROUND_TYPES:
+        if quantum_key_exchange_protocol_round_type in POSSIBLE_DV_BB84_PROTOCOL_ROUND_TYPES:
             """
             If the given type of the Qiskrypt's Quantum Key Exchange Protocol Round is
             one of the available (and thus, valid) BB84 Protocol Round types for
