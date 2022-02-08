@@ -45,11 +45,13 @@ class QiskryptEntity:
     Object class for the Qiskrypt's Entity.
     """
 
-    def __init__(self, name: str, longitude: float, latitude: float, altitude_in_kms: float):
+    def __init__(self, name: str, location_address: str,
+                 longitude: float, latitude: float, altitude_in_kms: float):
         """
         Constructor of the Qiskrypt's Entity.
 
         :param name: the name of the Qiskrypt's Entity.
+        :param location_address: the location address of the Qiskrypt's Entity.
         :param longitude: the longitude of the Qiskrypt's Entity.
         :param latitude: the latitude of the Qiskrypt's Entity.
         :param altitude_in_kms: the altitude in KMs (Kilometers) of the Qiskrypt's Entity.
@@ -58,6 +60,11 @@ class QiskryptEntity:
         self.name = name
         """
         Set the name of the Qiskrypt's Entity.
+        """
+
+        self.location_address = location_address
+        """
+        Set the location address of the Qiskrypt's Entity.
         """
 
         self.longitude = longitude
@@ -75,7 +82,7 @@ class QiskryptEntity:
         Set the altitude in KMs (Kilometers) of the Qiskrypt's Entity.
         """
 
-    def get_name(self):
+    def get_name(self) -> str:
         """
         Return the name of the Qiskrypt's Entity.
 
@@ -86,6 +93,30 @@ class QiskryptEntity:
         Return the name of the Qiskrypt's Entity.
         """
         return self.name
+
+    def get_location_address(self) -> str:
+        """
+        Return the location address of the Qiskrypt's Entity.
+
+        :return self.location_address: the location address of the Qiskrypt's Entity.
+        """
+
+        """
+        Return the location address of the Qiskrypt's Entity.
+        """
+        return self.location_address
+
+    def get_longitude(self) -> float:
+        """
+        Return the longitude of the Qiskrypt's Entity.
+
+        :return self.longitude: the longitude of the Qiskrypt's Entity.
+        """
+
+        """
+        Return the longitude of the Qiskrypt's Entity.
+        """
+        return self.longitude
 
     def get_latitude(self) -> float:
         """
@@ -98,18 +129,6 @@ class QiskryptEntity:
         Return the latitude of the Qiskrypt's Entity.
         """
         return self.latitude
-
-    def get_longitude(self) -> float:
-        """
-        Return the latitude of the Qiskrypt's Entity.
-
-        :return self.longitude: the longitude of the Qiskrypt's Entity.
-        """
-
-        """
-        Return the longitude of the Qiskrypt's Entity.
-        """
-        return self.longitude
 
     def get_altitude_in_kms(self) -> float:
         """
