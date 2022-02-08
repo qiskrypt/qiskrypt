@@ -448,14 +448,14 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
             current_round_for_quantum_transmission = \
                 quantum_transmission_rounds[current_num_round_for_quantum_transmission]
             """
-            Retrieve the current round for the Quantum Transmission of 
+            Retrieve the current round of the Quantum Transmission of 
             the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
             """
 
             if isinstance(current_round_for_quantum_transmission,
                           QiskryptNoiselessDVBB84ProtocolWithNoEavesdroppingQuantumTransmissionRound):
                 """
-                If the current round for the Quantum Transmission of 
+                If the current round of the Quantum Transmission of 
                 the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping is
                 really a Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol
                 with No Eavesdropping Quantum Transmission Round.
@@ -464,14 +464,14 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
                 current_round_quantum_circuit_for_quantum_transmission = \
                     current_round_for_quantum_transmission.get_quantum_key_exchange_protocol_round_quantum_circuit()
                 """
-                Retrieve the Qiskrypt's Quantum Circuit for the current round for the Quantum Transmission of 
+                Retrieve the Qiskrypt's Quantum Circuit for the current round of the Quantum Transmission of 
                 the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
                 """
 
                 if isinstance(current_round_quantum_circuit_for_quantum_transmission,
                               QiskryptQuantumCircuit):
                     """
-                    If the Qiskrypt's Quantum Circuit for the current round for the Quantum Transmission of 
+                    If the Qiskrypt's Quantum Circuit for the current round of the Quantum Transmission of 
                     the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping is
                     really a Qiskrypt's Quantum Circuit.
                     """
@@ -481,21 +481,21 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
                         .get_qiskrypt_classical_register(0).get_bit(0)
                     """
                     Retrieve the Secret Bit from the sender's Qiskrypt's Classical Register from
-                    the Qiskrypt's Quantum Circuit for the current round for the Quantum Transmission of 
+                    the Qiskrypt's Quantum Circuit for the current round of the Quantum Transmission of 
                     the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
                     """
 
                     current_round_type_for_quantum_transmission = \
                         current_round_for_quantum_transmission.get_quantum_key_exchange_protocol_round_type()
                     """
-                    Retrieve the type of the current round for the Quantum Transmission of 
+                    Retrieve the type of the current round of the Quantum Transmission of 
                     the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
                     """
 
                     if current_secret_bit_sender == 0:
                         """
                         If the Secret Bit from the sender's Qiskrypt's Classical Register from
-                        the Qiskrypt's Quantum Circuit for the current round for the Quantum Transmission of 
+                        the Qiskrypt's Quantum Circuit for the current round of the Quantum Transmission of 
                         the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping is
                         equal to zero (0), which will correspond to a photon polarization of 0 or 45 degrees
                         (also known as Horizontal or Diagonal polarizations, respectively).
@@ -503,7 +503,7 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
 
                         if current_round_type_for_quantum_transmission == POSSIBLE_DV_BB84_PROTOCOL_ROUND_TYPES[0]:
                             """
-                            If the current round for the Quantum Transmission of 
+                            If the current round of the Quantum Transmission of 
                             the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping is
                             a 'Z-BASIS ROUND', the sender will prepare the photon with a polarization of 0 degrees
                             (also known as Horizontal polarization) corresponding to the Quantum State |0⟩
@@ -523,7 +523,7 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
                                                                                                         0, 0, False)
                             """
                             Prepare the qubit in the sender's Qiskrypt's Quantum Register of
-                            the Qiskrypt's Quantum Circuit of the current round for
+                            the Qiskrypt's Quantum Circuit of the current round of
                             the Quantum Transmission of the Qiskrypt's Noiseless
                             DV (Discrete Variables) BB84 Protocol with No Eavesdropping in
                             the Z-Basis (Standard Computational Basis).
@@ -531,7 +531,7 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
 
                         elif current_round_type_for_quantum_transmission == POSSIBLE_DV_BB84_PROTOCOL_ROUND_TYPES[1]:
                             """
-                            If the current round for the Quantum Transmission of 
+                            If the current round of the Quantum Transmission of 
                             the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping is
                             a 'X-BASIS ROUND', the sender will prepare the photon with a polarization of 45 degrees
                             (also known as Diagonal polarization) corresponding to the Quantum State
@@ -553,7 +553,7 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
                                                                                                         0, 0, False)
                             """
                             Prepare the qubit in the sender's Qiskrypt's Quantum Register of
-                            the Qiskrypt's Quantum Circuit of the current round for
+                            the Qiskrypt's Quantum Circuit of the current round of
                             the Quantum Transmission of the Qiskrypt's Noiseless
                             DV (Discrete Variables) BB84 Protocol with No Eavesdropping in
                             the X-Basis (Hadamard Basis).
@@ -562,7 +562,7 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
                     elif current_secret_bit_sender == 1:
                         """
                         If the Secret Bit from the sender's Qiskrypt's Classical Register from
-                        the Qiskrypt's Quantum Circuit for the current round for the Quantum Transmission of 
+                        the Qiskrypt's Quantum Circuit for the current round of the Quantum Transmission of 
                         the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping is
                         equal to one (1), which will correspond to a photon polarization of 90 or 135 degrees
                         (also known as Vertical or Anti-Diagonal polarizations, respectively).
@@ -570,7 +570,7 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
 
                         if current_round_type_for_quantum_transmission == POSSIBLE_DV_BB84_PROTOCOL_ROUND_TYPES[0]:
                             """
-                            If the current round for the Quantum Transmission of 
+                            If the current round of the Quantum Transmission of 
                             the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping is
                             a 'Z-BASIS ROUND', the sender will prepare the photon with a polarization of 90 degrees
                             (also known as Horizontal polarization) corresponding to the Quantum State |1⟩
@@ -590,7 +590,7 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
                                                                                                         0, 0, False)
                             """
                             Prepare the qubit in the sender's Qiskrypt's Quantum Register of
-                            the Qiskrypt's Quantum Circuit of the current round for
+                            the Qiskrypt's Quantum Circuit of the current round of
                             the Quantum Transmission of the Qiskrypt's Noiseless
                             DV (Discrete Variables) BB84 Protocol with No Eavesdropping in
                             the Z-Basis (Standard Computational Basis).
@@ -598,7 +598,7 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
 
                         elif current_round_type_for_quantum_transmission == POSSIBLE_DV_BB84_PROTOCOL_ROUND_TYPES[1]:
                             """
-                            If the current round for the Quantum Transmission of 
+                            If the current round of the Quantum Transmission of 
                             the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping is
                             a 'X-BASIS ROUND', the sender will prepare the photon with a polarization of 135 degrees
                             (also known as Diagonal polarization) corresponding to the Quantum State
@@ -620,7 +620,7 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
                                                                                                         0, 0, False)
                             """
                             Prepare the qubit in the sender's Qiskrypt's Quantum Register of
-                            the Qiskrypt's Quantum Circuit of the current round for
+                            the Qiskrypt's Quantum Circuit of the current round of
                             the Quantum Transmission of the Qiskrypt's Noiseless
                             DV (Discrete Variables) BB84 Protocol with No Eavesdropping in
                             the X-Basis (Hadamard Basis).
@@ -628,7 +628,7 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
 
                 else:
                     """
-                    If the Qiskrypt's Quantum Circuit for the current round for the Quantum Transmission of 
+                    If the Qiskrypt's Quantum Circuit for the current round of the Quantum Transmission of 
                     the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping is
                     not a Qiskrypt's Quantum Circuit.
                     """
@@ -637,7 +637,7 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
 
             else:
                 """
-                If the current round for the Quantum Transmission of 
+                If the current round of the Quantum Transmission of 
                 the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping is
                 not a Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol
                 with No Eavesdropping Quantum Transmission Round.
