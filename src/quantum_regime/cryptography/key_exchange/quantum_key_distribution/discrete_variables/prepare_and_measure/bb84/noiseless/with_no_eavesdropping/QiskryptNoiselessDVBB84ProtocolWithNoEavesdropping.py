@@ -392,6 +392,62 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
         """
         return super().get_quantum_key_exchange_protocol_num_rounds_for_quantum_transmission()
 
+    def prepare_quantum_states(self):
+        """
+        Prepare the Quantum States for the
+        Qiskrypt's Quantum Key Distribution (QKD).
+        """
+
+        # TODO - To complete
+
+    def transmit_quantum_states(self):
+        """
+        Transmit the Quantum States for the
+        Qiskrypt's Quantum Key Distribution (QKD).
+        """
+
+        # TODO - To complete
+
+    def measure_quantum_states(self):
+        """
+        Measure the Quantum States for the
+        Qiskrypt's Quantum Key Distribution (QKD).
+        """
+
+        # TODO - To complete
+
+    def sift_raw_key(self):
+        """
+        Sift the Secret Key for the
+        Qiskrypt's Quantum Key Distribution (QKD).
+        """
+
+        # TODO - To complete
+
+    def estimate_parameters(self):
+        """
+        Estimate the Parameters for the
+        Qiskrypt's Quantum Key Distribution (QKD).
+        """
+
+        # TODO - To complete
+
+    def reconcile_information(self):
+        """
+        Reconcile the Information for the
+        Qiskrypt's Quantum Key Distribution (QKD).
+        """
+
+        # TODO - To complete
+
+    def amplify_privacy(self):
+        """
+        Amplify the Privacy for the
+        Qiskrypt's Quantum Key Distribution (QKD).
+        """
+
+        # TODO - To complete
+
     def is_configured(self) -> bool:
         """
         Return the boolean flag to determine if the Qiskrypt's Key Exchange Protocol
