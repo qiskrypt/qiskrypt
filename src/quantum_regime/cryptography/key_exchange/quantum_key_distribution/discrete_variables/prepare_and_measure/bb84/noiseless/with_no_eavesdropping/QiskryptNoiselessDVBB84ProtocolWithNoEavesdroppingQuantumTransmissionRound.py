@@ -158,11 +158,11 @@ the Qiskrypt's Quantum Key Distribution (QKD).
 """
 
 
-class QiskryptNoiselessDVBB84ProtocolWithNoEavesdroppingRound \
+class QiskryptNoiselessDVBB84ProtocolWithNoEavesdroppingQuantumTransmissionRound \
             (QiskryptDVBB84ProtocolRound):
     """
     Object class for the Qiskrypt's Noiseless DV (Discrete Variables)
-    BB84 Protocol with No Eavesdropping Round.
+    BB84 Protocol with No Eavesdropping Quantum Transmission Round.
     """
 
     def __init__(self, quantum_key_exchange_protocol_round_number,
@@ -228,7 +228,7 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdroppingRound \
         """
         Create and return the list of two Qiskrypt's Entities
         and respective distances in KMs (Kilometers) between them for
-        the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with no Eavesdropping.
+        the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
 
         NOTE:
         - The both lists of names and addresses should be in the order: [sender, receiver].
@@ -269,13 +269,13 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdroppingRound \
             entities = list()
             """
             Create an empty list for the two Qiskrypt's Entities to be added to
-            the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with no Eavesdropping.
+            the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
             """
 
             distances_in_kms = list()
             """
             Create an empty list for the distance between the two Qiskrypt's Entities to be added to
-            the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with no Eavesdropping.
+            the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
             """
 
             for current_name_index, current_address_index in \
@@ -336,7 +336,7 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdroppingRound \
                     entities.append(current_entity)
                     """
                     Append the current Qiskrypt's Entity to the list of two Qiskrypt's Entities for
-                    the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with no Eavesdropping.
+                    the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
                     """
 
                 else:
@@ -349,13 +349,13 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdroppingRound \
             location_address_1 = entities[0].get_location_address()
             """
             Retrieve the location address of the 1st Qiskrypt's Entity (sender) for
-            the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with no Eavesdropping.
+            the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
             """
 
             location_address_2 = entities[1].get_location_address()
             """
             Retrieve the location address of the 2nd Qiskrypt's Entity (receiver) for
-            the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with no Eavesdropping.
+            the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
             """
 
             distance_in_kms = qiskrypt_geocoding\
@@ -364,26 +364,26 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdroppingRound \
             """
             Compute the distance in KMs (Kilometers) between
             the 1st Qiskrypt's Entity (sender) and 2nd Qiskrypt's Entity (receiver) for
-            the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with no Eavesdropping.
+            the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
             """
 
             altitude_in_kms_1 = entities[0].get_altitude_in_kms()
             """
             Retrieve the altitude in KMs (Kilometers) of the 1st Qiskrypt's Entity (sender) for
-            the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with no Eavesdropping.
+            the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
             """
 
             altitude_in_kms_2 = entities[1].get_altitude_in_kms()
             """
             Retrieve the altitude in KMs (Kilometers) of the 2nd Qiskrypt's Entity (receiver) for
-            the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with no Eavesdropping.
+            the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
             """
 
             altitude_in_kms_difference = abs((altitude_in_kms_1 - altitude_in_kms_2))
             """
             Compute the difference between the altitudes in KMs (Kilometers) between
             the 1st Qiskrypt's Entity (sender) and 2nd Qiskrypt's Entity (receiver) for
-            the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with no Eavesdropping.
+            the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
             """
 
             distance_in_kms += altitude_in_kms_difference
@@ -391,7 +391,7 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdroppingRound \
             Sum the difference between the altitudes in KMs (Kilometers) between
             the 1st Qiskrypt's Entity (sender) and 2nd Qiskrypt's Entity (receiver) to
             the distance in KMs (Kilometers) between them for
-            the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with no Eavesdropping.
+            the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
             """
 
             distances_in_kms.append(distance_in_kms)
@@ -399,13 +399,13 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdroppingRound \
             Append the distance in KMs (Kilometers) between
             the 1st Qiskrypt's Entity (sender) and 2nd Qiskrypt's Entity (receiver) to
             the list of distances in KMs (Kilometers) for
-            the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with no Eavesdropping.
+            the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
             """
 
             """
             Return the list of two Qiskrypt's Entities
             and respective distance in KMs (Kilometers) between them for
-            the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with no Eavesdropping.
+            the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
             """
             return [entities, distances_in_kms]
 
@@ -424,7 +424,7 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdroppingRound \
         the Qiskrypt's Communication Session, from the Qiskrypt's Registers retrieved of
         the sender and receiver Qiskrypt's Party Clients, and respective associated
         Qiskrypt's Link connecting them for the Qiskrypt's Noiseless DV (Discrete Variables)
-        BB84 Protocol with no Eavesdropping.
+        BB84 Protocol with No Eavesdropping.
 
         :param entities_list: the list of Qiskrypt's Entities.
         :param distances_in_kms_list: the list of distances between Qiskrypt's Entities.
@@ -434,7 +434,7 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdroppingRound \
                 the Qiskrypt's Communication Session, from the Qiskrypt's Registers retrieved of
                 the sender and receiver Qiskrypt's Party Clients, and respective associated
                 Qiskrypt's Link connecting them for the Qiskrypt's Noiseless DV (Discrete Variables)
-                BB84 Protocol with no Eavesdropping.
+                BB84 Protocol with No Eavesdropping.
         """
 
         num_entities = len(entities_list)
@@ -458,13 +458,13 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdroppingRound \
             party_clients_list = []
             """
             Create an empty list for the Qiskrypt's Party Clients for the Qiskrypt's BB84 Protocol Round
-            with Discrete Variables (DVs) for Noiseless Scenarios and no Eavesdropping.
+            with Discrete Variables (DVs) for Noiseless Scenarios and No Eavesdropping.
             """
 
             for current_num_party in range(QUANTUM_KEY_DISTRIBUTION_NUM_PARTIES):
                 """
                 For each respective party for the Qiskrypt's BB84 Protocol Round
-                with Discrete Variables (DVs) for Noiseless Scenarios and no Eavesdropping.
+                with Discrete Variables (DVs) for Noiseless Scenarios and No Eavesdropping.
                 """
 
                 current_entity = entities_list[current_num_party]
@@ -645,7 +645,7 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdroppingRound \
                     QiskryptCommunicationSession("noiseless_dv_bb84_protocol_with_no_eavesdropping_session")
                 """
                 Create the Qiskrypt's Communication Session for
-                the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with no Eavesdropping.
+                the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
                 """
 
                 sender_party_clients_list = [party_clients_list[0]]
@@ -662,7 +662,7 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdroppingRound \
                                             timeout_in_secs=300)
                 """
                 Start the Qiskrypt's Communication Session for
-                the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with no Eavesdropping.
+                the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
                 """
 
                 template_quantum_circuit_of_quantum_transmission_for_noiseless_dv_bb84_protocol_with_no_eavesdropping = \
@@ -672,7 +672,7 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdroppingRound \
                 the Qiskrypt's Communication Session, from the Qiskrypt's Registers retrieved of
                 the sender and receiver Qiskrypt's Party Clients, and respective associated
                 Qiskrypt's Link connecting them for the Qiskrypt's Noiseless DV (Discrete Variables)
-                BB84 Protocol with no Eavesdropping.
+                BB84 Protocol with No Eavesdropping.
                 """
 
                 """
@@ -680,7 +680,7 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdroppingRound \
                 the Qiskrypt's Communication Session, from the Qiskrypt's Registers retrieved of
                 the sender and receiver Qiskrypt's Party Clients, and respective associated
                 Qiskrypt's Link connecting them for the Qiskrypt's Noiseless DV (Discrete Variables)
-                BB84 Protocol with no Eavesdropping.
+                BB84 Protocol with No Eavesdropping.
                 """
                 return template_quantum_circuit_of_quantum_transmission_for_noiseless_dv_bb84_protocol_with_no_eavesdropping
 
@@ -699,25 +699,3 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdroppingRound \
             """
 
             # TODO Throw - Exception
-
-    @staticmethod
-    def generate_x_hadamard_round_quantum_circuit_of_quantum_transmission_for_noiseless_dv_bb84_protocol_with_no_eavesdropping \
-            (template_quantum_circuit: QiskryptQuantumCircuit):
-        """
-
-
-        :param template_quantum_circuit:
-
-        :return:
-        """
-
-    @staticmethod
-    def generate_z_standard_computational_round_quantum_circuit_of_quantum_transmission_for_noiseless_dv_bb84_protocol_with_no_eavesdropping \
-            (template_quantum_circuit: QiskryptQuantumCircuit):
-        """
-
-
-        :param template_quantum_circuit:
-
-        :return:
-        """
