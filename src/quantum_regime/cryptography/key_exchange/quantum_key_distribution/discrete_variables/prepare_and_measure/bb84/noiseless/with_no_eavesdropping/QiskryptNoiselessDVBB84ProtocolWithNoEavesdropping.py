@@ -441,7 +441,7 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
         for current_num_round_for_quantum_transmission in \
                 range(quantum_key_exchange_protocol_num_rounds_for_quantum_transmission):
             """
-            For each round for the Quantum Transmission of 
+            For each round of the Quantum Transmission of 
             the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
             """
 
@@ -651,7 +651,95 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
         Qiskrypt's Quantum Key Distribution (QKD).
         """
 
-        # TODO - To complete
+        quantum_key_exchange_protocol_num_rounds_for_quantum_transmission = \
+            self.get_quantum_key_exchange_protocol_num_rounds_for_quantum_transmission()
+        """
+        Retrieve the number of rounds for the Quantum Transmission in
+        the Qiskrypt's Quantum Key Exchange Protocol.
+        """
+
+        quantum_transmission_rounds = \
+            self.get_quantum_transmission_rounds()
+        """
+        Retrieve the list for the Quantum Transmission of 
+        the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
+        """
+
+        for current_num_round_for_quantum_transmission in \
+                range(quantum_key_exchange_protocol_num_rounds_for_quantum_transmission):
+            """
+            For each round of the Quantum Transmission of 
+            the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
+            """
+
+            current_round_for_quantum_transmission = \
+                quantum_transmission_rounds[current_num_round_for_quantum_transmission]
+            """
+            Retrieve the current round of the Quantum Transmission of 
+            the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
+            """
+
+            if isinstance(current_round_for_quantum_transmission,
+                          QiskryptNoiselessDVBB84ProtocolWithNoEavesdroppingQuantumTransmissionRound):
+                """
+                If the current round of the Quantum Transmission of 
+                the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping is
+                really a Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol
+                with No Eavesdropping Quantum Transmission Round.
+                """
+
+                current_round_quantum_circuit_for_quantum_transmission = \
+                    current_round_for_quantum_transmission.get_quantum_key_exchange_protocol_round_quantum_circuit()
+                """
+                Retrieve the Qiskrypt's Quantum Circuit for the current round of the Quantum Transmission of 
+                the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
+                """
+
+                if isinstance(current_round_quantum_circuit_for_quantum_transmission,
+                              QiskryptQuantumCircuit):
+                    """
+                    If the Qiskrypt's Quantum Circuit for the current round of the Quantum Transmission of 
+                    the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping is
+                    really a Qiskrypt's Quantum Circuit.
+                    """
+
+                    current_round_quantum_circuit_for_quantum_transmission.apply_swap(0, 1, 0, 0)
+                    """
+                    Apply the SWAP Gate/Operation between the qubits in
+                    the Qiskrypt's Quantum Registers of the sender Qiskrypt's Party Client
+                    and Qiskrypt's Link, respectively, of the Qiskrypt's Quantum Circuit for
+                    the current round of the Quantum Transmission of the Qiskrypt's Noiseless
+                    DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
+                    """
+
+                    current_round_quantum_circuit_for_quantum_transmission.apply_swap(1, 2, 0, 0)
+                    """
+                    Apply the SWAP Gate/Operation between the qubits in
+                    the Qiskrypt's Quantum Registers of the Qiskrypt's Link
+                    and receiver Qiskrypt's Party Clients respectively,
+                    of the Qiskrypt's Quantum Circuit for the current round of
+                    the Quantum Transmission of the Qiskrypt's Noiseless
+                    DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
+                    """
+
+                else:
+                    """
+                    If the Qiskrypt's Quantum Circuit for the current round of the Quantum Transmission of 
+                    the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping is
+                    not a Qiskrypt's Quantum Circuit.
+                    """
+
+                    # TODO Throw - Exception
+
+            else:
+                """
+                If the current round of the Quantum Transmission of 
+                the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping is
+                not a Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol
+                with No Eavesdropping Quantum Transmission Round.
+                """
+
+                # TODO Throw - Exception
 
     def measure_quantum_states(self):
         """
@@ -886,7 +974,7 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
             for current_num_round_for_quantum_transmission in \
                     range(self.get_quantum_key_exchange_protocol_num_rounds_for_quantum_transmission()):
                 """
-                For each round for the Quantum Transmission in
+                For each round of the Quantum Transmission in
                 the Qiskrypt's Quantum Key Exchange Protocol.
                 """
 
@@ -946,7 +1034,7 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
 
                 current_round_type_for_quantum_transmission = None
                 """
-                Initialise the type of the current round for Quantum Transmission of
+                Initialise the type of the current round of Quantum Transmission of
                 the Qiskrypt's Qiskrypt's DV (Discrete Variables) BB84 Protocol.
                 """
 
@@ -959,7 +1047,7 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
                     current_round_type_for_quantum_transmission = \
                         POSSIBLE_DV_BB84_PROTOCOL_ROUND_TYPES[0]
                     """
-                    Set the type of the current round for Quantum Transmission of
+                    Set the type of the current round of Quantum Transmission of
                     the Qiskrypt's Qiskrypt's DV (Discrete Variables) BB84 Protocol,
                     as a 'Z-BASIS ROUND'.
                     """
@@ -973,7 +1061,7 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
                     current_round_type_for_quantum_transmission = \
                         POSSIBLE_DV_BB84_PROTOCOL_ROUND_TYPES[1]
                     """
-                    Set the type of the current round for Quantum Transmission of
+                    Set the type of the current round of Quantum Transmission of
                     the Qiskrypt's Qiskrypt's DV (Discrete Variables) BB84 Protocol,
                     as a 'X-BASIS ROUND'.
                     """
@@ -998,7 +1086,7 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
                     current_round_quantum_circuit.get_qiskrypt_classical_register(0).buffer_bit(0)
                     """
                     Buffer the Secret Bit in the Qiskrypt's Classical Register of
-                    the Qiskrypt's Quantum Circuit for the current round for Quantum Transmission of
+                    the Qiskrypt's Quantum Circuit for the current round of Quantum Transmission of
                     the Qiskrypt's Qiskrypt's DV (Discrete Variables) BB84 Protocol. 
                     """
 
@@ -1011,7 +1099,7 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
                     current_round_quantum_circuit.get_qiskrypt_classical_register(0).invert_bit(0)
                     """
                     Invert the Secret Bit in the Qiskrypt's Classical Register of
-                    the Qiskrypt's Quantum Circuit for the current round for Quantum Transmission of
+                    the Qiskrypt's Quantum Circuit for the current round of Quantum Transmission of
                     the Qiskrypt's Qiskrypt's DV (Discrete Variables) BB84 Protocol. 
                     """
 
@@ -1022,13 +1110,13 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
                      current_round_quantum_circuit)
                 """
                 Create the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol
-                with No Eavesdropping Quantum Transmission Round for the current round.
+                with No Eavesdropping Quantum Transmission Round of the current round.
                 """
 
                 self.quantum_transmission_rounds.append(current_round_for_quantum_transmission)
                 """
                 Append the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol
-                with No Eavesdropping Quantum Transmission Round for the current round to
+                with No Eavesdropping Quantum Transmission Round of the current round to
                 the list for the rounds for the Quantum Transmission of
                 the Qiskrypt's Noiseless DV (Discrete Variables)
                 BB84 Protocol with No Eavesdropping
