@@ -237,7 +237,7 @@ class QiskryptCommunicationSession:
                 # TODO Throw - Exception
 
     def start(self, sender_party_clients: list, link: QiskryptLink,
-              receiver_party_clients: list, timeout_in_secs: int):
+              receiver_party_clients: list, timeout_in_secs=0):
         """
         Start the Qiskrypt's Communication Session from a list of
         possible sender Qiskrypt's Party Clients and a list of
