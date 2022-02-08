@@ -464,7 +464,7 @@ class QiskryptLink:
 
     def establish(self, mediums: list, communication_channel: QiskryptCommunicationChannel):
         """
-        Establish a Qiskrypt's Link from a Qiskrypt's Medium and a Qiskrypt's Communication Channel.
+        Establish a Qiskrypt's Link from a list of Qiskrypt's Mediums and a Qiskrypt's Communication Channel.
 
         :param mediums: the list of Qiskrypt's Mediums to establish the Qiskrypt's Link.
         :param communication_channel: the Qiskrypt's Communication Channel to establish the Qiskrypt's Link.
@@ -481,10 +481,10 @@ class QiskryptLink:
             Retrieve the number of possible Qiskrypt's Mediums to add to the Qiskrypt's Link.
             """
 
-            if num_mediums_to_add == self.get_num_possible_listeners():
+            if num_mediums_to_add == (self.get_num_possible_listeners() - 1):
                 """
                 If the number of possible Qiskrypt's Mediums to add to the Qiskrypt's Link
-                corresponds to the number of possible listeners of the same Qiskrypt's Link.
+                corresponds to the number of possible listeners of the same Qiskrypt's Link minus one.
                 """
 
                 for current_medium_index in range(num_mediums_to_add):
@@ -523,7 +523,7 @@ class QiskryptLink:
             else:
                 """
                 If the number of possible Qiskrypt's Mediums to add to the Qiskrypt's Link
-                does not correspond to the number of possible listeners of the same Qiskrypt's Link.
+                does not correspond to the number of possible listeners of the same Qiskrypt's Link minus one.
                 """
 
                 # TODO Throw - Exception
@@ -563,7 +563,7 @@ class QiskryptLink:
     def set_quantum_registers(self, quantum_registers: list):
         """
         Set a given list of Qiskrypt's Quantum Registers to be
-        the Qiskrypt's Register of the Qiskrypt's Link, if it is possible.
+        the Qiskrypt's Registers of the Qiskrypt's Link, if it is possible.
 
         :param quantum_registers: the list of possible Qiskrypt's Quantum Registers to be set as
                                   the Qiskrypt's Registers of the Qiskrypt's Link.
