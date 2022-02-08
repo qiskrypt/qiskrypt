@@ -224,15 +224,24 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdroppingRound \
         return super().get_quantum_key_exchange_protocol_round_quantum_circuit()
 
     @staticmethod
-    def create_base_quantum_circuit_of_quantum_transmission_for_noiseless_dv_bb84_protocol_with_no_eavesdropping\
+    def create_template_quantum_circuit_of_quantum_transmission_for_noiseless_dv_bb84_protocol_with_no_eavesdropping\
             (entities_list: list, distances_in_kms_list: list):
         """
+        Create and return the template of the Qiskrypt's Quantum Circuit for each round of
+        the Qiskrypt's Communication Session, from the Qiskrypt's Registers retrieved of
+        the sender and receiver Qiskrypt's Party Clients, and respective associated
+        Qiskrypt's Link connecting them for the Qiskrypt's Noiseless DV (Discrete Variables)
+        BB84 Protocol with no Eavesdropping.
 
+        :param entities_list: the list of Qiskrypt's Entities.
+        :param distances_in_kms_list: the list of distances between Qiskrypt's Entities.
 
-        :param entities_list:
-        :param distances_in_kms_list:
-
-        :return:
+        :return template_quantum_circuit_of_quantum_transmission_for_noiseless_dv_bb84_protocol_with_no_eavesdropping:
+                the template of the Qiskrypt's Quantum Circuit for each round of
+                the Qiskrypt's Communication Session, from the Qiskrypt's Registers retrieved of
+                the sender and receiver Qiskrypt's Party Clients, and respective associated
+                Qiskrypt's Link connecting them for the Qiskrypt's Noiseless DV (Discrete Variables)
+                BB84 Protocol with no Eavesdropping.
         """
 
         num_entities = len(entities_list)
@@ -462,22 +471,24 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdroppingRound \
                 the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with no Eavesdropping.
                 """
 
-                base_quantum_circuit_of_quantum_transmission_for_noiseless_dv_bb84_protocol_with_no_eavesdropping = \
+                template_quantum_circuit_of_quantum_transmission_for_noiseless_dv_bb84_protocol_with_no_eavesdropping = \
                     communication_session.generate_base_quantum_circuit()
                 """
-                Generate the base Qiskrypt's Quantum Circuit for each round of the Qiskrypt's Communication Session,
-                from the Qiskrypt's Registers retrieved of the sender and receiver Qiskrypt's Party Clients,
-                and respective associated Qiskrypt's Link connecting them for
-                the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with no Eavesdropping.
+                Generate the template of the Qiskrypt's Quantum Circuit for each round of
+                the Qiskrypt's Communication Session, from the Qiskrypt's Registers retrieved of
+                the sender and receiver Qiskrypt's Party Clients, and respective associated
+                Qiskrypt's Link connecting them for the Qiskrypt's Noiseless DV (Discrete Variables)
+                BB84 Protocol with no Eavesdropping.
                 """
 
                 """
-                Return the base Qiskrypt's Quantum Circuit for each round of the Qiskrypt's Communication Session,
-                from the Qiskrypt's Registers retrieved of the sender and receiver Qiskrypt's Party Clients,
-                and respective associated Qiskrypt's Link connecting them for
-                the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with no Eavesdropping.
+                Return the template of the Qiskrypt's Quantum Circuit for each round of
+                the Qiskrypt's Communication Session, from the Qiskrypt's Registers retrieved of
+                the sender and receiver Qiskrypt's Party Clients, and respective associated
+                Qiskrypt's Link connecting them for the Qiskrypt's Noiseless DV (Discrete Variables)
+                BB84 Protocol with no Eavesdropping.
                 """
-                return base_quantum_circuit_of_quantum_transmission_for_noiseless_dv_bb84_protocol_with_no_eavesdropping
+                return template_quantum_circuit_of_quantum_transmission_for_noiseless_dv_bb84_protocol_with_no_eavesdropping
 
             else:
                 """
