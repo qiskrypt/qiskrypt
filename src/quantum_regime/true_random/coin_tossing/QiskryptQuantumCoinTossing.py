@@ -91,6 +91,7 @@ Import the Coin Already Tossed Error for
 the Qiskrypt's Quantum Coin Tossing.
 """
 
+
 """
 Definition of Constants and Enumerations.
 """
@@ -209,11 +210,11 @@ class QiskryptQuantumCoinTossing:
 
     def get_coin_tossing_outcome_bit(self) -> str:
         """
-        Return the classical_regime outcome (i.e., the observation) from the Coin Tossing,
+        Return the classical outcome (i.e., the observation) from the Coin Tossing,
         through the execution of the respective Qiskrypt's Quantum Circuit,
         in a binary digit format (i.e., a bit).
 
-        :return self.coin_tossing_outcome_bit: the classical_regime outcome (i.e., the observation) from the Coin Tossing,
+        :return self.coin_tossing_outcome_bit: the classical outcome (i.e., the observation) from the Coin Tossing,
                                                through the execution of the respective Qiskrypt's Quantum Circuit,
                                                in a binary digit format (i.e., a bit).
         """
@@ -224,7 +225,7 @@ class QiskryptQuantumCoinTossing:
             """
 
             """
-            Return the classical_regime outcome (i.e., the observation) from the Coin Tossing,
+            Return the classical outcome (i.e., the observation) from the Coin Tossing,
             through the execution of the respective Qiskrypt's Quantum Circuit,
             in a binary digit format (i.e., a bit).
             """
@@ -242,11 +243,11 @@ class QiskryptQuantumCoinTossing:
 
     def get_coin_tossing_outcome_bit_as_int_base_2(self) -> int:
         """
-        Return the classical_regime outcome (i.e., the observation) from the Coin Tossing,
+        Return the classical outcome (i.e., the observation) from the Coin Tossing,
         through the execution of the respective Qiskrypt's Quantum Circuit,
         in an integer base-2 format (i.e., an integer representation of a bit).
 
-        :return int(self.coin_tossing_outcome_bit, base=2): the classical_regime outcome (i.e., the observation) from
+        :return int(self.coin_tossing_outcome_bit, base=2): the classical outcome (i.e., the observation) from
                                                             the Coin Tossing, through the execution of
                                                             the respective Qiskrypt's Quantum Circuit,
                                                             in an integer base-2 format
@@ -259,7 +260,7 @@ class QiskryptQuantumCoinTossing:
             """
 
             """
-            Return the classical_regime outcome (i.e., the observation) from the Coin Tossing,
+            Return the classical outcome (i.e., the observation) from the Coin Tossing,
             through the execution of the respective Qiskrypt's Quantum Circuit,
             in an integer base-2 format (i.e., an integer representation of a bit).
             """
@@ -277,11 +278,11 @@ class QiskryptQuantumCoinTossing:
 
     def get_coin_tossing_outcome_bit_as_head_or_tails(self) -> str:
         """
-        Return the classical_regime outcome (i.e., the observation) from the Coin Tossing,
+        Return the classical outcome (i.e., the observation) from the Coin Tossing,
         through the execution of the respective Qiskrypt's Quantum Circuit,
         in an anatomic part format (i.e., 'Heads' for |0⟩ and 'Tails' for |1⟩).
 
-        :return ANATOMIC_PARTS_OF_A_COIN[self.coin_tossing_outcome_bit]: the classical_regime outcome
+        :return ANATOMIC_PARTS_OF_A_COIN[self.coin_tossing_outcome_bit]: the classical outcome
                                                                          (i.e., the observation) from
                                                                          the Coin Tossing, through the execution of
                                                                          the respective Qiskrypt's Quantum Circuit,
@@ -295,7 +296,7 @@ class QiskryptQuantumCoinTossing:
             """
 
             """
-            Return the classical_regime outcome (i.e., the observation) from the Coin Tossing,
+            Return the classical outcome (i.e., the observation) from the Coin Tossing,
             through the execution of the respective Qiskrypt's Quantum Circuit,
             in a physical anatomic part format (i.e., 'Heads' for |0⟩ and 'Tails' for |1⟩).
             """
@@ -404,7 +405,7 @@ class QiskryptQuantumCoinTossing:
         through the application of the respective Quantum Gate/Operation
         (Hadamard Gate/Operation), execution of the respective Qiskrypt's Quantum Circuit
         and the measurement of the qubit representing the Coin in a 50/50 Quantum Superposition,
-        storing, the classical_regime result/outcome from the observation of it, in a bit.
+        storing, the classical result/outcome from the observation of it, in a bit.
         """
 
         if not self.is_already_tossed() and self.is_qiskrypt_quantum_circuit_initialised():
@@ -431,7 +432,7 @@ class QiskryptQuantumCoinTossing:
             qiskit_qasm_backend = Aer.get_backend("qasm_simulator")
             """
             Getting the Aer Simulator Backend for the QASM (Quantum Assembly) Simulation
-            (i.e., the classical_regime simulation of an IBM Qiskit's Quantum Circuit).
+            (i.e., the classical simulation of an IBM Qiskit's Quantum Circuit).
             """
 
             final_results_frequency_counting = \
