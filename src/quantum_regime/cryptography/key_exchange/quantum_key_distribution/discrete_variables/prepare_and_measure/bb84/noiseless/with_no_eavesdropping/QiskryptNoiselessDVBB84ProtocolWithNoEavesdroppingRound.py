@@ -224,6 +224,199 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdroppingRound \
         return super().get_quantum_key_exchange_protocol_round_quantum_circuit()
 
     @staticmethod
+    def create_entities_and_distances_in_kms(names: list, addresses: list) -> list:
+        """
+        Create and return the list of two Qiskrypt's Entities
+        and respective distances in KMs (Kilometers) between them for
+        the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with no Eavesdropping.
+
+        NOTE:
+        - The both lists of names and addresses should be in the order: [sender, receiver].
+
+        :param names: the list of names for the Qiskrypt's Entities.
+        :param addresses: the list of distances in KMs (Kilometers) between the Qiskrypt's Entities.
+
+        :return [entities, distances_in_kms]: the list of two Qiskrypt's Entities
+                                              and respective distance in KMs (Kilometers) between them.
+        """
+
+        qiskrypt_geocoding = QiskryptGeocoding()
+        """
+        Create a Qiskrypt's Geocoding object.
+        """
+
+        qiskrypt_geocoding.initialise_with_default_geocoder_service()
+        """
+        Initialise the Qiskrypt's Geocoding object with the default Geocoder service.
+        """
+
+        num_names = len(names)
+        """
+        Retrieve the number of names.
+        """
+
+        num_addresses = len(addresses)
+        """
+        Retrieve the number of addresses.
+        """
+
+        if num_names == num_addresses == QUANTUM_KEY_DISTRIBUTION_NUM_PARTIES:
+            """
+            If the number of names is equal to the number of addresses,
+            and are both equal to 2.
+            """
+
+            entities = list()
+            """
+            Create an empty list for the two Qiskrypt's Entities to be added to
+            the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with no Eavesdropping.
+            """
+
+            distances_in_kms = list()
+            """
+            Create an empty list for the distance between the two Qiskrypt's Entities to be added to
+            the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with no Eavesdropping.
+            """
+
+            for current_name_index, current_address_index in \
+                    zip(range(num_names), range(num_addresses)):
+                """
+                For each pair of indexes of the list of names and addresses.
+                """
+
+                current_name = names[current_name_index]
+                """
+                Retrieve the current name.
+                """
+
+                current_address = addresses[current_address_index]
+                """
+                Retrieve the current location address.
+                """
+
+                if isinstance(current_name, str) and \
+                        isinstance(current_address, str):
+                    """
+                    If both current name and address are strings.
+                    """
+
+                    current_location_address = qiskrypt_geocoding\
+                        .get_location_address_from_address(current_address)
+                    """
+                    Retrieve the current location address.
+                    """
+
+                    current_longitude = \
+                        float(qiskrypt_geocoding.get_location_longitude_from_address(current_location_address))
+                    """
+                    Retrieve the current longitude.
+                    """
+
+                    current_latitude = \
+                        float(qiskrypt_geocoding.get_location_latitude_from_address(current_location_address))
+                    """
+                    Retrieve the current latitude.
+                    """
+
+                    current_altitude_in_kms = \
+                        qiskrypt_geocoding.get_location_altitude_in_kms_from_address_using_open_elevation(
+                            current_location_address
+                        )
+                    """
+                    Retrieve the current altitude in KMs (Kilometers).
+                    """
+
+                    current_entity = \
+                        QiskryptEntity(current_name, current_location_address,
+                                       current_longitude, current_latitude, current_altitude_in_kms)
+                    """
+                    Create the current Qiskrypt's Entity.
+                    """
+
+                    entities.append(current_entity)
+                    """
+                    Append the current Qiskrypt's Entity to the list of two Qiskrypt's Entities for
+                    the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with no Eavesdropping.
+                    """
+
+                else:
+                    """
+                    If some current name and/or location address are not strings.
+                    """
+
+                    # TODO Throw - Exception
+
+            location_address_1 = entities[0].get_location_address()
+            """
+            Retrieve the location address of the 1st Qiskrypt's Entity (sender) for
+            the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with no Eavesdropping.
+            """
+
+            location_address_2 = entities[1].get_location_address()
+            """
+            Retrieve the location address of the 2nd Qiskrypt's Entity (receiver) for
+            the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with no Eavesdropping.
+            """
+
+            distance_in_kms = qiskrypt_geocoding\
+                .compute_distance_between_locations_from_addresses_in_kms_using_osmr(location_address_1,
+                                                                                     location_address_2)
+            """
+            Compute the distance in KMs (Kilometers) between
+            the 1st Qiskrypt's Entity (sender) and 2nd Qiskrypt's Entity (receiver) for
+            the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with no Eavesdropping.
+            """
+
+            altitude_in_kms_1 = entities[0].get_altitude_in_kms()
+            """
+            Retrieve the altitude in KMs (Kilometers) of the 1st Qiskrypt's Entity (sender) for
+            the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with no Eavesdropping.
+            """
+
+            altitude_in_kms_2 = entities[1].get_altitude_in_kms()
+            """
+            Retrieve the altitude in KMs (Kilometers) of the 2nd Qiskrypt's Entity (receiver) for
+            the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with no Eavesdropping.
+            """
+
+            altitude_in_kms_difference = abs((altitude_in_kms_1 - altitude_in_kms_2))
+            """
+            Compute the difference between the altitudes in KMs (Kilometers) between
+            the 1st Qiskrypt's Entity (sender) and 2nd Qiskrypt's Entity (receiver) for
+            the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with no Eavesdropping.
+            """
+
+            distance_in_kms += altitude_in_kms_difference
+            """
+            Sum the difference between the altitudes in KMs (Kilometers) between
+            the 1st Qiskrypt's Entity (sender) and 2nd Qiskrypt's Entity (receiver) to
+            the distance in KMs (Kilometers) between them for
+            the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with no Eavesdropping.
+            """
+
+            distances_in_kms.append(distance_in_kms)
+            """
+            Append the distance in KMs (Kilometers) between
+            the 1st Qiskrypt's Entity (sender) and 2nd Qiskrypt's Entity (receiver) to
+            the list of distances in KMs (Kilometers) for
+            the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with no Eavesdropping.
+            """
+
+            """
+            Return the list of two Qiskrypt's Entities
+            and respective distance in KMs (Kilometers) between them for
+            the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with no Eavesdropping.
+            """
+            return [entities, distances_in_kms]
+
+        else:
+            """
+            If the number of names is not equal to the number of location addresses.
+            """
+
+            # TODO Throw - Exception
+
+    @staticmethod
     def create_template_quantum_circuit_of_quantum_transmission_for_noiseless_dv_bb84_protocol_with_no_eavesdropping\
             (entities_list: list, distances_in_kms_list: list):
         """
@@ -465,7 +658,8 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdroppingRound \
                 Create the list for the receiver Qiskrypt's Party Clients.
                 """
 
-                communication_session.start(sender_party_clients_list, link, receiver_party_clients_list, 300)
+                communication_session.start(sender_party_clients_list, link, receiver_party_clients_list,
+                                            timeout_in_secs=300)
                 """
                 Start the Qiskrypt's Communication Session for
                 the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with no Eavesdropping.
@@ -505,3 +699,25 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdroppingRound \
             """
 
             # TODO Throw - Exception
+
+    @staticmethod
+    def generate_x_hadamard_round_quantum_circuit_of_quantum_transmission_for_noiseless_dv_bb84_protocol_with_no_eavesdropping \
+            (template_quantum_circuit: QiskryptQuantumCircuit):
+        """
+
+
+        :param template_quantum_circuit:
+
+        :return:
+        """
+
+    @staticmethod
+    def generate_z_standard_computational_round_quantum_circuit_of_quantum_transmission_for_noiseless_dv_bb84_protocol_with_no_eavesdropping \
+            (template_quantum_circuit: QiskryptQuantumCircuit):
+        """
+
+
+        :param template_quantum_circuit:
+
+        :return:
+        """
