@@ -89,14 +89,14 @@ class QiskryptKey:
                       the Qiskrypt's Key is final or not.
         """
 
-        if key_type in POSSIBLE_KEY_TYPES:
+        if key_privacy_level in POSSIBLE_KEY_PRIVACY_LEVELS:
             """
-            If the given type of the Qiskrypt's Key is valid.
+            If the given privacy level of the Qiskrypt's Key is valid.
             """
 
-            if key_privacy_level in POSSIBLE_KEY_PRIVACY_LEVELS:
+            if key_type in POSSIBLE_KEY_TYPES:
                 """
-                If the given privacy level of the Qiskrypt's Key is valid.
+                If the given type of the Qiskrypt's Key is valid.
                 """
 
                 self.bits = bits
@@ -135,14 +135,14 @@ class QiskryptKey:
 
             else:
                 """
-                If the given privacy level of the Qiskrypt's Key is not valid.
+                If the given type of the Qiskrypt's Key is not valid.
                 """
 
                 # TODO Throw - Exception
 
         else:
             """
-            If the given type of the Qiskrypt's Key is not valid.
+            If the given privacy level of the Qiskrypt's Key is not valid.
             """
 
             # TODO Throw - Exception
