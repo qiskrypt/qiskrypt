@@ -79,9 +79,9 @@ DV_BB84_PROTOCOL_NAME = "DV (DISCRETE VARIABLES) BB84 PROTOCOL"
 The name of the DV (Discrete Variables) BB84 Protocol.
 """
 
-DV_BB84_PROTOCOL_NUM_ROUNDS_FOR_QUANTUM_TRANSMISSION = 1024
+DV_BB84_PROTOCOL_NUM_ROUNDS_FOR_QUANTUM_TRANSMISSION_PHASE = 1024
 """
-The default number of rounds for the Quantum Transmission of
+The default number of rounds for the Quantum Transmission Phase of
 the Qiskrypt's DV (Discrete Variable) BB84 Protocol.
 """
 
@@ -97,37 +97,32 @@ class QiskryptDVBB84Protocol(QiskryptQuantumKeyDistribution):
        - Link:https://arxiv.org/abs/2003.06557v1
     """
 
-    def __init__(self, quantum_cryptographic_primitive_scenario: str,
-                 quantum_key_exchange_protocol_num_rounds_for_quantum_transmission=DV_BB84_PROTOCOL_NUM_ROUNDS_FOR_QUANTUM_TRANSMISSION):
+    def __init__(self, primitive_scenario: str,
+                 num_rounds_for_quantum_transmission_phase=DV_BB84_PROTOCOL_NUM_ROUNDS_FOR_QUANTUM_TRANSMISSION_PHASE):
         """
         Constructor of the Qiskrypt's DV (Discrete Variables) BB84 Protocol.
 
-        :param quantum_cryptographic_primitive_scenario: the scenario of the Qiskrypt's
+        :param primitive_scenario: the scenario of the Qiskrypt's
                                                          Quantum Cryptographic Primitive.
-        :param quantum_key_exchange_protocol_num_rounds_for_quantum_transmission: the number of rounds for
-                                                                                  the Quantum Transmission in
-                                                                                  the Qiskrypt's Quantum Key
-                                                                                  Exchange Protocol.
+        :param num_rounds_for_quantum_transmission_phase: the number of rounds for the Quantum Transmission Phase in
+                                                          the Qiskrypt's Quantum Key Exchange Protocol.
         """
 
-        quantum_cryptographic_primitive_properties = list()
-        """
-        Create an empty list of properties of the Qiskrypt's
-        Quantum Cryptographic Primitive.
-        """
-
-        if quantum_cryptographic_primitive_scenario in \
-                POSSIBLE_QUANTUM_CRYPTOGRAPHIC_PRIMITIVE_SCENARIOS:
+        if primitive_scenario in POSSIBLE_QUANTUM_CRYPTOGRAPHIC_PRIMITIVE_SCENARIOS:
             """
             If the scenario of the Qiskrypt's Quantum Cryptographic Primitive is valid.
             """
 
+            primitive_properties = list()
+            """
+            Create an empty list of properties of the Qiskrypt's
+            Quantum Cryptographic Primitive.
+            """
+
             super().__init__(DV_BB84_PROTOCOL_NAME,
                              POSSIBLE_QUANTUM_CRYPTOGRAPHIC_PRIMITIVE_SIGNAL_VARIABLE_TYPES[0],
-                             quantum_cryptographic_primitive_properties,
-                             quantum_cryptographic_primitive_scenario,
-                             quantum_key_exchange_protocol_num_rounds_for_quantum_transmission,
-                             POSSIBLE_QUANTUM_KEY_DISTRIBUTION_TYPES[0])
+                             primitive_properties, primitive_scenario,
+                             num_rounds_for_quantum_transmission_phase, POSSIBLE_QUANTUM_KEY_DISTRIBUTION_TYPES[0])
             """
             Call of the constructor of the super-class Qiskrypt's Quantum Key Distribution (QKD).
             """
@@ -139,126 +134,120 @@ class QiskryptDVBB84Protocol(QiskryptQuantumKeyDistribution):
 
             # TODO Throw - Exception
 
-    def get_name(self) -> str:
+    def get_primitive_name(self) -> str:
         """
         Return the name of the Qiskrypt's Quantum Cryptographic Primitive.
 
-        :return super().get_name(): the name of the Qiskrypt's
-                                    Quantum Cryptographic Primitive.
+        :return super().get_primitive_name(): the name of the Qiskrypt's Quantum Cryptographic Primitive.
         """
 
         """
         Return the name of the Qiskrypt's Quantum Cryptographic Primitive.
         """
-        return super().get_name()
+        return super().get_primitive_name()
 
-    def get_quantum_cryptographic_primitive_cardinality(self) -> str:
+    def get_primitive_cardinality(self) -> str:
         """
         Return the cardinality of the Qiskrypt's Quantum Cryptographic Primitive.
 
-        :return super().get_quantum_cryptographic_primitive_cardinality(): the cardinality of the Qiskrypt's
-                                                                           Quantum Cryptographic Primitive.
+        :return super().get_primitive_cardinality(): the cardinality of the Qiskrypt's
+                                                     Quantum Cryptographic Primitive.
         """
 
         """
         Return the cardinality of the Qiskrypt's Quantum Cryptographic Primitive.
         """
-        return super().get_quantum_cryptographic_primitive_cardinality()
+        return super().get_primitive_cardinality()
 
-    def get_quantum_cryptographic_primitive_signal_variable_type(self) -> str:
+    def get_primitive_signal_variable_type(self) -> str:
         """
         Return the signal variable type of the Qiskrypt's Quantum Cryptographic Primitive.
 
-        :return super().get_quantum_cryptographic_primitive_signal_variable_type(): the signal variable type of the
-                                                                                    Qiskrypt's Quantum Cryptographic
-                                                                                    Primitive.
+        :return super().get_primitive_signal_variable_type(): the signal variable type of the
+                                                              Qiskrypt's Quantum Cryptographic Primitive.
         """
 
         """
         Return the signal variable type of the Qiskrypt's Quantum Cryptographic Primitive.
         """
-        return super().get_quantum_cryptographic_primitive_signal_variable_type()
+        return super().get_primitive_signal_variable_type()
 
-    def get_quantum_cryptographic_primitive_context(self) -> str:
+    def get_primitive_context(self) -> str:
         """
         Return the context of the Qiskrypt's Quantum Cryptographic Primitive.
 
-        :return super().get_quantum_cryptographic_primitive_context(): the context of the Qiskrypt's
-                                                                       Quantum Cryptographic Primitive.
+        :return super().get_primitive_context(): the context of the Qiskrypt's Quantum Cryptographic Primitive.
         """
 
         """
         Return the context of the Qiskrypt's Quantum Cryptographic Primitive.
         """
-        return super().get_quantum_cryptographic_primitive_context()
+        return super().get_primitive_context()
 
-    def get_quantum_cryptographic_primitive_properties(self) -> list:
+    def get_primitive_properties(self) -> list:
         """
         Return the list of properties of the Qiskrypt's Quantum Cryptographic Primitive.
 
-        :return super().get_quantum_cryptographic_primitive_properties(): the list of properties of the Qiskrypt's
-                                                                          Quantum Cryptographic Primitive.
+        :return super().get_primitive_properties(): the list of properties of the Qiskrypt's
+                                                    Quantum Cryptographic Primitive.
         """
 
         """
         Return the list of properties of the Qiskrypt's Quantum Cryptographic Primitive.
         """
-        return super().get_quantum_cryptographic_primitive_properties()
+        return super().get_primitive_properties()
 
-    def get_quantum_cryptographic_primitive_scenario(self) -> str:
+    def get_primitive_scenario(self) -> str:
         """
         Return the scenario of the Qiskrypt's Quantum Cryptographic Primitive.
 
-        :return super().get_quantum_cryptographic_primitive_scenario(): the scenario of the Qiskrypt's
-                                                                        Quantum Cryptographic Primitive.
+        :return super().get_primitive_scenario(): the scenario of the Qiskrypt's Quantum Cryptographic Primitive.
         """
 
         """
         Return the scenario of the Qiskrypt's Quantum Cryptographic Primitive.
         """
-        return super().get_quantum_cryptographic_primitive_scenario()
+        return super().get_primitive_scenario()
 
-    def get_quantum_cryptographic_primitive_type(self) -> str:
+    def get_primitive_type(self) -> str:
         """
         Return the type of the Qiskrypt's Quantum Cryptographic Primitive.
 
-        :return super().get_quantum_cryptographic_primitive_type(): the type of the Qiskrypt's
-                                                                    Quantum Cryptographic Primitive.
+        :return super().get_primitive_type(): the type of the Qiskrypt's Quantum Cryptographic Primitive.
         """
 
         """
         Return the type of the Qiskrypt's Quantum Cryptographic Primitive.
         """
-        return super().get_quantum_cryptographic_primitive_type()
+        return super().get_primitive_type()
 
-    def get_quantum_key_exchange_protocol_type(self) -> str:
+    def get_protocol_type(self) -> str:
         """
         Return the type of the Qiskrypt's Quantum Key Exchange Protocol.
 
-        :return self.quantum_key_exchange_protocol_type: the type of the Qiskrypt's
-                                                         Quantum Key Exchange Protocol.
+        :return super().get_protocol_type(): the type of the Qiskrypt's Quantum Key Exchange Protocol.
         """
 
         """
         Return the type of the Qiskrypt's Quantum Key Exchange Protocol.
         """
-        return super().get_quantum_key_exchange_protocol_type()
+        return super().get_protocol_type()
 
-    def get_quantum_key_exchange_protocol_num_rounds_for_quantum_transmission(self) -> int:
+    def get_num_rounds_for_quantum_transmission_phase(self) -> int:
         """
-        Return the number of rounds for the Quantum Transmission in
+        Return the number of rounds for the Quantum Transmission Phase in
         the Qiskrypt's Quantum Key Exchange Protocol.
 
-        :return super().get_quantum_key_exchange_protocol_num_rounds_for_quantum_transmission():
-                the number of rounds for the Quantum Transmission in
-                the Qiskrypt's Quantum Key Exchange Protocol.
+        :return super().get_num_rounds_for_quantum_transmission_phase(): the number of rounds for
+                                                                         the Quantum Transmission Phase in
+                                                                         the Qiskrypt's Quantum Key Exchange Protocol.
         """
 
         """
-        Return the number of rounds for the Quantum Transmission in
+        Return the number of rounds for the Quantum Transmission Phase in
         the Qiskrypt's Quantum Key Exchange Protocol.
         """
-        return super().get_quantum_key_exchange_protocol_num_rounds_for_quantum_transmission()
+        return super().get_num_rounds_for_quantum_transmission_phase()
 
     def is_configured(self) -> bool:
         """
@@ -281,25 +270,11 @@ class QiskryptDVBB84Protocol(QiskryptQuantumKeyDistribution):
         is configured, as True, if it is not yet defined as True.
         """
 
-        if not super().is_configured():
-            """
-            If the boolean flag to determine if the Qiskrypt's Key Exchange Protocol
-            is configured, as False.
-            """
-
-            super().set_as_configured()
-            """
-            Set the boolean flag to determine if the Qiskrypt's Key Exchange Protocol
-            is configured, as True.
-            """
-
-        else:
-            """
-            If the boolean flag to determine if the Qiskrypt's Key Exchange Protocol
-            is configured, as True.
-            """
-
-            # TODO Throw - Exception
+        super().set_as_configured()
+        """
+        Set the boolean flag to determine if the Qiskrypt's Key Exchange Protocol
+        is configured, as True.
+        """
 
     def get_quantum_key_distribution_type(self) -> str:
         """
@@ -314,6 +289,30 @@ class QiskryptDVBB84Protocol(QiskryptQuantumKeyDistribution):
         """
         return self.quantum_key_distribution_type
 
+    def start_quantum_transmission_phase(self):
+        """
+        Start the Quantum Transmission Phase of the
+        Qiskrypt's Quantum Key Exchange Protocol.
+        """
+
+        """
+        Start the Quantum Transmission Phase of the
+        Qiskrypt's Quantum Key Exchange Protocol.
+        """
+        super().start_quantum_transmission_phase()
+
+    def start_classical_post_processing_phase(self):
+        """
+        Start the Classical Post-Processing Phase of the
+        Qiskrypt's Quantum Key Exchange Protocol.
+        """
+
+        """
+        Start the Classical Post-Processing Phase of the
+        Qiskrypt's Quantum Key Exchange Protocol.
+        """
+        super().start_classical_post_processing_phase()
+
     def prepare_quantum_states(self):
         """
         Prepare the Quantum States for the
@@ -321,10 +320,10 @@ class QiskryptDVBB84Protocol(QiskryptQuantumKeyDistribution):
         """
 
         """
-        Raise a Not Implemented Error since this abstract method
-        should be implemented in its sub-classes.
+        Prepare the Quantum States for the
+        Qiskrypt's Quantum Key Distribution (QKD).
         """
-        # TODO Throw - Exception
+        super().prepare_quantum_states()
 
     def transmit_quantum_states(self):
         """
@@ -333,10 +332,10 @@ class QiskryptDVBB84Protocol(QiskryptQuantumKeyDistribution):
         """
 
         """
-        Raise a Not Implemented Error since this abstract method
-        should be implemented in its sub-classes.
+        Transmit the Quantum States for the
+        Qiskrypt's Quantum Key Distribution (QKD).
         """
-        # TODO Throw - Exception
+        super().transmit_quantum_states()
 
     def measure_quantum_states(self):
         """
@@ -345,10 +344,10 @@ class QiskryptDVBB84Protocol(QiskryptQuantumKeyDistribution):
         """
 
         """
-        Raise a Not Implemented Error since this abstract method
-        should be implemented in its sub-classes.
+        Measure the Quantum States for the
+        Qiskrypt's Quantum Key Distribution (QKD).
         """
-        # TODO Throw - Exception
+        super().measure_quantum_states()
 
     def sift_raw_key(self):
         """
@@ -357,10 +356,10 @@ class QiskryptDVBB84Protocol(QiskryptQuantumKeyDistribution):
         """
 
         """
-        Raise a Not Implemented Error since this abstract method
-        should be implemented in its sub-classes.
+        Sift the Secret Key for the
+        Qiskrypt's Quantum Key Distribution (QKD).
         """
-        # TODO Throw - Exception
+        super().sift_raw_key()
 
     def estimate_parameters(self):
         """
@@ -369,10 +368,10 @@ class QiskryptDVBB84Protocol(QiskryptQuantumKeyDistribution):
         """
 
         """
-        Raise a Not Implemented Error since this abstract method
-        should be implemented in its sub-classes.
+        Estimate the Parameters for the
+        Qiskrypt's Quantum Key Distribution (QKD).
         """
-        # TODO Throw - Exception
+        super().estimate_parameters()
 
     def reconcile_information(self):
         """
@@ -381,10 +380,10 @@ class QiskryptDVBB84Protocol(QiskryptQuantumKeyDistribution):
         """
 
         """
-        Raise a Not Implemented Error since this abstract method
-        should be implemented in its sub-classes.
+        Reconcile the Information for the
+        Qiskrypt's Quantum Key Distribution (QKD).
         """
-        # TODO Throw - Exception
+        super().reconcile_information()
 
     def amplify_privacy(self):
         """
@@ -393,7 +392,7 @@ class QiskryptDVBB84Protocol(QiskryptQuantumKeyDistribution):
         """
 
         """
-        Raise a Not Implemented Error since this abstract method
-        should be implemented in its sub-classes.
+        Amplify the Privacy for the
+        Qiskrypt's Quantum Key Distribution (QKD).
         """
-        # TODO Throw - Exception
+        super().amplify_privacy()
