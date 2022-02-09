@@ -752,7 +752,85 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
         Qiskrypt's Quantum Key Distribution (QKD).
         """
 
-        # TODO - To complete
+        quantum_key_exchange_protocol_num_rounds_for_quantum_transmission = \
+            self.get_quantum_key_exchange_protocol_num_rounds_for_quantum_transmission()
+        """
+        Retrieve the number of rounds for the Quantum Transmission in
+        the Qiskrypt's Quantum Key Exchange Protocol.
+        """
+
+        quantum_transmission_rounds = \
+            self.get_quantum_transmission_rounds()
+        """
+        Retrieve the list for the Quantum Transmission of 
+        the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
+        """
+
+        for current_num_round_for_quantum_transmission in \
+                range(quantum_key_exchange_protocol_num_rounds_for_quantum_transmission):
+            """
+            For each round of the Quantum Transmission of 
+            the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
+            """
+
+            current_round_for_quantum_transmission = \
+                quantum_transmission_rounds[current_num_round_for_quantum_transmission]
+            """
+            Retrieve the current round of the Quantum Transmission of 
+            the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
+            """
+
+            if isinstance(current_round_for_quantum_transmission,
+                          QiskryptNoiselessDVBB84ProtocolWithNoEavesdroppingQuantumTransmissionRound):
+                """
+                If the current round of the Quantum Transmission of 
+                the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping is
+                really a Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol
+                with No Eavesdropping Quantum Transmission Round.
+                """
+
+                current_round_quantum_circuit_for_quantum_transmission = \
+                    current_round_for_quantum_transmission.get_quantum_key_exchange_protocol_round_quantum_circuit()
+                """
+                Retrieve the Qiskrypt's Quantum Circuit for the current round of the Quantum Transmission of 
+                the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
+                """
+
+                if isinstance(current_round_quantum_circuit_for_quantum_transmission,
+                              QiskryptQuantumCircuit):
+                    """
+                    If the Qiskrypt's Quantum Circuit for the current round of the Quantum Transmission of 
+                    the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping is
+                    really a Qiskrypt's Quantum Circuit.
+                    """
+
+                    current_round_quantum_circuit_for_quantum_transmission\
+                        .measure_single_qubit_in_qiskit_quantum_register(2, 1, 0, 0)
+                    """
+                    Measure the qubits in the Qiskrypt's Quantum Register of
+                    the receiver's Qiskrypt's Party Client regarding the Qiskrypt's Quantum Circuit for
+                    the current round of the Quantum Transmission of the Qiskrypt's Noiseless
+                    DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
+                    """
+
+                else:
+                    """
+                    If the Qiskrypt's Quantum Circuit for the current round of the Quantum Transmission of 
+                    the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping is
+                    not a Qiskrypt's Quantum Circuit.
+                    """
+
+                    # TODO Throw - Exception
+
+            else:
+                """
+                If the current round of the Quantum Transmission of 
+                the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping is
+                not a Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol
+                with No Eavesdropping Quantum Transmission Round.
+                """
+
+                # TODO Throw - Exception
 
     def sift_raw_key(self):
         """
