@@ -79,7 +79,7 @@ class QiskryptPublicKey(QiskryptKey):
                       the Qiskrypt's Key is final or not.
         """
 
-        super().__init__(bits, owner_uuid, key_type, POSSIBLE_KEY_PRIVACY_LEVELS[2], final)
+        super().__init__(bits, owner_uuid, key_type, POSSIBLE_KEY_PRIVACY_LEVELS[3], final)
         """
         Call of the constructor of the super-class Qiskrypt's Key.
         """
