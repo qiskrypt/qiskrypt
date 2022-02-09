@@ -85,57 +85,42 @@ class QiskryptQuantumCryptographicPrimitive:
     Object class for the Qiskrypt's Quantum Cryptographic Primitive.
     """
 
-    def __init__(self, quantum_cryptographic_primitive_name: str,
-                 quantum_cryptographic_primitive_cardinality: str,
-                 quantum_cryptographic_primitive_signal_variable_type: str,
-                 quantum_cryptographic_primitive_context: str,
-                 quantum_cryptographic_primitive_properties: list,
-                 quantum_cryptographic_primitive_scenario: str,
-                 quantum_cryptographic_primitive_type: str):
+    def __init__(self, primitive_name: str, primitive_cardinality: str, primitive_signal_variable_type: str,
+                 primitive_context: str, primitive_properties: list, primitive_scenario: str, primitive_type: str):
         """
         Constructor of the Qiskrypt's Quantum Cryptographic Primitive.
 
-        :param quantum_cryptographic_primitive_name: the name of the Qiskrypt's Quantum Cryptographic Primitive.
-        :param quantum_cryptographic_primitive_cardinality: the cardinality of the Qiskrypt's
-                                                            Quantum Cryptographic Primitive.
-        :param quantum_cryptographic_primitive_signal_variable_type: the signal variable type of the Qiskrypt's
-                                                                     Quantum Cryptographic Primitive.
-        :param quantum_cryptographic_primitive_context: the context of the Qiskrypt's
-                                                        Quantum Cryptographic Primitive.
-        :param quantum_cryptographic_primitive_properties: the list of properties of the Qiskrypt's
-                                                           Quantum Cryptographic Primitive.
-        :param quantum_cryptographic_primitive_scenario: the scenario of the Qiskrypt's
-                                                         Quantum Cryptographic Primitive.
-        :param quantum_cryptographic_primitive_type: the type of the Qiskrypt's
-                                                     Quantum Cryptographic Primitive.
+        :param primitive_name: the name of the Qiskrypt's Quantum Cryptographic Primitive.
+        :param primitive_cardinality: the cardinality of the Qiskrypt's Quantum Cryptographic Primitive.
+        :param primitive_signal_variable_type: the signal variable type of
+                                               the Qiskrypt's Quantum Cryptographic Primitive.
+        :param primitive_context: the context of the Qiskrypt's Quantum Cryptographic Primitive.
+        :param primitive_properties: the list of properties of the Qiskrypt's Quantum Cryptographic Primitive.
+        :param primitive_scenario: the scenario of the Qiskrypt's Quantum Cryptographic Primitive.
+        :param primitive_type: the type of the Qiskrypt's Quantum Cryptographic Primitive.
         """
 
-        if quantum_cryptographic_primitive_cardinality in \
-                POSSIBLE_QUANTUM_CRYPTOGRAPHIC_PRIMITIVE_CARDINALITIES:
+        if primitive_cardinality in POSSIBLE_QUANTUM_CRYPTOGRAPHIC_PRIMITIVE_CARDINALITIES:
             """
             If the given cardinality of the Qiskrypt's Quantum Cryptographic Primitive is valid.
             """
 
-            if quantum_cryptographic_primitive_signal_variable_type in \
-                    POSSIBLE_QUANTUM_CRYPTOGRAPHIC_PRIMITIVE_SIGNAL_VARIABLE_TYPES:
+            if primitive_signal_variable_type in POSSIBLE_QUANTUM_CRYPTOGRAPHIC_PRIMITIVE_SIGNAL_VARIABLE_TYPES:
                 """
                 If the given signal variable type of the Qiskrypt's Quantum Cryptographic Primitive is valid.
                 """
 
-                if quantum_cryptographic_primitive_context in \
-                        POSSIBLE_QUANTUM_CRYPTOGRAPHIC_PRIMITIVE_CONTEXTS:
+                if primitive_context in POSSIBLE_QUANTUM_CRYPTOGRAPHIC_PRIMITIVE_CONTEXTS:
                     """
                     If the given context of the Qiskrypt's Quantum Cryptographic Primitive is valid.
                     """
 
-                    for quantum_cryptographic_primitive_property in \
-                            quantum_cryptographic_primitive_properties:
+                    for primitive_property in primitive_properties:
                         """
                         For each given property of the Qiskrypt's Quantum Cryptographic Primitive.
                         """
 
-                        if quantum_cryptographic_primitive_property not in \
-                           POSSIBLE_QUANTUM_CRYPTOGRAPHIC_PRIMITIVE_PROPERTIES:
+                        if primitive_property not in POSSIBLE_QUANTUM_CRYPTOGRAPHIC_PRIMITIVE_PROPERTIES:
                             """
                             If the current given property of the
                             Qiskrypt's Quantum Cryptographic Primitive is not valid.
@@ -143,56 +128,47 @@ class QiskryptQuantumCryptographicPrimitive:
 
                             # TODO Throw - Exception
 
-                        if quantum_cryptographic_primitive_scenario in \
-                                POSSIBLE_QUANTUM_CRYPTOGRAPHIC_PRIMITIVE_SCENARIOS:
+                        if primitive_scenario in POSSIBLE_QUANTUM_CRYPTOGRAPHIC_PRIMITIVE_SCENARIOS:
                             """
                             If the given scenario of the Qiskrypt's Quantum Cryptographic Primitive is valid.
                             """
 
-                            if quantum_cryptographic_primitive_type in \
-                                    POSSIBLE_QUANTUM_CRYPTOGRAPHIC_PRIMITIVE_TYPES:
+                            if primitive_type in POSSIBLE_QUANTUM_CRYPTOGRAPHIC_PRIMITIVE_TYPES:
                                 """
                                 If the given type of the Qiskrypt's Quantum Cryptographic Primitive is valid.
                                 """
 
-                                self.quantum_cryptographic_primitive_name = \
-                                    quantum_cryptographic_primitive_name
+                                self.primitive_name = primitive_name
                                 """
                                 Se the name of the name of the Qiskrypt's Quantum Cryptographic Primitive.
                                 """
 
-                                self.quantum_cryptographic_primitive_cardinality = \
-                                    quantum_cryptographic_primitive_cardinality
+                                self.primitive_cardinality = primitive_cardinality
                                 """
                                 Set the cardinality of the Qiskrypt's Quantum Cryptographic Primitive.
                                 """
 
-                                self.quantum_cryptographic_primitive_signal_variable_type = \
-                                    quantum_cryptographic_primitive_signal_variable_type
+                                self.primitive_signal_variable_type = primitive_signal_variable_type
                                 """
                                 Set the signal variable type of the Qiskrypt's Quantum Cryptographic Primitive.
                                 """
 
-                                self.quantum_cryptographic_primitive_context = \
-                                    quantum_cryptographic_primitive_context
+                                self.primitive_context = primitive_context
                                 """
                                 Set the context of the Qiskrypt's Quantum Cryptographic Primitive.
                                 """
 
-                                self.quantum_cryptographic_primitive_properties = \
-                                    quantum_cryptographic_primitive_properties
+                                self.primitive_properties = primitive_properties
                                 """
                                 Set the list of properties of the Qiskrypt's Quantum Cryptographic Primitive.
                                 """
 
-                                self.quantum_cryptographic_primitive_scenario = \
-                                    quantum_cryptographic_primitive_scenario
+                                self.primitive_scenario = primitive_scenario
                                 """
                                 Set the scenario of the Qiskrypt's Quantum Cryptographic Primitive.
                                 """
 
-                                self.quantum_cryptographic_primitive_type = \
-                                    quantum_cryptographic_primitive_type
+                                self.primitive_type = primitive_type
                                 """
                                 Set the type of the Qiskrypt's Quantum Cryptographic Primitive.
                                 """
@@ -232,93 +208,87 @@ class QiskryptQuantumCryptographicPrimitive:
 
             # TODO Throw - Exception
 
-    def get_quantum_cryptographic_primitive_name(self) -> str:
+    def get_primitive_name(self) -> str:
         """
         Return the name of the Qiskrypt's Quantum Cryptographic Primitive.
 
-        :return self.quantum_cryptographic_primitive_name: the name of the Qiskrypt's
-                                                           Quantum Cryptographic Primitive.
+        :return self.primitive_name: the name of the Qiskrypt's Quantum Cryptographic Primitive.
         """
 
         """
         Return the name of the Qiskrypt's Quantum Cryptographic Primitive.
         """
-        return self.quantum_cryptographic_primitive_name
+        return self.primitive_name
 
-    def get_quantum_cryptographic_primitive_cardinality(self) -> str:
+    def get_primitive_cardinality(self) -> str:
         """
         Return the cardinality of the Qiskrypt's Quantum Cryptographic Primitive.
 
-        :return self.quantum_cryptographic_primitive_cardinality: the cardinality of the Qiskrypt's
-                                                                  Quantum Cryptographic Primitive.
+        :return self.primitive_cardinality: the cardinality of the Qiskrypt's Quantum Cryptographic Primitive.
         """
 
         """
         Return the cardinality of the Qiskrypt's Quantum Cryptographic Primitive.
         """
-        return self.quantum_cryptographic_primitive_cardinality
+        return self.primitive_cardinality
 
-    def get_quantum_cryptographic_primitive_signal_variable_type(self) -> str:
+    def get_primitive_signal_variable_type(self) -> str:
         """
         Return the signal variable type of the Qiskrypt's Quantum Cryptographic Primitive.
 
-        :return self.quantum_cryptographic_primitive_signal_variable_type: the signal variable type of the Qiskrypt's
-                                                                           Quantum Cryptographic Primitive.
+        :return self.primitive_signal_variable_type: the signal variable type of the Qiskrypt's
+                                                     Quantum Cryptographic Primitive.
         """
 
         """
         Return the signal variable type of the Qiskrypt's Quantum Cryptographic Primitive.
         """
-        return self.quantum_cryptographic_primitive_signal_variable_type
+        return self.primitive_signal_variable_type
 
-    def get_quantum_cryptographic_primitive_context(self) -> str:
+    def get_primitive_context(self) -> str:
         """
         Return the context of the Qiskrypt's Quantum Cryptographic Primitive.
 
-        :return self.quantum_cryptographic_primitive_context: the context of the Qiskrypt's
-                                                              Quantum Cryptographic Primitive.
+        :return self.primitive_context: the context of the Qiskrypt's Quantum Cryptographic Primitive.
         """
 
         """
         Return the context of the Qiskrypt's Quantum Cryptographic Primitive.
         """
-        return self.quantum_cryptographic_primitive_context
+        return self.primitive_context
 
-    def get_quantum_cryptographic_primitive_properties(self) -> list:
+    def get_primitive_properties(self) -> list:
         """
         Return the list of properties of the Qiskrypt's Quantum Cryptographic Primitive.
 
-        :return self.quantum_cryptographic_primitive_properties: the list of properties of the Qiskrypt's
-                                                                 Quantum Cryptographic Primitive.
+        :return self.primitive_properties: the list of properties of the Qiskrypt's Quantum Cryptographic Primitive.
         """
 
         """
         Return the list of properties of the Qiskrypt's Quantum Cryptographic Primitive.
         """
-        return self.quantum_cryptographic_primitive_properties
+        return self.primitive_properties
 
-    def get_quantum_cryptographic_primitive_scenario(self) -> str:
+    def get_primitive_scenario(self) -> str:
         """
         Return the scenario of the Qiskrypt's Quantum Cryptographic Primitive.
 
-        :return self.quantum_cryptographic_primitive_scenario: the scenario of the Qiskrypt's
-                                                               Quantum Cryptographic Primitive.
+        :return self.primitive_scenario: the scenario of the Qiskrypt's Quantum Cryptographic Primitive.
         """
 
         """
         Return the scenario of the Qiskrypt's Quantum Cryptographic Primitive.
         """
-        return self.quantum_cryptographic_primitive_scenario
+        return self.primitive_scenario
 
-    def get_quantum_cryptographic_primitive_type(self) -> str:
+    def get_primitive_type(self) -> str:
         """
         Return the type of the Qiskrypt's Quantum Cryptographic Primitive.
 
-        :return self.quantum_cryptographic_primitive_type: the type of the Qiskrypt's
-                                                           Quantum Cryptographic Primitive.
+        :return self.primitive_type: the type of the Qiskrypt's Quantum Cryptographic Primitive.
         """
 
         """
         Return the type of the Qiskrypt's Quantum Cryptographic Primitive.
         """
-        return self.quantum_cryptographic_primitive_type
+        return self.primitive_type
