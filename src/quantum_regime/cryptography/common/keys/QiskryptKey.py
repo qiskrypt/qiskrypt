@@ -60,12 +60,12 @@ Import the Qiskrypt's Timestamp Generator.
 Definition of Constants and Enumerations.
 """
 
-POSSIBLE_KEY_PRIVACY_LEVELS = ["SECRET", "PRIVATE", "PUBLIC"]
+POSSIBLE_KEY_PRIVACY_LEVELS = ["SECRET", "CONFERENCE", "PRIVATE", "PUBLIC"]
 """
 The available privacy levels of keys for the Qiskrypt's Key.
 """
 
-POSSIBLE_KEY_TYPES = ["RAW KEY", "SIFTED KEY", "RECONCILED KEY", "KEY", "CONFERENCE KEY"]
+POSSIBLE_KEY_TYPES = ["RAW KEY", "SIFTED KEY", "RECONCILED KEY", "SECURE KEY"]
 """
 The available types of keys for the Qiskrypt's Key.
 """
