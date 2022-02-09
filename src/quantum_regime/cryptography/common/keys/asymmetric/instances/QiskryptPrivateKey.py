@@ -49,10 +49,10 @@ from uuid import UUID
 Import the general UUID (Universally Unique IDentifier).
 """
 
-from src.quantum_regime.cryptography.common.keys.QiskryptKey \
-    import QiskryptKey
+from src.quantum_regime.cryptography.common.keys.asymmetric.QiskryptAsymmetricKey \
+    import QiskryptAsymmetricKey
 """
-Import the Qiskrypt's Key.
+Import the Qiskrypt's Asymmetric Key.
 """
 
 from src.quantum_regime.cryptography.common.keys.QiskryptKey \
@@ -62,7 +62,7 @@ Import the available privacy levels of keys for the Qiskrypt's Key.
 """
 
 
-class QiskryptPrivateKey(QiskryptKey):
+class QiskryptPrivateKey(QiskryptAsymmetricKey):
     """
     Object class for the Qiskrypt's Private Key.
     """
@@ -72,16 +72,16 @@ class QiskryptPrivateKey(QiskryptKey):
         Constructor of the Qiskrypt's Private Key.
 
         :param bits: the bits of the Qiskrypt's Key.
-        :param owner_uuid: the UUID (Universally Unique IDentifier) of the owner of
+        :param owner_uuid: the UUID (Universally Unique IDentifier) of
                            the Qiskrypt's Party Client owning the Qiskrypt's Key.
         :param key_type: the type of the Qiskrypt's Key.
         :param final: the boolean flag to keep the information about if
                       the Qiskrypt's Key is final or not.
         """
 
-        super().__init__(bits, owner_uuid, key_type, POSSIBLE_KEY_PRIVACY_LEVELS[2], final)
+        super().__init__(bits, owner_uuid, POSSIBLE_KEY_PRIVACY_LEVELS[2], key_type, final)
         """
-        Call of the constructor of the super-class Qiskrypt's Key.
+        Call of the constructor of the super-class Qiskrypt's Asymmetric Key.
         """
 
     def get_bits(self) -> str:
@@ -98,16 +98,28 @@ class QiskryptPrivateKey(QiskryptKey):
 
     def get_owner_uuid(self) -> UUID:
         """
-        Return the UUID (Universally Unique IDentifier) of the owner of the Qiskrypt's Key.
+        Return the UUID (Universally Unique IDentifier) of the Qiskrypt's Key.
 
         :return super().get_owner_uuid(): the UUID (Universally Unique IDentifier) of
-                                          the owner of the Qiskrypt's Key.
+                                          the Qiskrypt's Key.
         """
 
         """
-        Return the UUID (Universally Unique IDentifier) of the owner of the Qiskrypt's Key.
+        Return the UUID (Universally Unique IDentifier) of the Qiskrypt's Key.
         """
         return super().get_owner_uuid()
+
+    def get_key_category(self) -> str:
+        """
+        Return the category of the Qiskrypt's Key.
+
+        :return super().get_key_category(): the category of the Qiskrypt's Key.
+        """
+
+        """
+        Return the category of the Qiskrypt's Key.
+        """
+        return super().get_key_category()
 
     def get_key_privacy_level(self) -> str:
         """
