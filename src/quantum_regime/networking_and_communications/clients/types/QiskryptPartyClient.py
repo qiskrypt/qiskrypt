@@ -276,7 +276,17 @@ class QiskryptPartyClient(QiskryptClient):
 
         self.endpoints = list()
         """
-        Set the list Qiskrypt's Endpoint for the Qiskrypt's Party Client, initially, as an empty list.
+        Set the list of Qiskrypt's Endpoints for the Qiskrypt's Party Client, initially, as an empty list.
+        """
+
+        self.roles = list()
+        """
+        Set the list of roles for the Qiskrypt's Party Client, initially, as an empty list.
+        """
+
+        self.items = dict()
+        """
+        Set the dictionary of items of the Qiskrypt's Party Client, initially, as an empty dictionary.
         """
 
     def get_uuid(self) -> UUID:
@@ -877,7 +887,7 @@ class QiskryptPartyClient(QiskryptClient):
 
             # TODO Throw - Exception
 
-    def get_num_endpoints(self):
+    def get_num_endpoints(self) -> int:
         """
         Return the number of Qiskrypt's Endpoints of the Qiskrypt's Party Client.
 
@@ -985,6 +995,413 @@ class QiskryptPartyClient(QiskryptClient):
         the list of Qiskrypt's Endpoints, return None.
         """
         return None
+
+    def add_role(self, new_role: str) -> None:
+        """
+        Add a new role to the list of the roles of the Qiskrypt's Party Client.
+
+        :param new_role: the new role to be added to the list of the roles of the Qiskrypt's Party Client.
+        """
+
+        if super().is_connected():
+            """
+            If the Qiskrypt's Client is already connected.
+            """
+
+            """
+            Add the new role to the list of the roles of the Qiskrypt's Party Client.
+            """
+            self.roles.append(new_role)
+
+        else:
+            """
+            If the Qiskrypt's Party Client is not connected yet.
+            """
+
+            # TODO Throw - Exception
+
+    def remove_role(self, role: str) -> None:
+        """
+        Remove a role from the list of the roles of the Qiskrypt's Party Client.
+
+        :param role: the role to be removed from the list of the roles of the Qiskrypt's Party Client.
+        """
+
+        if super().is_connected():
+            """
+            If the Qiskrypt's Client is already connected.
+            """
+
+            """
+            Remove the role from the list of the roles of the Qiskrypt's Party Client.
+            """
+            self.roles.remove(role)
+
+        else:
+            """
+            If the Qiskrypt's Party Client is not connected yet.
+            """
+
+            # TODO Throw - Exception
+
+    def get_roles(self) -> list:
+        """
+        Return the list of the roles of the Qiskrypt's Party Client.
+
+        :return self.roles: the list of the roles of the Qiskrypt's Party Client.
+        """
+
+        if super().is_connected():
+            """
+            If the Qiskrypt's Client is already connected.
+            """
+
+            """
+            Return the list of the roles of the Qiskrypt's Party Client.
+            """
+            return self.roles
+
+        else:
+            """
+            If the Qiskrypt's Party Client is not connected yet.
+            """
+
+            # TODO Throw - Exception
+
+    def get_num_roles(self) -> int:
+        """
+        Return the number of the roles of the Qiskrypt's Party Client.
+
+        :return len(self.get_roles()): the number of the roles points of
+                                       the Qiskrypt's Party Client.
+        """
+
+        """
+        Return the number of the roles of the Qiskrypt's Party Client.
+        """
+        return len(self.get_roles())
+
+    def get_role_by_index(self, role_index: int) -> str:
+        """
+        Return a certain role from the list of the roles of
+        the Qiskrypt's Party Client, given the corresponding index.
+
+        :param role_index: the index of a certain role of the Qiskrypt's Party Client.
+
+        :return role: the role from the list of the roles of the Qiskrypt's Party Client,
+                      given the corresponding index.
+        """
+
+        if role_index < self.get_num_roles():
+            """
+            If the given role's index is valid.
+            """
+
+            roles = self.get_roles()
+            """
+            Retrieve the list of the roles of the Qiskrypt's Party Client.
+            """
+
+            """
+            Retrieve the role from the list of the roles of the Qiskrypt's Party Client,
+            given the corresponding index.
+            """
+            role = roles[role_index]
+
+            """
+            Return the role from the list of the roles of the Qiskrypt's Party Client,
+            given the corresponding index.
+            """
+            return role
+
+        else:
+            """
+            If the given role's index is not valid.
+            """
+
+            # TODO Throw - Exception
+
+    def get_role_by_name(self, role_name: str):
+        """
+        Return a certain role from the list of the roles of
+        the Qiskrypt's Party Client, given the corresponding name.
+
+        :param role_name: the name of a certain role of the Qiskrypt's Party Client.
+
+        :return role: the role from the list of the roles of the Qiskrypt's Party Client,
+                      given the corresponding name.
+        """
+
+        roles = self.get_roles()
+        """
+        Retrieve the list of the roles of the Qiskrypt's Party Client.
+        """
+
+        num_roles = self.get_num_roles()
+        """
+        Retrieve the number of the roles of the Qiskrypt's Party Client.
+        """
+
+        for current_role_index in range(num_roles):
+            """
+            For each role's index.
+            """
+
+            current_role = roles[current_role_index]
+            """
+            Retrieve the current role.
+            """
+
+            if isinstance(current_role, str):
+                """
+                If the current role is really a string.
+                """
+
+                if current_role == role_name:
+                    """
+                    If the current role is equal to the given name,
+                    the pretended role was found.
+                    """
+
+                    """
+                    Return the role from the list of the roles of the Qiskrypt's Party Client,
+                    given the corresponding name.
+                    """
+                    return current_role
+
+        """
+        If no role with the given corresponding name was found in
+        the list of the roles of the Qiskrypt's Party Client, return None.
+        """
+        return None
+
+    def add_item(self, new_item_key: object, new_item_value: object) -> None:
+        """
+        Add a new item to the dictionary of the items of the Qiskrypt's Party Client,
+        with the corresponding given key and value.
+
+        :param new_item_key: the key of the new item to be added to
+                             the dictionary of the items of the Qiskrypt's Party Client.
+        :param new_item_value: the value of the new item to be added to
+                               the dictionary of the items of the Qiskrypt's Party Client.
+        """
+
+        if super().is_connected():
+            """
+            If the Qiskrypt's Client is already connected.
+            """
+
+            """
+            Add the new item to the dictionary of the items of the Qiskrypt's Party Client,
+            with the corresponding given key and value.
+            """
+            self.items[new_item_key] = new_item_value
+
+        else:
+            """
+            If the Qiskrypt's Party Client is not connected yet.
+            """
+
+            # TODO Throw - Exception
+
+    def remove_item(self, item_key: str) -> None:
+        """
+        Remove an item from the dictionary of the roles of the Qiskrypt's Party Client,
+        with the corresponding given key.
+
+        :param item_key: the role to be removed from the list of the roles of the Qiskrypt's Party Client.
+        """
+
+        if super().is_connected():
+            """
+            If the Qiskrypt's Client is already connected.
+            """
+
+            """
+            Remove the item from the list of the roles of the Qiskrypt's Party Client,
+            with the corresponding given key.
+            """
+            self.items.pop(item_key)
+
+        else:
+            """
+            If the Qiskrypt's Party Client is not connected yet.
+            """
+
+            # TODO Throw - Exception
+
+    def get_items(self) -> dict:
+        """
+        Return the dictionary of items of the Qiskrypt's Party Client.
+
+        :return self.items: the dictionary of items of the Qiskrypt's Party Client.
+        """
+
+        if super().is_connected():
+            """
+            If the Qiskrypt's Client is already connected.
+            """
+
+            """
+            Return the dictionary of items of the Qiskrypt's Party Client.
+            """
+            return self.items
+
+        else:
+            """
+            If the Qiskrypt's Party Client is not connected yet.
+            """
+
+            # TODO Throw - Exception
+
+    def get_num_items(self) -> int:
+        """
+        Return the number of items of the Qiskrypt's Party Client.
+
+        :return len(self.get_items()): the number of items of
+                                       the Qiskrypt's Party Client.
+        """
+
+        """
+        Return the number of items of the Qiskrypt's Party Client.
+        """
+        return len(self.get_items())
+
+    def get_items_keys(self) -> list:
+        """
+        Return the list of keys of items of the Qiskrypt's Party Client.
+
+        :return list(self.get_items().keys()): the list of keys of items of
+                                               the Qiskrypt's Party Client.
+        """
+
+        """
+        Return the list of keys of the dictionary of items of
+        the Qiskrypt's Party Client.
+        """
+        return list(self.get_items().keys())
+
+    def get_items_values(self) -> list:
+        """
+        Return the list of values of items of the Qiskrypt's Party Client.
+
+        :return list(self.get_items().values()): the list of values of items of
+                                                 the Qiskrypt's Party Client.
+        """
+
+        """
+        Return the list of values of the dictionary of items of
+        the Qiskrypt's Party Client.
+        """
+        return list(self.get_items().values())
+
+    def get_item_key_by_index(self, item_index: int) -> object:
+        """
+        Return a certain item key from the dictionary of items of
+        the Qiskrypt's Party Client, given the corresponding index.
+
+        :param item_index: the index of a certain item key from
+                           the dictionary of items of the Qiskrypt's Party Client.
+
+        :return item_key: the key of the item in the dictionary of items of
+                          the Qiskrypt's Party Client, given the corresponding index.
+        """
+
+        if item_index < self.get_num_items():
+            """
+            If the given item's index is valid.
+            """
+
+            items_keys = self.get_items_keys()
+            """
+            Retrieve the list of keys of the dictionary of items in
+            the dictionary of items of the Qiskrypt's Party Client.
+            """
+
+            """
+            Retrieve the key of the item in the dictionary of items of
+            the Qiskrypt's Party Client, given the corresponding index.
+            """
+            item_key = items_keys[item_index]
+
+            """
+            Return the key of the item in the dictionary of items of
+            the Qiskrypt's Party Client, given the corresponding index.
+            """
+            return item_key
+
+        else:
+            """
+            If the given item's index is not valid.
+            """
+
+            # TODO Throw - Exception
+
+    def get_item_value_by_index(self, item_index: int) -> object:
+        """
+        Return a certain item value from the dictionary of items of
+        the Qiskrypt's Party Client, given the corresponding index.
+
+        :param item_index: the index of a certain item value from
+                           the dictionary of items of the Qiskrypt's Party Client.
+
+        :return item_value: the value of the item in the dictionary of items of
+                            the Qiskrypt's Party Client, given the corresponding index.
+        """
+
+        if item_index < self.get_num_items():
+            """
+            If the given item's index is valid.
+            """
+
+            items_values = self.get_items_values()
+            """
+            Retrieve the list of values of the dictionary of items in
+            the dictionary of items of the Qiskrypt's Party Client.
+            """
+
+            """
+            Retrieve the value of the item in the dictionary of items of
+            the Qiskrypt's Party Client, given the corresponding index.
+            """
+            item_value = items_values[item_index]
+
+            """
+            Return the value of the item in the dictionary of items of
+            the Qiskrypt's Party Client, given the corresponding index.
+            """
+            return item_value
+
+        else:
+            """
+            If the given item's index is not valid.
+            """
+
+            # TODO Throw - Exception
+
+    def get_item_value_by_key(self, item_key: object) -> object:
+        """
+        Return a certain item value from the dictionary of items of
+        the Qiskrypt's Party Client, given the corresponding key.
+
+        :param item_key: the key of a certain item value from
+                         the dictionary of items of the Qiskrypt's Party Client.
+
+        :return item_value: the value of the item in the dictionary of items of
+                            the Qiskrypt's Party Client, given the corresponding key.
+        """
+
+        """
+        Retrieve the value of the item in the dictionary of items of
+        the Qiskrypt's Party Client, given the corresponding key.
+        """
+        item_value = self.get_items()[item_key]
+
+        """
+        Return the value of the item in the dictionary of items of
+        the Qiskrypt's Party Client, given the corresponding key.
+        """
+        return item_value
 
     def connect(self, party: QiskryptParty, endpoints: list):
         """
