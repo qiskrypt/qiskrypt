@@ -60,7 +60,7 @@ Import the Qiskrypt's Timestamp Generator.
 Definition of Constants and Enumerations.
 """
 
-POSSIBLE_KEY_TYPES = ["RAW KEY", "SIFTED KEY", "RECONCILED KEY", "FINAL KEY"]
+POSSIBLE_KEY_TYPES = ["RAW KEY", "SIFTED KEY", "RECONCILED KEY", "FINAL KEY", "FINAL CONFERENCE KEY"]
 """
 The available types of keys for the Qiskrypt's Key.
 """
