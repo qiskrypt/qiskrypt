@@ -513,8 +513,9 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
                             current_round_quantum_circuit_for_quantum_transmission.apply_pauli_i(0, 0)
                             """
                             Apply the Pauli-I (Idle) Gate/Operation to the qubit in
-                            the sender's Qiskrypt's Quantum Register of the Qiskrypt's Quantum Circuit for
-                            the current round of the Quantum Transmission of the Qiskrypt's Noiseless
+                            the Qiskrypt's Quantum Register of the sender's Qiskrypt's Party Client of
+                            the Qiskrypt's Quantum Circuit for the current round of
+                            the Quantum Transmission of the Qiskrypt's Noiseless
                             DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
                             """
 
@@ -543,8 +544,9 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
                             current_round_quantum_circuit_for_quantum_transmission.apply_pauli_i(0, 0)
                             """
                             Apply the Pauli-I (Idle) Gate/Operation to the qubit in
-                            the sender's Qiskrypt's Quantum Register of the Qiskrypt's Quantum Circuit for
-                            the current round of the Quantum Transmission of the Qiskrypt's Noiseless
+                            the Qiskrypt's Quantum Register of the sender's Qiskrypt's Party Client of
+                            the Qiskrypt's Quantum Circuit for the current round of
+                            the Quantum Transmission of the Qiskrypt's Noiseless
                             DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
                             """
 
@@ -552,7 +554,8 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
                                 .prepare_and_measure_single_qubit_in_qiskit_quantum_register_in_x_basis(0, 0,
                                                                                                         0, 0, False)
                             """
-                            Prepare the qubit in the sender's Qiskrypt's Quantum Register of
+                            Prepare the qubit in the Qiskrypt's Quantum Register of
+                            the sender's Qiskrypt's Party Client regarding
                             the Qiskrypt's Quantum Circuit of the current round of
                             the Quantum Transmission of the Qiskrypt's Noiseless
                             DV (Discrete Variables) BB84 Protocol with No Eavesdropping in
@@ -580,8 +583,9 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
                             current_round_quantum_circuit_for_quantum_transmission.apply_pauli_x(0, 0)
                             """
                             Apply the Pauli-X (NOT/Bit Flip) Gate/Operation to the qubit in
-                            the sender's Qiskrypt's Quantum Register of the Qiskrypt's Quantum Circuit for
-                            the current round of the Quantum Transmission of the Qiskrypt's Noiseless
+                            the Qiskrypt's Quantum Register of the sender's Qiskrypt's Party Client of
+                            the Qiskrypt's Quantum Circuit for the current round of
+                            the Quantum Transmission of the Qiskrypt's Noiseless
                             DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
                             """
 
@@ -610,8 +614,9 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
                             current_round_quantum_circuit_for_quantum_transmission.apply_pauli_x(0, 0)
                             """
                             Apply the Pauli-X (NOT/Bit Flip) Gate/Operation to the qubit in
-                            the sender's Qiskrypt's Quantum Register of the Qiskrypt's Quantum Circuit for
-                            the current round of the Quantum Transmission of the Qiskrypt's Noiseless
+                            the Qiskrypt's Quantum Register of the sender's Qiskrypt's Party Client of
+                            the Qiskrypt's Quantum Circuit for the current round of
+                            the Quantum Transmission of the Qiskrypt's Noiseless
                             DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
                             """
 
@@ -716,7 +721,7 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
                     """
                     Apply the SWAP Gate/Operation between the qubits in
                     the Qiskrypt's Quantum Registers of the Qiskrypt's Link
-                    and receiver Qiskrypt's Party Clients respectively,
+                    and receiver Qiskrypt's Party Client respectively,
                     of the Qiskrypt's Quantum Circuit for the current round of
                     the Quantum Transmission of the Qiskrypt's Noiseless
                     DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
