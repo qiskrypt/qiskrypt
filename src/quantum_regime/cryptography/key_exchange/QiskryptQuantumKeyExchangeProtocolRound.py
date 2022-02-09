@@ -55,54 +55,52 @@ class QiskryptQuantumKeyExchangeProtocolRound:
     Object class for the Qiskrypt's Quantum Key Exchange Protocol Round.
     """
 
-    def __init__(self, quantum_key_exchange_protocol_round_number: int,
-                 quantum_key_exchange_protocol_round_type: str,
-                 quantum_key_exchange_protocol_round_quantum_circuit: QiskryptQuantumCircuit):
+    def __init__(self, round_number: int, round_type: str, round_quantum_circuit: QiskryptQuantumCircuit):
         """
         Constructor of the Qiskrypt's Quantum Key Exchange Protocol Round.
 
-        :param quantum_key_exchange_protocol_round_number: the number of the Qiskrypt's
-                                                           Quantum Key Exchange Protocol Round.
-        :param quantum_key_exchange_protocol_round_type: the type of the Qiskrypt's
-                                                         Quantum Key Exchange Protocol Round.
-        :param: quantum_key_exchange_protocol_round_quantum_circuit: the Qiskrypt's Quantum Circuit for
-                                                                     the Qiskrypt's Quantum Key Exchange
-                                                                     Protocol Round.
+        :param round_number: the number of the Qiskrypt's Quantum Key Exchange Protocol Round.
+        :param round_type: the type of the Qiskrypt's Quantum Key Exchange Protocol Round.
+        :param round_quantum_circuit: the Qiskrypt's Quantum Circuit for
+                                      the Qiskrypt's Quantum Key Exchange Protocol Round.
         """
 
-        if quantum_key_exchange_protocol_round_number > 0:
+        if round_number > 0:
             """
             If the given number of the Qiskrypt's Quantum Key Exchange Protocol Round is valid.
             """
 
-            if quantum_key_exchange_protocol_round_type:
+            if round_type is not None:
                 """
                 If the given type of the Qiskrypt's Quantum Key Exchange Protocol Round is valid.
                 """
 
-                if quantum_key_exchange_protocol_round_quantum_circuit is not None:
+                if round_quantum_circuit is not None:
                     """
                     If the Qiskrypt's Quantum Circuit for
                     the Qiskrypt's Quantum Key Exchange Protocol Round is valid.
                     """
 
-                    self.quantum_key_exchange_protocol_round_number = \
-                        quantum_key_exchange_protocol_round_number
+                    self.round_number = round_number
                     """
                     Set the number of the Qiskrypt's Quantum Key Exchange Protocol Round.
                     """
 
-                    self.quantum_key_exchange_protocol_round_type = \
-                        quantum_key_exchange_protocol_round_type
+                    self.round_type = round_type
                     """
                     Set the type of the Qiskrypt's Quantum Key Exchange Protocol Round.
                     """
 
-                    self.quantum_key_exchange_protocol_round_quantum_circuit = \
-                        quantum_key_exchange_protocol_round_quantum_circuit
+                    self.round_quantum_circuit = round_quantum_circuit
                     """
                     Set the Qiskrypt's Quantum Circuit for the Qiskrypt's
                     Quantum Key Exchange Protocol Round.
+                    """
+
+                    self.round_discarded = False
+                    """
+                    Set the boolean flag to keep the information about if the Qiskrypt's
+                    Quantum Key Exchange Protocol Round is discarded or not, initially, as False.
                     """
 
                 else:
@@ -127,42 +125,80 @@ class QiskryptQuantumKeyExchangeProtocolRound:
 
             # TODO Throw - Exception
 
-    def get_quantum_key_exchange_protocol_round_number(self) -> int:
+    def get_round_number(self) -> int:
         """
         Return the number of the Qiskrypt's Quantum Key Exchange Protocol Round.
 
-        :return self.quantum_key_exchange_protocol_round_number: the number of the Qiskrypt's
-                                                                 Quantum Key Exchange Protocol Round.
+        :return self.round_number: the number of the Qiskrypt's Quantum Key Exchange Protocol Round.
         """
 
         """
         Return the number of the Qiskrypt's Quantum Key Exchange Protocol Round.
         """
-        return self.quantum_key_exchange_protocol_round_number
+        return self.round_number
 
-    def get_quantum_key_exchange_protocol_round_type(self) -> str:
+    def get_round_type(self) -> str:
         """
         Return the type of the Qiskrypt's Quantum Key Exchange Protocol Round.
 
-        :return self.quantum_key_exchange_protocol_round_type: the type of the Qiskrypt's
-                                                               Quantum Key Exchange Protocol Round.
+        :return self.round_type: the type of the Qiskrypt's Quantum Key Exchange Protocol Round.
         """
 
         """
         Return the type of the Qiskrypt's Quantum Key Exchange Protocol Round.
         """
-        return self.quantum_key_exchange_protocol_round_type
+        return self.round_type
 
-    def get_quantum_key_exchange_protocol_round_quantum_circuit(self) -> QiskryptQuantumCircuit:
+    def get_round_quantum_circuit(self) -> QiskryptQuantumCircuit:
         """
         Return the Qiskrypt's Quantum Circuit of the Qiskrypt's Quantum Key Exchange Protocol Round.
 
-        :return self.quantum_key_exchange_protocol_round_quantum_circuit: the Qiskrypt's Quantum Circuit of
-                                                                          the Qiskrypt's Quantum Key Exchange
-                                                                          Protocol Round.
+        :return self.round_quantum_circuit: the Qiskrypt's Quantum Circuit of
+                                            the Qiskrypt's Quantum Key Exchange Protocol Round.
         """
 
         """
         Return the Qiskrypt's Quantum Circuit of the Qiskrypt's Quantum Key Exchange Protocol Round.
         """
-        return self.quantum_key_exchange_protocol_round_quantum_circuit
+        return self.round_quantum_circuit
+
+    def is_round_discarded(self) -> bool:
+        """
+        Return the boolean flag to keep the information about if the Qiskrypt's
+        Quantum Key Exchange Protocol Round is discarded or not.
+
+        :return self.round_discarded: the boolean flag to keep the information about if the Qiskrypt's
+                                      Quantum Key Exchange Protocol Round is discarded or not.
+        """
+
+        """
+        Return the boolean flag to keep the information about if the Qiskrypt's
+        Quantum Key Exchange Protocol Round is discarded or not.
+        """
+        return self.round_discarded
+
+    def set_round_discarded(self) -> None:
+        """
+        Set the boolean flag to keep the information about if the Qiskrypt's
+        Quantum Key Exchange Protocol Round is discarded or not, as True.
+        """
+
+        if not self.is_round_discarded():
+            """
+            If the boolean flag to keep the information about if the Qiskrypt's
+            Quantum Key Exchange Protocol Round is discarded or not, is still set as False.
+            """
+
+            """
+            Set the boolean flag to keep the information about if the Qiskrypt's
+            Quantum Key Exchange Protocol Round is discarded or not, as True.
+            """
+            self.round_discarded = True
+
+        else:
+            """
+            If the boolean flag to keep the information about if the Qiskrypt's
+            Quantum Key Exchange Protocol Round is discarded or not, is already set as True.
+            """
+
+            # TODO Throw - Exception
