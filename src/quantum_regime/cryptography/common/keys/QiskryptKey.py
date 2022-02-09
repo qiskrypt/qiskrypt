@@ -60,6 +60,11 @@ Import the Qiskrypt's Timestamp Generator.
 Definition of Constants and Enumerations.
 """
 
+POSSIBLE_KEY_CATEGORIES = ["SYMMETRIC", "ASYMMETRIC"]
+"""
+The available categories of keys for the Qiskrypt's Key.
+"""
+
 POSSIBLE_KEY_PRIVACY_LEVELS = ["SECRET", "CONFERENCE", "PRIVATE", "PUBLIC"]
 """
 The available privacy levels of keys for the Qiskrypt's Key.
@@ -76,73 +81,92 @@ class QiskryptKey:
     Object class for the Qiskrypt's Key.
     """
 
-    def __init__(self, bits: str, owner_uuid: UUID, key_privacy_level: str, key_type: str, final: bool):
+    def __init__(self, bits: str, owner_uuid: UUID,
+                 key_category: str, key_privacy_level: str, key_type: str, final: bool):
         """
         Constructor of the Qiskrypt's Key.
 
         :param bits: the bits of the Qiskrypt's Key.
         :param owner_uuid: the UUID (Universally Unique IDentifier) of
                            the Qiskrypt's Party Client owning the Qiskrypt's Key.
+        :param key_category: the category of the Qiskrypt's Key.
         :param key_privacy_level: the privacy level of the Qiskrypt's Key.
         :param key_type: the type of the Qiskrypt's Key.
         :param final: the boolean flag to keep the information about if
                       the Qiskrypt's Key is final or not.
         """
 
-        if key_privacy_level in POSSIBLE_KEY_PRIVACY_LEVELS:
+        if key_category in POSSIBLE_KEY_CATEGORIES:
             """
-            If the given privacy level of the Qiskrypt's Key is valid.
+            If the given category of the Qiskrypt's Key is valid.
             """
 
-            if key_type in POSSIBLE_KEY_TYPES:
+            if key_privacy_level in POSSIBLE_KEY_PRIVACY_LEVELS:
                 """
-                If the given type of the Qiskrypt's Key is valid.
-                """
-
-                self.bits = bits
-                """
-                Set the bits of the Qiskrypt's Key.
+                If the given privacy level of the Qiskrypt's Key is valid.
                 """
 
-                self.owner_uuid = owner_uuid
-                """
-                Set the UUID (Universally Unique IDentifier) of
-                the Qiskrypt's Party Client owning the Qiskrypt's Key.
-                """
+                if key_type in POSSIBLE_KEY_TYPES:
+                    """
+                    If the given type of the Qiskrypt's Key is valid.
+                    """
 
-                self.key_privacy_level = key_privacy_level
-                """
-                Set the privacy level of the Qiskrypt's Key.
-                """
+                    self.bits = bits
+                    """
+                    Set the bits of the Qiskrypt's Key.
+                    """
 
-                self.key_type = key_type
-                """
-                Set the type of the Qiskrypt's Key.
-                """
+                    self.owner_uuid = owner_uuid
+                    """
+                    Set the UUID (Universally Unique IDentifier) of
+                    the Qiskrypt's Party Client owning the Qiskrypt's Key.
+                    """
 
-                self.final = final
-                """
-                Set the boolean flag to keep the information about if
-                the Qiskrypt's Key is final or not.
-                """
+                    self.key_category = key_category
+                    """
+                    Set the category of the Qiskrypt's Key.
+                    """
 
-                self.creation_timestamp = \
-                    QiskryptTimestampGenerator("key_timestamp_generation")\
-                    .get_date_and_time_initialisation_timestamp()
-                """
-                Set the timestamp for the creation of the Qiskrypt's Key.
-                """
+                    self.key_privacy_level = key_privacy_level
+                    """
+                    Set the privacy level of the Qiskrypt's Key.
+                    """
+
+                    self.key_type = key_type
+                    """
+                    Set the type of the Qiskrypt's Key.
+                    """
+
+                    self.final = final
+                    """
+                    Set the boolean flag to keep the information about if
+                    the Qiskrypt's Key is final or not.
+                    """
+
+                    self.creation_timestamp = \
+                        QiskryptTimestampGenerator("key_timestamp_generation")\
+                        .get_date_and_time_initialisation_timestamp()
+                    """
+                    Set the timestamp for the creation of the Qiskrypt's Key.
+                    """
+
+                else:
+                    """
+                    If the given type of the Qiskrypt's Key is not valid.
+                    """
+
+                    # TODO Throw - Exception
 
             else:
                 """
-                If the given type of the Qiskrypt's Key is not valid.
+                If the given privacy level of the Qiskrypt's Key is not valid.
                 """
 
                 # TODO Throw - Exception
 
         else:
             """
-            If the given privacy level of the Qiskrypt's Key is not valid.
+            If the given category of the Qiskrypt's Key is not valid.
             """
 
             # TODO Throw - Exception
@@ -170,6 +194,18 @@ class QiskryptKey:
         Return the UUID (Universally Unique IDentifier) of the Qiskrypt's Key.
         """
         return self.owner_uuid
+
+    def get_key_category(self) -> str:
+        """
+        Return the category of the Qiskrypt's Key.
+
+        :return self.key_category: the category of the Qiskrypt's Key.
+        """
+
+        """
+        Return the category of the Qiskrypt's Key.
+        """
+        return self.key_category
 
     def get_key_privacy_level(self) -> str:
         """
