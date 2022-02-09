@@ -56,37 +56,88 @@ Import the Qiskrypt's Timestamp Generator.
 """
 
 
+"""
+Definition of Constants and Enumerations.
+"""
+
+POSSIBLE_KEY_TYPES = ["RAW KEY", "SIFTED KEY", "RECONCILED KEY", "FINAL KEY"]
+"""
+The available types of keys for the Qiskrypt's Key.
+"""
+
+POSSIBLE_KEY_PRIVACY_LEVELS = ["PRIVATE", "PUBLIC"]
+"""
+The available privacy levels of keys for the Qiskrypt's Key.
+"""
+
+
 class QiskryptKey:
     """
     Object class for the Qiskrypt's Key.
     """
 
-    def __init__(self, bits: str, owner_uuid: UUID):
+    def __init__(self, bits: str, owner_uuid: UUID, key_type: str, key_privacy_level: str):
         """
         Constructor of the Qiskrypt's Key.
 
         :param bits: the bits of the Qiskrypt's Key.
         :param owner_uuid: the UUID (Universally Unique IDentifier) of
                            the Qiskrypt's Party Client owning the Qiskrypt's Key.
+        :param key_type: the type of the Qiskrypt's Key.
+        :param key_privacy_level: the privacy level of the Qiskrypt's Key.
         """
 
-        self.bits = bits
-        """
-        Set the bits of the Qiskrypt's Key.
-        """
+        if key_type in POSSIBLE_KEY_TYPES:
+            """
+            If the given type of the Qiskrypt's Key is valid.
+            """
 
-        self.owner_uuid = owner_uuid
-        """
-        Set the UUID (Universally Unique IDentifier) of
-        the Qiskrypt's Party Client owning the Qiskrypt's Key.
-        """
+            if key_privacy_level in POSSIBLE_KEY_PRIVACY_LEVELS:
+                """
+                If the given privacy level of the Qiskrypt's Key is valid.
+                """
 
-        self.creation_timestamp = \
-            QiskryptTimestampGenerator("key_timestamp_generation")\
-            .get_date_and_time_initialisation_timestamp()
-        """
-        Set the timestamp for the creation of the Qiskrypt's Key.
-        """
+                self.bits = bits
+                """
+                Set the bits of the Qiskrypt's Key.
+                """
+
+                self.owner_uuid = owner_uuid
+                """
+                Set the UUID (Universally Unique IDentifier) of
+                the Qiskrypt's Party Client owning the Qiskrypt's Key.
+                """
+
+                self.key_type = key_type
+                """
+                Set the type of the Qiskrypt's Key.
+                """
+
+                self.key_privacy_level = key_privacy_level
+                """
+                Set the privacy level of the Qiskrypt's Key.
+                """
+
+                self.creation_timestamp = \
+                    QiskryptTimestampGenerator("key_timestamp_generation")\
+                    .get_date_and_time_initialisation_timestamp()
+                """
+                Set the timestamp for the creation of the Qiskrypt's Key.
+                """
+
+            else:
+                """
+                If the given privacy level of the Qiskrypt's Key is not valid.
+                """
+
+                # TODO Throw - Exception
+
+        else:
+            """
+            If the given type of the Qiskrypt's Key is not valid.
+            """
+
+            # TODO Throw - Exception
 
     def get_bits(self) -> str:
         """
@@ -111,6 +162,30 @@ class QiskryptKey:
         Return the UUID (Universally Unique IDentifier) of the Qiskrypt's Key.
         """
         return self.owner_uuid
+
+    def get_key_type(self) -> str:
+        """
+        Return the type of the Qiskrypt's Key.
+
+        :return self.key_type: the type of the Qiskrypt's Key.
+        """
+
+        """
+        Return the type of the Qiskrypt's Key.
+        """
+        return self.key_type
+
+    def get_key_privacy_level(self) -> str:
+        """
+        Return the privacy level of the Qiskrypt's Key.
+
+        :return self.key_privacy_level: the privacy level of the Qiskrypt's Key.
+        """
+
+        """
+        Return the privacy level of the Qiskrypt's Key.
+        """
+        return self.key_privacy_level
 
     def get_creation_timestamp(self) -> float:
         """
