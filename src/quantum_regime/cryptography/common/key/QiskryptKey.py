@@ -60,7 +60,7 @@ Import the Qiskrypt's Timestamp Generator.
 Definition of Constants and Enumerations.
 """
 
-POSSIBLE_KEY_TYPES = ["RAW KEY", "SIFTED KEY", "RECONCILED KEY", "FINAL KEY", "FINAL CONFERENCE KEY"]
+POSSIBLE_KEY_TYPES = ["RAW KEY", "SIFTED KEY", "RECONCILED KEY", "KEY", "CONFERENCE KEY"]
 """
 The available types of keys for the Qiskrypt's Key.
 """
@@ -76,7 +76,7 @@ class QiskryptKey:
     Object class for the Qiskrypt's Key.
     """
 
-    def __init__(self, bits: str, owner_uuid: UUID, key_type: str, key_privacy_level: str):
+    def __init__(self, bits: str, owner_uuid: UUID, key_type: str, key_privacy_level: str, final: bool):
         """
         Constructor of the Qiskrypt's Key.
 
@@ -85,6 +85,8 @@ class QiskryptKey:
                            the Qiskrypt's Party Client owning the Qiskrypt's Key.
         :param key_type: the type of the Qiskrypt's Key.
         :param key_privacy_level: the privacy level of the Qiskrypt's Key.
+        :param final: the boolean flag to keep the information about if
+                      the Qiskrypt's Key is final or not.
         """
 
         if key_type in POSSIBLE_KEY_TYPES:
@@ -116,6 +118,12 @@ class QiskryptKey:
                 self.key_privacy_level = key_privacy_level
                 """
                 Set the privacy level of the Qiskrypt's Key.
+                """
+
+                self.final = final
+                """
+                Set the boolean flag to keep the information about if
+                the Qiskrypt's Key is final or not.
                 """
 
                 self.creation_timestamp = \
@@ -186,6 +194,21 @@ class QiskryptKey:
         Return the privacy level of the Qiskrypt's Key.
         """
         return self.key_privacy_level
+
+    def is_final(self) -> bool:
+        """
+        Return the boolean flag to keep the information about if
+        the Qiskrypt's Key is final or not.
+
+        :return self.final: the boolean flag to keep the information about if
+                            the Qiskrypt's Key is final or not.
+        """
+
+        """
+        Return the boolean flag to keep the information about if
+        the Qiskrypt's Key is final or not.
+        """
+        return self.final
 
     def get_creation_timestamp(self) -> float:
         """
