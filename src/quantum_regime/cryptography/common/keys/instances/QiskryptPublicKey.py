@@ -72,7 +72,7 @@ class QiskryptPublicKey(QiskryptKey):
         Constructor of the Qiskrypt's Public Key.
 
         :param bits: the bits of the Qiskrypt's Key.
-        :param owner_uuid: the UUID (Universally Unique IDentifier) of
+        :param owner_uuid: the UUID (Universally Unique IDentifier) of the owner of
                            the Qiskrypt's Party Client owning the Qiskrypt's Key.
         :param key_type: the type of the Qiskrypt's Key.
         :param final: the boolean flag to keep the information about if
@@ -98,13 +98,14 @@ class QiskryptPublicKey(QiskryptKey):
 
     def get_owner_uuid(self) -> UUID:
         """
-        Return the UUID (Universally Unique IDentifier) of the Qiskrypt's Key.
+        Return the UUID (Universally Unique IDentifier) of the owner of the Qiskrypt's Key.
 
-        :return super().get_owner_uuid(): the UUID (Universally Unique IDentifier) of the Qiskrypt's Key.
+        :return super().get_owner_uuid(): the UUID (Universally Unique IDentifier) of
+                                          the owner of the Qiskrypt's Key.
         """
 
         """
-        Return the UUID (Universally Unique IDentifier) of the Qiskrypt's Key.
+        Return the UUID (Universally Unique IDentifier) of the owner of the Qiskrypt's Key.
         """
         return super().get_owner_uuid()
 
