@@ -39,6 +39,7 @@ Acknowledgement(s):\n
 
 """
 
+
 """
 Import required Libraries and Packages.
 """
@@ -61,6 +62,11 @@ Import the trunc function from the NumPy Library.
 
 """
 Definition of Constants and Enumerations.
+"""
+
+BIT_VALUES = ["0", "1"]
+"""
+The possible values for a bit.
 """
 
 BINARY_FORMAT_START_OFFSET = 2
@@ -118,7 +124,7 @@ class QiskryptClassicalUtilities:
             For each bit of the of the given binary string, without the start offset.
             """
 
-            if binary_string_bits[(BINARY_FORMAT_START_OFFSET + current_bit)] == "1":
+            if binary_string_bits[(BINARY_FORMAT_START_OFFSET + current_bit)] == BIT_VALUES[1]:
                 """
                 If the current bit of the given binary string is one (1).
                 """
