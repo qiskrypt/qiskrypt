@@ -49,13 +49,13 @@ from uuid import UUID
 Import the general UUID (Universally Unique IDentifier).
 """
 
-from src.quantum_regime.cryptography.common.key.QiskryptKey \
+from src.quantum_regime.cryptography.common.keys.QiskryptKey \
     import QiskryptKey
 """
 Import the Qiskrypt's Key.
 """
 
-from src.quantum_regime.cryptography.common.key.QiskryptKey \
+from src.quantum_regime.cryptography.common.keys.QiskryptKey \
     import POSSIBLE_KEY_PRIVACY_LEVELS
 """
 Import the available privacy levels of keys for the Qiskrypt's Key.
