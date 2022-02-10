@@ -98,7 +98,7 @@ The number of bytes to be used in an UUID (Universally Unique IDentifier)
 for the Qiskrypt's Client.
 """
 
-POSSIBLE_CLIENT_ROLES = ["RECEIVER", "SENDER"]
+POSSIBLE_CLIENT_ROLES = ["SENDER", "RECEIVER"]
 """
 The available roles for the Qiskrypt's Client.
 """
