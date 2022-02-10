@@ -44,13 +44,13 @@ Acknowledgement(s):\n
 Import required Libraries and Packages.
 """
 
-from src.quantum_regime.cryptography.common.keys.asymmetric.instances.QiskryptPrivateKey \
+from src.quantum_regime.cryptography.common.keys.asymmetric.private.QiskryptPrivateKey \
     import QiskryptPrivateKey
 """
 Import the Qiskrypt's Private Key.
 """
 
-from src.quantum_regime.cryptography.common.keys.asymmetric.instances.QiskryptPublicKey \
+from src.quantum_regime.cryptography.common.keys.asymmetric.public.QiskryptPublicKey \
     import QiskryptPublicKey
 """
 Import the Qiskrypt's Public Key.
