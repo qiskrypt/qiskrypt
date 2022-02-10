@@ -49,6 +49,12 @@ from src.quantum_regime.cryptography.key_exchange.QiskryptQuantumKeyExchangeProt
 Import the Qiskrypt's Quantum Key Exchange Protocol.
 """
 
+from src.quantum_regime.networking_and_communications.sessions.QiskryptCommunicationSession \
+    import QiskryptCommunicationSession
+"""
+Import the Qiskrypt's Communication Session.
+"""
+
 from src.quantum_regime.cryptography.QiskryptQuantumCryptographicPrimitive \
     import POSSIBLE_QUANTUM_CRYPTOGRAPHIC_PRIMITIVE_CARDINALITIES
 """
@@ -267,6 +273,36 @@ class QiskryptQuantumKeyDistribution(QiskryptQuantumKeyExchangeProtocol):
         the Qiskrypt's Quantum Key Exchange Protocol.
         """
         return super().get_num_rounds_for_quantum_transmission_phase()
+
+    def get_communication_session(self) -> QiskryptCommunicationSession:
+        """
+        Return the Qiskrypt's Communication Session for
+        the Qiskrypt's Quantum Key Exchange Protocol.
+
+        :return super().get_communication_session(): the Qiskrypt's Communication Session for
+                                                     the Qiskrypt's Quantum Key Exchange Protocol.
+        """
+
+        """
+        Return the Qiskrypt's Communication Session for
+        the Qiskrypt's Quantum Key Exchange Protocol.
+        """
+        return super().get_communication_session()
+
+    def set_communication_session(self, communication_session: QiskryptCommunicationSession) -> None:
+        """
+        Set the Qiskrypt's Communication Session for
+        the Qiskrypt's Quantum Key Exchange Protocol.
+
+        :param communication_session: the Qiskrypt's Communication Session for
+                                      the Qiskrypt's Quantum Key Exchange Protocol.
+        """
+
+        super().set_communication_session(communication_session)
+        """
+        Set the Qiskrypt's Communication Session for
+        the Qiskrypt's Quantum Key Exchange Protocol.
+        """
 
     def is_configured(self) -> bool:
         """
