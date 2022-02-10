@@ -1083,7 +1083,7 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
 
         NOTES:
         - For the DV (Discrete Variables) BB84 Protocol, the measurements of
-          the photons being received is based on the random bases chosen by the receiver,
+          the incoming photons is based on the random bases chosen by the receiver,
           resulting in several cases, which are described in the following table:
 
            _____________________________________________________________________________________________________
