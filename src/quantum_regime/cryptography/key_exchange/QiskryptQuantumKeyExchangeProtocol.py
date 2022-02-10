@@ -367,6 +367,23 @@ class QiskryptQuantumKeyExchangeProtocol(QiskryptQuantumCryptographicPrimitive):
         """
         # TODO Throw - Exception
 
+    def run(self) -> None:
+        """
+        Run the Qiskrypt's Quantum Key Exchange Protocol.
+        """
+
+        self.start_quantum_transmission_phase()
+        """
+        Start the Quantum Transmission Phase of the
+        Qiskrypt's Quantum Key Exchange Protocol.
+        """
+
+        self.start_classical_post_processing_phase()
+        """
+        Start the Classical Post-Processing Phase of the
+        Qiskrypt's Quantum Key Exchange Protocol.
+        """
+
     def configure(self) -> None:
         """
         Configure the Qiskrypt's Quantum Key Exchange Protocol.
