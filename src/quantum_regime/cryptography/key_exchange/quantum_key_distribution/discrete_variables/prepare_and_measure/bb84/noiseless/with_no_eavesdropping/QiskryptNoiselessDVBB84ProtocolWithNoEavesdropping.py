@@ -1599,7 +1599,7 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
                         """
                         If the current round of the Quantum Transmission Phase of
                         the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping,
-                        is already a discarded round, which is not supposed.
+                        is already a discarded round, which is not supposed yet before the Key Sifting.
                         """
 
                         # TODO Throw - Exception
