@@ -1514,78 +1514,95 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
                     with No Eavesdropping Quantum Transmission Phase Round.
                     """
 
-                    round_basis_sender_choice = \
-                        current_round_for_quantum_transmission_phase.get_round_basis_sender_choice()
-                    """
-                    Retrieve the basis choice made by the sender for the current round of
-                    the Quantum Transmission Phase of the Qiskrypt's Noiseless DV (Discrete Variables)
-                    BB84 Protocol with No Eavesdropping.
-                    """
-
-                    round_basis_receiver_choice = \
-                        current_round_for_quantum_transmission_phase.get_round_basis_receiver_choice()
-                    """
-                    Retrieve the basis choice made by the receiver for the current round of
-                    the Quantum Transmission Phase of the Qiskrypt's Noiseless DV (Discrete Variables)
-                    BB84 Protocol with No Eavesdropping.
-                    """
-
-                    if round_basis_sender_choice == round_basis_receiver_choice:
+                    if not current_round_for_quantum_transmission_phase.is_round_discarded():
                         """
-                        If the bases choices made by the sender and the receiver for the current round of
+                        If the current round of the Quantum Transmission Phase of
+                        the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping,
+                        is not a discarded round.
+                        """
+
+                        round_basis_sender_choice = \
+                            current_round_for_quantum_transmission_phase.get_round_basis_sender_choice()
+                        """
+                        Retrieve the basis choice made by the sender for the current round of
                         the Quantum Transmission Phase of the Qiskrypt's Noiseless DV (Discrete Variables)
-                        BB84 Protocol with No Eavesdropping are equal, the respective round will be used for
-                        the Qiskrypt's Secret Sifted Key.
+                        BB84 Protocol with No Eavesdropping.
                         """
 
-                        sender_secret_bit = \
-                            current_round_for_quantum_transmission_phase\
-                            .get_round_quantum_circuit().get_qiskrypt_classical_register(0).get_bit(0)
+                        round_basis_receiver_choice = \
+                            current_round_for_quantum_transmission_phase.get_round_basis_receiver_choice()
                         """
-                        Retrieve the secret bit in the sender Qiskrypt's Classical Register of
-                        the Qiskrypt's Quantum Circuit for the current round of the Quantum Transmission Phase of
-                        the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
-                        """
-
-                        sender_sifted_key_secret_bits += str(sender_secret_bit)
-                        """
-                        Append the secret bit in the receiver Qiskrypt's Classical Register of
-                        the Qiskrypt's Quantum Circuit for the current round of the Quantum Transmission Phase of
-                        the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping
-                        to the binary string to be used to build the Qiskrypt's Secret Sifted Key for
-                        the sender Qiskrypt's Client Party.
+                        Retrieve the basis choice made by the receiver for the current round of
+                        the Quantum Transmission Phase of the Qiskrypt's Noiseless DV (Discrete Variables)
+                        BB84 Protocol with No Eavesdropping.
                         """
 
-                        receiver_secret_bit = \
-                            current_round_for_quantum_transmission_phase\
-                            .get_round_quantum_circuit().get_qiskrypt_classical_register(1).get_bit(0)
-                        """
-                        Retrieve the secret bit in the receiver Qiskrypt's Classical Register of
-                        the Qiskrypt's Quantum Circuit for the current round of the Quantum Transmission Phase of
-                        the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
-                        """
+                        if round_basis_sender_choice == round_basis_receiver_choice:
+                            """
+                            If the bases choices made by the sender and the receiver for the current round of
+                            the Quantum Transmission Phase of the Qiskrypt's Noiseless DV (Discrete Variables)
+                            BB84 Protocol with No Eavesdropping are equal, the respective round will be used for
+                            the Qiskrypt's Secret Sifted Key.
+                            """
 
-                        receiver_sifted_key_secret_bits += str(receiver_secret_bit)
-                        """
-                        Append the secret bit in the receiver Qiskrypt's Classical Register of
-                        the Qiskrypt's Quantum Circuit for the current round of the Quantum Transmission Phase of
-                        the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping
-                        to the binary string to be used to build the Qiskrypt's Secret Sifted Key for
-                        the receiver Qiskrypt's Client Party.
-                        """
+                            sender_secret_bit = \
+                                current_round_for_quantum_transmission_phase\
+                                .get_round_quantum_circuit().get_qiskrypt_classical_register(0).get_bit(0)
+                            """
+                            Retrieve the secret bit in the sender Qiskrypt's Classical Register of
+                            the Qiskrypt's Quantum Circuit for the current round of the Quantum Transmission Phase of
+                            the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
+                            """
+
+                            sender_sifted_key_secret_bits += str(sender_secret_bit)
+                            """
+                            Append the secret bit in the receiver Qiskrypt's Classical Register of
+                            the Qiskrypt's Quantum Circuit for the current round of the Quantum Transmission Phase of
+                            the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping
+                            to the binary string to be used to build the Qiskrypt's Secret Sifted Key for
+                            the sender Qiskrypt's Client Party.
+                            """
+
+                            receiver_secret_bit = \
+                                current_round_for_quantum_transmission_phase\
+                                .get_round_quantum_circuit().get_qiskrypt_classical_register(1).get_bit(0)
+                            """
+                            Retrieve the secret bit in the receiver Qiskrypt's Classical Register of
+                            the Qiskrypt's Quantum Circuit for the current round of the Quantum Transmission Phase of
+                            the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
+                            """
+
+                            receiver_sifted_key_secret_bits += str(receiver_secret_bit)
+                            """
+                            Append the secret bit in the receiver Qiskrypt's Classical Register of
+                            the Qiskrypt's Quantum Circuit for the current round of the Quantum Transmission Phase of
+                            the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping
+                            to the binary string to be used to build the Qiskrypt's Secret Sifted Key for
+                            the receiver Qiskrypt's Client Party.
+                            """
+
+                        else:
+                            """
+                            If the bases choices made by the sender and the receiver for the current round of
+                            the Quantum Transmission Phase of the Qiskrypt's Noiseless DV (Discrete Variables)
+                            BB84 Protocol with No Eavesdropping are different, the respective round will be discarded.
+                            """
+
+                            current_round_for_quantum_transmission_phase.set_round_discarded()
+                            """
+                            Set the current round of the Quantum Transmission Phase of
+                            the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping,
+                            as a discarded round.
+                            """
 
                     else:
                         """
-                        If the bases choices made by the sender and the receiver for the current round of
-                        the Quantum Transmission Phase of the Qiskrypt's Noiseless DV (Discrete Variables)
-                        BB84 Protocol with No Eavesdropping are different, the respective round will be discarded.
+                        If the current round of the Quantum Transmission Phase of
+                        the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping,
+                        is already a discarded round, which is not supposed.
                         """
 
-                        current_round_for_quantum_transmission_phase.set_round_discarded()
-                        """
-                        Set the current round of the Quantum Transmission Phase of
-                        the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
-                        """
+                        # TODO Throw - Exception
 
             receiver_party_client = \
                 self.get_communication_session().get_sender_party_clients()[0]
