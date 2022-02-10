@@ -1489,6 +1489,8 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
             the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
             """
 
+            # TODO - Improve later for a more realistic exchange of bases using classical communications
+
             for current_num_round_for_quantum_transmission_phase in \
                     range(num_rounds_for_quantum_transmission_phase):
                 """
