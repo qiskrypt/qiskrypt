@@ -1447,6 +1447,15 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
         """
         Sift the Secret Key for the
         Qiskrypt's Quantum Key Distribution (QKD).
+
+        NOTES:
+        - For the DV (Discrete Variables) BB84 Protocol, the rounds of Quantum Transmission Phase,
+          on which the sender and receiver Qiskrypt's Party Clients choose the same basis,
+          are kept and will be used to compose their Qiskrypt's Secret Sifted Keys,
+          since it is expected that correspond to correlated outcome bits.
+        - On the other hand, the rounds of Quantum Transmission Phase,
+          on which the sender and receiver Qiskrypt's Party Clients choose different bases,
+          are discarded, since it is not guaranteed that correspond to correlated outcome bits.
         """
 
         if self.is_configured():
