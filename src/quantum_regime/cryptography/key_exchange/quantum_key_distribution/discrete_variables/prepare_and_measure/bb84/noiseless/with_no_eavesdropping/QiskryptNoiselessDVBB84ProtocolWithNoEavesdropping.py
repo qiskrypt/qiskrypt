@@ -50,6 +50,11 @@ Import the Deep Copy method from
 the Copy module from the Python's Library.
 """
 
+from qiskit import Aer, execute
+"""
+Import Aer Simulator and the Execute function from IBM's Qiskit.
+"""
+
 from src.classical_regime.utils.geographic.QiskryptGeocoding \
     import QiskryptGeocoding
 """
@@ -497,7 +502,7 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
             sender_raw_key_secret_bits = "0b"
             """
             Initialise the binary string for the bits used to build
-            the Qiskrypt's Secret Raw Key of the Qiskrypt's Party Client.
+            the Qiskrypt's Secret Raw Key of the sender Qiskrypt's Party Client.
             """
 
             num_rounds_for_quantum_transmission_phase = \
@@ -573,7 +578,7 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
                         sender_raw_key_secret_bits += str(current_secret_bit_sender)
                         """
                         Append the current secret bit to the binary string for the bits used to
-                        build the Qiskrypt's Secret Raw Key of the Qiskrypt's Party Client,
+                        build the Qiskrypt's Secret Raw Key of the sender Qiskrypt's Party Client,
                         according to the randomly chosen value for it.
                         """
 
@@ -839,7 +844,7 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
             """
 
             receiver_party_client = \
-                self.get_communication_session().get_receiver_party_clients()[1]
+                self.get_communication_session().get_receiver_party_clients()[0]
             """
             Retrieve the receiver Qiskrypt's Party Client of
             the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
@@ -891,7 +896,7 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
                 Retrieve the name of the receiver Qiskrypt's Party.
                 """
 
-                receiver_party_num = sender_party_client.get_party().get_num()
+                receiver_party_num = receiver_party_client.get_party().get_num()
                 """
                 Retrieve the number of the receiver Qiskrypt's Party.                
                 """
@@ -1048,6 +1053,12 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
             If the Qiskrypt's Key Exchange Protocol is already configured.
             """
 
+            receiver_raw_key_secret_bits = "0b"
+            """
+            Initialise the binary string for the bits used to build
+            the Qiskrypt's Secret Raw Key of the receiver Qiskrypt's Party Client.
+            """
+
             num_rounds_for_quantum_transmission_phase = \
                 self.get_num_rounds_for_quantum_transmission_phase()
             """
@@ -1158,7 +1169,7 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
                                     .prepare_and_measure_single_qubit_in_qiskit_quantum_register_in_z_basis\
                                     (2, 1, 0, 0, True)
                                 """
-                                Prepare the qubit in the sender's Qiskrypt's Quantum Register of
+                                Prepare the qubit in the receiver's Qiskrypt's Quantum Register of
                                 the Qiskrypt's Quantum Circuit of the current round of
                                 the Quantum Transmission Phase of the Qiskrypt's Noiseless
                                 DV (Discrete Variables) BB84 Protocol with No Eavesdropping in
@@ -1189,12 +1200,55 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
                                     .prepare_and_measure_single_qubit_in_qiskit_quantum_register_in_x_basis\
                                     (2, 1, 0, 0, True)
                                 """
-                                Prepare the qubit in the sender's Qiskrypt's Quantum Register of
+                                Prepare the qubit in the receiver's Qiskrypt's Quantum Register of
                                 the Qiskrypt's Quantum Circuit of the current round of
                                 the Quantum Transmission Phase of the Qiskrypt's Noiseless
                                 DV (Discrete Variables) BB84 Protocol with No Eavesdropping in
                                 the X-Basis (Hadamard Basis), and then measuring it.
                                 """
+
+                            qiskit_qasm_backend = Aer.get_backend("qasm_simulator")
+                            """
+                            Getting the Aer Simulator Backend for the QASM (Quantum Assembly) Simulation
+                            (i.e., the classical simulation of an IBM Qiskit's Quantum Circuit).
+                            """
+
+                            final_results_frequency_counting = \
+                                execute(current_round_for_quantum_transmission_phase
+                                        .get_round_quantum_circuit().get_qiskit_quantum_circuit(),
+                                        qiskit_qasm_backend, shots=1).result().get_counts()
+                            """
+                            Execute the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit
+                            and store the resulted measurement of its final quantum state.
+                            """
+
+                            measurement_outcome_secret_bit = \
+                                bin(int(final_results_frequency_counting.most_frequent(), base=2))
+                            """
+                            Set the secret bit outcome for the round of the Quantum Transmission Phase of
+                            the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping,
+                            from the measurement of the qubit in the receiver Qiskrypt's Quantum Register into
+                            the bit of the receiver Qiskrypt's Classical Register of the respective
+                            Qiskrypt's Quantum Circuit, as the resulted outcome from the measurement of
+                            the IBM Qiskit's Quantum Circuit, in an binary format
+                            (i.e., the Python's representation for a bit).
+                            """
+
+                            current_round_for_quantum_transmission_phase.get_round_quantum_circuit()\
+                                .get_qiskrypt_classical_register(1)\
+                                .update_bit(0, int(measurement_outcome_secret_bit))
+                            """
+                            Update the bit in the receiver Qiskrypt's Classical Register of the respective
+                            Qiskrypt's Quantum Circuit for the round of the Quantum Transmission Phase of
+                            the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
+                            """
+
+                            receiver_raw_key_secret_bits += str(measurement_outcome_secret_bit)
+                            """
+                            Append the current secret bit to the binary string for the bits used to
+                            build the Qiskrypt's Secret Raw Key of the receiver Qiskrypt's Party Client,
+                            according to the randomly chosen measurement for it.
+                            """
 
                         else:
                             """
@@ -1222,6 +1276,87 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
                     """
 
                     # TODO Throw - Exception
+
+            receiver_party_client = \
+                self.get_communication_session().get_sender_party_clients()[0]
+            """
+            Retrieve the receiver Qiskrypt's Party Client of
+            the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
+            """
+
+            sender_party_client = \
+                self.get_communication_session().get_receiver_party_clients()[0]
+            """
+            Retrieve the sender Qiskrypt's Party Client of
+            the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
+            """
+
+            if isinstance(receiver_party_client, QiskryptPartyClient) and \
+                    isinstance(sender_party_client, QiskryptPartyClient):
+                """
+                If the receiver and sender Qiskrypt's Party Clients of
+                the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping are
+                really Qiskrypt's Party Clients.
+                """
+
+                receiver_party_client_uuid = sender_party_client.get_uuid()
+                """
+                Retrieve the UUID (Universally Unique IDentifier) of the receiver Qiskrypt's Client.
+                """
+
+                receiver_secret_raw_key = QiskryptSecretRawKey(receiver_raw_key_secret_bits,
+                                                               receiver_party_client_uuid)
+                """
+                Create a Qiskrypt's Secret Raw Key for the receiver Qiskrypt's Client.
+                """
+
+                receiver_secret_raw_key_privacy_level = \
+                    receiver_secret_raw_key.get_key_privacy_level()
+                """
+                Retrieve the privacy level of the Qiskrypt's Key for the receiver Qiskrypt's Client.
+                """
+
+                receiver_secret_raw_key_type = \
+                    receiver_secret_raw_key.get_key_type()
+                """
+                Retrieve the type of the Qiskrypt's Key for the receiver Qiskrypt's Client.
+                """
+
+                receiver_party_name = receiver_party_client.get_party().get_name()
+                """
+                Retrieve the name of the receiver Qiskrypt's Party.
+                """
+
+                receiver_party_num = receiver_party_client.get_party().get_num()
+                """
+                Retrieve the number of the receiver Qiskrypt's Party.                
+                """
+
+                sender_party_name = sender_party_client.get_party().get_name()
+                """
+                Retrieve the name of the sender Qiskrypt's Party.
+                """
+
+                sender_party_num = sender_party_client.get_party().get_num()
+                """
+                Retrieve the number of the sender Qiskrypt's Party.                
+                """
+
+                receiver_secret_raw_key_id = \
+                    "{} {} ({}_{} ; {}_{})".format(receiver_secret_raw_key_privacy_level.lower(),
+                                                   receiver_secret_raw_key_type.lower(),
+                                                   receiver_party_name.lower(), receiver_party_num,
+                                                   sender_party_name.lower(), sender_party_num)
+                """
+                Set up the identifier of the Qiskrypt's Secret Raw Key for
+                the receiver Qiskrypt's Client.
+                """
+
+                receiver_party_client.add_item(receiver_secret_raw_key_id, receiver_secret_raw_key)
+                """
+                Add a new item to keep the Qiskrypt's Secret Raw Key for
+                the receiver Qiskrypt's Client.
+                """
 
         else:
             """
@@ -1647,7 +1782,8 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
                 with No Eavesdropping Quantum Transmission Phase Round of the current round.
                 """
 
-                self.quantum_transmission_phase_rounds.append(current_round_for_quantum_transmission_phase)
+                self.quantum_transmission_phase_rounds\
+                    .append(current_round_for_quantum_transmission_phase)
                 """
                 Append the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol
                 with No Eavesdropping Quantum Transmission Phase Round of the current round to
