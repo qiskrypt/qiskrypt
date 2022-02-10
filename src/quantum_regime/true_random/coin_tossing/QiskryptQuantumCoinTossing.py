@@ -48,17 +48,20 @@ from qiskit import Aer, execute
 Import Aer Simulator and the Execute function from IBM's Qiskit.
 """
 
-from src.quantum_regime.circuit.registers.quantum.QiskryptQuantumRegister import QiskryptQuantumRegister
+from src.quantum_regime.circuit.registers.quantum.QiskryptQuantumRegister \
+    import QiskryptQuantumRegister
 """
 Import the Qiskrypt's Quantum Register.
 """
 
-from src.quantum_regime.circuit.registers.classical.QiskryptClassicalRegister import QiskryptClassicalRegister
+from src.quantum_regime.circuit.registers.classical.QiskryptClassicalRegister \
+    import QiskryptClassicalRegister
 """
 Import the Qiskrypt's Classical Register.
 """
 
-from src.quantum_regime.circuit.QiskryptQuantumCircuit import QiskryptQuantumCircuit
+from src.quantum_regime.circuit.QiskryptQuantumCircuit \
+    import QiskryptQuantumCircuit
 """
 Import the Qiskrypt's Quantum Circuit.
 """
