@@ -1099,13 +1099,13 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
           |               |              |_______________|______________|______________________________________|
           |               |              |    X-Basis    |  45º or 135º |     |+⟩ or |-⟩  (or |D⟩ or |A⟩)      |
           |               |              |               |              |   (the outcome bit is expected to    |
-          |               |              |               |              |    be correct only in half times     |
+          |               |              |               |              |    be correct only in HALF times     |
           |               |              |               |              |      and will be discarded from      |
           |               |              |               |              |       the secret sifted key)         |
           |_______________|______________|_______________|______________|______________________________________|
           |    X-Basis    |     45º      |    Z-Basis    |   0º or 90º  |     |+⟩ or |-⟩  (or |D⟩ or |A⟩)      |
           |               |              |               |              |   (the outcome bit is expected to    |
-          |               |              |               |              |    be correct only in half times     |
+          |               |              |               |              |    be correct only in HALF times     |
           |               |              |               |              |      and will be discarded from      |
           |               |              |               |              |       the secret sifted key)         |
           |               |              |_______________|______________|______________________________________|
