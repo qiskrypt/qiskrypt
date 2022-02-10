@@ -62,14 +62,14 @@ Import the available types of keys for the Qiskrypt's Key.
 """
 
 
-class QiskryptSecretReconciledKey(QiskryptSecretKey):
+class QiskryptSecretSecureKey(QiskryptSecretKey):
     """
-    Object class for the Qiskrypt's Secret Reconciled Key.
+    Object class for the Qiskrypt's Secret Secure Key.
     """
 
     def __init__(self, bits: str, owner_uuid: UUID):
         """
-        Constructor of the Qiskrypt's Secret Reconciled Key.
+        Constructor of the Qiskrypt's Secret Secure Key.
 
         :param bits: the bits of the Qiskrypt's Key.
         :param owner_uuid: the UUID (Universally Unique IDentifier) of

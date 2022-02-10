@@ -62,14 +62,14 @@ Import the available types of keys for the Qiskrypt's Key.
 """
 
 
-class QiskryptConferenceReconciledKey(QiskryptConferenceKey):
+class QiskryptConferenceSecureKey(QiskryptConferenceKey):
     """
-    Object class for the Qiskrypt's Conference Reconciled Key.
+    Object class for the Qiskrypt's Conference Secure Key.
     """
 
     def __init__(self, bits: str, owner_uuid: UUID):
         """
-        Constructor of the Qiskrypt's Conference Reconciled Key.
+        Constructor of the Qiskrypt's Conference Secure Key.
 
         :param bits: the bits of the Qiskrypt's Key.
         :param owner_uuid: the UUID (Universally Unique IDentifier) of
@@ -78,7 +78,7 @@ class QiskryptConferenceReconciledKey(QiskryptConferenceKey):
 
         super().__init__(bits, owner_uuid, POSSIBLE_KEY_TYPES[3], True)
         """
-        Call of the constructor of the super-class Qiskrypt's Conference Key.
+        Call of the constructor of the super-class Qiskrypt's Secure Key.
         """
 
     def get_bits(self) -> str:
