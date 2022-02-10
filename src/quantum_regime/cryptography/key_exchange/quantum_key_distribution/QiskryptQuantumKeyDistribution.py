@@ -410,6 +410,16 @@ class QiskryptQuantumKeyDistribution(QiskryptQuantumKeyExchangeProtocol):
         the Quantum Key Distribution (QKD).
         """
 
+    def run(self) -> None:
+        """
+        Run the Qiskrypt's Quantum Key Exchange Protocol.
+        """
+
+        """
+        Run the Qiskrypt's Quantum Key Exchange Protocol.
+        """
+        super().run()
+
     def prepare_quantum_states(self):
         """
         Prepare the Quantum States for the
