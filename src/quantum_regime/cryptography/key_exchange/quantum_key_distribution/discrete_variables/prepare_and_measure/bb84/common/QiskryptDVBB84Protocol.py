@@ -313,6 +313,16 @@ class QiskryptDVBB84Protocol(QiskryptQuantumKeyDistribution):
         """
         super().start_classical_post_processing_phase()
 
+    def run(self) -> None:
+        """
+        Run the Qiskrypt's Quantum Key Exchange Protocol.
+        """
+
+        """
+        Run the Qiskrypt's Quantum Key Exchange Protocol.
+        """
+        super().run()
+
     def prepare_quantum_states(self):
         """
         Prepare the Quantum States for the
