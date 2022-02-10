@@ -179,12 +179,6 @@ Import the Qiskrypt's LEO (Low-Earth Orbit) Semi-Quantum Satellite Station Endpo
 Import the Qiskrypt's LEO (Low-Earth Orbit) Classical Satellite Station Endpoint.
 """
 
-from src.quantum_regime.networking_and_communications.endpoints.QiskryptEndpoint \
-    import POSSIBLE_ENDPOINT_CONTEXTS
-"""
-Import the available Endpoint contexts for the Qiskrypt's Endpoints.
-"""
-
 from src.quantum_regime.circuit.registers.quantum.QiskryptQuantumRegister \
     import QiskryptQuantumRegister
 """
@@ -225,6 +219,12 @@ from src.quantum_regime.circuit.registers.classical.QiskryptClassicalRegister \
     import QiskryptClassicalRegister
 """
 Import the Qiskrypt's Classical Register.
+"""
+
+from src.quantum_regime.networking_and_communications.endpoints.QiskryptEndpoint \
+    import POSSIBLE_ENDPOINT_CONTEXTS
+"""
+Import the available Endpoint contexts for the Qiskrypt's Endpoints.
 """
 
 
