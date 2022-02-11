@@ -83,31 +83,29 @@ Import the Qiskrypt's DV (Discrete Variables) BB84 Protocol
 with No Eavesdropping Quantum Transmission Phase Round.
 """
 
-from src.quantum_regime.cryptography.common.keys.symmetric.secret.QiskryptSecretKey \
-    import QiskryptSecretKey
-"""
-Import the Qiskrypt's Secret Key.
-"""
-
-from src.quantum_regime.cryptography.common.keys.symmetric.secret.types.QiskryptSecretRawKey \
+from src.quantum_regime.cryptography.common.keys\
+    .symmetric.secret.types.QiskryptSecretRawKey \
     import QiskryptSecretRawKey
 """
 Import the Qiskrypt's Secret Raw Key.
 """
 
-from src.quantum_regime.cryptography.common.keys.symmetric.secret.types.QiskryptSecretSiftedKey \
+from src.quantum_regime.cryptography.common.keys\
+    .symmetric.secret.types.QiskryptSecretSiftedKey \
     import QiskryptSecretSiftedKey
 """
 Import the Qiskrypt's Secret Sifted Key.
 """
 
-from src.quantum_regime.cryptography.common.keys.symmetric.secret.types.QiskryptSecretReconciledKey \
+from src.quantum_regime.cryptography.common.keys\
+    .symmetric.secret.types.QiskryptSecretReconciledKey \
     import QiskryptSecretReconciledKey
 """
 Import the Qiskrypt's Secret Reconciled Key.
 """
 
-from src.quantum_regime.cryptography.common.keys.symmetric.secret.types.QiskryptSecretSecureKey \
+from src.quantum_regime.cryptography.common.keys\
+    .symmetric.secret.types.QiskryptSecretSecureKey \
     import QiskryptSecretSecureKey
 """
 Import the Qiskrypt's Secret Secure Key.
@@ -188,7 +186,8 @@ from src.quantum_regime.networking_and_communications.links.QiskryptLink \
 Import the Qiskrypt's Link.
 """
 
-from src.quantum_regime.networking_and_communications.sessions.QiskryptCommunicationSession \
+from src.quantum_regime.networking_and_communications\
+    .sessions.QiskryptCommunicationSession \
     import QiskryptCommunicationSession
 """
 Import the Qiskrypt's Communication Session.
@@ -200,13 +199,21 @@ from src.quantum_regime.true_random.coin_tossing.QiskryptQuantumCoinTossing \
 Import the Qiskrypt's Quantum Coin Tossing.
 """
 
+from src.quantum_regime.true_random.random_generator\
+    .numeric.QiskryptQuantumRandomNumericGenerator \
+    import QiskryptQuantumRandomNumericGenerator
+"""
+Import the Qiskrypt's Quantum Random Numeric Generator.
+"""
+
 from src.quantum_regime.networking_and_communications.clients.QiskryptClient \
     import POSSIBLE_CLIENT_ROLES
 """
 Import the available roles for the Qiskrypt's Client.
 """
 
-from src.quantum_regime.networking_and_communications.channels.QiskryptCommunicationChannel \
+from src.quantum_regime.networking_and_communications\
+    .channels.QiskryptCommunicationChannel \
     import POSSIBLE_COMMUNICATION_CHANNEL_DIRECTIONS
 """
 Import the available Communication Channel directions for
@@ -220,14 +227,16 @@ Import the available Quantum Cryptographic Primitive scenarios for
 the Qiskrypt's Quantum Cryptographic Primitives.
 """
 
-from src.quantum_regime.cryptography.key_exchange.quantum_key_distribution.QiskryptQuantumKeyDistribution \
+from src.quantum_regime.cryptography.key_exchange\
+    .quantum_key_distribution.QiskryptQuantumKeyDistribution \
     import QUANTUM_KEY_DISTRIBUTION_NUM_PARTIES
 """
 Import the number of parties for
 the Qiskrypt's Quantum Key Distribution (QKD). 
 """
 
-from src.quantum_regime.cryptography.key_exchange.quantum_key_distribution.QiskryptQuantumKeyDistribution \
+from src.quantum_regime.cryptography.key_exchange\
+    .quantum_key_distribution.QiskryptQuantumKeyDistribution \
     import QUANTUM_KEY_DISTRIBUTION_DEFAULT_PARTIES_NAMES
 """
 Import the default parties' names for
@@ -236,9 +245,17 @@ the Qiskrypt's Quantum Key Distribution (QKD).
 
 from src.quantum_regime.cryptography.key_exchange.quantum_key_distribution \
     .discrete_variables.prepare_and_measure.bb84.common.QiskryptDVBB84Protocol \
-    import DV_BB84_PROTOCOL_NUM_ROUNDS_FOR_QUANTUM_TRANSMISSION_PHASE
+    import DV_BB84_PROTOCOL_DEFAULT_NUM_ROUNDS_FOR_QUANTUM_TRANSMISSION_PHASE
 """
 Import the default number of rounds for the Quantum Transmission Phase of
+the Qiskrypt's DV (Discrete Variable) BB84 Protocol.
+"""
+
+from src.quantum_regime.cryptography.key_exchange.quantum_key_distribution \
+    .discrete_variables.prepare_and_measure.bb84.common.QiskryptDVBB84Protocol \
+    import DV_BB84_PROTOCOL_DEFAULT_FACTOR_FOR_NUM_ROUNDS_OF_PARAMETER_ESTIMATION_SAMPLE
+"""
+Import the default factor for the number of rounds for the Parameter Estimation Sample of
 the Qiskrypt's DV (Discrete Variable) BB84 Protocol.
 """
 
@@ -248,6 +265,32 @@ from src.quantum_regime.cryptography.key_exchange.quantum_key_distribution\
 """
 Import the available DV (Discrete Variables) BB84 Protocol Round types for
 the Qiskrypt's DV (Discrete Variables) BB84 Protocol.
+"""
+
+from src.quantum_regime.cryptography.common.keys.QiskryptKey \
+    import POSSIBLE_KEY_PRIVACY_LEVELS
+"""
+Import the available privacy levels of keys for the Qiskrypt's Key.
+"""
+
+from src.quantum_regime.cryptography.common.keys.QiskryptKey \
+    import POSSIBLE_KEY_TYPES
+"""
+Import the available types of keys for the Qiskrypt's Key.
+"""
+
+from src.quantum_regime.true_random\
+    .random_generator.numeric.QiskryptQuantumRandomNumericGenerator \
+    import DATA_TYPES
+"""
+Import the Data Types for all the numbers that can be possibly generated
+from the Qiskrypt's Quantum Random Numeric Generator.
+"""
+
+from src.classical_regime.common.QiskryptClassicalUtilities \
+    import BINARY_FORMAT_START_OFFSET
+"""
+Import the offset for the start of the Python's binary format.
 """
 
 
@@ -264,7 +307,7 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
                  .NOVA_SCHOOL_OF_SCIENCE_AND_TECHNOLOGY_PORTUGAL.value,
                  receiver_address=QiskryptGeographicAddressEnumeration
                  .INSTITUTO_SUPERIOR_TECNICO_PORTUGAL.value,
-                 num_rounds_for_quantum_transmission_phase=DV_BB84_PROTOCOL_NUM_ROUNDS_FOR_QUANTUM_TRANSMISSION_PHASE):
+                 num_rounds_for_quantum_transmission_phase=DV_BB84_PROTOCOL_DEFAULT_NUM_ROUNDS_FOR_QUANTUM_TRANSMISSION_PHASE):
         """
         Constructor of the Qiskrypt's Noiseless DV (Discrete Variables)
         BB84 Protocol with No Eavesdropping.
@@ -1347,16 +1390,16 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
                     # TODO Throw - Exception
 
             receiver_party_client = \
-                self.get_communication_session().get_sender_party_clients()[0]
+                self.get_communication_session().get_receiver_party_clients()[0]
             """
-            Retrieve the receiver Qiskrypt's Party Client of
+            Retrieve the receiver Qiskrypt's Party Client from the Qiskrypt's Communication Session of
             the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
             """
 
             sender_party_client = \
-                self.get_communication_session().get_receiver_party_clients()[0]
+                self.get_communication_session().get_sender_party_clients()[0]
             """
-            Retrieve the sender Qiskrypt's Party Client of
+            Retrieve the sender Qiskrypt's Party Client from the Qiskrypt's Communication Session of
             the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
             """
 
@@ -1604,24 +1647,24 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
 
                         # TODO Throw - Exception
 
-            receiver_party_client = \
+            sender_party_client = \
                 self.get_communication_session().get_sender_party_clients()[0]
             """
-            Retrieve the receiver Qiskrypt's Party Client of
+            Retrieve the sender Qiskrypt's Party Client from the Qiskrypt's Communication Session of
             the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
             """
 
-            sender_party_client = \
+            receiver_party_client = \
                 self.get_communication_session().get_receiver_party_clients()[0]
             """
-            Retrieve the sender Qiskrypt's Party Client of
+            Retrieve the receiver Qiskrypt's Party Client from the Qiskrypt's Communication Session of
             the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
             """
 
-            if isinstance(receiver_party_client, QiskryptPartyClient) and \
-                    isinstance(sender_party_client, QiskryptPartyClient):
+            if isinstance(sender_party_client, QiskryptPartyClient) and \
+                    isinstance(receiver_party_client, QiskryptPartyClient):
                 """
-                If the receiver and sender Qiskrypt's Party Clients of
+                If the sender and receiver Qiskrypt's Party Clients of
                 the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping are
                 really Qiskrypt's Party Clients.
                 """
@@ -1751,7 +1794,209 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
             If the Qiskrypt's Key Exchange Protocol is already configured.
             """
 
-            # TODO - To complete
+            sender_party_client = \
+                self.get_communication_session().get_sender_party_clients()[0]
+            """
+            Retrieve the sender Qiskrypt's Party Client from the Qiskrypt's Communication Session of
+            the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
+            """
+
+            receiver_party_client = \
+                self.get_communication_session().get_receiver_party_clients()[0]
+            """
+            Retrieve the receiver Qiskrypt's Party Client from the Qiskrypt's Communication Session of
+            the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
+            """
+
+            if isinstance(sender_party_client, QiskryptPartyClient) and \
+                    isinstance(receiver_party_client, QiskryptPartyClient):
+                """
+                If the sender and receiver Qiskrypt's Party Clients of
+                the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping are
+                really Qiskrypt's Party Clients.
+                """
+
+                sender_party_name = sender_party_client.get_party().get_name()
+                """
+                Retrieve the name of the sender Qiskrypt's Party.
+                """
+
+                sender_party_num = sender_party_client.get_party().get_num()
+                """
+                Retrieve the number of the sender Qiskrypt's Party.                
+                """
+
+                receiver_party_name = receiver_party_client.get_party().get_name()
+                """
+                Retrieve the name of the receiver Qiskrypt's Party.
+                """
+
+                receiver_party_num = receiver_party_client.get_party().get_num()
+                """
+                Retrieve the number of the receiver Qiskrypt's Party.                
+                """
+
+                sender_secret_sifted_key_id = \
+                    "{} {} ({}_{} ; {}_{})".format(POSSIBLE_KEY_PRIVACY_LEVELS[0].lower(),
+                                                   POSSIBLE_KEY_TYPES[1].lower(),
+                                                   sender_party_name.lower(), sender_party_num,
+                                                   receiver_party_name.lower(), receiver_party_num)
+                """
+                Set up the identifier of the Qiskrypt's Secret Sifted Key for
+                the sender Qiskrypt's Client.
+                """
+
+                receiver_secret_sifted_key_id = \
+                    "{} {} ({}_{} ; {}_{})".format(POSSIBLE_KEY_PRIVACY_LEVELS[0].lower(),
+                                                   POSSIBLE_KEY_TYPES[1].lower(),
+                                                   receiver_party_name.lower(), receiver_party_name,
+                                                   sender_party_name.lower(), sender_party_num)
+                """
+                Set up the identifier of the Qiskrypt's Secret Sifted Key for
+                the receiver Qiskrypt's Client.
+                """
+
+                sender_secret_sifted_key = \
+                    sender_party_client.get_item_value_by_key(sender_secret_sifted_key_id)
+                """
+                Retrieve the Qiskrypt's Secret Sifted Key for
+                the sender Qiskrypt's Client. 
+                """
+
+                receiver_secret_sifted_key = \
+                    receiver_party_client.get_item_value_by_key(receiver_secret_sifted_key_id)
+                """
+                Retrieve the Qiskrypt's Secret Sifted Key for
+                the receiver Qiskrypt's Client. 
+                """
+
+                if isinstance(sender_secret_sifted_key, QiskryptSecretSiftedKey) and \
+                        isinstance(receiver_secret_sifted_key, QiskryptSecretSiftedKey):
+                    """
+                    If the Qiskrypt's Secret Sifted Keys of the sender and the receiver
+                    Qiskrypt's Party Clients of the Qiskrypt's Noiseless DV (Discrete Variables)
+                    BB84 Protocol with No Eavesdropping are really Qiskrypt's Secret Sifted Keys.
+                    """
+
+                    sender_secret_sifted_key_length = \
+                        (len(sender_secret_sifted_key.get_bits()) - BINARY_FORMAT_START_OFFSET)
+                    """
+                    Retrieve the length of the Qiskrypt's Secret Sifted Keys of the sender
+                    Qiskrypt's Party Clients of the Qiskrypt's Noiseless DV (Discrete Variables)
+                    BB84 Protocol with No Eavesdropping.
+                    """
+
+                    receiver_secret_sifted_key_length = \
+                        (len(receiver_secret_sifted_key.get_bits()) - BINARY_FORMAT_START_OFFSET)
+                    """
+                    Retrieve the length of the Qiskrypt's Secret Sifted Keys of the receiver
+                    Qiskrypt's Party Clients of the Qiskrypt's Noiseless DV (Discrete Variables)
+                    BB84 Protocol with No Eavesdropping.
+                    """
+
+                    if sender_secret_sifted_key_length == receiver_secret_sifted_key_length:
+                        """
+                        If the Qiskrypt's Secret Sifted Keys of the sender and the receiver
+                        Qiskrypt's Party Clients of the Qiskrypt's Noiseless DV (Discrete Variables)
+                        BB84 Protocol with No Eavesdropping really have the same length.
+                        """
+
+                        num_rounds_parameter_estimation_sample = \
+                            (DV_BB84_PROTOCOL_DEFAULT_FACTOR_FOR_NUM_ROUNDS_OF_PARAMETER_ESTIMATION_SAMPLE *
+                             sender_secret_sifted_key_length)
+                        """
+                        Compute the number of rounds for the parameter estimation sample for
+                        the Qiskrypt's Party Clients of the Qiskrypt's Noiseless DV (Discrete Variables)
+                        BB84 Protocol with No Eavesdropping.
+                        """
+
+                        rounds_parameter_estimation_sample_indexes = set()
+                        """
+                        Initialise the list of rounds for the parameter estimation sample for
+                        the Qiskrypt's Party Clients of the Qiskrypt's Noiseless DV (Discrete Variables)
+                        BB84 Protocol with No Eavesdropping, initially, as an empty set.
+                        """
+
+                        quantum_random_numeric_generator_parameter_estimation_sample = \
+                            QiskryptQuantumRandomNumericGenerator("qu_rng_parameter_estimation_sample",
+                                                                  DATA_TYPES[7])
+                        """
+                        Create the Qiskrypt's Quantum Random Numeric Generator to
+                        generate random integer number to choose the rounds for
+                        the parameter estimation sample for the Qiskrypt's Party Clients of
+                        the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol
+                        with No Eavesdropping.
+                        """
+
+                        quantum_random_numeric_generator_parameter_estimation_sample.initiate()
+                        """
+                        Initiate the Qiskrypt's Quantum Random Numeric Generator to
+                        generate random integer number to choose the rounds for
+                        the parameter estimation sample for the Qiskrypt's Party Clients of
+                        the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol
+                        with No Eavesdropping.
+                        """
+
+                        while(len(rounds_parameter_estimation_sample_indexes) <
+                              num_rounds_parameter_estimation_sample):
+                            """
+                            While the list of rounds for the parameter estimation sample for
+                            the Qiskrypt's Party Clients of the Qiskrypt's Noiseless DV (Discrete Variables)
+                            BB84 Protocol with No Eavesdropping does not have the pretended number of rounds.
+                            """
+
+                            random_num_round_parameter_estimation_sample = \
+                                quantum_random_numeric_generator_parameter_estimation_sample.generate_number()
+                            """
+                            Generate a random integer number to choose a rounds for
+                            the parameter estimation sample for the Qiskrypt's Party Clients of
+                            the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol
+                            with No Eavesdropping.
+                            """
+
+                            quantum_random_numeric_generator_parameter_estimation_sample.generate_number()
+                            """
+                            Retrieve the random integer number to choose a rounds for
+                            the parameter estimation sample for the Qiskrypt's Party Clients of
+                            the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol
+                            with No Eavesdropping.
+                            """
+
+                            rounds_parameter_estimation_sample_indexes\
+                                .add(random_num_round_parameter_estimation_sample)
+                            """
+                            Add the random integer number to choose a rounds for
+                            the parameter estimation sample for the Qiskrypt's Party Clients of
+                            the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol
+                            with No Eavesdropping to the list of rounds for it.
+                            """
+
+                    else:
+                        """
+                        If the Qiskrypt's Secret Sifted Keys of the sender and the receiver
+                        Qiskrypt's Party Clients of the Qiskrypt's Noiseless DV (Discrete Variables)
+                        BB84 Protocol with No Eavesdropping does not have the same length.
+                        """
+
+                        # TODO Throw - Exception
+
+                else:
+                    """
+                    If the Qiskrypt's Secret Sifted Keys of the sender and/or the receiver
+                    Qiskrypt's Party Clients of the Qiskrypt's Noiseless DV (Discrete Variables)
+                    BB84 Protocol with No Eavesdropping are not Qiskrypt's Secret Sifted Keys.
+                    """
+
+                    # TODO Throw - Exception
+
+            else:
+                """
+                If the sender and/or receiver Qiskrypt's Party Clients of
+                the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping
+                are not a Qiskrypt's Party Client.
+                """
+
+                # TODO Throw - Exception
 
         else:
             """
