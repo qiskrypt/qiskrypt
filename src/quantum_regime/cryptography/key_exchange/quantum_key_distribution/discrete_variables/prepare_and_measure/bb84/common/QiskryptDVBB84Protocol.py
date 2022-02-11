@@ -79,9 +79,15 @@ DV_BB84_PROTOCOL_NAME = "DV (DISCRETE VARIABLES) BB84 PROTOCOL"
 The name of the DV (Discrete Variables) BB84 Protocol.
 """
 
-DV_BB84_PROTOCOL_NUM_ROUNDS_FOR_QUANTUM_TRANSMISSION_PHASE = 1024
+DV_BB84_PROTOCOL_DEFAULT_NUM_ROUNDS_FOR_QUANTUM_TRANSMISSION_PHASE = 1024
 """
 The default number of rounds for the Quantum Transmission Phase of
+the Qiskrypt's DV (Discrete Variable) BB84 Protocol.
+"""
+
+DV_BB84_PROTOCOL_DEFAULT_FACTOR_FOR_NUM_ROUNDS_OF_PARAMETER_ESTIMATION_SAMPLE = 0.5
+"""
+The default factor for the number of rounds for the Parameter Estimation Sample of
 the Qiskrypt's DV (Discrete Variable) BB84 Protocol.
 """
 
@@ -98,7 +104,7 @@ class QiskryptDVBB84Protocol(QiskryptQuantumKeyDistribution):
     """
 
     def __init__(self, primitive_scenario: str,
-                 num_rounds_for_quantum_transmission_phase=DV_BB84_PROTOCOL_NUM_ROUNDS_FOR_QUANTUM_TRANSMISSION_PHASE):
+                 num_rounds_for_quantum_transmission_phase=DV_BB84_PROTOCOL_DEFAULT_NUM_ROUNDS_FOR_QUANTUM_TRANSMISSION_PHASE):
         """
         Constructor of the Qiskrypt's DV (Discrete Variables) BB84 Protocol.
 
