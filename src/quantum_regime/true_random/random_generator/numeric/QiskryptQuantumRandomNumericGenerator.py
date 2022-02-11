@@ -141,7 +141,7 @@ SIZE_OF_NUMERIC_DATA_TYPES = {      DATA_TYPES[0]: (NUM_BYTES_SHORT_INTEGER * NU
                                    DATA_TYPES[10]: (NUM_BYTES_DOUBLE * NUM_BITS_FOR_ONE_BYTE),
                                    DATA_TYPES[11]: (NUM_BYTES_DOUBLE * NUM_BITS_FOR_ONE_BYTE),
                                    DATA_TYPES[12]: (NUM_BYTES_LONG_DOUBLE * NUM_BITS_FOR_ONE_BYTE),
-                                   DATA_TYPES[13]: (NUM_BYTES_LONG_DOUBLE * NUM_BITS_FOR_ONE_BYTE)      }
+                                   DATA_TYPES[13]: (NUM_BYTES_LONG_DOUBLE * NUM_BITS_FOR_ONE_BYTE)         }
 """
 The sizes of the Data Types for all the numbers that can be possibly generated.
 """
@@ -338,7 +338,7 @@ class QiskryptQuantumRandomNumericGenerator(QiskryptQuantumRandomGenerator):
             """
 
             for current_num_qiskrypt_quantum_hadamard_transform \
-                in range(num_qiskrypt_quantum_hadamard_transforms):
+                    in range(num_qiskrypt_quantum_hadamard_transforms):
                 """
                 For each Qiskrypt's Quantum Hadamard Transform of
                 the Qiskrypt's Quantum Random Numeric Generator.
