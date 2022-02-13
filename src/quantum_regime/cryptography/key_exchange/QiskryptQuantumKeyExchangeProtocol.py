@@ -136,6 +136,12 @@ class QiskryptQuantumKeyExchangeProtocol(QiskryptQuantumCryptographicPrimitive):
             is configured, initially as False.
             """
 
+            self.quantum_transmission_phase_rounds = list()
+            """
+            Create the list of the rounds for the Quantum Transmission Phase of
+            the Qiskrypt's Quantum Key Exchange Protocol, initially, as an empty list.
+            """
+
         else:
             """
             If the given type of the Qiskrypt's Quantum Key Exchange Protocol is not valid.
@@ -339,6 +345,35 @@ class QiskryptQuantumKeyExchangeProtocol(QiskryptQuantumCryptographicPrimitive):
             """
             If the boolean flag to determine if the Qiskrypt's Key Exchange Protocol
             is configured, as True.
+            """
+
+            # TODO Throw - Exception
+
+    def get_quantum_transmission_phase_rounds(self) -> list:
+        """
+        Return the list of the rounds for the Quantum Transmission Phase of
+        the Qiskrypt's Quantum Key Exchange Protocol.
+
+        :return self.quantum_transmission_phase_rounds: the list of the rounds for the Quantum Transmission Phase of
+                                                        the Qiskrypt's Quantum Key Exchange Protocol.
+        """
+
+        if self.is_configured():
+            """
+            If the boolean flag to determine if the Qiskrypt's Key Exchange Protocol
+            is configured, as True.
+            """
+
+            """
+            Return the list of the rounds for the Quantum Transmission Phase of
+            the Qiskrypt's Quantum Key Exchange Protocol.
+            """
+            return self.quantum_transmission_phase_rounds
+
+        else:
+            """
+            If the boolean flag to determine if the Qiskrypt's Key Exchange Protocol
+            is configured, as False.
             """
 
             # TODO Throw - Exception
