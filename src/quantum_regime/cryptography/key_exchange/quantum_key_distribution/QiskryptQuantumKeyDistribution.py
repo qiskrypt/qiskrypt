@@ -151,6 +151,20 @@ class QiskryptQuantumKeyDistribution(QiskryptQuantumKeyExchangeProtocol):
             Set the number of parties of the Qiskrypt's Quantum Key Distribution (QKD).
             """
 
+            self.quantum_transmission_phase_rounds_not_discarded_from_key_sifting = list()
+            """
+            Create the list of the rounds for the Quantum Transmission Phase of
+            the Qiskrypt's Quantum Key Distribution (QKD) not discarded from
+            the Key Sifting, initially, as an empty list.
+            """
+
+            self.quantum_transmission_phase_rounds_not_discarded_from_parameter_estimation = list()
+            """
+            Create the list of the rounds for the Quantum Transmission Phase of
+            the Qiskrypt's Quantum Key Distribution (QKD) not discarded from
+            the Parameter Estimation, initially, as an empty list.
+            """
+
         else:
             """
             If the given type of the Qiskrypt's Quantum Key Distribution (QKD) is not valid.
@@ -330,6 +344,78 @@ class QiskryptQuantumKeyDistribution(QiskryptQuantumKeyExchangeProtocol):
         Set the boolean flag to determine if the Qiskrypt's Key Exchange Protocol
         is configured, as True.
         """
+
+    def get_quantum_transmission_phase_rounds(self) -> list:
+        """
+        Return the list of the rounds for the Quantum Transmission Phase of
+        the Qiskrypt's Quantum Key Exchange Protocol.
+
+        :return super().get_quantum_transmission_phase_rounds: the list of the rounds for
+                                                               the Quantum Transmission Phase of
+                                                               the Qiskrypt's Quantum Key Exchange Protocol.
+        """
+
+        """
+        Return the list of the rounds for the Quantum Transmission Phase of
+        the Qiskrypt's Quantum Key Exchange Protocol.
+        """
+        return super().get_quantum_transmission_phase_rounds()
+
+    def get_quantum_transmission_phase_rounds_not_discarded_from_key_sifting(self) -> list:
+        """
+        Return the list of the rounds for the Quantum Transmission Phase of
+        the Qiskrypt's Quantum Key Distribution (QKD) not discarded from the Key Sifting.
+
+        :return self.quantum_transmission_phase_rounds_not_discarded_from_key_sifting:
+                the list of the rounds for the Quantum Transmission Phase of
+                the Qiskrypt's Quantum Key Distribution (QKD) not discarded from the Key Sifting.
+        """
+
+        if super().is_configured():
+            """
+            If the Qiskrypt's Key Exchange Protocol is already configured.
+            """
+
+            """
+            Return the list of the rounds for the Quantum Transmission Phase of
+            the Qiskrypt's Quantum Key Distribution (QKD) not discarded from the Key Sifting.
+            """
+            return self.quantum_transmission_phase_rounds_not_discarded_from_key_sifting
+
+        else:
+            """
+            If the Qiskrypt's Key Exchange Protocol is not configured yet.
+            """
+
+            # TODO Throw - Exception
+
+    def get_quantum_transmission_phase_rounds_not_discarded_from_parameter_estimation(self) -> list:
+        """
+        Return the list of the rounds for the Quantum Transmission Phase of
+        the Qiskrypt's Quantum Key Distribution (QKD) not discarded from the Parameter Estimation.
+
+        :return self.quantum_transmission_phase_rounds_not_discarded_from_parameter_estimation:
+                the list of the rounds for the Quantum Transmission Phase of
+                the Qiskrypt's Quantum Key Distribution (QKD) not discarded from the Parameter Estimation.
+        """
+
+        if super().is_configured():
+            """
+            If the Qiskrypt's Key Exchange Protocol is already configured.
+            """
+
+            """
+            Return the list of the rounds for the Quantum Transmission Phase of
+            the Qiskrypt's Quantum Key Distribution (QKD) not discarded from the Parameter Estimation.
+            """
+            return self.quantum_transmission_phase_rounds_not_discarded_from_parameter_estimation
+
+        else:
+            """
+            If the Qiskrypt's Key Exchange Protocol is not configured yet.
+            """
+
+            # TODO Throw - Exception
 
     def get_quantum_key_distribution_type(self) -> str:
         """
