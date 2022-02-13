@@ -97,10 +97,18 @@ class QiskryptQuantumKeyExchangeProtocolRound:
                     Quantum Key Exchange Protocol Round.
                     """
 
-                    self.round_discarded = False
+                    self.round_discarded_from_key_sifting = False
                     """
                     Set the boolean flag to keep the information about if the Qiskrypt's
-                    Quantum Key Exchange Protocol Round is discarded or not, initially, as False.
+                    Quantum Key Exchange Protocol Round is discarded from the Key Sifting or not,
+                    initially, as False.
+                    """
+
+                    self.round_discarded_from_parameter_estimation = False
+                    """
+                    Set the boolean flag to keep the information about if the Qiskrypt's
+                    Quantum Key Exchange Protocol Round is discarded from the Parameter Estimation or not,
+                    initially, as False.
                     """
 
                 else:
@@ -162,43 +170,115 @@ class QiskryptQuantumKeyExchangeProtocolRound:
         """
         return self.round_quantum_circuit
 
+    def is_round_discarded_from_key_sifting(self) -> bool:
+        """
+        Return the boolean flag to keep the information about if
+        the Qiskrypt's Quantum Key Exchange Protocol Round is discarded from
+        the Key Sifting or not.
+
+        :return self.round_discarded_from_key_sifting: the boolean flag to keep the information about if
+                                                       the Qiskrypt's Quantum Key Exchange Protocol Round
+                                                       is discarded from the Key Sifting or not.
+        """
+
+        """
+        Return the boolean flag to keep the information about if
+        the Qiskrypt's Quantum Key Exchange Protocol Round is discarded from
+        the Key Sifting or not.
+        """
+        return self.round_discarded_from_key_sifting
+
+    def is_round_discarded_from_parameter_estimation(self) -> bool:
+        """
+        Return the boolean flag to keep the information about if
+        the Qiskrypt's Quantum Key Exchange Protocol Round is discarded from
+        the Parameter Estimation or not.
+
+        :return self.round_discarded_from_parameter_estimation: the boolean flag to keep the information about if
+                                                                the Qiskrypt's Quantum Key Exchange Protocol Round
+                                                                is discarded from the Parameter Estimation or not.
+        """
+
+        """
+        Return the boolean flag to keep the information about if
+        the Qiskrypt's Quantum Key Exchange Protocol Round is discarded from
+        the Parameter Estimation or not.
+        """
+        return self.round_discarded_from_parameter_estimation
+
     def is_round_discarded(self) -> bool:
         """
         Return the boolean flag to keep the information about if the Qiskrypt's
         Quantum Key Exchange Protocol Round is discarded or not.
 
-        :return self.round_discarded: the boolean flag to keep the information about if the Qiskrypt's
-                                      Quantum Key Exchange Protocol Round is discarded or not.
+        :return self.is_round_discarded_from_key_sifting() or self.is_round_discarded_from_parameter_estimation():
+                the boolean flag to keep the information about if the Qiskrypt's
+                Quantum Key Exchange Protocol Round is discarded or not.
         """
 
         """
         Return the boolean flag to keep the information about if the Qiskrypt's
         Quantum Key Exchange Protocol Round is discarded or not.
         """
-        return self.round_discarded
+        return self.is_round_discarded_from_key_sifting() or \
+            self.is_round_discarded_from_parameter_estimation()
 
-    def set_round_discarded(self) -> None:
+    def set_round_discarded_from_key_sifting(self) -> None:
         """
         Set the boolean flag to keep the information about if the Qiskrypt's
-        Quantum Key Exchange Protocol Round is discarded or not, as True.
+        Quantum Key Exchange Protocol Round is discarded from
+        the Key Sifting or not, as True.
         """
 
         if not self.is_round_discarded():
             """
             If the boolean flag to keep the information about if the Qiskrypt's
-            Quantum Key Exchange Protocol Round is discarded or not, is still set as False.
+            Quantum Key Exchange Protocol Round is discarded or not,
+            is still retrieved as False.
             """
 
             """
             Set the boolean flag to keep the information about if the Qiskrypt's
-            Quantum Key Exchange Protocol Round is discarded or not, as True.
+            Quantum Key Exchange Protocol Round is discarded from
+            the Key Sifting or not, as True.
             """
-            self.round_discarded = True
+            self.round_discarded_from_key_sifting = True
 
         else:
             """
             If the boolean flag to keep the information about if the Qiskrypt's
-            Quantum Key Exchange Protocol Round is discarded or not, is already set as True.
+            Quantum Key Exchange Protocol Round is discarded or not,
+            is already retrieved as True.
+            """
+
+            # TODO Throw - Exception
+
+    def set_round_discarded_from_parameter_estimation(self) -> None:
+        """
+        Set the boolean flag to keep the information about if the Qiskrypt's
+        Quantum Key Exchange Protocol Round is discarded from
+        the Parameter Estimation or not, as True.
+        """
+
+        if not self.is_round_discarded():
+            """
+            If the boolean flag to keep the information about if the Qiskrypt's
+            Quantum Key Exchange Protocol Round is discarded or not,
+            is still retrieved as False.
+            """
+
+            """
+            Set the boolean flag to keep the information about if the Qiskrypt's
+            Quantum Key Exchange Protocol Round is discarded from
+            the Parameter Estimation or not, as True.
+            """
+            self.round_discarded_from_parameter_estimation = True
+
+        else:
+            """
+            If the boolean flag to keep the information about if the Qiskrypt's
+            Quantum Key Exchange Protocol Round is discarded or not,
+            is already retrieved as True.
             """
 
             # TODO Throw - Exception
