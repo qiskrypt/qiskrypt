@@ -118,6 +118,43 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdroppingQuantumTransmissionPhase
         """
         return super().get_round_quantum_circuit()
 
+    def is_round_discarded_from_key_sifting(self) -> bool:
+        """
+        Return the boolean flag to keep the information about if
+        the Qiskrypt's Quantum Key Exchange Protocol Round is discarded from
+        the Key Sifting or not.
+
+        :return super().is_round_discarded_from_key_sifting(): the boolean flag to keep the information about if
+                                                               the Qiskrypt's Quantum Key Exchange Protocol Round
+                                                               is discarded from the Key Sifting or not.
+        """
+
+        """
+        Return the boolean flag to keep the information about if
+        the Qiskrypt's Quantum Key Exchange Protocol Round is discarded from
+        the Key Sifting or not.
+        """
+        return super().is_round_discarded_from_key_sifting()
+
+    def is_round_discarded_from_parameter_estimation(self) -> bool:
+        """
+        Return the boolean flag to keep the information about if
+        the Qiskrypt's Quantum Key Exchange Protocol Round is discarded from
+        the Parameter Estimation or not.
+
+        :return super().is_round_discarded_from_parameter_estimation(): the boolean flag to keep the information
+                                                                        about if the Qiskrypt's Quantum Key Exchange
+                                                                        Protocol Round is discarded from
+                                                                        the Parameter Estimation or not.
+        """
+
+        """
+        Return the boolean flag to keep the information about if
+        the Qiskrypt's Quantum Key Exchange Protocol Round is discarded from
+        the Parameter Estimation or not.
+        """
+        return super().is_round_discarded_from_parameter_estimation()
+
     def is_round_discarded(self) -> bool:
         """
         Return the boolean flag to keep the information about if the Qiskrypt's
@@ -133,17 +170,33 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdroppingQuantumTransmissionPhase
         """
         return super().is_round_discarded()
 
-    def set_round_discarded(self) -> None:
+    def set_round_discarded_from_key_sifting(self) -> None:
         """
         Set the boolean flag to keep the information about if the Qiskrypt's
-        Quantum Key Exchange Protocol Round is discarded or not, as True.
+        Quantum Key Exchange Protocol Round is discarded from
+        the Key Sifting or not, as True.
         """
 
         """
         Set the boolean flag to keep the information about if the Qiskrypt's
-        Quantum Key Exchange Protocol Round is discarded or not, as True.
+        Quantum Key Exchange Protocol Round is discarded from
+        the Key Sifting or not, as True.
         """
-        super().set_round_discarded()
+        super().set_round_discarded_from_key_sifting()
+
+    def set_round_discarded_from_parameter_estimation(self) -> None:
+        """
+        Set the boolean flag to keep the information about if the Qiskrypt's
+        Quantum Key Exchange Protocol Round is discarded from
+        the Parameter Estimation or not, as True.
+        """
+
+        """
+        Set the boolean flag to keep the information about if the Qiskrypt's
+        Quantum Key Exchange Protocol Round is discarded from
+        the Parameter Estimation or not, as True.
+        """
+        super().set_round_discarded_from_parameter_estimation()
 
     def is_round_basis_sender_choice_made(self) -> bool:
         """
