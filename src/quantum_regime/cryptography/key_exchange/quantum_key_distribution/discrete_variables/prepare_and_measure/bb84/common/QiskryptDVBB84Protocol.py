@@ -70,6 +70,14 @@ Import the available Quantum Key Distribution (QKD) types for
 the Qiskrypt's Quantum Key Distribution (QKD).
 """
 
+from src.quantum_regime.cryptography.key_exchange.quantum_key_distribution\
+    .discrete_variables.prepare_and_measure.bb84.common.QiskryptDVBB84ProtocolRound \
+    import POSSIBLE_DV_BB84_PROTOCOL_ROUND_TYPES_QUANTUM_TRANSMISSION_PHASE
+"""
+Import the available DV (Discrete Variables) BB84 Protocol Round types for
+the Qiskrypt's DV (Discrete Variables) BB84 Protocol.
+"""
+
 """
 Definition of Constants and Enumerations.
 """
@@ -123,6 +131,15 @@ class QiskryptDVBB84Protocol(QiskryptQuantumKeyDistribution):
             """
             Create an empty list of properties of the Qiskrypt's
             Quantum Cryptographic Primitive.
+            """
+
+            self.quantum_bit_error_rates = \
+                [0.0] * len(POSSIBLE_DV_BB84_PROTOCOL_ROUND_TYPES_QUANTUM_TRANSMISSION_PHASE)
+            """
+            Initialise the list of QBERs (Quantum Bit Error Rates) to be
+            estimated during the Parameter Estimation of
+            the Qiskrypt's Noiseless DV (Discrete Variables) 
+            BB84 Protocol with No Eavesdropping.
             """
 
             super().__init__(DV_BB84_PROTOCOL_NAME,
@@ -281,6 +298,194 @@ class QiskryptDVBB84Protocol(QiskryptQuantumKeyDistribution):
         Set the boolean flag to determine if the Qiskrypt's Key Exchange Protocol
         is configured, as True.
         """
+
+    def get_quantum_transmission_phase_rounds(self) -> list:
+        """
+        Return the list of the rounds for the Quantum Transmission Phase of
+        the Qiskrypt's Quantum Key Exchange Protocol.
+
+        :return super().get_quantum_transmission_phase_rounds(): the list of the rounds for
+                                                                 the Quantum Transmission Phase of
+                                                                 the Qiskrypt's Quantum Key Exchange Protocol.
+        """
+
+        """
+        Return the list of the rounds for the Quantum Transmission Phase of
+        the Qiskrypt's Quantum Key Exchange Protocol.
+        """
+        return super().get_quantum_transmission_phase_rounds()
+
+    def get_quantum_transmission_phase_rounds_not_discarded_from_key_sifting(self) -> list:
+        """
+        Return the list of the rounds for the Quantum Transmission Phase of
+        the Qiskrypt's Quantum Key Distribution (QKD) not discarded from the Key Sifting.
+
+        :return super().get_quantum_transmission_phase_rounds_not_discarded_from_key_sifting():
+                the list of the rounds for the Quantum Transmission Phase of
+                the Qiskrypt's Quantum Key Distribution (QKD) not discarded from the Key Sifting.
+        """
+
+        """
+        Return the list of the rounds for the Quantum Transmission Phase of
+        the Qiskrypt's Quantum Key Distribution (QKD) not discarded from the Key Sifting.
+        """
+        return super().get_quantum_transmission_phase_rounds_not_discarded_from_key_sifting()
+
+    def get_quantum_transmission_phase_rounds_not_discarded_from_parameter_estimation(self) -> list:
+        """
+        Return the list of the rounds for the Quantum Transmission Phase of
+        the Qiskrypt's Quantum Key Distribution (QKD) not discarded from the Parameter Estimation.
+
+        :return super().get_quantum_transmission_phase_rounds_not_discarded_from_parameter_estimation():
+                the list of the rounds for the Quantum Transmission Phase of
+                the Qiskrypt's Quantum Key Distribution (QKD) not discarded from the Parameter Estimation.
+        """
+
+        """
+        Return the list of the rounds for the Quantum Transmission Phase of
+        the Qiskrypt's Quantum Key Distribution (QKD) not discarded from the Parameter Estimation.
+        """
+        return super().get_quantum_transmission_phase_rounds_not_discarded_from_parameter_estimation()
+
+    def get_quantum_bit_error_rate_z_basis(self) -> float:
+        """
+        Return the QBER (Quantum Bit Error Rate) of the Z-Basis (Standard Computational Basis) Rounds
+        estimated during the Parameter Estimation of the Qiskrypt's DV (Discrete Variables) BB84 Protocol.
+
+        :return self.quantum_bit_error_rates[0]: the QBER (Quantum Bit Error Rate) of
+                                                 the Z-Basis (Standard Computational Basis) Rounds
+                                                 estimated during the Parameter Estimation of
+                                                 the Qiskrypt's DV (Discrete Variables) BB84 Protocol.
+        """
+
+        if self.is_configured():
+            """
+            If the Qiskrypt's Key Exchange Protocol is already configured.
+            """
+
+            """
+            Return the QBER (Quantum Bit Error Rate) of the Z-Basis (Standard Computational Basis) Rounds
+            estimated during the Parameter Estimation of the Qiskrypt's DV (Discrete Variables) BB84 Protocol.
+            """
+            return self.quantum_bit_error_rates[0]
+
+        else:
+            """
+            If the Qiskrypt's Key Exchange Protocol is not configured yet.
+            """
+
+            # TODO Throw - Exception
+
+    def get_quantum_bit_error_rate_x_basis(self) -> float:
+        """
+        Return the QBER (Quantum Bit Error Rate) of the X-Basis (Hadamard Basis) Rounds
+        estimated during the Parameter Estimation of the Qiskrypt's DV (Discrete Variables) BB84 Protocol.
+
+        :return self.quantum_bit_error_rates[1]: the QBER (Quantum Bit Error Rate) of
+                                                 the X-Basis (Hadamard Basis) Rounds
+                                                 estimated during the Parameter Estimation of
+                                                 the Qiskrypt's DV (Discrete Variables) BB84 Protocol.
+        """
+
+        if self.is_configured():
+            """
+            If the Qiskrypt's Key Exchange Protocol is already configured.
+            """
+
+            """
+            Return the QBER (Quantum Bit Error Rate) of the X-Basis (Hadamard Basis) Rounds
+            estimated during the Parameter Estimation of the Qiskrypt's DV (Discrete Variables) BB84 Protocol.
+            """
+            return self.quantum_bit_error_rates[1]
+
+        else:
+            """
+            If the Qiskrypt's Key Exchange Protocol is not configured yet.
+            """
+
+            # TODO Throw - Exception
+
+    def get_global_quantum_bit_error_rate(self) -> float:
+        """
+        Return the global QBER (Quantum Bit Error Rate) of the rounds estimated during
+        the Parameter Estimation of the Qiskrypt's DV (Discrete Variables) BB84 Protocol.
+
+        :return global_quantum_bit_error_rate: the global QBER (Quantum Bit Error Rate) of
+                                               the rounds estimated during the Parameter Estimation of
+                                               the Qiskrypt's DV (Discrete Variables) BB84 Protocol.
+        """
+
+        global_quantum_bit_error_rate = \
+            self.get_quantum_bit_error_rate_z_basis() + \
+            self.get_quantum_bit_error_rate_x_basis()
+        """
+        Retrieve the global QBER (Quantum Bit Error Rate) of the rounds estimated during
+        the Parameter Estimation of the Qiskrypt's DV (Discrete Variables) BB84 Protocol.
+        """
+
+        """
+        Return the global QBER (Quantum Bit Error Rate) of the rounds estimated during
+        the Parameter Estimation of the Qiskrypt's DV (Discrete Variables) BB84 Protocol.
+        """
+        return global_quantum_bit_error_rate
+
+    def update_quantum_bit_error_rate_z_basis(self, quantum_bit_error_rate_z_basis: float) -> None:
+        """
+        Update the QBER (Quantum Bit Error Rate) of the Z-Basis (Standard Computational Basis) Rounds
+        estimated during the Parameter Estimation of the Qiskrypt's DV (Discrete Variables) BB84 Protocol.
+
+        :param quantum_bit_error_rate_z_basis: the QBER (Quantum Bit Error Rate) of
+                                               the Z-Basis (Standard Computational Basis) Rounds
+                                               estimated during the Parameter Estimation of
+                                               the Qiskrypt's DV (Discrete Variables) BB84 Protocol.
+        """
+
+        if self.is_configured():
+            """
+            If the Qiskrypt's Key Exchange Protocol is already configured.
+            """
+
+            """
+            Update the QBER (Quantum Bit Error Rate) of the Z-Basis (Standard Computational Basis) Rounds
+            estimated during the Parameter Estimation of the Qiskrypt's DV (Discrete Variables) BB84 Protocol.
+            """
+            self.quantum_bit_error_rates[0] = quantum_bit_error_rate_z_basis
+
+        else:
+            """
+            If the Qiskrypt's Key Exchange Protocol is not configured yet.
+            """
+
+            # TODO Throw - Exception
+
+    def update_quantum_bit_error_rate_x_basis(self, quantum_bit_error_rate_x_basis: float) -> None:
+        """
+        Update the QBER (Quantum Bit Error Rate) of the X-Basis (Hadamard Basis) Rounds
+        estimated during the Parameter Estimation of the Qiskrypt's DV (Discrete Variables) BB84 Protocol.
+
+        :param quantum_bit_error_rate_x_basis: the QBER (Quantum Bit Error Rate) of
+                                               the X-Basis (Hadamard Basis) Rounds
+                                               estimated during the Parameter Estimation of
+                                               the Qiskrypt's DV (Discrete Variables) BB84 Protocol.
+        """
+
+        if self.is_configured():
+            """
+            If the Qiskrypt's Key Exchange Protocol is already configured.
+            """
+
+            """
+            Update the QBER (Quantum Bit Error Rate) of the X-Basis (Hadamard Basis) Rounds
+            estimated during the Parameter Estimation of the Qiskrypt's DV (Discrete Variables) BB84 Protocol.
+            """
+            self.quantum_bit_error_rates[1] = quantum_bit_error_rate_x_basis
+
+        else:
+            """
+            If the Qiskrypt's Key Exchange Protocol is not configured yet.
+            """
+
+            # TODO Throw - Exception
 
     def get_quantum_key_distribution_type(self) -> str:
         """
