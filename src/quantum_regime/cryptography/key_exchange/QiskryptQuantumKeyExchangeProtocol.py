@@ -407,17 +407,29 @@ class QiskryptQuantumKeyExchangeProtocol(QiskryptQuantumCryptographicPrimitive):
         Run the Qiskrypt's Quantum Key Exchange Protocol.
         """
 
-        self.start_quantum_transmission_phase()
-        """
-        Start the Quantum Transmission Phase of the
-        Qiskrypt's Quantum Key Exchange Protocol.
-        """
+        if self.is_configured():
+            """
+            If the Qiskrypt's Key Exchange Protocol is already configured.
+            """
 
-        self.start_classical_post_processing_phase()
-        """
-        Start the Classical Post-Processing Phase of the
-        Qiskrypt's Quantum Key Exchange Protocol.
-        """
+            self.start_quantum_transmission_phase()
+            """
+            Start the Quantum Transmission Phase of the
+            Qiskrypt's Quantum Key Exchange Protocol.
+            """
+
+            self.start_classical_post_processing_phase()
+            """
+            Start the Classical Post-Processing Phase of the
+            Qiskrypt's Quantum Key Exchange Protocol.
+            """
+
+        else:
+            """
+            If the Qiskrypt's Key Exchange Protocol is not configured yet.
+            """
+
+            # TODO Throw - Exception
 
     def configure(self) -> None:
         """
