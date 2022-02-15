@@ -235,7 +235,7 @@ class QiskryptClient:
         the Qiskrypt's Client is connected or not.
         """
 
-        self.registers = []
+        self.registers = list()
         """
         Set the Qiskrypt's Registers for the Qiskrypt's Client, as an initially empty list.
         """

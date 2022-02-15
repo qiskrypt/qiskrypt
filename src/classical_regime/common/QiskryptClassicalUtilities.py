@@ -44,6 +44,11 @@ Acknowledgement(s):\n
 Import required Libraries and Packages.
 """
 
+from time import sleep
+"""
+
+"""
+
 from typing import Literal
 """
 Import the Literal class from the Python's Library.
@@ -57,6 +62,12 @@ Import the cast function from the Python's Library.
 from numpy import trunc as truncate
 """
 Import the trunc function from the NumPy Library.
+"""
+
+from src.classical_regime.common.QiskryptMessageColorsEnumeration \
+    import QiskryptMessageColorsEnumeration
+"""
+Import the Qiskrypt's Message Colors Enumeration.
 """
 
 
@@ -206,3 +217,50 @@ class QiskryptClassicalUtilities:
         from a given initial Float number and a number of decimal places.
         """
         return float_number_truncated
+
+    @staticmethod
+    def waiting_animation(message="Please, wait", num_points=16):
+        """
+        Call a waiting animation.
+
+        :param message: the waiting message, set with the value
+                        'Please, wait', as default.
+        :param num_points: the number of points for the animation,
+                           set with the value 16, as default.
+        """
+
+        for current_num_points in range(num_points):
+            """
+            For each current combination for the waiting animation.
+            """
+
+            points = "." * current_num_points
+            """
+            Compute the current combination of points for the waiting animation.
+            """
+
+            final_message = message + points
+            """
+            Compute the current combination of the final message for the waiting animation.
+            """
+
+            ok_green_color = QiskryptMessageColorsEnumeration.OK_GREEN.value
+            """
+            Retrieve the OK Green Color for the message of the waiting animation.
+            """
+
+            print("\r{}{}".format(ok_green_color, final_message), end="")
+            """
+            Print the message of the waiting animation.
+            """
+
+            sleep(1)
+            """
+            Wait/sleep one (1) Second.
+            """
+
+        print()
+        print()
+        """
+        Print two consecutive empty blank lines.
+        """

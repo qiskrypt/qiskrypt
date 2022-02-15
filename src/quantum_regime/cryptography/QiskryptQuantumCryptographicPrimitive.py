@@ -39,6 +39,7 @@ Acknowledgement(s):\n
 
 """
 
+
 """
 Definition of Constants and Enumerations.
 """
@@ -86,7 +87,8 @@ class QiskryptQuantumCryptographicPrimitive:
     """
 
     def __init__(self, primitive_name: str, primitive_cardinality: str, primitive_signal_variable_type: str,
-                 primitive_context: str, primitive_properties: list, primitive_scenario: str, primitive_type: str):
+                 primitive_context: str, primitive_properties: list, primitive_scenario: str, primitive_type: str,
+                 verbose=True):
         """
         Constructor of the Qiskrypt's Quantum Cryptographic Primitive.
 
@@ -98,6 +100,8 @@ class QiskryptQuantumCryptographicPrimitive:
         :param primitive_properties: the list of properties of the Qiskrypt's Quantum Cryptographic Primitive.
         :param primitive_scenario: the scenario of the Qiskrypt's Quantum Cryptographic Primitive.
         :param primitive_type: the type of the Qiskrypt's Quantum Cryptographic Primitive.
+        :param verbose: the boolean flag to show the runtime information about
+                        the Qiskrypt's Quantum Cryptographic Primitive.
         """
 
         if primitive_cardinality in POSSIBLE_QUANTUM_CRYPTOGRAPHIC_PRIMITIVE_CARDINALITIES:
@@ -128,64 +132,70 @@ class QiskryptQuantumCryptographicPrimitive:
 
                             # TODO Throw - Exception
 
-                        if primitive_scenario in POSSIBLE_QUANTUM_CRYPTOGRAPHIC_PRIMITIVE_SCENARIOS:
+                    if primitive_scenario in POSSIBLE_QUANTUM_CRYPTOGRAPHIC_PRIMITIVE_SCENARIOS:
+                        """
+                        If the given scenario of the Qiskrypt's Quantum Cryptographic Primitive is valid.
+                        """
+
+                        if primitive_type in POSSIBLE_QUANTUM_CRYPTOGRAPHIC_PRIMITIVE_TYPES:
                             """
-                            If the given scenario of the Qiskrypt's Quantum Cryptographic Primitive is valid.
+                            If the given type of the Qiskrypt's Quantum Cryptographic Primitive is valid.
                             """
 
-                            if primitive_type in POSSIBLE_QUANTUM_CRYPTOGRAPHIC_PRIMITIVE_TYPES:
-                                """
-                                If the given type of the Qiskrypt's Quantum Cryptographic Primitive is valid.
-                                """
+                            self.primitive_name = primitive_name
+                            """
+                            Se the name of the name of the Qiskrypt's Quantum Cryptographic Primitive.
+                            """
 
-                                self.primitive_name = primitive_name
-                                """
-                                Se the name of the name of the Qiskrypt's Quantum Cryptographic Primitive.
-                                """
+                            self.primitive_cardinality = primitive_cardinality
+                            """
+                            Set the cardinality of the Qiskrypt's Quantum Cryptographic Primitive.
+                            """
 
-                                self.primitive_cardinality = primitive_cardinality
-                                """
-                                Set the cardinality of the Qiskrypt's Quantum Cryptographic Primitive.
-                                """
+                            self.primitive_signal_variable_type = primitive_signal_variable_type
+                            """
+                            Set the signal variable type of the Qiskrypt's Quantum Cryptographic Primitive.
+                            """
 
-                                self.primitive_signal_variable_type = primitive_signal_variable_type
-                                """
-                                Set the signal variable type of the Qiskrypt's Quantum Cryptographic Primitive.
-                                """
+                            self.primitive_context = primitive_context
+                            """
+                            Set the context of the Qiskrypt's Quantum Cryptographic Primitive.
+                            """
 
-                                self.primitive_context = primitive_context
-                                """
-                                Set the context of the Qiskrypt's Quantum Cryptographic Primitive.
-                                """
+                            self.primitive_properties = primitive_properties
+                            """
+                            Set the list of properties of the Qiskrypt's Quantum Cryptographic Primitive.
+                            """
 
-                                self.primitive_properties = primitive_properties
-                                """
-                                Set the list of properties of the Qiskrypt's Quantum Cryptographic Primitive.
-                                """
+                            self.primitive_scenario = primitive_scenario
+                            """
+                            Set the scenario of the Qiskrypt's Quantum Cryptographic Primitive.
+                            """
 
-                                self.primitive_scenario = primitive_scenario
-                                """
-                                Set the scenario of the Qiskrypt's Quantum Cryptographic Primitive.
-                                """
+                            self.primitive_type = primitive_type
+                            """
+                            Set the type of the Qiskrypt's Quantum Cryptographic Primitive.
+                            """
 
-                                self.primitive_type = primitive_type
-                                """
-                                Set the type of the Qiskrypt's Quantum Cryptographic Primitive.
-                                """
-
-                            else:
-                                """
-                                If the given type of the Qiskrypt's Quantum Cryptographic Primitive is not valid.
-                                """
-
-                                # TODO Throw - Exception
+                            self.verbose = verbose
+                            """
+                            Set the boolean flag to show the runtime information about
+                            the Qiskrypt's Quantum Cryptographic Primitive.
+                            """
 
                         else:
                             """
-                            If the given scenario of the Qiskrypt's Quantum Cryptographic Primitive is not valid.
+                            If the given type of the Qiskrypt's Quantum Cryptographic Primitive is not valid.
                             """
 
                             # TODO Throw - Exception
+
+                    else:
+                        """
+                        If the given scenario of the Qiskrypt's Quantum Cryptographic Primitive is not valid.
+                        """
+
+                        # TODO Throw - Exception
 
                 else:
                     """
@@ -292,3 +302,18 @@ class QiskryptQuantumCryptographicPrimitive:
         Return the type of the Qiskrypt's Quantum Cryptographic Primitive.
         """
         return self.primitive_type
+
+    def is_verbose(self) -> bool:
+        """
+        Return the boolean flag to show the runtime information about
+        the Qiskrypt's Quantum Cryptographic Primitive.
+
+        :return self.verbose: the boolean flag to show the runtime information about
+                              the Qiskrypt's Quantum Cryptographic Primitive.
+        """
+
+        """
+        Return the boolean flag to show the runtime information about
+        the Qiskrypt's Quantum Cryptographic Primitive.
+        """
+        return self.verbose

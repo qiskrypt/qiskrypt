@@ -114,7 +114,7 @@ class QiskryptQuantumKeyDistribution(QiskryptQuantumKeyExchangeProtocol):
 
     def __init__(self, primitive_name: str, primitive_signal_variable_type: str,
                  primitive_properties: list, primitive_scenario: str,
-                 num_rounds_for_quantum_transmission_phase: int, quantum_key_distribution_type: str):
+                 num_rounds_for_quantum_transmission_phase: int, quantum_key_distribution_type: str, verbose=True):
         """
         Constructor of the Qiskrypt's Quantum Key Distribution (QKD).
 
@@ -125,6 +125,8 @@ class QiskryptQuantumKeyDistribution(QiskryptQuantumKeyExchangeProtocol):
         :param num_rounds_for_quantum_transmission_phase: the number of rounds for the Quantum Transmission Phase in
                                                           the Qiskrypt's Quantum Key Exchange Protocol.
         :param quantum_key_distribution_type: the type of the Qiskrypt's Quantum Key Distribution (QKD).
+        :param verbose: the boolean flag to show the runtime information about
+                        the Qiskrypt's Quantum Cryptographic Primitive.
         """
 
         if quantum_key_distribution_type in POSSIBLE_QUANTUM_KEY_DISTRIBUTION_TYPES:
@@ -136,7 +138,7 @@ class QiskryptQuantumKeyDistribution(QiskryptQuantumKeyExchangeProtocol):
                              primitive_signal_variable_type, POSSIBLE_QUANTUM_CRYPTOGRAPHIC_PRIMITIVE_CONTEXTS[0],
                              primitive_properties, primitive_scenario,
                              POSSIBLE_QUANTUM_KEY_EXCHANGE_PROTOCOL_TYPES[0],
-                             num_rounds_for_quantum_transmission_phase)
+                             num_rounds_for_quantum_transmission_phase, verbose)
             """
             Call of the constructor of the super-class Qiskrypt's Quantum Key Exchange Protocol.
             """
@@ -259,6 +261,21 @@ class QiskryptQuantumKeyDistribution(QiskryptQuantumKeyExchangeProtocol):
         Return the type of the Qiskrypt's Quantum Cryptographic Primitive.
         """
         return super().get_primitive_type()
+
+    def is_verbose(self) -> bool:
+        """
+        Return the boolean flag to show the runtime information about
+        the Qiskrypt's Quantum Cryptographic Primitive.
+
+        :return super().is_verbose(): the boolean flag to show the runtime information about
+                                      the Qiskrypt's Quantum Cryptographic Primitive.
+        """
+
+        """
+        Return the boolean flag to show the runtime information about
+        the Qiskrypt's Quantum Cryptographic Primitive.
+        """
+        return super().is_verbose()
 
     def get_protocol_type(self) -> str:
         """

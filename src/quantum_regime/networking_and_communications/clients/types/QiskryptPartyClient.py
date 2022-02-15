@@ -1654,7 +1654,7 @@ class QiskryptPartyClient(QiskryptClient):
                     and belongs to a Quantum Context.
                     """
 
-                    super().registers.append(quantum_register)
+                    super().get_registers().append(quantum_register)
                     """
                     Adds the given Qiskrypt's Quantum Register to
                     the list of Qiskrypt's Registers of the Qiskrypt's Party Client.
@@ -1754,13 +1754,13 @@ class QiskryptPartyClient(QiskryptClient):
                 and belongs to a Quantum Context.
                 """
 
-                for current_register_index in range(len(super().registers)):
+                for current_register_index in range(super().get_num_registers()):
                     """
                     For each Qiskrypt's Register in the list of
                     Qiskrypt's Registers of the Qiskrypt's Party Client. 
                     """
 
-                    current_register = super().registers[current_register_index]
+                    current_register = super().get_registers()[current_register_index]
                     """
                     Retrieve the current Qiskrypt's Register in
                     the list of Qiskrypt's Registers of the Qiskrypt's Party Client.
@@ -1780,7 +1780,7 @@ class QiskryptPartyClient(QiskryptClient):
                             is a Qiskrypt's Quantum Register.
                             """
 
-                            super().registers.remove(current_register)
+                            super().get_registers().remove(current_register)
                             """
                             Removes the current Qiskrypt's Register in
                             the list of Qiskrypt's Registers of the Qiskrypt's Party Client.
@@ -1887,7 +1887,7 @@ class QiskryptPartyClient(QiskryptClient):
                     from the list of Qiskrypt's Registers of the Qiskrypt's Party Client is valid.
                     """
 
-                    current_register = super().registers[quantum_register_index]
+                    current_register = super().get_registers()[quantum_register_index]
                     """
                     Retrieve the respective Qiskrypt's Register in
                     the list of Qiskrypt's Registers of the Qiskrypt's Party Client.
@@ -1900,7 +1900,7 @@ class QiskryptPartyClient(QiskryptClient):
                         is a Qiskrypt's Quantum Register.
                         """
 
-                        super().registers.remove(current_register)
+                        super().get_registers().remove(current_register)
                         """
                         Removes the current Qiskrypt's Register in
                         the list of Qiskrypt's Registers of the Qiskrypt's Party Client.
@@ -2009,7 +2009,7 @@ class QiskryptPartyClient(QiskryptClient):
                 and belongs to a Quantum Context.
                 """
 
-                super().registers.append(ancilla_quantum_register)
+                super().get_registers().append(ancilla_quantum_register)
                 """
                 Adds the given Qiskrypt's Ancilla Quantum Register to
                 the list of Qiskrypt's Registers of the Qiskrypt's Party Client.
@@ -2101,13 +2101,13 @@ class QiskryptPartyClient(QiskryptClient):
                 and belongs to a Quantum Context.
                 """
 
-                for current_register_index in range(len(super().registers)):
+                for current_register_index in range(super().get_num_registers()):
                     """
                     For each Qiskrypt's Register in the list of
                     Qiskrypt's Registers of the Qiskrypt's Party Client. 
                     """
 
-                    current_register = super().registers[current_register_index]
+                    current_register = super().get_registers()[current_register_index]
                     """
                     Retrieve the current Qiskrypt's Register in
                     the list of Qiskrypt's Registers of the Qiskrypt's Party Client.
@@ -2127,7 +2127,7 @@ class QiskryptPartyClient(QiskryptClient):
                             is a Qiskrypt's Ancilla Quantum Register.
                             """
 
-                            super().registers.remove(current_register)
+                            super().get_registers().remove(current_register)
                             """
                             Removes the current Qiskrypt's Register in
                             the list of Qiskrypt's Registers of the Qiskrypt's Party Client.
@@ -2234,7 +2234,7 @@ class QiskryptPartyClient(QiskryptClient):
                     from the list of Qiskrypt's Registers of the Qiskrypt's Party Client is valid.
                     """
 
-                    current_register = super().registers[ancilla_quantum_register_index]
+                    current_register = super().get_registers()[ancilla_quantum_register_index]
                     """
                     Retrieve the respective Qiskrypt's Register in
                     the list of Qiskrypt's Registers of the Qiskrypt's Party Client.
@@ -2247,7 +2247,7 @@ class QiskryptPartyClient(QiskryptClient):
                         is a Qiskrypt's Ancilla Quantum Register.
                         """
 
-                        super().registers.remove(current_register)
+                        super().get_registers().remove(current_register)
                         """
                         Removes the current Qiskrypt's Register in
                         the list of Qiskrypt's Registers of the Qiskrypt's Party Client.
@@ -2356,7 +2356,7 @@ class QiskryptPartyClient(QiskryptClient):
                 and belongs to a Fully-Quantum Context.
                 """
 
-                super().registers.append(fully_quantum_register)
+                super().get_registers().append(fully_quantum_register)
                 """
                 Adds the given Qiskrypt's Fully-Quantum Register to
                 the list of Qiskrypt's Registers of the Qiskrypt's Party Client.
@@ -2448,13 +2448,13 @@ class QiskryptPartyClient(QiskryptClient):
                 and belongs to a Fully-Quantum Context.
                 """
 
-                for current_register_index in range(len(super().registers)):
+                for current_register_index in range(super().get_num_registers()):
                     """
                     For each Qiskrypt's Register in the list of
                     Qiskrypt's Registers of the Qiskrypt's Party Client. 
                     """
 
-                    current_register = super().registers[current_register_index]
+                    current_register = super().get_registers()[current_register_index]
                     """
                     Retrieve the current Qiskrypt's Register in
                     the list of Qiskrypt's Registers of the Qiskrypt's Party Client.
@@ -2474,7 +2474,7 @@ class QiskryptPartyClient(QiskryptClient):
                             is a Qiskrypt's Fully-Quantum Register.
                             """
 
-                            super().registers.remove(current_register)
+                            super().get_registers().remove(current_register)
                             """
                             Removes the current Qiskrypt's Register in
                             the list of Qiskrypt's Registers of the Qiskrypt's Party Client.
@@ -2581,7 +2581,7 @@ class QiskryptPartyClient(QiskryptClient):
                     from the list of Qiskrypt's Registers of the Qiskrypt's Party Client is valid.
                     """
 
-                    current_register = super().registers[fully_quantum_register_index]
+                    current_register = super().get_registers()[fully_quantum_register_index]
                     """
                     Retrieve the respective Qiskrypt's Register in
                     the list of Qiskrypt's Registers of the Qiskrypt's Party Client.
@@ -2594,7 +2594,7 @@ class QiskryptPartyClient(QiskryptClient):
                         is a Qiskrypt's Fully-Quantum Register.
                         """
 
-                        super().registers.remove(current_register)
+                        super().get_registers().remove(current_register)
                         """
                         Removes the current Qiskrypt's Register in
                         the list of Qiskrypt's Registers of the Qiskrypt's Party Client.
@@ -2703,7 +2703,7 @@ class QiskryptPartyClient(QiskryptClient):
                 and belongs to a Fully-Quantum Context.
                 """
 
-                super().registers.append(ancilla_fully_quantum_register)
+                super().get_registers().append(ancilla_fully_quantum_register)
                 """
                 Adds the given Qiskrypt's Ancilla Fully-Quantum Register to
                 the list of Qiskrypt's Registers of the Qiskrypt's Party Client.
@@ -2795,13 +2795,13 @@ class QiskryptPartyClient(QiskryptClient):
                 and belongs to a Fully-Quantum Context.
                 """
 
-                for current_register_index in range(len(super().registers)):
+                for current_register_index in range(super().get_num_registers()):
                     """
                     For each Qiskrypt's Register in the list of
                     Qiskrypt's Registers of the Qiskrypt's Party Client. 
                     """
 
-                    current_register = super().registers[current_register_index]
+                    current_register = super().get_registers()[current_register_index]
                     """
                     Retrieve the current Qiskrypt's Register in
                     the list of Qiskrypt's Registers of the Qiskrypt's Party Client.
@@ -2821,7 +2821,7 @@ class QiskryptPartyClient(QiskryptClient):
                             is a Qiskrypt's Ancilla Fully-Quantum Register.
                             """
 
-                            super().registers.remove(current_register)
+                            super().get_registers().remove(current_register)
                             """
                             Removes the current Qiskrypt's Register in
                             the list of Qiskrypt's Registers of the Qiskrypt's Party Client.
@@ -2928,7 +2928,7 @@ class QiskryptPartyClient(QiskryptClient):
                     from the list of Qiskrypt's Registers of the Qiskrypt's Party Client is valid.
                     """
 
-                    current_register = super().registers[ancilla_fully_quantum_register_index]
+                    current_register = super().get_registers()[ancilla_fully_quantum_register_index]
                     """
                     Retrieve the respective Qiskrypt's Register in
                     the list of Qiskrypt's Registers of the Qiskrypt's Party Client.
@@ -2941,7 +2941,7 @@ class QiskryptPartyClient(QiskryptClient):
                         is a Qiskrypt's Ancilla Fully-Quantum Register.
                         """
 
-                        super().registers.remove(current_register)
+                        super().get_registers().remove(current_register)
                         """
                         Removes the current Qiskrypt's Register in
                         the list of Qiskrypt's Registers of the Qiskrypt's Party Client.
@@ -3050,7 +3050,7 @@ class QiskryptPartyClient(QiskryptClient):
                 and belongs to a Semi-Quantum Context.
                 """
 
-                super().registers.append(semi_quantum_register)
+                super().get_registers().append(semi_quantum_register)
                 """
                 Adds the given Qiskrypt's Semi-Quantum Register to
                 the list of Qiskrypt's Registers of the Qiskrypt's Party Client.
@@ -3142,13 +3142,13 @@ class QiskryptPartyClient(QiskryptClient):
                 and belongs to a Semi-Quantum Context.
                 """
 
-                for current_register_index in range(len(super().registers)):
+                for current_register_index in range(super().get_num_registers()):
                     """
                     For each Qiskrypt's Register in the list of
                     Qiskrypt's Registers of the Qiskrypt's Party Client. 
                     """
 
-                    current_register = super().registers[current_register_index]
+                    current_register = super().get_registers()[current_register_index]
                     """
                     Retrieve the current Qiskrypt's Register in
                     the list of Qiskrypt's Registers of the Qiskrypt's Party Client.
@@ -3168,7 +3168,7 @@ class QiskryptPartyClient(QiskryptClient):
                             is a Qiskrypt's Semi-Quantum Register.
                             """
 
-                            super().registers.remove(current_register)
+                            super().get_registers().remove(current_register)
                             """
                             Removes the current Qiskrypt's Register in
                             the list of Qiskrypt's Registers of the Qiskrypt's Party Client.
@@ -3275,7 +3275,7 @@ class QiskryptPartyClient(QiskryptClient):
                     from the list of Qiskrypt's Registers of the Qiskrypt's Party Client is valid.
                     """
 
-                    current_register = super().registers[semi_quantum_register_index]
+                    current_register = super().get_registers()[semi_quantum_register_index]
                     """
                     Retrieve the respective Qiskrypt's Register in
                     the list of Qiskrypt's Registers of the Qiskrypt's Party Client.
@@ -3288,7 +3288,7 @@ class QiskryptPartyClient(QiskryptClient):
                         is a Qiskrypt's Semi-Quantum Register.
                         """
 
-                        super().registers.remove(current_register)
+                        super().get_registers().remove(current_register)
                         """
                         Removes the current Qiskrypt's Register in
                         the list of Qiskrypt's Registers of the Qiskrypt's Party Client.
@@ -3397,7 +3397,7 @@ class QiskryptPartyClient(QiskryptClient):
                 and belongs to a Semi-Quantum Context.
                 """
 
-                super().registers.append(ancilla_semi_quantum_register)
+                super().get_registers().append(ancilla_semi_quantum_register)
                 """
                 Adds the given Qiskrypt's Ancilla Semi-Quantum Register to
                 the list of Qiskrypt's Registers of the Qiskrypt's Party Client.
@@ -3489,13 +3489,13 @@ class QiskryptPartyClient(QiskryptClient):
                 and belongs to a Semi-Quantum Context.
                 """
 
-                for current_register_index in range(len(super().registers)):
+                for current_register_index in range(super().get_num_registers()):
                     """
                     For each Qiskrypt's Register in the list of
                     Qiskrypt's Registers of the Qiskrypt's Party Client. 
                     """
 
-                    current_register = super().registers[current_register_index]
+                    current_register = super().get_registers()[current_register_index]
                     """
                     Retrieve the current Qiskrypt's Register in
                     the list of Qiskrypt's Registers of the Qiskrypt's Party Client.
@@ -3515,7 +3515,7 @@ class QiskryptPartyClient(QiskryptClient):
                             is a Qiskrypt's Ancilla Semi-Quantum Register.
                             """
 
-                            super().registers.remove(current_register)
+                            super().get_registers().remove(current_register)
                             """
                             Removes the current Qiskrypt's Register in
                             the list of Qiskrypt's Registers of the Qiskrypt's Party Client.
@@ -3622,7 +3622,7 @@ class QiskryptPartyClient(QiskryptClient):
                     from the list of Qiskrypt's Registers of the Qiskrypt's Party Client is valid.
                     """
 
-                    current_register = super().registers[ancilla_semi_quantum_register_index]
+                    current_register = super().get_registers()[ancilla_semi_quantum_register_index]
                     """
                     Retrieve the respective Qiskrypt's Register in
                     the list of Qiskrypt's Registers of the Qiskrypt's Party Client.
@@ -3635,7 +3635,7 @@ class QiskryptPartyClient(QiskryptClient):
                         is a Qiskrypt's Ancilla Semi-Quantum Register.
                         """
 
-                        super().registers.remove(current_register)
+                        super().get_registers().remove(current_register)
                         """
                         Removes the current Qiskrypt's Register in
                         the list of Qiskrypt's Registers of the Qiskrypt's Party Client.
@@ -3744,7 +3744,7 @@ class QiskryptPartyClient(QiskryptClient):
                 and belongs to a Classical Context.
                 """
 
-                super().registers.append(classical_register)
+                super().get_registers().append(classical_register)
                 """
                 Adds the given Qiskrypt's Classical Register to
                 the list of Qiskrypt's Registers of the Qiskrypt's Party Client.
@@ -3836,13 +3836,13 @@ class QiskryptPartyClient(QiskryptClient):
                 and belongs to a Classical Context.
                 """
 
-                for current_register_index in range(len(super().registers)):
+                for current_register_index in range(super().get_num_registers()):
                     """
                     For each Qiskrypt's Register in the list of
                     Qiskrypt's Registers of the Qiskrypt's Party Client. 
                     """
 
-                    current_register = super().registers[current_register_index]
+                    current_register = super().get_registers()[current_register_index]
                     """
                     Retrieve the current Qiskrypt's Register in
                     the list of Qiskrypt's Registers of the Qiskrypt's Party Client.
@@ -3862,7 +3862,7 @@ class QiskryptPartyClient(QiskryptClient):
                             is a Qiskrypt's Classical Register.
                             """
 
-                            super().registers.remove(current_register)
+                            super().get_registers().remove(current_register)
                             """
                             Removes the current Qiskrypt's Register in
                             the list of Qiskrypt's Registers of the Qiskrypt's Party Client.
@@ -3969,7 +3969,7 @@ class QiskryptPartyClient(QiskryptClient):
                     from the list of Qiskrypt's Registers of the Qiskrypt's Party Client is valid.
                     """
 
-                    current_register = super().registers[classical_register_index]
+                    current_register = super().get_registers()[classical_register_index]
                     """
                     Retrieve the respective Qiskrypt's Register in
                     the list of Qiskrypt's Registers of the Qiskrypt's Party Client.
@@ -3982,7 +3982,7 @@ class QiskryptPartyClient(QiskryptClient):
                         is a Qiskrypt's Classical Register.
                         """
 
-                        super().registers.remove(current_register)
+                        super().get_registers().remove(current_register)
                         """
                         Removes the current Qiskrypt's Register in
                         the list of Qiskrypt's Registers of the Qiskrypt's Party Client.

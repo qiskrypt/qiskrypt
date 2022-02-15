@@ -39,11 +39,13 @@ Acknowledgement(s):\n
 
 """
 
+
 """
 Import required Libraries and Packages.
 """
 
-from src.quantum_regime.cryptography.key_exchange.quantum_key_distribution.QiskryptQuantumKeyDistribution \
+from src.quantum_regime.cryptography.key_exchange\
+    .quantum_key_distribution.QiskryptQuantumKeyDistribution \
     import QiskryptQuantumKeyDistribution
 """
 Import the Qiskrypt's Quantum Key Distribution (QKD).
@@ -87,7 +89,7 @@ DV_BB84_PROTOCOL_NAME = "DV (DISCRETE VARIABLES) BB84 PROTOCOL"
 The name of the DV (Discrete Variables) BB84 Protocol.
 """
 
-DV_BB84_PROTOCOL_DEFAULT_NUM_ROUNDS_FOR_QUANTUM_TRANSMISSION_PHASE = 1024
+DV_BB84_PROTOCOL_DEFAULT_NUM_ROUNDS_FOR_QUANTUM_TRANSMISSION_PHASE = 6 #1024
 """
 The default number of rounds for the Quantum Transmission Phase of
 the Qiskrypt's DV (Discrete Variable) BB84 Protocol.
@@ -112,7 +114,8 @@ class QiskryptDVBB84Protocol(QiskryptQuantumKeyDistribution):
     """
 
     def __init__(self, primitive_scenario: str,
-                 num_rounds_for_quantum_transmission_phase=DV_BB84_PROTOCOL_DEFAULT_NUM_ROUNDS_FOR_QUANTUM_TRANSMISSION_PHASE):
+                 num_rounds_for_quantum_transmission_phase=DV_BB84_PROTOCOL_DEFAULT_NUM_ROUNDS_FOR_QUANTUM_TRANSMISSION_PHASE,
+                 verbose=True):
         """
         Constructor of the Qiskrypt's DV (Discrete Variables) BB84 Protocol.
 
@@ -120,6 +123,8 @@ class QiskryptDVBB84Protocol(QiskryptQuantumKeyDistribution):
                                                          Quantum Cryptographic Primitive.
         :param num_rounds_for_quantum_transmission_phase: the number of rounds for the Quantum Transmission Phase in
                                                           the Qiskrypt's Quantum Key Exchange Protocol.
+        :param verbose: the boolean flag to show the runtime information about
+                        the Qiskrypt's Quantum Cryptographic Primitive.
         """
 
         if primitive_scenario in POSSIBLE_QUANTUM_CRYPTOGRAPHIC_PRIMITIVE_SCENARIOS:
@@ -133,6 +138,14 @@ class QiskryptDVBB84Protocol(QiskryptQuantumKeyDistribution):
             Quantum Cryptographic Primitive.
             """
 
+            super().__init__(DV_BB84_PROTOCOL_NAME,
+                             POSSIBLE_QUANTUM_CRYPTOGRAPHIC_PRIMITIVE_SIGNAL_VARIABLE_TYPES[0],
+                             primitive_properties, primitive_scenario, num_rounds_for_quantum_transmission_phase,
+                             POSSIBLE_QUANTUM_KEY_DISTRIBUTION_TYPES[0], verbose)
+            """
+            Call of the constructor of the super-class Qiskrypt's Quantum Key Distribution (QKD).
+            """
+
             self.quantum_bit_error_rates = \
                 [0.0] * len(POSSIBLE_DV_BB84_PROTOCOL_ROUND_TYPES_QUANTUM_TRANSMISSION_PHASE)
             """
@@ -140,14 +153,6 @@ class QiskryptDVBB84Protocol(QiskryptQuantumKeyDistribution):
             estimated during the Parameter Estimation of
             the Qiskrypt's Noiseless DV (Discrete Variables) 
             BB84 Protocol with No Eavesdropping.
-            """
-
-            super().__init__(DV_BB84_PROTOCOL_NAME,
-                             POSSIBLE_QUANTUM_CRYPTOGRAPHIC_PRIMITIVE_SIGNAL_VARIABLE_TYPES[0],
-                             primitive_properties, primitive_scenario,
-                             num_rounds_for_quantum_transmission_phase, POSSIBLE_QUANTUM_KEY_DISTRIBUTION_TYPES[0])
-            """
-            Call of the constructor of the super-class Qiskrypt's Quantum Key Distribution (QKD).
             """
 
         else:
@@ -243,6 +248,21 @@ class QiskryptDVBB84Protocol(QiskryptQuantumKeyDistribution):
         Return the type of the Qiskrypt's Quantum Cryptographic Primitive.
         """
         return super().get_primitive_type()
+
+    def is_verbose(self) -> bool:
+        """
+        Return the boolean flag to show the runtime information about
+        the Qiskrypt's Quantum Cryptographic Primitive.
+
+        :return super().is_verbose(): the boolean flag to show the runtime information about
+                                      the Qiskrypt's Quantum Cryptographic Primitive.
+        """
+
+        """
+        Return the boolean flag to show the runtime information about
+        the Qiskrypt's Quantum Cryptographic Primitive.
+        """
+        return super().is_verbose()
 
     def get_protocol_type(self) -> str:
         """

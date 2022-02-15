@@ -105,7 +105,7 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdroppingQuantumTransmissionPhase
         """
         return super().get_round_type()
 
-    def get_quantum_key_exchange_protocol_round_quantum_circuit(self) -> QiskryptQuantumCircuit:
+    def get_round_quantum_circuit(self) -> QiskryptQuantumCircuit:
         """
         Return the Qiskrypt's Quantum Circuit of the Qiskrypt's Quantum Key Exchange Protocol Round.
 

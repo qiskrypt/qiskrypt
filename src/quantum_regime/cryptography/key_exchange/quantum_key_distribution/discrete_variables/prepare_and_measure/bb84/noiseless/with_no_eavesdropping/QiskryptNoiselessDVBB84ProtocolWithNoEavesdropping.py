@@ -44,6 +44,31 @@ Acknowledgement(s):\n
 Import required Libraries and Packages.
 """
 
+from logging import basicConfig as logging_basic_configuration
+"""
+Import the Basic Configuration for the logger of messages.
+"""
+
+from logging import getLogger as get_logger
+"""
+Import the function to retrieve the logger with the specified given name.
+"""
+
+from logging import WARNING
+"""
+Import the 'WARNING' severity level for the logger of messages.
+"""
+
+from logging import INFO
+"""
+Import the 'INFO' severity level for the logger of messages.
+"""
+
+from logging import info as logger_info_message
+"""
+Import the logger of 'INFO' messages.
+"""
+
 from copy import deepcopy as deep_copy
 """
 Import the Deep Copy method from
@@ -53,6 +78,12 @@ the Copy module from the Python's Library.
 from qiskit import Aer, execute
 """
 Import Aer Simulator and the Execute function from IBM's Qiskit.
+"""
+
+from src.classical_regime.common.QiskryptClassicalUtilities \
+    import QiskryptClassicalUtilities
+"""
+Import the Qiskrypt's Classical Utilities.
 """
 
 from src.classical_regime.utils.geographic.QiskryptGeocoding \
@@ -307,7 +338,8 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
                  .NOVA_SCHOOL_OF_SCIENCE_AND_TECHNOLOGY_PORTUGAL.value,
                  receiver_address=QiskryptGeographicAddressEnumeration
                  .INSTITUTO_SUPERIOR_TECNICO_PORTUGAL.value,
-                 num_rounds_for_quantum_transmission_phase=DV_BB84_PROTOCOL_DEFAULT_NUM_ROUNDS_FOR_QUANTUM_TRANSMISSION_PHASE):
+                 num_rounds_for_quantum_transmission_phase=DV_BB84_PROTOCOL_DEFAULT_NUM_ROUNDS_FOR_QUANTUM_TRANSMISSION_PHASE,
+                 verbose=True):
         """
         Constructor of the Qiskrypt's Noiseless DV (Discrete Variables)
         BB84 Protocol with No Eavesdropping.
@@ -323,6 +355,15 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
         :param num_rounds_for_quantum_transmission_phase: the number of rounds for
                                                           the Quantum Transmission Phase in
                                                           the Qiskrypt's Quantum Key Exchange Protocol.
+        :param verbose: the boolean flag to show the runtime information about
+                        the Qiskrypt's Quantum Cryptographic Primitive.
+
+        """
+
+        super().__init__(POSSIBLE_QUANTUM_CRYPTOGRAPHIC_PRIMITIVE_SCENARIOS[0],
+                         num_rounds_for_quantum_transmission_phase, verbose)
+        """
+        Call of the constructor of the super-class Qiskrypt's DV (Discrete Variable) BB84 Protocol.
         """
 
         self.sender_name = sender_name
@@ -349,11 +390,22 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
         BB84 Protocol with No Eavesdropping.
         """
 
-        super().__init__(POSSIBLE_QUANTUM_CRYPTOGRAPHIC_PRIMITIVE_SCENARIOS[0],
-                         num_rounds_for_quantum_transmission_phase)
-        """
-        Call of the constructor of the super-class Qiskrypt's DV (Discrete Variable) BB84 Protocol.
-        """
+        if self.is_verbose():
+            """
+            If the boolean flag to show the runtime information about
+            the Qiskrypt's Quantum Cryptographic Primitive, is set as True.
+            """
+
+            logging_basic_configuration(level=INFO)
+            """
+            Start the Basic Configuration for the logger of messages,
+            with the 'INFO' severity level.
+            """
+
+            get_logger("qiskit").setLevel(level=WARNING)
+            """
+            Set the 'WARNING' severity level for the logger of the IBM Qiskit.
+            """
 
     def get_primitive_name(self) -> str:
         """
@@ -443,6 +495,21 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
         """
         return super().get_primitive_type()
 
+    def is_verbose(self) -> bool:
+        """
+        Return the boolean flag to show the runtime information about
+        the Qiskrypt's Quantum Cryptographic Primitive.
+
+        :return super().is_verbose(): the boolean flag to show the runtime information about
+                                      the Qiskrypt's Quantum Cryptographic Primitive.
+        """
+
+        """
+        Return the boolean flag to show the runtime information about
+        the Qiskrypt's Quantum Cryptographic Primitive.
+        """
+        return super().is_verbose()
+
     def get_protocol_type(self) -> str:
         """
         Return the type of the Qiskrypt's Quantum Key Exchange Protocol.
@@ -507,6 +574,18 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
         Qiskrypt's Quantum Key Exchange Protocol.
         """
 
+        QiskryptClassicalUtilities.waiting_animation()
+        """
+        Call the waiting animation from the Qiskrypt's Classical Utilities.
+        """
+
+        logger_info_message(" 2) Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol\n"
+                            "              starts its Quantum Transmission Phase...")
+        """
+        Log an 'INFO' message for the Qiskrypt's Noiseless DV (Discrete Variables)
+        starts its Quantum Transmission Phase.
+        """
+
         """
         Start the Quantum Transmission Phase of the
         Qiskrypt's Quantum Key Exchange Protocol.
@@ -517,6 +596,11 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
         """
         Start the Classical Post-Processing Phase of the
         Qiskrypt's Quantum Key Exchange Protocol.
+        """
+
+        QiskryptClassicalUtilities.waiting_animation()
+        """
+        Call the waiting animation from the Qiskrypt's Classical Utilities.
         """
 
         """
@@ -613,11 +697,11 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
                     """
 
                     current_round_quantum_circuit_for_quantum_transmission_phase = \
-                        current_round_for_quantum_transmission_phase\
-                        .get_quantum_key_exchange_protocol_round_quantum_circuit()
+                        current_round_for_quantum_transmission_phase.get_round_quantum_circuit()
                     """
-                    Retrieve the Qiskrypt's Quantum Circuit for the current round of the Quantum Transmission Phase of 
-                    the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
+                    Retrieve the Qiskrypt's Quantum Circuit for the current round of
+                    the Quantum Transmission Phase of the Qiskrypt's Noiseless
+                    DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
                     """
 
                     if isinstance(current_round_quantum_circuit_for_quantum_transmission_phase,
@@ -2564,6 +2648,26 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
             If the Qiskrypt's Key Exchange Protocol is not configured yet.
             """
 
+            QiskryptClassicalUtilities.waiting_animation()
+            """
+            Call the waiting animation from the Qiskrypt's Classical Utilities.
+            """
+
+            logger_info_message(" 1) Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol\n"
+                                "              starts being configured...")
+            """
+            Log an 'INFO' message for the Qiskrypt's Noiseless DV (Discrete Variables) starts being configured.
+            """
+
+            logger_info_message("    1.1) Starting the creation of the Qiskrypt's Entities and\n"
+                                "                   respective distances for the Qiskrypt's Noiseless\n"
+                                "                   DV (Discrete Variables) BB84 Protocol with No Eavesdropping...")
+            """
+            Log an 'INFO' message for the start of the procedure of the creation of
+            the Qiskrypt's Entities and respective distances for the Qiskrypt's Noiseless
+            DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
+            """
+
             entities_and_distances_in_kms_list =\
                 QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping\
                 .create_entities_and_distances_in_kms([self.get_sender_name(), self.get_receiver_name()],
@@ -2572,6 +2676,15 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
             Create the list of two Qiskrypt's Entities and respective distances
             in KMs (Kilometers) between them for the Qiskrypt's Noiseless DV (Discrete Variables)
             BB84 Protocol with No Eavesdropping.
+            """
+
+            logger_info_message("    1.2) Finishing the creation of the Qiskrypt's Entities and\n"
+                                "                   respective distances for the Qiskrypt's Noiseless\n"
+                                "                   DV (Discrete Variables) BB84 Protocol with No Eavesdropping...")
+            """
+            Log an 'INFO' message for the finish of the procedure of the creation of
+            the Qiskrypt's Entities and respective distances for the Qiskrypt's Noiseless
+            DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
             """
 
             entities = entities_and_distances_in_kms_list[0]
@@ -2588,12 +2701,46 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
             BB84 Protocol with No Eavesdropping.
             """
 
+            logger_info_message("    1.3) Starting the creation of the template of\n"
+                                "                   the Qiskrypt's Quantum Circuit for each round of\n"
+                                "                   the Qiskrypt's Communication Session,\n"
+                                "                   from the Qiskrypt's Registers retrieved of\n"
+                                "                   the sender and receiver Qiskrypt's Party Clients,\n"
+                                "                   and respective associated Qiskrypt's Link connecting them\n"
+                                "                   for the Qiskrypt's Noiseless DV (Discrete Variables)\n"
+                                "                   BB84 Protocol with No Eavesdropping...")
+            """
+            Log an 'INFO' message for the start of the procedure of the creation of
+            the template of the Qiskrypt's Quantum Circuit for each round of
+            the Qiskrypt's Communication Session, from the Qiskrypt's Registers retrieved of
+            the sender and receiver Qiskrypt's Party Clients, and respective associated
+            Qiskrypt's Link connecting them for the Qiskrypt's Noiseless DV (Discrete Variables)
+            BB84 Protocol with No Eavesdropping.
+            """
+
             template_quantum_circuit_of_quantum_transmission_phase, communication_session = \
                 QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping\
                 .create_template_quantum_circuit_and_communication_session_of_quantum_transmission_phase\
-                (entities, distances_in_kms)
+                (entities, distances_in_kms, verbose=self.is_verbose())
             """
             Create the template of the Qiskrypt's Quantum Circuit for each round of
+            the Qiskrypt's Communication Session, from the Qiskrypt's Registers retrieved of
+            the sender and receiver Qiskrypt's Party Clients, and respective associated
+            Qiskrypt's Link connecting them for the Qiskrypt's Noiseless DV (Discrete Variables)
+            BB84 Protocol with No Eavesdropping.
+            """
+
+            logger_info_message("    1.4) Finishing the creation of the template of\n"
+                                "                   the Qiskrypt's Quantum Circuit for each round of\n"
+                                "                   the Qiskrypt's Communication Session,\n"
+                                "                   from the Qiskrypt's Registers retrieved of\n"
+                                "                   the sender and receiver Qiskrypt's Party Clients,\n"
+                                "                   and respective associated Qiskrypt's Link connecting them\n"
+                                "                   for the Qiskrypt's Noiseless DV (Discrete Variables)\n"
+                                "                   BB84 Protocol with No Eavesdropping...")
+            """
+            Log an 'INFO' message for the finish of the procedure of the creation of
+            the template of the Qiskrypt's Quantum Circuit for each round of
             the Qiskrypt's Communication Session, from the Qiskrypt's Registers retrieved of
             the sender and receiver Qiskrypt's Party Clients, and respective associated
             Qiskrypt's Link connecting them for the Qiskrypt's Noiseless DV (Discrete Variables)
@@ -2604,6 +2751,18 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
             """
             Set the Qiskrypt's Communication Session for
             the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
+            """
+
+            logger_info_message("    1.5) Starting the creation of the secret bits for\n"
+                                "                   the sender's Qiskrypt's Raw Key and for each round of\n"
+                                "                   the Quantum Transmission Phase of the Qiskrypt's Noiseless\n"
+                                "                   DV (Discrete Variables) BB84 Protocol with\n"
+                                "                   No Eavesdropping in the sender's side...")
+            """
+            Log an 'INFO' message for the start of the procedure of
+            the creation of the secret bits for the sender's Qiskrypt's Raw Key
+            and for each round of the Qiskrypt's Noiseless DV (Discrete Variables)
+            BB84 Protocol with No Eavesdropping in the sender's side.
             """
 
             for current_num_round_for_quantum_transmission_phase in \
@@ -2740,7 +2899,7 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
 
                 current_round_for_quantum_transmission_phase = \
                     QiskryptNoiselessDVBB84ProtocolWithNoEavesdroppingQuantumTransmissionPhaseRound\
-                    (current_num_round_for_quantum_transmission_phase,
+                    ((current_num_round_for_quantum_transmission_phase + 1),
                      current_round_type_for_quantum_transmission_phase,
                      current_round_quantum_circuit)
                 """
@@ -2758,10 +2917,28 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
                 BB84 Protocol with No Eavesdropping.
                 """
 
+            logger_info_message("    1.6) Finishing the creation of the secret bits for\n"
+                                "                   the sender's Qiskrypt's Raw Key and for each round of\n"
+                                "                   the Quantum Transmission Phase of the Qiskrypt's Noiseless\n"
+                                "                   DV (Discrete Variables) BB84 Protocol with\n"
+                                "                   No Eavesdropping in the sender's side...")
+            """
+            Log an 'INFO' message for the finish of the procedure of
+            the creation of the secret bits for the sender's Qiskrypt's Raw Key
+            and for each round of the Qiskrypt's Noiseless DV (Discrete Variables)
+            BB84 Protocol with No Eavesdropping in the sender's side.
+            """
+
             """
             Set the Qiskrypt's Key Exchange Protocol as configured.
             """
             self.set_as_configured()
+
+            logger_info_message(" 1) Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol\n"
+                                "              is finally configured!")
+            """
+            Log an 'INFO' message for the Qiskrypt's Noiseless DV (Discrete Variables) is finally configured.
+            """
 
         else:
             """
@@ -2965,7 +3142,7 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
 
     @staticmethod
     def create_template_quantum_circuit_and_communication_session_of_quantum_transmission_phase\
-            (entities_list: list, distances_in_kms_list: list):
+            (entities_list: list, distances_in_kms_list: list, verbose=True):
         """
         Create and return the template of the Qiskrypt's Quantum Circuit for each round of
         the Qiskrypt's Communication Session, from the Qiskrypt's Registers retrieved of
@@ -2975,6 +3152,8 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
 
         :param entities_list: the list of Qiskrypt's Entities.
         :param distances_in_kms_list: the list of distances between Qiskrypt's Entities.
+        :param verbose: the boolean flag to show the runtime information about
+                        the Qiskrypt's Quantum Cryptographic Primitive.
 
         :return template_quantum_circuit_of_quantum_transmission_phase, communication_session:
                 the template of the Qiskrypt's Quantum Circuit for each round of
@@ -2983,6 +3162,18 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
                 Qiskrypt's Link connecting them, as well as the Qiskrypt's Communication Session itself,
                 for the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
         """
+
+        if verbose:
+            """
+            If the boolean flag to show the runtime information about
+            the Qiskrypt's Quantum Cryptographic Primitive, is set as True.
+            """
+
+            logging_basic_configuration(level=WARNING)
+            """
+            Start the Basic Configuration for the logger of messages,
+            with the 'WARNING' severity level.
+            """
 
         num_entities = len(entities_list)
         """
@@ -3160,10 +3351,14 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
                 Install the Quantum Communication Channel.
                 """
 
-                quantum_register = QiskryptQuantumRegister(name="dv_qu_ch_{}".format(0),
-                                                           num_qubits=1, qiskit_quantum_register=None)
+                quantum_register = QiskryptFullyQuantumRegister(name="dv_qu_ch_{}".format(0),
+                                                                num_qubits=1, qiskit_quantum_register=None)
                 """
                 Create a Qiskrypt's Quantum Register for the Qiskrypt's Link.
+                
+                NOTE:
+                - It is assumed any Qiskrypt's Quantum Register for the Qiskrypt's Link to be a
+                  Qiskrypt's Fully-Quantum Register.
                 """
 
                 quantum_registers_list = [quantum_register]
@@ -3171,7 +3366,7 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
                 Create the list of Qiskrypt's Quantum Registers for the Qiskrypt's Link.
                 """
 
-                link = QiskryptLink(QUANTUM_KEY_DISTRIBUTION_NUM_PARTIES)
+                link = QiskryptLink((QUANTUM_KEY_DISTRIBUTION_NUM_PARTIES - 1))
                 """
                 Create the Qiskrypt's Link.
                 """
@@ -3231,6 +3426,18 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
                 Qiskrypt's Link connecting them for the Qiskrypt's Noiseless DV (Discrete Variables)
                 BB84 Protocol with No Eavesdropping.
                 """
+
+                if verbose:
+                    """
+                    If the boolean flag to show the runtime information about
+                    the Qiskrypt's Quantum Cryptographic Primitive, is set as True.
+                    """
+
+                    logging_basic_configuration(level=INFO)
+                    """
+                    Start the Basic Configuration for the logger of messages,
+                    with the 'INFO' severity level.
+                    """
 
                 """
                 Return the template of the Qiskrypt's Quantum Circuit for each round of

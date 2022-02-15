@@ -481,10 +481,10 @@ class QiskryptLink:
             Retrieve the number of possible Qiskrypt's Mediums to add to the Qiskrypt's Link.
             """
 
-            if num_mediums_to_add == (self.get_num_possible_listeners() - 1):
+            if num_mediums_to_add == self.get_num_possible_listeners():
                 """
                 If the number of possible Qiskrypt's Mediums to add to the Qiskrypt's Link
-                corresponds to the number of possible listeners of the same Qiskrypt's Link minus one.
+                corresponds to the number of possible listeners of the same Qiskrypt's Link.
                 """
 
                 for current_medium_index in range(num_mediums_to_add):
@@ -523,7 +523,7 @@ class QiskryptLink:
             else:
                 """
                 If the number of possible Qiskrypt's Mediums to add to the Qiskrypt's Link
-                does not correspond to the number of possible listeners of the same Qiskrypt's Link minus one.
+                does not correspond to the number of possible listeners of the same Qiskrypt's Link.
                 """
 
                 # TODO Throw - Exception
@@ -559,6 +559,55 @@ class QiskryptLink:
         Return the number of Qiskrypt's Registers of the Qiskrypt's Link.
         """
         return len(self.registers)
+
+    def get_quantum_registers(self) -> list:
+        """
+        Return the Qiskrypt's Quantum Registers of the Qiskrypt's Link.
+
+        :return quantum_registers: the Qiskrypt's Quantum Registers of the Qiskrypt's Link.
+        """
+
+        quantum_registers = list()
+        """
+        Initialise the list of the Qiskrypt's Quantum Registers of the Qiskrypt's Link.
+        """
+
+        registers = self.get_registers()
+        """
+        Retrieve the Qiskrypt's Registers of the Qiskrypt's Link.
+        """
+
+        num_registers = self.get_num_registers()
+        """
+        Retrieve the number of the Qiskrypt's Registers of the Qiskrypt's Link.
+        """
+
+        for current_register_index in range(num_registers):
+            """
+            For each Qiskrypt's Register's index of the Qiskrypt's Link.
+            """
+
+            current_register = registers[current_register_index]
+            """
+            Retrieve the current Qiskrypt's Register of the Qiskrypt's Link.
+            """
+
+            if isinstance(current_register, QiskryptQuantumRegister):
+                """
+                If the current Qiskrypt's Register of the Qiskrypt's Link
+                is a Qiskrypt's Quantum Register.
+                """
+
+                quantum_registers.append(current_register)
+                """
+                Append the current Qiskrypt's Register of the Qiskrypt's Link to
+                the list of the Qiskrypt's Quantum Registers of the Qiskrypt's Link.
+                """
+
+        """
+        Return the Qiskrypt's Quantum Registers of the Qiskrypt's Link.
+        """
+        return quantum_registers
 
     def set_quantum_registers(self, quantum_registers: list):
         """
@@ -795,6 +844,72 @@ class QiskryptLink:
 
             # TODO Throw - Exception
 
+    def get_num_quantum_registers(self) -> int:
+        """
+        Return the number of the Qiskrypt's Quantum Registers of the Qiskrypt's Link.
+
+        :return num_quantum_registers: the number of the Qiskrypt's Quantum Registers of the Qiskrypt's Link.
+        """
+
+        num_quantum_registers = len(self.get_quantum_registers())
+        """
+        Retrieve the number of the Qiskrypt's Quantum Registers of the Qiskrypt's Link.
+        """
+
+        """
+        Return the number of the Qiskrypt's Quantum Registers of the Qiskrypt's Link.
+        """
+        return num_quantum_registers
+
+    def get_classical_registers(self) -> list:
+        """
+        Return the Qiskrypt's Classical Registers of the Qiskrypt's Link.
+
+        :return classical_registers: the Qiskrypt's Classical Registers of the Qiskrypt's Link.
+        """
+
+        classical_registers = list()
+        """
+        Initialise the list of the Qiskrypt's Classical Registers of the Qiskrypt's Link.
+        """
+
+        registers = self.get_registers()
+        """
+        Retrieve the Qiskrypt's Registers of the Qiskrypt's Link.
+        """
+
+        num_registers = self.get_num_registers()
+        """
+        Retrieve the number of the Qiskrypt's Registers of the Qiskrypt's Link.
+        """
+
+        for current_register_index in range(num_registers):
+            """
+            For each Qiskrypt's Register's index of the Qiskrypt's Link.
+            """
+
+            current_register = registers[current_register_index]
+            """
+            Retrieve the current Qiskrypt's Register of the Qiskrypt's Link.
+            """
+
+            if isinstance(current_register, QiskryptClassicalRegister):
+                """
+                If the current Qiskrypt's Register of the Qiskrypt's Link
+                is a Qiskrypt's Classical Register.
+                """
+
+                classical_registers.append(current_register)
+                """
+                Append the current Qiskrypt's Register of the Qiskrypt's Link to
+                the list of the Qiskrypt's Classical Registers of the Qiskrypt's Link.
+                """
+
+        """
+        Return the Qiskrypt's Classical Registers of the Qiskrypt's Link.
+        """
+        return classical_registers
+
     def set_classical_registers(self, classical_registers: list):
         """
         Set a given list of Qiskrypt's Classical Registers to be
@@ -1015,3 +1130,20 @@ class QiskryptLink:
             """
 
             # TODO Throw - Exception
+
+    def get_num_classical_registers(self) -> int:
+        """
+        Return the number of the Qiskrypt's Classical Registers of the Qiskrypt's Link.
+
+        :return num_classical_registers: the number of the Qiskrypt's Classical Registers of the Qiskrypt's Link.
+        """
+
+        num_classical_registers = len(self.get_classical_registers())
+        """
+        Retrieve the number of the Qiskrypt's Classical Registers of the Qiskrypt's Link.
+        """
+
+        """
+        Return the number of the Qiskrypt's Classical Registers of the Qiskrypt's Link.
+        """
+        return num_classical_registers

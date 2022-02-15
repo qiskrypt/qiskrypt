@@ -44,6 +44,12 @@ Acknowledgement(s):\n
 Import required Libraries and Packages.
 """
 
+from src.classical_regime.common.QiskryptMessageColorsEnumeration \
+    import QiskryptMessageColorsEnumeration
+"""
+Import the Qiskrypt's Message Colors Enumeration.
+"""
+
 from src.quantum_regime.cryptography.key_exchange\
     .quantum_key_distribution.discrete_variables.prepare_and_measure\
     .bb84.noiseless.with_no_eavesdropping.QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
@@ -137,15 +143,22 @@ class QiskryptDVBB84ProtocolExecutor:
         """
         return self.verbose
 
-    def run(self) -> None:
+    def execute(self) -> None:
         """
-        Run the Qiskrypt's DV (Discrete Variables) BB84 Protocol Executor.
+        Execute the Qiskrypt's DV (Discrete Variables) BB84 Protocol Executor.
         """
 
         if not self.is_with_noise() and not self.is_with_eavesdropping():
             """
             1) If the Qiskrypt's DV (Discrete Variables) BB84 Protocol is
                executing with no noise and with no eavesdropping.
+            """
+
+            print("{}{}".format(QiskryptMessageColorsEnumeration.HEADER.value,
+                                "\nExecuting the Qiskrypt's DV (Discrete Variables) BB84 Protocol\n"
+                                "with no noise and no eavesdropping...\n"))
+            """
+            Print the initial message.
             """
 
             noiseless_dv_bb84_protocol_with_no_eavesdropping = \
@@ -161,7 +174,8 @@ class QiskryptDVBB84ProtocolExecutor:
             BB84 Protocol with No Eavesdropping.
             """
 
-            noiseless_dv_bb84_protocol_with_no_eavesdropping.run()
+            # TODO
+            #noiseless_dv_bb84_protocol_with_no_eavesdropping.run()
             """
             Run the Qiskrypt's Noiseless DV (Discrete Variables)
             BB84 Protocol with No Eavesdropping.
@@ -184,3 +198,12 @@ class QiskryptDVBB84ProtocolExecutor:
             4) If the Qiskrypt's DV (Discrete Variables) BB84 Protocol is
                executing with noise and with eavesdropping.
             """
+
+
+def main():
+    dv_bb84_protocol_executor = QiskryptDVBB84ProtocolExecutor(False, False, verbose=True)
+    dv_bb84_protocol_executor.execute()
+
+
+if __name__ == "__main__":
+    main()

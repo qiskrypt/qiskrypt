@@ -116,8 +116,8 @@ class QiskryptQuantumKeyDistributionRound(QiskryptQuantumKeyExchangeProtocolRoun
     def is_round_discarded_from_key_sifting(self) -> bool:
         """
         Return the boolean flag to keep the information about if
-        the Qiskrypt's Quantum Key Exchange Protocol Round is discarded
-        from the Key Sifting or not.
+        the Qiskrypt's Quantum Key Exchange Protocol Round is discarded from
+        the Key Sifting or not.
 
         :return super().is_round_discarded_from_key_sifting(): the boolean flag to keep the information about if
                                                                the Qiskrypt's Quantum Key Exchange Protocol Round

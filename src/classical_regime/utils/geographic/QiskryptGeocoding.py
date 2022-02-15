@@ -882,7 +882,8 @@ class QiskryptGeocoding:
                 Initialise the number of the current attempt for the HTTP Request, initially, as 0.
                 """
 
-                show_warning("The calls to the Open-Elevation API can be slow and unstable... Be patient!!!")
+                show_warning("The calls to the Open-Elevation API can be slow and unstable... Be patient!",
+                             stacklevel=8)
                 """
                 Show a Warning, regarding the slowness and instability of the Open-Elevation API.
                 """
@@ -995,12 +996,25 @@ class QiskryptGeocoding:
             If the Geocoder Service of the Qiskrypt's Geocoding is already initialised.
             """
 
-            altitude_in_ms_using_open_elevation_api = \
-                self.get_location_altitude_in_ms_from_address_using_open_elevation(location_address)
+            altitude_in_ms_using_open_elevation_api = None
             """
-            Compute the altitude (elevation) of the location of the given address from
-            the Qiskrypt's Geocoding in use, given in Ms (Meters), using Open-Elevation API.
+            Set the altitude (elevation) of the location of the given address from
+            the Qiskrypt's Geocoding in use, given in Ms (Meters), using Open-Elevation API,
+            initially, as None.
             """
+
+            while altitude_in_ms_using_open_elevation_api is None:
+                """
+                While the altitude (elevation) of the location of the given address from
+                the Qiskrypt's Geocoding in use, given in Ms (Meters), using Open-Elevation API is None.
+                """
+
+                altitude_in_ms_using_open_elevation_api = \
+                    self.get_location_altitude_in_ms_from_address_using_open_elevation(location_address)
+                """
+                Compute the altitude (elevation) of the location of the given address from
+                the Qiskrypt's Geocoding in use, given in Ms (Meters), using Open-Elevation API.
+                """
 
             altitude_in_kms_using_open_elevation_api = \
                 QiskryptClassicalUtilities.truncate_float_number_with_decimal_places \
