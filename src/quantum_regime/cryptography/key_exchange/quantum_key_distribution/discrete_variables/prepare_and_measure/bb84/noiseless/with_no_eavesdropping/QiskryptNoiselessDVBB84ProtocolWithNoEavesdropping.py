@@ -2359,6 +2359,14 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
                             the information about the basis choices, which will be kept and discarded.
                             """
 
+                else:
+                    """
+                    If the number of basis choices made by both the sender and receiver
+                    Qiskrypt's Party Clients are not equal.
+                    """
+
+                    # TODO Throw - Exception
+
                 logger_info_message(
                     "    3.3.3) Sifting of Bases: {}".format(bases_kept_and_discarded)
                 )
