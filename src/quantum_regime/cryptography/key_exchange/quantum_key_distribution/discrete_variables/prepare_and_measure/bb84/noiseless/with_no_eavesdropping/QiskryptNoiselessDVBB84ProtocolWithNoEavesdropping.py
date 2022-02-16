@@ -2305,6 +2305,67 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
                 Log an 'INFO' message for the receiver's basis choices.
                 """
 
+                bases_kept_and_discarded = ""
+                """
+                Initialise the string to keep the information about the basis choices,
+                which will be kept and discarded.
+                """
+
+                num_sender_basis_choices = len(sender_basis_choices)
+                """
+                Retrieve the number of basis choices made by the sender Qiskrypt's Party Client.
+                """
+
+                num_receiver_basis_choices = len(receiver_basis_choices)
+                """
+                Retrieve the number of basis choices made by the receiver Qiskrypt's Party Client.
+                """
+
+                if num_sender_basis_choices == num_receiver_basis_choices:
+                    """
+                    If the number of basis choices made by both the sender and receiver
+                    Qiskrypt's Party Clients are equal.
+                    """
+
+                    for current_sender_basis_choice, current_receiver_basis_choice in \
+                            zip(range(num_sender_basis_choices), range(num_receiver_basis_choices)):
+                        """
+                        For each pair of basis choices made by both the sender and receiver
+                        Qiskrypt's Party Clients.
+                        """
+
+                        if sender_basis_choices[current_sender_basis_choice] == \
+                                receiver_basis_choices[current_receiver_basis_choice]:
+                            """
+                            If the basis choices made by both the sender and receiver
+                            Qiskrypt's Party Clients, during the same round, are the same.
+                            """
+
+                            bases_kept_and_discarded += "✓"
+                            """
+                            Append the 'kept' symbol to the string to keep
+                            the information about the basis choices, which will be kept and discarded.
+                            """
+
+                        else:
+                            """
+                            If the basis choices made by both the sender and receiver
+                            Qiskrypt's Party Clients, during the same round, are different.
+                            """
+
+                            bases_kept_and_discarded += "✗"
+                            """
+                            Append the 'discarded' symbol to the string to keep
+                            the information about the basis choices, which will be kept and discarded.
+                            """
+
+                logger_info_message(
+                    "    3.3.3) Sifting of Bases: {}".format(bases_kept_and_discarded)
+                )
+                """
+                Log an 'INFO' message for the basis choices kept and discarded.
+                """
+
                 if isinstance(sender_secret_sifted_key, QiskryptSecretSiftedKey) and \
                         isinstance(receiver_secret_sifted_key, QiskryptSecretSiftedKey):
                     """
@@ -2314,7 +2375,7 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
                     """
 
                     logger_info_message(
-                        "    3.3.3) Sifted Key #1 -> {}: {}"
+                        "    3.3.4) Sifted Key #1 -> {}: {}"
                         .format(sender_secret_sifted_key_id,
                                 sender_secret_sifted_key.get_bits()[BINARY_FORMAT_START_OFFSET:])
                     )
@@ -2323,7 +2384,7 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
                     """
 
                     logger_info_message(
-                        "    3.3.4) Sifted Key #2 -> {}: {}"
+                        "    3.3.5) Sifted Key #2 -> {}: {}"
                         .format(receiver_secret_sifted_key_id,
                                 receiver_secret_sifted_key.get_bits()[BINARY_FORMAT_START_OFFSET:])
                     )
