@@ -586,11 +586,18 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
         starts its Quantum Transmission Phase.
         """
 
+        super().start_quantum_transmission_phase()
         """
         Start the Quantum Transmission Phase of the
         Qiskrypt's Quantum Key Exchange Protocol.
         """
-        super().start_quantum_transmission_phase()
+
+        logger_info_message(" 2) Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol\n"
+                            "              finishes its Quantum Transmission Phase...")
+        """
+        Log an 'INFO' message for the Qiskrypt's Noiseless DV (Discrete Variables)
+        finishes its Quantum Transmission Phase.
+        """
 
     def start_classical_post_processing_phase(self):
         """
@@ -603,11 +610,18 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
         Call the waiting animation from the Qiskrypt's Classical Utilities.
         """
 
+        logger_info_message(" 3) Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol\n"
+                            "              starts its Classical Post-Processing Phase...")
+        """
+        Log an 'INFO' message for the Qiskrypt's Noiseless DV (Discrete Variables)
+        starts its Classical Post-Processing Phase.
+        """
+
+        super().start_classical_post_processing_phase()
         """
         Start the Classical Post-Processing Phase of the
         Qiskrypt's Quantum Key Exchange Protocol.
         """
-        super().start_classical_post_processing_phase()
 
     def run(self) -> None:
         """
@@ -653,342 +667,16 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
             If the Qiskrypt's Key Exchange Protocol is already configured.
             """
 
-            sender_raw_key_secret_bits = "0b"
+            logger_info_message(
+                "    2.1) Starting the preparation of the outgoing photons for\n"
+                "                   the Quantum Transmission Phase of the Qiskrypt's Noiseless\n"
+                "                   DV (Discrete Variables) BB84 Protocol with No Eavesdropping..."
+            )
             """
-            Initialise the binary string for the bits used to build
-            the Qiskrypt's Secret Raw Key of the sender Qiskrypt's Party Client.
+            Log an 'INFO' message for the start of the procedure of the preparation of
+            the outgoing photons for the Quantum Transmission Phase of the Qiskrypt's Noiseless
+            DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
             """
-
-            num_rounds_for_quantum_transmission_phase = \
-                self.get_num_rounds_for_quantum_transmission_phase()
-            """
-            Retrieve the number of rounds for the Quantum Transmission Phase in
-            the Qiskrypt's Quantum Key Exchange Protocol.
-            """
-
-            quantum_transmission_phase_rounds = \
-                self.get_quantum_transmission_phase_rounds()
-            """
-            Retrieve the list for the Quantum Transmission Phase of 
-            the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
-            """
-
-            for current_num_round_for_quantum_transmission_phase in \
-                    range(num_rounds_for_quantum_transmission_phase):
-                """
-                For each round of the Quantum Transmission Phase of 
-                the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
-                """
-
-                current_round_for_quantum_transmission_phase = \
-                    quantum_transmission_phase_rounds[current_num_round_for_quantum_transmission_phase]
-                """
-                Retrieve the current round of the Quantum Transmission Phase of 
-                the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
-                """
-
-                if isinstance(current_round_for_quantum_transmission_phase,
-                              QiskryptNoiselessDVBB84ProtocolWithNoEavesdroppingQuantumTransmissionPhaseRound):
-                    """
-                    If the current round of the Quantum Transmission Phase of 
-                    the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping is
-                    really a Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol
-                    with No Eavesdropping Quantum Transmission Phase Round.
-                    """
-
-                    current_round_quantum_circuit_for_quantum_transmission_phase = \
-                        current_round_for_quantum_transmission_phase.get_round_quantum_circuit()
-                    """
-                    Retrieve the Qiskrypt's Quantum Circuit for the current round of
-                    the Quantum Transmission Phase of the Qiskrypt's Noiseless
-                    DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
-                    """
-
-                    if isinstance(current_round_quantum_circuit_for_quantum_transmission_phase,
-                                  QiskryptQuantumCircuit):
-                        """
-                        If the Qiskrypt's Quantum Circuit for the current round of the Quantum Transmission Phase of 
-                        the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping is
-                        really a Qiskrypt's Quantum Circuit.
-                        """
-
-                        current_secret_bit_sender = \
-                            current_round_quantum_circuit_for_quantum_transmission_phase\
-                            .get_qiskrypt_classical_register(0).get_bit(0)
-                        """
-                        Retrieve the Secret Bit from the sender's Qiskrypt's Classical Register from
-                        the Qiskrypt's Quantum Circuit for the current round of the Quantum Transmission Phase of 
-                        the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
-                        """
-
-                        current_round_type_for_quantum_transmission_phase = \
-                            current_round_for_quantum_transmission_phase\
-                            .get_quantum_key_exchange_protocol_round_type()
-                        """
-                        Retrieve the type of the current round of the Quantum Transmission Phase of 
-                        the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
-                        """
-
-                        sender_raw_key_secret_bits += str(current_secret_bit_sender)
-                        """
-                        Append the current secret bit to the binary string for the bits used to
-                        build the Qiskrypt's Secret Raw Key of the sender Qiskrypt's Party Client,
-                        according to the randomly chosen value for it.
-                        """
-
-                        if current_secret_bit_sender == 0:
-                            """
-                            If the Secret Bit from the sender's Qiskrypt's Classical Register from
-                            the Qiskrypt's Quantum Circuit for the current round of the Quantum Transmission Phase of 
-                            the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping is
-                            equal to zero (0), which will correspond to a photon polarization of 0 or 45 degrees
-                            (also known as Horizontal or Diagonal polarizations, respectively).
-                            """
-
-                            if current_round_type_for_quantum_transmission_phase == \
-                                    POSSIBLE_DV_BB84_PROTOCOL_ROUND_TYPES_QUANTUM_TRANSMISSION_PHASE[0]:
-                                """
-                                If the current round of the Quantum Transmission Phase of 
-                                the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping is
-                                a 'Z-BASIS ROUND', the sender will prepare the photon with a polarization of 0 degrees
-                                (also known as Horizontal polarization) corresponding to the Quantum State |0⟩
-                                (or, |H⟩ in the notation of Jones Calculus), equivalent to the classical bit 0.
-                                """
-
-                                if not current_round_for_quantum_transmission_phase.is_round_basis_sender_choice_made():
-                                    """
-                                    If the basis choice made by the sender in the Qiskrypt's DV (Discrete Variables)
-                                    BB84 Protocol Round is not set yet.
-                                    """
-
-                                    current_round_for_quantum_transmission_phase\
-                                        .set_round_basis_sender_choice(
-                                            POSSIBLE_DV_BB84_PROTOCOL_ROUND_TYPES_QUANTUM_TRANSMISSION_PHASE[0].split(" ")[0]
-                                        )
-                                    """
-                                    Set the basis choice made by the sender in
-                                    the Qiskrypt's DV (Discrete Variables) BB84 Protocol Round as 'Z-BASIS'.
-                                    """
-
-                                    current_round_quantum_circuit_for_quantum_transmission_phase.apply_pauli_i(0, 0)
-                                    """
-                                    Apply the Pauli-I (Idle) Gate/Operation to the qubit in
-                                    the Qiskrypt's Quantum Register of the sender's Qiskrypt's Party Client of
-                                    the Qiskrypt's Quantum Circuit for the current round of
-                                    the Quantum Transmission Phase of the Qiskrypt's Noiseless
-                                    DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
-                                    """
-
-                                    current_round_quantum_circuit_for_quantum_transmission_phase\
-                                        .prepare_and_measure_single_qubit_in_qiskit_quantum_register_in_z_basis(0, 0,
-                                                                                                                0, 0, False)
-                                    """
-                                    Prepare the qubit in the sender's Qiskrypt's Quantum Register of
-                                    the Qiskrypt's Quantum Circuit of the current round of
-                                    the Quantum Transmission Phase of the Qiskrypt's Noiseless
-                                    DV (Discrete Variables) BB84 Protocol with No Eavesdropping in
-                                    the Z-Basis (Standard Computational Basis), without measuring it.
-                                    """
-
-                                else:
-                                    """
-                                    If the basis choice made by the sender in the Qiskrypt's DV (Discrete Variables)
-                                    BB84 Protocol Round is already set.
-                                    """
-
-                                    # TODO Throw - Exception
-
-                            elif current_round_type_for_quantum_transmission_phase == \
-                                    POSSIBLE_DV_BB84_PROTOCOL_ROUND_TYPES_QUANTUM_TRANSMISSION_PHASE[1]:
-                                """
-                                If the current round of the Quantum Transmission Phase of 
-                                the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping is
-                                a 'X-BASIS ROUND', the sender will prepare the photon with a polarization of 45 degrees
-                                (also known as Diagonal polarization) corresponding to the Quantum State
-                                |+⟩ = 1 / sqrt(2) x (|0⟩ + |1⟩) (or, |D⟩ = 1 / sqrt(2) x (|H⟩ + |V⟩) in
-                                the notation of Jones Calculus), equivalent to a quantum superposition of states
-                                representing the classical bits 0 and 1, in phase.
-                                """
-
-                                if not current_round_for_quantum_transmission_phase.is_round_basis_sender_choice_made():
-                                    """
-                                    If the basis choice made by the sender in the Qiskrypt's DV (Discrete Variables)
-                                    BB84 Protocol Round is not set yet.
-                                    """
-
-                                    current_round_for_quantum_transmission_phase\
-                                        .set_round_basis_sender_choice(
-                                            POSSIBLE_DV_BB84_PROTOCOL_ROUND_TYPES_QUANTUM_TRANSMISSION_PHASE[1].split(" ")[0]
-                                        )
-                                    """
-                                    Set the basis choice made by the sender in
-                                    the Qiskrypt's DV (Discrete Variables) BB84 Protocol Round as 'X-BASIS'.
-                                    """
-
-                                    current_round_quantum_circuit_for_quantum_transmission_phase.apply_pauli_i(0, 0)
-                                    """
-                                    Apply the Pauli-I (Idle) Gate/Operation to the qubit in
-                                    the Qiskrypt's Quantum Register of the sender's Qiskrypt's Party Client of
-                                    the Qiskrypt's Quantum Circuit for the current round of
-                                    the Quantum Transmission Phase of the Qiskrypt's Noiseless
-                                    DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
-                                    """
-
-                                    current_round_quantum_circuit_for_quantum_transmission_phase\
-                                        .prepare_and_measure_single_qubit_in_qiskit_quantum_register_in_x_basis(0, 0,
-                                                                                                                0, 0, False)
-                                    """
-                                    Prepare the qubit in the Qiskrypt's Quantum Register of
-                                    the sender's Qiskrypt's Party Client regarding
-                                    the Qiskrypt's Quantum Circuit of the current round of
-                                    the Quantum Transmission Phase of the Qiskrypt's Noiseless
-                                    DV (Discrete Variables) BB84 Protocol with No Eavesdropping in
-                                    the X-Basis (Hadamard Basis), without measuring it.
-                                    """
-
-                                else:
-                                    """
-                                    If the basis choice made by the sender in the Qiskrypt's DV (Discrete Variables)
-                                    BB84 Protocol Round is already set.
-                                    """
-
-                                    # TODO Throw - Exception
-
-                        elif current_secret_bit_sender == 1:
-                            """
-                            If the Secret Bit from the sender's Qiskrypt's Classical Register from
-                            the Qiskrypt's Quantum Circuit for the current round of the Quantum Transmission Phase of 
-                            the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping is
-                            equal to one (1), which will correspond to a photon polarization of 90 or 135 degrees
-                            (also known as Vertical or Anti-Diagonal polarizations, respectively).
-                            """
-
-                            if current_round_type_for_quantum_transmission_phase == \
-                                    POSSIBLE_DV_BB84_PROTOCOL_ROUND_TYPES_QUANTUM_TRANSMISSION_PHASE[0]:
-                                """
-                                If the current round of the Quantum Transmission Phase of 
-                                the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping is
-                                a 'Z-BASIS ROUND', the sender will prepare the photon with a polarization of 90 degrees
-                                (also known as Horizontal polarization) corresponding to the Quantum State |1⟩
-                                (or, |V⟩ in the notation of Jones Calculus), equivalent to the classical bit 1.
-                                """
-
-                                if not current_round_for_quantum_transmission_phase.is_round_basis_sender_choice_made():
-                                    """
-                                    If the basis choice made by the sender in the Qiskrypt's DV (Discrete Variables)
-                                    BB84 Protocol Round is not set yet.
-                                    """
-
-                                    current_round_for_quantum_transmission_phase\
-                                        .set_round_basis_sender_choice(
-                                            POSSIBLE_DV_BB84_PROTOCOL_ROUND_TYPES_QUANTUM_TRANSMISSION_PHASE[0].split(" ")[0]
-                                        )
-                                    """
-                                    Set the basis choice made by the sender in
-                                    the Qiskrypt's DV (Discrete Variables) BB84 Protocol Round as 'Z-BASIS'.
-                                    """
-
-                                    current_round_quantum_circuit_for_quantum_transmission_phase.apply_pauli_x(0, 0)
-                                    """
-                                    Apply the Pauli-X (NOT/Bit Flip) Gate/Operation to the qubit in
-                                    the Qiskrypt's Quantum Register of the sender's Qiskrypt's Party Client of
-                                    the Qiskrypt's Quantum Circuit for the current round of
-                                    the Quantum Transmission Phase of the Qiskrypt's Noiseless
-                                    DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
-                                    """
-
-                                    current_round_quantum_circuit_for_quantum_transmission_phase\
-                                        .prepare_and_measure_single_qubit_in_qiskit_quantum_register_in_z_basis(0, 0,
-                                                                                                                0, 0, False)
-                                    """
-                                    Prepare the qubit in the sender's Qiskrypt's Quantum Register of
-                                    the Qiskrypt's Quantum Circuit of the current round of
-                                    the Quantum Transmission Phase of the Qiskrypt's Noiseless
-                                    DV (Discrete Variables) BB84 Protocol with No Eavesdropping in
-                                    the Z-Basis (Standard Computational Basis), without measuring it.
-                                    """
-
-                                else:
-                                    """
-                                    If the basis choice made by the sender in the Qiskrypt's DV (Discrete Variables)
-                                    BB84 Protocol Round is already set.
-                                    """
-
-                                    # TODO Throw - Exception
-
-                            elif current_round_type_for_quantum_transmission_phase == \
-                                    POSSIBLE_DV_BB84_PROTOCOL_ROUND_TYPES_QUANTUM_TRANSMISSION_PHASE[1]:
-                                """
-                                If the current round of the Quantum Transmission Phase of 
-                                the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping is
-                                a 'X-BASIS ROUND', the sender will prepare the photon with a polarization of 135 degrees
-                                (also known as Diagonal polarization) corresponding to the Quantum State
-                                |-⟩ = 1 / sqrt(2) x (|0⟩ - |1⟩) (or, |A⟩ = 1 / sqrt(2) x (|H⟩ - |V⟩) in
-                                the notation of Jones Calculus), equivalent to a quantum superposition of states
-                                representing the classical bits 0 and 1, in anti-phase.
-                                """
-
-                                if not current_round_for_quantum_transmission_phase.is_round_basis_sender_choice_made():
-                                    """
-                                    If the basis choice made by the sender in the Qiskrypt's DV (Discrete Variables)
-                                    BB84 Protocol Round is not set yet.
-                                    """
-
-                                    current_round_for_quantum_transmission_phase\
-                                        .set_round_basis_sender_choice(
-                                            POSSIBLE_DV_BB84_PROTOCOL_ROUND_TYPES_QUANTUM_TRANSMISSION_PHASE[1].split(" ")[0]
-                                        )
-                                    """
-                                    Set the basis choice made by the sender in
-                                    the Qiskrypt's DV (Discrete Variables) BB84 Protocol Round as 'X-BASIS'.
-                                    """
-
-                                    current_round_quantum_circuit_for_quantum_transmission_phase.apply_pauli_x(0, 0)
-                                    """
-                                    Apply the Pauli-X (NOT/Bit Flip) Gate/Operation to the qubit in
-                                    the Qiskrypt's Quantum Register of the sender's Qiskrypt's Party Client of
-                                    the Qiskrypt's Quantum Circuit for the current round of
-                                    the Quantum Transmission Phase of the Qiskrypt's Noiseless
-                                    DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
-                                    """
-
-                                    current_round_quantum_circuit_for_quantum_transmission_phase\
-                                        .prepare_and_measure_single_qubit_in_qiskit_quantum_register_in_x_basis(0, 0,
-                                                                                                                0, 0, False)
-                                    """
-                                    Prepare the qubit in the sender's Qiskrypt's Quantum Register of
-                                    the Qiskrypt's Quantum Circuit of the current round of
-                                    the Quantum Transmission Phase of the Qiskrypt's Noiseless
-                                    DV (Discrete Variables) BB84 Protocol with No Eavesdropping in
-                                    the X-Basis (Hadamard Basis), without measuring it.
-                                    """
-
-                                else:
-                                    """
-                                    If the basis choice made by the sender in the Qiskrypt's DV (Discrete Variables)
-                                    BB84 Protocol Round is already set.
-                                    """
-
-                                    # TODO Throw - Exception
-
-                    else:
-                        """
-                        If the Qiskrypt's Quantum Circuit for the current round of the Quantum Transmission Phase of 
-                        the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping is
-                        not a Qiskrypt's Quantum Circuit.
-                        """
-
-                        # TODO Throw - Exception
-
-                else:
-                    """
-                    If the current round of the Quantum Transmission Phase of 
-                    the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping is
-                    not a Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol
-                    with No Eavesdropping Quantum Transmission Phase Round.
-                    """
-
-                    # TODO Throw - Exception
 
             sender_party_client = \
                 self.get_communication_session().get_sender_party_clients()[0]
@@ -1012,70 +700,451 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
                 really Qiskrypt's Party Clients.
                 """
 
-                sender_party_client_uuid = sender_party_client.get_uuid()
+                sender_raw_key_secret_bits = "0b"
                 """
-                Retrieve the UUID (Universally Unique IDentifier) of the sender Qiskrypt's Client.
-                """
-
-                sender_secret_raw_key = QiskryptSecretRawKey(sender_raw_key_secret_bits,
-                                                             sender_party_client_uuid)
-                """
-                Create a Qiskrypt's Secret Raw Key for the sender Qiskrypt's Client.
+                Initialise the binary string for the bits used to build
+                the Qiskrypt's Secret Raw Key of the sender Qiskrypt's Party Client.
                 """
 
-                sender_secret_raw_key_privacy_level = \
-                    sender_secret_raw_key.get_key_privacy_level()
+                num_rounds_for_quantum_transmission_phase = \
+                    self.get_num_rounds_for_quantum_transmission_phase()
                 """
-                Retrieve the privacy level of the Qiskrypt's Key for the sender Qiskrypt's Client.
-                """
-
-                sender_secret_raw_key_type = \
-                    sender_secret_raw_key.get_key_type()
-                """
-                Retrieve the type of the Qiskrypt's Key for the sender Qiskrypt's Client.
+                Retrieve the number of rounds for the Quantum Transmission Phase in
+                the Qiskrypt's Quantum Key Exchange Protocol.
                 """
 
-                sender_party_name = sender_party_client.get_party().get_name()
+                quantum_transmission_phase_rounds = \
+                    self.get_quantum_transmission_phase_rounds()
                 """
-                Retrieve the name of the sender Qiskrypt's Party.
-                """
-
-                sender_party_num = sender_party_client.get_party().get_num()
-                """
-                Retrieve the number of the sender Qiskrypt's Party.                
+                Retrieve the list for the Quantum Transmission Phase of 
+                the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
                 """
 
-                receiver_party_name = receiver_party_client.get_party().get_name()
-                """
-                Retrieve the name of the receiver Qiskrypt's Party.
-                """
+                for current_num_round_for_quantum_transmission_phase in \
+                        range(num_rounds_for_quantum_transmission_phase):
+                    """
+                    For each round of the Quantum Transmission Phase of 
+                    the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
+                    """
 
-                receiver_party_num = receiver_party_client.get_party().get_num()
-                """
-                Retrieve the number of the receiver Qiskrypt's Party.                
-                """
+                    logger_info_message(
+                        "    2.1.{}) {} preparing the photon of the round no. {} for\n"
+                        "                     the Quantum Transmission Phase of the Qiskrypt's Noiseless\n"
+                        "                     DV (Discrete Variables) BB84 Protocol with No Eavesdropping..."
+                        .format((current_num_round_for_quantum_transmission_phase + 1),
+                                sender_party_client.get_party().get_name().upper(),
+                                (current_num_round_for_quantum_transmission_phase + 1)))
+                    """
+                    Log an 'INFO' message for the preparation of the current photon for
+                    the Quantum Transmission Phase of the Qiskrypt's Noiseless
+                    DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
+                    """
 
-                sender_secret_raw_key_id = \
-                    "{} {} ({}_{} ; {}_{})".format(sender_secret_raw_key_privacy_level.lower(),
-                                                   sender_secret_raw_key_type.lower(),
-                                                   sender_party_name.lower(), sender_party_num,
-                                                   receiver_party_name.lower(), receiver_party_num)
-                """
-                Set up the identifier of the Qiskrypt's Secret Raw Key for
-                the sender Qiskrypt's Client.
-                """
+                    current_round_for_quantum_transmission_phase = \
+                        quantum_transmission_phase_rounds[current_num_round_for_quantum_transmission_phase]
+                    """
+                    Retrieve the current round of the Quantum Transmission Phase of 
+                    the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
+                    """
 
-                sender_party_client.add_item(sender_secret_raw_key_id, sender_secret_raw_key)
-                """
-                Add a new item to keep the Qiskrypt's Secret Raw Key for
-                the sender Qiskrypt's Client.
-                """
+                    if isinstance(current_round_for_quantum_transmission_phase,
+                                  QiskryptNoiselessDVBB84ProtocolWithNoEavesdroppingQuantumTransmissionPhaseRound):
+                        """
+                        If the current round of the Quantum Transmission Phase of 
+                        the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping is
+                        really a Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol
+                        with No Eavesdropping Quantum Transmission Phase Round.
+                        """
+
+                        current_round_quantum_circuit_for_quantum_transmission_phase = \
+                            current_round_for_quantum_transmission_phase.get_round_quantum_circuit()
+                        """
+                        Retrieve the Qiskrypt's Quantum Circuit for the current round of
+                        the Quantum Transmission Phase of the Qiskrypt's Noiseless
+                        DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
+                        """
+
+                        if isinstance(current_round_quantum_circuit_for_quantum_transmission_phase,
+                                      QiskryptQuantumCircuit):
+                            """
+                            If the Qiskrypt's Quantum Circuit for the current round of
+                            the Quantum Transmission Phase of the Qiskrypt's Noiseless DV (Discrete Variables)
+                            BB84 Protocol with No Eavesdropping is really a Qiskrypt's Quantum Circuit.
+                            """
+
+                            current_secret_bit_sender = \
+                                current_round_quantum_circuit_for_quantum_transmission_phase\
+                                .get_qiskrypt_classical_register(0).get_bit(0)
+                            """
+                            Retrieve the Secret Bit from the sender's Qiskrypt's Classical Register from
+                            the Qiskrypt's Quantum Circuit for the current round of the Quantum Transmission Phase of 
+                            the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
+                            """
+
+                            current_round_type_for_quantum_transmission_phase = \
+                                current_round_for_quantum_transmission_phase\
+                                .get_quantum_key_exchange_protocol_round_type()
+                            """
+                            Retrieve the type of the current round of the Quantum Transmission Phase of 
+                            the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
+                            """
+
+                            sender_raw_key_secret_bits += str(current_secret_bit_sender)
+                            """
+                            Append the current secret bit to the binary string for the bits used to
+                            build the Qiskrypt's Secret Raw Key of the sender Qiskrypt's Party Client,
+                            according to the randomly chosen value for it.
+                            """
+
+                            if current_secret_bit_sender == 0:
+                                """
+                                If the Secret Bit from the sender's Qiskrypt's Classical Register from
+                                the Qiskrypt's Quantum Circuit for the photon of the current round of
+                                the Quantum Transmission Phase of the Qiskrypt's Noiseless DV (Discrete Variables)
+                                BB84 Protocol with No Eavesdropping is equal to zero (0), which will correspond to
+                                a photon polarization of 0 or 45 degrees (also known as Horizontal or 
+                                Diagonal polarizations, respectively).
+                                """
+
+                                if current_round_type_for_quantum_transmission_phase == \
+                                        POSSIBLE_DV_BB84_PROTOCOL_ROUND_TYPES_QUANTUM_TRANSMISSION_PHASE[0]:
+                                    """
+                                    If the current round of the Quantum Transmission Phase of 
+                                    the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol
+                                    with No Eavesdropping is a 'Z-BASIS ROUND', the sender will prepare
+                                    the photon with a polarization of 0 degrees (also known as Horizontal
+                                    polarization) corresponding to the Quantum State |0⟩ (or, |H⟩ in
+                                    the notation of Jones Calculus), equivalent to the classical bit 0.
+                                    """
+
+                                    if not current_round_for_quantum_transmission_phase\
+                                            .is_round_basis_sender_choice_made():
+                                        """
+                                        If the basis choice made by the sender in 
+                                        the Qiskrypt's DV (Discrete Variables) BB84 Protocol Round is not set yet.
+                                        """
+
+                                        current_round_for_quantum_transmission_phase\
+                                            .set_round_basis_sender_choice(
+                                                POSSIBLE_DV_BB84_PROTOCOL_ROUND_TYPES_QUANTUM_TRANSMISSION_PHASE[0]
+                                                .split(" ")[0]
+                                            )
+                                        """
+                                        Set the basis choice made by the sender in
+                                        the Qiskrypt's DV (Discrete Variables) BB84 Protocol Round as 'Z-BASIS'.
+                                        """
+
+                                        current_round_quantum_circuit_for_quantum_transmission_phase\
+                                            .apply_pauli_i(0, 0)
+                                        """
+                                        Apply the Pauli-I (Idle) Gate/Operation to the qubit in
+                                        the Qiskrypt's Quantum Register of the sender's Qiskrypt's Party Client of
+                                        the Qiskrypt's Quantum Circuit for the current round of
+                                        the Quantum Transmission Phase of the Qiskrypt's Noiseless
+                                        DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
+                                        """
+
+                                        current_round_quantum_circuit_for_quantum_transmission_phase\
+                                            .prepare_and_measure_single_qubit_in_qiskit_quantum_register_in_z_basis\
+                                            (0, 0, 0, 0, False)
+                                        """
+                                        Prepare the qubit in the sender's Qiskrypt's Quantum Register of
+                                        the Qiskrypt's Quantum Circuit of the current round of
+                                        the Quantum Transmission Phase of the Qiskrypt's Noiseless
+                                        DV (Discrete Variables) BB84 Protocol with No Eavesdropping in
+                                        the Z-Basis (Standard Computational Basis), without measuring it.
+                                        """
+
+                                    else:
+                                        """
+                                        If the basis choice made by the sender in
+                                        the Qiskrypt's DV (Discrete Variables) BB84 Protocol Round is already set.
+                                        """
+
+                                        # TODO Throw - Exception
+
+                                elif current_round_type_for_quantum_transmission_phase == \
+                                        POSSIBLE_DV_BB84_PROTOCOL_ROUND_TYPES_QUANTUM_TRANSMISSION_PHASE[1]:
+                                    """
+                                    If the current round of the Quantum Transmission Phase of 
+                                    the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol
+                                    with No Eavesdropping is a 'X-BASIS ROUND', the sender will prepare
+                                    the photon with a polarization of 45 degrees (also known as Diagonal
+                                    polarization) corresponding to the Quantum State |+⟩ = 1 / sqrt(2) x (|0⟩ + |1⟩)
+                                    (or, |D⟩ = 1 / sqrt(2) x (|H⟩ + |V⟩) in the notation of Jones Calculus),
+                                    equivalent to a quantum superposition of states representing
+                                    the classical bits 0 and 1, in phase.
+                                    """
+
+                                    if not current_round_for_quantum_transmission_phase\
+                                            .is_round_basis_sender_choice_made():
+                                        """
+                                        If the basis choice made by the sender in
+                                        the Qiskrypt's DV (Discrete Variables) BB84 Protocol Round is not set yet.
+                                        """
+
+                                        current_round_for_quantum_transmission_phase\
+                                            .set_round_basis_sender_choice(
+                                                POSSIBLE_DV_BB84_PROTOCOL_ROUND_TYPES_QUANTUM_TRANSMISSION_PHASE[1]
+                                                .split(" ")[0]
+                                            )
+                                        """
+                                        Set the basis choice made by the sender in
+                                        the Qiskrypt's DV (Discrete Variables) BB84 Protocol Round as 'X-BASIS'.
+                                        """
+
+                                        current_round_quantum_circuit_for_quantum_transmission_phase\
+                                            .apply_pauli_i(0, 0)
+                                        """
+                                        Apply the Pauli-I (Idle) Gate/Operation to the qubit in
+                                        the Qiskrypt's Quantum Register of the sender's Qiskrypt's Party Client of
+                                        the Qiskrypt's Quantum Circuit for the current round of
+                                        the Quantum Transmission Phase of the Qiskrypt's Noiseless
+                                        DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
+                                        """
+
+                                        current_round_quantum_circuit_for_quantum_transmission_phase\
+                                            .prepare_and_measure_single_qubit_in_qiskit_quantum_register_in_x_basis\
+                                            (0, 0, 0, 0, False)
+                                        """
+                                        Prepare the qubit in the Qiskrypt's Quantum Register of
+                                        the sender's Qiskrypt's Party Client regarding
+                                        the Qiskrypt's Quantum Circuit of the current round of
+                                        the Quantum Transmission Phase of the Qiskrypt's Noiseless
+                                        DV (Discrete Variables) BB84 Protocol with No Eavesdropping in
+                                        the X-Basis (Hadamard Basis), without measuring it.
+                                        """
+
+                                    else:
+                                        """
+                                        If the basis choice made by the sender in
+                                        the Qiskrypt's DV (Discrete Variables) BB84 Protocol Round is already set.
+                                        """
+
+                                        # TODO Throw - Exception
+
+                            elif current_secret_bit_sender == 1:
+                                """
+                                If the Secret Bit from the sender's Qiskrypt's Classical Register from
+                                the Qiskrypt's Quantum Circuit for the current round of
+                                the Quantum Transmission Phase of the Qiskrypt's Noiseless
+                                DV (Discrete Variables) BB84 Protocol with No Eavesdropping is
+                                equal to one (1), which will correspond to a photon polarization of
+                                90 or 135 degrees (also known as Vertical or Anti-Diagonal
+                                polarizations, respectively).
+                                """
+
+                                if current_round_type_for_quantum_transmission_phase == \
+                                        POSSIBLE_DV_BB84_PROTOCOL_ROUND_TYPES_QUANTUM_TRANSMISSION_PHASE[0]:
+                                    """
+                                    If the current round of the Quantum Transmission Phase of 
+                                    the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol
+                                    with No Eavesdropping is a 'Z-BASIS ROUND', the sender will prepare
+                                    the photon with a polarization of 90 degrees (also known as Horizontal
+                                    polarization) corresponding to the Quantum State |1⟩ (or, |V⟩ in
+                                    the notation of Jones Calculus), equivalent to the classical bit 1.
+                                    """
+
+                                    if not current_round_for_quantum_transmission_phase\
+                                            .is_round_basis_sender_choice_made():
+                                        """
+                                        If the basis choice made by the sender in
+                                        the Qiskrypt's DV (Discrete Variables) BB84 Protocol Round is not set yet.
+                                        """
+
+                                        current_round_for_quantum_transmission_phase\
+                                            .set_round_basis_sender_choice(
+                                                POSSIBLE_DV_BB84_PROTOCOL_ROUND_TYPES_QUANTUM_TRANSMISSION_PHASE[0]
+                                                .split(" ")[0]
+                                            )
+                                        """
+                                        Set the basis choice made by the sender in
+                                        the Qiskrypt's DV (Discrete Variables) BB84 Protocol Round as 'Z-BASIS'.
+                                        """
+
+                                        current_round_quantum_circuit_for_quantum_transmission_phase\
+                                            .apply_pauli_x(0, 0)
+                                        """
+                                        Apply the Pauli-X (NOT/Bit Flip) Gate/Operation to the qubit in
+                                        the Qiskrypt's Quantum Register of the sender's Qiskrypt's Party Client of
+                                        the Qiskrypt's Quantum Circuit for the current round of
+                                        the Quantum Transmission Phase of the Qiskrypt's Noiseless
+                                        DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
+                                        """
+
+                                        current_round_quantum_circuit_for_quantum_transmission_phase\
+                                            .prepare_and_measure_single_qubit_in_qiskit_quantum_register_in_z_basis\
+                                            (0, 0, 0, 0, False)
+                                        """
+                                        Prepare the qubit in the sender's Qiskrypt's Quantum Register of
+                                        the Qiskrypt's Quantum Circuit of the current round of
+                                        the Quantum Transmission Phase of the Qiskrypt's Noiseless
+                                        DV (Discrete Variables) BB84 Protocol with No Eavesdropping in
+                                        the Z-Basis (Standard Computational Basis), without measuring it.
+                                        """
+
+                                    else:
+                                        """
+                                        If the basis choice made by the sender in
+                                        the Qiskrypt's DV (Discrete Variables) BB84 Protocol Round is already set.
+                                        """
+
+                                        # TODO Throw - Exception
+
+                                elif current_round_type_for_quantum_transmission_phase == \
+                                        POSSIBLE_DV_BB84_PROTOCOL_ROUND_TYPES_QUANTUM_TRANSMISSION_PHASE[1]:
+                                    """
+                                    If the current round of the Quantum Transmission Phase of 
+                                    the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol
+                                    with No Eavesdropping is a 'X-BASIS ROUND', the sender will prepare
+                                    the photon with a polarization of 135 degrees (also known as Diagonal
+                                    polarization) corresponding to the Quantum State |-⟩ = 1 / sqrt(2) x (|0⟩ - |1⟩)
+                                    (or, |A⟩ = 1 / sqrt(2) x (|H⟩ - |V⟩) in the notation of Jones Calculus),
+                                    equivalent to a quantum superposition of states representing
+                                    the classical bits 0 and 1, in anti-phase.
+                                    """
+
+                                    if not current_round_for_quantum_transmission_phase\
+                                            .is_round_basis_sender_choice_made():
+                                        """
+                                        If the basis choice made by the sender in
+                                        the Qiskrypt's DV (Discrete Variables) BB84 Protocol Round is not set yet.
+                                        """
+
+                                        current_round_for_quantum_transmission_phase\
+                                            .set_round_basis_sender_choice(
+                                                POSSIBLE_DV_BB84_PROTOCOL_ROUND_TYPES_QUANTUM_TRANSMISSION_PHASE[1]
+                                                .split(" ")[0]
+                                            )
+                                        """
+                                        Set the basis choice made by the sender in
+                                        the Qiskrypt's DV (Discrete Variables) BB84 Protocol Round as 'X-BASIS'.
+                                        """
+
+                                        current_round_quantum_circuit_for_quantum_transmission_phase\
+                                            .apply_pauli_x(0, 0)
+                                        """
+                                        Apply the Pauli-X (NOT/Bit Flip) Gate/Operation to the qubit in
+                                        the Qiskrypt's Quantum Register of the sender's Qiskrypt's Party Client of
+                                        the Qiskrypt's Quantum Circuit for the current round of
+                                        the Quantum Transmission Phase of the Qiskrypt's Noiseless
+                                        DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
+                                        """
+
+                                        current_round_quantum_circuit_for_quantum_transmission_phase\
+                                            .prepare_and_measure_single_qubit_in_qiskit_quantum_register_in_x_basis\
+                                            (0, 0, 0, 0, False)
+                                        """
+                                        Prepare the qubit in the sender's Qiskrypt's Quantum Register of
+                                        the Qiskrypt's Quantum Circuit of the current round of
+                                        the Quantum Transmission Phase of the Qiskrypt's Noiseless
+                                        DV (Discrete Variables) BB84 Protocol with No Eavesdropping in
+                                        the X-Basis (Hadamard Basis), without measuring it.
+                                        """
+
+                                    else:
+                                        """
+                                        If the basis choice made by the sender in
+                                        the Qiskrypt's DV (Discrete Variables) BB84 Protocol Round is already set.
+                                        """
+
+                                        # TODO Throw - Exception
+
+                        else:
+                            """
+                            If the Qiskrypt's Quantum Circuit for the current round of
+                            the Quantum Transmission Phase of the Qiskrypt's Noiseless
+                            DV (Discrete Variables) BB84 Protocol with No Eavesdropping is
+                            not a Qiskrypt's Quantum Circuit.
+                            """
+
+                            # TODO Throw - Exception
+
+                    else:
+                        """
+                        If the current round of the Quantum Transmission Phase of 
+                        the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping is
+                        not a Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol
+                        with No Eavesdropping Quantum Transmission Phase Round.
+                        """
+
+                        # TODO Throw - Exception
+
+                    sender_party_client_uuid = sender_party_client.get_uuid()
+                    """
+                    Retrieve the UUID (Universally Unique IDentifier) of the sender Qiskrypt's Client.
+                    """
+
+                    sender_secret_raw_key = QiskryptSecretRawKey(sender_raw_key_secret_bits,
+                                                                 sender_party_client_uuid)
+                    """
+                    Create a Qiskrypt's Secret Raw Key for the sender Qiskrypt's Client.
+                    """
+
+                    sender_secret_raw_key_privacy_level = \
+                        sender_secret_raw_key.get_key_privacy_level()
+                    """
+                    Retrieve the privacy level of the Qiskrypt's Key for the sender Qiskrypt's Client.
+                    """
+
+                    sender_secret_raw_key_type = \
+                        sender_secret_raw_key.get_key_type()
+                    """
+                    Retrieve the type of the Qiskrypt's Key for the sender Qiskrypt's Client.
+                    """
+
+                    sender_party_name = sender_party_client.get_party().get_name()
+                    """
+                    Retrieve the name of the sender Qiskrypt's Party.
+                    """
+
+                    sender_party_num = sender_party_client.get_party().get_num()
+                    """
+                    Retrieve the number of the sender Qiskrypt's Party.                
+                    """
+
+                    receiver_party_name = receiver_party_client.get_party().get_name()
+                    """
+                    Retrieve the name of the receiver Qiskrypt's Party.
+                    """
+
+                    receiver_party_num = receiver_party_client.get_party().get_num()
+                    """
+                    Retrieve the number of the receiver Qiskrypt's Party.                
+                    """
+
+                    sender_secret_raw_key_id = \
+                        "{} {} ({}_{} ; {}_{})".format(sender_secret_raw_key_privacy_level.lower(),
+                                                       sender_secret_raw_key_type.lower(),
+                                                       sender_party_name.lower(), sender_party_num,
+                                                       receiver_party_name.lower(), receiver_party_num)
+                    """
+                    Set up the identifier of the Qiskrypt's Secret Raw Key for
+                    the sender Qiskrypt's Client.
+                    """
+
+                    sender_party_client.add_item(sender_secret_raw_key_id, sender_secret_raw_key)
+                    """
+                    Add a new item to keep the Qiskrypt's Secret Raw Key for
+                    the sender Qiskrypt's Client.
+                    """
+
+                    logger_info_message(
+                        "    2.2) Finishing the preparation of the outgoing photons for\n"
+                        "                   the Quantum Transmission Phase of the Qiskrypt's Noiseless\n"
+                        "                   DV (Discrete Variables) BB84 Protocol with No Eavesdropping..."
+                    )
+                    """
+                    Log an 'INFO' message for the finish of the procedure of the preparation of
+                    the outgoing photons for the Quantum Transmission Phase of the Qiskrypt's Noiseless
+                    DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
+                    """
 
             else:
                 """
                 If the sender and/or receiver Qiskrypt's Party Clients of
-                the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping
-                are not a Qiskrypt's Party Client.
+                the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol
+                with No Eavesdropping are not a Qiskrypt's Party Client.
                 """
 
                 # TODO Throw - Exception
@@ -1096,6 +1165,17 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
         if self.is_configured():
             """
             If the Qiskrypt's Key Exchange Protocol is already configured.
+            """
+
+            logger_info_message(
+                "    2.3) Starting the transmission of the photons for\n"
+                "                   the Quantum Transmission Phase of the Qiskrypt's Noiseless\n"
+                "                   DV (Discrete Variables) BB84 Protocol with No Eavesdropping..."
+            )
+            """
+            Log an 'INFO' message for the start of the procedure of the transmission of
+            the photons for the Quantum Transmission Phase of the Qiskrypt's Noiseless
+            DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
             """
 
             num_rounds_for_quantum_transmission_phase = \
@@ -1119,6 +1199,19 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
                 the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
                 """
 
+                logger_info_message(
+                    "    2.3.{}) Transmitting the photon of the round no. {} for\n"
+                    "                     the Quantum Transmission Phase of the Qiskrypt's Noiseless\n"
+                    "                     DV (Discrete Variables) BB84 Protocol with No Eavesdropping..."
+                    .format((current_num_round_for_quantum_transmission_phase + 1),
+                    (current_num_round_for_quantum_transmission_phase + 1))
+                )
+                """
+                Log an 'INFO' message for the preparation of the current photon for
+                the Quantum Transmission Phase of the Qiskrypt's Noiseless
+                DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
+                """
+
                 current_round_for_quantum_transmission_phase = \
                     quantum_transmission_phase_rounds[current_num_round_for_quantum_transmission_phase]
                 """
@@ -1136,8 +1229,7 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
                     """
 
                     current_round_quantum_circuit_for_quantum_transmission_phase = \
-                        current_round_for_quantum_transmission_phase\
-                        .get_quantum_key_exchange_protocol_round_quantum_circuit()
+                        current_round_for_quantum_transmission_phase.get_round_quantum_circuit()
                     """
                     Retrieve the Qiskrypt's Quantum Circuit for the current round of the Quantum Transmission Phase of 
                     the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
@@ -1188,6 +1280,17 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
                     """
 
                     # TODO Throw - Exception
+
+            logger_info_message(
+                "    2.4) Finishing the transmission of the photons for\n"
+                "                   the Quantum Transmission Phase of the Qiskrypt's Noiseless\n"
+                "                   DV (Discrete Variables) BB84 Protocol with No Eavesdropping..."
+            )
+            """
+            Log an 'INFO' message for the finish of the procedure of the transmission of
+            the photons for the Quantum Transmission Phase of the Qiskrypt's Noiseless
+            DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
+            """
 
         else:
             """
@@ -1242,229 +1345,16 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
             If the Qiskrypt's Key Exchange Protocol is already configured.
             """
 
-            receiver_raw_key_secret_bits = "0b"
+            logger_info_message(
+                "    2.5) Starting the measurement of the incoming photons for\n"
+                "                   the Quantum Transmission Phase of the Qiskrypt's Noiseless\n"
+                "                   DV (Discrete Variables) BB84 Protocol with No Eavesdropping..."
+            )
             """
-            Initialise the binary string for the bits used to build
-            the Qiskrypt's Secret Raw Key of the receiver Qiskrypt's Party Client.
+            Log an 'INFO' message for the start of the procedure of the measurement of
+            the incoming photons for the Quantum Transmission Phase of the Qiskrypt's Noiseless
+            DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
             """
-
-            num_rounds_for_quantum_transmission_phase = \
-                self.get_num_rounds_for_quantum_transmission_phase()
-            """
-            Retrieve the number of rounds for the Quantum Transmission Phase in
-            the Qiskrypt's Quantum Key Exchange Protocol.
-            """
-
-            quantum_transmission_phase_rounds = \
-                self.get_quantum_transmission_phase_rounds()
-            """
-            Retrieve the list for the Quantum Transmission Phase of 
-            the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
-            """
-
-            for current_num_round_for_quantum_transmission_phase in \
-                    range(num_rounds_for_quantum_transmission_phase):
-                """
-                For each round of the Quantum Transmission Phase of 
-                the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
-                """
-
-                current_round_for_quantum_transmission_phase = \
-                    quantum_transmission_phase_rounds[current_num_round_for_quantum_transmission_phase]
-                """
-                Retrieve the current round of the Quantum Transmission Phase of 
-                the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
-                """
-
-                if isinstance(current_round_for_quantum_transmission_phase,
-                              QiskryptNoiselessDVBB84ProtocolWithNoEavesdroppingQuantumTransmissionPhaseRound):
-                    """
-                    If the current round of the Quantum Transmission Phase of 
-                    the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping is
-                    really a Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol
-                    with No Eavesdropping Quantum Transmission Phase Round.
-                    """
-
-                    current_round_quantum_circuit_for_quantum_transmission_phase = \
-                        current_round_for_quantum_transmission_phase\
-                        .get_quantum_key_exchange_protocol_round_quantum_circuit()
-                    """
-                    Retrieve the Qiskrypt's Quantum Circuit for the current round of the Quantum Transmission Phase of 
-                    the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
-                    """
-
-                    if isinstance(current_round_quantum_circuit_for_quantum_transmission_phase,
-                                  QiskryptQuantumCircuit):
-                        """
-                        If the Qiskrypt's Quantum Circuit for the current round of the Quantum Transmission Phase of 
-                        the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping is
-                        really a Qiskrypt's Quantum Circuit.
-                        """
-
-                        quantum_coin_tossing_receiver_random_basis = \
-                            QiskryptQuantumCoinTossing("qu_coin_toss_receiver_random_basis")
-                        """
-                        Create a Qiskrypt's Quantum Coin Tossing for the choice of Random Basis for the receiver.
-                        """
-
-                        quantum_coin_tossing_receiver_random_basis.initialise_qiskrypt_quantum_circuit()
-                        """
-                        Initialise the Qiskrypt's Quantum Circuit for
-                        the Qiskrypt's Quantum Coin Tossing for the choice of Random Basis for the receiver.
-                        """
-
-                        quantum_coin_tossing_receiver_random_basis.toss_coin()
-                        """
-                        Toss the Coin related to the Qiskrypt's Quantum Coin Tossing
-                        for the choice of Random Basis for the receiver.
-                        """
-
-                        receiver_random_basis_bit = \
-                            quantum_coin_tossing_receiver_random_basis.get_coin_tossing_outcome_bit_as_int_base_2()
-                        """
-                        Retrieve the classical bit from the Qiskrypt's Coin Tossing,
-                        for the choice of Random Basis for the receiver through
-                        the execution of the respective Qiskrypt's Quantum Circuit,
-                        in an integer base-2 format (i.e., an integer representation of a bit).
-                        """
-
-                        if not current_round_for_quantum_transmission_phase.is_round_basis_receiver_choice_made():
-                            """
-                            If the basis choice made by the receiver in
-                            the Qiskrypt's DV (Discrete Variables) BB84 Protocol Round is not set yet.
-                            """
-
-                            if receiver_random_basis_bit == 0:
-                                """
-                                If the classical bit from the Qiskrypt's Coin Tossing,
-                                for the choice of Random Basis for the receiver through
-                                the execution of the respective Qiskrypt's Quantum Circuit,
-                                in an integer base-2 format (i.e., an integer representation of a bit) is zero (0),
-                                the receiver will choose the 'Z-Basis' to measure the qubit in
-                                the current round of the Quantum Transmission Phase of 
-                                the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
-                                """
-
-                                current_round_for_quantum_transmission_phase \
-                                    .set_round_basis_sender_choice(
-                                        POSSIBLE_DV_BB84_PROTOCOL_ROUND_TYPES_QUANTUM_TRANSMISSION_PHASE[0].split(" ")[0]
-                                    )
-                                """
-                                Set the basis choice made by the sender in
-                                the Qiskrypt's DV (Discrete Variables) BB84 Protocol Round as 'Z-BASIS'.
-                                """
-
-                                current_round_for_quantum_transmission_phase.get_round_quantum_circuit()\
-                                    .prepare_and_measure_single_qubit_in_qiskit_quantum_register_in_z_basis\
-                                    (2, 1, 0, 0, True)
-                                """
-                                Prepare the qubit in the receiver's Qiskrypt's Quantum Register of
-                                the Qiskrypt's Quantum Circuit of the current round of
-                                the Quantum Transmission Phase of the Qiskrypt's Noiseless
-                                DV (Discrete Variables) BB84 Protocol with No Eavesdropping in
-                                the Z-Basis (Standard Computational Basis), and then measuring it.
-                                """
-
-                            elif receiver_random_basis_bit == 1:
-                                """
-                                If the classical bit from the Qiskrypt's Coin Tossing,
-                                for the choice of Random Basis for the receiver through
-                                the execution of the respective Qiskrypt's Quantum Circuit,
-                                in an integer base-2 format (i.e., an integer representation of a bit) is one (1),
-                                the receiver will choose the 'X-Basis' to measure the qubit in
-                                the current round of the Quantum Transmission Phase of 
-                                the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
-                                """
-
-                                current_round_for_quantum_transmission_phase \
-                                    .set_round_basis_sender_choice(
-                                        POSSIBLE_DV_BB84_PROTOCOL_ROUND_TYPES_QUANTUM_TRANSMISSION_PHASE[1].split(" ")[0]
-                                    )
-                                """
-                                Set the basis choice made by the sender in
-                                the Qiskrypt's DV (Discrete Variables) BB84 Protocol Round as 'X-BASIS'.
-                                """
-
-                                current_round_for_quantum_transmission_phase.get_round_quantum_circuit()\
-                                    .prepare_and_measure_single_qubit_in_qiskit_quantum_register_in_x_basis\
-                                    (2, 1, 0, 0, True)
-                                """
-                                Prepare the qubit in the receiver's Qiskrypt's Quantum Register of
-                                the Qiskrypt's Quantum Circuit of the current round of
-                                the Quantum Transmission Phase of the Qiskrypt's Noiseless
-                                DV (Discrete Variables) BB84 Protocol with No Eavesdropping in
-                                the X-Basis (Hadamard Basis), and then measuring it.
-                                """
-
-                            qiskit_qasm_backend = Aer.get_backend("qasm_simulator")
-                            """
-                            Getting the Aer Simulator Backend for the QASM (Quantum Assembly) Simulation
-                            (i.e., the classical simulation of an IBM Qiskit's Quantum Circuit).
-                            """
-
-                            final_results_frequency_counting = \
-                                execute(current_round_for_quantum_transmission_phase
-                                        .get_round_quantum_circuit().get_qiskit_quantum_circuit(),
-                                        qiskit_qasm_backend, shots=1).result().get_counts()
-                            """
-                            Execute the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit
-                            and store the resulted measurement of its final quantum state.
-                            """
-
-                            measurement_outcome_secret_bit = \
-                                bin(int(final_results_frequency_counting.most_frequent(), base=2))
-                            """
-                            Set the secret bit outcome for the round of the Quantum Transmission Phase of
-                            the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping,
-                            from the measurement of the qubit in the receiver Qiskrypt's Quantum Register into
-                            the bit of the receiver Qiskrypt's Classical Register of the respective
-                            Qiskrypt's Quantum Circuit, as the resulted outcome from the measurement of
-                            the IBM Qiskit's Quantum Circuit, in an binary format
-                            (i.e., the Python's representation for a bit).
-                            """
-
-                            current_round_for_quantum_transmission_phase.get_round_quantum_circuit()\
-                                .get_qiskrypt_classical_register(1)\
-                                .update_bit(0, int(measurement_outcome_secret_bit))
-                            """
-                            Update the bit in the receiver Qiskrypt's Classical Register of the respective
-                            Qiskrypt's Quantum Circuit for the round of the Quantum Transmission Phase of
-                            the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
-                            """
-
-                            receiver_raw_key_secret_bits += str(measurement_outcome_secret_bit)
-                            """
-                            Append the current secret bit to the binary string for the bits used to
-                            build the Qiskrypt's Secret Raw Key of the receiver Qiskrypt's Party Client,
-                            according to the randomly chosen measurement for it.
-                            """
-
-                        else:
-                            """
-                            If the basis choice made by the receiver in
-                            the Qiskrypt's DV (Discrete Variables) BB84 Protocol Round is already set.
-                            """
-
-                            # TODO Throw - Exception
-
-                    else:
-                        """
-                        If the Qiskrypt's Quantum Circuit for the current round of the Quantum Transmission Phase of 
-                        the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping is
-                        not a Qiskrypt's Quantum Circuit.
-                        """
-
-                        # TODO Throw - Exception
-
-                else:
-                    """
-                    If the current round of the Quantum Transmission Phase of 
-                    the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping is
-                    not a Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol
-                    with No Eavesdropping Quantum Transmission Phase Round.
-                    """
-
-                    # TODO Throw - Exception
 
             receiver_party_client = \
                 self.get_communication_session().get_receiver_party_clients()[0]
@@ -1484,74 +1374,430 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
                     isinstance(sender_party_client, QiskryptPartyClient):
                 """
                 If the receiver and sender Qiskrypt's Party Clients of
-                the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping are
-                really Qiskrypt's Party Clients.
+                the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol
+                with No Eavesdropping are really Qiskrypt's Party Clients.
                 """
 
-                receiver_party_client_uuid = receiver_party_client.get_uuid()
+                receiver_raw_key_secret_bits = "0b"
                 """
-                Retrieve the UUID (Universally Unique IDentifier) of the receiver Qiskrypt's Client.
-                """
-
-                receiver_secret_raw_key = QiskryptSecretRawKey(receiver_raw_key_secret_bits,
-                                                               receiver_party_client_uuid)
-                """
-                Create a Qiskrypt's Secret Raw Key for the receiver Qiskrypt's Client.
+                Initialise the binary string for the bits used to build
+                the Qiskrypt's Secret Raw Key of the receiver Qiskrypt's Party Client.
                 """
 
-                receiver_secret_raw_key_privacy_level = \
-                    receiver_secret_raw_key.get_key_privacy_level()
+                num_rounds_for_quantum_transmission_phase = \
+                    self.get_num_rounds_for_quantum_transmission_phase()
                 """
-                Retrieve the privacy level of the Qiskrypt's Key for the receiver Qiskrypt's Client.
-                """
-
-                receiver_secret_raw_key_type = \
-                    receiver_secret_raw_key.get_key_type()
-                """
-                Retrieve the type of the Qiskrypt's Key for the receiver Qiskrypt's Client.
+                Retrieve the number of rounds for the Quantum Transmission Phase in
+                the Qiskrypt's Quantum Key Exchange Protocol.
                 """
 
-                receiver_party_name = receiver_party_client.get_party().get_name()
+                quantum_transmission_phase_rounds = \
+                    self.get_quantum_transmission_phase_rounds()
                 """
-                Retrieve the name of the receiver Qiskrypt's Party.
-                """
-
-                receiver_party_num = receiver_party_client.get_party().get_num()
-                """
-                Retrieve the number of the receiver Qiskrypt's Party.                
+                Retrieve the list for the Quantum Transmission Phase of 
+                the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
                 """
 
-                sender_party_name = sender_party_client.get_party().get_name()
-                """
-                Retrieve the name of the sender Qiskrypt's Party.
-                """
+                for current_num_round_for_quantum_transmission_phase in \
+                        range(num_rounds_for_quantum_transmission_phase):
+                    """
+                    For each round of the Quantum Transmission Phase of 
+                    the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
+                    """
 
-                sender_party_num = sender_party_client.get_party().get_num()
-                """
-                Retrieve the number of the sender Qiskrypt's Party.                
-                """
+                    logger_info_message(
+                        "    2.5.{}) {} measuring the photon of the round no. {} for\n"
+                        "                     the Quantum Transmission Phase of the Qiskrypt's Noiseless\n"
+                        "                     DV (Discrete Variables) BB84 Protocol with No Eavesdropping..."
+                        .format((current_num_round_for_quantum_transmission_phase + 1),
+                                receiver_party_client.get_party().get_name().upper(),
+                                (current_num_round_for_quantum_transmission_phase + 1))
+                    )
+                    """
+                    Log an 'INFO' message for the measurement of the current photon for
+                    the Quantum Transmission Phase of the Qiskrypt's Noiseless
+                    DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
+                    """
 
-                receiver_secret_raw_key_id = \
-                    "{} {} ({}_{} ; {}_{})".format(receiver_secret_raw_key_privacy_level.lower(),
-                                                   receiver_secret_raw_key_type.lower(),
-                                                   receiver_party_name.lower(), receiver_party_num,
-                                                   sender_party_name.lower(), sender_party_num)
-                """
-                Set up the identifier of the Qiskrypt's Secret Raw Key for
-                the receiver Qiskrypt's Client.
-                """
+                    current_round_for_quantum_transmission_phase = \
+                        quantum_transmission_phase_rounds[current_num_round_for_quantum_transmission_phase]
+                    """
+                    Retrieve the current round of the Quantum Transmission Phase of 
+                    the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
+                    """
 
-                receiver_party_client.add_item(receiver_secret_raw_key_id, receiver_secret_raw_key)
-                """
-                Add a new item to keep the Qiskrypt's Secret Raw Key for
-                the receiver Qiskrypt's Client.
-                """
+                    if isinstance(current_round_for_quantum_transmission_phase,
+                                  QiskryptNoiselessDVBB84ProtocolWithNoEavesdroppingQuantumTransmissionPhaseRound):
+                        """
+                        If the current round of the Quantum Transmission Phase of 
+                        the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol
+                        with No Eavesdropping is really a Qiskrypt's Noiseless DV (Discrete Variables)
+                        BB84 Protocol with No Eavesdropping Quantum Transmission Phase Round.
+                        """
+
+                        current_round_quantum_circuit_for_quantum_transmission_phase = \
+                            current_round_for_quantum_transmission_phase.get_round_quantum_circuit()
+                        """
+                        Retrieve the Qiskrypt's Quantum Circuit for the current round of
+                        the Quantum Transmission Phase of the Qiskrypt's Noiseless
+                        DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
+                        """
+
+                        if isinstance(current_round_quantum_circuit_for_quantum_transmission_phase,
+                                      QiskryptQuantumCircuit):
+                            """
+                            If the Qiskrypt's Quantum Circuit for the current round of
+                            the Quantum Transmission Phase of the Qiskrypt's Noiseless DV (Discrete Variables)
+                            BB84 Protocol with No Eavesdropping is really a Qiskrypt's Quantum Circuit.
+                            """
+
+                            quantum_coin_tossing_receiver_random_basis = \
+                                QiskryptQuantumCoinTossing("qu_coin_toss_receiver_random_basis")
+                            """
+                            Create a Qiskrypt's Quantum Coin Tossing for the choice of
+                            Random Basis for the receiver.
+                            """
+
+                            quantum_coin_tossing_receiver_random_basis.initialise_qiskrypt_quantum_circuit()
+                            """
+                            Initialise the Qiskrypt's Quantum Circuit for
+                            the Qiskrypt's Quantum Coin Tossing for the choice of
+                            Random Basis for the receiver.
+                            """
+
+                            quantum_coin_tossing_receiver_random_basis.toss_coin()
+                            """
+                            Toss the Coin related to the Qiskrypt's Quantum Coin Tossing
+                            for the choice of Random Basis for the receiver.
+                            """
+
+                            receiver_random_basis_bit = \
+                                quantum_coin_tossing_receiver_random_basis\
+                                .get_coin_tossing_outcome_bit_as_int_base_2()
+                            """
+                            Retrieve the classical bit from the Qiskrypt's Coin Tossing,
+                            for the choice of Random Basis for the receiver through
+                            the execution of the respective Qiskrypt's Quantum Circuit,
+                            in an integer base-2 format (i.e., an integer representation of a bit).
+                            """
+
+                            if not current_round_for_quantum_transmission_phase\
+                                    .is_round_basis_receiver_choice_made():
+                                """
+                                If the basis choice made by the receiver in
+                                the Qiskrypt's DV (Discrete Variables) BB84 Protocol Round is not set yet.
+                                """
+
+                                if receiver_random_basis_bit == 0:
+                                    """
+                                    If the classical bit from the Qiskrypt's Coin Tossing,
+                                    for the choice of Random Basis for the receiver through
+                                    the execution of the respective Qiskrypt's Quantum Circuit,
+                                    in an integer base-2 format (i.e., an integer representation of a bit)
+                                    is zero (0), the receiver will choose the 'Z-Basis' to measure
+                                    the qubit in the current round of the Quantum Transmission Phase of 
+                                    the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol
+                                    with No Eavesdropping.
+                                    """
+
+                                    current_round_for_quantum_transmission_phase \
+                                        .set_round_basis_receiver_choice(
+                                            POSSIBLE_DV_BB84_PROTOCOL_ROUND_TYPES_QUANTUM_TRANSMISSION_PHASE[0]
+                                            .split(" ")[0]
+                                        )
+                                    """
+                                    Set the basis choice made by the sender in
+                                    the Qiskrypt's DV (Discrete Variables) BB84 Protocol Round as 'Z-BASIS'.
+                                    """
+
+                                    current_round_for_quantum_transmission_phase.get_round_quantum_circuit()\
+                                        .prepare_and_measure_single_qubit_in_qiskit_quantum_register_in_z_basis\
+                                        (2, 1, 0, 0, True)
+                                    """
+                                    Prepare the qubit in the receiver's Qiskrypt's Quantum Register of
+                                    the Qiskrypt's Quantum Circuit of the current round of
+                                    the Quantum Transmission Phase of the Qiskrypt's Noiseless
+                                    DV (Discrete Variables) BB84 Protocol with No Eavesdropping in
+                                    the Z-Basis (Standard Computational Basis), and then measuring it.
+                                    """
+
+                                elif receiver_random_basis_bit == 1:
+                                    """
+                                    If the classical bit from the Qiskrypt's Coin Tossing,
+                                    for the choice of Random Basis for the receiver through
+                                    the execution of the respective Qiskrypt's Quantum Circuit,
+                                    in an integer base-2 format (i.e., an integer representation of a bit)
+                                    is one (1), the receiver will choose the 'X-Basis' to measure
+                                    the qubit in the current round of the Quantum Transmission Phase of 
+                                    the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol
+                                    with No Eavesdropping.
+                                    """
+
+                                    current_round_for_quantum_transmission_phase \
+                                        .set_round_basis_receiver_choice(
+                                            POSSIBLE_DV_BB84_PROTOCOL_ROUND_TYPES_QUANTUM_TRANSMISSION_PHASE[1]
+                                            .split(" ")[0]
+                                        )
+                                    """
+                                    Set the basis choice made by the sender in
+                                    the Qiskrypt's DV (Discrete Variables) BB84 Protocol Round as 'X-BASIS'.
+                                    """
+
+                                    current_round_for_quantum_transmission_phase.get_round_quantum_circuit()\
+                                        .prepare_and_measure_single_qubit_in_qiskit_quantum_register_in_x_basis\
+                                        (2, 1, 0, 0, True)
+                                    """
+                                    Prepare the qubit in the receiver's Qiskrypt's Quantum Register of
+                                    the Qiskrypt's Quantum Circuit of the current round of
+                                    the Quantum Transmission Phase of the Qiskrypt's Noiseless
+                                    DV (Discrete Variables) BB84 Protocol with No Eavesdropping in
+                                    the X-Basis (Hadamard Basis), and then measuring it.
+                                    """
+
+                                qiskit_qasm_backend = Aer.get_backend("qasm_simulator")
+                                """
+                                Getting the Aer Simulator Backend for the QASM (Quantum Assembly) Simulation
+                                (i.e., the classical simulation of an IBM Qiskit's Quantum Circuit).
+                                """
+
+                                final_results_frequency_counting = \
+                                    execute(current_round_for_quantum_transmission_phase
+                                            .get_round_quantum_circuit().get_qiskit_quantum_circuit(),
+                                            qiskit_qasm_backend, shots=1).result().get_counts()
+                                """
+                                Execute the IBM Qiskit's Quantum Circuit of the Qiskrypt's Quantum Circuit
+                                and store the resulted measurement of its final quantum state.
+                                """
+
+                                measurement_outcome_secret_bit = \
+                                    bin(int(final_results_frequency_counting
+                                            .most_frequent()[::-1].split(" ")[1], base=2))
+                                """
+                                Set the secret bit outcome for the round of
+                                the Quantum Transmission Phase of the Qiskrypt's Noiseless
+                                DV (Discrete Variables) BB84 Protocol with No Eavesdropping,
+                                from the measurement of the qubit in the receiver
+                                Qiskrypt's Quantum Register into the bit of the receiver
+                                Qiskrypt's Classical Register of the respective
+                                Qiskrypt's Quantum Circuit, as the resulted outcome from
+                                the measurement of the IBM Qiskit's Quantum Circuit,
+                                in an binary format (i.e., the Python's representation for a bit).
+                                """
+
+                                current_round_for_quantum_transmission_phase.get_round_quantum_circuit()\
+                                    .get_qiskrypt_classical_register(1)\
+                                    .update_bit(0, int(measurement_outcome_secret_bit[BINARY_FORMAT_START_OFFSET:]))
+                                """
+                                Update the bit in the receiver Qiskrypt's Classical Register of
+                                the respective Qiskrypt's Quantum Circuit for the round of
+                                the Quantum Transmission Phase of the Qiskrypt's Noiseless
+                                DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
+                                """
+
+                                receiver_raw_key_secret_bits += \
+                                    str(measurement_outcome_secret_bit[BINARY_FORMAT_START_OFFSET:])
+                                """
+                                Append the current secret bit to the binary string for
+                                the bits used to build the Qiskrypt's Secret Raw Key of
+                                the receiver Qiskrypt's Party Client, according to
+                                the randomly chosen measurement for it.
+                                """
+
+                            else:
+                                """
+                                If the basis choice made by the receiver in
+                                the Qiskrypt's DV (Discrete Variables) BB84 Protocol Round is already set.
+                                """
+
+                                # TODO Throw - Exception
+
+                        else:
+                            """
+                            If the Qiskrypt's Quantum Circuit for the current round of
+                            the Quantum Transmission Phase of the Qiskrypt's Noiseless
+                            DV (Discrete Variables) BB84 Protocol with No Eavesdropping is
+                            not a Qiskrypt's Quantum Circuit.
+                            """
+
+                            # TODO Throw - Exception
+
+                    else:
+                        """
+                        If the current round of the Quantum Transmission Phase of 
+                        the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol
+                        with No Eavesdropping is not a Qiskrypt's Noiseless
+                        DV (Discrete Variables) BB84 Protocol with No Eavesdropping
+                        Quantum Transmission Phase Round.
+                        """
+
+                        # TODO Throw - Exception
+
+                    receiver_party_client_uuid = receiver_party_client.get_uuid()
+                    """
+                    Retrieve the UUID (Universally Unique IDentifier) of the receiver Qiskrypt's Client.
+                    """
+
+                    receiver_secret_raw_key = QiskryptSecretRawKey(receiver_raw_key_secret_bits,
+                                                                   receiver_party_client_uuid)
+                    """
+                    Create a Qiskrypt's Secret Raw Key for the receiver Qiskrypt's Client.
+                    """
+
+                    receiver_secret_raw_key_privacy_level = \
+                        receiver_secret_raw_key.get_key_privacy_level()
+                    """
+                    Retrieve the privacy level of the Qiskrypt's Key for the receiver Qiskrypt's Client.
+                    """
+
+                    receiver_secret_raw_key_type = \
+                        receiver_secret_raw_key.get_key_type()
+                    """
+                    Retrieve the type of the Qiskrypt's Key for the receiver Qiskrypt's Client.
+                    """
+
+                    receiver_party_name = receiver_party_client.get_party().get_name()
+                    """
+                    Retrieve the name of the receiver Qiskrypt's Party.
+                    """
+
+                    receiver_party_num = receiver_party_client.get_party().get_num()
+                    """
+                    Retrieve the number of the receiver Qiskrypt's Party.                
+                    """
+
+                    sender_party_name = sender_party_client.get_party().get_name()
+                    """
+                    Retrieve the name of the sender Qiskrypt's Party.
+                    """
+
+                    sender_party_num = sender_party_client.get_party().get_num()
+                    """
+                    Retrieve the number of the sender Qiskrypt's Party.                
+                    """
+
+                    receiver_secret_raw_key_id = \
+                        "{} {} ({}_{} ; {}_{})".format(receiver_secret_raw_key_privacy_level.lower(),
+                                                       receiver_secret_raw_key_type.lower(),
+                                                       receiver_party_name.lower(), receiver_party_num,
+                                                       sender_party_name.lower(), sender_party_num)
+                    """
+                    Set up the identifier of the Qiskrypt's Secret Raw Key for
+                    the receiver Qiskrypt's Client.
+                    """
+
+                    receiver_party_client.add_item(receiver_secret_raw_key_id, receiver_secret_raw_key)
+                    """
+                    Add a new item to keep the Qiskrypt's Secret Raw Key for
+                    the receiver Qiskrypt's Client.
+                    """
+
+                    logger_info_message(
+                        "    2.6) Finishing the measurement of the incoming photons for\n"
+                        "                   the Quantum Transmission Phase of the Qiskrypt's Noiseless\n"
+                        "                   DV (Discrete Variables) BB84 Protocol with No Eavesdropping..."
+                    )
+                    """
+                    Log an 'INFO' message for the finish of the procedure of the measurement of
+                    the incoming photons for the Quantum Transmission Phase of the Qiskrypt's Noiseless
+                    DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
+                    """
+
+                    sender_party_name = sender_party_client.get_party().get_name()
+                    """
+                    Retrieve the name of the sender Qiskrypt's Party.
+                    """
+
+                    sender_party_num = sender_party_client.get_party().get_num()
+                    """
+                    Retrieve the number of the sender Qiskrypt's Party.                
+                    """
+
+                    receiver_party_name = receiver_party_client.get_party().get_name()
+                    """
+                    Retrieve the name of the receiver Qiskrypt's Party.
+                    """
+
+                    receiver_party_num = receiver_party_client.get_party().get_num()
+                    """
+                    Retrieve the number of the receiver Qiskrypt's Party.                
+                    """
+
+                    sender_secret_raw_key_id = \
+                        "{} {} ({}_{} ; {}_{})".format(POSSIBLE_KEY_PRIVACY_LEVELS[0].lower(),
+                                                       POSSIBLE_KEY_TYPES[0].lower(),
+                                                       sender_party_name.lower(), sender_party_num,
+                                                       receiver_party_name.lower(), receiver_party_num)
+                    """
+                    Set up the identifier of the Qiskrypt's Secret Raw Key for
+                    the sender Qiskrypt's Client.
+                    """
+
+                    receiver_secret_raw_key_id = \
+                        "{} {} ({}_{} ; {}_{})".format(POSSIBLE_KEY_PRIVACY_LEVELS[0].lower(),
+                                                       POSSIBLE_KEY_TYPES[0].lower(),
+                                                       receiver_party_name.lower(), receiver_party_num,
+                                                       sender_party_name.lower(), sender_party_num)
+                    """
+                    Set up the identifier of the Qiskrypt's Secret Raw Key for
+                    the receiver Qiskrypt's Client.
+                    """
+
+                    sender_secret_raw_key = \
+                        sender_party_client.get_item_value_by_key(sender_secret_raw_key_id)
+                    """
+                    Retrieve the Qiskrypt's Secret Raw Key for
+                    the sender Qiskrypt's Client. 
+                    """
+
+                    receiver_secret_raw_key = \
+                        receiver_party_client.get_item_value_by_key(receiver_secret_raw_key_id)
+                    """
+                    Retrieve the Qiskrypt's Secret Raw Key for
+                    the receiver Qiskrypt's Client. 
+                    """
+
+                    logger_info_message(
+                        "    2.7) Retrieving the information about the Qiskrypt's Seucre Raw Keys obtained after\n"
+                        "                   the Quantum Transmission Phase of the Qiskrypt's Noiseless\n"
+                        "                   DV (Discrete Variables) BB84 Protocol with No Eavesdropping:"
+                    )
+                    """
+                    Log an 'INFO' message for the retrieval of the information about
+                    the Qiskrypt's Secure Raw Keys obtained after the Quantum Transmission Phase of
+                    the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol
+                    with No Eavesdropping.
+                    """
+
+                    if isinstance(sender_secret_raw_key, QiskryptSecretRawKey) and\
+                            isinstance(receiver_secret_raw_key, QiskryptSecretRawKey):
+                        """
+                        If both sender's and receiver's Qiskrypt's Secret Raw Keys are
+                        really Qiskrypt's Secret Raw Keys.
+                        """
+
+                        logger_info_message(
+                            "    2.7.1) Raw Key #1 -> {}: {}"
+                            .format(sender_secret_raw_key_id,
+                                    sender_secret_raw_key.get_bits()[BINARY_FORMAT_START_OFFSET:])
+                        )
+                        """
+                        Log an 'INFO' message for the sender's Qiskrypt's Secret Raw Key.
+                        """
+
+                        logger_info_message(
+                            "    2.7.2) Raw Key #2 -> {}: {}"
+                            .format(receiver_secret_raw_key_id,
+                                    receiver_secret_raw_key.get_bits()[BINARY_FORMAT_START_OFFSET:])
+                        )
+                        """
+                        Log an 'INFO' message for the receiver's Qiskrypt's Secret Raw Key.
+                        """
 
             else:
                 """
                 If the sender and/or receiver Qiskrypt's Party Clients of
-                the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping
-                are not a Qiskrypt's Party Client.
+                the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol
+                with No Eavesdropping are not a Qiskrypt's Party Client.
                 """
 
                 # TODO Throw - Exception
@@ -1582,6 +1828,21 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
             """
             If the Qiskrypt's Key Exchange Protocol is already configured.
             """
+
+            logger_info_message(
+                "    3.1) Starting the Key Sifting procedure for\n"
+                "                   the Classical Post-Processing Phase of the Qiskrypt's Noiseless\n"
+                "                   DV (Discrete Variables) BB84 Protocol with No Eavesdropping..."
+            )
+            """
+            Log an 'INFO' message for the start of the procedure of the Key Sifting of
+            the Qiskrypt's Secure Raw Key for the Classical Post-Processing Phase of the Qiskrypt's Noiseless
+            DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
+            """
+
+            sender_basis_choices = ""
+
+            receiver_basis_choices = ""
 
             sender_sifted_key_secret_bits = "0b"
             """
@@ -1656,6 +1917,74 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
                         the Quantum Transmission Phase of the Qiskrypt's Noiseless DV (Discrete Variables)
                         BB84 Protocol with No Eavesdropping.
                         """
+
+                        if round_basis_sender_choice == \
+                                POSSIBLE_DV_BB84_PROTOCOL_ROUND_TYPES_QUANTUM_TRANSMISSION_PHASE[0].split(" ")[0]:
+                            """
+                            If the basis choice made by the sender for the current round of
+                            the Quantum Transmission Phase of the Qiskrypt's Noiseless DV (Discrete Variables)
+                            BB84 Protocol with No Eavesdropping is the 'Z-Basis'.
+                            """
+
+                            sender_basis_choices += \
+                                POSSIBLE_DV_BB84_PROTOCOL_ROUND_TYPES_QUANTUM_TRANSMISSION_PHASE[0]\
+                                .split(" ")[0].split("-")[0]
+                            """
+                            Append the basis choice made by the sender for the current round of
+                            the Quantum Transmission Phase of the Qiskrypt's Noiseless DV (Discrete Variables)
+                            BB84 Protocol with No Eavesdropping if it is the 'Z-Basis'.
+                            """
+
+                        elif round_basis_sender_choice == \
+                                POSSIBLE_DV_BB84_PROTOCOL_ROUND_TYPES_QUANTUM_TRANSMISSION_PHASE[1].split(" ")[0]:
+                            """
+                            If the basis choice made by the sender for the current round of
+                            the Quantum Transmission Phase of the Qiskrypt's Noiseless DV (Discrete Variables)
+                            BB84 Protocol with No Eavesdropping is the 'X-Basis'.
+                            """
+
+                            sender_basis_choices += \
+                                POSSIBLE_DV_BB84_PROTOCOL_ROUND_TYPES_QUANTUM_TRANSMISSION_PHASE[1]\
+                                .split(" ")[0].split("-")[0]
+                            """
+                            Append the basis choice made by the sender for the current round of
+                            the Quantum Transmission Phase of the Qiskrypt's Noiseless DV (Discrete Variables)
+                            BB84 Protocol with No Eavesdropping if it is the 'X-Basis'.
+                            """
+
+                        if round_basis_receiver_choice == \
+                                POSSIBLE_DV_BB84_PROTOCOL_ROUND_TYPES_QUANTUM_TRANSMISSION_PHASE[0].split(" ")[0]:
+                            """
+                            If the basis choice made by the receiver for the current round of
+                            the Quantum Transmission Phase of the Qiskrypt's Noiseless DV (Discrete Variables)
+                            BB84 Protocol with No Eavesdropping is the 'Z-Basis'.
+                            """
+
+                            receiver_basis_choices += \
+                                POSSIBLE_DV_BB84_PROTOCOL_ROUND_TYPES_QUANTUM_TRANSMISSION_PHASE[0]\
+                                .split(" ")[0].split("-")[0]
+                            """
+                            Append the basis choice made by the receiver for the current round of
+                            the Quantum Transmission Phase of the Qiskrypt's Noiseless DV (Discrete Variables)
+                            BB84 Protocol with No Eavesdropping if it is the 'Z-Basis'.
+                            """
+
+                        elif round_basis_receiver_choice == \
+                                POSSIBLE_DV_BB84_PROTOCOL_ROUND_TYPES_QUANTUM_TRANSMISSION_PHASE[1].split(" ")[0]:
+                            """
+                            If the basis choice made by the receiver for the current round of
+                            the Quantum Transmission Phase of the Qiskrypt's Noiseless DV (Discrete Variables)
+                            BB84 Protocol with No Eavesdropping is the 'X-Basis'.
+                            """
+
+                            receiver_basis_choices += \
+                                POSSIBLE_DV_BB84_PROTOCOL_ROUND_TYPES_QUANTUM_TRANSMISSION_PHASE[1]\
+                                .split(" ")[0].split("-")[0]
+                            """
+                            Append the basis choice made by the receiver for the current round of
+                            the Quantum Transmission Phase of the Qiskrypt's Noiseless DV (Discrete Variables)
+                            BB84 Protocol with No Eavesdropping if it is the 'X-Basis'.
+                            """
 
                         if round_basis_sender_choice == round_basis_receiver_choice:
                             """
@@ -1861,6 +2190,147 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
 
                 # TODO Throw - Exception
 
+            logger_info_message(
+                "    3.2) Finishing the Key Sifting procedure for\n"
+                "                   the Classical Post-Processing Phase of the Qiskrypt's Noiseless\n"
+                "                   DV (Discrete Variables) BB84 Protocol with No Eavesdropping..."
+            )
+            """
+            Log an 'INFO' message for the finish of the procedure of the Key Sifting of
+            the Qiskrypt's Secure Raw Key for the Classical Post-Processing Phase of the Qiskrypt's Noiseless
+            DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
+            """
+
+            logger_info_message(
+                "    3.3) Retrieving the information about the Qiskrypt's Secure Sifted Keys obtained after\n"
+                "                   the Quantum Transmission Phase of the Qiskrypt's Noiseless\n"
+                "                   DV (Discrete Variables) BB84 Protocol with No Eavesdropping:"
+            )
+            """
+            Log an 'INFO' message for the retrieval of the information about
+            the Qiskrypt's Secure Sifted Keys obtained after the Quantum Transmission Phase of
+            the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol
+            with No Eavesdropping.
+            """
+
+            sender_party_client = \
+                self.get_communication_session().get_sender_party_clients()[0]
+            """
+            Retrieve the sender Qiskrypt's Party Client from the Qiskrypt's Communication Session of
+            the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
+            """
+
+            receiver_party_client = \
+                self.get_communication_session().get_receiver_party_clients()[0]
+            """
+            Retrieve the receiver Qiskrypt's Party Client from the Qiskrypt's Communication Session of
+            the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
+            """
+
+            if isinstance(sender_party_client, QiskryptPartyClient) and \
+                    isinstance(receiver_party_client, QiskryptPartyClient):
+                """
+                If the sender and receiver Qiskrypt's Party Clients of
+                the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping are
+                really Qiskrypt's Party Clients.
+                """
+
+                sender_party_name = sender_party_client.get_party().get_name()
+                """
+                Retrieve the name of the sender Qiskrypt's Party.
+                """
+
+                sender_party_num = sender_party_client.get_party().get_num()
+                """
+                Retrieve the number of the sender Qiskrypt's Party.                
+                """
+
+                receiver_party_name = receiver_party_client.get_party().get_name()
+                """
+                Retrieve the name of the receiver Qiskrypt's Party.
+                """
+
+                receiver_party_num = receiver_party_client.get_party().get_num()
+                """
+                Retrieve the number of the receiver Qiskrypt's Party.                
+                """
+
+                sender_secret_sifted_key_id = \
+                    "{} {} ({}_{} ; {}_{})".format(POSSIBLE_KEY_PRIVACY_LEVELS[0].lower(),
+                                                   POSSIBLE_KEY_TYPES[1].lower(),
+                                                   sender_party_name.lower(), sender_party_num,
+                                                   receiver_party_name.lower(), receiver_party_num)
+                """
+                Set up the identifier of the Qiskrypt's Secret Sifted Key for
+                the sender Qiskrypt's Client.
+                """
+
+                receiver_secret_sifted_key_id = \
+                    "{} {} ({}_{} ; {}_{})".format(POSSIBLE_KEY_PRIVACY_LEVELS[0].lower(),
+                                                   POSSIBLE_KEY_TYPES[1].lower(),
+                                                   receiver_party_name.lower(), receiver_party_num,
+                                                   sender_party_name.lower(), sender_party_num)
+                """
+                Set up the identifier of the Qiskrypt's Secret Sifted Key for
+                the receiver Qiskrypt's Client.
+                """
+
+                sender_secret_sifted_key = \
+                    sender_party_client.get_item_value_by_key(sender_secret_sifted_key_id)
+                """
+                Retrieve the Qiskrypt's Secret Sifted Key for
+                the sender Qiskrypt's Client. 
+                """
+
+                receiver_secret_sifted_key = \
+                    receiver_party_client.get_item_value_by_key(receiver_secret_sifted_key_id)
+                """
+                Retrieve the Qiskrypt's Secret Sifted Key for
+                the receiver Qiskrypt's Client. 
+                """
+
+                logger_info_message(
+                    "    3.3.1) Basis Choices #1: {}"
+                    .format(sender_basis_choices)
+                )
+                """
+                Log an 'INFO' message for the sender's basis choices.
+                """
+
+                logger_info_message(
+                    "    3.3.2) Basis Choices #2: {}"
+                    .format(receiver_basis_choices)
+                )
+                """
+                Log an 'INFO' message for the receiver's basis choices.
+                """
+
+                if isinstance(sender_secret_sifted_key, QiskryptSecretSiftedKey) and \
+                        isinstance(receiver_secret_sifted_key, QiskryptSecretSiftedKey):
+                    """
+                    If the Qiskrypt's Secret Sifted Keys of the sender and the receiver
+                    Qiskrypt's Party Clients of the Qiskrypt's Noiseless DV (Discrete Variables)
+                    BB84 Protocol with No Eavesdropping are really Qiskrypt's Secret Sifted Keys.
+                    """
+
+                    logger_info_message(
+                        "    3.3.3) Sifted Key #1 -> {}: {}"
+                        .format(sender_secret_sifted_key_id,
+                                sender_secret_sifted_key.get_bits()[BINARY_FORMAT_START_OFFSET:])
+                    )
+                    """
+                    Log an 'INFO' message for the sender's Qiskrypt's Secret Sifted Key.
+                    """
+
+                    logger_info_message(
+                        "    3.3.4) Sifted Key #2 -> {}: {}"
+                        .format(receiver_secret_sifted_key_id,
+                                receiver_secret_sifted_key.get_bits()[BINARY_FORMAT_START_OFFSET:])
+                    )
+                    """
+                    Log an 'INFO' message for the receiver's Qiskrypt's Secret Sifted Key.
+                    """
+
         else:
             """
             If the Qiskrypt's Key Exchange Protocol is not configured.
@@ -1934,7 +2404,7 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
                 receiver_secret_sifted_key_id = \
                     "{} {} ({}_{} ; {}_{})".format(POSSIBLE_KEY_PRIVACY_LEVELS[0].lower(),
                                                    POSSIBLE_KEY_TYPES[1].lower(),
-                                                   receiver_party_name.lower(), receiver_party_name,
+                                                   receiver_party_name.lower(), receiver_party_num,
                                                    sender_party_name.lower(), sender_party_num)
                 """
                 Set up the identifier of the Qiskrypt's Secret Sifted Key for
@@ -2754,13 +3224,13 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
             """
 
             logger_info_message("    1.5) Starting the creation of the secret bits for\n"
-                                "                   the sender's Qiskrypt's Raw Key and for each round of\n"
+                                "                   the sender's Qiskrypt's Secure Raw Key and for each round of\n"
                                 "                   the Quantum Transmission Phase of the Qiskrypt's Noiseless\n"
                                 "                   DV (Discrete Variables) BB84 Protocol with\n"
                                 "                   No Eavesdropping in the sender's side...")
             """
             Log an 'INFO' message for the start of the procedure of
-            the creation of the secret bits for the sender's Qiskrypt's Raw Key
+            the creation of the secret bits for the sender's Qiskrypt's Secure Raw Key
             and for each round of the Qiskrypt's Noiseless DV (Discrete Variables)
             BB84 Protocol with No Eavesdropping in the sender's side.
             """
@@ -2918,13 +3388,13 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
                 """
 
             logger_info_message("    1.6) Finishing the creation of the secret bits for\n"
-                                "                   the sender's Qiskrypt's Raw Key and for each round of\n"
+                                "                   the sender's Qiskrypt's Secure Raw Key and for each round of\n"
                                 "                   the Quantum Transmission Phase of the Qiskrypt's Noiseless\n"
                                 "                   DV (Discrete Variables) BB84 Protocol with\n"
                                 "                   No Eavesdropping in the sender's side...")
             """
             Log an 'INFO' message for the finish of the procedure of
-            the creation of the secret bits for the sender's Qiskrypt's Raw Key
+            the creation of the secret bits for the sender's Qiskrypt's Secure Raw Key
             and for each round of the Qiskrypt's Noiseless DV (Discrete Variables)
             BB84 Protocol with No Eavesdropping in the sender's side.
             """

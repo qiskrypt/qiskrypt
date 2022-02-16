@@ -219,17 +219,17 @@ class QiskryptClassicalUtilities:
         return float_number_truncated
 
     @staticmethod
-    def waiting_animation(message="Please, wait", num_points=16):
+    def waiting_animation(message="Please, wait", total_num_points=16):
         """
         Call a waiting animation.
 
         :param message: the waiting message, set with the value
                         'Please, wait', as default.
-        :param num_points: the number of points for the animation,
+        :param num_points: the total number of points for the animation,
                            set with the value 16, as default.
         """
 
-        for current_num_points in range(num_points):
+        for current_num_points in range(total_num_points):
             """
             For each current combination for the waiting animation.
             """
@@ -249,18 +249,29 @@ class QiskryptClassicalUtilities:
             Retrieve the OK Green Color for the message of the waiting animation.
             """
 
-            print("\r{}{}".format(ok_green_color, final_message), end="")
-            """
-            Print the message of the waiting animation.
-            """
+            if current_num_points < (total_num_points - 1):
+                """
+                For the first combinations of the final message for
+                the waiting animation. 
+                """
+
+                print("\r{}{}".format(ok_green_color, final_message), end="")
+                """
+                Print the message of the waiting animation.
+                """
+
+            else:
+                """
+                For the remaining combinations of the final message for
+                the waiting animation. 
+                """
+
+                print("\r{}{}".format(ok_green_color, final_message))
+                """
+                Print the message of the waiting animation.
+                """
 
             sleep(1)
             """
             Wait/sleep one (1) Second.
             """
-
-        print()
-        print()
-        """
-        Print two consecutive empty blank lines.
-        """

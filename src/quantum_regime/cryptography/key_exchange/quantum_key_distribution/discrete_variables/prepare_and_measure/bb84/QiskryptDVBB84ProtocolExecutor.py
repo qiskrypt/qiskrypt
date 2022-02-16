@@ -156,7 +156,7 @@ class QiskryptDVBB84ProtocolExecutor:
 
             print("{}{}".format(QiskryptMessageColorsEnumeration.HEADER.value,
                                 "\nExecuting the Qiskrypt's DV (Discrete Variables) BB84 Protocol\n"
-                                "with no noise and no eavesdropping...\n"))
+                                "with no noise and no eavesdropping..."))
             """
             Print the initial message.
             """
@@ -174,8 +174,7 @@ class QiskryptDVBB84ProtocolExecutor:
             BB84 Protocol with No Eavesdropping.
             """
 
-            # TODO
-            #noiseless_dv_bb84_protocol_with_no_eavesdropping.run()
+            noiseless_dv_bb84_protocol_with_no_eavesdropping.run()
             """
             Run the Qiskrypt's Noiseless DV (Discrete Variables)
             BB84 Protocol with No Eavesdropping.
