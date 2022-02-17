@@ -69,15 +69,26 @@ from logging import info as logger_info_message
 Import the logger of 'INFO' messages.
 """
 
+from hashlib import sha256 as sha_256
+"""
+Import the SHA-256 (Secure-Hash Algorithm for 256 bits) from
+the Python's HashLib.
+"""
+
 from copy import deepcopy as deep_copy
 """
 Import the Deep Copy method from
 the Copy module from the Python's Library.
 """
 
-from qiskit import Aer, execute
+from qiskit import Aer as aer
 """
-Import Aer Simulator and the Execute function from IBM's Qiskit.
+Import Aer Simulator from IBM's Qiskit.
+"""
+
+from qiskit import execute
+"""
+Import the execute function from IBM's Qiskit.
 """
 
 from src.classical_regime.common.QiskryptClassicalUtilities \
@@ -178,12 +189,6 @@ from src.quantum_regime.circuit.registers.quantum.fully_quantum.QiskryptFullyQua
     import QiskryptFullyQuantumRegister
 """
 Import the Qiskrypt's Fully-Quantum Register.
-"""
-
-from src.quantum_regime.circuit.registers.quantum.QiskryptQuantumRegister \
-    import QiskryptQuantumRegister
-"""
-Import the Qiskrypt's Quantum Register.
 """
 
 from src.quantum_regime.circuit.registers.classical.QiskryptClassicalRegister \
@@ -623,6 +628,13 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
         Qiskrypt's Quantum Key Exchange Protocol.
         """
 
+        logger_info_message(" 3) Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol\n"
+                            "              finishes its Classical Post-Processing Phase...")
+        """
+        Log an 'INFO' message for the Qiskrypt's Noiseless DV (Discrete Variables)
+        finishes its Classical Post-Processing Phase.
+        """
+
     def run(self) -> None:
         """
         Run the Qiskrypt's Quantum Key Exchange Protocol.
@@ -696,8 +708,8 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
                     isinstance(receiver_party_client, QiskryptPartyClient):
                 """
                 If the sender and receiver Qiskrypt's Party Clients of
-                the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping are
-                really Qiskrypt's Party Clients.
+                the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol
+                with No Eavesdropping are really Qiskrypt's Party Clients.
                 """
 
                 sender_raw_key_secret_bits = "0b"
@@ -1144,7 +1156,7 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
                 """
                 If the sender and/or receiver Qiskrypt's Party Clients of
                 the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol
-                with No Eavesdropping are not a Qiskrypt's Party Client.
+                with No Eavesdropping are not Qiskrypt's Party Clients.
                 """
 
                 # TODO Throw - Exception
@@ -1554,7 +1566,7 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
                                     the X-Basis (Hadamard Basis), and then measuring it.
                                     """
 
-                                qiskit_qasm_backend = Aer.get_backend("qasm_simulator")
+                                qiskit_qasm_backend = aer.get_backend("qasm_simulator")
                                 """
                                 Getting the Aer Simulator Backend for the QASM (Quantum Assembly) Simulation
                                 (i.e., the classical simulation of an IBM Qiskit's Quantum Circuit).
@@ -1776,7 +1788,7 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
                         """
 
                         logger_info_message(
-                            "    2.7.1) Raw Key #1 -> {}: {}"
+                            "    2.7.1) Secret Raw Key #1 -> {}: {}"
                             .format(sender_secret_raw_key_id,
                                     sender_secret_raw_key.get_bits()[BINARY_FORMAT_START_OFFSET:])
                         )
@@ -1785,7 +1797,7 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
                         """
 
                         logger_info_message(
-                            "    2.7.2) Raw Key #2 -> {}: {}"
+                            "    2.7.2) Secret Raw Key #2 -> {}: {}"
                             .format(receiver_secret_raw_key_id,
                                     receiver_secret_raw_key.get_bits()[BINARY_FORMAT_START_OFFSET:])
                         )
@@ -1797,7 +1809,7 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
                 """
                 If the sender and/or receiver Qiskrypt's Party Clients of
                 the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol
-                with No Eavesdropping are not a Qiskrypt's Party Client.
+                with No Eavesdropping are not Qiskrypt's Party Clients.
                 """
 
                 # TODO Throw - Exception
@@ -2087,8 +2099,8 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
                     isinstance(receiver_party_client, QiskryptPartyClient):
                 """
                 If the sender and receiver Qiskrypt's Party Clients of
-                the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping are
-                really Qiskrypt's Party Clients.
+                the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol
+                with No Eavesdropping are really Qiskrypt's Party Clients.
                 """
 
                 sender_party_name = sender_party_client.get_party().get_name()
@@ -2192,8 +2204,8 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
             else:
                 """
                 If the sender and/or receiver Qiskrypt's Party Clients of
-                the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping
-                are not a Qiskrypt's Party Client.
+                the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol
+                with No Eavesdropping are not Qiskrypt's Party Clients.
                 """
 
                 # TODO Throw - Exception
@@ -2240,8 +2252,8 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
                     isinstance(receiver_party_client, QiskryptPartyClient):
                 """
                 If the sender and receiver Qiskrypt's Party Clients of
-                the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping are
-                really Qiskrypt's Party Clients.
+                the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol
+                with No Eavesdropping are really Qiskrypt's Party Clients.
                 """
 
                 sender_party_name = sender_party_client.get_party().get_name()
@@ -2392,7 +2404,7 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
                     """
 
                     logger_info_message(
-                        "    3.3.4) Sifted Key #1 -> {}: {}"
+                        "    3.3.4) Secret Sifted Key #1 -> {}: {}"
                         .format(sender_secret_sifted_key_id,
                                 sender_secret_sifted_key.get_bits()[BINARY_FORMAT_START_OFFSET:])
                     )
@@ -2401,13 +2413,31 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
                     """
 
                     logger_info_message(
-                        "    3.3.5) Sifted Key #2 -> {}: {}"
+                        "    3.3.5) Secret Sifted Key #2 -> {}: {}"
                         .format(receiver_secret_sifted_key_id,
                                 receiver_secret_sifted_key.get_bits()[BINARY_FORMAT_START_OFFSET:])
                     )
                     """
                     Log an 'INFO' message for the receiver's Qiskrypt's Secret Sifted Key.
                     """
+
+                else:
+                    """
+                    If the Qiskrypt's Secret Sifted Keys of the sender and/or the receiver
+                    Qiskrypt's Party Clients of the Qiskrypt's Noiseless DV (Discrete Variables)
+                    BB84 Protocol with No Eavesdropping are not Qiskrypt's Secret Sifted Keys.
+                    """
+
+                    # TODO Throw - Exception
+
+            else:
+                """
+                If the sender and/or receiver Qiskrypt's Party Clients of
+                the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol
+                with No Eavesdropping are not Qiskrypt's Party Clients.
+                """
+
+                # TODO Throw - Exception
 
         else:
             """
@@ -2456,8 +2486,8 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
                     isinstance(receiver_party_client, QiskryptPartyClient):
                 """
                 If the sender and receiver Qiskrypt's Party Clients of
-                the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping are
-                really Qiskrypt's Party Clients.
+                the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol
+                with No Eavesdropping are really Qiskrypt's Party Clients.
                 """
 
                 sender_party_name = sender_party_client.get_party().get_name()
@@ -2996,8 +3026,8 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
             else:
                 """
                 If the sender and/or receiver Qiskrypt's Party Clients of
-                the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping
-                are not a Qiskrypt's Party Client.
+                the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol
+                with No Eavesdropping are not Qiskrypt's Party Clients.
                 """
 
                 # TODO Throw - Exception
@@ -3195,8 +3225,8 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
                     isinstance(receiver_party_client, QiskryptPartyClient):
                 """
                 If the sender and receiver Qiskrypt's Party Clients of
-                the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping are
-                really Qiskrypt's Party Clients.
+                the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol
+                with No Eavesdropping are really Qiskrypt's Party Clients.
                 """
 
                 sender_party_name = sender_party_client.get_party().get_name()
@@ -3319,7 +3349,7 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
                     """
 
                     logger_info_message(
-                        "    3.8.1) Reconciled Key #1 -> {}: {}"
+                        "    3.8.1) Secret Reconciled Key #1 -> {}: {}"
                         .format(sender_secret_reconciled_key_id,
                                 sender_secret_reconciled_key.get_bits()[BINARY_FORMAT_START_OFFSET:])
                     )
@@ -3328,7 +3358,7 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
                     """
 
                     logger_info_message(
-                        "    3.8.2) Reconciled Key #2 -> {}: {}"
+                        "    3.8.2) Secret Reconciled Key #2 -> {}: {}"
                         .format(receiver_secret_reconciled_key_id,
                                 receiver_secret_reconciled_key.get_bits()[BINARY_FORMAT_START_OFFSET:])
                     )
@@ -3343,6 +3373,15 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
                     """
 
                     # TODO Throw - Exception
+
+            else:
+                """
+                If the sender and/or receiver Qiskrypt's Party Clients of
+                the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol
+                with No Eavesdropping are not Qiskrypt's Party Clients.
+                """
+
+                # TODO Throw - Exception
 
         else:
             """
@@ -3362,7 +3401,436 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
             If the Qiskrypt's Key Exchange Protocol is already configured.
             """
 
-            # TODO - To complete
+            logger_info_message(
+                "    3.9) Starting the Privacy Amplification procedure for\n"
+                "                   the Classical Post-Processing Phase of the Qiskrypt's Noiseless\n"
+                "                   DV (Discrete Variables) BB84 Protocol with No Eavesdropping..."
+            )
+            """
+            Log an 'INFO' message for the start of the procedure of the Privacy Amplification of
+            the bits of the error-free Qiskrypt's Secure Reconciled Key for
+            the Classical Post-Processing Phase of the Qiskrypt's Noiseless
+            DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
+            """
+
+            sender_party_client = \
+                self.get_communication_session().get_sender_party_clients()[0]
+            """
+            Retrieve the sender Qiskrypt's Party Client from the Qiskrypt's Communication Session of
+            the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
+            """
+
+            receiver_party_client = \
+                self.get_communication_session().get_receiver_party_clients()[0]
+            """
+            Retrieve the receiver Qiskrypt's Party Client from the Qiskrypt's Communication Session of
+            the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
+            """
+
+            if isinstance(sender_party_client, QiskryptPartyClient) and \
+                    isinstance(receiver_party_client, QiskryptPartyClient):
+                """
+                If the sender and receiver Qiskrypt's Party Clients of
+                the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol
+                with No Eavesdropping are really Qiskrypt's Party Clients.
+                """
+
+                sender_party_name = sender_party_client.get_party().get_name()
+                """
+                Retrieve the name of the sender Qiskrypt's Party.
+                """
+
+                sender_party_num = sender_party_client.get_party().get_num()
+                """
+                Retrieve the number of the sender Qiskrypt's Party.                
+                """
+
+                receiver_party_name = receiver_party_client.get_party().get_name()
+                """
+                Retrieve the name of the receiver Qiskrypt's Party.
+                """
+
+                receiver_party_num = receiver_party_client.get_party().get_num()
+                """
+                Retrieve the number of the receiver Qiskrypt's Party.                
+                """
+
+                sender_secret_reconciled_key_id = \
+                    "{} {} ({}_{} ; {}_{})".format(POSSIBLE_KEY_PRIVACY_LEVELS[0].lower(),
+                                                   POSSIBLE_KEY_TYPES[2].lower(),
+                                                   sender_party_name.lower(), sender_party_num,
+                                                   receiver_party_name.lower(), receiver_party_num)
+                """
+                Set up the identifier of the Qiskrypt's Secret Reconciled Key for
+                the sender Qiskrypt's Client.
+                """
+
+                receiver_secret_reconciled_key_id = \
+                    "{} {} ({}_{} ; {}_{})".format(POSSIBLE_KEY_PRIVACY_LEVELS[0].lower(),
+                                                   POSSIBLE_KEY_TYPES[2].lower(),
+                                                   receiver_party_name.lower(), receiver_party_num,
+                                                   sender_party_name.lower(), sender_party_num)
+                """
+                Set up the identifier of the Qiskrypt's Secret Reconciled Key for
+                the receiver Qiskrypt's Client.
+                """
+
+                sender_secret_reconciled_key = \
+                    sender_party_client.get_item_value_by_key(sender_secret_reconciled_key_id)
+                """
+                Retrieve the Qiskrypt's Secret Reconciled Key for
+                the sender Qiskrypt's Client. 
+                """
+
+                receiver_secret_reconciled_key = \
+                    receiver_party_client.get_item_value_by_key(receiver_secret_reconciled_key_id)
+                """
+                Retrieve the Qiskrypt's Secret Reconciled Key for
+                the receiver Qiskrypt's Client. 
+                """
+
+                if isinstance(sender_secret_reconciled_key, QiskryptSecretReconciledKey) and \
+                        isinstance(receiver_secret_reconciled_key, QiskryptSecretReconciledKey):
+                    """
+                    If the Qiskrypt's Secret Reconciled Keys of the sender and the receiver
+                    Qiskrypt's Party Clients of the Qiskrypt's Noiseless DV (Discrete Variables)
+                    BB84 Protocol with No Eavesdropping are really Qiskrypt's Secret Reconciled Keys.
+                    """
+
+                    sender_sha_256_instance = sha_256()
+                    """
+                    Initialise the SHA-256 (Secure-Hash Algorithm for 256 bits) for
+                    the sender Qiskrypt's Client.
+                    """
+
+                    receiver_sha_256_instance = sha_256()
+                    """
+                    Initialise the SHA-256 (Secure-Hash Algorithm for 256 bits) for
+                    the receiver Qiskrypt's Client.
+                    """
+
+                    sender_secret_reconciled_key_bytes = \
+                        QiskryptClassicalUtilities.convert_binary_string_to_bytes(
+                            sender_secret_reconciled_key.get_bits()
+                        )
+                    """
+                    Convert the bits Qiskrypt's Secret Reconciled Key of
+                    the sender Qiskrypt's Party Client to bytes.
+                    """
+
+                    receiver_secret_reconciled_key_bytes = \
+                        QiskryptClassicalUtilities.convert_binary_string_to_bytes(
+                            receiver_secret_reconciled_key.get_bits()
+                        )
+                    """
+                    Convert the bits Qiskrypt's Secret Reconciled Key of
+                    the receiver Qiskrypt's Party Client to bytes.
+                    """
+
+                    sender_sha_256_instance.update(sender_secret_reconciled_key_bytes)
+                    """
+                    Update the SHA-256 (Secure-Hash Algorithm for 256 bits) for
+                    the sender Qiskrypt's Client with its respective Qiskrypt's Secret Reconciled Key. 
+                    """
+
+                    receiver_sha_256_instance.update(receiver_secret_reconciled_key_bytes)
+                    """
+                    Update the SHA-256 (Secure-Hash Algorithm for 256 bits) for
+                    the receiver Qiskrypt's Client with its respective Qiskrypt's Secret Reconciled Key. 
+                    """
+
+                    sender_sha_256_digest = sender_sha_256_instance.digest()
+                    """
+                    Digest the data in bytes of the Qiskrypt's Secret Reconciled Key of
+                    the sender Qiskrypt's Client from the SHA-256 (Secure-Hash Algorithm for 256 bits).
+                    """
+
+                    receiver_sha_256_digest = receiver_sha_256_instance.digest()
+                    """
+                    Digest the data in bytes of the Qiskrypt's Secret Reconciled Key of
+                    the receiver Qiskrypt's Client from the SHA-256 (Secure-Hash Algorithm for 256 bits).
+                    """
+
+                    sender_secure_key_secret_bits = "{:08b}".format(int(sender_sha_256_digest.hex(), 16))
+                    """
+                    Convert digested data in bytes of the Qiskrypt's Secret Reconciled Key of
+                    the sender Qiskrypt's Client from the SHA-256 (Secure-Hash Algorithm for 256 bits) to bits.
+                    """
+
+                    receiver_secure_key_secret_bits = "{:08b}".format(int(receiver_sha_256_digest.hex(), 16))
+                    """
+                    Convert digested data in bytes of the Qiskrypt's Secret Reconciled Key of
+                    the receiver Qiskrypt's Client from the SHA-256 (Secure-Hash Algorithm for 256 bits) to bits.
+                    """
+
+                    sender_party_client_uuid = sender_party_client.get_uuid()
+                    """
+                    Retrieve the UUID (Universally Unique IDentifier) of the sender Qiskrypt's Client.
+                    """
+
+                    sender_secret_secure_key = QiskryptSecretSecureKey(sender_secure_key_secret_bits,
+                                                                       sender_party_client_uuid)
+                    """
+                    Create a Qiskrypt's Secret Secure Key for the sender Qiskrypt's Client.
+                    """
+
+                    receiver_party_client_uuid = receiver_party_client.get_uuid()
+                    """
+                    Retrieve the UUID (Universally Unique IDentifier) of the receiver Qiskrypt's Client.
+                    """
+
+                    receiver_secret_secure_key = QiskryptSecretSecureKey(receiver_secure_key_secret_bits,
+                                                                         receiver_party_client_uuid)
+                    """
+                    Create a Qiskrypt's Secret Secure Key for the receiver Qiskrypt's Client.
+                    """
+
+                    sender_secret_secure_key_privacy_level = \
+                        sender_secret_secure_key.get_key_privacy_level()
+                    """
+                    Retrieve the privacy level of the Qiskrypt's Key for the sender Qiskrypt's Client.
+                    """
+
+                    sender_secret_secure_key_type = \
+                        sender_secret_secure_key.get_key_type()
+                    """
+                    Retrieve the type of the Qiskrypt's Key for the sender Qiskrypt's Client.
+                    """
+
+                    receiver_secret_secure_key_privacy_level = \
+                        receiver_secret_secure_key.get_key_privacy_level()
+                    """
+                    Retrieve the privacy level of the Qiskrypt's Key for the receiver Qiskrypt's Client.
+                    """
+
+                    receiver_secret_secure_key_type = \
+                        receiver_secret_secure_key.get_key_type()
+                    """
+                    Retrieve the type of the Qiskrypt's Key for the receiver Qiskrypt's Client.
+                    """
+
+                    sender_secret_secure_key_id = \
+                        "{} {} ({}_{} ; {}_{})".format(sender_secret_secure_key_privacy_level.lower(),
+                                                       sender_secret_secure_key_type.lower(),
+                                                       sender_party_name.lower(), sender_party_num,
+                                                       receiver_party_name.lower(), receiver_party_num)
+                    """
+                    Set up the identifier of the Qiskrypt's Secret Secure Key for
+                    the sender Qiskrypt's Client.
+                    """
+
+                    sender_party_client.add_item(sender_secret_secure_key_id, sender_secret_secure_key)
+                    """
+                    Add a new item to keep the Qiskrypt's Secret Secure Key for
+                    the sender Qiskrypt's Client.
+                    """
+
+                    receiver_secret_secure_key_id = \
+                        "{} {} ({}_{} ; {}_{})".format(receiver_secret_secure_key_privacy_level.lower(),
+                                                       receiver_secret_secure_key_type.lower(),
+                                                       receiver_party_name.lower(), receiver_party_num,
+                                                       sender_party_name.lower(), sender_party_num)
+                    """
+                    Set up the identifier of the Qiskrypt's Secret Secure Key for
+                    the receiver Qiskrypt's Client.
+                    """
+
+                    receiver_party_client.add_item(receiver_secret_secure_key_id, receiver_secret_secure_key)
+                    """
+                    Add a new item to keep the Qiskrypt's Secret Secure Key for
+                    the receiver Qiskrypt's Client.
+                    """
+
+                else:
+                    """
+                    If the Qiskrypt's Secret Reconciled Keys of the sender and/or the receiver
+                    Qiskrypt's Party Clients of the Qiskrypt's Noiseless DV (Discrete Variables)
+                    BB84 Protocol with No Eavesdropping are not Qiskrypt's Secret Reconciled Keys.
+                    """
+
+                    # TODO Throw - Exception
+
+            else:
+                """
+                If the sender and/or receiver Qiskrypt's Party Clients of
+                the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol
+                with No Eavesdropping are not Qiskrypt's Party Clients.
+                """
+
+                # TODO Throw - Exception
+
+            logger_info_message(
+                "    3.10) Finishing the Privacy Amplification procedure for\n"
+                "                    the Classical Post-Processing Phase of the Qiskrypt's Noiseless\n"
+                "                    DV (Discrete Variables) BB84 Protocol with No Eavesdropping..."
+            )
+            """
+            Log an 'INFO' message for the finish of the procedure of the Privacy Amplification of
+            the bits of the error-free Qiskrypt's Secure Reconciled Key for
+            the Classical Post-Processing Phase of the Qiskrypt's Noiseless
+            DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
+            """
+
+            logger_info_message(
+                "    3.11) Retrieving the information about the Qiskrypt's Secret Secure Keys\n"
+                "                    obtained after the Privacy Amplification procedure of\n"
+                "                    the Classical Post-Processing Phase of the Qiskrypt's Noiseless\n"
+                "                    DV (Discrete Variables) BB84 Protocol with No Eavesdropping:"
+            )
+            """
+            Log an 'INFO' message for the retrieval of the information about
+            the Qiskrypt's Secret Secure Keys obtained after the Privacy Amplification procedure
+            of the Classical Post-Processing Phase of the Qiskrypt's Noiseless DV (Discrete Variables)
+            BB84 Protocol with No Eavesdropping.
+            """
+
+            sender_party_client = \
+                self.get_communication_session().get_sender_party_clients()[0]
+            """
+            Retrieve the sender Qiskrypt's Party Client from the Qiskrypt's Communication Session of
+            the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
+            """
+
+            receiver_party_client = \
+                self.get_communication_session().get_receiver_party_clients()[0]
+            """
+            Retrieve the receiver Qiskrypt's Party Client from the Qiskrypt's Communication Session of
+            the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
+            """
+
+            if isinstance(sender_party_client, QiskryptPartyClient) and \
+                    isinstance(receiver_party_client, QiskryptPartyClient):
+                """
+                If the sender and receiver Qiskrypt's Party Clients of
+                the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol
+                with No Eavesdropping are really Qiskrypt's Party Clients.
+                """
+
+                sender_party_name = sender_party_client.get_party().get_name()
+                """
+                Retrieve the name of the sender Qiskrypt's Party.
+                """
+
+                sender_party_num = sender_party_client.get_party().get_num()
+                """
+                Retrieve the number of the sender Qiskrypt's Party.                
+                """
+
+                receiver_party_name = receiver_party_client.get_party().get_name()
+                """
+                Retrieve the name of the receiver Qiskrypt's Party.
+                """
+
+                receiver_party_num = receiver_party_client.get_party().get_num()
+                """
+                Retrieve the number of the receiver Qiskrypt's Party.                
+                """
+
+                sender_secret_secure_key_id = \
+                    "{} {} ({}_{} ; {}_{})".format(POSSIBLE_KEY_PRIVACY_LEVELS[0].lower(),
+                                                   POSSIBLE_KEY_TYPES[3].lower(),
+                                                   sender_party_name.lower(), sender_party_num,
+                                                   receiver_party_name.lower(), receiver_party_num)
+                """
+                Set up the identifier of the Qiskrypt's Secret Secure Key for
+                the sender Qiskrypt's Client.
+                """
+
+                receiver_secret_secure_key_id = \
+                    "{} {} ({}_{} ; {}_{})".format(POSSIBLE_KEY_PRIVACY_LEVELS[0].lower(),
+                                                   POSSIBLE_KEY_TYPES[3].lower(),
+                                                   receiver_party_name.lower(), receiver_party_num,
+                                                   sender_party_name.lower(), sender_party_num)
+                """
+                Set up the identifier of the Qiskrypt's Secret Secure Key for
+                the receiver Qiskrypt's Client.
+                """
+
+                sender_secret_secure_key = \
+                    sender_party_client.get_item_value_by_key(sender_secret_secure_key_id)
+                """
+                Retrieve the Qiskrypt's Secret Secure Key for
+                the sender Qiskrypt's Client. 
+                """
+
+                receiver_secret_secure_key = \
+                    receiver_party_client.get_item_value_by_key(receiver_secret_secure_key_id)
+                """
+                Retrieve the Qiskrypt's Secret Secure Key for
+                the receiver Qiskrypt's Client. 
+                """
+
+                if isinstance(sender_secret_secure_key, QiskryptSecretSecureKey) and \
+                        isinstance(receiver_secret_secure_key, QiskryptSecretSecureKey):
+                    """
+                    If both sender's and receiver's Qiskrypt's Secret Secure Keys are
+                    really Qiskrypt's Secret Secure Keys.
+                    """
+
+                    logger_info_message(
+                        "    3.11.1) Secret Secure Key #1 -> {}: {}"
+                        .format(sender_secret_secure_key_id,
+                                sender_secret_secure_key.get_bits()[BINARY_FORMAT_START_OFFSET:])
+                    )
+                    """
+                    Log an 'INFO' message for the sender's Qiskrypt's Secret Secure Key.
+                    """
+
+                    logger_info_message(
+                        "    3.11.2) Secret Secure Key #2 -> {}: {}"
+                        .format(receiver_secret_secure_key_id,
+                                receiver_secret_secure_key.get_bits()[BINARY_FORMAT_START_OFFSET:])
+                    )
+                    """
+                    Log an 'INFO' message for the receiver's Qiskrypt's Secret Secure Key.
+                    """
+
+                    if sender_secret_secure_key.get_bits() == receiver_secret_secure_key.get_bits():
+                        """
+                        If the two Qiskrypt's Secret Secure Keys are equal,
+                        the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol
+                        with no Eavesdropping executed with success. 
+                        """
+
+                        logger_info_message("    3.12) Execution of the Quantum Key Exchange was SUCCESSFUL!\n"
+                                            "                    The Qiskrypt's Secret Secure Keys agreed between\n"
+                                            "                    the two parties at the end of the protocol are equal!")
+                        """
+                        Log an 'INFO' message reporting that the execution of
+                        the Qiskrypt's Quantum Key Exchange was SUCCESSFUL!
+                        """
+
+                    else:
+                        """
+                        If the two Qiskrypt's Secret Secure Keys are different,
+                        the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol
+                        with no Eavesdropping did not execute with success. 
+                        """
+
+                        logger_info_message("3.12) Execution of the Quantum Key Exchange was NOT SUCCESSFUL!\n"
+                                            "       The Secure Keys agreed at the end of the protocol\n"
+                                            "       are different!")
+                        """
+                        Log an 'INFO' message reporting that the execution of
+                        the Qiskrypt's Quantum Key Exchange was NOT SUCCESSFUL!
+                        """
+
+                else:
+                    """
+                    If the sender's and/or receiver's Qiskrypt's Secret Secure Keys are
+                    not Qiskrypt's Secret Secure Keys.
+                    """
+
+                    # TODO Throw - Exception
+
+            else:
+                """
+                If the sender and/or receiver Qiskrypt's Party Clients of
+                the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol
+                with No Eavesdropping are not Qiskrypt's Party Clients.
+                """
+
+                # TODO Throw - Exception
 
         else:
             """
@@ -3909,10 +4377,10 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
             BB84 Protocol with No Eavesdropping in the sender's side.
             """
 
+            self.set_as_configured()
             """
             Set the Qiskrypt's Key Exchange Protocol as configured.
             """
-            self.set_as_configured()
 
             logger_info_message(" 1) Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol\n"
                                 "              is finally configured!")

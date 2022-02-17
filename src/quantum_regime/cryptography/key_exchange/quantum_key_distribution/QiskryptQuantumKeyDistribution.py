@@ -507,7 +507,7 @@ class QiskryptQuantumKeyDistribution(QiskryptQuantumKeyExchangeProtocol):
         the Quantum Key Distribution (QKD).
         """
 
-        #self.amplify_privacy()
+        self.amplify_privacy()
         """
         Amplify the Privacy for the Classical Post-Processing Phase of
         the Quantum Key Distribution (QKD).

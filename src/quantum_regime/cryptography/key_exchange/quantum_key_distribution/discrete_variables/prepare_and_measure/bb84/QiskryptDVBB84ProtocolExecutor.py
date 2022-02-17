@@ -180,6 +180,13 @@ class QiskryptDVBB84ProtocolExecutor:
             BB84 Protocol with No Eavesdropping.
             """
 
+            print("{}{}".format(QiskryptMessageColorsEnumeration.HEADER.value,
+                                "\nThe execution of the Qiskrypt's DV (Discrete Variables) BB84 Protocol\n"
+                                "with no noise and no eavesdropping finished!"))
+            """
+            Print the final message.
+            """
+
         elif not self.is_with_noise() and self.is_with_eavesdropping():
             """
             2) If the Qiskrypt's DV (Discrete Variables) BB84 Protocol is
