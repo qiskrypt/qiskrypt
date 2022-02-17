@@ -1757,13 +1757,13 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
                     """
 
                     logger_info_message(
-                        "    2.7) Retrieving the information about the Qiskrypt's Secure Raw Keys obtained after\n"
+                        "    2.7) Retrieving the information about the Qiskrypt's Secret Raw Keys obtained after\n"
                         "                   the Quantum Transmission Phase of the Qiskrypt's Noiseless\n"
                         "                   DV (Discrete Variables) BB84 Protocol with No Eavesdropping:"
                     )
                     """
                     Log an 'INFO' message for the retrieval of the information about
-                    the Qiskrypt's Secure Raw Keys obtained after the Quantum Transmission Phase of
+                    the Qiskrypt's Secret Raw Keys obtained after the Quantum Transmission Phase of
                     the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol
                     with No Eavesdropping.
                     """
@@ -1836,13 +1836,15 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
             )
             """
             Log an 'INFO' message for the start of the procedure of the Key Sifting of
-            the Qiskrypt's Secure Raw Key for the Classical Post-Processing Phase of the Qiskrypt's Noiseless
+            the Qiskrypt's Secret Raw Key for the Classical Post-Processing Phase of the Qiskrypt's Noiseless
             DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
             """
 
             sender_basis_choices = ""
-
-            receiver_basis_choices = ""
+            """
+            Initialise the string for the basis choices made by the sender Qiskrypt's Party Client
+            during the rounds of the Quantum Transmission Phase.
+            """
 
             sender_sifted_key_secret_bits = "0b"
             """
@@ -1854,6 +1856,12 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
             """
             Initialise the binary string for the bits used to build
             the Qiskrypt's Secret Sifted Key of the receiver Qiskrypt's Party Client.
+            """
+
+            receiver_basis_choices = ""
+            """
+            Initialise the string for the basis choices made by the receiver Qiskrypt's Party Client
+            during the rounds of the Quantum Transmission Phase.
             """
 
             num_rounds_for_quantum_transmission_phase = \
@@ -2005,7 +2013,7 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
 
                             sender_sifted_key_secret_bits += str(sender_secret_bit)
                             """
-                            Append the secret bit in the receiver Qiskrypt's Classical Register of
+                            Append the secret bit in the sender Qiskrypt's Classical Register of
                             the Qiskrypt's Quantum Circuit for the current round of the Quantum Transmission Phase of
                             the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping
                             to the binary string to be used to build the Qiskrypt's Secret Sifted Key for
@@ -2197,20 +2205,21 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
             )
             """
             Log an 'INFO' message for the finish of the procedure of the Key Sifting of
-            the Qiskrypt's Secure Raw Key for the Classical Post-Processing Phase of the Qiskrypt's Noiseless
+            the Qiskrypt's Secret Raw Key for the Classical Post-Processing Phase of the Qiskrypt's Noiseless
             DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
             """
 
             logger_info_message(
-                "    3.3) Retrieving the information about the Qiskrypt's Secure Sifted Keys obtained after\n"
-                "                   the Quantum Transmission Phase of the Qiskrypt's Noiseless\n"
-                "                   DV (Discrete Variables) BB84 Protocol with No Eavesdropping:"
+                "    3.3) Retrieving the information about the Qiskrypt's Secret Reconciled Keys obtained after\n"
+                "                   the Key Sifting procedure of the Classical Post-Processing Phase\n"
+                "                   of the Qiskrypt's Noiseless DV (Discrete Variables)\n"
+                "                   BB84 Protocol with No Eavesdropping:"
             )
             """
             Log an 'INFO' message for the retrieval of the information about
-            the Qiskrypt's Secure Sifted Keys obtained after the Quantum Transmission Phase of
-            the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol
-            with No Eavesdropping.
+            the Qiskrypt's Secret Reconciled Keys obtained after the Key Sifting procedure
+            of the Classical Post-Processing Phase of the Qiskrypt's Noiseless DV (Discrete Variables)
+            BB84 Protocol with No Eavesdropping.
             """
 
             sender_party_client = \
@@ -2425,7 +2434,7 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
             )
             """
             Log an 'INFO' message for the start of the procedure of the Parameter Estimation of
-            the Qiskrypt's Secure Sifted Key for the Classical Post-Processing Phase of the Qiskrypt's Noiseless
+            the Qiskrypt's Secret Sifted Key for the Classical Post-Processing Phase of the Qiskrypt's Noiseless
             DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
             """
 
@@ -2937,7 +2946,7 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
                         """
                         Log an 'INFO' message for the QBER (Quantum Bit Error Rater) for the Z-Basis
                         (Standard Computational Basis) obtained from the procedure of
-                        the Parameter Estimation performed on the Qiskrypt's Secure Sifted Key
+                        the Parameter Estimation performed on the Qiskrypt's Secret Sifted Key
                         for the Classical Post-Processing Phase of the Qiskrypt's Noiseless
                         DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
                         """
@@ -2950,7 +2959,7 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
                         """
                         Log an 'INFO' message for the QBER (Quantum Bit Error Rater) for the X-Basis
                         (Hadamard Basis) obtained from the procedure of
-                        the Parameter Estimation performed on the Qiskrypt's Secure Sifted Key
+                        the Parameter Estimation performed on the Qiskrypt's Secret Sifted Key
                         for the Classical Post-Processing Phase of the Qiskrypt's Noiseless
                         DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
                         """
@@ -2962,7 +2971,7 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
                         """
                         Log an 'INFO' message for the global QBER (Quantum Bit Error Rate)
                         obtained from the procedure of the Parameter Estimation performed on
-                        the Qiskrypt's Secure Sifted Key for the Classical Post-Processing Phase of
+                        the Qiskrypt's Secret Sifted Key for the Classical Post-Processing Phase of
                         the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
                         """
 
@@ -3000,8 +3009,8 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
             )
             """
             Log an 'INFO' message for the finish of the procedure of the Parameter Estimation of
-            the Qiskrypt's Secure Sifted Key for the Classical Post-Processing Phase of the Qiskrypt's Noiseless
-            DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
+            the Qiskrypt's Secret Sifted Key for the Classical Post-Processing Phase of
+            the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
             """
 
         else:
@@ -3043,7 +3052,10 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
                 NOTE:
                 - In this case, the global QBER (Quantum Bit Error Rate) should always be equal to zero (0),
                   since there is no noise in the Quantum Communications and no action of a possible eavesdropper.
-                - This case it is only checked to keep the coherence of the behavior of the protocol.
+                - This case it is only checked to keep the coherence of the behavior of the protocol,
+                  and it is not even necessary to apply an Error Correction Code to the remaining bits of
+                  the Qiskrypt's Secret Sifted Key which were not discarded after
+                  the Parameter Estimation procedure.
                 """
 
                 # TODO Throw - Exception
@@ -3059,6 +3071,278 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
             the Classical Post-Processing Phase of the Qiskrypt's Noiseless
             DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
             """
+
+            logger_info_message(
+                "    3.8) Retrieving the information about the Qiskrypt's Secret Reconciled Keys\n"
+                "                   obtained after the Information Reconciliation procedure of\n"
+                "                   the Classical Post-Processing Phase of the Qiskrypt's Noiseless\n"
+                "                   DV (Discrete Variables) BB84 Protocol with No Eavesdropping:"
+            )
+            """
+            Log an 'INFO' message for the retrieval of the information about
+            the Qiskrypt's Secret Reconciled Keys obtained after the Information Reconciliation procedure
+            of the Classical Post-Processing Phase of the Qiskrypt's Noiseless DV (Discrete Variables)
+            BB84 Protocol with No Eavesdropping.
+            """
+
+            sender_reconciled_key_secret_bits = "0b"
+            """
+            Initialise the binary string for the bits used to build
+            the Qiskrypt's Secret Reconciled Key of the sender Qiskrypt's Party Client.
+            """
+
+            receiver_reconciled_key_secret_bits = "0b"
+            """
+            Initialise the binary string for the bits used to build
+            the Qiskrypt's Secret Reconciled Key of the receiver Qiskrypt's Party Client.
+            """
+
+            num_rounds_for_quantum_transmission_phase = \
+                self.get_num_rounds_for_quantum_transmission_phase()
+            """
+            Retrieve the number of rounds for the Quantum Transmission Phase in
+            the Qiskrypt's Quantum Key Exchange Protocol.
+            """
+
+            quantum_transmission_phase_rounds = \
+                self.get_quantum_transmission_phase_rounds()
+            """
+            Retrieve the list for the Quantum Transmission Phase of 
+            the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
+            """
+
+            for current_num_round_for_quantum_transmission_phase in \
+                    range(num_rounds_for_quantum_transmission_phase):
+                """
+                For each round of the Quantum Transmission Phase of 
+                the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
+                """
+
+                current_round_for_quantum_transmission_phase = \
+                    quantum_transmission_phase_rounds[current_num_round_for_quantum_transmission_phase]
+                """
+                Retrieve the current round of the Quantum Transmission Phase of 
+                the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
+                """
+
+                if isinstance(current_round_for_quantum_transmission_phase,
+                              QiskryptNoiselessDVBB84ProtocolWithNoEavesdroppingQuantumTransmissionPhaseRound):
+                    """
+                    If the current round of the Quantum Transmission Phase of 
+                    the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping is
+                    really a Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol
+                    with No Eavesdropping Quantum Transmission Phase Round.
+                    """
+
+                    if not current_round_for_quantum_transmission_phase.is_round_discarded():
+                        """
+                        If the current round of the Quantum Transmission Phase of
+                        the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping,
+                        is not a discarded round.
+                        """
+
+                        sender_secret_bit = \
+                            current_round_for_quantum_transmission_phase \
+                            .get_round_quantum_circuit().get_qiskrypt_classical_register(0).get_bit(0)
+                        """
+                        Retrieve the secret bit in the sender Qiskrypt's Classical Register of
+                        the Qiskrypt's Quantum Circuit for the current round of the Quantum Transmission Phase of
+                        the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
+                        """
+
+                        sender_reconciled_key_secret_bits += str(sender_secret_bit)
+                        """
+                        Append the secret bit in the sender Qiskrypt's Classical Register of
+                        the Qiskrypt's Quantum Circuit for the current round of the Quantum Transmission Phase of
+                        the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping
+                        to the binary string to be used to build the Qiskrypt's Secret Reconciled Key for
+                        the sender Qiskrypt's Client Party.
+                        """
+
+                        receiver_secret_bit = \
+                            current_round_for_quantum_transmission_phase \
+                            .get_round_quantum_circuit().get_qiskrypt_classical_register(1).get_bit(0)
+                        """
+                        Retrieve the secret bit in the receiver Qiskrypt's Classical Register of
+                        the Qiskrypt's Quantum Circuit for the current round of the Quantum Transmission Phase of
+                        the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
+                        """
+
+                        receiver_reconciled_key_secret_bits += str(receiver_secret_bit)
+                        """
+                        Append the secret bit in the receiver Qiskrypt's Classical Register of
+                        the Qiskrypt's Quantum Circuit for the current round of the Quantum Transmission Phase of
+                        the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping
+                        to the binary string to be used to build the Qiskrypt's Secret Reconciled Key for
+                        the receiver Qiskrypt's Client Party.
+                        """
+
+            sender_party_client = \
+                self.get_communication_session().get_sender_party_clients()[0]
+            """
+            Retrieve the sender Qiskrypt's Party Client from the Qiskrypt's Communication Session of
+            the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
+            """
+
+            receiver_party_client = \
+                self.get_communication_session().get_receiver_party_clients()[0]
+            """
+            Retrieve the receiver Qiskrypt's Party Client from the Qiskrypt's Communication Session of
+            the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
+            """
+
+            if isinstance(sender_party_client, QiskryptPartyClient) and \
+                    isinstance(receiver_party_client, QiskryptPartyClient):
+                """
+                If the sender and receiver Qiskrypt's Party Clients of
+                the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping are
+                really Qiskrypt's Party Clients.
+                """
+
+                sender_party_name = sender_party_client.get_party().get_name()
+                """
+                Retrieve the name of the sender Qiskrypt's Party.
+                """
+
+                sender_party_num = sender_party_client.get_party().get_num()
+                """
+                Retrieve the number of the sender Qiskrypt's Party.                
+                """
+
+                receiver_party_name = receiver_party_client.get_party().get_name()
+                """
+                Retrieve the name of the receiver Qiskrypt's Party.
+                """
+
+                receiver_party_num = receiver_party_client.get_party().get_num()
+                """
+                Retrieve the number of the receiver Qiskrypt's Party.                
+                """
+
+                sender_party_client_uuid = sender_party_client.get_uuid()
+                """
+                Retrieve the UUID (Universally Unique IDentifier) of the sender Qiskrypt's Client.
+                """
+
+                sender_secret_reconciled_key = QiskryptSecretReconciledKey(sender_reconciled_key_secret_bits,
+                                                                           sender_party_client_uuid)
+                """
+                Create a Qiskrypt's Secret Reconciled Key for the sender Qiskrypt's Client.
+                """
+
+                receiver_party_client_uuid = receiver_party_client.get_uuid()
+                """
+                Retrieve the UUID (Universally Unique IDentifier) of the receiver Qiskrypt's Client.
+                """
+
+                receiver_secret_reconciled_key = QiskryptSecretReconciledKey(receiver_reconciled_key_secret_bits,
+                                                                             receiver_party_client_uuid)
+                """
+                Create a Qiskrypt's Secret Reconciled Key for the receiver Qiskrypt's Client.
+                """
+
+                sender_secret_reconciled_key_privacy_level = \
+                    sender_secret_reconciled_key.get_key_privacy_level()
+                """
+                Retrieve the privacy level of the Qiskrypt's Key for the sender Qiskrypt's Client.
+                """
+
+                sender_secret_reconciled_key_type = \
+                    sender_secret_reconciled_key.get_key_type()
+                """
+                Retrieve the type of the Qiskrypt's Key for the sender Qiskrypt's Client.
+                """
+
+                receiver_secret_reconciled_key_privacy_level = \
+                    receiver_secret_reconciled_key.get_key_privacy_level()
+                """
+                Retrieve the privacy level of the Qiskrypt's Key for the receiver Qiskrypt's Client.
+                """
+
+                receiver_secret_reconciled_key_type = \
+                    receiver_secret_reconciled_key.get_key_type()
+                """
+                Retrieve the type of the Qiskrypt's Key for the receiver Qiskrypt's Client.
+                """
+
+                sender_secret_reconciled_key_id = \
+                    "{} {} ({}_{} ; {}_{})".format(sender_secret_reconciled_key_privacy_level.lower(),
+                                                   sender_secret_reconciled_key_type.lower(),
+                                                   sender_party_name.lower(), sender_party_num,
+                                                   receiver_party_name.lower(), receiver_party_num)
+                """
+                Set up the identifier of the Qiskrypt's Secret Reconciled Key for
+                the sender Qiskrypt's Client.
+                """
+
+                sender_party_client.add_item(sender_secret_reconciled_key_id, sender_secret_reconciled_key)
+                """
+                Add a new item to keep the Qiskrypt's Secret Reconciled Key for
+                the sender Qiskrypt's Client.
+                """
+
+                receiver_secret_reconciled_key_id = \
+                    "{} {} ({}_{} ; {}_{})".format(receiver_secret_reconciled_key_privacy_level.lower(),
+                                                   receiver_secret_reconciled_key_type.lower(),
+                                                   receiver_party_name.lower(), receiver_party_num,
+                                                   sender_party_name.lower(), sender_party_num)
+                """
+                Set up the identifier of the Qiskrypt's Secret Reconciled Key for
+                the receiver Qiskrypt's Client.
+                """
+
+                receiver_party_client.add_item(receiver_secret_reconciled_key_id, receiver_secret_reconciled_key)
+                """
+                Add a new item to keep the Qiskrypt's Secret Reconciled Key for
+                the receiver Qiskrypt's Client.
+                """
+
+                sender_secret_reconciled_key = \
+                    sender_party_client.get_item_value_by_key(sender_secret_reconciled_key_id)
+                """
+                Retrieve the Qiskrypt's Secret Reconciled Key for
+                the sender Qiskrypt's Client. 
+                """
+
+                receiver_secret_reconciled_key = \
+                    receiver_party_client.get_item_value_by_key(receiver_secret_reconciled_key_id)
+                """
+                Retrieve the Qiskrypt's Secret Reconciled Key for
+                the receiver Qiskrypt's Client. 
+                """
+
+                if isinstance(sender_secret_reconciled_key, QiskryptSecretReconciledKey) and \
+                        isinstance(receiver_secret_reconciled_key, QiskryptSecretReconciledKey):
+                    """
+                    If both sender's and receiver's Qiskrypt's Secret Reconciled Keys are
+                    really Qiskrypt's Secret Reconciled Keys.
+                    """
+
+                    logger_info_message(
+                        "    3.8.1) Reconciled Key #1 -> {}: {}"
+                        .format(sender_secret_reconciled_key_id,
+                                sender_secret_reconciled_key.get_bits()[BINARY_FORMAT_START_OFFSET:])
+                    )
+                    """
+                    Log an 'INFO' message for the sender's Qiskrypt's Secret Reconciled Key.
+                    """
+
+                    logger_info_message(
+                        "    3.8.2) Reconciled Key #2 -> {}: {}"
+                        .format(receiver_secret_reconciled_key_id,
+                                receiver_secret_reconciled_key.get_bits()[BINARY_FORMAT_START_OFFSET:])
+                    )
+                    """
+                    Log an 'INFO' message for the receiver's Qiskrypt's Secret Reconciled Key.
+                    """
+
+                else:
+                    """
+                    If the sender's and/or receiver's Qiskrypt's Secret Reconciled Keys are
+                    not Qiskrypt's Secret Reconciled Keys.
+                    """
+
+                    # TODO Throw - Exception
 
         else:
             """

@@ -89,7 +89,7 @@ DV_BB84_PROTOCOL_NAME = "DV (DISCRETE VARIABLES) BB84 PROTOCOL"
 The name of the DV (Discrete Variables) BB84 Protocol.
 """
 
-DV_BB84_PROTOCOL_DEFAULT_NUM_ROUNDS_FOR_QUANTUM_TRANSMISSION_PHASE = 6 #1024
+DV_BB84_PROTOCOL_DEFAULT_NUM_ROUNDS_FOR_QUANTUM_TRANSMISSION_PHASE = 20 #1024
 """
 The default number of rounds for the Quantum Transmission Phase of
 the Qiskrypt's DV (Discrete Variable) BB84 Protocol.
