@@ -495,13 +495,13 @@ class QiskryptQuantumKeyDistribution(QiskryptQuantumKeyExchangeProtocol):
         the Quantum Key Distribution (QKD).
         """
 
-        #self.estimate_parameters()
+        self.estimate_parameters()
         """
         Estimate the Parameters for the Classical Post-Processing Phase of
         the Quantum Key Distribution (QKD).
         """
 
-        #self.reconcile_information()
+        self.reconcile_information()
         """
         Reconcile the Information for the Classical Post-Processing Phase of
         the Quantum Key Distribution (QKD).
