@@ -1757,7 +1757,7 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
                     """
 
                     logger_info_message(
-                        "    2.7) Retrieving the information about the Qiskrypt's Seucre Raw Keys obtained after\n"
+                        "    2.7) Retrieving the information about the Qiskrypt's Secure Raw Keys obtained after\n"
                         "                   the Quantum Transmission Phase of the Qiskrypt's Noiseless\n"
                         "                   DV (Discrete Variables) BB84 Protocol with No Eavesdropping:"
                     )
@@ -2418,6 +2418,17 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
             If the Qiskrypt's Key Exchange Protocol is already configured.
             """
 
+            logger_info_message(
+                "    3.4) Starting the Parameter Estimation procedure for\n"
+                "                   the Classical Post-Processing Phase of the Qiskrypt's Noiseless\n"
+                "                   DV (Discrete Variables) BB84 Protocol with No Eavesdropping..."
+            )
+            """
+            Log an 'INFO' message for the start of the procedure of the Parameter Estimation of
+            the Qiskrypt's Secure Sifted Key for the Classical Post-Processing Phase of the Qiskrypt's Noiseless
+            DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
+            """
+
             sender_party_client = \
                 self.get_communication_session().get_sender_party_clients()[0]
             """
@@ -2525,9 +2536,14 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
                         BB84 Protocol with No Eavesdropping really have the same length.
                         """
 
+                        secret_sifted_key_length = sender_secret_sifted_key_length
+                        """
+                        Retrieve the length of the Qiskrypt's Secret Sifted Keys.
+                        """
+
                         num_rounds_parameter_estimation_sample = \
-                            (DV_BB84_PROTOCOL_DEFAULT_FACTOR_FOR_NUM_ROUNDS_OF_PARAMETER_ESTIMATION_SAMPLE *
-                             sender_secret_sifted_key_length)
+                            int((DV_BB84_PROTOCOL_DEFAULT_FACTOR_FOR_NUM_ROUNDS_OF_PARAMETER_ESTIMATION_SAMPLE *
+                             secret_sifted_key_length))
                         """
                         Compute the number of rounds for the parameter estimation sample for
                         the Qiskrypt's Party Clients of the Qiskrypt's Noiseless DV (Discrete Variables)
@@ -2543,7 +2559,7 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
 
                         quantum_random_numeric_generator_parameter_estimation_sample = \
                             QiskryptQuantumRandomNumericGenerator("qu_rng_parameter_estimation_sample",
-                                                                  DATA_TYPES[7])
+                                                                  DATA_TYPES[1], ranged=True)
                         """
                         Create the Qiskrypt's Quantum Random Numeric Generator to
                         generate random integer number to choose the rounds for
@@ -2552,13 +2568,15 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
                         with No Eavesdropping.
                         """
 
-                        quantum_random_numeric_generator_parameter_estimation_sample.initiate()
+                        quantum_random_numeric_generator_parameter_estimation_sample\
+                            .initiate(min_range=0, max_range=(secret_sifted_key_length - 1))
                         """
                         Initiate the Qiskrypt's Quantum Random Numeric Generator to
                         generate random integer number to choose the rounds for
                         the parameter estimation sample for the Qiskrypt's Party Clients of
                         the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol
-                        with No Eavesdropping.
+                        with No Eavesdropping, rescaled between the range intervals inside
+                        the length of the Qiskrypt's Secret Sifted Key.
                         """
 
                         current_num_rounds_parameter_estimation_sample = 0
@@ -2577,23 +2595,32 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
                             """
 
                             random_num_round_parameter_estimation_sample = \
-                                int(str(quantum_random_numeric_generator_parameter_estimation_sample
-                                        .generate_number()))
+                                int(float(str(quantum_random_numeric_generator_parameter_estimation_sample
+                                              .generate_number())))
                             """
-                            Generate and retriever the random integer number to choose a round for
+                            Generate and retrieve the random integer number to choose a round for
                             the Parameter Estimation sample for the Qiskrypt's Party Clients of
                             the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol
                             with No Eavesdropping.
                             """
 
-                            rounds_parameter_estimation_sample_indexes\
-                                .add(random_num_round_parameter_estimation_sample)
-                            """
-                            Add the random integer number to choose a rounds for
-                            the parameter estimation sample for the Qiskrypt's Party Clients of
-                            the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol
-                            with No Eavesdropping to the respective set of rounds for it.
-                            """
+                            if 0 <= random_num_round_parameter_estimation_sample < \
+                                    receiver_secret_sifted_key_length:
+                                """
+                                If the random integer number to choose a round for
+                                the Parameter Estimation sample for the Qiskrypt's Party Clients of
+                                the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol
+                                with No Eavesdropping is inside the valid and acceptable range.
+                                """
+
+                                rounds_parameter_estimation_sample_indexes\
+                                    .add(random_num_round_parameter_estimation_sample)
+                                """
+                                Add the random integer number to choose a rounds for
+                                the parameter estimation sample for the Qiskrypt's Party Clients of
+                                the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol
+                                with No Eavesdropping to the respective set of rounds for it.
+                                """
 
                             current_num_rounds_parameter_estimation_sample = \
                                 len(rounds_parameter_estimation_sample_indexes)
@@ -2658,8 +2685,10 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
                             BB84 Protocol with No Eavesdropping, from the respective set of rounds for it.
                             """
 
-                            if isinstance(current_parameter_estimation_round,
-                                          QiskryptNoiselessDVBB84ProtocolWithNoEavesdroppingQuantumTransmissionPhaseRound):
+                            if isinstance(
+                                    current_parameter_estimation_round,
+                                    QiskryptNoiselessDVBB84ProtocolWithNoEavesdroppingQuantumTransmissionPhaseRound
+                            ):
                                 """
                                 If the current round for the Parameter Estimation sample for
                                 the Qiskrypt's Party Clients of the Qiskrypt's Noiseless DV (Discrete Variables)
@@ -2836,24 +2865,105 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
 
                                     # TODO Throw - Exception
 
-                        self.update_quantum_bit_error_rate_z_basis(
-                            (z_basis_quantum_bits_errors / z_basis_quantum_bits_total)
+                        if z_basis_quantum_bits_total > 0:
+                            """
+                            If there are some 'Z-Basis' round chosen for the Parameter Estimation
+                            in the Qiskrypt's Noiseless DV (Discrete Variables)
+                            BB84 Protocol with No Eavesdropping.
+                            """
+
+                            self.update_quantum_bit_error_rate_z_basis(
+                                (z_basis_quantum_bits_errors / z_basis_quantum_bits_total)
+                            )
+                            """
+                            Update the QBER (Quantum Bit Error Rate) for the Parameter Estimation rounds,
+                            where was used the Z-Basis (Standard Computational Basis) by both
+                            the sender and receiver Qiskrypt's Party Clients of the Qiskrypt's
+                            Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
+                            """
+
+                        elif z_basis_quantum_bits_total == 0:
+                            """
+                            If there are no Z-Basis (Standard Computational Basis) round chosen for
+                            the Parameter Estimation in the Qiskrypt's Noiseless
+                            DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
+                            """
+
+                            self.update_quantum_bit_error_rate_z_basis(0.0)
+                            """
+                            Update the QBER (Quantum Bit Error Rate) for the Parameter Estimation rounds,
+                            where was used the Z-Basis (Standard Computational Basis) by both
+                            the sender and receiver Qiskrypt's Party Clients of the Qiskrypt's
+                            Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
+                            """
+
+                        if x_basis_quantum_bits_total > 0:
+                            """
+                            If there are some X-Basis (Hadamard Basis) round chosen for
+                            the Parameter Estimation in the Qiskrypt's Noiseless
+                            DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
+                            """
+
+                            self.update_quantum_bit_error_rate_x_basis(
+                                (x_basis_quantum_bits_errors / x_basis_quantum_bits_total)
+                            )
+                            """
+                            Update the QBER (Quantum Bit Error Rate) for the Parameter Estimation rounds,
+                            where was used the X-Basis (Hadamard Basis) by both the sender and receiver
+                            Qiskrypt's Party Clients of the Qiskrypt's Noiseless DV (Discrete Variables)
+                            BB84 Protocol with No Eavesdropping.
+                            """
+
+                        elif x_basis_quantum_bits_total == 0:
+                            """
+                            If there are no X-Basis (Hadamard Basis) round chosen for
+                            the Parameter Estimation in the Qiskrypt's Noiseless
+                            DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
+                            """
+
+                            self.update_quantum_bit_error_rate_x_basis(0.0)
+                            """
+                            Update the QBER (Quantum Bit Error Rate) for the Parameter Estimation rounds,
+                            where was used the X-Basis (Hadamard Basis) by both the sender and receiver
+                            Qiskrypt's Party Clients of the Qiskrypt's Noiseless DV (Discrete Variables)
+                            BB84 Protocol with No Eavesdropping.
+                            """
+
+                        logger_info_message(
+                            "    3.4.1) QBER (Quantum Bit Error Rate) for\n"
+                            "                     the Z-Basis (Standard Computational Basis): {}"
+                            .format(self.get_quantum_bit_error_rate_z_basis())
                         )
                         """
-                        Update the QBER (Quantum Bit Error Rate) for the Parameter Estimation rounds,
-                        where was used the Z-Basis (Standard Computational Basis) by both the sender and receiver
-                        Qiskrypt's Party Clients of the Qiskrypt's Noiseless DV (Discrete Variables)
-                        BB84 Protocol with No Eavesdropping.
+                        Log an 'INFO' message for the QBER (Quantum Bit Error Rater) for the Z-Basis
+                        (Standard Computational Basis) obtained from the procedure of
+                        the Parameter Estimation performed on the Qiskrypt's Secure Sifted Key
+                        for the Classical Post-Processing Phase of the Qiskrypt's Noiseless
+                        DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
                         """
 
-                        self.update_quantum_bit_error_rate_x_basis(
-                            (x_basis_quantum_bits_errors / x_basis_quantum_bits_total)
+                        logger_info_message(
+                            "    3.4.2) QBER (Quantum Bit Error Rate) for\n"
+                            "                     the X-Basis (Hadamard Basis): {}"
+                            .format(self.get_quantum_bit_error_rate_x_basis())
                         )
                         """
-                        Update the QBER (Quantum Bit Error Rate) for the Parameter Estimation rounds,
-                        where was used the X-Basis (Hadamard Basis) by both the sender and receiver
-                        Qiskrypt's Party Clients of the Qiskrypt's Noiseless DV (Discrete Variables)
-                        BB84 Protocol with No Eavesdropping.
+                        Log an 'INFO' message for the QBER (Quantum Bit Error Rater) for the X-Basis
+                        (Hadamard Basis) obtained from the procedure of
+                        the Parameter Estimation performed on the Qiskrypt's Secure Sifted Key
+                        for the Classical Post-Processing Phase of the Qiskrypt's Noiseless
+                        DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
+                        """
+
+                        logger_info_message(
+                            "    3.4.3) Global QBER (Quantum Bit Error Rate): {}"
+                            .format(self.get_global_quantum_bit_error_rate())
+                        )
+                        """
+                        Log an 'INFO' message for the global QBER (Quantum Bit Error Rate)
+                        obtained from the procedure of the Parameter Estimation performed on
+                        the Qiskrypt's Secure Sifted Key for the Classical Post-Processing Phase of
+                        the Qiskrypt's Noiseless DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
                         """
 
                     else:
@@ -2883,6 +2993,17 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
 
                 # TODO Throw - Exception
 
+            logger_info_message(
+                "    3.5) Finishing the Parameter Estimation procedure for\n"
+                "                   the Classical Post-Processing Phase of the Qiskrypt's Noiseless\n"
+                "                   DV (Discrete Variables) BB84 Protocol with No Eavesdropping..."
+            )
+            """
+            Log an 'INFO' message for the finish of the procedure of the Parameter Estimation of
+            the Qiskrypt's Secure Sifted Key for the Classical Post-Processing Phase of the Qiskrypt's Noiseless
+            DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
+            """
+
         else:
             """
             If the Qiskrypt's Key Exchange Protocol is not configured.
@@ -2901,7 +3022,43 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
             If the Qiskrypt's Key Exchange Protocol is already configured.
             """
 
-            # TODO Throw - Exception
+            logger_info_message(
+                "    3.6) Starting the Error Reconciliation procedure for\n"
+                "                   the Classical Post-Processing Phase of the Qiskrypt's Noiseless\n"
+                "                   DV (Discrete Variables) BB84 Protocol with No Eavesdropping..."
+            )
+            """
+            Log an 'INFO' message for the start of the procedure of the Error Reconciliation of
+            the remaining not discarded bits of the Qiskrypt's Secure Sifted Key for
+            the Classical Post-Processing Phase of the Qiskrypt's Noiseless
+            DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
+            """
+
+            if self.get_global_quantum_bit_error_rate() > 0:
+                """
+                If the global QBER (Quantum Bit Error Rate) of the rounds estimated during
+                the Parameter Estimation of the Qiskrypt's DV (Discrete Variables) BB84 Protocol
+                is greater than zero (0).
+                
+                NOTE:
+                - In this case, the global QBER (Quantum Bit Error Rate) should always be equal to zero (0),
+                  since there is no noise in the Quantum Communications and no action of a possible eavesdropper.
+                - This case it is only checked to keep the coherence of the behavior of the protocol.
+                """
+
+                # TODO Throw - Exception
+
+            logger_info_message(
+                "    3.7) Finishing the Error Reconciliation procedure for\n"
+                "                   the Classical Post-Processing Phase of the Qiskrypt's Noiseless\n"
+                "                   DV (Discrete Variables) BB84 Protocol with No Eavesdropping..."
+            )
+            """
+            Log an 'INFO' message for the finish of the procedure of the Error Reconciliation of
+            the remaining not discarded bits of the Qiskrypt's Secure Sifted Key for
+            the Classical Post-Processing Phase of the Qiskrypt's Noiseless
+            DV (Discrete Variables) BB84 Protocol with No Eavesdropping.
+            """
 
         else:
             """
