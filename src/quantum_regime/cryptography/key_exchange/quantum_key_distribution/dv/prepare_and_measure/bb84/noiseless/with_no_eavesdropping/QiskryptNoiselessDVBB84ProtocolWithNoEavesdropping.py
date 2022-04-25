@@ -109,7 +109,7 @@ from src.classical_regime.utils.geographic.QiskryptGeographicAddressEnumeration 
 Import the Qiskrypt's Geographic Address Enumeration.
 """
 
-from src.quantum_regime.cryptography.key_exchange.quantum_key_distribution.discrete_variables \
+from src.quantum_regime.cryptography.key_exchange.quantum_key_distribution.dv \
     .prepare_and_measure.bb84.common.QiskryptDVBB84Protocol \
     import QiskryptDVBB84Protocol
 """
@@ -117,7 +117,7 @@ Import the Qiskrypt's DV (Discrete Variables) BB84 Protocol.
 """
 
 from src.quantum_regime.cryptography.key_exchange\
-    .quantum_key_distribution.discrete_variables.prepare_and_measure.bb84.noiseless\
+    .quantum_key_distribution.dv.prepare_and_measure.bb84.noiseless\
     .with_no_eavesdropping.QiskryptNoiselessDVBB84ProtocolWithNoEavesdroppingQuantumTransmissionPhaseRound\
     import QiskryptNoiselessDVBB84ProtocolWithNoEavesdroppingQuantumTransmissionPhaseRound
 """
@@ -280,7 +280,7 @@ the Qiskrypt's Quantum Key Distribution (QKD).
 """
 
 from src.quantum_regime.cryptography.key_exchange.quantum_key_distribution \
-    .discrete_variables.prepare_and_measure.bb84.common.QiskryptDVBB84Protocol \
+    .dv.prepare_and_measure.bb84.common.QiskryptDVBB84Protocol \
     import DV_BB84_PROTOCOL_DEFAULT_NUM_ROUNDS_FOR_QUANTUM_TRANSMISSION_PHASE
 """
 Import the default number of rounds for the Quantum Transmission Phase of
@@ -288,7 +288,7 @@ the Qiskrypt's DV (Discrete Variable) BB84 Protocol.
 """
 
 from src.quantum_regime.cryptography.key_exchange.quantum_key_distribution \
-    .discrete_variables.prepare_and_measure.bb84.common.QiskryptDVBB84Protocol \
+    .dv.prepare_and_measure.bb84.common.QiskryptDVBB84Protocol \
     import DV_BB84_PROTOCOL_DEFAULT_FACTOR_FOR_NUM_ROUNDS_OF_PARAMETER_ESTIMATION_SAMPLE
 """
 Import the default factor for the number of rounds for the Parameter Estimation Sample of
@@ -296,7 +296,7 @@ the Qiskrypt's DV (Discrete Variable) BB84 Protocol.
 """
 
 from src.quantum_regime.cryptography.key_exchange.quantum_key_distribution\
-    .discrete_variables.prepare_and_measure.bb84.common.QiskryptDVBB84ProtocolRound \
+    .dv.prepare_and_measure.bb84.common.QiskryptDVBB84ProtocolRound \
     import POSSIBLE_DV_BB84_PROTOCOL_ROUND_TYPES_QUANTUM_TRANSMISSION_PHASE
 """
 Import the available DV (Discrete Variables) BB84 Protocol Round types for

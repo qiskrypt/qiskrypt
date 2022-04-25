@@ -43,7 +43,7 @@ Acknowledgement(s):\n
 Import required Libraries and Packages.
 """
 
-from src.quantum_regime.cryptography.key_exchange.quantum_key_distribution.discrete_variables \
+from src.quantum_regime.cryptography.key_exchange.quantum_key_distribution.dv \
     .prepare_and_measure.bb84.common.QiskryptDVBB84ProtocolRound \
     import QiskryptDVBB84ProtocolRound
 """

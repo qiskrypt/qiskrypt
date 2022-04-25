@@ -51,7 +51,7 @@ Import the Qiskrypt's Message Colors Enumeration.
 """
 
 from src.quantum_regime.cryptography.key_exchange\
-    .quantum_key_distribution.discrete_variables.prepare_and_measure\
+    .quantum_key_distribution.dv.prepare_and_measure\
     .bb84.noiseless.with_no_eavesdropping.QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping \
     import QiskryptNoiselessDVBB84ProtocolWithNoEavesdropping
 """

@@ -73,7 +73,7 @@ the Qiskrypt's Quantum Key Distribution (QKD).
 """
 
 from src.quantum_regime.cryptography.key_exchange.quantum_key_distribution\
-    .discrete_variables.prepare_and_measure.bb84.common.QiskryptDVBB84ProtocolRound \
+    .dv.prepare_and_measure.bb84.common.QiskryptDVBB84ProtocolRound \
     import POSSIBLE_DV_BB84_PROTOCOL_ROUND_TYPES_QUANTUM_TRANSMISSION_PHASE
 """
 Import the available DV (Discrete Variables) BB84 Protocol Round types for
