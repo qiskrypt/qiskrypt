@@ -119,8 +119,7 @@ class QiskryptDVBB84Protocol(QiskryptQuantumKeyDistribution):
         """
         Constructor of the Qiskrypt's DV (Discrete Variables) BB84 Protocol.
 
-        :param primitive_scenario: the scenario of the Qiskrypt's
-                                                         Quantum Cryptographic Primitive.
+        :param primitive_scenario: the scenario of the Qiskrypt's Quantum Cryptographic Primitive.
         :param num_rounds_for_quantum_transmission_phase: the number of rounds for the Quantum Transmission Phase in
                                                           the Qiskrypt's Quantum Key Exchange Protocol.
         :param verbose: the boolean flag to show the runtime information about
