@@ -106,6 +106,12 @@ The minimum number of parties for
 the Qiskrypt's Semi-Quantum Conference Key Agreement (SQCKA).
 """
 
+DEFAULT_SEMI_QUANTUM_CONFERENCE_KEY_AGREEMENT_NUM_PARTIES = 3
+"""
+The default number of parties for
+the Qiskrypt's Semi-Quantum Conference Key Agreement (SQCKA).
+"""
+
 
 class QiskryptSemiQuantumConferenceKeyAgreement(QiskryptQuantumKeyExchangeProtocol):
     """
