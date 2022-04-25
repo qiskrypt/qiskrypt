@@ -110,7 +110,7 @@ class QiskryptDVBB84Protocol(QiskryptQuantumKeyDistribution):
     1) Quantum cryptography: Public key distribution and coin tossing:
        - Authors: Charles Bennet and Gilles Brassard
        - Year: 1984
-       - Link:https://arxiv.org/abs/2003.06557v1
+       - Link: https://arxiv.org/abs/2003.06557v1
     """
 
     def __init__(self, primitive_scenario: str,
