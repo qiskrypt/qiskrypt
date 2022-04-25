@@ -61,7 +61,8 @@ Import the Qiskrypt's Quantum Circuit.
 Definition of Constants and Enumerations.
 """
 
-POSSIBLE_DV_BKMPS22_PROTOCOL_ROUND_TYPES_QUANTUM_TRANSMISSION_PHASE = ["SIFT ROUND", "CTRL ROUND"]
+POSSIBLE_DV_BKMPS22_PROTOCOL_ROUND_TYPES_QUANTUM_TRANSMISSION_PHASE = ["SIFT (MEASURE-AND-RESEND) ROUND",
+                                                                       "CTRL (REFLECT) ROUND"]
 """
 The available DV (Discrete Variables) BKMPS22 Protocol Round types of
 the Quantum Transmission Phase for the Qiskrypt's DV (Discrete Variables) BKMPS22 Protocol.
@@ -119,9 +120,10 @@ class QiskryptDVBKMPS22ProtocolRound(QiskryptSemiQuantumConferenceKeyAgreementRo
 
     def get_round_number(self) -> int:
         """
-        Return the number of the Qiskrypt's Quantum Key Distribution (QKD) Round.
+        Return the number of the Qiskrypt's Semi-Quantum Conference Key Agreement (SQCKA) Round.
 
-        :return super().get_round_number(): the number of the Qiskrypt's Quantum Key Distribution Round.
+        :return super().get_round_number(): the number of the Qiskrypt's4
+                                            Semi-Quantum Conference Key Agreement (SQCKA) Round.
         """
 
         """
