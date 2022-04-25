@@ -250,9 +250,9 @@ class QiskryptNoiselessDVBB84ProtocolWithNoEavesdroppingQuantumTransmissionPhase
         Return the verification for if the basis choice made by the receiver in
         the Qiskrypt's DV (Discrete Variables) BB84 Protocol Round is already set.
 
-        :return super().is_round_basis_receiver_choice_made() if the basis choice made by the receiver in
-                                                              the Qiskrypt's DV (Discrete Variables)
-                                                              BB84 Protocol Round is already set.
+        :return super().is_round_basis_receiver_choice_made(): if the basis choice made by the receiver in
+                                                               the Qiskrypt's DV (Discrete Variables)
+                                                               BB84 Protocol Round is already set.
         """
 
         """
