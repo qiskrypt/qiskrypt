@@ -63,7 +63,7 @@ class QiskryptQuantumKeyDistributionRound(QiskryptQuantumKeyExchangeProtocolRoun
 
     def __init__(self, round_number: int, round_type: str, round_quantum_circuit: QiskryptQuantumCircuit):
         """
-        Constructor of the Qiskrypt's Quantum Key Distribution Round.
+        Constructor of the Qiskrypt's Quantum Key Distribution (QKD) Round.
 
         :param round_number: the number of the Qiskrypt's Quantum Key Exchange Protocol Round.
         :param round_type: the type of the Qiskrypt's Quantum Key Exchange Protocol Round.
