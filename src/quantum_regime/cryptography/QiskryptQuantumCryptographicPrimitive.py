@@ -50,7 +50,8 @@ The available Quantum Cryptographic Primitive cardinalities for
 the Qiskrypt's Quantum Cryptographic Primitive.
 """
 
-POSSIBLE_QUANTUM_CRYPTOGRAPHIC_PRIMITIVE_SIGNAL_VARIABLE_TYPES = ["DISCRETE (DV)", "CONTINUOUS (CV)"]
+POSSIBLE_QUANTUM_CRYPTOGRAPHIC_PRIMITIVE_SIGNAL_VARIABLE_TYPES = ["DISCRETE VARIABLES (DV)",
+                                                                  "CONTINUOUS VARIABLES (CV)"]
 """
 The available Quantum Cryptographic Primitive signal variable types for
 the Qiskrypt's Quantum Cryptographic Primitive.
